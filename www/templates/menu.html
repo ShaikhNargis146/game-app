@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bg-transparent">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button bg-transparent" menu-toggle="left">
+            <img src="img/option.png" class="">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button bg-transparent color-white" menu-toggle="left">
+             <span class="icon ion-information"></span>
+        </button>
+        <button class="button bg-transparent color-white" menu-toggle="left">
+             <span class="icon ion-volume-high"></span>
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" class="bg-grey">
+    <!--<ion-header-bar class="bar-stable">
+     
+    </ion-header-bar>-->
+    <ion-content>
+      <ion-list class="bg-grey">
+        <ion-item menu-close href="#/app/browse" class="bg-grey">
+          BACK TO LOBBY
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="bg-grey">
+          SWITCH TABLE
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="bg-grey">
+          STANDUP
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="bg-grey">
+          HELP
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="bg-grey">
+          SETTING
+        </ion-item>
+        <ion-item menu-close href="#/app/playlists" class="bg-grey">
+          STAND UP IN Next ROUND
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
