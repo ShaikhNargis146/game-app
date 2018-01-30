@@ -15,6 +15,7 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$border-color :linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
@@ -134,36 +135,46 @@ body {
       position: absolute;
     }
     .player1 {
-      left: 15%;
+      left: 25%;
       top: 0;
       transform: translateY(-25%);
     }
     .player2 {
-      right: 15%;
+      right: 20%;
       top: 0;
       transform: translateY(-25%);
     }
     .player3 {
-      top: 25%;
-      left: 5%;
+      top: 15%;
+      left: 7%;
       transform: translateY(-25%);
     }
     .player4 {
-      top: 25%;
+      top: 15%;
       right: 5%;
       transform: translateY(-25%);
     }
     .player5 {
-      top: 55%;
-      left: 20%;
+      top: 45%;
+      left: 10%;
       transform: translateY(-25%);
     }
     .player6 {
-      top: 55%;
-      right: 20%;
+      top: 40%;
+      right: 5%;
       transform: translateY(-25%);
     }
     .player7 {
+      right: 20%;
+      bottom: 5%;
+      transform: translateY(-100%);
+    }
+    .player8 {
+      left: 25%;
+      bottom: 5%;
+      transform: translateY(-100%);
+    }
+    .player9 {
       left: 46%;
       bottom: 0;
       transform: translateY(-100%);
@@ -196,7 +207,7 @@ body {
       .profile_pic {
         img {
           // width: 100%;
-          width:10vh;
+          width: 10vh;
           height: 10vh;
         }
       }
@@ -228,6 +239,61 @@ body {
   }
 }
 
+//login page scss
+.login {
+  background: url('../img/login/background.png');
+  background-size: cover;
+  .login_block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    .login_logo {
+      width: 50%;
+    }
+    input {
+      height: 8vh;
+      width: 100%;
+      border-radius: 6px;
+      background: #fcfafa00; // -webkit-box-shadow: inset 0px -1px 3px 3px rgba(71, 71, 71, 1);
+      // -moz-box-shadow: inset 0px -1px 3px 3px rgba(71, 71, 71, 1);
+      // box-shadow: inset 0px -1px 3px 3px rgba(71, 71, 71, 1);
+    }
+    .blc {
+      margin: 10px;
+      border: 1px solid;
+      border-image: $border-color;
+      border-image-slice: 2;
+      border-right: 0px;
+      border-left: 0px;
+    }
+    .border-style {
+      padding: 1px 0px;
+    }
+    .slide_background {
+      padding: 5px 8px;
+    }
+    .login_button {
+      background: url('../img/login_button_background1.png');
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .icon {
+        width: 35%;
+        transform: translateY(15%);
+      }
+      input{
+        transform: translateY(15%);
+      }
+    }
+    .bg-style {
+      background: url('../img/login_button_backgroun2.png')
+    }
+  }
+}
+
 .left {
   float: left;
 }
@@ -237,26 +303,59 @@ body {
 }
 
 .border-style {
-  background: -moz-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241, 231, 103, 1)), color-stop(83%, rgba(219, 61, 61, 1)), color-stop(88%, rgba(227, 43, 43, 1)), color-stop(100%, rgba(254, 182, 69, 1)));
-  background: -webkit-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
-  background: -o-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
-  background: -ms-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
-  background: linear-gradient(to right, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1);
+  background: rgb(252, 234, 187);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(252, 234, 187, 1) 0%, rgba(252, 205, 77, 1) 50%, rgba(248, 181, 0, 1) 51%, rgba(251, 223, 147, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(252, 234, 187, 1) 0%, rgba(252, 205, 77, 1) 50%, rgba(248, 181, 0, 1) 51%, rgba(251, 223, 147, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(252, 234, 187, 1) 0%, rgba(252, 205, 77, 1) 50%, rgba(248, 181, 0, 1) 51%, rgba(251, 223, 147, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=0);
+  /* IE6-9 */
   padding: 1px;
 }
 
 .bg-style {
-  border: 1px solid #000000;
-  background: rgb(30, 87, 153);
-  /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#475c60', GradientType=0);
-  /* IE6-9 */
+  background: rgba(48, 48, 48, 1);
+  background: -moz-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(48, 48, 48, 1)), color-stop(28%, rgba(33, 32, 33, 1)), color-stop(49%, rgba(64, 64, 64, 1)), color-stop(72%, rgba(31, 31, 31, 1)), color-stop(100%, rgba(41, 41, 41, 1)));
+  background: -webkit-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
+  background: -o-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
+  background: linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303030', endColorstr='#292929', GradientType=1);
 }
+
+.slide_background {
+  background: url('../img/slide_background.png');
+  background-size: contain;
+}
+
+
+//menu
+
+.bg-transparent {
+  background: transparent;
+ }
+ 
+ .bg-grey {
+  background: #252a33;
+  &.item-complex {
+    .item-content {
+      background: #252a33;
+      color: #fff;
+    }
+  }
+ }
+ 
+ .item {
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
+    -moz-border-image: -moz-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
+  -webkit-border-image: -webkit-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
+  -webkit-border-image-slice: 2;
+  border-image-slice: 2;
+ }
+ .color-white{
+  color: white;
+ }
