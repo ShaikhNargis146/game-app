@@ -17,7 +17,206 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+//font
+@font-face {
+  font-family: 'Cinzel-Black';
+  /*to use later*/
+  src: url('../font/Cinzel-Black.ttf');
+  /*URL to the font*/
+}
 
+@font-face {
+  font-family: 'Cinzel-Bold';
+  /*to use later*/
+  src: url('../font/Cinzel-Bold.ttf');
+  /*URL to the font*/
+}
+
+@font-face {
+  font-family: 'Cinzel-Regular';
+  /*to use later*/
+  src: url('../font/Cinzel-Regular.ttf');
+  /*URL to the font*/
+}
+
+@font-face {
+  font-family: 'CinzelDecorative-Black';
+  /*to use later*/
+  src: url('../font/CinzelDecorative-Black.ttf');
+  /*URL to the font*/
+}
+
+@font-face {
+  font-family: 'CinzelDecorative-Bold';
+  /*to use later*/
+  src: url('../font/CinzelDecorative-Bold.ttf');
+  /*URL to the font*/
+}
+
+@font-face {
+  font-family: 'CinzelDecorative-Regular';
+  /*to use later*/
+  src: url('../font/CinzelDecorative-Regular.ttf');
+  /*URL to the font*/
+}
+
+body {
+  font-family: 'Cinzel-Black'
+}
+
+//table.html
+.main-table {
+  //   background: black;
+  background: url('../img/table-background.png');
+  background-size: cover;
+  .table-img {
+    width: 100%;
+  }
+  .option {
+    padding: 15px;
+    img {
+      width: 100%;
+    }
+  }
+  .info {
+    padding-right: 30px;
+    padding-top: 15px;
+    color: white;
+    .setting {
+      text-align: right;
+      padding-bottom: 5%;
+    }
+    .icon {
+      // padding:50px;
+      font-size: 1.5em;
+      margin: 10px;
+    }
+    .table-info {
+      // font-size: .8em;
+      th {
+        font-size: .9em;
+        text-transform: uppercase;
+        font-family: 'CinzelDecorative-Black';
+      }
+      td {
+        text-transform: uppercase;
+        font-size: .7em;
+        padding: 0px 10px 0px 10px;
+        line-height: 2;
+      }
+    }
+  }
+  .lobby {
+    height: 60%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    .doll {
+      position: absolute;
+      width: 10%;
+      left: 44%;
+      top: 0;
+      transform: translateY(-60%);
+    }
+    .lobby-table {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: fill;
+    }
+    .blc {
+      height: 50px;
+      width: 50px;
+      background: white;
+      position: absolute;
+    }
+    .blc1 {
+      left: 20%;
+      top: 0;
+    }
+    .blc2 {
+      right: 20%;
+      top: 0;
+    }
+    .blc3 {
+      top: 25%;
+      left: 5%;
+    }
+    .blc4 {
+      top: 25%;
+      right: 5%;
+    }
+    .blc5 {
+      top: 55%;
+      left: 20%;
+    }
+    .blc6 {
+      top: 55%;
+      right: 20%;
+    }
+    .blc7 {
+      left: 46%;
+      bottom: 0;
+      transform: translateY(-100%);
+    }
+    .other_player {
+      flex-direction: row;
+      display: flex;
+      position: absolute;
+      align-items: center;
+      left: 20px;
+      .profile_card {
+        img {
+          width: 20px;
+        }
+      }
+      .profile_pic {
+        img {
+          width: 100%;
+        }
+      }
+      .player_info {
+        background: rosybrown;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+      }
+    }
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.border-style {
+  background: -moz-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241, 231, 103, 1)), color-stop(83%, rgba(219, 61, 61, 1)), color-stop(88%, rgba(227, 43, 43, 1)), color-stop(100%, rgba(254, 182, 69, 1)));
+  background: -webkit-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
+  background: -o-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
+  background: -ms-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
+  background: linear-gradient(to right, rgba(241, 231, 103, 1) 0%, rgba(219, 61, 61, 1) 83%, rgba(227, 43, 43, 1) 88%, rgba(254, 182, 69, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1);
+  padding: 1px;
+}
+
+.bg-style {
+  border: 1px solid #000000;
+  background: rgb(30, 87, 153);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(30, 36, 39, 1) 0%, rgba(71, 92, 96, 1) 70%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#475c60', GradientType=0);
+  /* IE6-9 */
+}
