@@ -110,23 +110,28 @@ body {
     }
   }
   .lobby {
-    height: 60%;
-    position: absolute;
-    bottom: 0px;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
     left: 0;
-    right: 0;
-    .doll {
+    .table-lobby {
       position: absolute;
-      width: 10%;
-      left: 44%;
-      top: 0;
-      transform: translateY(-60%);
-    }
-    .lobby-table {
+      bottom: -55px;
       width: 100%;
-      height: 100%;
-      position: absolute;
-      object-fit: fill;
+      left: 0;
+      .doll {
+        position: absolute;
+        width: 10%;
+        left: 50%;
+        top: -23%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+      .lobby-table {
+        position: relative;
+        width: 100%;
+      }
     }
     .blc {
       height: 50px;
@@ -134,50 +139,58 @@ body {
       background: white;
       position: absolute;
     }
+    .player1,
+    .player2,
+    .player3,
+    .player4,
+    .player5,
+    .player6 {
+      transform: translateY(-25%);
+    }
+    .player1,
+    .player2 {
+      top: -10px;
+    }
     .player1 {
       left: 25%;
-      top: 0;
-      transform: translateY(-25%);
     }
     .player2 {
       right: 20%;
-      top: 0;
-      transform: translateY(-25%);
     }
-    .player3 {
-      top: 15%;
-      left: 7%;
-      transform: translateY(-25%);
-    }
+    .player3,
     .player4 {
-      top: 15%;
-      right: 5%;
-      transform: translateY(-25%);
+      top: 10%;
     }
+    .player3,
     .player5 {
-      top: 45%;
-      left: 10%;
-      transform: translateY(-25%);
+      left: 5%;
     }
+    .player4,
     .player6 {
-      top: 40%;
-      right: 5%;
-      transform: translateY(-25%);
+      right: 2%;
+    }
+    .player5,
+    .player6 {
+      top: 32%;
+    }
+    .player7,
+    .player8,
+    .player9 {
+      transform: translateY(-100%);
+    }
+    .player7,
+    .player8 {
+      bottom: 14%;
     }
     .player7 {
-      right: 20%;
-      bottom: 5%;
-      transform: translateY(-100%);
+      right: 15%;
     }
     .player8 {
-      left: 25%;
-      bottom: 5%;
-      transform: translateY(-100%);
+      left: 15%;
     }
     .player9 {
       left: 46%;
-      bottom: 0;
-      transform: translateY(-100%);
+      bottom: 20%;
     }
     .other_player {
       flex-direction: row;
@@ -186,49 +199,46 @@ body {
       align-items: center;
       width: 15%;
       .profile_card {
-        position: relative; // top: -25px;
-        height: 7vh;
+        position: relative;
+        padding: 0;
+        text-align: center;
         img {
-          width: 35%;
-          position: absolute;
-          top: 0;
-          height: 100%;
+          width: 41%;
+          display: inline-block;
+          margin-left: -20%;
         }
         img:nth-child(1) {
-          left: 0;
-        }
-        img:nth-child(2) {
-          left: 20%;
-        }
-        img:nth-child(3) {
-          left: 40%;
+          margin-left: 0;
         }
       }
       .profile_pic {
+        position: relative;
         img {
-          // width: 100%;
-          width: 10vh;
-          height: 10vh;
+          width: 100%;
         }
       }
       .player_info {
-        background: rosybrown;
+        background: #565656;
+        color: #fff;
         position: absolute;
-        bottom: 0px;
+        bottom: 5px;
         left: 0;
-        padding: 0px 10px;
-        transform: translate(-16%, -25%);
+        padding: 0px 5px;
         font-size: .3em;
         line-height: 2.5;
+        margin: 0 5px;
+        width: calc(100% - 10px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .card_status {
         position: absolute;
         text-align: center;
         background: rgba(35, 44, 43, 0.9);
-        width: 75%;
+        width: 100%;
         left: 0;
-        bottom: 0; // transform: translateY(-100%);
-        // height: 35%;
+        bottom: 0;
         color: white;
         font-family: sans-serif;
         font-size: 0.5em;
@@ -284,7 +294,7 @@ body {
         width: 35%;
         transform: translateY(15%);
       }
-      input{
+      input {
         transform: translateY(15%);
       }
     }
@@ -311,8 +321,6 @@ body {
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(252, 234, 187, 1) 0%, rgba(252, 205, 77, 1) 50%, rgba(248, 181, 0, 1) 51%, rgba(251, 223, 147, 1) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=0);
-  /* IE6-9 */
   padding: 1px;
 }
 
@@ -324,7 +332,6 @@ body {
   background: -o-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
   background: -ms-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
   background: linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303030', endColorstr='#292929', GradientType=1);
 }
 
 .slide_background {
@@ -332,14 +339,12 @@ body {
   background-size: contain;
 }
 
-
 //menu
-
 .bg-transparent {
   background: transparent;
- }
- 
- .bg-grey {
+}
+
+.bg-grey {
   background: #252a33;
   &.item-complex {
     .item-content {
@@ -347,15 +352,16 @@ body {
       color: #fff;
     }
   }
- }
- 
- .item {
-  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
-    -moz-border-image: -moz-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
-  -webkit-border-image: -webkit-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%,#ffffff 75%, #fe9b00 100%);
+}
+
+.item {
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  -moz-border-image: -moz-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  -webkit-border-image: -webkit-linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
   -webkit-border-image-slice: 2;
   border-image-slice: 2;
- }
- .color-white{
+}
+
+.color-white {
   color: white;
- }
+}

@@ -9940,63 +9940,71 @@ body {
       padding: 0px 10px 0px 10px;
       line-height: 2; }
   .main-table .lobby {
-    height: 60%;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0; }
-    .main-table .lobby .doll {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0; }
+    .main-table .lobby .table-lobby {
       position: absolute;
-      width: 10%;
-      left: 44%;
-      top: 0;
-      transform: translateY(-60%); }
-    .main-table .lobby .lobby-table {
+      bottom: -55px;
       width: 100%;
-      height: 100%;
-      position: absolute;
-      object-fit: fill; }
+      left: 0; }
+      .main-table .lobby .table-lobby .doll {
+        position: absolute;
+        width: 10%;
+        left: 50%;
+        top: -23%;
+        transform: translateX(-50%);
+        z-index: 2; }
+      .main-table .lobby .table-lobby .lobby-table {
+        position: relative;
+        width: 100%; }
     .main-table .lobby .blc {
       height: 50px;
       width: 50px;
       background: white;
       position: absolute; }
-    .main-table .lobby .player1 {
-      left: 25%;
-      top: 0;
-      transform: translateY(-25%); }
-    .main-table .lobby .player2 {
-      right: 20%;
-      top: 0;
-      transform: translateY(-25%); }
-    .main-table .lobby .player3 {
-      top: 15%;
-      left: 7%;
-      transform: translateY(-25%); }
-    .main-table .lobby .player4 {
-      top: 15%;
-      right: 5%;
-      transform: translateY(-25%); }
-    .main-table .lobby .player5 {
-      top: 45%;
-      left: 10%;
-      transform: translateY(-25%); }
+    .main-table .lobby .player1,
+    .main-table .lobby .player2,
+    .main-table .lobby .player3,
+    .main-table .lobby .player4,
+    .main-table .lobby .player5,
     .main-table .lobby .player6 {
-      top: 40%;
-      right: 5%;
       transform: translateY(-25%); }
-    .main-table .lobby .player7 {
-      right: 20%;
-      bottom: 5%;
+    .main-table .lobby .player1,
+    .main-table .lobby .player2 {
+      top: -10px; }
+    .main-table .lobby .player1 {
+      left: 25%; }
+    .main-table .lobby .player2 {
+      right: 20%; }
+    .main-table .lobby .player3,
+    .main-table .lobby .player4 {
+      top: 10%; }
+    .main-table .lobby .player3,
+    .main-table .lobby .player5 {
+      left: 5%; }
+    .main-table .lobby .player4,
+    .main-table .lobby .player6 {
+      right: 2%; }
+    .main-table .lobby .player5,
+    .main-table .lobby .player6 {
+      top: 32%; }
+    .main-table .lobby .player7,
+    .main-table .lobby .player8,
+    .main-table .lobby .player9 {
       transform: translateY(-100%); }
+    .main-table .lobby .player7,
     .main-table .lobby .player8 {
-      left: 25%;
-      bottom: 5%;
-      transform: translateY(-100%); }
+      bottom: 14%; }
+    .main-table .lobby .player7 {
+      right: 15%; }
+    .main-table .lobby .player8 {
+      left: 15%; }
     .main-table .lobby .player9 {
       left: 46%;
-      bottom: 0;
-      transform: translateY(-100%); }
+      bottom: 20%; }
     .main-table .lobby .other_player {
       flex-direction: row;
       display: flex;
@@ -10005,35 +10013,37 @@ body {
       width: 15%; }
       .main-table .lobby .other_player .profile_card {
         position: relative;
-        height: 7vh; }
+        padding: 0;
+        text-align: center; }
         .main-table .lobby .other_player .profile_card img {
-          width: 35%;
-          position: absolute;
-          top: 0;
-          height: 100%; }
+          width: 41%;
+          display: inline-block;
+          margin-left: -20%; }
         .main-table .lobby .other_player .profile_card img:nth-child(1) {
-          left: 0; }
-        .main-table .lobby .other_player .profile_card img:nth-child(2) {
-          left: 20%; }
-        .main-table .lobby .other_player .profile_card img:nth-child(3) {
-          left: 40%; }
-      .main-table .lobby .other_player .profile_pic img {
-        width: 10vh;
-        height: 10vh; }
+          margin-left: 0; }
+      .main-table .lobby .other_player .profile_pic {
+        position: relative; }
+        .main-table .lobby .other_player .profile_pic img {
+          width: 100%; }
       .main-table .lobby .other_player .player_info {
-        background: rosybrown;
+        background: #565656;
+        color: #fff;
         position: absolute;
-        bottom: 0px;
+        bottom: 5px;
         left: 0;
-        padding: 0px 10px;
-        transform: translate(-16%, -25%);
+        padding: 0px 5px;
         font-size: .3em;
-        line-height: 2.5; }
+        line-height: 2.5;
+        margin: 0 5px;
+        width: calc(100% - 10px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
       .main-table .lobby .other_player .card_status {
         position: absolute;
         text-align: center;
         background: rgba(35, 44, 43, 0.9);
-        width: 75%;
+        width: 100%;
         left: 0;
         bottom: 0;
         color: white;
@@ -10098,8 +10108,6 @@ body {
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=0);
-  /* IE6-9 */
   padding: 1px; }
 
 .bg-style {
@@ -10109,8 +10117,7 @@ body {
   background: -webkit-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
   background: -o-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
   background: -ms-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  background: linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303030', endColorstr='#292929', GradientType=1); }
+  background: linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%); }
 
 .slide_background {
   background: url("../img/slide_background.png");
