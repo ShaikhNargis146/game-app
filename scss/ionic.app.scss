@@ -117,7 +117,7 @@ body {
     left: 0;
     .table-lobby {
       position: absolute;
-      bottom: -55px;
+      bottom: -50px;
       width: 100%;
       left: 0;
       .doll {
@@ -180,7 +180,7 @@ body {
     }
     .player7,
     .player8 {
-      bottom: 14%;
+      bottom: 8%;
     }
     .player7 {
       right: 15%;
@@ -189,8 +189,12 @@ body {
       left: 15%;
     }
     .player9 {
-      left: 46%;
-      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 25%;
+      &.playing-player {
+        width: 22%;
+      }
     }
     .other_player {
       flex-direction: row;
