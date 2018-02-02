@@ -44,9 +44,16 @@ var myApp = angular.module('starter', ['ionic'])
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
-  });
+  })
+  .state('lobby', {
+    url: '/lobby',
+    templateUrl: 'templates/lobby.html',
+    controller:'LobbyCtrl'
+    
+  })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/table');
+  $urlRouterProvider.otherwise('login');
 });
 
 myApp.controller("AppCtrl", function ($scope) {

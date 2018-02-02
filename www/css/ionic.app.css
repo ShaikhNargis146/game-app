@@ -9911,138 +9911,164 @@ a.button {
 body {
   font-family: 'Cinzel-Black'; }
 
-.main-table {
+.kingtable {
   background: url("../img/table-background.png");
   background-size: cover; }
-  .main-table .table-img {
+  .kingtable .table-img {
     width: 100%; }
-  .main-table .option {
+  .kingtable .option {
     padding: 15px; }
-    .main-table .option img {
+    .kingtable .option img {
       width: 100%; }
-  .main-table .info {
+  .kingtable .info {
     padding-right: 30px;
     padding-top: 15px;
     color: white; }
-    .main-table .info .setting {
+    .kingtable .info .setting {
       text-align: right;
       padding-bottom: 5%; }
-    .main-table .info .icon {
+    .kingtable .info .icon {
       font-size: 1em;
       margin: 10px; }
-    .main-table .info .table-info th {
+    .kingtable .info .table-info th {
       font-size: .5em;
       text-transform: uppercase;
       font-family: 'CinzelDecorative-Black'; }
-    .main-table .info .table-info td {
+    .kingtable .info .table-info td {
       text-transform: uppercase;
       font-size: .4em;
       padding: 0px 10px 0px 10px;
       line-height: 2; }
-  .main-table .lobby {
+  .kingtable .main-table {
     width: 100%;
     height: 100vh;
     position: relative;
     bottom: 0;
     left: 0; }
-    .main-table .lobby .table-lobby {
+    .kingtable .main-table .table-lobby {
       position: absolute;
-      bottom: -50px;
+      bottom: -30px;
       width: 100%;
       left: 0; }
-      .main-table .lobby .table-lobby .doll {
+      .kingtable .main-table .table-lobby .doll {
         position: absolute;
         width: 10%;
         left: 50%;
         top: -23%;
         transform: translateX(-50%);
         z-index: 2; }
-      .main-table .lobby .table-lobby .lobby-table {
+      .kingtable .main-table .table-lobby .lobby-table {
         position: relative;
         width: 100%; }
-    .main-table .lobby .blc {
-      height: 50px;
-      width: 50px;
-      background: white;
-      position: absolute; }
-    .main-table .lobby .player1,
-    .main-table .lobby .player2,
-    .main-table .lobby .player3,
-    .main-table .lobby .player4,
-    .main-table .lobby .player5,
-    .main-table .lobby .player6 {
+    .kingtable .main-table .player1,
+    .kingtable .main-table .player2,
+    .kingtable .main-table .player3,
+    .kingtable .main-table .player4,
+    .kingtable .main-table .player5,
+    .kingtable .main-table .player6 {
       transform: translateY(-25%); }
-    .main-table .lobby .player1,
-    .main-table .lobby .player2 {
+    .kingtable .main-table .player1,
+    .kingtable .main-table .player2 {
       top: -10px; }
-    .main-table .lobby .player1 {
+    .kingtable .main-table .player1 {
       left: 25%; }
-    .main-table .lobby .player2 {
+    .kingtable .main-table .player2 {
       right: 20%; }
-    .main-table .lobby .player3,
-    .main-table .lobby .player4 {
+    .kingtable .main-table .player3,
+    .kingtable .main-table .player4 {
       top: 10%; }
-    .main-table .lobby .player3,
-    .main-table .lobby .player5 {
+    .kingtable .main-table .player3,
+    .kingtable .main-table .player5 {
       left: 5%; }
-    .main-table .lobby .player4,
-    .main-table .lobby .player6 {
+    .kingtable .main-table .player4,
+    .kingtable .main-table .player6 {
       right: 2%; }
-    .main-table .lobby .player5,
-    .main-table .lobby .player6 {
+    .kingtable .main-table .player5,
+    .kingtable .main-table .player6 {
       top: 32%; }
-    .main-table .lobby .player7,
-    .main-table .lobby .player8,
-    .main-table .lobby .player9 {
+    .kingtable .main-table .player7,
+    .kingtable .main-table .player8,
+    .kingtable .main-table .player9 {
       transform: translateY(-100%); }
-    .main-table .lobby .player7,
-    .main-table .lobby .player8 {
+    .kingtable .main-table .player7,
+    .kingtable .main-table .player8 {
       bottom: 8%; }
-    .main-table .lobby .player7 {
+    .kingtable .main-table .player7 {
       right: 15%; }
-    .main-table .lobby .player8 {
+    .kingtable .main-table .player8 {
       left: 15%; }
-    .main-table .lobby .player9 {
+    .kingtable .main-table .player9 {
       left: 50%;
       transform: translateX(-50%);
       bottom: 25%; }
-      .main-table .lobby .player9.playing-player {
-        width: 22%; }
-    .main-table .lobby .other_player {
+      .kingtable .main-table .player9.playing-player {
+        width: 22%;
+        transform: translateX(-40%); }
+        .kingtable .main-table .player9.playing-player .col {
+          padding: 0; }
+        .kingtable .main-table .player9.playing-player .card_status {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-size: .6em; }
+        .kingtable .main-table .player9.playing-player .profile_card {
+          text-align: left;
+          padding-left: 2px; }
+    .kingtable .main-table .other_player {
       flex-direction: row;
       display: flex;
       position: absolute;
       align-items: center;
       width: 15%; }
-      .main-table .lobby .other_player .profile_card {
+      .kingtable .main-table .other_player .profile_card {
         position: relative;
         padding: 0;
         text-align: center; }
-        .main-table .lobby .other_player .profile_card img {
+        .kingtable .main-table .other_player .profile_card img {
           width: 41%;
           display: inline-block;
           margin-left: -20%; }
-        .main-table .lobby .other_player .profile_card img:nth-child(1) {
+        .kingtable .main-table .other_player .profile_card img:nth-child(1) {
           margin-left: 0; }
-      .main-table .lobby .other_player .profile_pic {
+      .kingtable .main-table .other_player .profile_pic {
         position: relative; }
-        .main-table .lobby .other_player .profile_pic img {
+        .kingtable .main-table .other_player .profile_pic img {
           width: 100%; }
-      .main-table .lobby .other_player .player_info {
+      .kingtable .main-table .other_player .player_info {
         background: #565656;
         color: #fff;
         position: absolute;
-        bottom: 5px;
+        bottom: 0;
         left: 0;
         padding: 0px 5px;
-        font-size: .3em;
-        line-height: 2.5;
+        line-height: 3.5;
         margin: 0 5px;
-        width: calc(100% - 10px);
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap; }
-      .main-table .lobby .other_player .card_status {
+        white-space: nowrap;
+        background-image: url("../img/profile_name_bg.png");
+        background-size: 100% 100%;
+        padding-left: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: translateX(-20%);
+        width: 125%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+        .kingtable .main-table .other_player .player_info span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: .3em; }
+      .kingtable .main-table .other_player .card_status {
         position: absolute;
         text-align: center;
         background: rgba(35, 44, 43, 0.9);
@@ -10054,6 +10080,35 @@ body {
         font-size: 0.5em;
         line-height: 1.2;
         font-weight: bold; }
+    .kingtable .main-table .playing-player-info {
+      position: absolute;
+      left: 0;
+      bottom: 20%;
+      /* top: 0; */
+      color: white;
+      text-align: center;
+      /* margin: 0 auto; */
+      width: 100%; }
+      .kingtable .main-table .playing-player-info img {
+        width: 1em;
+        vertical-align: middle; }
+      .kingtable .main-table .playing-player-info span {
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        font-size: .5em;
+        padding: 5px 10px; }
+      .kingtable .main-table .playing-player-info .pack {
+        margin: 0px 10px; }
+      .kingtable .main-table .playing-player-info .slide_show {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%;
+        margin: 0px 5px; }
+      .kingtable .main-table .playing-player-info .info {
+        background: url("../img/text_bg3.png");
+        background-size: 100% 100%; }
+      .kingtable .main-table .playing-player-info .minus {
+        font-size: 1em;
+        margin: 0px 5px; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10082,17 +10137,96 @@ body {
       padding: 1px 0px; }
     .login .login_block .slide_background {
       padding: 5px 8px; }
+    .login .login_block .login_button_submit {
+      background: url("../img/login/submit_background.png");
+      background-size: 100% 100%;
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      .login .login_block .login_button_submit button {
+        line-height: 0.5;
+        min-height: 30px;
+        background: none;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+        width: 100%;
+        background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+        background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+        transform: translateY(10%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        font-family: 'Cinzel-Bold';
+        font-weight: bold;
+        font-size: 1em; }
     .login .login_block .login_button {
       background: url("../img/login_button_background1.png");
       background-size: 100% 100%;
       display: flex;
       flex-direction: row;
-      align-items: center; }
+      align-items: center;
+      margin: 10px; }
       .login .login_block .login_button .icon {
         width: 35%;
-        transform: translateY(15%); }
+        transform: translateY(20%); }
       .login .login_block .login_button input {
-        transform: translateY(15%); }
+        transform: translateY(15%);
+        height: 100%;
+        font-weight: bold;
+        font-family: 'Cinzel-Bold';
+        font-weight: bold;
+        font-size: 1em;
+        color: white; }
+        .login .login_block .login_button input::-webkit-input-placeholder {
+          /* WebKit, Blink, Edge */
+          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        .login .login_block .login_button input:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 */
+          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        .login .login_block .login_button input::-moz-placeholder {
+          /* Mozilla Firefox 19+ */
+          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        .login .login_block .login_button input:-ms-input-placeholder {
+          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        .login .login_block .login_button input::-ms-input-placeholder {
+          /* Microsoft Edge */
+          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        .login .login_block .login_button input::placeholder {
+          /* Most modern browsers support this now. */
+          background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
+          background: linear-gradient(right, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: bold;
+          font-family: 'Cinzel-Bold';
+          font-weight: bold;
+          font-size: 1em; }
     .login .login_block .bg-style {
       background: url("../img/login_button_backgroun2.png"); }
 

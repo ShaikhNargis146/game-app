@@ -3,23 +3,30 @@
     <img src="img/login/logo.png" class="login_logo">
     <form name="login">
 
-      <div class="blc">
+      <!-- <div class="blc">
         <div class="slide_background">
          <div class="bg-style">
                 <input class="" type="text" name="name" ng-model="name">
          </div> 
         </div>
       </div>
-      <div class="login_button row">
-           <div class="col col-20"><img src="img/login/icon_king.png" class="icon"></div><input class="col" type="text" name="name" ng-model="name">
-      </div>
       <div class=" blc">
-        <input type="password" name="password" value="Password" ng-model="password">
+            <input type="password" name="password" value="Password" ng-model="password">
+          </div> -->
+      <div class="login_button row">
+           <div class="col col-20"><img src="img/login/icon_king.png" class="icon"></div>
+           <input class="col" type="text" name="name" ng-model="name" placeholder="USER ID">
       </div>
-      <div class="">
-        <button>Login</button>
-      </div>
-    </form>
+      <div class="login_button row">
+            <div class="col col-20"><img src="img/login/icon_lock.png" class="icon"></div>
+            <input class="col" type="password" name="name" ng-model="password" placeholder="PASSWORD">
+       </div>
+      
+       <div class="login_button_submit row">
+        
+        <button class="button" type='submit' ui-sref="lobby">LOGIN</button>
+   </div>
+         </form>
 
   </div>
 </div>
