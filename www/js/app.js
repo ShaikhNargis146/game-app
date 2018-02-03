@@ -10,6 +10,12 @@ var myApp = angular.module('starter', ['ionic'])
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    if(window.MobileAccessibility){
+      window.MobileAccessibility.usePreferredTextZoom(false);
+      console.log("disable preffered font done");
+      // console.log(MobileAccessibility.getTextZoom(),"get text zoom");
+      // console.log(MobileAccessibility.updateTextZoom(10),"update text zoom")
+   }
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);

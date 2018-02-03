@@ -9909,7 +9909,8 @@ a.button {
   /*URL to the font*/ }
 
 body {
-  font-family: 'Cinzel-Black'; }
+  font-family: 'Cinzel-Black';
+  font-size: 1.8vw; }
 
 .kingtable {
   background: url("../img/table-background.png");
@@ -9920,9 +9921,20 @@ body {
     padding: 15px; }
     .kingtable .option img {
       width: 100%; }
+  .kingtable .played_history {
+    position: absolute;
+    left: 15%;
+    top: 4%;
+    font-size: 0.5em;
+    color: white;
+    width: 30%;
+    text-align: center; }
+    .kingtable .played_history .down-arrow {
+      font-size: 3em;
+      color: #fde4bc; }
   .kingtable .info {
-    padding-right: 30px;
-    padding-top: 15px;
+    padding-right: 12px;
+    padding-top: 35px;
     color: white; }
     .kingtable .info .setting {
       text-align: right;
@@ -9945,82 +9957,162 @@ body {
     position: relative;
     bottom: 0;
     left: 0; }
-    .kingtable .main-table .table-lobby {
+    .kingtable .main-table .playing-table {
       position: absolute;
       bottom: -30px;
       width: 100%;
       left: 0; }
-      .kingtable .main-table .table-lobby .doll {
+      .kingtable .main-table .playing-table .plyr {
+        width: 8%;
+        position: absolute;
+        z-index: 10;
+        background: url("../img/plyr_bg.png");
+        background-size: 100% 100%;
+        color: white;
+        text-align: center; }
+        .kingtable .main-table .playing-table .plyr img {
+          max-width: 100%; }
+        .kingtable .main-table .playing-table .plyr .status {
+          padding: 2px;
+          font-family: 'Cinzel-Bold';
+          font-size: .6em;
+          line-height: 2; }
+        .kingtable .main-table .playing-table .plyr .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .pic {
+            width: 60%;
+            margin-right: 40%;
+            padding: 0 5%; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
+            position: absolute;
+            left: 40%;
+            width: 150%; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img {
+              position: relative;
+              width: 20%; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(1) {
+                left: 0; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(2) {
+                left: -10%; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(3) {
+                left: -20%; }
+        .kingtable .main-table .playing-table .plyr .amt {
+          font-size: .5em;
+          line-height: 2; }
+          .kingtable .main-table .playing-table .plyr .amt img {
+            width: 1em;
+            vertical-align: middle; }
+        .kingtable .main-table .playing-table .plyr .plyr_name {
+          background: url("../img/profile_name_bg.png");
+          background-size: 100% 100%;
+          font-size: .5em;
+          padding: 0;
+          padding-bottom: 5%; }
+          .kingtable .main-table .playing-table .plyr .plyr_name span {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 2.5;
+            text-align: center;
+            text-align: left;
+            padding-top: 3%;
+            padding-left: 25%; }
+      .kingtable .main-table .playing-table .sit_here {
+        background: url("../img/sit_here.png");
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%; }
+        .kingtable .main-table .playing-table .sit_here > * {
+          display: none !important; }
+        .kingtable .main-table .playing-table .sit_here:after {
+          content: "Sit Here";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: Cinzel-Regular;
+          word-spacing: 10em;
+          line-height: 1.5; }
+      .kingtable .main-table .playing-table .card_fold .plyr_card {
+        display: none; }
+      .kingtable .main-table .playing-table .card_fold .pic {
+        margin: 0 auto !important; }
+      .kingtable .main-table .playing-table .card_fold .amt {
+        opacity: 0;
+        visibility: hidden; }
+      .kingtable .main-table .playing-table .winner::before {
+        display: block;
+        content: '';
+        background: url("../img/winner.png");
+        background-size: 100% 100%;
+        height: 7vh;
+        width: 100%;
+        position: absolute;
+        top: -42%; }
+      .kingtable .main-table .playing-table .dealer::after {
+        display: block;
+        content: '';
+        height: 4vh;
+        width: 30%;
+        position: absolute;
+        right: -30%;
+        top: 0;
+        background: url(../img/dealer.png);
+        background-size: 100% 100%; }
+      .kingtable .main-table .playing-table .main-player {
+        width: 15% !important;
+        left: 50%;
+        bottom: 30%;
+        transform: translateX(-50%); }
+        .kingtable .main-table .playing-table .main-player .plyr_name {
+          display: none; }
+        .kingtable .main-table .playing-table .main-player .status {
+          font-size: 1em; }
+        .kingtable .main-table .playing-table .main-player .amt {
+          font-size: 1em; }
+      .kingtable .main-table .playing-table .doll {
         position: absolute;
         width: 10%;
         left: 50%;
         top: -23%;
         transform: translateX(-50%);
         z-index: 2; }
-      .kingtable .main-table .table-lobby .lobby-table {
+      .kingtable .main-table .playing-table .lobby-table {
         position: relative;
         width: 100%; }
-    .kingtable .main-table .player1,
-    .kingtable .main-table .player2,
-    .kingtable .main-table .player3,
-    .kingtable .main-table .player4,
-    .kingtable .main-table .player5,
-    .kingtable .main-table .player6 {
-      transform: translateY(-25%); }
-    .kingtable .main-table .player1,
-    .kingtable .main-table .player2 {
-      top: -10px; }
     .kingtable .main-table .player1 {
-      left: 25%; }
+      left: 28%;
+      top: -10%; }
     .kingtable .main-table .player2 {
-      right: 20%; }
-    .kingtable .main-table .player3,
+      right: 28%;
+      top: -10%; }
+    .kingtable .main-table .player3 {
+      left: 12%;
+      top: -2%; }
     .kingtable .main-table .player4 {
-      top: 10%; }
-    .kingtable .main-table .player3,
+      right: 12%;
+      top: -2%; }
     .kingtable .main-table .player5 {
-      left: 5%; }
-    .kingtable .main-table .player4,
+      top: 30%;
+      left: 6%; }
     .kingtable .main-table .player6 {
-      right: 2%; }
-    .kingtable .main-table .player5,
-    .kingtable .main-table .player6 {
-      top: 32%; }
+      top: 30%;
+      right: 6%; }
     .kingtable .main-table .player7,
     .kingtable .main-table .player8,
     .kingtable .main-table .player9 {
       transform: translateY(-100%); }
-    .kingtable .main-table .player7,
-    .kingtable .main-table .player8 {
-      bottom: 8%; }
     .kingtable .main-table .player7 {
-      right: 15%; }
+      bottom: 10%;
+      left: 20%; }
     .kingtable .main-table .player8 {
-      left: 15%; }
-    .kingtable .main-table .player9 {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 25%; }
-      .kingtable .main-table .player9.playing-player {
-        width: 22%;
-        transform: translateX(-40%); }
-        .kingtable .main-table .player9.playing-player .col {
-          padding: 0; }
-        .kingtable .main-table .player9.playing-player .card_status {
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: url("../img/text_bg.png");
-          background-size: 100% 100%;
-          width: 50%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          font-size: .6em; }
-        .kingtable .main-table .player9.playing-player .profile_card {
-          text-align: left;
-          padding-left: 2px; }
+      bottom: 10%;
+      right: 20%; }
     .kingtable .main-table .other_player {
       flex-direction: row;
       display: flex;
@@ -10087,6 +10179,7 @@ body {
       /* top: 0; */
       color: white;
       text-align: center;
+      font-size: 1em;
       /* margin: 0 auto; */
       width: 100%; }
       .kingtable .main-table .playing-player-info img {
@@ -10095,8 +10188,8 @@ body {
       .kingtable .main-table .playing-player-info span {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
-        font-size: .5em;
-        padding: 5px 10px; }
+        font-size: 1em;
+        padding: 1.5% 2.5%; }
       .kingtable .main-table .playing-player-info .pack {
         margin: 0px 10px; }
       .kingtable .main-table .playing-player-info .slide_show {
@@ -10125,7 +10218,7 @@ body {
       height: 8vh;
       width: 100%;
       border-radius: 6px;
-      background: #fcfafa00; }
+      background: transparent; }
     .login .login_block .blc {
       margin: 10px;
       border: 1px solid;
@@ -10236,25 +10329,10 @@ body {
 .right {
   float: right; }
 
-.border-style {
-  background: #fceabb;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  padding: 1px; }
-
 .bg-style {
-  background: #303030;
-  background: -moz-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, #303030), color-stop(28%, #212021), color-stop(49%, #404040), color-stop(72%, #1f1f1f), color-stop(100%, #292929));
-  background: -webkit-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  background: -o-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  background: -ms-linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%);
-  background: linear-gradient(45deg, #303030 0%, #212021 28%, #404040 49%, #1f1f1f 72%, #292929 100%); }
+  background: url("../img/bg.svg");
+  background-size: 100% 100%;
+  background-size: cover; }
 
 .slide_background {
   background: url("../img/slide_background.png");
@@ -10278,3 +10356,16 @@ body {
 
 .color-white {
   color: white; }
+
+.border-gradient {
+  border: 1px solid;
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  border-image-slice: 2; }
+
+@keyframes updown {
+  0% {
+    margin-top: 0px; }
+  70% {
+    margin-top: 2px; }
+  100% {
+    margin-top: 0px; } }
