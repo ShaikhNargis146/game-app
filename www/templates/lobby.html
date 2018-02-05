@@ -1,1 +1,93 @@
-lobbby
+<div class="main_lobby menu_content">
+  <div class="user_profile " >
+    <div class="profile_pic" >
+      <img src="img/playing_profile.png" ng-click="openMenu()">
+    </div>
+    <div class="profile_info">
+      <div class="name">Christle Kallis</div>
+      <div class="player_badge"> Bronze </div>
+      <div class="amt">
+        <img src="img/lobby/yellow_coin.png"> 100000</div>
+    </div>
+  </div>
+
+  <div class="lobby_content {{VariationActive}}">
+    <div class="logo">
+      <img src="img/logo.png">
+    </div>
+    <div class="categorys row">
+      <div class="play_now  col" ui-sref="app.table">
+        <span class="text-grad"> Play Now </span>
+      </div>
+      <div class="play_joker  col" ui-sref="app.table">
+        <span class="text-grad"> Play Joker</span>
+      </div>
+      <div class="variation col" ng-click="variationToggle()" ng-blur="hsa()">
+        <span class=" text-grad"> Variation </span>
+      </div>
+      <div class="private_table col" ui-sref="app.table">
+        <span class="text-grad"> Private Table </span>
+      </div>
+    </div>
+    <div class="categorys row variation_subtype">
+      <div class="folding_joker col" ui-sref="app.table">
+        <span class="text-grad"> Folding joker </span>
+      </div>
+      <div class="red_and_black col" ui-sref="app.table">
+        <span class="text-grad"> red and black </span>
+      </div>
+      <div class="one_eyed col" ui-sref="app.table">
+        <span class="text-grad"> One-eyed Jack </span>
+      </div>
+      <div class="odd_sequence col" ui-sref="app.table">
+        <span class="text-grad"> odd sequence </span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="custom_menu lobby_menu {{sideMenu}}">
+  <div class="menu_close" ng-click="closeMenu()">
+    X
+  </div>
+  <div class="menu_cont">
+
+    <div class="user_profile left ">
+      <div class="profile_pic">
+        <img src="img/playing_profile.png">
+      </div>
+      <div class="profile_info">
+        <div class="name">Christle Kallis</div>
+        <div class="player_badge"> Bronze </div>
+        <div class="amt">
+          <img src="img/lobby/yellow_coin.png"> 100000</div>
+        
+      </div>
+     
+    </div>
+    <div class="amt_modify">
+        <span>ADD</span>
+        <span>Withdrawal</span>
+      </div>
+    <ion-list>
+      <ion-item  >
+        profit and loss
+      </ion-item>
+      <ion-item >
+        account statement
+      </ion-item>
+      <ion-item >
+        transfer statement
+      </ion-item>
+      <ion-item >
+        chance password
+      </ion-item>
+    
+     
+    </ion-list>
+
+  </div>
+</div>
