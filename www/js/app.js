@@ -31,21 +31,20 @@ var myApp = angular.module('starter', ['ionic','starter.service'])
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-      url: '/app',
-      abstract: true,
-      templateUrl: 'templates/menu.html',
-      controller: 'AppCtrl'
-    })
-    .state('app.table', {
+    .state('table', {
       url: '/table',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/table.html'
-        }
-      }
+      cache: false,
+      templateUrl: 'templates/table.html',
+      controller: 'TableCtrl'
     })
-
+    // .state('app.table', {
+    //   url: '/table',
+    //   views: {
+    //     'menuContent': {
+    //       templateUrl: 'templates/table.html'
+    //     }
+    //   }
+    // })
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
@@ -65,3 +64,4 @@ var myApp = angular.module('starter', ['ionic','starter.service'])
 myApp.controller("AppCtrl", function ($scope) {
   console.log("hi")
 });
+

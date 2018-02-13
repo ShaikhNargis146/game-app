@@ -13,6 +13,4 @@
 //   console.log("this is spartaaa")
 // })
 
-myApp.controller("AppCtrl",function($scope){
-  console.log("hi")
-  });
+
