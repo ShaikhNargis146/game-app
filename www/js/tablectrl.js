@@ -114,4 +114,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
     event.stopPropagation();
    console.log("back")
  });
+
+
+
+$scope.playerData=$.jStorage.get("player");
+  console.log("$scope.playerData",$scope.playerData);
+$scope.username=$scope.playerData.username;
+$scope.userType=$scope.playerData.userType;
+$scope.credit=$scope.playerData.credit;
+
+
+
 });

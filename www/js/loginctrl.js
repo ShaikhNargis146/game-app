@@ -5,6 +5,7 @@ $scope.playerLogin = function (data) {
     console.log("in player login")
             $scope.data = {};
             Service.playerLogin(data, function (data) {
+                console.log("dataaaaa",data);
                 if (data.value) {
                     console.log("player exist....");
                     $.jStorage.set("player", data.data);

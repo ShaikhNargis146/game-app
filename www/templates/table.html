@@ -351,7 +351,9 @@
       <div class="playing-player-info">
         <span class="pack"> PACK </span>
         <span class="slide_show"> side show </span>
-        <span class="info"> christie kallies
+        <!--<span class="info"> christie kallies
+          <img src="img/coin.png">120000 </span>-->
+          <span class="info"> {{username}}
           <img src="img/coin.png">120000 </span>
         <span class="minus" ng-click="removeCoin()">
           <i class="icon ion-minus-round"></i>
@@ -377,10 +379,17 @@
         <img src="img/playing_profile.png">
       </div>
       <div class="profile_info">
-        <div class="name">Christle Kallis</div>
+        <!--<div class="name">Christle Kallis</div>
         <div class="player_badge"> Bronze </div>
         <div class="amt">
-          <img src="img/lobby/yellow_coin.png"> 100000</div>
+          <img src="img/lobby/yellow_coin.png"> 100000</div>-->
+
+
+    <div class="name">{{username}}</div>
+        <div class="player_badge"> {{userType}} </div>
+        <div class="amt">
+          <img src="img/lobby/yellow_coin.png"> {{credit}}</div>
+
 
       </div>
 
