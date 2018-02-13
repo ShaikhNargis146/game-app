@@ -32,7 +32,8 @@
         background: url('../img/text_bg2.png');
         background-size: 100% 100%;
         text-align: center;
-        padding: 5% 15%;
+        padding: 5% 15%; // word-break: normal;
+        white-space: nowrap;
         img {
           width: 1em;
           vertical-align: middle;
@@ -206,8 +207,7 @@
       display: flex;
       font-size: 0.9em;
       flex-direction: row;
-      align-items: flex-start;
-      // width: 57vw;
+      align-items: flex-start; // width: 57vw;
       .profile_pic {
         width: 30%;
         padding: 2%;
@@ -231,6 +231,7 @@
           background-size: 100% 100%;
           text-align: center;
           padding: 5% 15%;
+          white-space: nowrap;
           img {
             width: 1em;
             vertical-align: middle;
@@ -256,7 +257,4 @@
       word-spacing: 20px;
     }
   }
-  
 }
-
-
