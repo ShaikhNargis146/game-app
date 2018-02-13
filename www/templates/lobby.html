@@ -4,10 +4,11 @@
       <img src="img/playing_profile.png" ng-click="openMenu()">
     </div>
     <div class="profile_info">
-      <div class="name">Christle Kallis</div>
-      <div class="player_badge"> Bronze </div>
+      <div class="name">{{username}}</div>
+      <div class="player_badge"> {{userType}} </div>
       <div class="amt">
-        <img src="img/lobby/yellow_coin.png"> 100000</div>
+        <!--<img src="img/lobby/yellow_coin.png"> 100000</div>-->
+        <img src="img/lobby/yellow_coin.png"> {{credit}}</div>
     </div>
   </div>
 

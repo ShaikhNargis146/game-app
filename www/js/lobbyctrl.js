@@ -18,5 +18,12 @@ $scope.sideMenu="no"
     $scope.sideMenu="menu_open"
   }
 
+  $scope.playerData=$.jStorage.get("player");
+  console.log("$scope.playerData",$scope.playerData);
+$scope.username=$scope.playerData.username;
+$scope.userType=$scope.playerData.userType;
+$scope.credit=$scope.playerData.credit;
+
+
 
 });

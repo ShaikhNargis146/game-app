@@ -15,16 +15,16 @@
           </div> -->
       <div class="login_button row">
            <div class="col col-20"><img src="img/login/icon_king.png" class="icon"></div>
-           <input class="col" type="text" name="name" ng-model="name" placeholder="USER ID">
+           <input class="col" type="text" name="name" ng-model="data.username" placeholder="USER ID">
       </div>
       <div class="login_button row">
             <div class="col col-20"><img src="img/login/icon_lock.png" class="icon"></div>
-            <input class="col" type="password" name="name" ng-model="password" placeholder="PASSWORD">
+            <input class="col" type="password" name="password" ng-model="data.password" placeholder="PASSWORD">
        </div>
       
        <div class="login_button_submit row">
         
-        <button class="button" type='submit' ui-sref="lobby">LOGIN</button>
+        <button class="button" type='submit' ng-click="playerLogin(data)">LOGIN</button>
    </div>
          </form>
 
