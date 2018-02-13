@@ -1,90 +1,34 @@
 //table.html
 .kingtable {
-    //   background: black;
-    background: url('../img/table-background.png');
-    background-size: cover;
-    .table-img {
-      width: 100%;
-    }
-    .option {
+  //   background: black;
+  background: url('../img/table-background.png');
+  background-size: cover;
+  .top_field {
+    position: relative;
+    z-index: 4;
+    .option_menu_icon {
       padding: 15px;
-      img {
-        width: 100%;
-      }
-    } // css for played history
-    .played_history {
-      position: absolute;
-      left: 15%;
-      top: 4%;
-      font-size: 0.5em;
-      color: white;
-      width: 30%;
-      text-align: center;
-      &>div {
-        // padding: 0% 20%;
-      } // &::after,
-      // &::before {
-      //   top: 100%;
-      //   left: 50%;
-      //   border: solid transparent;
-      //   content: " ";
-      //   height: 0;
-      //   width: 0;
-      //   position: absolute;
-      //   pointer-events: none;
-      // }
-      // &::after {
-      //   // border-color: rgba(136, 183, 213, 0);
-      //   border-top-color: #88b7d5;
-      //   border-image:$border-color;
-      //   // border-image: $border-color;
-      //   // border-left: 0px;
-      //   // border-right: 0px;
-      //   // border-bottom: 0px;
-      //   // border-top:2px;
-      //   border-width: 18px;
-      //   margin-left: -46px;
-      // }
-      // &::before {
-      //   border-color: rgba(194, 225, 245, 0);
-      //   border-top-color:  rgba(194, 225, 245, 0);
-      //   border-image:$border-color;
-      //   border-width: 23px;
-      //   margin-left: -51px;
-      // }
-      .down-arrow {
-        // display: inline-block;
-        // width: 20%;
-        font-size: 3em;
-        color: #fde4bc; // -webkit-animation-name: updown; /* Safari 4.0 - 8.0 */
-        // -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-        // animation-name: updown;
-        // animation-duration: 1s;
-        // animation-iteration-count: infinite;
-        // -webkit-text-fill-color: transparent; 
-        // line-height: 0; // i {
-        //   line-height: 0;
-        //   &:nth-child(1) {
-        //     font-size: 1em;
-        //   }
-        //   &:nth-last-child() {
-        //     font-size: 1em;
-        //   }
-        // }
+      padding-top: 1%;
+      .icon {
+        color: gold;
+        font-size: 2em;
       }
     }
-    .info {
+    .right_side_icon {
       padding-right: 12px;
-      padding-top: 35px;
+      padding-top: 1%;
       color: white;
-      .setting {
+      .setting_menu_icon {
         text-align: right;
         padding-bottom: 5%;
-      }
-      .icon {
-        // padding:50px;
-        font-size: 1em;
-        margin: 10px;
+        .icon {
+          font-size: 2em;
+          padding: 0 15px;
+          ;
+        }
+        img {
+          width: 2em;
+        }
       }
       .table-info {
         // font-size: .8em;
@@ -100,376 +44,690 @@
           line-height: 2;
         }
       }
-    }
-    .main-table {
-      width: 100%;
-      height: 100vh;
-      position: relative;
-      bottom: 0;
-      left: 0;
-      .playing-table {
-        position: absolute;
-        bottom: -30px;
-        width: 100%;
-        left: 0;
-        .plyr {
-          width: 8%;
-          position: absolute; // top: 0;
-          // left: 20px;
-          z-index: 10;
-          background: url('../img/plyr_bg.png');
-          background-size: 100% 100%;
-          color: white;
-          text-align: center;
-          img {
-            max-width: 100%;
-          }
-          .status {
-            padding: 2px;
-            font-family: 'Cinzel-Bold';
-            font-size: .6em;
-            line-height: 2;
-          }
-          .plyr_pic {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            .pic {
-              width: 60%;
-              margin-right: 40%;
-              padding: 0 5%;
-            }
-            .plyr_card {
-              position: absolute;
-              left: 40%;
-              width: 150%;
-              img {
-                position: relative;
-                width: 20%;
-                &:nth-child(1) {
-                  left: 0;
-                }
-                &:nth-child(2) {
-                  left: -10%;
-                }
-                &:nth-child(3) {
-                  left: -20%;
-                }
-              }
-            }
-          }
-          .amt {
-            font-size: .5em;
-            line-height: 2; // font-size: calc( 100% + 4vw);
-            img {
-              width: 1em;
-              vertical-align: middle;
-            }
-          }
-          .plyr_name {
-            background: url('../img/profile_name_bg.png');
-            background-size: 100% 100%;
-            font-size: .5em;
-            padding: 0;
-            padding-bottom: 5%;
-            span {
-              // margin-left:25%;
-              // white-space: nowrap;
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              line-height: 2.5; // margin: 0px 3px 0px 3px;
-              text-align: center;
-              text-align: left;
-              padding-top: 3%;
-              padding-left: 25%;
-            }
-          }
-        } //add this class to apply sit_here css
-        .sit_here {
-          background: url('../img/sit_here.png');
-          background-size: 100% 100%;
-          padding-top: 1%;
-          padding-bottom: 1%;
-          width: 8%; // height:10vh;
-          &>* {
-            display: none !important;
-          }
-          &:after {
-            content: "Sit Here";
-            height: 100%;
-            width: 100%;
-            font-size: 1em;
-            font-family: Cinzel-Regular;
-            word-spacing: 10em;
-            line-height: 1.5;
-          }
-        } // add this class to apply card fold css
-        .card_fold {
-          .plyr_card {
-            display: none;
-          }
-          .pic {
-            margin: 0 auto !important;
-          }
-          .amt {
-            opacity: 0;
-            visibility: hidden;
-          }
-        } //add this class to apply winner css
-        .winner {
-          &::before {
-            display: block;
-            content: '';
-            background: url('../img/winner.png');
-            background-size: 100% 100%;
-            height: 7vh;
-            width: 100%;
-            position: absolute;
-            top: -42%;
-          }
-        } // add this class to apply dealer css
-        .dealer {
-          &::after {
-            display: block;
-            content: '';
-            height: 4vh;
-            width: 30%;
-            position: absolute;
-            right: -30%;
-            top: 0;
-            background: url(../img/dealer.png);
-            background-size: 100% 100%;
-          }
-        } // add this class to current player 
-        .main-player {
-          width: 15% !important;
-          left: 50%;
-          bottom: 30%;
-          transform: translateX(-50%);
-          .plyr_name {
-            display: none;
-          }
-          .status {
-            font-size: 1em;
-          }
-          .amt {
-            font-size: 1em;
-          }
-        }
-        .doll {
-          position: absolute;
-          width: 10%;
-          left: 50%;
-          top: -23%;
-          transform: translateX(-50%);
-          z-index: 2;
-        } //bg table css
-        .bg-table {
-          position: relative;
-          width: 100%;
-        }
-      } // .player1,
-      // .player2,
-      // .player3,
-      // .player4,
-      // .player5,
-      // .player6 {
-      //   transform: translateY(-25%);
-      // }
-      // .player1,
-      // .player2 {
-      //   top: -10px;
-      // }
-      .player1 {
-        left: 28%;
-        top: -10%;
+    } // css for played history
+    .play_history {
+      position: absolute;
+      left: 15%;
+      top: 10px;
+      font-size: 0.5em;
+      color: white;
+      width: 30%;
+      text-align: center;
+      &>div {
+        // padding: 0% 20%;
       }
-      .player2 {
-        right: 28%;
-        top: -10%;
-      } // .player3,
-      // .player4 {
-      //   top: 10%;
-      // }
-      .player3 {
-        left: 12%;
-        top: -2%;
+      .down-arrow {
+        // display: inline-block;
+        // width: 20%;
+        font-size: 3em;
+        color: #fde4bc;
       }
-      .player4 {
-        right: 12%;
-        top: -2%;
-      } // .player3,
-      // .player5 {
-      //   left: 5%;
-      // }
-      // .player4,
-      // .player6 {
-      //   right: 2%;
-      // }
-      // .player5,
-      // .player6 {
-      //   top: 32%;
-      // }
-      .player5 {
-        top: 30%;
-        left: 6%;
-      }
-      .player6 {
-        top: 30%;
-        right: 6%;
-      }
-      .player7,
-      .player8,
-      .player9 {
-        transform: translateY(-100%);
-      } // .player7,
-      // .player8 {
-      //   bottom: 8%;
-      // }
-      .player7 {
-        bottom: 10%;
-        left: 20%;
-      }
-      .player8 {
-        bottom: 10%;
-        right: 20%;
-      } // .player9 {
-      //   left: 50%;
-      //   transform: translateX(-50%);
-      //   bottom: 25%;
-      //   &.playing-player {
-      //     width: 22%;
-      //     transform: translateX(-40%);
-      //     .col {
-      //       padding: 0;
-      //     }
-      //     .card_status {
-      //       top: 50%;
-      //       left: 50%;
-      //       transform: translate(-50%, -50%);
-      //       background: url('../img/text_bg.png');
-      //       background-size: 100% 100%;
-      //       width: 50%;
-      //       display: flex;
-      //       flex-direction: column;
-      //       align-items: center;
-      //       justify-content: center;
-      //       font-size: .6em;
-      //     }
-      //     .profile_card {
-      //       text-align: left;
-      //       padding-left: 2px;
-      //     }
-      //   }
-      // }
-      .other_player {
-        flex-direction: row;
-        display: flex;
-        position: absolute;
-        align-items: center;
-        width: 15%;
-        .profile_card {
-          position: relative;
-          padding: 0;
-          text-align: center;
-          img {
-            width: 41%;
-            display: inline-block;
-            margin-left: -20%;
-          }
-          img:nth-child(1) {
-            margin-left: 0;
-          }
+      .cont {
+        height: 2em;
+        overflow: hidden;
+        transition: all 500ms;
+      } //when tab is opened
+      &.open_play_history {
+        .cont {
+          height: 80vh;
+          overflow-y: scroll;
+          ;
+          transition: all 500ms;
         }
-        .profile_pic {
-          position: relative;
-          img {
-            width: 100%;
-          }
-        }
-        .player_info {
-          background: #565656;
-          color: #fff;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          padding: 0px 5px;
-          line-height: 3.5;
-          margin: 0 5px; // width: calc(100% - 10px);
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          background-image: url('../img/profile_name_bg.png');
-          background-size: 100% 100%;
-          padding-left: 30%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          transform: translateX(-20%);
-          width: 125%;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: .3em;
-          }
-        }
-        .card_status {
-          position: absolute;
-          text-align: center;
-          background: rgba(35, 44, 43, 0.9);
-          width: 100%;
-          left: 0;
-          bottom: 0;
-          color: white;
-          font-family: sans-serif;
-          font-size: 0.5em;
-          line-height: 1.2;
-          font-weight: bold;
-        }
-      }
-      .playing-player-info {
-        position: absolute;
-        left: 0;
-        bottom: 20%;
-        /* top: 0; */
-        color: white;
-        text-align: center;
-        font-size: 1em;
-        /* margin: 0 auto; */
-        width: 100%;
-        img {
-          width: 1em;
-          vertical-align: middle;
-        }
-        span {
-          background: url('../img/text_bg.png');
-          background-size: 100% 100%; // margin:10px;
-          font-size: 1em;
-          padding: 1.5% 2.5%;
-        }
-        .pack {
-          margin: 0px 10px;
-        }
-        .slide_show {
-          background: url('../img/text_bg2.png');
-          background-size: 100% 100%;
-          margin: 0px 5px;
-        }
-        .info {
-          background: url('../img/text_bg3.png');
-          background-size: 100% 100%;
-        }
-        .minus {
-          font-size: 1em;
-          margin: 0px 5px;
+        .down-arrow {
+          transform: rotate(180deg)
         }
       }
     }
   }
+  .main-table {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0; //top field
+    &.activated {
+      transform: none;
+    }
+    .playing-table {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      // height: 80%;
+      left: 0;
+      .plyr {
+        width: 8%;
+        position: absolute; // top: 0;
+        // left: 20px;
+        z-index: 3;
+        background: url('../img/plyr_bg.png');
+        background-size: 100% 100%;
+        color: white;
+        text-align: center;
+        img {
+          max-width: 100%;
+        }
+        .status {
+          padding: 2px;
+          font-family: 'Cinzel-Bold';
+          font-size: .6em;
+          line-height: 2;
+        }
+        .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          .pic {
+            width: 60%;
+            margin-right: 40%;
+            padding: 0 5%;
+          }
+          .plyr_card {
+            position: absolute;
+            left: 40%;
+            width: 150%;
+            img {
+              position: relative;
+              width: 20%;
+              vertical-align: middle;
+              &:nth-child(1) {
+                left: 0;
+              }
+              &:nth-child(2) {
+                left: -10%;
+              }
+              &:nth-child(3) {
+                left: -20%;
+              }
+            }
+          }
+        }
+        .amt {
+          font-size: .5em;
+          line-height: 2; // font-size: calc( 100% + 4vw);
+          img {
+            width: 1em;
+            vertical-align: middle;
+          }
+        }
+        .plyr_name {
+          background: url('../img/profile_name_bg.png');
+          background-size: 100% 100%;
+          font-size: .5em;
+          padding: 0;
+          padding-bottom: 5%;
+          span {
+            // margin-left:25%;
+            // white-space: nowrap;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 2.5; // margin: 0px 3px 0px 3px;
+            text-align: center;
+            text-align: left;
+            padding-top: 3%;
+            padding-left: 25%;
+          }
+        }
+      } //add this class to apply sit_here css
+      .sit_here {
+        background: url('../img/sit_here.png');
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%; // height:10vh;
+        transform: translateY(50%);
+        &>* {
+          display: none !important;
+        }
+        &:after {
+          content: "Sit Here";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5;
+        }
+      } // add this class to apply card fold css
+      .card_fold {
+        .plyr_card {
+          display: none;
+        }
+        .pic {
+          margin: 0 auto !important;
+        }
+        .amt {
+          opacity: 0;
+          visibility: hidden;
+        }
+      } //add this class to apply winner css
+      .winner {
+        &::before {
+          display: block;
+          content: '';
+          background: url('../img/winner.png');
+          background-size: 100% 100%;
+          height: 7vh;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          transform: translateY(-108%);
+        }
+      } // add this class to apply dealer css
+      .dealer {
+        &::after {
+          display: block;
+          content: '';
+          height: 4vh;
+          width: 30%;
+          position: absolute;
+          right: -30%;
+          top: 0;
+          background: url(../img/dealer.png);
+          background-size: 100% 100%;
+        }
+      } // add this class to current player 
+      .main-player {
+        width: 18% !important;
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+        transform: translate(-50%, -70%);
+        .plyr_name {
+          display: none;
+        }
+        .status {
+          font-size: 1em;
+        }
+        .amt {
+          font-size: 1em;
+        }
+        .card_see {
+          position: absolute;
+          background: url('../img/text_bg.png');
+          background-size: 100% 100%;
+          padding: 2% 8%;
+          font-size: 0.8em;
+          top: 40%;
+          left: 55%;
+        }
+      }
+      .doll {
+        position: absolute;
+        width: 10%;
+        left: 50%;
+        top: -23%;
+        transform: translateX(-50%);
+        z-index: 2;
+      } //bg table css
+      .bg-table {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .player1 {
+      left: 28%;
+      top: -18%;
+    }
+    .player2 {
+      right: 28%;
+      top: -18%;
+    }
+    .player3 {
+      left: 8%;
+      top: -10%;
+    }
+    .player4 {
+      right: 8%;
+      top: -10%;
+    }
+    .player5 {
+      top: 28%;
+      left: 3%;
+    }
+    .player6 {
+      top: 28%;
+      right: 3%;
+    }
+    .player7,
+    .player8,
+    .player9 {
+      transform: translateY(-100%);
+    }
+    .player7 {
+      bottom: 4%;
+      left: 23%;
+    }
+    .player8 {
+      bottom: 4%;
+      right: 23%;
+    } // .other_player {
+    //   flex-direction: row;
+    //   display: flex;
+    //   position: absolute;
+    //   align-items: center;
+    //   width: 15%;
+    //   .profile_card {
+    //     position: relative;
+    //     padding: 0;
+    //     text-align: center;
+    //     img {
+    //       width: 41%;
+    //       display: inline-block;
+    //       margin-left: -20%;
+    //     }
+    //     img:nth-child(1) {
+    //       margin-left: 0;
+    //     }
+    //   }
+    //   .profile_pic {
+    //     position: relative;
+    //     img {
+    //       width: 100%;
+    //     }
+    //   }
+    //   .player_info {
+    //     background: #565656;
+    //     color: #fff;
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     padding: 0px 5px;
+    //     line-height: 3.5;
+    //     margin: 0 5px; // width: calc(100% - 10px);
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    //     background-image: url('../img/profile_name_bg.png');
+    //     background-size: 100% 100%;
+    //     padding-left: 30%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     transform: translateX(-20%);
+    //     width: 125%;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     span {
+    //       overflow: hidden;
+    //       text-overflow: ellipsis;
+    //       font-size: .3em;
+    //     }
+    //   }
+    //   .card_status {
+    //     position: absolute;
+    //     text-align: center;
+    //     background: rgba(35, 44, 43, 0.9);
+    //     width: 100%;
+    //     left: 0;
+    //     bottom: 0;
+    //     color: white;
+    //     font-family: sans-serif;
+    //     font-size: 0.5em;
+    //     line-height: 1.2;
+    //     font-weight: bold;
+    //   }
+    // }
+    .showing_cards {
+      width: 10%;
+      position: absolute; // top: 0;
+      left: 50%;
+      bottom: 40%;
+      display: flex;
+      flex-direction: row;
+      // height: 18vh;
+      transform: translate(-80%, 0%);
+      z-index: 3;
+      
+      img {
+        padding: 2%;
+        width: 100%;
+        position: absolute;
+        &:nth-child(1) {
+          transform: rotate(-6deg);
+          left: 0;
+        }
+        &:nth-child(2) {
+          transform: rotate(0deg) scale(1.1);
+          left: 35%;
+        }
+        &:nth-child(3) {
+          transform: rotate(6deg);
+          left: 65%;
+        }
+      }
+
+      .card_see{
+        position: absolute;
+        background: url('../img/text_bg.png');
+        background-size: 100% 100%;
+        padding: 2% 18%;
+        font-size: 0.8em;
+        top: 20%;
+        left: 50%;
+        color: white;
+        margin-top: 20%;
+      }
+    }
+    .playing-player-info {
+      position: absolute;
+      left: 0;
+      bottom: 15%;
+      /* top: 0; */
+      color: white;
+      text-align: center;
+      font-size: 1em;
+      /* margin: 0 auto; */
+      width: 100%;
+      // transform: translateY(-180%);
+      z-index: 4;
+      img {
+        width: 1em;
+        vertical-align: middle;
+      }
+      span {
+        background: url('../img/text_bg.png');
+        background-size: 100% 100%; // margin:10px;
+        font-size: 1em;
+        padding: 2.2% 2.5%;
+      }
+      .pack {
+        margin: 0px 10px;
+      }
+      .slide_show {
+        background: url('../img/text_bg2.png');
+        background-size: 100% 100%;
+        margin: 0px 5px;
+      }
+      .info {
+        background: url('../img/text_bg3.png');
+        background-size: 100% 100%;
+      }
+      .minus {
+        font-size: 1em;
+        margin: 0px 5px;
+      }
+    }
+  }
+}
+
+//some temp design
+.kingtable {
+  .plyr {
+    width: 10% !important;
+  }
+  .pic {
+    width: 50% !important;
+    margin-right: 45% !important;
+    padding: 1% 5% !important;
+  }
+  .plyr_card {
+    left: 35% !important;
+    width: 95% !important;
+  }
+  .main-player {
+    .plyr_pic {
+      display: block !important;
+      .pic{
+        margin: 0 auto !important;
+      }
+      .plyr_card 
+      {
+        display: none;
+      }
+      .card_see{
+        display: none;
+      }
+      
+    }
+    // .amt{
+    //   display: none;
+    // }
+  }
+}
+
+//sidemenu for left side
+//optionmenu
+.option_menu {
+  .menu_close {
+    color: #f9df93;
+    padding: 2%;
+    position: absolute;
+    img {
+      width: 10px;
+    }
+  }
+  .menu_cont {
+    width: 40%;
+    background: url('../img/bg.svg');
+    background-size: cover; // background: black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    margin-top: 4%;
+    height: 90%;
+    transition: all 500ms;
+    .menu_list {
+      background: red;
+      a {
+        background: none;
+        padding: 0px;
+      }
+      .text_icon {
+        width: 1em;
+        /* padding: 6%; */
+        margin: 0px 2%;
+        vertical-align: middle;
+        &.extra_small {
+          width: .7em;
+        }
+      }
+      .list {
+        // overflow: scroll;
+        overflow-y: scroll;
+        max-height: 70%;
+        width: 100%;
+        &::-webkit-scrollbar {
+          width: 3px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-button {
+          width: 6px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #e1e1e1;
+          border: 0px none #ffffff;
+          border-radius: 100px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: #060606;
+        }
+        &::-webkit-scrollbar-thumb:active {
+          background: #656262;
+        }
+        &::-webkit-scrollbar-track {
+          background: #000000;
+          border: 0px none #ffffff;
+          border-radius: 100px;
+        }
+        &::-webkit-scrollbar-track:hover {
+          background: #666666;
+        }
+        &::-webkit-scrollbar-track:active {
+          background: #333333;
+        }
+        &::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+    }
+    .user_profile {
+      display: flex;
+      font-size: 0.9em;
+      flex-direction: row;
+      align-items: flex-start; // width: 57vw;
+      .profile_pic {
+        width: 30%;
+        padding: 2%;
+        img {
+          width: 100%;
+        }
+      }
+      .profile_info {
+        color: white;
+        font-size: .9em;
+        line-height: 1.8;
+        padding-top: 2%;
+        .player_badge {
+          font-family: 'Cinzel-Bold';
+        }
+        .name {
+          color: #d0d0d0;
+        }
+        .amt {
+          background: url('../img/text_bg2.png');
+          background-size: 100% 100%;
+          text-align: center;
+          padding: 5% 15%;
+          img {
+            width: 1em;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .item {
+      background: transparent;
+      color: white;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0; // padding:0px 2%;
+      margin: 0% 4%;
+      font-size: 1em;
+      padding: 10px 0px;
+    }
+    .amt_modify {
+      text-align: center;
+      font-size: 1em;
+      color: white;
+      padding: 5%;
+      word-spacing: 20px;
+    }
+  }
+}
+
+//side menu for right side
+//settingmenu
+.setting_menu {
+  background: url('../img/sidemenu_right_bg.png'); // background: url('../img/sidemenu_bg.png');
+  background-size: 100% 100%;
+  .menu_close {
+    color: #f9df93;
+    padding: 2%;
+    position: absolute;
+    right: 1%;
+    img {
+      width: 10px;
+    }
+  }
+  .menu_cont {
+    width: 40%;
+    background: url('../img/bg_reverse.svg');
+    border: none; // border-top:2px solid #161c23;
+    background-size: cover; // background: black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 1%;
+    margin-top: 4%; //to open from right
+    // margin-left: 100%;
+    float: right; // margin-left: 161px !important;
+    margin-right: -30%;
+    height: 90%;
+    transition: margin-right 100ms;
+    .heading {
+      color: white;
+      font-size: 1.5em;
+      text-align: center;
+    }
+    .menu_list {
+      a {
+        background: none;
+        padding: none;
+      }
+      .text_icon {
+        width: 1em;
+        /* padding: 6%; */
+        margin: 0px 2%;
+        vertical-align: middle;
+        &.extra_small {
+          width: .7em;
+        }
+      }
+      .list {
+        // overflow: scroll;
+        // overflow-y: scroll;
+        // max-height: 70%;
+        width: 100%;
+        height: 100%; //scroll style
+        // &::-webkit-scrollbar {
+        //   width: 3px;
+        //   height: 6px;
+        // }
+        // &::-webkit-scrollbar-button {
+        //   width: 6px;
+        //   height: 6px;
+        // }
+        // &::-webkit-scrollbar-thumb {
+        //   background: #e1e1e1;
+        //   border: 0px none #ffffff;
+        //   border-radius: 100px;
+        // }
+        // &::-webkit-scrollbar-thumb:hover {
+        //   background: #060606;
+        // }
+        // &::-webkit-scrollbar-thumb:active {
+        //   background: #656262;
+        // }
+        // &::-webkit-scrollbar-track {
+        //   background: #000000;
+        //   border: 0px none #ffffff;
+        //   border-radius: 100px;
+        // }
+        // &::-webkit-scrollbar-track:hover {
+        //   background: #666666;
+        // }
+        // &::-webkit-scrollbar-track:active {
+        //   background: #333333;
+        // }
+        // &::-webkit-scrollbar-corner {
+        //   background: transparent;
+        // }
+      }
+    } //to open from right
+    .item {
+      background: transparent;
+      color: white;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0; // padding:0px 2%;
+      margin: 0% 4%;
+      font-size: 1em;
+      padding: 10px 0px;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+  &.menu_open {
+    .menu_cont {
+      transition: margin-right 200ms; // margin-left: 10% !important;
+      margin-right: 0%; // margin-left: 161px !important;
+    }
+  }
+}

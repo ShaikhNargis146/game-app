@@ -20,7 +20,6 @@ $border-color :linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
 //font
 @font-face {
   font-family: 'Cinzel-Black';
@@ -69,151 +68,7 @@ body {
   font-size: 1.8vw;
 }
 
-
-
-
-
-//scss for lobby main page
-.main_lobby {
-  background: url('../img/lobby/lobby_bg.jpg');
-  background-size: 100% 100%;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  .user_profile {
-    display: flex;
-    font-size: 0.9em;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 57vw;
-    position: absolute;
-    z-index: 3;
-    .profile_pic {
-      width: 20%;
-      padding: 2%;
-      img {
-        width: 100%;
-      }
-    }
-    .profile_info {
-      color: white;
-      font-size: .9em;
-      line-height: 1.8;
-      padding-top: 2%;
-      .name {
-        color: #d0d0d0;
-      }
-      .amt {
-        background: url('../img/text_bg2.png');
-        background-size: 100% 100%;
-        text-align: center;
-        padding: 5% 15%;
-        img {
-          width: 1em;
-          vertical-align: middle;
-        }
-      }
-    }
-  }
-  .lobby_content {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 10%;
-    bottom: 0;
-    transition: all 300ms;
-    .logo {
-      opacity: 1;
-      visibility: visible;
-      transition: all 1s;
-      display: inline-block;
-      img {
-        width: 20vw;
-        margin: 0 auto;
-      }
-    }
-    .categorys {
-      width: 80%;
-      margin: 0 auto;
-      &>div {
-        background: url('../img/lobby/text_bg.png');
-        background-size: 100% 100%;
-        margin: 2%;
-        padding: 5%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; // color:white;
-        span {
-          font-size: 1em;
-        }
-      }
-    }
-    .variation_subtype {
-      transition: all 500ms;
-      visibility: none;
-      opacity: 0;
-      width: 60%;
-      &>div {
-        padding: 3%;
-        span {
-          font-size: .7em;
-        }
-      }
-    }
-  } //scss when variation is clicked
-  .variation_active {
-    transition: all 500ms;
-    margin-top: - 12%;
-    .logo {
-      opacity: 0;
-      visibility: none;
-      transition: none;
-    }
-    .categorys {
-      &>div {
-        opacity: 0.5;
-        span {
-          // background: none;
-          // background-clip: none;
-          // color: #ffffff3d;
-          // -webkit-text-fill-color: unset;
-          opacity: .5;
-        }
-      }
-      .variation {
-        opacity: 1;
-        span {
-          // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // -webkit-background-clip: text;
-          // background-clip: text;
-          // -webkit-text-fill-color: transparent;
-          opacity: 1;
-        }
-      }
-    }
-    .variation_subtype {
-      visibility: visible;
-      opacity: 1;
-      transition: all 500ms;
-      &>div {
-        opacity: 1;
-        span {
-          // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // -webkit-background-clip: text;
-          // background-clip: text;
-          // -webkit-text-fill-color: transparent;
-          opacity: 1;
-        }
-      }
-    }
-  }
-}
-
-//menu for lobby
+//menu for lobby  --> only  menu_cont class inside will be animated
 .custom_menu {
   position: absolute;
   top: 0;
@@ -222,84 +77,74 @@ body {
   width: 100vw;
   z-index: 5; // display: none;
   opacity: 0;
-  visibility: hidden;
-  left: -50%;
+  visibility: hidden; // left: -50%;
   transition: all 500ms;
-}
-
-.lobby_menu {
-  background: rgba(0, 0, 0, 0.82);
-  .menu_close {
-    color: white;
-    padding: 8px;
-    position: absolute;
+  background: url('../img/sidemenu_bg.png');
+  background-size: 100% 100%;
+  &.activated {
+    //no effect of transform  when clicked
+    transform: none;
   }
   .menu_cont {
-    width: 50%;
-    background: url('../img/bg.svg');
-    background-size: cover; // background: black;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin-top: 4%;
-    .user_profile {
-      display: flex;
-      font-size: 0.9em;
-      flex-direction: row;
-      align-items: flex-start;
-      width: 57vw;
-      .profile_pic {
-        width: 20%;
-        padding: 2%;
-        img {
-          width: 100%;
-        }
-      }
-      .profile_info {
-        color: white;
-        font-size: .9em;
-        line-height: 1.8;
-        padding-top: 2%;
-        .name {
-          color: #d0d0d0;
-        }
-        .amt {
-          background: url('../img/text_bg2.png');
-          background-size: 100% 100%;
-          text-align: center;
-          padding: 5% 15%;
-          img {
-            width: 1em;
-            vertical-align: middle;
-          }
-        }
-      }
-    }
-    .item {
-      background: transparent;
-      color: white;
-      border-right: 0;
-      border-left: 0; // padding:0px 2%;
-      margin: 0% 4%;
-      font-size: 1em;
-      padding: 3%;
-    }
-    .amt_modify {
-      text-align: center;
-      font-size: 1em;
-      color: white;
-      padding: 5%;
-      word-spacing: 20px;
+    margin-left: -50%;
+    font-family: 'Cinzel-Regular';
+    &.activated {
+      //no effect of transform  when clicked
+      transform: none;
     }
   }
-  .item {}
 }
 
+// add this class to open the menu
 .menu_open {
   // display:block;
   opacity: 1;
   visibility: visible;
   left: 0;
-  transition: all 500ms;
+  transition: opacity 500ms;
+  .menu_cont {
+    margin-left: 0px;
+  }
+}
+
+//design for toggle
+.custom_toggle {
+  &.item {
+    border: none;
+    padding: 0px !important;
+    margin: 0px !important;
+    position: unset;
+  }
+  .toggle {
+    top: 10px !important;
+    right: 10%;
+  }
+  input:checked+.track,
+  input+.track {
+    // border-color: #4cd964;
+    // background-color: #4cd964;
+    // border: 1px solid #f5ba65;
+    border: none;
+    background: url('../img/OnOff.png');
+    background-size: 100% 100%;
+  }
+  .handle {
+    width: .5em;
+    height: .5em;
+    top: 30%;
+    left: 8px;
+  }
+  .track {
+    width: 30px;
+    height: .99em;
+  }
+  input:checked+.track .handle {
+    background-color: #9ce679;
+  }
+  input:checked+.track .handle {
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(18px, 0, 0);
+  }
 }
 
 .left {
@@ -361,8 +206,6 @@ body {
   border-image-slice: 2;
 }
 
-
-
 .text-grad {
   background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
   background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -371,7 +214,15 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+//when ng-click is called
+.activated {
+  transform: scale(.99);
+}
+
 //login page scss
 @import "login";
 //king table scss
-@import "kingtable"
+@import "lobby";
+@import "kingtable";
+//model scss
+@import "model";

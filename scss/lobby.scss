@@ -1,0 +1,262 @@
+//scss for lobby main page
+.main_lobby {
+  background: url('../img/lobby/lobby_bg.jpg');
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  .user_profile {
+    display: flex;
+    font-size: 0.9em;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 57vw;
+    position: absolute;
+    z-index: 3;
+    .profile_pic {
+      width: 20%;
+      padding: 2%;
+      img {
+        width: 100%;
+      }
+    }
+    .profile_info {
+      color: white;
+      font-size: .9em;
+      line-height: 1.8;
+      padding-top: 2%;
+      .name {
+        color: #d0d0d0;
+      }
+      .amt {
+        background: url('../img/text_bg2.png');
+        background-size: 100% 100%;
+        text-align: center;
+        padding: 5% 15%;
+        img {
+          width: 1em;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .lobby_content {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    bottom: 0;
+    transition: all 300ms;
+    .logo {
+      opacity: 1;
+      visibility: visible;
+      transition: all 1s;
+      display: inline-block;
+      img {
+        width: 20vw;
+        margin: 0 auto;
+      }
+    }
+    .categorys {
+      width: 80%;
+      margin: 0 auto;
+      &>div {
+        background: url('../img/lobby/text_bg.png');
+        background-size: 100% 100%;
+        margin: 2%;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; // color:white;
+        span {
+          font-size: 1em;
+          line-height: 1.5;
+        }
+      }
+    }
+    .variation_subtype {
+      transition: all 500ms;
+      visibility: none;
+      opacity: 0;
+      width: 60%;
+      &>div {
+        padding: 3%;
+        span {
+          font-size: .7em;
+        }
+      }
+    }
+  } //scss when variation is clicked
+  .variation_active {
+    transition: all 500ms;
+    margin-top: - 12%;
+    .logo {
+      opacity: 0;
+      visibility: none;
+      transition: none;
+    }
+    .categorys {
+      &>div {
+        opacity: 0.5;
+        span {
+          // background: none;
+          // background-clip: none;
+          // color: #ffffff3d;
+          // -webkit-text-fill-color: unset;
+          opacity: .5;
+        }
+      }
+      .variation {
+        opacity: 1;
+        span {
+          // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          // -webkit-background-clip: text;
+          // background-clip: text;
+          // -webkit-text-fill-color: transparent;
+          opacity: 1;
+        }
+      }
+    }
+    .variation_subtype {
+      visibility: visible;
+      opacity: 1;
+      transition: all 500ms;
+      &>div {
+        opacity: 1;
+        span {
+          // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+          // -webkit-background-clip: text;
+          // background-clip: text;
+          // -webkit-text-fill-color: transparent;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.lobby_menu {
+  // background: rgba(0, 0, 0, 0.82);
+  .menu_close {
+    color: #f9df93;
+    padding: 2%;
+    position: absolute;
+    img {
+      width: 10px;
+    }
+  }
+  .menu_cont {
+    font-family: 'Cinzel-Regular';
+    width: 40%;
+    background: url('../img/bg.svg');
+    background-size: cover; // background: black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    margin-top: 4%;
+    height: 90%;
+    transition: all 500ms;
+    .menu_list {
+      background: red;
+      .list {
+        // overflow: scroll;
+        overflow-y: scroll;
+        max-height: 70%;
+        width: 100%;
+        &::-webkit-scrollbar {
+          width: 3px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-button {
+          width: 6px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #e1e1e1;
+          border: 0px none #ffffff;
+          border-radius: 100px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: #060606;
+        }
+        &::-webkit-scrollbar-thumb:active {
+          background: #656262;
+        }
+        &::-webkit-scrollbar-track {
+          background: #000000;
+          border: 0px none #ffffff;
+          border-radius: 100px;
+        }
+        &::-webkit-scrollbar-track:hover {
+          background: #666666;
+        }
+        &::-webkit-scrollbar-track:active {
+          background: #333333;
+        }
+        &::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+    }
+    .user_profile {
+      display: flex;
+      font-size: 0.9em;
+      flex-direction: row;
+      align-items: flex-start;
+      // width: 57vw;
+      .profile_pic {
+        width: 30%;
+        padding: 2%;
+        img {
+          width: 100%;
+        }
+      }
+      .profile_info {
+        color: white;
+        font-size: .9em;
+        line-height: 1.8;
+        padding-top: 2%;
+        .player_badge {
+          font-family: 'Cinzel-Bold';
+        }
+        .name {
+          color: #d0d0d0;
+        }
+        .amt {
+          background: url('../img/text_bg2.png');
+          background-size: 100% 100%;
+          text-align: center;
+          padding: 5% 15%;
+          img {
+            width: 1em;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .item {
+      background: transparent;
+      color: white;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0; // padding:0px 2%;
+      margin: 0% 4%;
+      font-size: 1em;
+      padding: 10px 0px;
+    }
+    .amt_modify {
+      text-align: center;
+      font-size: 1em;
+      color: white;
+      padding: 5%;
+      word-spacing: 20px;
+    }
+  }
+  
+}
+
+

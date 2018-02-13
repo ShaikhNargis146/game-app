@@ -1,6 +1,6 @@
 <div class="main_lobby menu_content">
-  <div class="user_profile " >
-    <div class="profile_pic" >
+  <div class="user_profile ">
+    <div class="profile_pic">
       <img src="img/playing_profile.png" ng-click="openMenu()">
     </div>
     <div class="profile_info">
@@ -11,35 +11,35 @@
     </div>
   </div>
 
-  <div class="lobby_content {{VariationActive}}">
+  <div class="lobby_content" ng-class="{'variation_active':VariationActive}">
     <div class="logo">
       <img src="img/logo.png">
     </div>
     <div class="categorys row">
-      <div class="play_now  col" ui-sref="app.table">
+      <div class="play_now  col" ng-click="goTO('playnow')">
         <span class="text-grad"> Play Now </span>
       </div>
-      <div class="play_joker  col" ui-sref="app.table">
+      <div class="play_joker  col" ng-click="goTO('playjoker')">
         <span class="text-grad"> Play Joker</span>
       </div>
-      <div class="variation col" ng-click="variationToggle()" ng-blur="hsa()">
+      <div class="variation col" ng-click="variationToggle()">
         <span class=" text-grad"> Variation </span>
       </div>
-      <div class="private_table col" ui-sref="app.table">
+      <div class="private_table col" ng-click="goTO('privatetable')">
         <span class="text-grad"> Private Table </span>
       </div>
     </div>
     <div class="categorys row variation_subtype">
-      <div class="folding_joker col" ui-sref="app.table">
+      <div class="folding_joker col" ui-sref="table">
         <span class="text-grad"> Folding joker </span>
       </div>
-      <div class="red_and_black col" ui-sref="app.table">
+      <div class="red_and_black col" ui-sref="table">
         <span class="text-grad"> red and black </span>
       </div>
-      <div class="one_eyed col" ui-sref="app.table">
+      <div class="one_eyed col" ui-sref="table">
         <span class="text-grad"> One-eyed Jack </span>
       </div>
-      <div class="odd_sequence col" ui-sref="app.table">
+      <div class="odd_sequence col" ui-sref="table">
         <span class="text-grad"> odd sequence </span>
       </div>
 
@@ -49,11 +49,14 @@
 </div>
 
 
-<div class="custom_menu lobby_menu {{sideMenu}}">
+
+
+<!-- side menu -->
+<div class="custom_menu lobby_menu " ng-class="{'menu_open':sideMenu}" ng-click="closeAllTab()">
   <div class="menu_close" ng-click="closeMenu()">
-    X
+    <img src="img/close.png">
   </div>
-  <div class="menu_cont">
+  <div class="menu_cont" ng-click="$event.stopPropagation()">
 
     <div class="user_profile left ">
       <div class="profile_pic">
@@ -64,30 +67,28 @@
         <div class="player_badge"> Bronze </div>
         <div class="amt">
           <img src="img/lobby/yellow_coin.png"> 100000</div>
-        
+
       </div>
-     
+
     </div>
-    <div class="amt_modify">
-        <span>ADD</span>
-        <span>Withdrawal</span>
-      </div>
-    <ion-list>
-      <ion-item  >
+    <!-- <div class="amt_modify">
+      <span>ADD</span>
+      <span>Withdrawal</span>
+    </div> -->
+
+    <ion-list class="menu_list custom-scroll">
+      <ion-item ng-click="openPLModal()">
         profit and loss
       </ion-item>
-      <ion-item >
+      <ion-item ng-click="openACStatement()">
         account statement
       </ion-item>
-      <ion-item >
+      <ion-item ng-click="openTransferStatement()">
         transfer statement
       </ion-item>
-      <ion-item >
-        chance password
+      <ion-item ng-click="openChangePasswordModel()">
+        change password
       </ion-item>
-    
-     
     </ion-list>
-
   </div>
 </div>
