@@ -10022,6 +10022,11 @@ body {
 .activated {
   transform: scale(0.99); }
 
+.val {
+  color: red !important;
+  font-size: 13px;
+  font-family: serif; }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover; }

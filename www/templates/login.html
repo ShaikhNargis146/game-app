@@ -3,21 +3,23 @@
     <img src="img/login/logo.png" class="login_logo">
     <form name="login">
 
-     
+
       <div class="login_button row">
-           <div class="col col-20"><img src="img/login/icon_king.png" class="icon"></div>
-           <input class="col" type="text" name="name" ng-model="data.username" placeholder="USER ID">
+        <div class="col col-20"><img src="img/login/icon_king.png" class="icon"></div>
+        <input class="col" type="text" name="username" ng-model="data.username" placeholder="USER NAME" required>
       </div>
+      <span  class="val" ng-show="login.username.$touched && login.username.$invalid">username is required.</span>
+
       <div class="login_button row">
-            <div class="col col-20"><img src="img/login/icon_lock.png" class="icon"></div>
-            <input class="col" type="password" name="password" ng-model="data.password" placeholder="PASSWORD">
-       </div>
-      
-       <div class="login_button_submit row">
-        
+        <div class="col col-20"><img src="img/login/icon_lock.png" class="icon"></div>
+        <input class="col" type="password" name="password" ng-model="data.password" placeholder="PASSWORD" required>
+      </div>
+      <span class="val" ng-show="login.password.$touched && login.password.$invalid">password is required.</span>
+
+      <div class="login_button_submit row">
         <button class="button" type='submit' ng-click="playerLogin(data)">LOGIN</button>
-   </div>
-         </form>
+      </div>
+    </form>
 
   </div>
 </div>

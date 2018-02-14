@@ -219,6 +219,12 @@ body {
   transform: scale(.99);
 }
 
+.val {
+  color: red !important;
+  font-size: 13px;
+  font-family: serif;
+}
+
 //login page scss
 @import "login";
 //king table scss
