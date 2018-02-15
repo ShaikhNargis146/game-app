@@ -9,6 +9,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
     console.log("close called");
   }
 
+
+
+
+
   $scope.closeAllModal();
 
   $scope.closeLeftMenu = function () {
@@ -63,6 +67,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
   }
 
 
+
   //modal for player details
   $ionicModal.fromTemplateUrl('templates/model/player-details.html', {
     scope: $scope,
@@ -79,9 +84,30 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
     $scope.playerDetails.hide();
   }
 
+
+  //table info modal
+  $ionicModal.fromTemplateUrl('templates/model/tableinfo.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.tableInfoModal = modal;
+    $scope.tableInfoModal.show();
+  });
+
+  $scope.showTableInfoModal = function () {
+    $scope.tableInfoModal.show();
+  }
+  $scope.closeTableInfoModal = function () {
+    $scope.tableInfoModal.hide();
+  }
+
+  // main playper clicked
   $scope.mainPlayerClicked = function () {
     console.log("main player");
   }
+
+
+
 
   //to add and remove coin
   $scope.addCoin = function () {
@@ -94,12 +120,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
   }
 
 
-  $scope.showCard=function(){
+  $scope.showCard = function () {
     console.log("inside show card");
-    $('.showing_cards img:nth-child(1)').attr("src","img/table/cardA.png");
-    $('.showing_cards img:nth-child(2)').attr("src","img/table/cardA.png");
-    $('.showing_cards img:nth-child(3)').attr("src","img/table/cardA.png");
-    $(".card_see").css("display","none");
+    $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
+    $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
+    $('.showing_cards img:nth-child(3)').attr("src", "img/table/cardA.png");
+    $(".card_see").css("display", "none");
   }
 
 
@@ -109,19 +135,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
   });
 
   //back button
-  $ionicPlatform.onHardwareBackButton(function(event) {
+  $ionicPlatform.onHardwareBackButton(function (event) {
     event.preventDefault();
     event.stopPropagation();
-   console.log("back")
- });
+    console.log("back")
+  });
 
 
 
-$scope.playerData=$.jStorage.get("player");
-  console.log("$scope.playerData",$scope.playerData);
-$scope.username=$scope.playerData.username;
-$scope.userType=$scope.playerData.userType;
-$scope.credit=$scope.playerData.credit;
+  $scope.playerData = $.jStorage.get("player");
+  console.log("$scope.playerData", $scope.playerData);
+  $scope.username = $scope.playerData.username;
+  $scope.userType = $scope.playerData.userType;
+  $scope.credit = $scope.playerData.credit;
 
 
 

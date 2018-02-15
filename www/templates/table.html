@@ -5,7 +5,7 @@
       <!-- <img src="img/option.png" class=""> -->
       <i class="icon ion-navicon-round"></i>
     </div>
-    <div class="play_history  left " ng-class="{'open_play_history':viewHistory}" >
+    <div class="play_history  left " ng-class="{'open_play_history':viewHistory}">
       <div class="border-gradient">
         <div class="bg-style cont">
           <div>Charles Played Blind </div>
@@ -28,14 +28,6 @@
         <table class="bg-style">
           <tr>
             <th colspan="2" class="heading">Table Info</th>
-          </tr>
-          <tr>
-            <td>
-              Pot-Limit
-            </td>
-            <td>
-              10000
-            </td>
           </tr>
           <tr>
             <td>
@@ -119,7 +111,7 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div  ng-click="sitHere()" class="plyr player4 sit_here ">
+      <div ng-click="sitHere()" class="plyr player4 sit_here ">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -206,7 +198,7 @@
         <div class="plyr_pic">
           <img class="pic" src="img/playing_profile.png">
           <div class="plyr_card">
-              
+
             <img src="img/card-back.png">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -353,14 +345,14 @@
         <span class="slide_show"> side show </span>
         <!--<span class="info"> christie kallies
           <img src="img/coin.png">120000 </span>-->
-          <span class="info"> {{username}}
+        <span class="info"> {{username}}
           <img src="img/coin.png">120000 </span>
-        <span class="minus" ng-click="removeCoin()">
+        <span class="minus no-click-effect" ng-click="removeCoin()">
           <i class="icon ion-minus-round"></i>
         </span>
         <span class="coin">
           <img src="img/coin.png">{{coin}} blind</span>
-        <span class="plus" ng-click="addCoin()">+</span>
+        <span class="plus no-click-effect" ng-click="addCoin()">+</span>
 
       </div>
     </div>
@@ -385,7 +377,7 @@
           <img src="img/lobby/yellow_coin.png"> 100000</div>-->
 
 
-    <div class="name">{{username}}</div>
+        <div class="name">{{username}}</div>
         <div class="player_badge"> {{userType}} </div>
         <div class="amt">
           <img src="img/lobby/yellow_coin.png"> {{credit}}</div>
@@ -455,7 +447,7 @@
           </div>
         </label>
       </ion-item> -->
-      <ion-item >
+      <ion-item>
         vibration
         <ion-toggle ng-model="sound" toggle-class="" class="custom_toggle"></ion-toggle>
 

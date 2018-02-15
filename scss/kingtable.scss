@@ -418,7 +418,7 @@
     .playing-player-info {
       position: absolute;
       left: 0;
-      bottom: 15%;
+      bottom: 0;
       /* top: 0; */
       color: white;
       text-align: center;
@@ -426,6 +426,7 @@
       /* margin: 0 auto; */
       width: 100%;
       // transform: translateY(-180%);
+      transform: translateY(-85%);
       z-index: 4;
       img {
         width: 1em;
@@ -435,7 +436,9 @@
         background: url('../img/text_bg.png');
         background-size: 100% 100%; // margin:10px;
         font-size: 1em;
-        padding: 2.2% 2.5%;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block;
       }
       .pack {
         margin: 0px 10px;
@@ -448,10 +451,15 @@
       .info {
         background: url('../img/text_bg3.png');
         background-size: 100% 100%;
+        min-width: 25%;
       }
       .minus {
         font-size: 1em;
         margin: 0px 5px;
+      }
+      .coin{
+        background: url('../img/text_bg2.png');
+        background-size: 100% 100%;
       }
     }
   }
@@ -466,16 +474,22 @@
     width: 50% !important;
     margin-right: 45% !important;
     padding: 1% 5% !important;
+    
   }
   .plyr_card {
     left: 35% !important;
     width: 95% !important;
   }
   .main-player {
+  
     .plyr_pic {
       display: block !important;
       .pic{
         margin: 0 auto !important;
+        width: 100% !important;
+    height: 20vh;
+    object-fit: cover;
+    object-position: top;
       }
       .plyr_card 
       {
@@ -484,11 +498,12 @@
       .card_see{
         display: none;
       }
-      
+     
     }
-    // .amt{
-    //   display: none;
-    // }
+
+    .amt{
+      display: none;
+    }
   }
 }
 
@@ -573,6 +588,7 @@
       font-size: 0.9em;
       flex-direction: row;
       align-items: flex-start; // width: 57vw;
+      width: 100%;
       .profile_pic {
         width: 30%;
         padding: 2%;
@@ -595,7 +611,8 @@
           background: url('../img/text_bg2.png');
           background-size: 100% 100%;
           text-align: center;
-          padding: 5% 15%;
+          padding: 5px 15px;
+          white-space: nowrap;
           img {
             width: 1em;
             vertical-align: middle;

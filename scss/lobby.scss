@@ -32,7 +32,7 @@
         background: url('../img/text_bg2.png');
         background-size: 100% 100%;
         text-align: center;
-        padding: 5% 15%; // word-break: normal;
+        padding: 5px 15px; // word-break: normal;
         white-space: nowrap;
         img {
           width: 1em;
@@ -89,6 +89,28 @@
         }
       }
     }
+    .table_type {
+      width: 60%;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow-x: scroll;
+      .type {
+        width:20%;
+        background: url('../img/lobby/text_bg.png');
+        background-size: 100% 100%;
+        margin: 2%;
+        padding: 3%;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center; // color:white;
+        display: inline-block;
+        span {
+          font-size: .7em;
+          line-height: 1.5;
+        }
+      }
+    }
   } //scss when variation is clicked
   .variation_active {
     transition: all 500ms;
@@ -136,6 +158,18 @@
           opacity: 1;
         }
       }
+    }
+  }
+
+
+  //open table type
+  .open_tabletype{
+    transition: all 500ms;
+    margin-top: - 12%;
+    .logo {
+      opacity: 0;
+      visibility: none;
+      transition: none;
     }
   }
 }
@@ -230,7 +264,7 @@
           background: url('../img/text_bg2.png');
           background-size: 100% 100%;
           text-align: center;
-          padding: 5% 15%;
+          padding: 5px 15px;
           white-space: nowrap;
           img {
             width: 1em;

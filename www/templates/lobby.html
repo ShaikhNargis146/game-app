@@ -1,7 +1,7 @@
-<div class="main_lobby menu_content">
+<div class="main_lobby menu_content no-click-effect" ng-click="closeAllTab()">
   <div class="user_profile ">
     <div class="profile_pic">
-      <img src="img/playing_profile.png" ng-click="openMenu()">
+      <img src="img/playing_profile.png" ng-click="openMenu($event)">
     </div>
     <div class="profile_info">
       <div class="name">{{username}}</div>
@@ -12,41 +12,64 @@
     </div>
   </div>
 
-  <div class="lobby_content" ng-class="{'variation_active':VariationActive}">
+  <div class="lobby_content" ng-class="{'variation_active':VariationActive,'open_tabletype':showType}">
     <div class="logo">
       <img src="img/logo.png">
     </div>
     <div class="categorys row">
-      <div class="play_now  col" ng-click="goTO('playnow')">
+      <div class="play_now  col" ng-click="playNow($event)">
         <span class="text-grad"> Play Now </span>
       </div>
-      <div class="play_joker  col" ng-click="goTO('playjoker')">
+      <div class="play_joker  col" ng-click="playJoker($event)">
         <span class="text-grad"> Play Joker</span>
       </div>
-      <div class="variation col" ng-click="variationToggle()">
+      <div class="variation col" ng-click="variationToggle($event)">
         <span class=" text-grad"> Variation </span>
       </div>
       <div class="private_table col" ng-click="goTO('privatetable')">
         <span class="text-grad"> Private Table </span>
       </div>
     </div>
-    <div class="categorys row variation_subtype">
-      <div class="folding_joker col" ui-sref="table">
+    <div class="categorys row variation_subtype" ng-if='VariationActive'>
+      <div class=" col" ui-sref="table">
         <span class="text-grad"> Folding joker </span>
       </div>
-      <div class="red_and_black col" ui-sref="table">
+      <div class=" col" ui-sref="table">
         <span class="text-grad"> red and black </span>
       </div>
-      <div class="one_eyed col" ui-sref="table">
+      <div class=" col" ui-sref="table">
         <span class="text-grad"> One-eyed Jack </span>
       </div>
-      <div class="odd_sequence col" ui-sref="table">
+      <div class=" col" ui-sref="table">
         <span class="text-grad"> odd sequence </span>
       </div>
 
     </div>
 
+    <!-- include class="vertical_scroll" to provide scroll to the overflow -->
+    <div class="table_type" ng-if="showType">
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+      <div class="type">
+        <span class="text-grad" ui-sref="table"> Play Now </span>
+      </div>
+    </div>
+
   </div>
+</div>
 </div>
 
 
@@ -64,15 +87,15 @@
         <img src="img/playing_profile.png">
       </div>
       <div class="profile_info">
-        <div class="name">Christle Kallis</div>
+        <!-- <div class="name">Christle Kallis</div>
         <div class="player_badge"> Bronze </div>
         <div class="amt">
-          <img src="img/lobby/yellow_coin.png"> 100000</div>
+          <img src="img/lobby/yellow_coin.png"> 100000</div> -->
 
-          <!--<div class="name">{{username}}</div>
+        <div class="name">{{username}}</div>
         <div class="player_badge"> {{userType}} </div>
         <div class="amt">
-          <img src="img/lobby/yellow_coin.png"> {{credit}}</div>-->
+          <img src="img/lobby/yellow_coin.png"> {{credit}}</div>
 
       </div>
 

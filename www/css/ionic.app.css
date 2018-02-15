@@ -10019,8 +10019,44 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.vertical_scroll::-webkit-scrollbar {
+  width: 3px;
+  height: 3px; }
+
+.vertical_scroll::-webkit-scrollbar-button {
+  width: 6px;
+  height: 6px; }
+
+.vertical_scroll::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 100px; }
+
+.vertical_scroll::-webkit-scrollbar-thumb:hover {
+  background: #060606; }
+
+.vertical_scroll::-webkit-scrollbar-thumb:active {
+  background: #656262; }
+
+.vertical_scroll::-webkit-scrollbar-track {
+  background: #000000;
+  border: 0px none #ffffff;
+  border-radius: 100px; }
+
+.vertical_scroll::-webkit-scrollbar-track:hover {
+  background: #666666; }
+
+.vertical_scroll::-webkit-scrollbar-track:active {
+  background: #333333; }
+
+.vertical_scroll::-webkit-scrollbar-corner {
+  background: transparent; }
+
 .activated {
   transform: scale(0.99); }
+
+.no-click-effect {
+  transform: none !important; }
 
 .val {
   color: red !important;
@@ -10029,7 +10065,8 @@ body {
 
 .login {
   background: url("../img/login/background.png");
-  background-size: cover; }
+  background-size: cover;
+  background-position: 50%; }
   .login .login_block {
     position: absolute;
     top: 50%;
@@ -10087,7 +10124,7 @@ body {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: 10px; }
+      margin: 3%; }
       .login .login_block .login_button .icon {
         width: 35%;
         transform: translateY(20%); }
@@ -10146,6 +10183,15 @@ body {
           font-size: 1em; }
     .login .login_block .bg-style {
       background: url("../img/login_button_backgroun2.png"); }
+    .login .login_block .valid {
+      color: red;
+      float: left;
+      /* padding-right: 10%; */
+      padding-left: 5%;
+      margin-top: -2%;
+      line-height: 2; }
+    .login .login_block .invailduser {
+      width: 100%; }
 
 .main_lobby {
   background: url("../img/lobby/lobby_bg.jpg");
@@ -10177,7 +10223,7 @@ body {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
         text-align: center;
-        padding: 5% 15%;
+        padding: 5px 15px;
         white-space: nowrap; }
         .main_lobby .user_profile .profile_info .amt img {
           width: 1em;
@@ -10222,6 +10268,21 @@ body {
         padding: 3%; }
         .main_lobby .lobby_content .variation_subtype > div span {
           font-size: .7em; }
+    .main_lobby .lobby_content .table_type {
+      width: 60%;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow-x: scroll; }
+      .main_lobby .lobby_content .table_type .type {
+        width: 20%;
+        background: url("../img/lobby/text_bg.png");
+        background-size: 100% 100%;
+        margin: 2%;
+        padding: 3%;
+        display: inline-block; }
+        .main_lobby .lobby_content .table_type .type span {
+          font-size: .7em;
+          line-height: 1.5; }
   .main_lobby .variation_active {
     transition: all 500ms;
     margin-top: -12%; }
@@ -10245,6 +10306,13 @@ body {
         opacity: 1; }
         .main_lobby .variation_active .variation_subtype > div span {
           opacity: 1; }
+  .main_lobby .open_tabletype {
+    transition: all 500ms;
+    margin-top: -12%; }
+    .main_lobby .open_tabletype .logo {
+      opacity: 0;
+      visibility: none;
+      transition: none; }
 
 .lobby_menu .menu_close {
   color: #f9df93;
@@ -10317,7 +10385,7 @@ body {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
         text-align: center;
-        padding: 5% 15%;
+        padding: 5px 15px;
         white-space: nowrap; }
         .lobby_menu .menu_cont .user_profile .profile_info .amt img {
           width: 1em;
@@ -10604,13 +10672,14 @@ body {
     .kingtable .main-table .playing-player-info {
       position: absolute;
       left: 0;
-      bottom: 15%;
+      bottom: 0;
       /* top: 0; */
       color: white;
       text-align: center;
       font-size: 1em;
       /* margin: 0 auto; */
       width: 100%;
+      transform: translateY(-85%);
       z-index: 4; }
       .kingtable .main-table .playing-player-info img {
         width: 1em;
@@ -10619,7 +10688,9 @@ body {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
         font-size: 1em;
-        padding: 2.2% 2.5%; }
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block; }
       .kingtable .main-table .playing-player-info .pack {
         margin: 0px 10px; }
       .kingtable .main-table .playing-player-info .slide_show {
@@ -10628,10 +10699,14 @@ body {
         margin: 0px 5px; }
       .kingtable .main-table .playing-player-info .info {
         background: url("../img/text_bg3.png");
-        background-size: 100% 100%; }
+        background-size: 100% 100%;
+        min-width: 25%; }
       .kingtable .main-table .playing-player-info .minus {
         font-size: 1em;
         margin: 0px 5px; }
+      .kingtable .main-table .playing-player-info .coin {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%; }
 
 .kingtable .plyr {
   width: 10% !important; }
@@ -10648,11 +10723,18 @@ body {
 .kingtable .main-player .plyr_pic {
   display: block !important; }
   .kingtable .main-player .plyr_pic .pic {
-    margin: 0 auto !important; }
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 20vh;
+    object-fit: cover;
+    object-position: top; }
   .kingtable .main-player .plyr_pic .plyr_card {
     display: none; }
   .kingtable .main-player .plyr_pic .card_see {
     display: none; }
+
+.kingtable .main-player .amt {
+  display: none; }
 
 .option_menu .menu_close {
   color: #f9df93;
@@ -10715,7 +10797,8 @@ body {
     display: flex;
     font-size: 0.9em;
     flex-direction: row;
-    align-items: flex-start; }
+    align-items: flex-start;
+    width: 100%; }
     .option_menu .menu_cont .user_profile .profile_pic {
       width: 30%;
       padding: 2%; }
@@ -10734,7 +10817,8 @@ body {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
         text-align: center;
-        padding: 5% 15%; }
+        padding: 5px 15px;
+        white-space: nowrap; }
         .option_menu .menu_cont .user_profile .profile_info .amt img {
           width: 1em;
           vertical-align: middle; }
@@ -10925,3 +11009,23 @@ body {
     color: white;
     padding: 5px 25px;
     border: 0px; }
+
+.table_info_modal .heading {
+  font-size: 1.5em; }
+
+.table_info_modal table {
+  font-size: 1.5em;
+  margin: 5% auto;
+  width: 70%; }
+  .table_info_modal table td {
+    padding: 4%; }
+
+.table_info_modal button {
+  background: url("../img/model/submit_background.png");
+  background-size: 100% 100%;
+  color: white;
+  padding: 5px 25px;
+  border: 0px; }
+
+.table_info_modal .ok {
+  text-align: center; }
