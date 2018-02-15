@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var myApp = angular.module('starter', ['ionic','starter.service','ionic.swiper'])
+var myApp = angular.module('starter', ['ionic','starter.service'])
 
 .run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -59,7 +59,7 @@ var myApp = angular.module('starter', ['ionic','starter.service','ionic.swiper']
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('lobby');
+  $urlRouterProvider.otherwise('login');
 });
 
 myApp.controller("AppCtrl", function ($scope) {
