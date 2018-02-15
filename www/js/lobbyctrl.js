@@ -168,10 +168,26 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
 
       Service.passwordchange(data, function (data) {
         console.log("data in password", data);
+if(data.data=="Old password did not match")
+{
+$scope.fail1=true;
+$scope.success=false;
+$scope.fail2=false;
+}
+else if(data.data=="Password changed")
+{
+$scope.success=true;
+$scope.fail1=false;
+$scope.fail2=false;
+}
+
       });
 
     } else {
       console.log("passwords does not matches");
+      $scope.fail2=true;
+      $scope.success=false;
+      $scope.fail1=false;
     }
   };
 
