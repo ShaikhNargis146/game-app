@@ -1,7 +1,7 @@
 myApp.controller("LoginCtrl",function($scope,Service,$state){
 console.log("login controller");
-
-$scope.playerLogin = function (data) {
+$scope.invalidUser=false;
+$scope.playerLogin = function (data,login) {
     console.log("in player login")
             Service.playerLogin(data, function (data) {
                 console.log("dataaaaa",data);
@@ -10,20 +10,16 @@ $scope.playerLogin = function (data) {
                     $.jStorage.set("player", data.data);
                     $scope.playerData = $.jStorage.get("player");
                     $scope.data.playerData = $scope.playerData;
-                    $scope.data.buyInAmt = 0;
-                    Service.deductBuyInAmount($scope.data, function (data) {
-                        if (data.data.value) {
-                            $scope.data.playerData = data.data.data;
-                            Service.sendAccessToken($scope.data, function (data) {
+                     Service.sendAccessToken($scope.data, function (data) {
                                 console.log("login completed");
                                 $state.go("lobby");
                             })
-                        } else {
-                            console.log("Insufficient balance");
-                        }
-                    })
                 } else {
                     console.log("Invalid credentials");
+                    if(!login.$invalid){
+                        $scope.invalidUser=true;
+                    }
+                    console.log(login)
                 }
             })
         }
