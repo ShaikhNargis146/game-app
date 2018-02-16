@@ -4,8 +4,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
   //to close all tab and side menu
   $scope.closeAllTab = function () {
     $scope.VariationActive = false;
+    $scope.playNowActive = false;
     $scope.sideMenu = false;
     $scope.showType = false;
+    $scope.playJokerActive = false;
   }
   $scope.closeAllTab();
 
@@ -13,6 +15,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
   $scope.variationToggle = function ($event) {
     $event.stopPropagation();
     $scope.showType = false;
+    $scope.playNowActive = false;
+    $scope.playJokerActive=false;
     if ($scope.VariationActive) {
       $scope.VariationActive = false;
     } else {
@@ -130,28 +134,55 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
 
-  $scope.playNow = function ($event) {
 
+
+  //onclick for each play type
+
+  $scope.playNow = function ($event) {
+   
     if (!$scope.VariationActive) {
+      $scope.playNowActive = true;
       $event.stopPropagation();
       $scope.showType = !$scope.showType;
     }
 
+    if(!$scope.showType){
+      $scope.playNowActive=false;
+      $scope.playJokerActive=false;
+    }
   }
 
   $scope.playJoker = function ($event) {
 
     if (!$scope.VariationActive) {
+      $scope.playNowActive = false;
+      $scope.playJokerActive=true;
       $event.stopPropagation();
       $scope.showType = !$scope.showType;
     }
-
+    if(!$scope.showType){
+      $scope.playNowActive=false;
+      $scope.playJokerActive=false;
+    }
   }
 
   //for table selection//
+
   Service.tableData(function (data) {
     console.log("table data", data.data.data.results);
+    $scope.tableData = data.data.data.results;
   });
+
+  $scope.goToTable = function (table) {
+    console.log("table selected", table);
+    console.log("table id", table._id);
+    $scope.tableId = table._id;
+    $state.go('table', {
+      'tableId': $scope.tableId
+    });
+  }
+
+
 
 
 
@@ -168,26 +199,23 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
 
       Service.passwordchange(data, function (data) {
         console.log("data in password", data);
-if(data.data=="Old password did not match")
-{
-$scope.fail1=true;
-$scope.success=false;
-$scope.fail2=false;
-}
-else if(data.data=="Password changed")
-{
-$scope.success=true;
-$scope.fail1=false;
-$scope.fail2=false;
-}
+        if (data.data == "Old password did not match") {
+          $scope.fail1 = true;
+          $scope.success = false;
+          $scope.fail2 = false;
+        } else if (data.data == "Password changed") {
+          $scope.success = true;
+          $scope.fail1 = false;
+          $scope.fail2 = false;
+        }
 
       });
 
     } else {
       console.log("passwords does not matches");
-      $scope.fail2=true;
-      $scope.success=false;
-      $scope.fail1=false;
+      $scope.fail2 = true;
+      $scope.success = false;
+      $scope.fail1 = false;
     }
   };
 

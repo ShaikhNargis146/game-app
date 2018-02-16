@@ -152,11 +152,17 @@
 }
 
 .table_info_modal {
+  top: 15%;
+  right: 25%;
+  bottom: 15%;
+  left: 25%;
+  width: 50%;
   .heading {
     font-size: 1.5em;
+    padding-top: 8%;
   }
   table {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 5% auto;
     width: 70%;
     td {
@@ -170,7 +176,7 @@
     padding: 5px 25px;
     border: 0px;
   }
-  .ok{
-    text-align: center; 
+  .ok {
+    text-align: center;
   }
 }
