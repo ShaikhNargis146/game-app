@@ -123,7 +123,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
-    console.log("destory called");
+    console.log("destory called lobby");
     $scope.PLModal.remove();
     $scope.ACStatementModal.remove();
     $scope.transferStatementModal.remove();

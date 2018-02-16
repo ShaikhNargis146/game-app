@@ -1,4 +1,8 @@
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform,$state,Service) {
+  $ionicPlatform.ready(function () {
+    screen.orientation.lock('landscape')
+})
+
   $scope.coin = 200;
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;

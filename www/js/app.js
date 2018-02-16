@@ -53,6 +53,7 @@ var myApp = angular.module('starter', ['ionic','starter.service'])
   })
   .state('lobby', {
     url: '/lobby',
+    cache: false,
     templateUrl: 'templates/lobby.html',
     controller:'LobbyCtrl'
     
