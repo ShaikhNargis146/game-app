@@ -66,10 +66,8 @@ angular.module('starter.service', [])
 
 
       getOneTable: function (id, callback) {
-        $http({
-          url: url + '/api/Table/getOne',
-          _id: id,
-          method: 'POST'
+        $http.post(url + '/api/Table/getOne', {
+          _id: id
         }).then(callback);
       },
 

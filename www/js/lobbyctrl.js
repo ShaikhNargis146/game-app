@@ -173,16 +173,14 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
   //for table selection//
 
   Service.tableData(function (data) {
-    console.log("table data", data.data.data.results);
     $scope.tableData = data.data.data.results;
   });
 
   $scope.goToTable = function (table) {
-    console.log("table selected", table);
     console.log("table id", table._id);
     $scope.tableId = table._id;
     $state.go('table', {
-      'tableId': $scope.tableId
+      'id': $scope.tableId
     });
   }
 
@@ -199,10 +197,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
     if (data.newPassword == data.repeatPassword) {
       $scope.playerData = $.jStorage.get("player");
       $scope.passwordData._id = $scope.playerData._id;
-      console.log("password data", $scope.passwordData);
 
       Service.passwordchange(data, function (data) {
-        console.log("data in password", data);
         if (data.data == "Old password did not match") {
           $scope.fail1 = true;
           $scope.success = false;
@@ -222,17 +218,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
       $scope.fail1 = false;
     }
   };
-
-
-
-
-
-
-
-
-
-
-
 
 
   // $scope.stopPropagation=function($event){

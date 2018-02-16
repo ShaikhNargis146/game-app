@@ -1,9 +1,9 @@
-myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform,$state,Service) {
+myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
-})
+  })
 
-  $scope.coin = 200;
+  
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
     $scope.rightMenu = false;
@@ -127,7 +127,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform,$sta
     $(".card_see").css("display", "none");
   }
 
-$scope.$on('$destroy', function () {
+  $scope.$on('$destroy', function () {
     console.log("destory called from table");
     $scope.tableInfoModal.remove();
     $scope.closeAllModal();
@@ -140,13 +140,35 @@ $scope.$on('$destroy', function () {
     console.log("back")
   });
 
-
-
   $scope.playerData = $.jStorage.get("player");
-  console.log("$scope.playerData", $scope.playerData);
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
+
+
+
+
+  //for table data//
+
+  $scope.tableId = $stateParams.id;
+
+  Service.getOneTable($stateParams.id, function (data) {
+    $scope.tableData = data.data.data;
+    console.log("selected table data", $scope.tableData);
+    $scope.bootAmt=$scope.tableData.bootAmt;
+    $scope.chalLimit=$scope.tableData.chalLimit;
+    $scope.blindAmt=$scope.tableData.blindAmt;
+    console.log("$scope.blindAmt", $scope.blindAmt);
+    $scope.chalAmt=$scope.tableData.chalAmt;
+    console.log("$scope.chalAmt", $scope.chalAmt);
+    $scope.maxBlind=$scope.tableData.maxBlind;
+
+
+    $scope.coin =$scope.blindAmt ;
+  });
+
+
+
 
 
 

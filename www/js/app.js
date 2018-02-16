@@ -33,7 +33,7 @@ var myApp = angular.module('starter', ['ionic','starter.service'])
   $stateProvider
 
     .state('table', {
-      url: '/table/:tableId',
+      url: '/table/:id',
       cache: false,
       templateUrl: 'templates/table.html',
       controller: 'TableCtrl'
