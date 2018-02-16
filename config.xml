@@ -86,4 +86,5 @@
     <allow-navigation href="http://192.168.1.123:8100" />
     <plugin name="phonegap-plugin-mobile-accessibility" spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
 </widget>

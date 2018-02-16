@@ -1,4 +1,8 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, Service) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatform, Service) {
+
+  $ionicPlatform.ready(function () {
+    screen.orientation.lock('landscape')
+})
   console.log("hi this is lobby")
 
   //to close all tab and side menu
