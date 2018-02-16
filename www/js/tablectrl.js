@@ -165,7 +165,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.removeCoin = function () {
     if ($scope.coin > 0)
-      $scope.coin = $scope.coin - 200;
+      $scope.coin = $scope.coin/2;
   }
 
 
