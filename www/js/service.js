@@ -65,6 +65,14 @@ angular.module('starter.service', [])
       },
 
 
+      getOneTable: function (id, callback) {
+        $http({
+          url: url + '/api/Table/getOne',
+          _id: id,
+          method: 'POST'
+        }).then(callback);
+      },
+
 
       passwordchange: function (data, callback) {
         $http.post(adminurl + '/api/member/changePassword', data).then(function (data) {

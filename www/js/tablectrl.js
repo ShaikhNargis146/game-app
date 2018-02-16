@@ -1,5 +1,4 @@
-myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
-  console.log("hi");
+myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform,$state,Service) {
   $scope.coin = 200;
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -8,10 +7,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
     $scope.viewHistory = false;
     console.log("close called");
   }
-
-
-
-
 
   $scope.closeAllModal();
 
@@ -128,9 +123,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform) {
     $(".card_see").css("display", "none");
   }
 
-
-  $scope.$on('$destroy', function () {
+$scope.$on('$destroy', function () {
     console.log("destory called from table");
+    $scope.tableInfoModal.remove();
     $scope.closeAllModal();
   });
 

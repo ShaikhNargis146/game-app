@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="lobby_content" ng-class="{'variation_active':VariationActive,'open_tabletype':showType}">
+  <div class="lobby_content" ng-class="{'variation_active':VariationActive,'open_tabletype':showType,'playnow-active':playNowActive,'playjoker-active':playJokerActive}">
     <div class="logo">
       <img src="img/logo.png">
     </div>
@@ -47,7 +47,7 @@
     </div>
 
     <!-- include class="vertical_scroll" to provide scroll to the overflow -->
-    <div class="table_type" ng-if="showType">
+    <!--<div class="table_type" ng-if="showType">
       <div class="type">
         <span class="text-grad" ui-sref="table"> Play Now </span>
       </div>
@@ -66,10 +66,16 @@
       <div class="type">
         <span class="text-grad" ui-sref="table"> Play Now </span>
       </div>
-    </div>
+    </div>-->
 
+
+    <div class="table_type no-click-effect" ng-if="showType" ng-click="$event.stopPropagation()">
+      <div class="type" ng-repeat="t in tableData track by $index">
+        <span class="text-grad" ng-click="goToTable(t)"> {{t.chalLimit}} </span>
+      </div>
+
+    </div>
   </div>
-</div>
 </div>
 
 
