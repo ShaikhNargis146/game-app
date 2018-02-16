@@ -108,16 +108,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-  //to add and remove coin
-  $scope.addCoin = function () {
-    $scope.coin = $scope.coin + 200;
-  }
-
-  $scope.removeCoin = function () {
-    if ($scope.coin > 0)
-      $scope.coin = $scope.coin - 200;
-  }
-
+  
 
   $scope.showCard = function () {
     console.log("inside show card");
@@ -167,9 +158,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.coin =$scope.blindAmt ;
   });
 
+//to add and remove coin
+  $scope.addCoin = function () {
+    $scope.coin =$scope.coin * 2;
+  }
 
-
-
+  $scope.removeCoin = function () {
+    if ($scope.coin > 0)
+      $scope.coin = $scope.coin - 200;
+  }
 
 
 });

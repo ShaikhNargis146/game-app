@@ -1,8 +1,8 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatform, Service) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service) {
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
-})
+  })
   console.log("hi this is lobby")
 
   //to close all tab and side menu
@@ -20,7 +20,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
     $event.stopPropagation();
     $scope.showType = false;
     $scope.playNowActive = false;
-    $scope.playJokerActive=false;
+    $scope.playJokerActive = false;
     if ($scope.VariationActive) {
       $scope.VariationActive = false;
     } else {
@@ -95,10 +95,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
   });
 
   $scope.openChangePasswordModel = function () {
+    $scope.data = {};
+    $scope.fail1 = false;
+    $scope.success = false;
+    $scope.fail2 = false;
     $scope.changePasswordModel.show();
   }
   $scope.closeChangePasswordModel = function () {
     $scope.changePasswordModel.hide();
+    console.log("cancel modal");
+
   }
 
 
@@ -143,16 +149,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
   //onclick for each play type
 
   $scope.playNow = function ($event) {
-   
+
     if (!$scope.VariationActive) {
       $scope.playNowActive = true;
       $event.stopPropagation();
       $scope.showType = !$scope.showType;
     }
 
-    if(!$scope.showType){
-      $scope.playNowActive=false;
-      $scope.playJokerActive=false;
+    if (!$scope.showType) {
+      $scope.playNowActive = false;
+      $scope.playJokerActive = false;
     }
   }
 
@@ -160,13 +166,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal,$ionicPlatfo
 
     if (!$scope.VariationActive) {
       $scope.playNowActive = false;
-      $scope.playJokerActive=true;
+      $scope.playJokerActive = true;
       $event.stopPropagation();
       $scope.showType = !$scope.showType;
     }
-    if(!$scope.showType){
-      $scope.playNowActive=false;
-      $scope.playJokerActive=false;
+    if (!$scope.showType) {
+      $scope.playNowActive = false;
+      $scope.playJokerActive = false;
     }
   }
 
