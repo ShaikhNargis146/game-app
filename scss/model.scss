@@ -162,11 +162,10 @@
 .table_info_modal {
   height: 60%;
   width: 50%;
-  top:20%;
-  left:25%;
+  top: 20%;
+  left: 25%;
   .heading {
-    font-size: 1.5em;
-    // padding-top: 8%;
+    font-size: 1.5em; // padding-top: 8%;
     font-family: 'Cinzel-Bold';
     border-image: $border-color;
     border-image-slice: 2;
@@ -196,17 +195,16 @@
     transform: translateX(-50%);
     padding-bottom: 2%;
   }
-  .scroll{
-    height:100%;
+  .scroll {
+    height: 100%;
   }
 }
 
 .room_summary {
   height: 50%;
   width: 50%;
-  top:25%;
-  left:25%;
-  // transform: translate(-50%,-50%) !important;
+  top: 25%;
+  left: 25%; // transform: translate(-50%,-50%) !important;
   .heading {
     font-family: 'Cinzel-Bold';
     border-image: $border-color;
@@ -238,17 +236,106 @@
     padding: 13% 5%;
     font-family: 'Cinzel-Bold';
   }
-  .scroll{
-    height:100%;
+  .scroll {
+    height: 100%;
   }
 }
 
-.active .modal-backdrop-bg{
-  opacity: .5 !important;
+.active .modal-backdrop-bg {
+  background: rgba(0, 0, 0, 0.8);
 }
 
+.player-details {
+  top: 5%;
+  bottom: 5%;
+  background: url('../img/table/profilebg.jpg');
+  background-size: 100% 100%;
+  width: 50%;
+  left: 25%;
+  right: 25%;
+  .outer {
+    padding: 8% 2%;
+    width: 100%;
+    .profile {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 5%;
+      .profile_pic {
+        width: 20%;
+        padding: 1%;
+      }
+      .profile_info {
+        font-size: .9em;
+        line-height: 1.8;
+        padding-left: 2%;
+        .badges {
+          font-family: 'Cinzel-Bold';
+        }
+        .amt {
+          background: url('../img/text_bg2.png');
+          background-size: 100% 100%;
+          text-align: center;
+          padding: 3px 5px;
+          width: 80%;
+          white-space: nowrap;
+          .coin {
+            width: 1em;
+            vertical-align: middle;
+            padding: 1%;
+          }
+        }
+      }
+      .player_id {
+        position: absolute;
+        top: 8%;
+        right: 2%;
+        font-size: .9em;
+      }
+    }
+    .divide{
+      background: $border-color;
+      height: 1px;
+      width: 80%;
+      margin: 0px auto;
+      padding: 0;
+      border:0px;
+    }
 
-.player-details{
-top:10%;
+    .profile_data{
+      font-size: .9em;
+      padding-top: 5%;
+      .p_heading{
+        text-align: center;
+        padding:0px;
+      }
+      .table_stats{
+        .chips_won{
+          padding: 5% 0px;
+          line-height: 1.5;
+          .coin{
+            width: 1em;
+            vertical-align: middle;
+            padding: 1%;
+          }
+        }
+        .hands_won{
+          padding: 5% 0px;
+          line-height: 1.5;
+        }
+      }
+      .player_rank{
+        .last_week{
+          padding: 5% 0px;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .active_days{
+      position: absolute;
+      font-size: .7em;
+right:2%;
 bottom:10%;
+    }
+  }
 }

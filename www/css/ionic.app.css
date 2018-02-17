@@ -10063,6 +10063,9 @@ body {
   font-size: 13px;
   font-family: serif; }
 
+.img-responsive {
+  max-width: 100%; }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover;
@@ -10570,6 +10573,9 @@ body {
           line-height: 1.5; }
         .kingtable .main-table .playing-table .sit_here.player8, .kingtable .main-table .playing-table .sit_here.player7 {
           bottom: 45%; }
+        .kingtable .main-table .playing-table .sit_here.main-player {
+          width: 10% !important;
+          bottom: 20%; }
       .kingtable .main-table .playing-table .card_fold .plyr_card {
         display: none; }
       .kingtable .main-table .playing-table .card_fold .pic {
@@ -11100,8 +11106,76 @@ body {
     height: 100%; }
 
 .active .modal-backdrop-bg {
-  opacity: .5 !important; }
+  background: rgba(0, 0, 0, 0.8); }
 
 .player-details {
-  top: 10%;
-  bottom: 10%; }
+  top: 5%;
+  bottom: 5%;
+  background: url("../img/table/profilebg.jpg");
+  background-size: 100% 100%;
+  width: 50%;
+  left: 25%;
+  right: 25%; }
+  .player-details .outer {
+    padding: 8% 2%;
+    width: 100%; }
+    .player-details .outer .profile {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 5%; }
+      .player-details .outer .profile .profile_pic {
+        width: 20%;
+        padding: 1%; }
+      .player-details .outer .profile .profile_info {
+        font-size: .9em;
+        line-height: 1.8;
+        padding-left: 2%; }
+        .player-details .outer .profile .profile_info .badges {
+          font-family: 'Cinzel-Bold'; }
+        .player-details .outer .profile .profile_info .amt {
+          background: url("../img/text_bg2.png");
+          background-size: 100% 100%;
+          text-align: center;
+          padding: 3px 5px;
+          width: 80%;
+          white-space: nowrap; }
+          .player-details .outer .profile .profile_info .amt .coin {
+            width: 1em;
+            vertical-align: middle;
+            padding: 1%; }
+      .player-details .outer .profile .player_id {
+        position: absolute;
+        top: 8%;
+        right: 2%;
+        font-size: .9em; }
+    .player-details .outer .divide {
+      background: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+      height: 1px;
+      width: 80%;
+      margin: 0px auto;
+      padding: 0;
+      border: 0px; }
+    .player-details .outer .profile_data {
+      font-size: .9em;
+      padding-top: 5%; }
+      .player-details .outer .profile_data .p_heading {
+        text-align: center;
+        padding: 0px; }
+      .player-details .outer .profile_data .table_stats .chips_won {
+        padding: 5% 0px;
+        line-height: 1.5; }
+        .player-details .outer .profile_data .table_stats .chips_won .coin {
+          width: 1em;
+          vertical-align: middle;
+          padding: 1%; }
+      .player-details .outer .profile_data .table_stats .hands_won {
+        padding: 5% 0px;
+        line-height: 1.5; }
+      .player-details .outer .profile_data .player_rank .last_week {
+        padding: 5% 0px;
+        line-height: 1.5; }
+    .player-details .outer .active_days {
+      position: absolute;
+      font-size: .7em;
+      right: 2%;
+      bottom: 10%; }

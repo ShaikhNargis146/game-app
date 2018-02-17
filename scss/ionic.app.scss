@@ -265,6 +265,10 @@ transform: none !important;
   font-family: serif;
 }
 
+
+.img-responsive{
+max-width:100%;
+}
 //login page scss
 @import "login";
 //king table scss
