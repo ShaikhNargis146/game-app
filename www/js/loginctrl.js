@@ -1,20 +1,22 @@
-myApp.controller("LoginCtrl", function ($scope, Service, $state,$ionicPlatform) {
-    $ionicPlatform.ready(function () {
-        screen.orientation.lock('portrait')
-    })
+myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform) {
+  $ionicPlatform.ready(function () {
+    screen.orientation.lock('portrait')
+  })
 
   console.log("login controller");
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
     console.log("in player login")
     Service.playerLogin(data, function (data) {
-      console.log("dataaaaa", data);
+      $scope.accessT = data.data;
       if (data.value) {
+        console.log("$scope.accessT", $scope.accessT);
         console.log("player exist....");
-        $.jStorage.set("player", data.data);
-        $scope.playerData = $.jStorage.get("player");
-        $scope.data.playerData = $scope.playerData;
-        Service.sendAccessToken($scope.data, function (data) {
+        Service.sendAccessToken(data, function (data) {
+          console.log("dataaaaa", data);
+          $.jStorage.set("player", data.data.data);
+          $scope.playerData = $.jStorage.get("player");
+          $scope.data.playerData = $scope.playerData;
           console.log("login completed");
           $state.go("lobby");
         })

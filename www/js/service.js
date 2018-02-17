@@ -64,10 +64,27 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
-
       getOneTable: function (id, callback) {
         $http.post(url + '/api/Table/getOne', {
           _id: id
+        }).then(callback);
+      },
+
+
+// savePlayer: function (data, callback) {
+//         $http({
+//           url: url + '/api/Player/addPlayer',
+//           method: 'POST',
+//           data: data
+//         }).then(callback);
+//       },
+
+
+savePlayerTotable: function (data, callback) {
+        $http({
+          url: url + '/api/Table/addUserToTable',
+          method: 'POST',
+          data: data
         }).then(callback);
       },
 

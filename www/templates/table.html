@@ -63,7 +63,10 @@
     <div class="playing-table">
       <img src="img/doll.png" class="doll">
       <img src="img/table.png" class="bg-table">
-      <div class="plyr player1">
+
+
+      <!--player1-->
+      <div ng-click="sitHere(1)" class="plyr player1 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -79,7 +82,9 @@
           <span>Charles Char le sChar les Pull</span>
         </div>
       </div>
-      <div class="plyr player2">
+
+      <!--player2-->
+      <div ng-click="sitHere(2)" class="plyr player2 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -95,7 +100,10 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div class="plyr player3">
+
+
+      <!--player3-->
+      <div ng-click="sitHere(3)" class="plyr player3 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -111,7 +119,10 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div ng-click="sitHere()" class="plyr player4 sit_here ">
+
+
+      <!--player4-->
+      <div ng-click="sitHere(4)" class="plyr player4 sit_here ">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -127,7 +138,10 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div class="plyr player5">
+
+
+      <!--player5-->
+      <div ng-click="sitHere(5)" class="plyr player5 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -143,7 +157,10 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div class="plyr player6 card_fold">
+
+
+      <!--player6-->
+      <div ng-click="sitHere(6)" class="plyr player6 sit_here">
         <div class="status">FOLD</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -159,23 +176,11 @@
           <span>Charles CharlesCharles Pull</span>
         </div>
       </div>
-      <div class="plyr player7 winner dealer">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <img class="pic" src="img/default_profile.png">
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">64,000</div>
-        <div class="plyr_name" ng-click="openPlayerDetails()">
-          <span>Charles CharlesCharles Pull</span>
-        </div>
-      </div>
-      <div class="plyr player8">
+
+
+
+      <!--player7-->
+      <div ng-click="sitHere(7)" class="plyr player7 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/default_profile.png">
@@ -193,7 +198,46 @@
       </div>
 
 
-      <div class="plyr  main-player " ng-click="mainPlayerClicked()">
+
+      <!--player8-->
+      <div ng-click="sitHere(8)" class="plyr player8 sit_here">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <img class="pic" src="img/default_profile.png">
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">64,000</div>
+        <div class="plyr_name" ng-click="openPlayerDetails()">
+          <span>Charles CharlesCharles Pull</span>
+        </div>
+      </div>
+
+
+
+      <!--player9-->
+      <!--<div class="plyr  main-player " ng-click="mainPlayerClicked()">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <img class="pic" src="img/playing_profile.png">
+          <div class="plyr_card">
+
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+          <div class="card_see">See</div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">64,000</div>
+
+      </div>-->
+
+<div class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(9)">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" src="img/playing_profile.png">
@@ -209,6 +253,13 @@
           <img src="img/coin.png">64,000</div>
 
       </div>
+
+
+
+
+
+
+
       <!-- <div class="other_player player1">
         <div class="col profile_pic">
           <img src="img/default_profile.png">
@@ -334,12 +385,20 @@
           </div>
         </div>
       </div> -->
-      <div class="showing_cards">
+
+
+
+
+
+<!--showCard-->
+      <!--<div class="showing_cards">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <div class="card_see" ng-click="showCard()">See</div>
-      </div>
+      </div>-->
+
+
       <div class="playing-player-info">
         <span class="pack"> PACK </span>
         <span class="slide_show"> side show </span>

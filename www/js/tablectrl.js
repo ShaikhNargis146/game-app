@@ -169,4 +169,43 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
+//player sitting
+$scope.sitHere = function (sitNum) {
+console.log("sitNum",sitNum);
+$scope.sitNummber=sitNum;
+$scope.jdata=$.jStorage.get("player");
+$scope.jdata.sitNummber=$scope.sitNummber;
+$.jStorage.set("player", $scope.jdata);
+$(".main-player").removeClass("sit_here");
+
+$scope.data={};
+
+$scope.data.playerNo=$scope.sitNummber
+$scope.data.playerId=$scope.jdata._id;
+$scope.data.totalAmount=$scope.jdata.credit;
+$scope.data.tableId=$scope.tableId
+console.log("total data to send",$scope.data);
+
+
+// Service.savePlayer($scope.data,function (data) {
+//   console.log("player saved");
+//   });
+
+
+Service.savePlayerTotable($scope.data,function (data) {
+  console.log("player saved");
+  });
+
+
+
+}
+
+
+
+
 });
+
+
+
+
+
