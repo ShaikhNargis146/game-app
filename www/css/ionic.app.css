@@ -10581,7 +10581,8 @@ body {
         display: block;
         content: '';
         background: url("../img/winner.png");
-        background-size: 100% 100%;
+        background-size: 75% 100%;
+        background-repeat: no-repeat;
         height: 7vh;
         width: 100%;
         position: absolute;
