@@ -15,6 +15,14 @@
   }
 }
 
+.small-model {
+  top: 15%;
+  right: 25%;
+  bottom: 15%;
+  left: 25%;
+  width: 50%;
+}
+
 //account statement model
 .statement-model {
   font-size: 1em;
@@ -152,21 +160,25 @@
 }
 
 .table_info_modal {
-  top: 15%;
-  right: 25%;
-  bottom: 15%;
-  left: 25%;
+  height: 60%;
   width: 50%;
+  top:20%;
+  left:25%;
   .heading {
     font-size: 1.5em;
-    padding-top: 8%;
+    // padding-top: 8%;
+    font-family: 'Cinzel-Bold';
+    border-image: $border-color;
+    border-image-slice: 2;
+    border-bottom: 1px solid;
   }
   table {
-    font-size: 1.2em;
-    margin: 5% auto;
+    font-size: 1em;
+    font-family: 'Cinzel-Bold';
+    margin: 6% auto;
     width: 70%;
     td {
-      padding: 4%;
+      padding: 1%;
     }
   }
   button {
@@ -177,6 +189,66 @@
     border: 0px;
   }
   .ok {
-    text-align: center;
+    // text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 2%;
   }
+  .scroll{
+    height:100%;
+  }
+}
+
+.room_summary {
+  height: 50%;
+  width: 50%;
+  top:25%;
+  left:25%;
+  // transform: translate(-50%,-50%) !important;
+  .heading {
+    font-family: 'Cinzel-Bold';
+    border-image: $border-color;
+    border-image-slice: 2;
+    border-bottom: 1px solid;
+  }
+  .ok {
+    // position: absolute;
+    // bottom: 0;
+    // padding-bottom: 5%;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 2%;
+  }
+  button {
+    background: url("../img/model/submit_background.png");
+    background-size: 100% 100%;
+    color: white;
+    padding: 5px 25px;
+    border: 0px;
+  }
+  .cont {
+    text-align: center;
+    padding: 13% 5%;
+    font-family: 'Cinzel-Bold';
+  }
+  .scroll{
+    height:100%;
+  }
+}
+
+.active .modal-backdrop-bg{
+  opacity: .5 !important;
+}
+
+
+.player-details{
+top:10%;
+bottom:10%;
 }

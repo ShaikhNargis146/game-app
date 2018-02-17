@@ -16,17 +16,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.closeAllTab();
 
 
-  $scope.variationToggle = function ($event) {
-    $event.stopPropagation();
-    $scope.showType = false;
-    $scope.playNowActive = false;
-    $scope.playJokerActive = false;
-    if ($scope.VariationActive) {
-      $scope.VariationActive = false;
-    } else {
-      $scope.VariationActive = true;
-    }
-  }
+
+
 
   $scope.closeMenu = function () {
     $scope.sideMenu = false;
@@ -108,6 +99,25 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
 
 
+  //room summary
+
+  $ionicModal.fromTemplateUrl('templates/model/room-summary.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.roomSummaryModel = modal;
+    $scope.roomSummaryModel.show();
+  });
+
+  $scope.openRoomSummaryModel = function () {
+        $scope.roomSummaryModel.show();
+  }
+  $scope.closeRoomSummaryModel = function () {
+    $scope.roomSummaryModel.hide();
+
+  }
+
+
 
   // going to next SVGViewElement
   $scope.goTO = function (view) {
@@ -119,23 +129,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     if ($scope.gameType == "playnow") {
       console.log("show tables");
     }
-
-
-
   }
 
 
 
 
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function () {
-    console.log("destory called lobby");
-    $scope.PLModal.remove();
-    $scope.ACStatementModal.remove();
-    $scope.transferStatementModal.remove();
-    $scope.changePasswordModel.remove();
-    $scope.closeAllTab();
-  });
 
 
   $scope.playerData = $.jStorage.get("player");
@@ -147,6 +145,18 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   //onclick for each play type
+  $scope.variationToggle = function ($event) {
+    $event.stopPropagation();
+    $scope.showType = false;
+    $scope.playNowActive = false;
+    $scope.playJokerActive = false;
+    if ($scope.VariationActive) {
+      $scope.VariationActive = false;
+    } else {
+      $scope.VariationActive = true;
+    }
+  }
+
 
   $scope.playNow = function ($event) {
 
@@ -226,6 +236,18 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
 
+
+
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    console.log("destory called lobby");
+    $scope.PLModal.remove();
+    $scope.ACStatementModal.remove();
+    $scope.transferStatementModal.remove();
+    $scope.changePasswordModel.remove();
+    $scope.roomSummaryModel.remove();
+    $scope.closeAllTab();
+  });
   // $scope.stopPropagation=function($event){
   // $event.stopPropagation();
   // }

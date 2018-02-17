@@ -1,37 +1,29 @@
-<ion-modal-view class="custom-model statement-model table_info_modal">
+<ion-modal-view class="custom-model statement-model player-details small-model">
 
   <ion-content>
-    <div class="close" ng-click="closePlayerDetails()">
-      <img src="img/close.png">
+    <div class="outer">
+      <div class="close" ng-click="closePlayerDetails()">
+        <img src="img/close.png">
+      </div>
+      <div class="profile">
+
+        <div class=profile_pic>
+          <img src="img/playing_profile.png" class="img-responsive">
+        </div>
+        <div class="profile_info">
+          <div class="name">christie kallis</div>
+          <div class="badge">bronze</div>
+          <div class="amt">
+            <img src="img/lobby/yellow_coin.png">10k
+          </div>
+        </div>
+        <div class="player_id">
+          Player id :123456789
+        </div>
+      </div>
+
+
+
     </div>
-    <div class="heading">Player Details</div>
-    <!-- <div class="field">
-      <form name="changepassword">
-        <table>
-          <tr>
-            <td>old password</td>
-            <td>
-              <input type="text">
-            </td>
-          </tr>
-          <tr>
-            <td>new password</td>
-            <td>
-              <input type="text">
-            </td>
-          </tr>
-          <tr>
-            <td>Repeat new password</td>
-            <td>
-              <input type="text">
-            </td>
-          </tr>
-        </table>
-        <button type="submit">Change</button>
-      </form>
-    </div> -->
-
-
-
   </ion-content>
 </ion-modal-view>

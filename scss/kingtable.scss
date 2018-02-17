@@ -48,7 +48,7 @@
     .play_history {
       position: absolute;
       left: 15%;
-      top: 10px;
+      top:-2px;
       font-size: 0.5em;
       color: white;
       width: 30%;
@@ -191,6 +191,10 @@
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5;
+        }
+
+        &.player8,&.player7{
+          bottom: 45%;
         }
       } // add this class to apply card fold css
       .card_fold {

@@ -10117,7 +10117,8 @@ body {
         font-weight: bold;
         font-family: 'Cinzel-Bold';
         font-weight: bold;
-        font-size: 1em; }
+        font-size: 1em;
+        border: 0px; }
     .login .login_block .login_button {
       background: url("../img/login_button_background1.png");
       background-size: 100% 100%;
@@ -10458,7 +10459,7 @@ body {
     .kingtable .top_field .play_history {
       position: absolute;
       left: 15%;
-      top: 10px;
+      top: -2px;
       font-size: 0.5em;
       color: white;
       width: 30%;
@@ -10567,6 +10568,8 @@ body {
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5; }
+        .kingtable .main-table .playing-table .sit_here.player8, .kingtable .main-table .playing-table .sit_here.player7 {
+          bottom: 45%; }
       .kingtable .main-table .playing-table .card_fold .plyr_card {
         display: none; }
       .kingtable .main-table .playing-table .card_fold .pic {
@@ -10924,6 +10927,13 @@ body {
   .custom-model ion-content {
     padding: 4%; }
 
+.small-model {
+  top: 15%;
+  right: 25%;
+  bottom: 15%;
+  left: 25%;
+  width: 50%; }
+
 .statement-model {
   font-size: 1em; }
   .statement-model .close {
@@ -11027,20 +11037,23 @@ body {
     border: 0px; }
 
 .table_info_modal {
-  top: 15%;
-  right: 25%;
-  bottom: 15%;
-  left: 25%;
-  width: 50%; }
+  height: 60%;
+  width: 50%;
+  top: 20%;
+  left: 25%; }
   .table_info_modal .heading {
     font-size: 1.5em;
-    padding-top: 8%; }
+    font-family: 'Cinzel-Bold';
+    border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+    border-image-slice: 2;
+    border-bottom: 1px solid; }
   .table_info_modal table {
-    font-size: 1.2em;
-    margin: 5% auto;
+    font-size: 1em;
+    font-family: 'Cinzel-Bold';
+    margin: 6% auto;
     width: 70%; }
     .table_info_modal table td {
-      padding: 4%; }
+      padding: 1%; }
   .table_info_modal button {
     background: url("../img/model/submit_background.png");
     background-size: 100% 100%;
@@ -11048,4 +11061,46 @@ body {
     padding: 5px 25px;
     border: 0px; }
   .table_info_modal .ok {
-    text-align: center; }
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 2%; }
+  .table_info_modal .scroll {
+    height: 100%; }
+
+.room_summary {
+  height: 50%;
+  width: 50%;
+  top: 25%;
+  left: 25%; }
+  .room_summary .heading {
+    font-family: 'Cinzel-Bold';
+    border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+    border-image-slice: 2;
+    border-bottom: 1px solid; }
+  .room_summary .ok {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 2%; }
+  .room_summary button {
+    background: url("../img/model/submit_background.png");
+    background-size: 100% 100%;
+    color: white;
+    padding: 5px 25px;
+    border: 0px; }
+  .room_summary .cont {
+    text-align: center;
+    padding: 13% 5%;
+    font-family: 'Cinzel-Bold'; }
+  .room_summary .scroll {
+    height: 100%; }
+
+.active .modal-backdrop-bg {
+  opacity: .5 !important; }
+
+.player-details {
+  top: 10%;
+  bottom: 10%; }
