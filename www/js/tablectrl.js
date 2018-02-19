@@ -180,10 +180,11 @@ $(".main-player").removeClass("sit_here");
 
 $scope.data={};
 
-$scope.data.playerNo=$scope.sitNummber
+$scope.data.playerNo=$scope.sitNummber;
 $scope.data.playerId=$scope.jdata._id;
 $scope.data.totalAmount=$scope.jdata.credit;
 $scope.data.tableId=$scope.tableId
+$scope.data.sitNummber=$scope.sitNummber
 console.log("total data to send",$scope.data);
 
 

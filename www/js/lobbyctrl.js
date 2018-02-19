@@ -1,4 +1,4 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service,$http) {
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
@@ -141,6 +141,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
+  $scope.image = $scope.playerData.image;
+  console.log("$scope.image///////",$scope.image)
 
 
 

@@ -67,3 +67,58 @@ myApp.controller("AppCtrl", function ($scope) {
   console.log("hi")
 });
 
+
+
+myApp.filter('uploadpath', function () {
+  console.log("hello image")
+    return function (input, width, height, style) {
+      console.log("imput",input);
+        var other = "";
+        if (width && width !== "") {
+            other += "&width=" + width;
+        }
+        if (height && height !== "") {
+            other += "&height=" + height;
+        }
+        if (style && style !== "") {
+            other += "&style=" + style;
+        }
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+              console.log(" imgpat", imgpath + "?file=" + input + other);
+                return imgpath + "?file=" + input + other;
+            } else {
+                return input;
+            }
+        }
+    };
+});
+
+myApp.filter('serverimage', function () {
+   return function (input, width, height, style) {
+       if (input) {
+  console.log("hiinputiiiiiii",input)
+         
+           if (input.substr(0, 4) == "http") {
+               return input;
+           } else {
+               image = imgpath + "?file=" + input;
+               console.log("imageimage",image)
+               if (width) {
+                   image += "&width=" + width;
+               }
+               if (height) {
+                   image += "&height=" + height;
+               }
+               if (style) {
+                   image += "&style=" + style;
+               }
+               return image;
+           }
+
+       } else {
+           return "img/logo.png";
+       }
+   };
+});
+
