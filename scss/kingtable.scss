@@ -63,7 +63,7 @@
         color: #fde4bc;
       }
       .cont {
-        height: 2em;
+        height: 1.2rem;
         overflow: hidden;
         transition: all 500ms;
       } //when tab is opened
@@ -196,7 +196,7 @@
           bottom: 45%;
         }
         &.main-player {
-          width:10% !important;
+          width: 10% !important;
           bottom: 20%;
         }
       } // add this class to apply card fold css
