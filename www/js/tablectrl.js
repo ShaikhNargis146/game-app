@@ -3,7 +3,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     screen.orientation.lock('landscape')
   })
 
-  
+
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
     $scope.rightMenu = false;
@@ -108,7 +108,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-  
+
 
   $scope.showCard = function () {
     console.log("inside show card");
@@ -146,67 +146,62 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   Service.getOneTable($stateParams.id, function (data) {
     $scope.tableData = data.data.data;
     console.log("selected table data", $scope.tableData);
-    $scope.bootAmt=$scope.tableData.bootAmt;
-    $scope.chalLimit=$scope.tableData.chalLimit;
-    $scope.blindAmt=$scope.tableData.blindAmt;
+    $scope.bootAmt = $scope.tableData.bootAmt;
+    $scope.chalLimit = $scope.tableData.chalLimit;
+    $scope.blindAmt = $scope.tableData.blindAmt;
     console.log("$scope.blindAmt", $scope.blindAmt);
-    $scope.chalAmt=$scope.tableData.chalAmt;
+    $scope.chalAmt = $scope.tableData.chalAmt;
     console.log("$scope.chalAmt", $scope.chalAmt);
-    $scope.maxBlind=$scope.tableData.maxBlind;
+    $scope.maxBlind = $scope.tableData.maxBlind;
 
 
-    $scope.coin =$scope.blindAmt ;
+    $scope.coin = $scope.blindAmt;
   });
 
-//to add and remove coin
+  //to add and remove coin
   $scope.addCoin = function () {
-    $scope.coin =$scope.coin * 2;
+    $scope.coin = $scope.coin * 2;
   }
 
   $scope.removeCoin = function () {
     if ($scope.coin > 0)
-      $scope.coin = $scope.coin/2;
+      $scope.coin = $scope.coin / 2;
   }
 
 
-//player sitting
-$scope.sitHere = function (sitNum) {
-console.log("sitNum",sitNum);
-$scope.sitNummber=sitNum;
-$scope.jdata=$.jStorage.get("player");
-$scope.jdata.sitNummber=$scope.sitNummber;
-$.jStorage.set("player", $scope.jdata);
-$(".main-player").removeClass("sit_here");
-
-$scope.data={};
-
-$scope.data.playerNo=$scope.sitNummber;
-$scope.data.memberId=$scope.jdata._id;
-$scope.data.totalAmount=$scope.jdata.credit;
-$scope.data.tableId=$scope.tableId
-$scope.data.sitNummber=$scope.sitNummber
-console.log("total data to send",$scope.data);
+  //player sitting
+  $scope.sitHere = function (sitNum) {
+    console.log("sitNum", sitNum);
+    $scope.sitNummber = sitNum;
+    $scope.jdata = $.jStorage.get("player");
+    $scope.jdata.sitNummber = $scope.sitNummber;
+    $.jStorage.set("player", $scope.jdata);
 
 
-// Service.savePlayer($scope.data,function (data) {
-//   console.log("player saved");
-//   });
+    $scope.data = {};
+
+    $scope.data.playerNo = $scope.sitNummber;
+    $scope.data.memberId = $scope.jdata._id;
+    $scope.data.totalAmount = $scope.jdata.credit;
+    $scope.data.tableId = $scope.tableId;
+    $scope.data.sitNummber = $scope.sitNummber;
 
 
-Service.savePlayerTotable($scope.data,function (data) {
-  console.log("player saved");
-  });
+    Service.savePlayerTotable($scope.data, function (data) {
+      if (data.data.value) {
+        console.log("player saved");
+        $(".main-player").removeClass("sit_here");
+      } else {
+        console.log("error", data.data.error);
+      }
+
+    });
 
 
 
-}
+  }
 
 
 
 
 });
-
-
-
-
-
