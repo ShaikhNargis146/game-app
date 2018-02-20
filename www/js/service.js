@@ -1,8 +1,8 @@
-var adminurl = "http://192.168.1.129:1337";
-var url = "http://192.168.1.134:1338";
+var adminurl = "http://192.168.1.129:1337/api/";
+var url = "http://192.168.1.134:1338/api/";
 
 var imgurl = adminurl + "upload/";
-var imgpath = imgurl + "readFile?file=";
+var imgpath = imgurl + "readFile";
 angular.module('starter.service', [])
 
   .factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet) {
@@ -34,7 +34,7 @@ angular.module('starter.service', [])
       },
 
       playerLogin: function (data, callback) {
-        $http.post(adminurl + '/api/member/playerLogin', data).then(function (data) {
+        $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
           data = data.data;
           callback(data);
         });
@@ -42,7 +42,7 @@ angular.module('starter.service', [])
 
       deductBuyInAmount: function (data, callback) {
         $http({
-          url: adminurl + '/api/member/deductBuyInAmount',
+          url: adminurl + 'member/deductBuyInAmount',
           method: 'POST',
           data: data
         }).then(callback);
@@ -50,7 +50,7 @@ angular.module('starter.service', [])
 
       sendAccessToken: function (data, callback) {
         $http({
-          url: url + '/api/User/requestSend',
+          url: url + 'User/requestSend',
           method: 'POST',
           data: data
         }).then(callback);
@@ -59,13 +59,13 @@ angular.module('starter.service', [])
 
       tableData: function (callback) {
         $http({
-          url: url + '/api/Table/search',
+          url: url + 'Table/search',
           method: 'POST'
         }).then(callback);
       },
 
       getOneTable: function (id, callback) {
-        $http.post(url + '/api/Table/getOne', {
+        $http.post(url + 'Table/getOne', {
           _id: id
         }).then(callback);
       },
@@ -82,7 +82,7 @@ angular.module('starter.service', [])
 
 savePlayerTotable: function (data, callback) {
         $http({
-          url: url + '/api/Table/addUserToTable',
+          url: url + 'Table/addUserToTable',
           method: 'POST',
           data: data
         }).then(callback);
@@ -90,7 +90,7 @@ savePlayerTotable: function (data, callback) {
 
 
       passwordchange: function (data, callback) {
-        $http.post(adminurl + '/api/member/changePassword', data).then(function (data) {
+        $http.post(adminurl + 'member/changePassword', data).then(function (data) {
           data = data.data;
           callback(data);
         });

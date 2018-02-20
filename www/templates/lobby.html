@@ -1,8 +1,8 @@
 <div class="main_lobby menu_content no-click-effect" ng-click="closeAllTab()">
   <div class="user_profile ">
     <div class="profile_pic">
-      <img src="img/playing_profile.png" ng-click="openMenu($event)">
-      <!--<img ng-src="{{image | uploadpath}}" ng-click="openMenu($event)">-->
+      <!--<img src="img/playing_profile.png" ng-click="openMenu($event)">-->
+      <img ng-src="{{image | serverimage}}" ng-click="openMenu($event)">
     </div>
     <div class="profile_info">
       <div class="name">{{username}}</div>
@@ -91,7 +91,6 @@
 
     <div class="user_profile left ">
       <div class="profile_pic">
-        {{image}}
         <img ng-src="{{image | serverimage}}">
       </div>
       <div class="profile_info">

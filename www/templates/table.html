@@ -146,7 +146,8 @@
       <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" src="img/playing_profile.png">
+          <!--<img class="pic" src="img/playing_profile.png">-->
+          <img class="pic" ng-src="{{image | serverimage}}">
           <div class="plyr_card">
 
             <img src="img/card-back.png">
@@ -398,7 +399,7 @@
       </div>-->
 
 
-      <div class="playing-player-info">
+      <div ng-if="playingPlayer" class="playing-player-info">
         <span class="pack"> PACK </span>
         <span class="slide_show"> side show </span>
         <!--<span class="info"> christie kallies
@@ -413,6 +414,8 @@
         <span class="plus no-click-effect" ng-click="addCoin()">+</span>
 
       </div>
+
+
     </div>
   </div>
 </div>
@@ -426,7 +429,8 @@
   <div class="menu_cont" ng-click="stopProgation($event)">
     <div class="user_profile left ">
       <div class="profile_pic">
-        <img src="img/playing_profile.png">
+        <!--<img src="img/playing_profile.png">-->
+        <img ng-src="{{image | serverimage}}">
       </div>
       <div class="profile_info">
         <!--<div class="name">Christle Kallis</div>

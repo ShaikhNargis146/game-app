@@ -132,6 +132,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.playerData = $.jStorage.get("player");
+  $scope.image = $scope.playerData.image;
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
@@ -185,12 +186,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.data.totalAmount = $scope.jdata.credit;
     $scope.data.tableId = $scope.tableId;
     $scope.data.sitNummber = $scope.sitNummber;
+    $scope.data.image = $scope.jdata.image;
 
 
     Service.savePlayerTotable($scope.data, function (data) {
       if (data.data.value) {
         console.log("player saved");
         $(".main-player").removeClass("sit_here");
+        $scope.playingPlayer=true;
       } else {
         console.log("error", data.data.error);
       }
