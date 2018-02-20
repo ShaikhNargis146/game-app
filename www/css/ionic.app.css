@@ -10471,7 +10471,7 @@ body {
         font-size: 3em;
         color: #fde4bc; }
       .kingtable .top_field .play_history .cont {
-        height: 2em;
+        height: 1.2rem;
         overflow: hidden;
         transition: all 500ms; }
       .kingtable .top_field .play_history.open_play_history .cont {
