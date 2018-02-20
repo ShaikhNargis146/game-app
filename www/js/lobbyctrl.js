@@ -101,21 +101,21 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //room summary
 
-  $ionicModal.fromTemplateUrl('templates/model/room-summary.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.roomSummaryModel = modal;
-    $scope.roomSummaryModel.show();
-  });
+  // $ionicModal.fromTemplateUrl('templates/model/room-summary.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function (modal) {
+  //   $scope.roomSummaryModel = modal;
+  //   $scope.roomSummaryModel.show();
+  // });
 
-  $scope.openRoomSummaryModel = function () {
-        $scope.roomSummaryModel.show();
-  }
-  $scope.closeRoomSummaryModel = function () {
-    $scope.roomSummaryModel.hide();
+  // $scope.openRoomSummaryModel = function () {
+  //       $scope.roomSummaryModel.show();
+  // }
+  // $scope.closeRoomSummaryModel = function () {
+  //   $scope.roomSummaryModel.hide();
 
-  }
+  // }
 
 
 
