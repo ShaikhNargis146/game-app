@@ -70,9 +70,7 @@ myApp.controller("AppCtrl", function ($scope) {
 
 
 myApp.filter('uploadpath', function () {
-  console.log("hello image")
     return function (input, width, height, style) {
-      console.log("imput",input);
         var other = "";
         if (width && width !== "") {
             other += "&width=" + width;
@@ -85,7 +83,6 @@ myApp.filter('uploadpath', function () {
         }
         if (input) {
             if (input.indexOf('https://') == -1) {
-              console.log(" imgpat", imgpath + "?file=" + input + other);
                 return imgpath + "?file=" + input + other;
             } else {
                 return input;
@@ -97,13 +94,11 @@ myApp.filter('uploadpath', function () {
 myApp.filter('serverimage', function () {
    return function (input, width, height, style) {
        if (input) {
-  console.log("hiinputiiiiiii",input)
          
            if (input.substr(0, 4) == "http") {
                return input;
            } else {
                image = imgpath + "?file=" + input;
-               console.log("imageimage",image)
                if (width) {
                    image += "&width=" + width;
                }

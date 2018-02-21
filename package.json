@@ -21,6 +21,7 @@
     "ionic-swiper": "^0.3.2",
     "jquery": "^3.3.1",
     "jstorage": "^0.4.8",
+    "lodash": "^4.17.5",
     "phonegap-plugin-mobile-accessibility": "git+https://github.com/phonegap/phonegap-mobile-accessibility.git"
   },
   "cordova": {

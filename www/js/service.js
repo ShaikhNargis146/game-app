@@ -70,17 +70,15 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
+      getAllActive: function (data, callback) {
+        $http({
+          url: url + 'Table/getAllActive',
+          method: 'POST',
+          data: data
+        }).then(callback);
+      },
 
-// savePlayer: function (data, callback) {
-//         $http({
-//           url: url + '/api/Player/addPlayer',
-//           method: 'POST',
-//           data: data
-//         }).then(callback);
-//       },
-
-
-savePlayerTotable: function (data, callback) {
+      savePlayerTotable: function (data, callback) {
         $http({
           url: url + 'Table/addUserToTable',
           method: 'POST',
@@ -95,8 +93,6 @@ savePlayerTotable: function (data, callback) {
           callback(data);
         });
       },
-
-
 
     }
   });

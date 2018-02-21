@@ -3,6 +3,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     screen.orientation.lock('landscape')
   })
 
+  $scope.tableData = {};
+  $scope.tableData.tableId = $stateParams.id;
+
+  Service.getAllActive($scope.tableData, function (data) {
+    if (data.data.value) {
+
+
+      $scope.actPlayers = data.data.data;
+      _.each($scope.actPlayers, function (n) {});
+    }
+  });
+
+
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -193,7 +206,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data.value) {
         console.log("player saved");
         $(".main-player").removeClass("sit_here");
-        $scope.playingPlayer=true;
+        $scope.playingPlayer = true;
       } else {
         console.log("error", data.data.error);
       }
