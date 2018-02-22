@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.1.129:1337/api/";
+var adminurl = "http://192.168.1.134:1337/api/";
 var url = "http://192.168.1.134:1338/api/";
 
 var imgurl = adminurl + "upload/";
@@ -83,6 +83,13 @@ angular.module('starter.service', [])
           url: url + 'Table/addUserToTable',
           method: 'POST',
           data: data
+        }).then(callback);
+      },
+
+
+      getOnePlayer: function (id, callback) {
+        $http.post(url + 'Player/getOne', {
+          _id: id
         }).then(callback);
       },
 

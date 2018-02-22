@@ -9,9 +9,50 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   Service.getAllActive($scope.tableData, function (data) {
     if (data.data.value) {
 
-
       $scope.actPlayers = data.data.data;
-      _.each($scope.actPlayers, function (n) {});
+      console.log("$scope.actPlayers", $scope.actPlayers);
+      _.each($scope.actPlayers, function (n) {
+        console.log("n");
+        $scope.p = n;
+        Service.getOnePlayer($scope.p, function (data) {
+          console.log("dadadadad", data.data.data);
+          $scope.pData = data.data.data;
+          $scope.playerNo = $scope.pData.playerNo;
+          $scope.credit1 = $scope.pData.totalAmount
+          $scope.name = $scope.pData.name
+          console.log("playerNo", $scope.playerNo)
+          if ($scope.playerNo == 1) {
+            $("#plr1").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 2) {
+            $("#plr2").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 3) {
+            $("#plr3").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 4) {
+            $("#plr4").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 5) {
+            $("#plr5").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 6) {
+            $("#plr6").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 7) {
+            $("#plr7").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 8) {
+            $("#plr8").removeClass("sit_here");
+          }
+          if ($scope.playerNo == 9) {
+            $("#plr9").removeClass("sit_here");
+          }
+
+        });
+
+
+      });
     }
   });
 
@@ -200,6 +241,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.data.tableId = $scope.tableId;
     $scope.data.sitNummber = $scope.sitNummber;
     $scope.data.image = $scope.jdata.image;
+    $scope.data.name = $scope.jdata.username;
 
 
     Service.savePlayerTotable($scope.data, function (data) {
