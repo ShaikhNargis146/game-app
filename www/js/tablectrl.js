@@ -11,42 +11,76 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       $scope.actPlayers = data.data.data;
       console.log("$scope.actPlayers", $scope.actPlayers);
-      _.each($scope.actPlayers, function (n) {
+
+
+      // var retVal = false;
+      // data.forEach(function (elm) {
+      //   if (elm.myProp == true) {
+      //     retVal = true;
+      //   }
+      // });
+
+      _.forEach($scope.actPlayers, function (n) {
         console.log("n");
         $scope.p = n;
         Service.getOnePlayer($scope.p, function (data) {
-          console.log("dadadadad", data.data.data);
+          console.log("data..", data.data.data);
           $scope.pData = data.data.data;
-          $scope.playerNo = $scope.pData.playerNo;
-          $scope.credit1 = $scope.pData.totalAmount
-          $scope.name = $scope.pData.name
+         $scope.playerNo = $scope.pData.playerNo;
           console.log("playerNo", $scope.playerNo)
           if ($scope.playerNo == 1) {
             $("#plr1").removeClass("sit_here");
+             
+          $scope.credit1 = $scope.pData.totalAmount;
+          $scope.name1 = $scope.pData.name;
           }
           if ($scope.playerNo == 2) {
             $("#plr2").removeClass("sit_here");
+             
+          $scope.credit2 = $scope.pData.totalAmount;
+          $scope.name2 = $scope.pData.name;
           }
           if ($scope.playerNo == 3) {
             $("#plr3").removeClass("sit_here");
+             
+          $scope.credit3 = $scope.pData.totalAmount;
+          $scope.name3 = $scope.pData.name;
           }
           if ($scope.playerNo == 4) {
             $("#plr4").removeClass("sit_here");
+             
+          $scope.credit4 = $scope.pData.totalAmount;
+          $scope.name4 = $scope.pData.name;
           }
           if ($scope.playerNo == 5) {
             $("#plr5").removeClass("sit_here");
+             
+          $scope.credit5 = $scope.pData.totalAmount;
+          $scope.name5 = $scope.pData.name;
           }
           if ($scope.playerNo == 6) {
             $("#plr6").removeClass("sit_here");
+             
+          $scope.credit6 = $scope.pData.totalAmount;
+          $scope.name6 = $scope.pData.name;
           }
           if ($scope.playerNo == 7) {
             $("#plr7").removeClass("sit_here");
+             
+          $scope.credit7 = $scope.pData.totalAmount;
+          $scope.name7 = $scope.pData.name;
           }
           if ($scope.playerNo == 8) {
             $("#plr8").removeClass("sit_here");
+             
+          $scope.credit8 = $scope.pData.totalAmount;
+          $scope.name8 = $scope.pData.name;
           }
           if ($scope.playerNo == 9) {
             $("#plr9").removeClass("sit_here");
+             
+          $scope.credit9 = $scope.pData.totalAmount;
+          $scope.name9 = $scope.pData.name;
           }
 
         });
