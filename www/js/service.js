@@ -93,6 +93,14 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
+      getByPlrNo: function (data, callback) {
+        $http.post(url + 'Player/getByPlrNo', {
+          data: data
+        }).then(callback);
+      },
+
+
+
 
       passwordchange: function (data, callback) {
         $http.post(adminurl + 'member/changePassword', data).then(function (data) {
