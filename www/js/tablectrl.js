@@ -33,54 +33,64 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
              
           $scope.credit1 = $scope.pData.totalAmount;
           $scope.name1 = $scope.pData.name;
+          $scope.image1 = $scope.pData.image;
           }
           if ($scope.playerNo == 2) {
             $("#plr2").removeClass("sit_here");
              
           $scope.credit2 = $scope.pData.totalAmount;
           $scope.name2 = $scope.pData.name;
+          $scope.image2 = $scope.pData.image;
+          
           }
           if ($scope.playerNo == 3) {
             $("#plr3").removeClass("sit_here");
              
           $scope.credit3 = $scope.pData.totalAmount;
           $scope.name3 = $scope.pData.name;
+          $scope.image3 = $scope.pData.image;
           }
           if ($scope.playerNo == 4) {
             $("#plr4").removeClass("sit_here");
              
           $scope.credit4 = $scope.pData.totalAmount;
           $scope.name4 = $scope.pData.name;
+          $scope.image4 = $scope.pData.image;
           }
           if ($scope.playerNo == 5) {
             $("#plr5").removeClass("sit_here");
              
           $scope.credit5 = $scope.pData.totalAmount;
           $scope.name5 = $scope.pData.name;
+          $scope.image5 = $scope.pData.image;
           }
           if ($scope.playerNo == 6) {
             $("#plr6").removeClass("sit_here");
              
           $scope.credit6 = $scope.pData.totalAmount;
           $scope.name6 = $scope.pData.name;
+          $scope.image6 = $scope.pData.image;
           }
           if ($scope.playerNo == 7) {
             $("#plr7").removeClass("sit_here");
              
           $scope.credit7 = $scope.pData.totalAmount;
           $scope.name7 = $scope.pData.name;
+          $scope.image7 = $scope.pData.image;
           }
           if ($scope.playerNo == 8) {
             $("#plr8").removeClass("sit_here");
              
           $scope.credit8 = $scope.pData.totalAmount;
           $scope.name8 = $scope.pData.name;
+          $scope.image8 = $scope.pData.image;
           }
           if ($scope.playerNo == 9) {
             $("#plr9").removeClass("sit_here");
              
           $scope.credit9 = $scope.pData.totalAmount;
           $scope.name9 = $scope.pData.name;
+          $scope.image9 = $scope.pData.image;
           }
 
         });
