@@ -33,13 +33,28 @@ angular.module('starter.service', [])
         return null;
       },
 
-      playerLogin: function (data, callback) {
+
+
+//from teenpatti backend
+
+playerLogin: function (data, callback) {
         $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
           data = data.data;
           callback(data);
         });
       },
 
+passwordchange: function (data, callback) {
+        $http.post(adminurl + 'member/changePassword', data).then(function (data) {
+          data = data.data;
+          callback(data);
+        });
+      },
+
+
+
+//from teenpatti 
+      
       deductBuyInAmount: function (data, callback) {
         $http({
           url: adminurl + 'member/deductBuyInAmount',
@@ -99,15 +114,6 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
-
-
-
-      passwordchange: function (data, callback) {
-        $http.post(adminurl + 'member/changePassword', data).then(function (data) {
-          data = data.data;
-          callback(data);
-        });
-      },
 
     }
   });
