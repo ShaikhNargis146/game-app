@@ -2,16 +2,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
-
   $scope.tableData = {};
   $scope.tableData.tableId = $stateParams.id;
 
   Service.getAllActive($scope.tableData, function (data) {
     if (data.data.value) {
-
       $scope.actPlayers = data.data.data;
-      console.log("$scope.actPlayers", $scope.actPlayers);
-
+      
 
       // var retVal = false;
       // data.forEach(function (elm) {
@@ -21,13 +18,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       // });
 
       _.forEach($scope.actPlayers, function (n) {
-        console.log("n");
+        // console.log("n");
         $scope.p = n;
         Service.getOnePlayer($scope.p, function (data) {
-          console.log("data..", data.data.data);
+          // console.log("data..", data.data.data);
           $scope.pData = data.data.data;
           $scope.playerNo = $scope.pData.playerNo;
-          console.log("playerNo", $scope.playerNo)
+          // console.log("playerNo", $scope.playerNo);
           if ($scope.playerNo == 1) {
             $("#plr1").removeClass("sit_here");
 
@@ -97,6 +94,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
       });
+      //to start new game
+
+$scope.d={};
+$scope.d.tableId=$stateParams.id;
+
+      if ($scope.actPlayers.length >= 2) {
+      // setDealer
+Service.makeDealer($scope.tableData, function (data) {
+  });
+      }
+
+
     }
   });
 
@@ -212,11 +221,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("main player");
   }
 
-
-
-
-
-
   $scope.showCard = function () {
     console.log("inside show card");
     $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
@@ -257,12 +261,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.bootAmt = $scope.tableData.bootAmt;
     $scope.chalLimit = $scope.tableData.chalLimit;
     $scope.blindAmt = $scope.tableData.blindAmt;
-    console.log("$scope.blindAmt", $scope.blindAmt);
     $scope.chalAmt = $scope.tableData.chalAmt;
-    console.log("$scope.chalAmt", $scope.chalAmt);
     $scope.maxBlind = $scope.tableData.maxBlind;
-
-
+    $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
   });
 
@@ -308,8 +309,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
     });
-
-
 
   }
 

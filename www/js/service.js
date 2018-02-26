@@ -114,6 +114,13 @@ passwordchange: function (data, callback) {
         }).then(callback);
       },
 
+      makeDealer: function (data, callback) {
+        $http.post(url + 'Player/makeDealer', {
+          data: data
+        }).then(callback);
+      },
+
+
 
     }
   });

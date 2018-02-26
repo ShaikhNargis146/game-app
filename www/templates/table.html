@@ -47,6 +47,14 @@
           </tr>
           <tr>
             <td>
+              Table show
+            </td>
+            <td>
+              {{tableShow}}
+            </td>
+          </tr>
+          <tr>
+            <td>
               Max Blind
             </td>
             <td>
@@ -218,7 +226,7 @@
 
 
       <!--player9-->
-      <div id="plr9" ng-click="sitHere(9)" class="plyr player1 sit_here">
+      <!--<div id="plr9" ng-click="sitHere(9)" class="plyr player1 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <img class="pic" ng-src="{{image9 | serverimage}}">
@@ -232,6 +240,23 @@
           <img src="img/coin.png">64,000</div>
         <div class="plyr_name" ng-click="openPlayerDetails(9)">
           <span>Charles Char le sChar les Pull</span>
+        </div>
+      </div>-->
+
+      <div id="plr9" ng-click="sitHere(9)" class="plyr player1 sit_here">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <img class="pic" ng-src="{{image9 | serverimage}}">
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">{{credit9}}</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(9)">
+          <span>{{name9}}</span>
         </div>
       </div>
 
@@ -386,16 +411,13 @@
       </div> -->
 
 
-
-
-
       <!--showCard-->
-      <!--<div class="showing_cards">
+      <div ng-if="cardsShow" class="showing_cards">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <div class="card_see" ng-click="showCard()">See</div>
-      </div>-->
+      </div>
 
 
       <div ng-if="playingPlayer" class="playing-player-info">
