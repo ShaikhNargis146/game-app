@@ -78,8 +78,9 @@
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
-            <div class="profile_pic_overlay">   <img  ng-src="{{image1 | serverimage}}"> </div>
-            
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image1 | serverimage}}"> </div>
+
           </div>
           <div class="plyr_card">
             <img src="img/card-back.png">
@@ -99,7 +100,13 @@
       <div id="plr2" ng-click="sitHere(2)" class="plyr player4 sit_here ">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image2 | serverimage}}">
+
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image2 | serverimage}}"> </div>
+
+          </div>
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -118,7 +125,13 @@
       <div id="plr3" ng-click="sitHere(3)" class="plyr player6 sit_here">
         <div class="status">FOLD</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image3 | serverimage}}">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image3 | serverimage}}"> </div>
+
+          </div>
+
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -137,7 +150,13 @@
       <div id="plr4" ng-click="sitHere(4)" class="plyr player8 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image4 | serverimage}}">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image4 | serverimage}}"> </div>
+
+          </div>
+
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -157,8 +176,12 @@
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <!--<img class="pic" src="img/playing_profile.png">-->
-          <div class="profile_pic_overlay">  <img class="pic" ng-src="{{image | serverimage}}">       </div>
-          
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image | serverimage}}"> </div>
+          </div>
+
+
           <div class="plyr_card">
 
             <img src="img/card-back.png">
@@ -176,11 +199,16 @@
       <div id="plr6" ng-click="sitHere(6)" class="plyr player7 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-            <div class="pic">
-                <div class="profile_pic_overlay">    <img class="" ng-src="{{image6 | serverimage}}"> </div>
-                
-              </div>
-        
+          <div class="pic">
+
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image6 | serverimage}}"> </div>
+
+
+
+
+          </div>
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -199,7 +227,13 @@
       <div id="plr7" ng-click="sitHere(7)" class="plyr player5 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image7 | serverimage}}">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image7 | serverimage}}"> </div>
+
+          </div>
+
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -218,7 +252,12 @@
       <div id="plr8" ng-click="sitHere(8)" class="plyr player3 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image8 | serverimage}}">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image8 | serverimage}}"> </div>
+
+          </div>
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -254,7 +293,12 @@
       <div id="plr9" ng-click="sitHere(9)" class="plyr player1 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
-          <img class="pic" ng-src="{{image9 | serverimage}}">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image9 | serverimage}}"> </div>
+
+          </div>
+
           <div class="plyr_card">
             <img src="img/card-back.png">
             <img src="img/card-back.png">
@@ -460,9 +504,9 @@
       <div class="profile_pic">
         <!--<img src="img/playing_profile.png">-->
         <div class="profile_pic_overlay">
-            <img ng-src="{{image | serverimage}}">
+          <img ng-src="{{image | serverimage}}">
         </div>
-    
+
       </div>
       <div class="profile_info">
         <!--<div class="name">Christle Kallis</div>
