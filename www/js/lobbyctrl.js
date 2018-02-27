@@ -137,12 +137,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.playerData = $.jStorage.get("player");
-  console.log("$scope.playerData", $scope.playerData);
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
   $scope.image = $scope.playerData.image;
-  console.log("$scope.image///////",$scope.image)
 
 
 

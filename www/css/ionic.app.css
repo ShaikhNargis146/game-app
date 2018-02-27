@@ -10052,9 +10052,6 @@ body {
 .vertical_scroll::-webkit-scrollbar-corner {
   background: transparent; }
 
-.activated {
-  transform: scale(0.99); }
-
 .no-click-effect {
   transform: none !important; }
 
@@ -10065,6 +10062,43 @@ body {
 
 .img-responsive {
   max-width: 100%; }
+
+.profile_pic_overlay {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .profile_pic_overlay img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill; }
+  .profile_pic_overlay:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: red;
+    background: url("../img/pic_overlay.png");
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    left: 0; }
+
+.overlay {
+  content: "fake content";
+  height: 0;
+  width: 0;
+  position: relative; }
+  .overlay:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: red;
+    position: absolute;
+    top: 0;
+    opacity: .5;
+    right: 0; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10213,9 +10247,12 @@ body {
     z-index: 3; }
     .main_lobby .user_profile .profile_pic {
       width: 20%;
-      padding: 2%; }
+      padding: 2%;
+      height: 20vh; }
       .main_lobby .user_profile .profile_pic img {
-        width: 100%; }
+        width: 100%;
+        height: 100%;
+        object-fit: fill; }
     .main_lobby .user_profile .profile_info {
       color: white;
       font-size: .9em;
@@ -10389,9 +10426,12 @@ body {
     align-items: flex-start; }
     .lobby_menu .menu_cont .user_profile .profile_pic {
       width: 30%;
-      padding: 2%; }
+      padding: 2%;
+      height: 20vh; }
       .lobby_menu .menu_cont .user_profile .profile_pic img {
-        width: 100%; }
+        width: 100%;
+        height: 100%;
+        object-fit: fill; }
     .lobby_menu .menu_cont .user_profile .profile_info {
       color: white;
       font-size: .9em;
@@ -10551,9 +10591,8 @@ body {
             text-overflow: ellipsis;
             line-height: 2.5;
             text-align: center;
-            text-align: left;
             padding-top: 3%;
-            padding-left: 25%; }
+            padding-left: 15%; }
       .kingtable .main-table .playing-table .sit_here {
         background: url("../img/sit_here.png");
         background-size: 100% 100%;
@@ -10740,7 +10779,8 @@ body {
 .kingtable .pic {
   width: 50% !important;
   margin-right: 45% !important;
-  padding: 1% 5% !important; }
+  padding: 1% 5% !important;
+  height: 7vh; }
 
 .kingtable .plyr_card {
   left: 35% !important;
@@ -10827,7 +10867,8 @@ body {
     width: 100%; }
     .option_menu .menu_cont .user_profile .profile_pic {
       width: 30%;
-      padding: 2%; }
+      padding: 2%;
+      height: 20vh; }
       .option_menu .menu_cont .user_profile .profile_pic img {
         width: 100%; }
     .option_menu .menu_cont .user_profile .profile_info {
@@ -11125,7 +11166,8 @@ body {
       padding-bottom: 5%; }
       .player-details .outer .profile .profile_pic {
         width: 20%;
-        padding: 1%; }
+        padding: 1%;
+        height: 15vh; }
       .player-details .outer .profile .profile_info {
         font-size: .9em;
         line-height: 1.8;
@@ -11136,8 +11178,7 @@ body {
           background: url("../img/text_bg2.png");
           background-size: 100% 100%;
           text-align: center;
-          padding: 3px 5px;
-          width: 80%;
+          padding: 3px 10px;
           white-space: nowrap; }
           .player-details .outer .profile .profile_info .amt .coin {
             width: 1em;
@@ -11163,14 +11204,16 @@ body {
         padding: 0px; }
       .player-details .outer .profile_data .table_stats .chips_won {
         padding: 5% 0px;
-        line-height: 1.5; }
+        line-height: 1.5;
+        text-align: center; }
         .player-details .outer .profile_data .table_stats .chips_won .coin {
           width: 1em;
           vertical-align: middle;
           padding: 1%; }
       .player-details .outer .profile_data .table_stats .hands_won {
         padding: 5% 0px;
-        line-height: 1.5; }
+        line-height: 1.5;
+        text-align: center; }
       .player-details .outer .profile_data .player_rank .last_week {
         padding: 5% 0px;
         line-height: 1.5; }
@@ -11267,8 +11310,8 @@ body {
           align-items: center;
           justify-content: center; }
           .pokar .main-table .playing-table .plyr .plyr_pic .pic {
-            width: 42%;
-            margin-right: 70%;
+            width: 44%;
+            margin-right: 76%;
             margin-top: -8%;
             padding: 0 5%; }
           .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card {

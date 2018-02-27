@@ -2,32 +2,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
-
   $scope.tableData = {};
   $scope.tableData.tableId = $stateParams.id;
 
   Service.getAllActive($scope.tableData, function (data) {
     if (data.data.value) {
-
       $scope.actPlayers = data.data.data;
-      console.log("$scope.actPlayers", $scope.actPlayers);
 
-
-      // var retVal = false;
-      // data.forEach(function (elm) {
-      //   if (elm.myProp == true) {
-      //     retVal = true;
-      //   }
-      // });
 
       _.forEach($scope.actPlayers, function (n) {
-        console.log("n");
+        // console.log("n");
         $scope.p = n;
         Service.getOnePlayer($scope.p, function (data) {
-          console.log("data..", data.data.data);
+          // console.log("data..", data.data.data);
           $scope.pData = data.data.data;
           $scope.playerNo = $scope.pData.playerNo;
-          console.log("playerNo", $scope.playerNo)
+          // console.log("playerNo", $scope.playerNo);
           if ($scope.playerNo == 1) {
             $("#plr1").removeClass("sit_here");
 
@@ -92,11 +82,90 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.name9 = $scope.pData.name;
             $scope.image9 = $scope.pData.image;
           }
+        });
+      });
+      //to start new game
+
+      $scope.d = {};
+      $scope.d.tableId = $stateParams.id;
+      if ($scope.actPlayers.length >= 2 && $scope.newGame == false) {
+        $scope.newGame = true;
+
+        // setDealer
+        Service.makeDealer($scope.tableData, function (data) {
+          console.log("dealer done")
+        });
+
+        Service.deductBootAmount($scope.d, function (data) {
+          console.log("deductBuyInAmount")
 
         });
 
 
-      });
+        //to set//
+        Service.getAllActive($scope.tableData, function (data) {
+          console.log("in set")
+          if (data.data.value) {
+            $scope.actPlayers = data.data.data;
+
+            _.forEach($scope.actPlayers, function (n) {
+              $scope.p = n;
+              Service.getOnePlayer($scope.p, function (data) {
+                $scope.pData = data.data.data;
+                $scope.playerNo = $scope.pData.playerNo;
+                if ($scope.playerNo == 1) {
+
+                  $scope.credit1 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 2) {
+
+                  $scope.credit2 = $scope.pData.totalAmount;
+
+                }
+                if ($scope.playerNo == 3) {
+
+                  $scope.credit3 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 4) {
+
+                  $scope.credit4 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 5) {
+
+                  $scope.credit5 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 6) {
+
+                  $scope.credit6 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 7) {
+
+                  $scope.credit7 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 8) {
+
+                  $scope.credit8 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 9) {
+
+                  $scope.credit9 = $scope.pData.totalAmount;
+                }
+
+              });
+
+
+            });
+          }
+        });
+
+        //to serve//
+
+        Service.serve($scope.d, function (data) {
+          console.log("serve done")
+
+        });
+      }
+
     }
   });
 
@@ -163,8 +232,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("stop propagation");
   }
 
-
-
   //modal for player details
   $ionicModal.fromTemplateUrl('templates/model/player-details.html', {
     scope: $scope,
@@ -212,11 +279,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("main player");
   }
 
-
-
-
-
-
   $scope.showCard = function () {
     console.log("inside show card");
     $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
@@ -244,25 +306,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
 
-
-
-
   //for table data//
 
   $scope.tableId = $stateParams.id;
 
   Service.getOneTable($stateParams.id, function (data) {
     $scope.tableData = data.data.data;
-    console.log("selected table data", $scope.tableData);
     $scope.bootAmt = $scope.tableData.bootAmt;
     $scope.chalLimit = $scope.tableData.chalLimit;
     $scope.blindAmt = $scope.tableData.blindAmt;
-    console.log("$scope.blindAmt", $scope.blindAmt);
     $scope.chalAmt = $scope.tableData.chalAmt;
-    console.log("$scope.chalAmt", $scope.chalAmt);
     $scope.maxBlind = $scope.tableData.maxBlind;
-
-
+    $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
   });
 
@@ -276,7 +331,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.coin = $scope.coin / 2;
   }
 
-
   //player sitting
   $scope.sitHere = function (sitNum) {
     console.log("sitNum", sitNum);
@@ -285,9 +339,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.jdata.sitNummber = $scope.sitNummber;
     $.jStorage.set("player", $scope.jdata);
 
-
     $scope.data = {};
-
     $scope.data.playerNo = $scope.sitNummber;
     $scope.data.memberId = $scope.jdata._id;
     $scope.data.totalAmount = $scope.jdata.credit;
@@ -309,11 +361,5 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     });
 
-
-
   }
-
-
-
-
 });

@@ -263,6 +263,7 @@
       .profile_pic {
         width: 20%;
         padding: 1%;
+        height: 15vh;
       }
       .profile_info {
         font-size: .9em;
@@ -275,8 +276,8 @@
           background: url('../img/text_bg2.png');
           background-size: 100% 100%;
           text-align: center;
-          padding: 3px 5px;
-          width: 80%;
+          padding: 3px 10px;
+          // width: 80%;
           white-space: nowrap;
           .coin {
             width: 1em;
@@ -312,6 +313,7 @@
         .chips_won{
           padding: 5% 0px;
           line-height: 1.5;
+          text-align: center;
           .coin{
             width: 1em;
             vertical-align: middle;
@@ -321,6 +323,7 @@
         .hands_won{
           padding: 5% 0px;
           line-height: 1.5;
+          text-align: center;
         }
       }
       .player_rank{
