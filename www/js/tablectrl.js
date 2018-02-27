@@ -8,7 +8,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   Service.getAllActive($scope.tableData, function (data) {
     if (data.data.value) {
       $scope.actPlayers = data.data.data;
-    
+
 
       _.forEach($scope.actPlayers, function (n) {
         // console.log("n");
@@ -86,105 +86,85 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       });
       //to start new game
 
-$scope.d={};
-$scope.d.tableId=$stateParams.id;
-      if ($scope.actPlayers.length >= 2 && $scope.newGame==false) {
-        $scope.newGame=true;
+      $scope.d = {};
+      $scope.d.tableId = $stateParams.id;
+      if ($scope.actPlayers.length >= 2 && $scope.newGame == false) {
+        $scope.newGame = true;
 
-      // setDealer
-Service.makeDealer($scope.tableData, function (data) {
-  console.log("dealer done")
-});
+        // setDealer
+        Service.makeDealer($scope.tableData, function (data) {
+          console.log("dealer done")
+        });
 
-Service.deductBootAmount($scope.d, function (data) {
-  console.log("deductBuyInAmount")
-
-});
-
-
-//to set//
-Service.getAllActive($scope.tableData, function (data) {
-  console.log("in set")
-    if (data.data.value) {
-      $scope.actPlayers = data.data.data;
-  
-      _.forEach($scope.actPlayers, function (n) {
-        $scope.p = n;
-        Service.getOnePlayer($scope.p, function (data) {
-          $scope.pData = data.data.data;
-          $scope.playerNo = $scope.pData.playerNo;
-          if ($scope.playerNo == 1) {
-
-            $scope.credit1 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 2) {
-
-            $scope.credit2 = $scope.pData.totalAmount;
-
-          }
-          if ($scope.playerNo == 3) {
-
-            $scope.credit3 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 4) {
-
-            $scope.credit4 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 5) {
-
-            $scope.credit5 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 6) {
-
-            $scope.credit6 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 7) {
-
-            $scope.credit7 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 8) {
-
-            $scope.credit8 = $scope.pData.totalAmount;
-          }
-          if ($scope.playerNo == 9) {
-
-            $scope.credit9 = $scope.pData.totalAmount;
-          }
+        Service.deductBootAmount($scope.d, function (data) {
+          console.log("deductBuyInAmount")
 
         });
 
 
-      });
-    }
-});
+        //to set//
+        Service.getAllActive($scope.tableData, function (data) {
+          console.log("in set")
+          if (data.data.value) {
+            $scope.actPlayers = data.data.data;
+
+            _.forEach($scope.actPlayers, function (n) {
+              $scope.p = n;
+              Service.getOnePlayer($scope.p, function (data) {
+                $scope.pData = data.data.data;
+                $scope.playerNo = $scope.pData.playerNo;
+                if ($scope.playerNo == 1) {
+
+                  $scope.credit1 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 2) {
+
+                  $scope.credit2 = $scope.pData.totalAmount;
+
+                }
+                if ($scope.playerNo == 3) {
+
+                  $scope.credit3 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 4) {
+
+                  $scope.credit4 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 5) {
+
+                  $scope.credit5 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 6) {
+
+                  $scope.credit6 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 7) {
+
+                  $scope.credit7 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 8) {
+
+                  $scope.credit8 = $scope.pData.totalAmount;
+                }
+                if ($scope.playerNo == 9) {
+
+                  $scope.credit9 = $scope.pData.totalAmount;
+                }
+
+              });
 
 
-//to serve//
+            });
+          }
+        });
 
-Service.serve($scope.d, function (data) {
-  console.log("serve done")
+        //to serve//
 
-});
+        Service.serve($scope.d, function (data) {
+          console.log("serve done")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        });
       }
-
 
     }
   });
