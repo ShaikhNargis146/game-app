@@ -252,9 +252,9 @@ body {
 }
 
 //when ng-click is called
-.activated {
-  transform: scale(.99);
-}
+// .activated {
+//   transform: scale(.99);
+// }
 
 .no-click-effect{
 transform: none !important;
@@ -268,6 +268,50 @@ transform: none !important;
 
 .img-responsive{
 max-width:100%;
+}
+
+
+.profile_pic_overlay{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  img{
+    height:100%;
+    width: 100%;
+    object-fit: fill;
+  }
+  &:after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: red;
+    background: url('../img/pic_overlay.png');
+    background-size:100% 100%;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    left: 0;
+
+  }
+}
+.overlay{
+  content: "fake content";
+  height:0;
+  width:0;
+  position: relative;
+  &:after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: red;
+    position: absolute;
+    top: 0;
+    opacity: .5;
+    right: 0;
+
+  }
 }
 //login page scss
 @import "login";
