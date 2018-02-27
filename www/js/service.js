@@ -35,16 +35,16 @@ angular.module('starter.service', [])
 
 
 
-//from teenpatti backend
+      //from teenpatti backend
 
-playerLogin: function (data, callback) {
+      playerLogin: function (data, callback) {
         $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
           data = data.data;
           callback(data);
         });
       },
 
-passwordchange: function (data, callback) {
+      passwordchange: function (data, callback) {
         $http.post(adminurl + 'member/changePassword', data).then(function (data) {
           data = data.data;
           callback(data);
@@ -53,15 +53,7 @@ passwordchange: function (data, callback) {
 
 
 
-//from teenpatti 
-      
-      deductBuyInAmount: function (data, callback) {
-        $http({
-          url: adminurl + 'member/deductBuyInAmount',
-          method: 'POST',
-          data: data
-        }).then(callback);
-      },
+      //from teenpatti 
 
       sendAccessToken: function (data, callback) {
         $http({
@@ -120,6 +112,18 @@ passwordchange: function (data, callback) {
         }).then(callback);
       },
 
+
+      deductBootAmount: function (data, callback) {
+        $http.post(url + 'Player/deductBootAmount', {
+          data: data
+        }).then(callback);
+      },
+
+      serve: function (data, callback) {
+        $http.post(url + 'Player/serve', {
+          data: data
+        }).then(callback);
+      },
 
 
     }

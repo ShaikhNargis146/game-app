@@ -8,14 +8,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   Service.getAllActive($scope.tableData, function (data) {
     if (data.data.value) {
       $scope.actPlayers = data.data.data;
-      
-
-      // var retVal = false;
-      // data.forEach(function (elm) {
-      //   if (elm.myProp == true) {
-      //     retVal = true;
-      //   }
-      // });
+    
 
       _.forEach($scope.actPlayers, function (n) {
         // console.log("n");
@@ -89,20 +82,107 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.name9 = $scope.pData.name;
             $scope.image9 = $scope.pData.image;
           }
-
         });
-
-
       });
       //to start new game
 
 $scope.d={};
 $scope.d.tableId=$stateParams.id;
+      if ($scope.actPlayers.length >= 2 && $scope.newGame==false) {
+        $scope.newGame=true;
 
-      if ($scope.actPlayers.length >= 2) {
       // setDealer
 Service.makeDealer($scope.tableData, function (data) {
-  });
+  console.log("dealer done")
+});
+
+Service.deductBootAmount($scope.d, function (data) {
+  console.log("deductBuyInAmount")
+
+});
+
+
+//to set//
+Service.getAllActive($scope.tableData, function (data) {
+  console.log("in set")
+    if (data.data.value) {
+      $scope.actPlayers = data.data.data;
+  
+      _.forEach($scope.actPlayers, function (n) {
+        $scope.p = n;
+        Service.getOnePlayer($scope.p, function (data) {
+          $scope.pData = data.data.data;
+          $scope.playerNo = $scope.pData.playerNo;
+          if ($scope.playerNo == 1) {
+
+            $scope.credit1 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 2) {
+
+            $scope.credit2 = $scope.pData.totalAmount;
+
+          }
+          if ($scope.playerNo == 3) {
+
+            $scope.credit3 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 4) {
+
+            $scope.credit4 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 5) {
+
+            $scope.credit5 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 6) {
+
+            $scope.credit6 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 7) {
+
+            $scope.credit7 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 8) {
+
+            $scope.credit8 = $scope.pData.totalAmount;
+          }
+          if ($scope.playerNo == 9) {
+
+            $scope.credit9 = $scope.pData.totalAmount;
+          }
+
+        });
+
+
+      });
+    }
+});
+
+
+//to serve//
+
+Service.serve($scope.d, function (data) {
+  console.log("serve done")
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       }
 
 
@@ -171,8 +251,6 @@ Service.makeDealer($scope.tableData, function (data) {
     // $event.stopProgation();
     console.log("stop propagation");
   }
-
-
 
   //modal for player details
   $ionicModal.fromTemplateUrl('templates/model/player-details.html', {
@@ -248,16 +326,12 @@ Service.makeDealer($scope.tableData, function (data) {
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
 
-
-
-
   //for table data//
 
   $scope.tableId = $stateParams.id;
 
   Service.getOneTable($stateParams.id, function (data) {
     $scope.tableData = data.data.data;
-    console.log("selected table data", $scope.tableData);
     $scope.bootAmt = $scope.tableData.bootAmt;
     $scope.chalLimit = $scope.tableData.chalLimit;
     $scope.blindAmt = $scope.tableData.blindAmt;
@@ -277,7 +351,6 @@ Service.makeDealer($scope.tableData, function (data) {
       $scope.coin = $scope.coin / 2;
   }
 
-
   //player sitting
   $scope.sitHere = function (sitNum) {
     console.log("sitNum", sitNum);
@@ -286,9 +359,7 @@ Service.makeDealer($scope.tableData, function (data) {
     $scope.jdata.sitNummber = $scope.sitNummber;
     $.jStorage.set("player", $scope.jdata);
 
-
     $scope.data = {};
-
     $scope.data.playerNo = $scope.sitNummber;
     $scope.data.memberId = $scope.jdata._id;
     $scope.data.totalAmount = $scope.jdata.credit;
@@ -311,8 +382,4 @@ Service.makeDealer($scope.tableData, function (data) {
     });
 
   }
-
-
-
-
 });
