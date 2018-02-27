@@ -1,0 +1,475 @@
+.pokar{
+   background-color: #000;  
+   .top_field {
+    position: relative;
+    z-index: 4;
+    .option_menu_icon {
+      padding: 15px;
+      padding-top: 1%;
+      .icon {
+        color: gold;
+        font-size: 2em;
+      }
+    }
+    .right_side_icon {
+      padding-right: 12px;
+      padding-top: 1%;
+      color: white;
+      .setting_menu_icon {
+        text-align: right;
+        padding-bottom: 5%;
+        .icon {
+          font-size: 2em;
+          padding: 0 15px;
+          ;
+        }
+        img {
+          width: 2em;
+        }
+      }
+      .table-info {
+        // font-size: .8em;
+        th {
+          font-size: .5em;
+          text-transform: uppercase;
+          font-family: 'CinzelDecorative-Black';
+        }
+        td {
+          text-transform: uppercase;
+          font-size: .4em;
+          padding: 0px 10px 0px 10px;
+          line-height: 2;
+        }
+      }
+    } // css for played history
+    .play_history {
+      position: absolute;
+      left: 15%;
+      top: -2px;
+      font-size: 0.5em;
+      color: white;
+      width: 30%;
+      text-align: center;
+      &>div {
+        // padding: 0% 20%;
+      }
+      .down-arrow {
+        // display: inline-block;
+        // width: 20%;
+        font-size: 3em;
+        color: #fde4bc;
+      }
+      .cont {
+        height: 1.2rem;
+        overflow: hidden;
+        transition: all 500ms;
+      } //when tab is opened
+      &.open_play_history {
+        .cont {
+          height: 80vh;
+          overflow-y: scroll;
+          ;
+          transition: all 500ms;
+        }
+        .down-arrow {
+          transform: rotate(180deg)
+        }
+      }
+    }
+  }
+  .main-table {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0; //top field
+    &.activated {
+      transform: none;
+    }
+    .playing-table {
+      position: absolute;
+      bottom: -30px;
+      width: 100%; // height: 80%;
+      left: 0;
+      .plyr {
+        width: 10%;
+        position: absolute; // top: 0;
+        // left: 20px;
+        z-index: 3;
+        background: url('../img/poker/sit-here.png');
+        background-size: 100% 100%;
+        color: white;
+        text-align: center;
+        img {
+          max-width: 100%;
+        }
+        .status {
+          padding: 2px;
+          font-family: 'Cinzel-Bold';
+          font-size: .6em;
+          line-height: 2;
+        }
+        .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          .pic {
+            width: 42%;
+            margin-right: 70%;
+            margin-top: -8%;
+            padding: 0 5%;
+          }
+          .plyr_card {
+            position: absolute;
+            left: 1%;
+            top: -10%;
+            width: 150%;
+            img {
+              position: relative;
+              width: 15%;
+              vertical-align: middle;
+              &:nth-child(1) {
+                left: 0;
+              }
+              &:nth-child(2) {
+                left: -10%;
+              }
+              &:nth-child(3) {
+                left: -20%;
+              }
+            }
+          }
+        }
+        .amt {
+          font-size: .6em;
+          line-height: 1.3; // font-size: calc( 100% + 4vw);
+          padding: 7% 2% 0% 2%;
+          img {
+            width: 1.5em;
+            vertical-align: middle;
+            padding: 2%;
+          }
+        }
+        .plyr_name {
+        //   background: url('../img/profile_name_bg.png');
+          background-size: 100% 100%;
+          font-size: .5em;
+          padding: 0;
+          padding-bottom: 5%;
+          span {
+            // margin-left:25%;
+            // white-space: nowrap;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 2.5; // margin: 0px 3px 0px 3px;
+            text-align: center;
+            text-align: left;
+            padding-top: 3%;
+            padding-left: 25%;
+          }
+        }
+      } //add this class to apply sit_here css
+      .sit_here {
+        background: url('../img/poker/sit-here.png');
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%; // height:10vh;
+        transform: translateY(50%);
+        &>* {
+          display: none !important;
+        }
+        &:after {
+          content: "Sit Here";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5;
+        }
+        &.player8,
+        &.player7 {
+          bottom: 45%;
+        }
+        &.main-player {
+          width: 10% !important;
+          bottom: 20%;
+        }
+      } // add this class to apply card fold css
+      .card_fold {
+        .plyr_card {
+          display: none;
+        }
+        .pic {
+          margin: 0 auto !important;
+        }
+        .amt {
+          opacity: 0;
+          visibility: hidden;
+        }
+      } //add this class to apply winner css
+      .winner {
+        &::before {
+          display: block;
+          content: '';
+          background: url('../img/winner.png');
+          background-size: 75% 100%;
+          background-repeat: no-repeat;
+          height: 7vh;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          transform: translateY(-108%);
+        }
+      } // add this class to apply dealer css
+      .dealer {
+        &::after {
+          display: block;
+          content: '';
+          height: 4vh;
+          width: 30%;
+          position: absolute;
+          right: -30%;
+          top: 0;
+          background: url(../img/dealer.png);
+          background-size: 100% 100%;
+        }
+      } // add this class to current player 
+      .main-player {
+        width: 18% !important;
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+        transform: translate(-50%, -70%);
+        .plyr_name {
+          display: none;
+        }
+        .status {
+          font-size: 1em;
+        }
+        .amt {
+          font-size: 0.6em;
+        }
+        .card_see {
+          position: absolute;
+          background: url('../img/text_bg.png');
+          background-size: 100% 100%;
+          padding: 2% 8%;
+          font-size: 0.8em;
+          top: 40%;
+          left: 55%;
+        }
+      }
+      .doll {
+        position: absolute;
+        width: 13%;
+        left: 50%;
+        top: -35%;
+        transform: translateX(-50%);
+        z-index: 0;
+      } //bg table css
+      .bg-table {
+        position: relative;
+        // width: 100%;
+        width: 86%;
+       left:7%;
+        height: 73vh;
+       bottom: 16vh;
+      }
+    }
+    .player1 {
+      left: 28%;
+      top: -18%;
+    }
+    .player2 {
+      right: 28%;
+      top: -18%;
+    }
+    .player3 {
+      left: 8%;
+      top: -10%;
+    }
+    .player4 {
+      right: 8%;
+      top: -10%;
+    }
+    .player5 {
+      top: 28%;
+      left: 3%;
+    }
+    .player6 {
+      top: 28%;
+      right: 3%;
+    }
+    .player7,
+    .player8,
+    .player9 {
+      transform: translateY(-100%);
+    }
+    .player7 {
+      bottom: 4%;
+      left: 23%;
+    }
+    .player8 {
+      bottom: 4%;
+      right: 23%;
+    } // .other_player {
+    //   flex-direction: row;
+    //   display: flex;
+    //   position: absolute;
+    //   align-items: center;
+    //   width: 15%;
+    //   .profile_card {
+    //     position: relative;
+    //     padding: 0;
+    //     text-align: center;
+    //     img {
+    //       width: 41%;
+    //       display: inline-block;
+    //       margin-left: -20%;
+    //     }
+    //     img:nth-child(1) {
+    //       margin-left: 0;
+    //     }
+    //   }
+    //   .profile_pic {
+    //     position: relative;
+    //     img {
+    //       width: 100%;
+    //     }
+    //   }
+    //   .player_info {
+    //     background: #565656;
+    //     color: #fff;
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     padding: 0px 5px;
+    //     line-height: 3.5;
+    //     margin: 0 5px; // width: calc(100% - 10px);
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    //     background-image: url('../img/profile_name_bg.png');
+    //     background-size: 100% 100%;
+    //     padding-left: 30%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     transform: translateX(-20%);
+    //     width: 125%;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     span {
+    //       overflow: hidden;
+    //       text-overflow: ellipsis;
+    //       font-size: .3em;
+    //     }
+    //   }
+    //   .card_status {
+    //     position: absolute;
+    //     text-align: center;
+    //     background: rgba(35, 44, 43, 0.9);
+    //     width: 100%;
+    //     left: 0;
+    //     bottom: 0;
+    //     color: white;
+    //     font-family: sans-serif;
+    //     font-size: 0.5em;
+    //     line-height: 1.2;
+    //     font-weight: bold;
+    //   }
+    // }
+    .showing_cards {
+      width: 10%;
+      position: absolute; // top: 0;
+      left: 50%;
+      bottom: 40%;
+      display: flex;
+      flex-direction: row; // height: 18vh;
+      transform: translate(-80%, 0%);
+      z-index: 3;
+      img {
+        padding: 2%;
+        width: 100%;
+        position: absolute;
+        &:nth-child(1) {
+          transform: rotate(-6deg);
+          left: 0;
+        }
+        &:nth-child(2) {
+          transform: rotate(0deg) scale(1.1);
+          left: 35%;
+        }
+        &:nth-child(3) {
+          transform: rotate(6deg);
+          left: 65%;
+        }
+      }
+      .card_see {
+        position: absolute;
+        background: url('../img/text_bg.png');
+        background-size: 100% 100%;
+        padding: 2% 18%;
+        font-size: 0.8em;
+        top: 20%;
+        left: 50%;
+        color: white;
+        margin-top: 20%;
+      }
+    }
+    .playing-player-info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      /* top: 0; */
+      color: white;
+      text-align: center;
+      font-size: 1em;
+      /* margin: 0 auto; */
+      width: 100%; // transform: translateY(-180%);
+      transform: translateY(-85%);
+      z-index: 4;
+      img {
+        width: 1em;
+        vertical-align: middle;
+      }
+      span {
+        background: url('../img/text_bg.png');
+        background-size: 100% 100%; // margin:10px;
+        font-size: 1em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block;
+      }
+      .pack {
+        margin: 0px 10px;
+      }
+      .slide_show {
+        background: url('../img/text_bg2.png');
+        background-size: 100% 100%;
+        margin: 0px 5px;
+      }
+      .info {
+        background: url('../img/text_bg3.png');
+        background-size: 100% 100%;
+        min-width: 25%;
+      }
+      .minus {
+        font-size: 1em;
+        margin: 0px 5px;
+      }
+      .coin {
+        background: url('../img/text_bg2.png');
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+}   
