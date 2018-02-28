@@ -11222,3 +11222,315 @@ body {
       font-size: .7em;
       right: 2%;
       bottom: 10%; }
+
+.pokar {
+  background-color: #000; }
+  .pokar .top_field {
+    position: relative;
+    z-index: 4; }
+    .pokar .top_field .option_menu_icon {
+      padding: 15px;
+      padding-top: 1%; }
+      .pokar .top_field .option_menu_icon .icon {
+        color: gold;
+        font-size: 2em; }
+    .pokar .top_field .right_side_icon {
+      padding-right: 12px;
+      padding-top: 1%;
+      color: white; }
+      .pokar .top_field .right_side_icon .setting_menu_icon {
+        text-align: right;
+        padding-bottom: 5%; }
+        .pokar .top_field .right_side_icon .setting_menu_icon .icon {
+          font-size: 2em;
+          padding: 0 15px; }
+        .pokar .top_field .right_side_icon .setting_menu_icon img {
+          width: 2em; }
+      .pokar .top_field .right_side_icon .table-info th {
+        font-size: .5em;
+        text-transform: uppercase;
+        font-family: 'CinzelDecorative-Black'; }
+      .pokar .top_field .right_side_icon .table-info td {
+        text-transform: uppercase;
+        font-size: .4em;
+        padding: 0px 10px 0px 10px;
+        line-height: 2; }
+    .pokar .top_field .play_history {
+      position: absolute;
+      left: 15%;
+      top: -2px;
+      font-size: 0.5em;
+      color: white;
+      width: 30%;
+      text-align: center; }
+      .pokar .top_field .play_history .down-arrow {
+        font-size: 3em;
+        color: #fde4bc; }
+      .pokar .top_field .play_history .cont {
+        height: 1.2rem;
+        overflow: hidden;
+        transition: all 500ms; }
+      .pokar .top_field .play_history.open_play_history .cont {
+        height: 80vh;
+        overflow-y: scroll;
+        transition: all 500ms; }
+      .pokar .top_field .play_history.open_play_history .down-arrow {
+        transform: rotate(180deg); }
+  .pokar .main-table {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0; }
+    .pokar .main-table.activated {
+      transform: none; }
+    .pokar .main-table .playing-table {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      left: 0; }
+      .pokar .main-table .playing-table .plyr {
+        width: 10%;
+        position: absolute;
+        z-index: 3;
+        background: url("../img/poker/sit-here.png");
+        background-size: 100% 100%;
+        color: white;
+        text-align: center; }
+        .pokar .main-table .playing-table .plyr img {
+          max-width: 100%; }
+        .pokar .main-table .playing-table .plyr .status {
+          padding: 2px;
+          font-family: 'Cinzel-Bold';
+          font-size: .6em;
+          line-height: 2; }
+        .pokar .main-table .playing-table .plyr .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center; }
+          .pokar .main-table .playing-table .plyr .plyr_pic .pic {
+            width: 44%;
+            margin-right: 76%;
+            margin-top: -8%;
+            padding: 0 5%; }
+          .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card {
+            position: absolute;
+            left: 1%;
+            top: -10%;
+            width: 150%; }
+            .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card img {
+              position: relative;
+              width: 15%;
+              vertical-align: middle; }
+              .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(1) {
+                left: 0; }
+              .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(2) {
+                left: -10%; }
+              .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(3) {
+                left: -20%; }
+        .pokar .main-table .playing-table .plyr .amt {
+          font-size: .6em;
+          line-height: 1.3;
+          padding: 7% 2% 0% 2%; }
+          .pokar .main-table .playing-table .plyr .amt img {
+            width: 1.5em;
+            vertical-align: middle;
+            padding: 2%; }
+        .pokar .main-table .playing-table .plyr .plyr_name {
+          background-size: 100% 100%;
+          font-size: .5em;
+          padding: 0;
+          padding-bottom: 5%; }
+          .pokar .main-table .playing-table .plyr .plyr_name span {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 2.5;
+            text-align: center;
+            text-align: left;
+            padding-top: 3%;
+            padding-left: 25%; }
+      .pokar .main-table .playing-table .sit_here {
+        background: url("../img/poker/sit-here.png");
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%;
+        transform: translateY(50%); }
+        .pokar .main-table .playing-table .sit_here > * {
+          display: none !important; }
+        .pokar .main-table .playing-table .sit_here:after {
+          content: "Sit Here";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5; }
+        .pokar .main-table .playing-table .sit_here.player8, .pokar .main-table .playing-table .sit_here.player7 {
+          bottom: 45%; }
+        .pokar .main-table .playing-table .sit_here.main-player {
+          width: 10% !important;
+          bottom: 20%; }
+      .pokar .main-table .playing-table .card_fold .plyr_card {
+        display: none; }
+      .pokar .main-table .playing-table .card_fold .pic {
+        margin: 0 auto !important; }
+      .pokar .main-table .playing-table .card_fold .amt {
+        opacity: 0;
+        visibility: hidden; }
+      .pokar .main-table .playing-table .winner::before {
+        display: block;
+        content: '';
+        background: url("../img/winner.png");
+        background-size: 75% 100%;
+        background-repeat: no-repeat;
+        height: 7vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        transform: translateY(-108%); }
+      .pokar .main-table .playing-table .dealer::after {
+        display: block;
+        content: '';
+        height: 4vh;
+        width: 30%;
+        position: absolute;
+        right: -30%;
+        top: 0;
+        background: url(../img/dealer.png);
+        background-size: 100% 100%; }
+      .pokar .main-table .playing-table .main-player {
+        width: 18% !important;
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+        transform: translate(-50%, -70%); }
+        .pokar .main-table .playing-table .main-player .plyr_name {
+          display: none; }
+        .pokar .main-table .playing-table .main-player .status {
+          font-size: 1em; }
+        .pokar .main-table .playing-table .main-player .amt {
+          font-size: 0.6em; }
+        .pokar .main-table .playing-table .main-player .card_see {
+          position: absolute;
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          padding: 2% 8%;
+          font-size: 0.8em;
+          top: 40%;
+          left: 55%; }
+      .pokar .main-table .playing-table .doll {
+        position: absolute;
+        width: 13%;
+        left: 50%;
+        top: -35%;
+        transform: translateX(-50%);
+        z-index: 0; }
+      .pokar .main-table .playing-table .bg-table {
+        position: relative;
+        width: 86%;
+        left: 7%;
+        height: 73vh;
+        bottom: 16vh; }
+    .pokar .main-table .player1 {
+      left: 28%;
+      top: -18%; }
+    .pokar .main-table .player2 {
+      right: 28%;
+      top: -18%; }
+    .pokar .main-table .player3 {
+      left: 8%;
+      top: -10%; }
+    .pokar .main-table .player4 {
+      right: 8%;
+      top: -10%; }
+    .pokar .main-table .player5 {
+      top: 28%;
+      left: 3%; }
+    .pokar .main-table .player6 {
+      top: 28%;
+      right: 3%; }
+    .pokar .main-table .player7,
+    .pokar .main-table .player8,
+    .pokar .main-table .player9 {
+      transform: translateY(-100%); }
+    .pokar .main-table .player7 {
+      bottom: 4%;
+      left: 23%; }
+    .pokar .main-table .player8 {
+      bottom: 4%;
+      right: 23%; }
+    .pokar .main-table .showing_cards {
+      width: 10%;
+      position: absolute;
+      left: 50%;
+      bottom: 40%;
+      display: flex;
+      flex-direction: row;
+      transform: translate(-80%, 0%);
+      z-index: 3; }
+      .pokar .main-table .showing_cards img {
+        padding: 2%;
+        width: 100%;
+        position: absolute; }
+        .pokar .main-table .showing_cards img:nth-child(1) {
+          transform: rotate(-6deg);
+          left: 0; }
+        .pokar .main-table .showing_cards img:nth-child(2) {
+          transform: rotate(0deg) scale(1.1);
+          left: 35%; }
+        .pokar .main-table .showing_cards img:nth-child(3) {
+          transform: rotate(6deg);
+          left: 65%; }
+      .pokar .main-table .showing_cards .card_see {
+        position: absolute;
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        padding: 2% 18%;
+        font-size: 0.8em;
+        top: 20%;
+        left: 50%;
+        color: white;
+        margin-top: 20%; }
+    .pokar .main-table .playing-player-info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      /* top: 0; */
+      color: white;
+      text-align: center;
+      font-size: 1em;
+      /* margin: 0 auto; */
+      width: 100%;
+      transform: translateY(-85%);
+      z-index: 4; }
+      .pokar .main-table .playing-player-info img {
+        width: 1em;
+        vertical-align: middle; }
+      .pokar .main-table .playing-player-info span {
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        font-size: 1em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block; }
+      .pokar .main-table .playing-player-info .pack {
+        margin: 0px 10px; }
+      .pokar .main-table .playing-player-info .slide_show {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%;
+        margin: 0px 5px; }
+      .pokar .main-table .playing-player-info .info {
+        background: url("../img/text_bg3.png");
+        background-size: 100% 100%;
+        min-width: 25%; }
+      .pokar .main-table .playing-player-info .minus {
+        font-size: 1em;
+        margin: 0px 5px; }
+      .pokar .main-table .playing-player-info .coin {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%; }

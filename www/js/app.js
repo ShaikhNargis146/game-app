@@ -58,7 +58,13 @@ var myApp = angular.module('starter', ['ionic','starter.service'])
     controller:'LobbyCtrl'
     
   })
-
+  .state('poker', {
+    url: '/poker',
+    cache: false,
+    templateUrl: 'templates/poker.html',
+    controller:'PokerCtrl'
+    
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('login');
 });
