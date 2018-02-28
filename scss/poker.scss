@@ -103,12 +103,12 @@
         img {
           max-width: 100%;
         }
-        .status {
-          padding: 2px;
-          font-family: 'Cinzel-Bold';
-          font-size: .6em;
-          line-height: 2;
-        }
+        // .status {
+        //   padding: 2px;
+        //   font-family: 'Cinzel-Bold';
+        //   font-size: .6em;
+        //   line-height: 2;
+        // }
         .plyr_pic {
       
           display: flex;
@@ -141,6 +141,19 @@
               }
             }
           }
+          .bb{
+            position: absolute;
+            width: 29%;
+            left: 23%;
+            top: -14%;
+          }
+          .crown{
+            position: absolute;
+            width: 44%;
+            top: -52%;
+            left: -10%;
+          }
+
         }
         .amt {
           font-size: .6em;
@@ -173,7 +186,15 @@
             padding-left: 25%;
           }
         }
-      } //add this class to apply sit_here css
+      } 
+      .status{
+        position: absolute;
+        top: -51%;
+        // left: 9%;
+        font-size: 0.8em;
+        width: 85%;
+      }
+      //add this class to apply sit_here css
       .sit_here {
         background: url('../img/poker/sit-here.png');
         background-size: 100% 100%;
@@ -242,19 +263,20 @@
         }
       } // add this class to current player 
       .main-player {
-        width: 18% !important;
+        width: 11% !important;
         left: 50%;
-        bottom: 0%;
+        bottom: 21%;
         transform: translateX(-50%);
         transform: translate(-50%, -70%);
         .plyr_name {
           display: none;
         }
-        .status {
-          font-size: 1em;
-        }
+        // .status {
+        //   font-size: 1em;
+        // }
         .amt {
           font-size: 0.6em;
+          padding: 7% 2% 7% 2%;
         }
         .card_see {
           position: absolute;
@@ -283,29 +305,30 @@
        bottom: 16vh;
       }
     }
+    
     .player1 {
-      left: 28%;
-      top: -18%;
+      left: 23%;
+      top: -22%;
     }
     .player2 {
-      right: 28%;
-      top: -18%;
+      right: 23%;
+      top: -22%;
     }
     .player3 {
-      left: 8%;
-      top: -10%;
+      left: 6%;
+      top: -4%;
     }
     .player4 {
-      right: 8%;
-      top: -10%;
+      right: 7%;
+      top: -13%;
     }
     .player5 {
-      top: 28%;
-      left: 3%;
+      top: 30%;
+      left: 8%;
     }
     .player6 {
-      top: 28%;
-      right: 3%;
+      top: 31%;
+    right: 9%;
     }
     .player7,
     .player8,
@@ -313,11 +336,11 @@
       transform: translateY(-100%);
     }
     .player7 {
-      bottom: 4%;
+      bottom: 17%;
       left: 23%;
     }
     .player8 {
-      bottom: 4%;
+      bottom: 16%;
       right: 23%;
     } // .other_player {
     //   flex-direction: row;
@@ -450,7 +473,7 @@
         display: inline-block;
       }
       .pack {
-        margin: 0px 10px;
+        // margin: 0px 10px;
       }
       .slide_show {
         background: url('../img/text_bg2.png');
@@ -469,6 +492,44 @@
       .coin {
         background: url('../img/text_bg2.png');
         background-size: 100% 100%;
+        margin-right: 0.5%;
+      }
+    }
+    // cards
+    .playing-cards{
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+    justify-content: center;
+    img{
+      width: 100%;
+      padding: 0% 5%;
+    }
+    }
+    .playing-cards-table{
+      width: 30%;
+      position: absolute;
+      top: 18%;
+      left: 35%;
+    }
+    .amount-bg{
+      background: url('../img/poker/green-box.png');
+      background-size: 100% 100%;
+      font-size: 0.9em;
+      color: #fff;
+      padding: 4% 10%;
+      padding-bottom: 3%;
+    }
+    .amount{
+      position: absolute;
+      top: 6%;
+      left: 44%;
+      width: 20%;
+      img{
+        width: 2.2em;
+        vertical-align: middle;
+        padding: 2%;
+        padding-right: 4%;
       }
     }
   }

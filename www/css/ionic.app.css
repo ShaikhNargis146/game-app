@@ -11299,11 +11299,6 @@ body {
         text-align: center; }
         .pokar .main-table .playing-table .plyr img {
           max-width: 100%; }
-        .pokar .main-table .playing-table .plyr .status {
-          padding: 2px;
-          font-family: 'Cinzel-Bold';
-          font-size: .6em;
-          line-height: 2; }
         .pokar .main-table .playing-table .plyr .plyr_pic {
           display: flex;
           flex-direction: row;
@@ -11329,6 +11324,16 @@ body {
                 left: -10%; }
               .pokar .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(3) {
                 left: -20%; }
+          .pokar .main-table .playing-table .plyr .plyr_pic .bb {
+            position: absolute;
+            width: 29%;
+            left: 23%;
+            top: -14%; }
+          .pokar .main-table .playing-table .plyr .plyr_pic .crown {
+            position: absolute;
+            width: 44%;
+            top: -52%;
+            left: -10%; }
         .pokar .main-table .playing-table .plyr .amt {
           font-size: .6em;
           line-height: 1.3;
@@ -11353,6 +11358,11 @@ body {
             text-align: left;
             padding-top: 3%;
             padding-left: 25%; }
+      .pokar .main-table .playing-table .status {
+        position: absolute;
+        top: -51%;
+        font-size: 0.8em;
+        width: 85%; }
       .pokar .main-table .playing-table .sit_here {
         background: url("../img/poker/sit-here.png");
         background-size: 100% 100%;
@@ -11404,17 +11414,16 @@ body {
         background: url(../img/dealer.png);
         background-size: 100% 100%; }
       .pokar .main-table .playing-table .main-player {
-        width: 18% !important;
+        width: 11% !important;
         left: 50%;
-        bottom: 0%;
+        bottom: 21%;
         transform: translateX(-50%);
         transform: translate(-50%, -70%); }
         .pokar .main-table .playing-table .main-player .plyr_name {
           display: none; }
-        .pokar .main-table .playing-table .main-player .status {
-          font-size: 1em; }
         .pokar .main-table .playing-table .main-player .amt {
-          font-size: 0.6em; }
+          font-size: 0.6em;
+          padding: 7% 2% 7% 2%; }
         .pokar .main-table .playing-table .main-player .card_see {
           position: absolute;
           background: url("../img/text_bg.png");
@@ -11437,32 +11446,32 @@ body {
         height: 73vh;
         bottom: 16vh; }
     .pokar .main-table .player1 {
-      left: 28%;
-      top: -18%; }
+      left: 23%;
+      top: -22%; }
     .pokar .main-table .player2 {
-      right: 28%;
-      top: -18%; }
+      right: 23%;
+      top: -22%; }
     .pokar .main-table .player3 {
-      left: 8%;
-      top: -10%; }
+      left: 6%;
+      top: -4%; }
     .pokar .main-table .player4 {
-      right: 8%;
-      top: -10%; }
+      right: 7%;
+      top: -13%; }
     .pokar .main-table .player5 {
-      top: 28%;
-      left: 3%; }
+      top: 30%;
+      left: 8%; }
     .pokar .main-table .player6 {
-      top: 28%;
-      right: 3%; }
+      top: 31%;
+      right: 9%; }
     .pokar .main-table .player7,
     .pokar .main-table .player8,
     .pokar .main-table .player9 {
       transform: translateY(-100%); }
     .pokar .main-table .player7 {
-      bottom: 4%;
+      bottom: 17%;
       left: 23%; }
     .pokar .main-table .player8 {
-      bottom: 4%;
+      bottom: 16%;
       right: 23%; }
     .pokar .main-table .showing_cards {
       width: 10%;
@@ -11518,8 +11527,6 @@ body {
         padding: 1.5% 2.5%;
         padding-bottom: 1%;
         display: inline-block; }
-      .pokar .main-table .playing-player-info .pack {
-        margin: 0px 10px; }
       .pokar .main-table .playing-player-info .slide_show {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
@@ -11533,4 +11540,35 @@ body {
         margin: 0px 5px; }
       .pokar .main-table .playing-player-info .coin {
         background: url("../img/text_bg2.png");
-        background-size: 100% 100%; }
+        background-size: 100% 100%;
+        margin-right: 0.5%; }
+    .pokar .main-table .playing-cards {
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .pokar .main-table .playing-cards img {
+        width: 100%;
+        padding: 0% 5%; }
+    .pokar .main-table .playing-cards-table {
+      width: 30%;
+      position: absolute;
+      top: 18%;
+      left: 35%; }
+    .pokar .main-table .amount-bg {
+      background: url("../img/poker/green-box.png");
+      background-size: 100% 100%;
+      font-size: 0.9em;
+      color: #fff;
+      padding: 4% 10%;
+      padding-bottom: 3%; }
+    .pokar .main-table .amount {
+      position: absolute;
+      top: 6%;
+      left: 44%;
+      width: 20%; }
+      .pokar .main-table .amount img {
+        width: 2.2em;
+        vertical-align: middle;
+        padding: 2%;
+        padding-right: 4%; }
