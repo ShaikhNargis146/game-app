@@ -118,7 +118,8 @@ myApp.filter('serverimage', function () {
            }
 
        } else {
-           return "img/logo.png";
+        //    return "img/logo.png";
+        return "img/not.png";
        }
    };
 });
