@@ -2,6 +2,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
+
+
+
+ $scope.tableInfoOk = function () {
+    console.log("okkkkkkk");
+
   $scope.l = {};
   $scope.l.tableId = $stateParams.id;
   console.log("$scope.l", $scope.l)
@@ -184,6 +190,10 @@ if($scope.actPlayers.length>=2){
   });
 
 
+  }
+
+
+
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -287,6 +297,8 @@ if($scope.actPlayers.length>=2){
   $scope.closeTableInfoModal = function () {
     $scope.tableInfoModal.hide();
   }
+
+ 
 
   // main playper clicked
   $scope.mainPlayerClicked = function () {

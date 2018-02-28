@@ -13,7 +13,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
         console.log("$scope.accessT", $scope.accessT);
         console.log("player exist....");
         Service.sendAccessToken(data, function (data) {
-          console.log("dataaaaa", data);
+          console.log("dataaaaa.....................", data);
           $.jStorage.set("player", data.data.data);
           $scope.playerData = $.jStorage.get("player");
           $scope.data.playerData = $scope.playerData;
