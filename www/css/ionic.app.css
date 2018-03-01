@@ -11572,3 +11572,73 @@ body {
         vertical-align: middle;
         padding: 2%;
         padding-right: 4%; }
+    .pokar .main-table .all-amount {
+      position: absolute;
+      width: 20%;
+      top: 30%;
+      left: 18.2%; }
+      .pokar .main-table .all-amount img {
+        width: 10%;
+        padding: 0% 2%;
+        /* padding-top: 3%; */
+        vertical-align: middle; }
+    .pokar .main-table .all-amount-bg {
+      background: url("../img/poker/sit-here.png");
+      background-size: 100% 100%;
+      font-size: 0.6em;
+      color: #fff;
+      padding: 2% 3%;
+      padding-bottom: 2%;
+      padding-right: 8%;
+      border-radius: 25%; }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .pokar .main-table .playing-table .bg-table {
+    height: 100%;
+    bottom: 16vh; }
+  .pokar .main-table .playing-table {
+    bottom: 0px; }
+  .pokar .main-table .player1 {
+    top: -25%; }
+  .pokar .main-table .player2 {
+    top: -24%; }
+  .pokar .main-table .player5 {
+    top: 28%; }
+  .pokar .main-table .player7 {
+    bottom: 22%; }
+  .pokar .main-table .player8 {
+    bottom: 23%; }
+  .pokar .main-table .player6 {
+    top: 27%;
+    right: 8%; }
+  .pokar .main-table .playing-table .main-player {
+    bottom: 26%; }
+  .pokar .main-table .amount {
+    top: 3%;
+    left: 43.4%; } }
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .pokar .main-table .playing-table .bg-table {
+    height: 100%;
+    bottom: 16vh; }
+  .pokar .main-table .playing-table {
+    bottom: 0px; }
+  .pokar .main-table .amount {
+    top: 3%;
+    left: 43.3%; }
+  .pokar .main-table .playing-cards-table {
+    top: 16%; }
+  .pokar .main-table .player5 {
+    top: 28%; }
+  .pokar .main-table .player7 {
+    bottom: 22%; }
+  .pokar .main-table .player8 {
+    bottom: 22%; }
+  .pokar .main-table .player6 {
+    top: 27%; }
+  .pokar .main-table .player1 {
+    top: -25%; }
+  .pokar .main-table .player2 {
+    top: -24%; }
+  .pokar .main-table .playing-table .main-player {
+    bottom: 25%; } }
