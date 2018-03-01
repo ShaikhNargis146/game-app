@@ -11291,20 +11291,26 @@ body {
       bottom: 10%; }
 
 .price_range_modal {
-  height: 50vh;
-  top: 30%;
+  height: 40vh;
+  top: 40%;
   background: url("../img/model/price_range_bg.png");
   background-size: 100% 100%; }
   .price_range_modal ion-content {
     padding: 0px; }
   .price_range_modal .heading {
     padding: 2%; }
+    .price_range_modal .heading span {
+      width: 60%;
+      display: inline-block;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0;
+      border-bottom: 1px solid; }
   .price_range_modal .table_type {
     width: 80%;
     margin: 0 auto;
     white-space: nowrap;
-    overflow-x: scroll;
-    margin-top: 4%; }
+    overflow-x: scroll; }
     .price_range_modal .table_type .type {
       width: 28%;
       background: url("../img/lobby/text_bg.png");
