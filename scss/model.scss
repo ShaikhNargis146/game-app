@@ -276,8 +276,7 @@
           background: url('../img/text_bg2.png');
           background-size: 100% 100%;
           text-align: center;
-          padding: 3px 10px;
-          // width: 80%;
+          padding: 3px 10px; // width: 80%;
           white-space: nowrap;
           .coin {
             width: 1em;
@@ -293,52 +292,87 @@
         font-size: .9em;
       }
     }
-    .divide{
+    .divide {
       background: $border-color;
       height: 1px;
       width: 80%;
       margin: 0px auto;
       padding: 0;
-      border:0px;
+      border: 0px;
     }
-
-    .profile_data{
+    .profile_data {
       font-size: .9em;
       padding-top: 5%;
-      .p_heading{
+      .p_heading {
         text-align: center;
-        padding:0px;
+        padding: 0px;
       }
-      .table_stats{
-        .chips_won{
+      .table_stats {
+        .chips_won {
           padding: 5% 0px;
           line-height: 1.5;
           text-align: center;
-          .coin{
+          .coin {
             width: 1em;
             vertical-align: middle;
             padding: 1%;
           }
         }
-        .hands_won{
+        .hands_won {
           padding: 5% 0px;
           line-height: 1.5;
           text-align: center;
         }
       }
-      .player_rank{
-        .last_week{
+      .player_rank {
+        .last_week {
           padding: 5% 0px;
           line-height: 1.5;
         }
       }
     }
-
-    .active_days{
+    .active_days {
       position: absolute;
       font-size: .7em;
-right:2%;
-bottom:10%;
+      right: 2%;
+      bottom: 10%;
+    }
+  }
+}
+
+.price_range_modal {
+  height: 50vh;
+  top: 30%;
+  background: url("../img/model/price_range_bg.png");
+  background-size: 100% 100%;
+  ion-content {
+    padding: 0px;
+  }
+  .heading {
+    padding: 2%;
+  }
+  .table_type {
+    width: 80%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow-x: scroll;
+    margin-top: 4%;
+    .type {
+      width:28%;
+      background: url('../img/lobby/text_bg.png');
+      background-size: 100% 100%;
+      margin: 2%;
+      padding: 3%;
+      text-align: center;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center; // color:white;
+      display: inline-block;
+      span {
+        font-size: .9em;
+        line-height: 1.5;
+      }
     }
   }
 }

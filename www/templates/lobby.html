@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="lobby_content" ng-class="{'variation_active':VariationActive,'open_tabletype':showType,'playnow-active':playNowActive,'playjoker-active':playJokerActive}">
+  <div class="lobby_content" ng-class="{'variation_active':VariationActive}">
     <div class="logo">
       <img src="img/logo.png">
     </div>
@@ -35,16 +35,16 @@
       </div>
     </div>
     <div class="categorys row variation_subtype" ng-if='VariationActive'>
-      <div class=" col" ui-sref="table">
+      <div class=" col" ng-click="openPriceRangeModal()">
         <span class="text-grad"> Folding joker </span>
       </div>
-      <div class=" col" ui-sref="table">
+      <div class=" col" ng-click="openPriceRangeModal()">
         <span class="text-grad"> red and black </span>
       </div>
-      <div class=" col" ui-sref="table">
+      <div class=" col" ng-click="openPriceRangeModal()">
         <span class="text-grad"> One-eyed Jack </span>
       </div>
-      <div class=" col" ui-sref="table">
+      <div class=" col" ng-click="openPriceRangeModal()">
         <span class="text-grad"> odd sequence </span>
       </div>
 

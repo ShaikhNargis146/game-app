@@ -8,10 +8,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //to close all tab and side menu
   $scope.closeAllTab = function () {
     $scope.VariationActive = false;
-    $scope.playNowActive = false;
     $scope.sideMenu = false;
     $scope.showType = false;
-    $scope.playJokerActive = false;
   }
   $scope.closeAllTab();
 
@@ -97,7 +95,21 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     console.log("cancel modal");
 
   }
+  //game price range 
+  $ionicModal.fromTemplateUrl('templates/model/game_price_range.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.priceRangeModal = modal;
 
+
+  });
+  $scope.openPriceRangeModal = function () {
+    $scope.priceRangeModal.show();
+  }
+  $scope.closePriceRangeModal = function () {
+    $scope.priceRangeModal.hide();
+  }
 
   //room summary
 
@@ -147,9 +159,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //onclick for each play type
   $scope.variationToggle = function ($event) {
     $event.stopPropagation();
-    $scope.showType = false;
-    $scope.playNowActive = false;
-    $scope.playJokerActive = false;
     if ($scope.VariationActive) {
       $scope.VariationActive = false;
     } else {
@@ -161,28 +170,19 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playNow = function ($event) {
 
     if (!$scope.VariationActive) {
-      $scope.playNowActive = true;
+      $scope.openPriceRangeModal()
       $event.stopPropagation();
-      $scope.showType = !$scope.showType;
     }
 
-    if (!$scope.showType) {
-      $scope.playNowActive = false;
-      $scope.playJokerActive = false;
-    }
+
   }
 
   $scope.playJoker = function ($event) {
 
     if (!$scope.VariationActive) {
-      $scope.playNowActive = false;
-      $scope.playJokerActive = true;
+      $scope.openPriceRangeModal()
       $event.stopPropagation();
-      $scope.showType = !$scope.showType;
-    }
-    if (!$scope.showType) {
-      $scope.playNowActive = false;
-      $scope.playJokerActive = false;
+
     }
   }
 
@@ -245,8 +245,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ACStatementModal.remove();
     $scope.transferStatementModal.remove();
     $scope.changePasswordModel.remove();
-    $scope.roomSummaryModel.remove();
+  
+    $scope.priceRangeModal.remove();
     $scope.closeAllTab();
+    // $scope.roomSummaryModel.remove();
   });
   // $scope.stopPropagation=function($event){
   // $event.stopPropagation();

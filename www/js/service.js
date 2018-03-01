@@ -112,7 +112,6 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
-
       deductBootAmount: function (data, callback) {
         $http.post(url + 'Player/deductBootAmount', {
           data: data
@@ -125,6 +124,17 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
+      createPot: function (data, callback) {
+        $http.post(url + 'Pot/createPot', {
+          data: data
+        }).then(callback);
+      },
+
+      createPot: function (data, callback) {
+        $http.post(url + 'Pot/addAmountToPot', {
+          data: data
+        }).then(callback);
+      },
 
     }
   });
