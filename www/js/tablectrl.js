@@ -125,9 +125,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           // console.log("$scope.p", $scope.p)
 
           Service.getAllActive($scope.p, function (data) {
-            console.log("botttttttttttt",$scope.bootAmt)
+            console.log("botttttttttttt", $scope.bootAmt)
             // console.log("in set")
-            $scope.totalMoneyOnTable=0;
+            $scope.totalMoneyOnTable = 0;
             if (data.data.value) {
               $scope.actPlayers = data.data.data;
 
@@ -139,18 +139,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                   if ($scope.playerNo == 1) {
 
 
-$scope.credit1 = $scope.pData.totalAmount;
+                    $scope.credit1 = $scope.pData.totalAmount;
                     $timeout(function () {
                       $scope.P1bootAmt = true;
                     }, 800);
 
-                    
 
-$timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
-                    
+
 
                   }
                   if ($scope.playerNo == 2) {
@@ -159,9 +159,9 @@ $timeout(function () {
                     $timeout(function () {
                       $scope.P2bootAmt = true;
                     }, 800);
-                    
-$timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -172,7 +172,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit3 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -183,7 +183,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit4 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -194,7 +194,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit5 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -204,8 +204,8 @@ $timeout(function () {
                       $scope.P6bootAmt = true;
                     }, 800);
                     $scope.credit6 = $scope.pData.totalAmount;
-                   $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -216,7 +216,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit7 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
 
@@ -228,7 +228,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit8 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
@@ -240,7 +240,7 @@ $timeout(function () {
                     }, 800);
                     $scope.credit9 = $scope.pData.totalAmount;
                     $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                      $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     }, 2000);
 
                   }
