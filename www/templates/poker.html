@@ -4,7 +4,7 @@
       <!-- <img src="img/option.png" class=""> -->
       <i class="icon ion-navicon-round"></i>
     </div>
-    <div class="play_history  left " ng-class="{'open_play_history':viewHistory}">
+    <div class="play_history  left" ng-class="{'open_play_history':viewHistory}">
       <div class="border-gradient">
         <div class="bg-style cont">
           <div>Charles Played Blind </div>
@@ -63,7 +63,11 @@
       <img src="img/poker/table.png" class="bg-table">
       <div class="amount">
         <span class="amount-bg">
-          <img src="img/coin.png">85677</span>
+          <img src="img/coin.png">64,677</span>
+      </div>
+      <div class="all-amount">
+        <span class="all-amount-bg"> <img src="img/coin.png">64.0000</span>
+       
       </div>
       <!-- cards -->
       <div class="playing-cards-table">
@@ -98,14 +102,12 @@
         </div>
         <!-- <div class="status">BLIND</div> -->
         <div class="amt">
-
           <div> </div>
           <img src="img/coin.png">0000000{{credit1}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(1)">
+           <div class="plyr_name" ng-click="openPlayerDetails(1)">
           <span>{{name1}}</span>
         </div>
       </div>
-
 
       <!--player2-->
       <div id="plr2" ng-click="sitHere(2)" class="plyr player4 sit_here">
@@ -456,8 +458,8 @@
 
 
       <div class="playing-player-info">
-        <span class="pack"> PACK </span>
-        <span class="slide_show"> CALL</span>
+        <span class="pack"> FOLD </span>
+        <span class="slide_show"> ALL-IN </span>
         <!--<span class="info"> christie kallies
               <img src="img/coin.png">120000 </span>-->
         <!-- <span class="info"> {{username}}
@@ -466,8 +468,8 @@
           <i class="icon ion-minus-round"></i>
         </span> -->
         <span class="coin">
-          RAISE</span>
-        <span class="plus no-click-effect" ng-click="addCoin()">ALL-IN</span>
+           CALL</span>
+        <span class="plus no-click-effect" ng-click="addCoin()">RAISE</span>
 
       </div>
 
