@@ -4,25 +4,29 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   })
 
 
-
   $scope.tableInfoOk = function () {
-    console.log("okkkkkkk");
+
+    $scope.dd = $stateParams.id;;
+
+    //create pot
+    Service.createPot($scope.dd, function (data) {
+      console.log("pot created")
+    });
+
 
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
-    console.log("$scope.l", $scope.l)
 
     Service.getAllActive($scope.l, function (data) {
-      console.log("in get all active");
-      console.log("data in active plyrr", data);
+      $scope.totalMoneyOnTable = 0;
       if (data.data.value) {
         $scope.actPlayers = data.data.data;
 
+
+
         _.forEach($scope.actPlayers, function (n) {
-          // console.log("n");
           $scope.p = n;
           Service.getOnePlayer($scope.p, function (data) {
-            // console.log("data..", data.data.data);
             $scope.pData = data.data.data;
             $scope.playerNo = $scope.pData.playerNo;
             // console.log("playerNo", $scope.playerNo);
@@ -92,28 +96,25 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
             }
           });
         });
+
+
+
         //to start new game
         if ($scope.actPlayers.length >= 2) {
           $scope.d = {};
           $scope.d.tableId = $stateParams.id;
-          // console.log("$scope.d", $scope.d)
 
           // setDealer
           Service.makeDealer($scope.d, function (data) {
-            // console.log("dealer done");
+            console.log("dealer done");
           });
 
           //deductBootAmount
           $scope.t = {};
           $scope.t.tableId = $stateParams.id;
-          // console.log("$scope.t", $scope.t)
 
           Service.deductBootAmount($scope.t, function (data) {
-            // console.log("deductBuyInAmount");
-
-            // $timeout(function () {
-            //   $scope.P1bootAmt = true;
-            // }, 300);
+            console.log("deductBuyInAmount");
 
 
           });
@@ -122,12 +123,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           //to set//
           $scope.p = {};
           $scope.p.tableId = $stateParams.id;
-          // console.log("$scope.p", $scope.p)
 
           Service.getAllActive($scope.p, function (data) {
-            console.log("botttttttttttt",$scope.bootAmt)
-            // console.log("in set")
-            $scope.totalMoneyOnTable=0;
             if (data.data.value) {
               $scope.actPlayers = data.data.data;
 
@@ -139,18 +136,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                   if ($scope.playerNo == 1) {
 
 
-$scope.credit1 = $scope.pData.totalAmount;
+                    $scope.credit1 = $scope.pData.totalAmount;
                     $timeout(function () {
                       $scope.P1bootAmt = true;
+
                     }, 800);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
-                    
-
-$timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
-
-                    
+                    // $timeout(function () {
+                    //   $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+                    // }, 2000);
 
                   }
                   if ($scope.playerNo == 2) {
@@ -158,33 +153,29 @@ $timeout(function () {
                     $scope.credit2 = $scope.pData.totalAmount;
                     $timeout(function () {
                       $scope.P2bootAmt = true;
+
                     }, 800);
-                    
-$timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
                   }
                   if ($scope.playerNo == 3) {
 
                     $timeout(function () {
-                      $scope.P3bootAmt = true;
+                      $scope.P8bootAmt = true;
                     }, 800);
-                    $scope.credit3 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.credit8 = $scope.pData.totalAmount;
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+
 
                   }
+
                   if ($scope.playerNo == 4) {
 
                     $timeout(function () {
                       $scope.P4bootAmt = true;
                     }, 800);
                     $scope.credit4 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
                   }
                   if ($scope.playerNo == 5) {
@@ -193,9 +184,8 @@ $timeout(function () {
                       $scope.P5bootAmt = true;
                     }, 800);
                     $scope.credit5 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+
 
                   }
                   if ($scope.playerNo == 6) {
@@ -204,9 +194,8 @@ $timeout(function () {
                       $scope.P6bootAmt = true;
                     }, 800);
                     $scope.credit6 = $scope.pData.totalAmount;
-                   $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+
 
                   }
                   if ($scope.playerNo == 7) {
@@ -215,9 +204,7 @@ $timeout(function () {
                       $scope.P7bootAmt = true;
                     }, 800);
                     $scope.credit7 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
 
                   }
@@ -227,9 +214,8 @@ $timeout(function () {
                       $scope.P8bootAmt = true;
                     }, 800);
                     $scope.credit8 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+
 
                   }
                   if ($scope.playerNo == 9) {
@@ -239,28 +225,47 @@ $timeout(function () {
                       $scope.P9bootAmt = true;
                     }, 800);
                     $scope.credit9 = $scope.pData.totalAmount;
-                    $timeout(function () {
-                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
-                    }, 2000);
+                    $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
                   }
+                  $scope.sendMoneyOnTable = $scope.totalMoneyOnTable;
 
+                  //save total amount to pot
+                  $scope.totAmt = {};
+                  $scope.totAmt.sendAmount = $scope.sendMoneyOnTable;
+
+                  Service.addAmountToPot($scope.totAmt, function (data) {
+                    console.log("addAmountToPot")
+
+                  });
+
+
+                  //to serve//
+                  $scope.b = {};
+                  $scope.b.tableId = $stateParams.id;
+
+                  Service.serve($scope.b, function (data) {
+                    console.log("serve done")
+
+                  });
                 });
+
               });
+
             }
-          });
-
-          //to serve//
-
-          $scope.b = {};
-          $scope.b.tableId = $stateParams.id;
-          // console.log("$scope.b", $scope.b)
 
 
-          Service.serve($scope.b, function (data) {
-            // console.log("serve done")
+
+
+
+
+
+
 
           });
+
+
+
         }
       }
     });
@@ -435,7 +440,6 @@ $timeout(function () {
 
   //player sitting
   $scope.sitHere = function (sitNum) {
-    console.log("sitNum", sitNum);
     $scope.sitNummber = sitNum;
     $scope.jdata = $.jStorage.get("player");
     $scope.jdata.sitNummber = $scope.sitNummber;

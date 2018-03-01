@@ -130,7 +130,7 @@ angular.module('starter.service', [])
         }).then(callback);
       },
 
-      createPot: function (data, callback) {
+      addAmountToPot: function (data, callback) {
         $http.post(url + 'Pot/addAmountToPot', {
           data: data
         }).then(callback);
