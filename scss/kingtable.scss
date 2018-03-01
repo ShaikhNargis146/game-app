@@ -89,6 +89,21 @@
     &.activated {
       transform: none;
     }
+    .total_played_coin {
+      position: absolute;
+      width: 22%;
+      left: 50%;
+      top: 15%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center; // word-spacing: 5px;
+      color: white;
+      .coin {
+        width: 1em;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
     .playing-table {
       position: absolute;
       bottom: -30px;
@@ -121,7 +136,6 @@
             width: 60%;
             margin-right: 40%;
             padding: 0 5%;
-           
           }
           .plyr_card {
             position: absolute;
@@ -166,8 +180,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             line-height: 2.5; // margin: 0px 3px 0px 3px;
-            text-align: center;
-            // text-align: left;
+            text-align: center; // text-align: left;
             padding-top: 3%;
             padding-left: 15%;
           }
@@ -192,8 +205,8 @@
           word-spacing: 10em;
           line-height: 1.5;
         }
-        &.player8,
-        &.player7 {
+        &.player4,
+        &.player6 {
           bottom: 45%;
         }
         &.main-player {
@@ -279,40 +292,40 @@
         height: 100%;
       }
     }
-    .player1 {
+    .player9 {
       left: 28%;
       top: -18%;
     }
-    .player2 {
+    .player1 {
       right: 28%;
       top: -18%;
     }
-    .player3 {
+    .player8 {
       left: 8%;
       top: -10%;
     }
-    .player4 {
+    .player2 {
       right: 8%;
       top: -10%;
     }
-    .player5 {
+    .player7 {
       top: 28%;
       left: 3%;
     }
-    .player6 {
+    .player3 {
       top: 28%;
       right: 3%;
     }
-    .player7,
-    .player8,
+    .player6,
+    .player4,
     .player9 {
       transform: translateY(-100%);
     }
-    .player7 {
+    .player6 {
       bottom: 4%;
       left: 23%;
     }
-    .player8 {
+    .player4 {
       bottom: 4%;
       right: 23%;
     } // .other_player {
@@ -748,5 +761,123 @@
       transition: margin-right 200ms; // margin-left: 10% !important;
       margin-right: 0%; // margin-left: 161px !important;
     }
+  }
+}
+
+/// all animation class here
+.bootAnimate {
+  position: absolute;
+  z-index: 5;
+  color: white;
+  opacity: 0;
+  white-space: nowrap;
+  animation-duration: 2s;
+  .coin{
+    width:1em;
+    vertical-align: middle;
+    margin-right:10%;
+  }
+  &.player1 {
+    top: 0% !important;
+    right: 30% !important;
+    animation-name: movefromright;
+  }
+  &.player2 {
+    top: 10% !important;
+    right: 10% !important;
+    animation-name: movefromright;
+  }
+  &.player3 {
+    top: 50% !important;
+    right: 6% !important;
+    animation-name: movefromright;
+  }
+  &.player4 {
+    bottom: 20% !important;
+    right: 25% !important;
+    animation-name: movefrombottom;
+  }
+  &.player5 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 50% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%);
+  }
+  &.player6 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 70% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%);
+  }
+  &.player7 {
+    bottom: 40% !important;
+    top: unset !important;
+    left: unset !important;
+    right: 90% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%);
+  }
+  &.player8 {
+    top: 10% !important;
+    left: 10% !important;
+    animation-name: movefromleft;
+  }
+  &.player9 {
+    top: 5% !important;
+    left: 30% !important;
+    animation-name: movefromleft;
+  }
+}
+
+@keyframes movefromright {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    right: 50%;
+    top: 15%;
+    opacity: 0;
+  }
+}
+
+@keyframes movefromleft {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    top: 20%;
+    opacity: 0
+  }
+}
+
+@keyframes movefrombottom {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    right: 50%;
+    bottom: 70%;
+    opacity: 0;
   }
 }

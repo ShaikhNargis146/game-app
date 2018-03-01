@@ -61,7 +61,7 @@
         font-family: 'Cinzel-Bold';
         font-weight: bold;
         font-size: 1em;
-        border:0px;
+        border: 0px;
       }
     }
     .login_button {
@@ -78,8 +78,7 @@
       input {
         transform: translateY(15%);
         height: 100%;
-        font-weight: bold;
-        font-family: 'Cinzel-Bold';
+        font-weight: bold; // font-family: 'Cinzel-Bold';
         font-weight: bold;
         font-size: 1em;
         color: white;

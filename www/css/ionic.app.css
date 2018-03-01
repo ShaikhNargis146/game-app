@@ -10170,7 +10170,6 @@ body {
         transform: translateY(15%);
         height: 100%;
         font-weight: bold;
-        font-family: 'Cinzel-Bold';
         font-weight: bold;
         font-size: 1em;
         color: white; }
@@ -10528,6 +10527,19 @@ body {
     left: 0; }
     .kingtable .main-table.activated {
       transform: none; }
+    .kingtable .main-table .total_played_coin {
+      position: absolute;
+      width: 22%;
+      left: 50%;
+      top: 15%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: white; }
+      .kingtable .main-table .total_played_coin .coin {
+        width: 1em;
+        vertical-align: middle;
+        margin-right: 5px; }
     .kingtable .main-table .playing-table {
       position: absolute;
       bottom: -30px;
@@ -10610,7 +10622,7 @@ body {
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5; }
-        .kingtable .main-table .playing-table .sit_here.player8, .kingtable .main-table .playing-table .sit_here.player7 {
+        .kingtable .main-table .playing-table .sit_here.player4, .kingtable .main-table .playing-table .sit_here.player6 {
           bottom: 45%; }
         .kingtable .main-table .playing-table .sit_here.main-player {
           width: 10% !important;
@@ -10674,32 +10686,32 @@ body {
         position: relative;
         width: 100%;
         height: 100%; }
-    .kingtable .main-table .player1 {
+    .kingtable .main-table .player9 {
       left: 28%;
       top: -18%; }
-    .kingtable .main-table .player2 {
+    .kingtable .main-table .player1 {
       right: 28%;
       top: -18%; }
-    .kingtable .main-table .player3 {
+    .kingtable .main-table .player8 {
       left: 8%;
       top: -10%; }
-    .kingtable .main-table .player4 {
+    .kingtable .main-table .player2 {
       right: 8%;
       top: -10%; }
-    .kingtable .main-table .player5 {
+    .kingtable .main-table .player7 {
       top: 28%;
       left: 3%; }
-    .kingtable .main-table .player6 {
+    .kingtable .main-table .player3 {
       top: 28%;
       right: 3%; }
-    .kingtable .main-table .player7,
-    .kingtable .main-table .player8,
+    .kingtable .main-table .player6,
+    .kingtable .main-table .player4,
     .kingtable .main-table .player9 {
       transform: translateY(-100%); }
-    .kingtable .main-table .player7 {
+    .kingtable .main-table .player6 {
       bottom: 4%;
       left: 23%; }
-    .kingtable .main-table .player8 {
+    .kingtable .main-table .player4 {
       bottom: 4%;
       right: 23%; }
     .kingtable .main-table .showing_cards {
@@ -10959,6 +10971,97 @@ body {
   .setting_menu.menu_open .menu_cont {
     transition: margin-right 200ms;
     margin-right: 0%; }
+
+.bootAnimate {
+  position: absolute;
+  z-index: 5;
+  color: white;
+  opacity: 0;
+  white-space: nowrap;
+  animation-duration: 2s; }
+  .bootAnimate .coin {
+    width: 1em;
+    vertical-align: middle;
+    margin-right: 10%; }
+  .bootAnimate.player1 {
+    top: 0% !important;
+    right: 30% !important;
+    animation-name: movefromright; }
+  .bootAnimate.player2 {
+    top: 10% !important;
+    right: 10% !important;
+    animation-name: movefromright; }
+  .bootAnimate.player3 {
+    top: 50% !important;
+    right: 6% !important;
+    animation-name: movefromright; }
+  .bootAnimate.player4 {
+    bottom: 20% !important;
+    right: 25% !important;
+    animation-name: movefrombottom; }
+  .bootAnimate.player5 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 50% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%); }
+  .bootAnimate.player6 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 70% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%); }
+  .bootAnimate.player7 {
+    bottom: 40% !important;
+    top: unset !important;
+    left: unset !important;
+    right: 90% !important;
+    animation-name: movefrombottom;
+    transform: translateY(-100%); }
+  .bootAnimate.player8 {
+    top: 10% !important;
+    left: 10% !important;
+    animation-name: movefromleft; }
+  .bootAnimate.player9 {
+    top: 5% !important;
+    left: 30% !important;
+    animation-name: movefromleft; }
+
+@keyframes movefromright {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  100% {
+    right: 50%;
+    top: 15%;
+    opacity: 0; } }
+
+@keyframes movefromleft {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  100% {
+    left: 50%;
+    top: 20%;
+    opacity: 0; } }
+
+@keyframes movefrombottom {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  100% {
+    right: 50%;
+    bottom: 70%;
+    opacity: 0; } }
 
 .custom-model {
   top: 10%;

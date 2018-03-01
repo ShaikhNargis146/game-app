@@ -1,193 +1,196 @@
-myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams) {
+myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
 
 
 
- $scope.tableInfoOk = function () {
+  $scope.tableInfoOk = function () {
     console.log("okkkkkkk");
 
-  $scope.l = {};
-  $scope.l.tableId = $stateParams.id;
-  console.log("$scope.l", $scope.l)
+    $scope.l = {};
+    $scope.l.tableId = $stateParams.id;
+    console.log("$scope.l", $scope.l)
 
-  Service.getAllActive($scope.l, function (data) {
-    console.log("in get all active");
-    console.log("data in active plyrr", data);
-    if (data.data.value) {
-      $scope.actPlayers = data.data.data;
+    Service.getAllActive($scope.l, function (data) {
+      console.log("in get all active");
+      console.log("data in active plyrr", data);
+      if (data.data.value) {
+        $scope.actPlayers = data.data.data;
 
-      _.forEach($scope.actPlayers, function (n) {
-        // console.log("n");
-        $scope.p = n;
-        Service.getOnePlayer($scope.p, function (data) {
-          // console.log("data..", data.data.data);
-          $scope.pData = data.data.data;
-          $scope.playerNo = $scope.pData.playerNo;
-          // console.log("playerNo", $scope.playerNo);
-          if ($scope.playerNo == 1) {
-            $("#plr1").removeClass("sit_here");
+        _.forEach($scope.actPlayers, function (n) {
+          // console.log("n");
+          $scope.p = n;
+          Service.getOnePlayer($scope.p, function (data) {
+            // console.log("data..", data.data.data);
+            $scope.pData = data.data.data;
+            $scope.playerNo = $scope.pData.playerNo;
+            // console.log("playerNo", $scope.playerNo);
+            if ($scope.playerNo == 1) {
+              $("#plr1").removeClass("sit_here");
 
-            $scope.credit1 = $scope.pData.totalAmount;
-            $scope.name1 = $scope.pData.name;
-            $scope.image1 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 2) {
-            $("#plr2").removeClass("sit_here");
+              $scope.credit1 = $scope.pData.totalAmount;
+              $scope.name1 = $scope.pData.name;
+              $scope.image1 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 2) {
+              $("#plr2").removeClass("sit_here");
 
-            $scope.credit2 = $scope.pData.totalAmount;
-            $scope.name2 = $scope.pData.name;
-            $scope.image2 = $scope.pData.image;
+              $scope.credit2 = $scope.pData.totalAmount;
+              $scope.name2 = $scope.pData.name;
+              $scope.image2 = $scope.pData.image;
 
-          }
-          if ($scope.playerNo == 3) {
-            $("#plr3").removeClass("sit_here");
+            }
+            if ($scope.playerNo == 3) {
+              $("#plr3").removeClass("sit_here");
 
-            $scope.credit3 = $scope.pData.totalAmount;
-            $scope.name3 = $scope.pData.name;
-            $scope.image3 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 4) {
-            $("#plr4").removeClass("sit_here");
+              $scope.credit3 = $scope.pData.totalAmount;
+              $scope.name3 = $scope.pData.name;
+              $scope.image3 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 4) {
+              $("#plr4").removeClass("sit_here");
 
-            $scope.credit4 = $scope.pData.totalAmount;
-            $scope.name4 = $scope.pData.name;
-            $scope.image4 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 5) {
-            $("#plr5").removeClass("sit_here");
+              $scope.credit4 = $scope.pData.totalAmount;
+              $scope.name4 = $scope.pData.name;
+              $scope.image4 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 5) {
+              $("#plr5").removeClass("sit_here");
 
-            $scope.credit5 = $scope.pData.totalAmount;
-            $scope.name5 = $scope.pData.name;
-            $scope.image5 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 6) {
-            $("#plr6").removeClass("sit_here");
+              $scope.credit5 = $scope.pData.totalAmount;
+              $scope.name5 = $scope.pData.name;
+              $scope.image5 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 6) {
+              $("#plr6").removeClass("sit_here");
 
-            $scope.credit6 = $scope.pData.totalAmount;
-            $scope.name6 = $scope.pData.name;
-            $scope.image6 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 7) {
-            $("#plr7").removeClass("sit_here");
+              $scope.credit6 = $scope.pData.totalAmount;
+              $scope.name6 = $scope.pData.name;
+              $scope.image6 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 7) {
+              $("#plr7").removeClass("sit_here");
 
-            $scope.credit7 = $scope.pData.totalAmount;
-            $scope.name7 = $scope.pData.name;
-            $scope.image7 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 8) {
-            $("#plr8").removeClass("sit_here");
+              $scope.credit7 = $scope.pData.totalAmount;
+              $scope.name7 = $scope.pData.name;
+              $scope.image7 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 8) {
+              $("#plr8").removeClass("sit_here");
 
-            $scope.credit8 = $scope.pData.totalAmount;
-            $scope.name8 = $scope.pData.name;
-            $scope.image8 = $scope.pData.image;
-          }
-          if ($scope.playerNo == 9) {
-            $("#plr9").removeClass("sit_here");
+              $scope.credit8 = $scope.pData.totalAmount;
+              $scope.name8 = $scope.pData.name;
+              $scope.image8 = $scope.pData.image;
+            }
+            if ($scope.playerNo == 9) {
+              $("#plr9").removeClass("sit_here");
 
-            $scope.credit9 = $scope.pData.totalAmount;
-            $scope.name9 = $scope.pData.name;
-            $scope.image9 = $scope.pData.image;
-          }
+              $scope.credit9 = $scope.pData.totalAmount;
+              $scope.name9 = $scope.pData.name;
+              $scope.image9 = $scope.pData.image;
+            }
+          });
         });
-      });
-      //to start new game
-if($scope.actPlayers.length>=2){
-  $scope.d = {};
-      $scope.d.tableId = $stateParams.id;
-      console.log("$scope.d", $scope.d)
+        //to start new game
+        if ($scope.actPlayers.length >= 2) {
+          $scope.d = {};
+          $scope.d.tableId = $stateParams.id;
+          console.log("$scope.d", $scope.d)
 
-      // setDealer
-      Service.makeDealer($scope.d, function (data) {
-        console.log("dealer done")
-      });
+          // setDealer
+          Service.makeDealer($scope.d, function (data) {
+            console.log("dealer done")
+          });
 
-      //deductBootAmount
-      $scope.t = {};
-      $scope.t.tableId = $stateParams.id;
- console.log("$scope.t", $scope.t)
+          //deductBootAmount
+          $scope.t = {};
+          $scope.t.tableId = $stateParams.id;
+          console.log("$scope.t", $scope.t)
 
-      Service.deductBootAmount($scope.t, function (data) {
-        console.log("deductBuyInAmount")
+          Service.deductBootAmount($scope.t, function (data) {
+            console.log("deductBuyInAmount")
 
-      });
+            $timeout(function () {
+              $scope.P1bootAmt = true;
+            }, 300);
+          });
 
 
-      //to set//
-      $scope.p = {};
-      $scope.p.tableId = $stateParams.id;
- console.log("$scope.p", $scope.p)
+          //to set//
+          $scope.p = {};
+          $scope.p.tableId = $stateParams.id;
+          console.log("$scope.p", $scope.p)
 
-      Service.getAllActive($scope.p, function (data) {
-        console.log("in set")
-        if (data.data.value) {
-          $scope.actPlayers = data.data.data;
+          Service.getAllActive($scope.p, function (data) {
+            console.log("in set")
+            if (data.data.value) {
+              $scope.actPlayers = data.data.data;
 
-          _.forEach($scope.actPlayers, function (n) {
-            $scope.p = n;
-            Service.getOnePlayer($scope.p, function (data) {
-              $scope.pData = data.data.data;
-              $scope.playerNo = $scope.pData.playerNo;
-              if ($scope.playerNo == 1) {
+              _.forEach($scope.actPlayers, function (n) {
+                $scope.p = n;
+                Service.getOnePlayer($scope.p, function (data) {
+                  $scope.pData = data.data.data;
+                  $scope.playerNo = $scope.pData.playerNo;
+                  if ($scope.playerNo == 1) {
 
-                $scope.credit1 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 2) {
+                    $scope.credit1 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 2) {
 
-                $scope.credit2 = $scope.pData.totalAmount;
+                    $scope.credit2 = $scope.pData.totalAmount;
 
-              }
-              if ($scope.playerNo == 3) {
+                  }
+                  if ($scope.playerNo == 3) {
 
-                $scope.credit3 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 4) {
+                    $scope.credit3 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 4) {
 
-                $scope.credit4 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 5) {
+                    $scope.credit4 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 5) {
 
-                $scope.credit5 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 6) {
+                    $scope.credit5 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 6) {
 
-                $scope.credit6 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 7) {
+                    $scope.credit6 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 7) {
 
-                $scope.credit7 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 8) {
+                    $scope.credit7 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 8) {
 
-                $scope.credit8 = $scope.pData.totalAmount;
-              }
-              if ($scope.playerNo == 9) {
+                    $scope.credit8 = $scope.pData.totalAmount;
+                  }
+                  if ($scope.playerNo == 9) {
 
-                $scope.credit9 = $scope.pData.totalAmount;
-              }
+                    $scope.credit9 = $scope.pData.totalAmount;
+                  }
 
-            });
+                });
 
+
+              });
+            }
+          });
+
+          //to serve//
+
+          $scope.b = {};
+          $scope.b.tableId = $stateParams.id;
+          console.log("$scope.b", $scope.b)
+
+
+          Service.serve($scope.b, function (data) {
+            console.log("serve done")
 
           });
         }
-      });
-
-      //to serve//
-
- $scope.b = {};
-      $scope.b.tableId = $stateParams.id;
- console.log("$scope.b", $scope.b)
-
-
-      Service.serve($scope.b, function (data) {
-        console.log("serve done")
-
-      });
-}
-    }
-  });
+      }
+    });
 
 
   }
@@ -298,7 +301,7 @@ if($scope.actPlayers.length>=2){
     $scope.tableInfoModal.hide();
   }
 
- 
+
 
   // main playper clicked
   $scope.mainPlayerClicked = function () {
