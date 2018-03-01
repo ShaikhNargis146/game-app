@@ -16,10 +16,10 @@
     .profile_pic {
       width: 20%;
       padding: 2%;
-      height:20vh;
+      height: 20vh;
       img {
         width: 100%;
-        height:100%;
+        height: 100%;
         object-fit: fill;
       }
     }
@@ -92,28 +92,6 @@
         }
       }
     }
-    .table_type {
-      width: 60%;
-      margin: 0 auto;
-      white-space: nowrap;
-      overflow-x: scroll;
-      .type {
-        width:22%;
-        background: url('../img/lobby/text_bg.png');
-        background-size: 100% 100%;
-        margin: 2%;
-        padding: 3%;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: center; // color:white;
-        display: inline-block;
-        span {
-          font-size: .9em;
-          line-height: 1.5;
-        }
-      }
-    }
   } //scss when variation is clicked
   .variation_active {
     transition: all 500ms;
@@ -124,7 +102,8 @@
       transition: none;
     }
     .categorys {
-      &>div,.play_now {
+      &>div,
+      .play_now {
         opacity: 0.5;
         span {
           // background: none;
@@ -161,76 +140,6 @@
           opacity: 1;
         }
       }
-    }
-  }
-
-  .playnow-active{
-
-    .categorys {
-      &>div {
-        opacity: 0.5;
-        span {
-          // background: none;
-          // background-clip: none;
-          // color: #ffffff3d;
-          // -webkit-text-fill-color: unset;
-          opacity: .5;
-        }
-      }
-      .play_now {
-        opacity: 1;
-        span {
-          // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          // -webkit-background-clip: text;
-          // background-clip: text;
-          // -webkit-text-fill-color: transparent;
-          opacity: 1;
-        }
-      }
-    }
-
-  }
-
-.playjoker-active{
-
-  .categorys {
-    &>div {
-      opacity: 0.5;
-      span {
-        // background: none;
-        // background-clip: none;
-        // color: #ffffff3d;
-        // -webkit-text-fill-color: unset;
-        opacity: .5;
-      }
-    }
-    .play_joker {
-      opacity: 1;
-      span {
-        // background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-        // background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-        // -webkit-background-clip: text;
-        // background-clip: text;
-        // -webkit-text-fill-color: transparent;
-        opacity: 1;
-      }
-    }
-  }
-
-}
-
-
-
-
-  //open table type
-  .open_tabletype{
-    transition: all 500ms;
-    margin-top: - 12%;
-    .logo {
-      opacity: 0;
-      visibility: none;
-      transition: none;
     }
   }
 }
@@ -306,10 +215,10 @@
       .profile_pic {
         width: 30%;
         padding: 2%;
-        height:20vh;
+        height: 20vh;
         img {
           width: 100%;
-          height:100%;
+          height: 100%;
           object-fit: fill;
         }
       }
@@ -356,4 +265,3 @@
     }
   }
 }
-

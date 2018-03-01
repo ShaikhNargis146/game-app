@@ -1,0 +1,31 @@
+<ion-modal-view class="custom-model statement-model price_range_modal">
+
+  <ion-content>
+    <div class="heading">
+      Table
+    </div>
+
+
+    <!-- <div class="type" ui-sref="table">
+      <div class="left_img">
+        <img src="img/lobby/price_modal/left_img.png" class="img-responsive">
+      </div>
+      <div class="right_img">
+        <img src="img/lobby/price_modal/right_img.png" class="img-responsive">
+        <div class="price">
+          <img src="img/coin.svg" class="coin">500 -
+          <img src="img/coin.svg" class="coin">1000
+        </div>
+      </div>
+    </div> -->
+
+    <div class="table_type no-click-effect" ng-click="$event.stopPropagation()">
+      <div class="type" ng-repeat="t in tableData track by $index">
+        <span  ng-click="goToTable(t)"> {{t.chalLimit}} </span>
+      </div>
+
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>

@@ -10308,21 +10308,6 @@ body {
         padding: 3%; }
         .main_lobby .lobby_content .variation_subtype > div span {
           font-size: .7em; }
-    .main_lobby .lobby_content .table_type {
-      width: 60%;
-      margin: 0 auto;
-      white-space: nowrap;
-      overflow-x: scroll; }
-      .main_lobby .lobby_content .table_type .type {
-        width: 22%;
-        background: url("../img/lobby/text_bg.png");
-        background-size: 100% 100%;
-        margin: 2%;
-        padding: 3%;
-        display: inline-block; }
-        .main_lobby .lobby_content .table_type .type span {
-          font-size: .9em;
-          line-height: 1.5; }
   .main_lobby .variation_active {
     transition: all 500ms;
     margin-top: -12%; }
@@ -10330,9 +10315,11 @@ body {
       opacity: 0;
       visibility: none;
       transition: none; }
-    .main_lobby .variation_active .categorys > div, .main_lobby .variation_active .categorys .play_now {
+    .main_lobby .variation_active .categorys > div,
+    .main_lobby .variation_active .categorys .play_now {
       opacity: 0.5; }
-      .main_lobby .variation_active .categorys > div span, .main_lobby .variation_active .categorys .play_now span {
+      .main_lobby .variation_active .categorys > div span,
+      .main_lobby .variation_active .categorys .play_now span {
         opacity: .5; }
     .main_lobby .variation_active .categorys .variation {
       opacity: 1; }
@@ -10346,29 +10333,6 @@ body {
         opacity: 1; }
         .main_lobby .variation_active .variation_subtype > div span {
           opacity: 1; }
-  .main_lobby .playnow-active .categorys > div {
-    opacity: 0.5; }
-    .main_lobby .playnow-active .categorys > div span {
-      opacity: .5; }
-  .main_lobby .playnow-active .categorys .play_now {
-    opacity: 1; }
-    .main_lobby .playnow-active .categorys .play_now span {
-      opacity: 1; }
-  .main_lobby .playjoker-active .categorys > div {
-    opacity: 0.5; }
-    .main_lobby .playjoker-active .categorys > div span {
-      opacity: .5; }
-  .main_lobby .playjoker-active .categorys .play_joker {
-    opacity: 1; }
-    .main_lobby .playjoker-active .categorys .play_joker span {
-      opacity: 1; }
-  .main_lobby .open_tabletype {
-    transition: all 500ms;
-    margin-top: -12%; }
-    .main_lobby .open_tabletype .logo {
-      opacity: 0;
-      visibility: none;
-      transition: none; }
 
 .lobby_menu .menu_close {
   color: #f9df93;
@@ -11325,6 +11289,33 @@ body {
       font-size: .7em;
       right: 2%;
       bottom: 10%; }
+
+.price_range_modal {
+  height: 50vh;
+  top: 30%;
+  background: url("../img/model/price_range_bg.png");
+  background-size: 100% 100%; }
+  .price_range_modal ion-content {
+    padding: 0px; }
+  .price_range_modal .heading {
+    padding: 2%; }
+  .price_range_modal .table_type {
+    width: 80%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow-x: scroll;
+    margin-top: 4%; }
+    .price_range_modal .table_type .type {
+      width: 28%;
+      background: url("../img/lobby/text_bg.png");
+      background-size: 100% 100%;
+      margin: 2%;
+      padding: 3%;
+      text-align: center;
+      display: inline-block; }
+      .price_range_modal .table_type .type span {
+        font-size: .9em;
+        line-height: 1.5; }
 
 .pokar {
   background-color: #000; }
