@@ -125,6 +125,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           $scope.p.tableId = $stateParams.id;
 
           Service.getAllActive($scope.p, function (data) {
+            console.log("botttttttttttt", $scope.bootAmt)
+            // console.log("in set")
+            $scope.totalMoneyOnTable = 0;
             if (data.data.value) {
               $scope.actPlayers = data.data.data;
 
@@ -139,13 +142,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     $scope.credit1 = $scope.pData.totalAmount;
                     $timeout(function () {
                       $scope.P1bootAmt = true;
-
                     }, 800);
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
                     // $timeout(function () {
                     //   $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
                     // }, 2000);
+                  
+
+
 
                   }
                   if ($scope.playerNo == 2) {
@@ -157,6 +162,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     }, 800);
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
+
                   }
                   if ($scope.playerNo == 3) {
 
@@ -166,6 +172,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     $scope.credit8 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
+                    $scope.credit3 = $scope.pData.totalAmount;
 
                   }
 
@@ -186,7 +193,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     $scope.credit5 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
-
                   }
                   if ($scope.playerNo == 6) {
 
@@ -196,7 +202,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     $scope.credit6 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
-
                   }
                   if ($scope.playerNo == 7) {
 
@@ -205,8 +210,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     }, 800);
                     $scope.credit7 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
-
-
                   }
                   if ($scope.playerNo == 8) {
 
@@ -216,16 +219,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                     $scope.credit8 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
 
-
                   }
                   if ($scope.playerNo == 9) {
-
 
                     $timeout(function () {
                       $scope.P9bootAmt = true;
                     }, 800);
                     $scope.credit9 = $scope.pData.totalAmount;
                     $scope.totalMoneyOnTable = $scope.totalMoneyOnTable + $scope.bootAmt;
+
 
                   }
                   $scope.sendMoneyOnTable = $scope.totalMoneyOnTable;
