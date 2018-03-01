@@ -1,9 +1,8 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service,$http) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http) {
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
-  console.log("hi this is lobby")
 
   //to close all tab and side menu
   $scope.closeAllTab = function () {
@@ -245,7 +244,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ACStatementModal.remove();
     $scope.transferStatementModal.remove();
     $scope.changePasswordModel.remove();
-  
+
     $scope.priceRangeModal.remove();
     $scope.closeAllTab();
     // $scope.roomSummaryModel.remove();
