@@ -96,34 +96,38 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         if ($scope.actPlayers.length >= 2) {
           $scope.d = {};
           $scope.d.tableId = $stateParams.id;
-          console.log("$scope.d", $scope.d)
+          // console.log("$scope.d", $scope.d)
 
           // setDealer
           Service.makeDealer($scope.d, function (data) {
-            console.log("dealer done")
+            // console.log("dealer done");
           });
 
           //deductBootAmount
           $scope.t = {};
           $scope.t.tableId = $stateParams.id;
-          console.log("$scope.t", $scope.t)
+          // console.log("$scope.t", $scope.t)
 
           Service.deductBootAmount($scope.t, function (data) {
-            console.log("deductBuyInAmount")
+            // console.log("deductBuyInAmount");
 
-            $timeout(function () {
-              $scope.P1bootAmt = true;
-            }, 300);
+            // $timeout(function () {
+            //   $scope.P1bootAmt = true;
+            // }, 300);
+
+
           });
 
 
           //to set//
           $scope.p = {};
           $scope.p.tableId = $stateParams.id;
-          console.log("$scope.p", $scope.p)
+          // console.log("$scope.p", $scope.p)
 
           Service.getAllActive($scope.p, function (data) {
-            console.log("in set")
+            console.log("botttttttttttt",$scope.bootAmt)
+            // console.log("in set")
+            $scope.totalMoneyOnTable=0;
             if (data.data.value) {
               $scope.actPlayers = data.data.data;
 
@@ -134,45 +138,114 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
                   $scope.playerNo = $scope.pData.playerNo;
                   if ($scope.playerNo == 1) {
 
-                    $scope.credit1 = $scope.pData.totalAmount;
+
+$scope.credit1 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.P1bootAmt = true;
+                    }, 800);
+
+                    
+
+$timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
+                    
+
                   }
                   if ($scope.playerNo == 2) {
 
                     $scope.credit2 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.P2bootAmt = true;
+                    }, 800);
+                    
+$timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
 
                   }
                   if ($scope.playerNo == 3) {
 
+                    $timeout(function () {
+                      $scope.P3bootAmt = true;
+                    }, 800);
                     $scope.credit3 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
                   if ($scope.playerNo == 4) {
 
+                    $timeout(function () {
+                      $scope.P4bootAmt = true;
+                    }, 800);
                     $scope.credit4 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
                   if ($scope.playerNo == 5) {
 
+                    $timeout(function () {
+                      $scope.P5bootAmt = true;
+                    }, 800);
                     $scope.credit5 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
                   if ($scope.playerNo == 6) {
 
+                    $timeout(function () {
+                      $scope.P6bootAmt = true;
+                    }, 800);
                     $scope.credit6 = $scope.pData.totalAmount;
+                   $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
                   if ($scope.playerNo == 7) {
 
+                    $timeout(function () {
+                      $scope.P7bootAmt = true;
+                    }, 800);
                     $scope.credit7 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
+
                   }
                   if ($scope.playerNo == 8) {
 
+                    $timeout(function () {
+                      $scope.P8bootAmt = true;
+                    }, 800);
                     $scope.credit8 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
                   if ($scope.playerNo == 9) {
 
+
+                    $timeout(function () {
+                      $scope.P9bootAmt = true;
+                    }, 800);
                     $scope.credit9 = $scope.pData.totalAmount;
+                    $timeout(function () {
+                      $scope.totalMoneyOnTable=$scope.totalMoneyOnTable+$scope.bootAmt;
+                    }, 2000);
+
                   }
 
                 });
-
-
               });
             }
           });
@@ -181,11 +254,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
           $scope.b = {};
           $scope.b.tableId = $stateParams.id;
-          console.log("$scope.b", $scope.b)
+          // console.log("$scope.b", $scope.b)
 
 
           Service.serve($scope.b, function (data) {
-            console.log("serve done")
+            // console.log("serve done")
 
           });
         }

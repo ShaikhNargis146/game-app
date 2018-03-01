@@ -71,7 +71,7 @@
       <img src="img/doll.png" class="doll">
       <img src="img/table.png" class="bg-table">
       <div class="total_played_coin">
-        <img src="img/coin.png" class="coin"> 0</div>
+        <img src="img/coin.png" class="coin">{{totalMoneyOnTable}}</div>
 
 
       <!--player9-->
@@ -96,7 +96,7 @@
         </div>
       </div>
       <div class="player1 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
 
       <!--player1-->
@@ -122,8 +122,8 @@
           <span>{{name2}}</span>
         </div>
       </div>
-      <div class="player2 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player2 bootAnimate" ng-if="P2bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
       <!--player8-->
       <div id="plr3" ng-click="sitHere(3)" class="plyr player3 sit_here">
         <div class="status">FOLD</div>
@@ -147,8 +147,8 @@
           <span>{{name3}}</span>
         </div>
       </div>
-      <div class="player3 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player3 bootAnimate" ng-if="P3bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player2-->
       <div id="plr4" ng-click="sitHere(4)" class="plyr player4 sit_here">
@@ -173,8 +173,8 @@
           <span>{{name4}}</span>
         </div>
       </div>
-      <div class="player4 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player4 bootAnimate" ng-if="P4bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player7-->
       <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
@@ -198,8 +198,8 @@
         <div class="amt">
           <img src="img/coin.png">64,000</div>
       </div>
-      <div class="player5 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player5 bootAnimate" ng-if="P5bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player3-->
       <div id="plr6" ng-click="sitHere(6)" class="plyr player6 sit_here">
@@ -227,8 +227,8 @@
           <span>{{name6}}</span>
         </div>
       </div>
-      <div class="player6 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player6 bootAnimate" ng-if="P6bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player6-->
       <div id="plr7" ng-click="sitHere(7)" class="plyr player7 sit_here">
@@ -253,8 +253,8 @@
           <span>{{name7}}</span>
         </div>
       </div>
-      <div class="player7 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player7 bootAnimate" ng-if="P7bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player4-->
       <div id="plr8" ng-click="sitHere(8)" class="plyr player8 sit_here">
@@ -278,8 +278,8 @@
           <span>{{name8}}</span>
         </div>
       </div>
-      <div class="player8 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player8 bootAnimate" ng-if="P8bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player9-->
       <!--<div id="plr9" ng-click="sitHere(9)" class="plyr player9 sit_here">
@@ -321,8 +321,8 @@
         </div>
       </div>
 
-      <div class="player9 bootAnimate" ng-if="P1bootAmt">
-        <img src="img/coin.png" class="coin">500</div>
+      <div class="player9 bootAnimate" ng-if="P9bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
 
       <!--player9-->
       <!--<div class="plyr  main-player " ng-click="mainPlayerClicked()">
