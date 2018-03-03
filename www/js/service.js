@@ -84,7 +84,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         data: data
       }).then(callback);
     },
-
+    getAll: function (data, callback) {
+      $http({
+        url: url + 'Player/getAll',
+        method: 'POST',
+        data: data
+      }).then(callback);
+    },
     savePlayerTotable: function (dataPlayer, callback) {
       console.log(dataPlayer, "dataPlayer")
       $http({
