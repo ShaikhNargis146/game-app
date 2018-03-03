@@ -11027,6 +11027,34 @@ body {
     bottom: 70%;
     opacity: 0; } }
 
+.card_shuffle {
+  width: 3vw;
+  position: absolute;
+  top: 18%;
+  left: 34%; }
+  .card_shuffle .cards {
+    position: relative; }
+    .card_shuffle .cards img {
+      position: absolute;
+      width: 100%; }
+      .card_shuffle .cards img:nth-child(1) {
+        left: 0; }
+      .card_shuffle .cards img:nth-child(2) {
+        left: 20%; }
+      .card_shuffle .cards img:nth-child(3) {
+        left: 40%; }
+    .card_shuffle .cards.toplyr1:nth-child(1) {
+      left: 0;
+      animation-name: toplyr1;
+      animation-duration: 1s; }
+    .card_shuffle .cards.toplyr1:nth-child(2) {
+      left: 20%; }
+    .card_shuffle .cards.toplyr1:nth-child(3) {
+      left: 40%; }
+
+@keyframes toplyr1 {
+  100% { } }
+
 .custom-model {
   top: 10%;
   right: 10%;
