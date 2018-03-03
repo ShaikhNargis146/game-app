@@ -102,7 +102,25 @@
         <players id="plr9" player="player[8]" ng-player="player" class="plyr player9 sit_here "> </players>
       </div>
       <!-- end player -->
-
+      <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image | serverimage}}"> </div>
+          </div>
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+          <div class="card_see">See</div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">64,000</div>
+      </div>
+      <div class="player5 bootAnimate" ng-if="P5bootAmt">
+        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
       <!-- <player id="plr1" ng-click="sitHere(1)" class="plyr player1 sit_here"></player> -->
 
 
