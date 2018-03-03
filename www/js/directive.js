@@ -52,4 +52,14 @@ myApp.directive('card', function () {
         //  console.log("jokerCard Loaded");
       }
     };
+  })
+  .directive('gameHistory', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/game-history.html',
+      link: function ($scope, element, attr) {
+        //console.log("Player Loaded");
+      }
+    };
   });
