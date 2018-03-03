@@ -342,9 +342,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   // main playper clicked
-  $scope.mainPlayerClicked = function () {
-    console.log("main player");
-  }
+  // $scope.mainPlayerClicked = function () {
+  //   console.log("main player");
+  // }
 
   // $scope.showCard = function () {
   //   console.log("inside show card");
@@ -454,18 +454,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.jdata = $.jStorage.get("player");
     $scope.jdata.sitNummber = $scope.sitNummber;
     $.jStorage.set("player", $scope.jdata);
-    $scope.data = {};
-    $scope.data.playerNo = $scope.sitNummber;
-    $scope.data.memberId = $scope.jdata._id;
-    $scope.data.totalAmount = $scope.jdata.credit;
-    $scope.data.tableId = $scope.tableId;
-    $scope.data.sitNummber = $scope.sitNummber;
-    $scope.data.image = $scope.jdata.image;
-    $scope.data.name = $scope.jdata.username;
-    $scope.data.userType = $scope.jdata.userType;
+    $scope.dataPlayer = {};
+    $scope.dataPlayer.playerNo = $scope.sitNummber;
+    $scope.dataPlayer.memberId = $scope.jdata._id;
+    $scope.dataPlayer.totalAmount = $scope.jdata.credit;
+    $scope.dataPlayer.tableId = $scope.tableId;
+    $scope.dataPlayer.sitNummber = $scope.sitNummber;
+    $scope.dataPlayer.image = $scope.jdata.image;
+    $scope.dataPlayer.name = $scope.jdata.username;
+    $scope.dataPlayer.userType = $scope.jdata.userType;
 
 
-    Service.savePlayerTotable($scope.data, function (data) {
+    Service.savePlayerTotable($scope.dataPlayer, function (data) {
       console.log(data, "sitted");
       if (data.data.value) {
         console.log("player saved");

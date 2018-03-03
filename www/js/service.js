@@ -85,11 +85,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(callback);
     },
 
-    savePlayerTotable: function (data, callback) {
+    savePlayerTotable: function (dataPlayer, callback) {
+      console.log(dataPlayer, "dataPlayer")
       $http({
         url: url + 'Table/addUserToTable',
         method: 'POST',
-        data: data
+        data: dataPlayer
       }).then(callback);
     },
 

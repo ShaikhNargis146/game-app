@@ -23,7 +23,7 @@ myApp.directive('card', function () {
       }
     };
   })
-  .directive('player', function () {
+  .directive('players', function () {
     return {
       restrict: 'E',
       replace: false,
