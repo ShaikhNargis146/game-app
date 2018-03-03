@@ -1,0 +1,285 @@
+<div class="kingtable table6">
+
+  <div class="top_field">
+    <div class="option_menu_icon left" ng-click="openLeftMenu()">
+      <!-- <img src="img/option.png" class=""> -->
+      <i class="icon ion-navicon-round"></i>
+    </div>
+    <div class="play_history  left " ng-class="{'open_play_history':viewHistory}">
+      <div class="border-gradient">
+        <div class="bg-style cont">
+          <div>Charles Played Blind </div>
+          <div>Charles Played Blind </div>
+          <div>Charles Played Blind </div>
+          <div>Charles Played Blind </div>
+        </div>
+      </div>
+      <div class="down-arrow" ng-click="toggleHistory()">
+        <!-- <i class="icon ion-arrow-down-a"></i> -->
+        <i class="icon ion-chevron-down"></i>
+      </div>
+    </div>
+    <div class="right_side_icon right">
+      <div class="setting_menu_icon">
+        <span class="icon ion-information" ng-click="toggleTableInfo()"></span>
+        <img src="img/option.png" ng-click="openRightMenu()">
+      </div>
+      <div class=" table-info border-gradient" ng-if="showTableinfo">
+        <table class="bg-style">
+          <tr>
+            <th colspan="2" class="heading">Table Info</th>
+          </tr>
+          <tr>
+            <td>
+              Boot Amount
+            </td>
+            <td>
+              {{bootAmt}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Chal Limit
+            </td>
+            <td>
+              {{chalAmt}}/{{2*chalAmt}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Table show
+            </td>
+            <td>
+              {{tableShow}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Max Blind
+            </td>
+            <td>
+              {{maxBlind}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-table" ng-click="closeAllModal()">
+    <div class="playing-table">
+      <img src="img/doll.png" class="doll">
+      <img src="img/table.png" class="bg-table">
+      <div class="total_played_coin">
+        <img src="img/coin.png" class="coin">{{totalMoneyOnTable}}</div>
+      <div class="card_shuffle">
+        <div class="cards">
+          <img src="img/card-back.png">
+          <img src="img/card-back.png">
+          <img src="img/card-back.png">
+        </div>
+        <div class="cards toplyr1">
+          <img src="img/card-back.png">
+          <img src="img/card-back.png">
+          <img src="img/card-back.png">
+        </div>
+      </div>
+
+      <!-- <player id="plr1" data="{'credit':500,'name':'random'}" ng-click="sitHere(1)" class="plyr player1 sit_here"></player> -->
+      <!--player9-->
+      <div id="plr1" ng-click="sitHere(1)" class="plyr player1">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image1 | serverimage}}"> </div>
+
+          </div>
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">5000</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(1)">
+          <span>random name</span>
+        </div>
+      </div>
+      <div class="player1 bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+
+
+      <!--player1-->
+      <div id="plr2" ng-click="sitHere(2)" class="plyr player2  ">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image2 | serverimage}}"> </div>
+
+          </div>
+
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">500</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(2)">
+          <span>name2</span>
+        </div>
+      </div>
+      <div class="player2 bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+      <!--player8-->
+      <div id="plr3" ng-click="sitHere(3)" class="plyr player3 ">
+        <div class="status">FOLD</div>
+        <div class="plyr_pic">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image3 | serverimage}}"> </div>
+
+          </div>
+
+
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">500</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(3)">
+          <span>name3</span>
+        </div>
+      </div>
+      <div class="player3 bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+
+
+      <div id="plr4" class="plyr main-player " ng-click="mainPlayerClicked();sitHere(5)">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <!--<img class="pic" src="img/playing_profile.png">-->
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image | serverimage}}"> </div>
+          </div>
+
+
+          <div class="plyr_card">
+
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+          <div class="card_see">See</div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">64,000</div>
+      </div>
+      <div class=" main-player bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+      <!--player2-->
+      <div id="plr5" ng-click="sitHere(4)" class="plyr player5 ">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <div class="pic">
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image4 | serverimage}}"> </div>
+
+          </div>
+
+
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">500</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(4)">
+          <span>name 5</span>
+        </div>
+      </div>
+
+      <div class="player5 bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+
+
+
+
+
+      <div id="plr6" ng-click="sitHere(6)" class="plyr player6">
+        <div class="status">BLIND</div>
+        <div class="plyr_pic">
+          <div class="pic">
+
+            <div class="profile_pic_overlay">
+              <img ng-src="{{image6 | serverimage}}"> </div>
+
+
+
+
+          </div>
+
+          <div class="plyr_card">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+            <img src="img/card-back.png">
+          </div>
+        </div>
+        <div class="amt">
+          <img src="img/coin.png">500</div>
+        <div class="plyr_name" ng-click="openPlayerDetails(6)">
+          <span>name6</span>
+        </div>
+      </div>
+      <div class="player6 bootAnimate">
+        <img src="img/coin.png" class="coin">500</div>
+
+      <!--player6-->
+
+
+
+
+
+
+
+      <!--showCard-->
+      <div class="showing_cards">
+        <img src="img/table/card-back.png">
+        <img src="img/table/card-back.png">
+        <img src="img/table/card-back.png">
+        <div class="card_see">See</div>
+      </div>
+
+
+      <div class="playing-player-info">
+        <span class="pack"> PACK </span>
+        <span class="slide_show"> side show </span>
+        <!--<span class="info"> christie kallies
+            <img src="img/coin.png">120000 </span>-->
+        <span class="info"> {{username}}
+          <img src="img/coin.png">{{credit}}</span>
+        <span class="minus no-click-effect" ng-click="removeCoin()">
+          <i class="icon ion-minus-round"></i>
+        </span>
+        <span class="coin">
+          <img src="img/coin.png">{{coin}} blind</span>
+        <span class="plus no-click-effect" ng-click="addCoin()">+</span>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

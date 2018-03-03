@@ -65,6 +65,7 @@
     .categorys {
       width: 80%;
       margin: 0 auto;
+      overflow: scroll;
       &>div {
         background: url('../img/lobby/text_bg.png');
         background-size: 100% 100%;

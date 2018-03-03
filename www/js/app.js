@@ -38,6 +38,12 @@ var myApp = angular.module('starter', ['ionic', 'starter.service'])
         templateUrl: 'templates/table.html',
         controller: 'TableCtrl'
       })
+      .state('table6', {
+        url: '/table6',
+        cache: false,
+        templateUrl: 'templates/table6.html',
+        controller: 'Table6Ctrl'
+      })
       // .state('app.table', {
       //   url: '/table',
       //   views: {
