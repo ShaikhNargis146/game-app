@@ -88,19 +88,20 @@
 
       <!-- player -->
       <div class="players">
-        <players id="plr1" player="player[0]" ng-click="sitHere(1)" ng-player="player" class="plyr player1 sit_here"> </players>
+        <players id="plr1" ng-click="sitHere(1)" ng-player="players[0]" class="plyr player1"> </players>
         <div class="player1 bootAnimate" ng-if="P1bootAmt">
           <img src="img/coin.png" class="coin">{{bootAmt}}
         </div>
-        <players id="plr2" player="player[1]" ng-click="sitHere(2)" ng-player="player" class="plyr player2 sit_here "> </players>
-        <players id="plr3" player="player[2]" ng-click="sitHere(3)" ng-player="player" class="plyr player3 sit_here "> </players>
-        <players id="plr4" player="player[3]" ng-click="sitHere(4)" ng-player="player" class="plyr player4 sit_here "> </players>
-        <players id="plr5" player="player[4]" ng-click="sitHere(5)" ng-player="player" class="plyr player5 sit_here "> </players>
-        <players id="plr6" player="player[5]" ng-click="sitHere(6)" ng-player="player" class="plyr player6 sit_here "> </players>
-        <players id="plr7" player="player[6]" ng-click="sitHere(7)" ng-player="player" class="plyr player7 sit_here "> </players>
-        <players id="plr8" player="player[7]" ng-click="sitHere(8)" ng-player="player" class="plyr player8 sit_here "> </players>
-        <players id="plr9" player="player[8]" ng-click="sitHere(9)" ng-player="player" class="plyr player9 sit_here "> </players>
+        <players id="plr2" ng-click="sitHere(2)" ng-player="players[1]" class="plyr player2"> </players>
+        <players id="plr3" ng-click="sitHere(3)" ng-player="players[2]" class="plyr player3 sit_here"> </players>
+        <players id="plr4" ng-click="sitHere(4)" ng-player="players[3]" class="plyr player4 sit_here"> </players>
+        <players id="plr5" ng-click="sitHere(5)" ng-player="players[4]" class="plyr player5 sit_here "> </players>
+        <players id="plr6" ng-click="sitHere(6)" ng-player="players[5]" class="plyr player6 sit_here "> </players>
+        <players id="plr7" ng-click="sitHere(7)" ng-player="players[6]" class="plyr player7 sit_here "> </players>
+        <players id="plr8" ng-click="sitHere(8)" ng-player="players[7]" class="plyr player8 sit_here "> </players>
+        <players id="plr9" ng-click="sitHere(9)" ng-player="players[8]" class="plyr player9 sit_here "> </players>
       </div>
+      
       <!-- end player -->
       <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="status">BLIND</div>
