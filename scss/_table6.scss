@@ -1,0 +1,59 @@
+.table6 {
+  .player1 {}
+  .player2 {
+    right: 5% !important;
+    top: 2% !important;
+  }
+  .player3 {
+    top: 40% !important;
+    right: 18% !important;
+  }
+  .player4 {
+    //main player
+  }
+  .player5 {
+    position: absolute;
+    left: 15%;
+    top: 40%;
+  }
+  .player6 {
+    top: 18% !important;
+    left: 20% !important;
+    bottom: unset !important;
+    right:unset !important;
+  }
+  .bootAnimate {
+    &.player1 {
+      animation-name: movefromright;
+    }
+    &.player2 {
+      top: 13% !important;
+      right: 10% !important;
+      animation-name: movefromright;
+    }
+    &.player3 {
+      top: 50% !important;
+      right: 20% !important;
+      animation-name: movefromright;
+    }
+    &.main-player {
+      position: absolute;
+      left: 50%;
+      bottom: 10% !important;
+      animation-name: movefrombottom;
+    }
+    &.player5 {
+      left: 15% !important;
+      top: 60% !important;
+      bottom:unset !important;
+      right:unset !important;
+      animation-name: movefromleft;
+    }
+
+    &.player6{
+        animation-name: movefromleft;
+    }
+  }
+}
+
+//animation

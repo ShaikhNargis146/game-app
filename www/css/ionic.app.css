@@ -10286,7 +10286,8 @@ body {
         margin: 0 auto; }
     .main_lobby .lobby_content .categorys {
       width: 80%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      overflow: scroll; }
       .main_lobby .lobby_content .categorys > div {
         background: url("../img/lobby/text_bg.png");
         background-size: 100% 100%;
@@ -11054,6 +11055,54 @@ body {
 
 @keyframes toplyr1 {
   100% { } }
+
+.table6 .player2 {
+  right: 5% !important;
+  top: 2% !important; }
+
+.table6 .player3 {
+  top: 40% !important;
+  right: 18% !important; }
+
+.table6 .player5 {
+  position: absolute;
+  left: 15%;
+  top: 40%; }
+
+.table6 .player6 {
+  top: 18% !important;
+  left: 20% !important;
+  bottom: unset !important;
+  right: unset !important; }
+
+.table6 .bootAnimate.player1 {
+  animation-name: movefromright; }
+
+.table6 .bootAnimate.player2 {
+  top: 13% !important;
+  right: 10% !important;
+  animation-name: movefromright; }
+
+.table6 .bootAnimate.player3 {
+  top: 50% !important;
+  right: 20% !important;
+  animation-name: movefromright; }
+
+.table6 .bootAnimate.main-player {
+  position: absolute;
+  left: 50%;
+  bottom: 10% !important;
+  animation-name: movefrombottom; }
+
+.table6 .bootAnimate.player5 {
+  left: 15% !important;
+  top: 60% !important;
+  bottom: unset !important;
+  right: unset !important;
+  animation-name: movefromleft; }
+
+.table6 .bootAnimate.player6 {
+  animation-name: movefromleft; }
 
 .custom-model {
   top: 10%;
