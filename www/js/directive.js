@@ -34,11 +34,11 @@ myApp.directive('card', function () {
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {
         //console.log("Player Loaded");
-        console.log("directive scope", scope);
-        console.log("player", );
-        scope.$watch("player", function () {
-          console.log("change",scope.player);
-        });
+        // console.log("directive scope", scope);
+        // console.log("player", );
+        // scope.$watch("player", function () {
+        //   console.log("change",scope.player);
+        // });
       }
     };
   })
