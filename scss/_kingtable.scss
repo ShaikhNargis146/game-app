@@ -772,10 +772,10 @@
   opacity: 0;
   white-space: nowrap;
   animation-duration: 2s;
-  .coin{
-    width:1em;
+  .coin {
+    width: 1em;
     vertical-align: middle;
-    margin-right:10%;
+    margin-right: 10%;
   }
   &.player1 {
     top: 0% !important;
@@ -880,4 +880,48 @@
     bottom: 70%;
     opacity: 0;
   }
+}
+
+.card_shuffle {
+  width: 3vw;
+  position: absolute;
+  top: 18%;
+  left: 34%;
+  .cards {
+    position: relative;
+    img {
+      position: absolute;
+      width: 100%;
+      &:nth-child(1) {
+        left: 0
+      }
+      &:nth-child(2) {
+        left: 20%;
+      }
+      &:nth-child(3) {
+        left: 40%;
+      }
+    }
+
+    &.toplyr1{
+      &:nth-child(1) {
+        left: 0;
+        animation-name:toplyr1;
+        animation-duration:1s;
+      }
+      &:nth-child(2) {
+        left: 20%;
+      }
+      &:nth-child(3) {
+        left: 40%;
+      }
+    }
+  }
+}
+
+
+@keyframes toplyr1{
+ 100%{
+   
+ }
 }
