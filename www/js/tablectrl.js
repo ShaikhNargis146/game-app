@@ -180,13 +180,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
-    console.log("table id ", $scope.l)
+    console.log("table id ", $scope.l);
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
 
       console.log(data.data);
-      $scope.players=data.data.data.players;
-      console.log('playyyyers',$scope.players)
+      $scope.players = data.data.data.players;
+      console.log('playyyyers', $scope.players);
+
+      // if(playersNo){
+
+      // }
 
       // var dealerIndex = _.findIndex(data.data.data.playerCards, function (player) {
       //   return player.isDealer;
