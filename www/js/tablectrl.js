@@ -186,6 +186,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       console.log(data.data);
       $scope.players = data.data.data.players;
+
+      
       console.log('playyyyers', $scope.players);
 
       // if(playersNo){
