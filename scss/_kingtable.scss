@@ -210,8 +210,8 @@
           word-spacing: 10em;
           line-height: 1.5;
         }
-        &.player4,
-        &.player6 {
+        &.p8,
+        &.p1 {
           bottom: 45%;
         }
         &.main-player {
@@ -297,40 +297,41 @@
         height: 100%;
       }
     }
-    .player9 {
+    .p4 {
       left: 28%;
       top: -18%;
     }
-    .player1 {
+    .p5 {
       right: 28%;
       top: -18%;
     }
-    .player8 {
+    .p3 {
       left: 8%;
       top: -10%;
     }
-    .player2 {
+    .p6 {
       right: 8%;
       top: -10%;
     }
-    .player7 {
+    .p2 {
       top: 28%;
       left: 3%;
     }
-    .player3 {
+    .p7 {
       top: 28%;
       right: 3%;
     }
-    .player6,
-    .player4,
-    .player9 {
+    // .p4,
+    .p1,
+    .p8,
+     {
       transform: translateY(-100%);
     }
-    .player6 {
+    .p1 {
       bottom: 4%;
       left: 23%;
     }
-    .player4 {
+    .p8 {
       bottom: 4%;
       right: 23%;
     } // .other_player {
@@ -782,41 +783,41 @@
     vertical-align: middle;
     margin-right: 10%;
   }
-  &.player1 {
+  &.p5 {
     top: 0% !important;
     right: 30% !important;
     animation-name: movefromright;
   }
-  &.player2 {
+  &.p6 {
     top: 10% !important;
     right: 10% !important;
     animation-name: movefromright;
   }
-  &.player3 {
+  &.p7 {
     top: 50% !important;
     right: 6% !important;
     animation-name: movefromright;
   }
-  &.player4 {
+  &.p8 {
     bottom: 20% !important;
     right: 25% !important;
     animation-name: movefrombottom;
   }
-  &.player5 {
+  &.p9 {
     bottom: 20% !important;
     left: unset !important;
     right: 50% !important;
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
-  &.player6 {
+  &.p1 {
     bottom: 20% !important;
     left: unset !important;
     right: 70% !important;
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
-  &.player7 {
+  &.p2 {
     bottom: 40% !important;
     top: unset !important;
     left: unset !important;
@@ -824,12 +825,12 @@
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
-  &.player8 {
+  &.p3 {
     top: 10% !important;
     left: 10% !important;
     animation-name: movefromleft;
   }
-  &.player9 {
+  &.p4 {
     top: 5% !important;
     left: 30% !important;
     animation-name: movefromleft;

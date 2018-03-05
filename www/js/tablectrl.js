@@ -131,6 +131,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("back")
   });
 
+  $scope.jsData = $.jStorage.get("player");
+  $scope.jsData.memberId = $scope.jsData._id;
+  console.log("jsData", $scope.jsData);
+  $.jStorage.set("player", $scope.jsData);
   $scope.playerData = $.jStorage.get("player");
   $scope.image = $scope.playerData.image;
   $scope.username = $scope.playerData.username;
@@ -184,34 +188,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
 
-      console.log(data.data);
+      console.log(data.data, "get all service");
       $scope.players = data.data.data.players;
-      $scope.players=$scope.fillAllPlayer($scope.players)
 
+      //completing 9 length array by filling 0 in all empty field
+      $scope.players = $scope.fillAllPlayer($scope.players)
+      $scope.players=$scope.rearrangePlayer($scope.players);
       console.log('playyyyers', $scope.players);
-
-      // if(playersNo){
-
-      // }
-
-      // var dealerIndex = _.findIndex(data.data.data.playerCards, function (player) {
-      //   return player.isDealer;
-      // });
-      // $scope.turnPlayer = _.find(data.data.data.playerCards, function (player) {
-      //   return player.isTurn;
-      // });
-      // if (dealerIndex < 0) {
-      //   // $scope.noDealer = true;
-      //   $state.go("table");
-      // }
-
-      // $scope.communityCards = data.data.data.communityCards;
-      // $scope.cardServed = data.data.data.cardServed;
-      // $scope.gameType = data.data.data.currentGameType;
-      // $scope.playersChunk = _.chunk(data.data.data.playerCards, 8);
-      // $scope.hasTurn = data.data.data.hasTurn;
-      // $scope.isCheck = data.data.data.isCheck;
-      // $scope.showWinner = data.data.data.showWinner;
     });
   };
 
@@ -228,27 +211,40 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //player sitting
   $scope.sitHere = function (sitNum) {
-    $scope.sitNummber = sitNum;
+    // var temp=$scope.players[8];
+    // $scope.players[8]= $scope.players[sitNum];
+    // $scope.players[sitNum]=temp;
+    $scope.players = $scope.rearrangePlayer($scope.players, sitNum);
+    console.log($scope.players, "siiiiiiiiiit here")
+
+
+
+
+
+
+    // $scope.sitNummber = sitNum;
     $scope.jdata = $.jStorage.get("player");
-    $scope.jdata.sitNummber = $scope.sitNummber;
-    $.jStorage.set("player", $scope.jdata);
+    console.log("jdata", $scope.jdata)
+    // $scope.jdata.sitNummber = $scope.sitNummber;
+    // $.jStorage.set("player", $scope.jdata);
     $scope.dataPlayer = {};
-    $scope.dataPlayer.playerNo = $scope.sitNummber;
+    $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.memberId = $scope.jdata._id;
     $scope.dataPlayer.totalAmount = $scope.jdata.credit;
     $scope.dataPlayer.tableId = $scope.tableId;
-    $scope.dataPlayer.sitNummber = $scope.sitNummber;
-    $scope.dataPlayer.image = $scope.jdata.image;
-    $scope.dataPlayer.name = $scope.jdata.username;
-    $scope.dataPlayer.userType = $scope.jdata.userType;
+    // $scope.dataPlayer.sitNummber = $scope.sitNummber;
+    // $scope.dataPlayer.image = $scope.jdata.image;
+    // $scope.dataPlayer.name = $scope.jdata.username;
+    // $scope.dataPlayer.userType = $scope.jdata.userType;
 
 
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
       console.log(data, "sitted");
       if (data.data.value) {
-        console.log("player saved");
-        $(".main-player").removeClass("sit_here");
-        $scope.playingPlayer = true;
+        // console.log("player saved");
+        // $(".main-player").removeClass("sit_here");
+        // $scope.playingPlayer = true;
+        console.log(data.data)
       } else {
         console.log("error", data.data.error);
       }
@@ -258,19 +254,39 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //fill all player
   $scope.fillAllPlayer = function (array) {
-    var filled=[];
+    var filled = [];
     for (i = 0; i < array.length; i++) {
-     filled[array[i].playerNo]=array[i];
+      filled[array[i].playerNo - 1] = array[i];
     }
-    for(i=0;i<9;i++){
-       console.log(filled[i],"inside fill");
-      if(filled[i]==undefined){
-        filled[i]=0;
+    for (i = 0; i < 9; i++) {
+      console.log(filled[i], "inside fill");
+      if (filled[i] == undefined) {
+        filled[i] = 0;
       }
     }
     return filled;
   }
 
-//   var demo=[{playerNo:1},{playerNo:6}];
-//  console.log($scope.fillAllPlayer(demo),"some random practite")
+
+  $scope.rearrangePlayer = function (demoPlayer) {
+    //input [1,2,3,4,5,6,7,8,9] selected 3
+    //output [4,5,6,7,8,9,1,2,3]
+    console.log("before re-arrange",demoPlayer);
+    var n=0;
+   var memberId= $scope.playerData.memberId;
+    for(i=0;i<demoPlayer.length;i++)
+    {
+      if(demoPlayer[i].memberId==memberId){
+        console.log(i,"memeber location");
+        n=i+1;
+    
+      }
+    }
+    var temp = _.concat(_.slice(demoPlayer, n, demoPlayer.length), _.slice(demoPlayer, 0, n));
+    console.log("before re-arrange",temp);
+    return temp;
+
+  }
+
+  // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 });

@@ -75,31 +75,33 @@
 
       <!-- player -->
       <div class="players">
-        <players id="plr1" ng-click="sitHere(1)" ng-player="players[0]" class="plyr player1" ng-class="{'sit_here':!players[0]}">
+
+        <players id="plr1" ng-click="sitHere(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'sit_here':!players[0]}">
         </players>
-        <div class="player1 bootAnimate" ng-if="P1bootAmt">
+        <players id="plr2" ng-click="sitHere(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'sit_here':!players[1]}">
+        </players>
+        <players id="plr3" ng-click="sitHere(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'sit_here':!players[2]}">
+        </players>
+        <players id="plr4" ng-click="sitHere(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'sit_here':!players[3]}">
+        </players>
+        <players id="plr5" ng-click="sitHere(5)" ng-player="players[4]" class="plyr p5" ng-class="{'sit_here':!players[4]}">
+        </players>
+        <!-- <div class="p5 bootAnimate" ng-if="P1bootAmt">
           <img src="img/coin.png" class="coin">{{bootAmt}}
-        </div>
-        <players id="plr2" ng-click="sitHere(2)" ng-player="players[1]" class="plyr player2" ng-class="{'sit_here':!players[1]}">
+        </div> -->
+        <players id="plr6" ng-click="sitHere(6)" ng-player="players[5]" class="plyr p6" ng-class="{'sit_here':!players[5]}">
         </players>
 
-        <players id="plr3" ng-click="sitHere(3)" ng-player="players[2]" class="plyr player3" ng-class="{'sit_here':!players[2]}">
+        <players id="plr7" ng-click="sitHere(7)" ng-player="players[6]" class="plyr p7" ng-class="{'sit_here':!players[6]}">
         </players>
-        <players id="plr4" ng-click="sitHere(4)" ng-player="players[3]" class="plyr player4 " ng-class="{'sit_here':!players[3]}">
+        <players id="plr8" ng-click="sitHere(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'sit_here':!players[7]}">
         </players>
-        <players id="plr5" ng-click="sitHere(5)" ng-player="players[4]" class="plyr player5 " ng-class="{'sit_here':!players[4]}">
+        <players id="plr9" ng-click="sitHere(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':!players[8]}">
         </players>
-        <players id="plr6" ng-click="sitHere(6)" ng-player="players[5]" class="plyr player6 " ng-class="{'sit_here':!players[5]}">
-        </players>
-        <players id="plr7" ng-click="sitHere(7)" ng-player="players[6]" class="plyr player7  " ng-class="{'sit_here':!players[6]}">
-        </players>
-        <players id="plr8" ng-click="sitHere(8)" ng-player="players[7]" class="plyr player8 " ng-class="{'sit_here':!players[7]}">
-        </players>
-        <players id="plr9" ng-click="sitHere(9)" ng-player="players[8]" class="plyr player9  " ng-class="{'sit_here':!players[8]}">
-        </players>
+
       </div>
       <!-- end player -->
-      <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
+      <div id="plr5" class="plyr   " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -116,13 +118,13 @@
         <div class="amt">
           <img src="img/coin.png">64,000</div>
       </div>
-      <div class="player5 bootAnimate" ng-if="P5bootAmt">
+      <div class="p9 bootAnimate" ng-if="P5bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div>
-      <!-- <player id="plr1" ng-click="sitHere(1)" class="plyr player1 sit_here"></player> -->
+      <!-- <player id="plr1" ng-click="sitHere(1)" class="plyr p5 sit_here"></player> -->
 
 
-      <!--player1-->
-      <!-- <div id="plr2" ng-click="sitHere(2)" class="plyr player2 sit_here ">
+      <!--p5-->
+      <!-- <div id="plr2" ng-click="sitHere(2)" class="plyr p6 sit_here ">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
 
@@ -144,10 +146,10 @@
           <span>{{name2}}</span>
         </div>
       </div>
-      <div class="player2 bootAnimate" ng-if="P2bootAmt">
+      <div class="p6 bootAnimate" ng-if="P2bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div>
-      <!--player8-->
-      <!-- <div id="plr3" ng-click="sitHere(3)" class="plyr player3 sit_here">
+      <!--p3-->
+      <!-- <div id="plr3" ng-click="sitHere(3)" class="plyr p7 sit_here">
         <div class="status">FOLD</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -167,11 +169,11 @@
           <span>{{name3}}</span>
         </div>
       </div>
-      <div class="player3 bootAnimate" ng-if="P3bootAmt">
+      <div class="p7 bootAnimate" ng-if="P3bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
-      <!--player2-->
-      <!-- <div id="plr4" ng-click="sitHere(4)" class="plyr player4 sit_here">
+      <!--p6-->
+      <!-- <div id="plr4" ng-click="sitHere(4)" class="plyr p8 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -190,10 +192,10 @@
           <span>{{name4}}</span>
         </div>
       </div>
-      <div class="player4 bootAnimate" ng-if="P4bootAmt">
+      <div class="p8 bootAnimate" ng-if="P4bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
-      <!--player7-->
+      <!--p2-->
       <!-- <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
@@ -211,11 +213,11 @@
         <div class="amt">
           <img src="img/coin.png">64,000</div>
       </div>
-      <div class="player5 bootAnimate" ng-if="P5bootAmt">
+      <div class="p9 bootAnimate" ng-if="P5bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
-      <!--player3-->
-      <!-- <div id="plr6" ng-click="sitHere(6)" class="plyr player6 sit_here">
+      <!--p7-->
+      <!-- <div id="plr6" ng-click="sitHere(6)" class="plyr p1 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -240,11 +242,11 @@
           <span>{{name6}}</span>
         </div>
       </div>
-      <div class="player6 bootAnimate" ng-if="P6bootAmt">
+      <div class="p1 bootAnimate" ng-if="P6bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
-      <!--player6-->
-      <!-- <div id="plr7" ng-click="sitHere(7)" class="plyr player7 sit_here">
+      <!--p1-->
+      <!-- <div id="plr7" ng-click="sitHere(7)" class="plyr p2 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -266,11 +268,11 @@
           <span>{{name7}}</span>
         </div>
       </div>
-      <div class="player7 bootAnimate" ng-if="P7bootAmt">
+      <div class="p2 bootAnimate" ng-if="P7bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
-      <!--player4-->
-      <!-- <div id="plr8" ng-click="sitHere(8)" class="plyr player8 sit_here">
+      <!--p8-->
+      <!-- <div id="plr8" ng-click="sitHere(8)" class="plyr p3 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -290,11 +292,11 @@
           <span>{{name8}}</span>
         </div>
       </div>
-      <div class="player8 bootAnimate" ng-if="P8bootAmt">
+      <div class="p3 bootAnimate" ng-if="P8bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
 
       <!-- 
-      <div id="plr9" ng-click="sitHere(9)" class="plyr player9 sit_here">
+      <div id="plr9" ng-click="sitHere(9)" class="plyr p4 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -316,7 +318,7 @@
         </div>
       </div>
 
-      <div class="player9 bootAnimate" ng-if="P9bootAmt">
+      <div class="p4 bootAnimate" ng-if="P9bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}
       </div> -->
 

@@ -13,7 +13,7 @@
   <div class="plyr_pic">
     <div class="pic">
       <div class="profile_pic_overlay">
-        <img ng-src="{{image1 | serverimage}}"> </div>
+        <img ng-src="{{player.image | serverimage}}"> </div>
     </div>
     <!-- <div class="plyr_card">
           <img src="img/card-back.png">
@@ -21,7 +21,8 @@
           <img src="img/card-back.png">
         </div> -->
     <div class="plyr_card">
-      <div class="`                                                                                                                                                                                                        custom-row" ng-if="player.cards.length==0">
+      <div class="`                                                                                                                                                                                                        custom-row"
+        ng-if="player.cards.length==0">
         <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity mr2"> </card>
         <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity mr2"> </card>
         <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity" ng-if="gameType.totalCards >= 3">
@@ -64,3 +65,23 @@
   </div>
 
 </div>
+
+
+<!-- <div ng-if="players[8]">
+  <div class="status">BLIND</div>
+  <div class="plyr_pic">
+    <div class="pic">
+      <div class="profile_pic_overlay">
+        <img ng-src="{{image | serverimage}}"> </div>
+    </div>
+    <div class="plyr_card">
+      <img src="img/card-back.png">
+      <img src="img/card-back.png">
+      <img src="img/card-back.png">
+    </div>
+    <div class="card_see">See</div>
+  </div>
+  <div class="amt">
+    <img src="img/coin.png">64,000</div>
+
+</div> -->
