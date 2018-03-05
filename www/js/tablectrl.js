@@ -186,8 +186,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       console.log(data.data);
       $scope.players = data.data.data.players;
+      $scope.players=$scope.fillAllPlayer($scope.players)
 
-      
       console.log('playyyyers', $scope.players);
 
       // if(playersNo){
@@ -255,4 +255,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     });
   }
 
+
+  //fill all player
+  $scope.fillAllPlayer = function (array) {
+    var filled=[];
+    for (i = 0; i < array.length; i++) {
+     filled[array[i].playerNo]=array[i];
+    }
+    for(i=0;i<9;i++){
+       console.log(filled[i],"inside fill");
+      if(filled[i]==undefined){
+        filled[i]=0;
+      }
+    }
+    return filled;
+  }
+
+//   var demo=[{playerNo:1},{playerNo:6}];
+//  console.log($scope.fillAllPlayer(demo),"some random practite")
 });
