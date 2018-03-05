@@ -10538,15 +10538,19 @@ body {
             position: absolute;
             left: 40%;
             width: 150%; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img {
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
               width: 20%;
-              vertical-align: middle; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(1) {
+              vertical-align: middle;
+              display: inline-block; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
+                width: 100%;
+                vertical-align: middle; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(2) {
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card img:nth-child(3) {
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
                 left: -20%; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;

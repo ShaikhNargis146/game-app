@@ -10,10 +10,10 @@ myApp.directive('card', function () {
       templateUrl: 'templates/directive/card.html',
       link: function ($scope, element, attr) {
         function calc() {
-          $scope.style = {
-            width: $scope.width + "px",
-            height: $scope.height + "px"
-          };
+          // $scope.style = {
+          //   width: $scope.width + "px",
+          //   height: $scope.height + "px"
+          // };
           $scope.cardFile = "img/" + _.toUpper($scope.card) + ".png";
         }
         calc();
