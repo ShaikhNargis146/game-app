@@ -190,10 +190,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       console.log(data.data, "get all service");
       $scope.players = data.data.data.players;
+<<<<<<< HEAD
 
       //completing 9 length array by filling 0 in all empty field
       $scope.players = $scope.fillAllPlayer($scope.players)
       $scope.players=$scope.rearrangePlayer($scope.players);
+=======
+      $scope.players = $scope.fillAllPlayer($scope.players)
+>>>>>>> d1ebbdfa6a01f0856598e017c15651ff573b157c
       console.log('playyyyers', $scope.players);
     });
   };
@@ -256,7 +260,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.fillAllPlayer = function (array) {
     var filled = [];
     for (i = 0; i < array.length; i++) {
+<<<<<<< HEAD
       filled[array[i].playerNo - 1] = array[i];
+=======
+      filled[array[i].playerNo] = array[i];
+>>>>>>> d1ebbdfa6a01f0856598e017c15651ff573b157c
     }
     for (i = 0; i < 9; i++) {
       console.log(filled[i], "inside fill");
@@ -267,6 +275,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     return filled;
   }
 
+<<<<<<< HEAD
 
   $scope.rearrangePlayer = function (demoPlayer) {
     //input [1,2,3,4,5,6,7,8,9] selected 3
@@ -289,4 +298,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
+=======
+  //   var demo=[{playerNo:1},{playerNo:6}];
+  //  console.log($scope.fillAllPlayer(demo),"some random practite")
+>>>>>>> d1ebbdfa6a01f0856598e017c15651ff573b157c
 });

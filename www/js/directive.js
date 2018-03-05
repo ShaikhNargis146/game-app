@@ -32,14 +32,7 @@ myApp.directive('card', function () {
         gameType: "=ngGameType"
       },
       templateUrl: 'templates/directive/player.html',
-      link: function (scope, element, attr) {
-        //console.log("Player Loaded");
-        // console.log("directive scope", scope);
-        // console.log("player", );
-        // scope.$watch("player", function () {
-        //   console.log("change",scope.player);
-        // });
-      }
+      link: function (scope, element, attr) {}
     };
   })
   .directive('joker', function () {
