@@ -186,32 +186,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       console.log(data.data);
       $scope.players = data.data.data.players;
-      $scope.players=$scope.fillAllPlayer($scope.players)
-
+      $scope.players = $scope.fillAllPlayer($scope.players)
       console.log('playyyyers', $scope.players);
-
-      // if(playersNo){
-
-      // }
-
-      // var dealerIndex = _.findIndex(data.data.data.playerCards, function (player) {
-      //   return player.isDealer;
-      // });
-      // $scope.turnPlayer = _.find(data.data.data.playerCards, function (player) {
-      //   return player.isTurn;
-      // });
-      // if (dealerIndex < 0) {
-      //   // $scope.noDealer = true;
-      //   $state.go("table");
-      // }
-
-      // $scope.communityCards = data.data.data.communityCards;
-      // $scope.cardServed = data.data.data.cardServed;
-      // $scope.gameType = data.data.data.currentGameType;
-      // $scope.playersChunk = _.chunk(data.data.data.playerCards, 8);
-      // $scope.hasTurn = data.data.data.hasTurn;
-      // $scope.isCheck = data.data.data.isCheck;
-      // $scope.showWinner = data.data.data.showWinner;
     });
   };
 
@@ -258,19 +234,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //fill all player
   $scope.fillAllPlayer = function (array) {
-    var filled=[];
+    var filled = [];
     for (i = 0; i < array.length; i++) {
-     filled[array[i].playerNo]=array[i];
+      filled[array[i].playerNo] = array[i];
     }
-    for(i=0;i<9;i++){
-       console.log(filled[i],"inside fill");
-      if(filled[i]==undefined){
-        filled[i]=0;
+    for (i = 0; i < 9; i++) {
+      console.log(filled[i], "inside fill");
+      if (filled[i] == undefined) {
+        filled[i] = 0;
       }
     }
     return filled;
   }
 
-//   var demo=[{playerNo:1},{playerNo:6}];
-//  console.log($scope.fillAllPlayer(demo),"some random practite")
+  //   var demo=[{playerNo:1},{playerNo:6}];
+  //  console.log($scope.fillAllPlayer(demo),"some random practite")
 });

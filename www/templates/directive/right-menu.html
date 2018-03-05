@@ -1,0 +1,35 @@
+<div class="custom_menu  setting_menu" ng-class="{'menu_open': rightMenu}" ng-click="closeAllModal()">
+  <div class="menu_close" ng-click="closeRightMenu()">
+    <img src="img/close.png">
+  </div>
+  <div class="menu_cont" ng-click="stopProgation($event)">
+    <div class="heading">Setting</div>
+    <ion-list class="menu_list custom-scroll">
+      <ion-item>
+        sound
+        <ion-toggle ng-model="sound" toggle-class="" class="custom_toggle"></ion-toggle>
+      </ion-item>
+      <!-- <ion-item class="">
+          Sound
+          <label class="toggle right custom_toggle">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </ion-item> -->
+      <ion-item>
+        vibration
+        <ion-toggle ng-model="sound" toggle-class="" class="custom_toggle"></ion-toggle>
+
+
+      </ion-item>
+      <ion-item>
+        push notification
+        <ion-toggle ng-model="sound" toggle-class="" class="custom_toggle"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+</div>
