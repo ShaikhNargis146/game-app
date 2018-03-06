@@ -60,4 +60,24 @@ myApp.directive('card', function () {
         //console.log("Player Loaded");
       }
     };
+  })
+  .directive('leftMenu', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/left-menu.html',
+      link: function ($scope, element, attr) {
+        //console.log("Player Loaded");
+      }
+    };
+  })
+  .directive('rightMenu', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/right-menu.html',
+      link: function ($scope, element, attr) {
+        //console.log("Player Loaded");
+      }
+    };
   });

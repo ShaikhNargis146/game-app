@@ -1,5 +1,9 @@
-<div class="kingtable">
+<!-- left menu -->
+<left-menu></left-menu>
 
+<!-- right menu -->
+<right-menu></right-menu>
+<div class="kingtable">
   <div class="top_field">
     <div class="option_menu_icon left" ng-click="openLeftMenu()">
       <!-- <img src="img/option.png" class=""> -->
@@ -86,241 +90,22 @@
         </players>
         <players id="plr5" ng-click="sitHere(5)" ng-player="players[4]" class="plyr p5" ng-class="{'sit_here':!players[4]}">
         </players>
-        <!-- <div class="p5 bootAnimate" ng-if="P1bootAmt">
-          <img src="img/coin.png" class="coin">{{bootAmt}}
-        </div> -->
         <players id="plr6" ng-click="sitHere(6)" ng-player="players[5]" class="plyr p6" ng-class="{'sit_here':!players[5]}">
         </players>
-
         <players id="plr7" ng-click="sitHere(7)" ng-player="players[6]" class="plyr p7" ng-class="{'sit_here':!players[6]}">
         </players>
         <players id="plr8" ng-click="sitHere(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'sit_here':!players[7]}">
         </players>
         <players id="plr9" ng-click="sitHere(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':!players[8]}">
         </players>
-
       </div>
       <!-- end player -->
-      <!-- <div id="plr5" class="plyr   " ng-click="mainPlayerClicked();sitHere(5)">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image | serverimage}}"> </div>
-          </div>
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-          <div class="card_see">See</div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">64,000</div>
-      </div> -->
+
       <div class="p9 bootAnimate" ng-if="P5bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
-      <!-- <player id="plr1" ng-click="sitHere(1)" class="plyr p5 sit_here"></player> -->
-
-
-      <!--p5-->
-      <!-- <div id="plr2" ng-click="sitHere(2)" class="plyr p6 sit_here ">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image2 | serverimage}}"> </div>
-
-          </div>
-
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit2}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(2)">
-          <span>{{name2}}</span>
-        </div>
-      </div>
-      <div class="p6 bootAnimate" ng-if="P2bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div>
-      <!p3-->
-      <!-- <div id="plr3" ng-click="sitHere(3)" class="plyr p7 sit_here">
-        <div class="status">FOLD</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image3 | serverimage}}">
-            </div>
-          </div>
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit3}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(3)">
-          <span>{{name3}}</span>
-        </div>
-      </div>
-      <div class="p7 bootAnimate" ng-if="P3bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!--p6-->
-      <!-- <div id="plr4" ng-click="sitHere(4)" class="plyr p8 sit_here">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image4 | serverimage}}"> </div>
-          </div>
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit4}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(4)">
-          <span>{{name4}}</span>
-        </div>
-      </div>
-      <div class="p8 bootAnimate" ng-if="P4bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!--p2-->
-      <!-- <div id="plr5" class="plyr  main-player sit_here " ng-click="mainPlayerClicked();sitHere(5)">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image | serverimage}}"> </div>
-          </div>
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-          <div class="card_see">See</div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">64,000</div>
-      </div>
-      <div class="p9 bootAnimate" ng-if="P5bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!--p7-->
-      <!-- <div id="plr6" ng-click="sitHere(6)" class="plyr p1 sit_here">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image6 | serverimage}}"> </div>
-
-
-
-
-          </div>
-
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit6}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(6)">
-          <span>{{name6}}</span>
-        </div>
-      </div>
-      <div class="p1 bootAnimate" ng-if="P6bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!--p1-->
-      <!-- <div id="plr7" ng-click="sitHere(7)" class="plyr p2 sit_here">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image7 | serverimage}}"> </div>
-
-          </div>
-
-
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit7}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(7)">
-          <span>{{name7}}</span>
-        </div>
-      </div>
-      <div class="p2 bootAnimate" ng-if="P7bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!--p8-->
-      <!-- <div id="plr8" ng-click="sitHere(8)" class="plyr p3 sit_here">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image8 | serverimage}}"> </div>
-          </div>
-
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit8}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(8)">
-          <span>{{name8}}</span>
-        </div>
-      </div>
-      <div class="p3 bootAnimate" ng-if="P8bootAmt">
-        <img src="img/coin.png" class="coin">{{bootAmt}}</div> -->
-
-      <!-- 
-      <div id="plr9" ng-click="sitHere(9)" class="plyr p4 sit_here">
-        <div class="status">BLIND</div>
-        <div class="plyr_pic">
-          <div class="pic">
-            <div class="profile_pic_overlay">
-              <img ng-src="{{image9 | serverimage}}"> </div>
-
-          </div>
-
-          <div class="plyr_card">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-            <img src="img/card-back.png">
-          </div>
-        </div>
-        <div class="amt">
-          <img src="img/coin.png">{{credit9}}</div>
-        <div class="plyr_name" ng-click="openPlayerDetails(9)">
-          <span>{{name9}}</span>
-        </div>
-      </div>
-
-      <div class="p4 bootAnimate" ng-if="P9bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}
-      </div> -->
+      </div>
+
+
 
       <!--showCard-->
       <div class="showing_cards">
@@ -329,14 +114,9 @@
         <img src="img/table/card-back.png">
         <div class="card_see" ng-click="showCard()">See</div>
       </div>
-
-
-
     </div>
 
-
-
-    <div class="playing-player-info" >
+    <div class="playing-player-info">
       <span class="pack"> PACK </span>
       <span class="slide_show"> side show </span>
       <span class="info"> {{username}}
@@ -351,10 +131,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- left menu -->
-<left-menu></left-menu>
-
-<!-- right menu -->
-<right-menu></right-menu>

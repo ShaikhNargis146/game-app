@@ -10068,8 +10068,7 @@ body {
   height: 100%;
   width: 100%; }
   .profile_pic_overlay img {
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
     object-fit: fill; }
   .profile_pic_overlay:after {
     content: '';
@@ -10531,7 +10530,8 @@ body {
         color: white;
         text-align: center; }
         .kingtable .main-table .playing-table .plyr img {
-          max-width: 100%; }
+          max-width: 100%;
+          max-height: 100%; }
         .kingtable .main-table .playing-table .plyr .status {
           padding: 2px;
           font-family: 'Cinzel-Bold';
@@ -10541,7 +10541,8 @@ body {
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          overflow: hidden; }
           .kingtable .main-table .playing-table .plyr .plyr_pic .pic {
             width: 60%;
             margin-right: 40%;
