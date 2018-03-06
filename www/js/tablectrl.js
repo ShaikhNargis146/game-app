@@ -190,6 +190,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
     $scope.showWinner = data.showWinner;
+   
     // console.log("data making",data)
     $scope.$apply();
   };

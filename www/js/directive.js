@@ -61,6 +61,16 @@ myApp.directive('card', function () {
       }
     };
   })
+  .directive('tableInfo', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/table-info.html',
+      link: function ($scope, element, attr) {
+        //console.log("Player Loaded");
+      }
+    };
+  })
   .directive('leftMenu', function () {
     return {
       restrict: 'E',

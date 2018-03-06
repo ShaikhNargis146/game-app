@@ -10529,6 +10529,8 @@ body {
         background-size: 100% 100%;
         color: white;
         text-align: center; }
+        .kingtable .main-table .playing-table .plyr .nopalyer_status {
+          display: none; }
         .kingtable .main-table .playing-table .plyr img {
           max-width: 100%;
           max-height: 100%; }
@@ -10607,6 +10609,28 @@ body {
         .kingtable .main-table .playing-table .sit_here.p8, .kingtable .main-table .playing-table .sit_here.p1 {
           bottom: 45%; }
         .kingtable .main-table .playing-table .sit_here.main-player {
+          width: 10% !important;
+          bottom: 20%; }
+      .kingtable .main-table .playing-table .no_player {
+        background: url("../img/sit_here.png");
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%;
+        transform: translateY(50%); }
+        .kingtable .main-table .playing-table .no_player > * {
+          display: none !important; }
+        .kingtable .main-table .playing-table .no_player:after {
+          content: "No Player";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5; }
+        .kingtable .main-table .playing-table .no_player.p8, .kingtable .main-table .playing-table .no_player.p1 {
+          bottom: 45%; }
+        .kingtable .main-table .playing-table .no_player.main-player {
           width: 10% !important;
           bottom: 20%; }
       .kingtable .main-table .playing-table .card_fold .plyr_card {
@@ -10740,7 +10764,7 @@ body {
       .kingtable .main-table .playing-player-info img {
         width: 1em;
         vertical-align: middle; }
-      .kingtable .main-table .playing-player-info span {
+      .kingtable .main-table .playing-player-info > span {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
         font-size: 1em;
