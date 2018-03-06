@@ -10065,6 +10065,7 @@ body {
 
 .profile_pic_overlay {
   position: relative;
+  height: 100%;
   width: 100%; }
   .profile_pic_overlay img {
     height: 100%;
@@ -10602,7 +10603,7 @@ body {
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5; }
-        .kingtable .main-table .playing-table .sit_here.player4, .kingtable .main-table .playing-table .sit_here.player6 {
+        .kingtable .main-table .playing-table .sit_here.p8, .kingtable .main-table .playing-table .sit_here.p1 {
           bottom: 45%; }
         .kingtable .main-table .playing-table .sit_here.main-player {
           width: 10% !important;
@@ -10639,8 +10640,7 @@ body {
         width: 18% !important;
         left: 50%;
         bottom: 0%;
-        transform: translateX(-50%);
-        transform: translate(-50%, -70%); }
+        transform: translate(-50%, -50%); }
         .kingtable .main-table .playing-table .main-player .plyr_name {
           display: none; }
         .kingtable .main-table .playing-table .main-player .status {
@@ -10666,32 +10666,31 @@ body {
         position: relative;
         width: 100%;
         height: 100%; }
-    .kingtable .main-table .player9 {
+    .kingtable .main-table .p4 {
       left: 28%;
       top: -18%; }
-    .kingtable .main-table .player1 {
+    .kingtable .main-table .p5 {
       right: 28%;
       top: -18%; }
-    .kingtable .main-table .player8 {
+    .kingtable .main-table .p3 {
       left: 8%;
       top: -10%; }
-    .kingtable .main-table .player2 {
+    .kingtable .main-table .p6 {
       right: 8%;
       top: -10%; }
-    .kingtable .main-table .player7 {
+    .kingtable .main-table .p2 {
       top: 28%;
       left: 3%; }
-    .kingtable .main-table .player3 {
+    .kingtable .main-table .p7 {
       top: 28%;
       right: 3%; }
-    .kingtable .main-table .player6,
-    .kingtable .main-table .player4,
-    .kingtable .main-table .player9 {
+    .kingtable .main-table .p1,
+    .kingtable .main-table .p8 {
       transform: translateY(-100%); }
-    .kingtable .main-table .player6 {
+    .kingtable .main-table .p1 {
       bottom: 4%;
       left: 23%; }
-    .kingtable .main-table .player4 {
+    .kingtable .main-table .p8 {
       bottom: 4%;
       right: 23%; }
     .kingtable .main-table .showing_cards {
@@ -10736,7 +10735,6 @@ body {
       font-size: 1em;
       /* margin: 0 auto; */
       width: 100%;
-      transform: translateY(-85%);
       z-index: 4; }
       .kingtable .main-table .playing-player-info img {
         width: 1em;
@@ -10783,7 +10781,7 @@ body {
   .kingtable .main-player .plyr_pic .pic {
     margin: 0 auto !important;
     width: 100% !important;
-    height: 20vh;
+    height: 25vh;
     object-fit: cover;
     object-position: top; }
   .kingtable .main-player .plyr_pic .plyr_card {
@@ -10963,46 +10961,46 @@ body {
     width: 1em;
     vertical-align: middle;
     margin-right: 10%; }
-  .bootAnimate.player1 {
+  .bootAnimate.p5 {
     top: 0% !important;
     right: 30% !important;
     animation-name: movefromright; }
-  .bootAnimate.player2 {
+  .bootAnimate.p6 {
     top: 10% !important;
     right: 10% !important;
     animation-name: movefromright; }
-  .bootAnimate.player3 {
+  .bootAnimate.p7 {
     top: 50% !important;
     right: 6% !important;
     animation-name: movefromright; }
-  .bootAnimate.player4 {
+  .bootAnimate.p8 {
     bottom: 20% !important;
     right: 25% !important;
     animation-name: movefrombottom; }
-  .bootAnimate.player5 {
+  .bootAnimate.p9 {
     bottom: 20% !important;
     left: unset !important;
     right: 50% !important;
     animation-name: movefrombottom;
     transform: translateY(-100%); }
-  .bootAnimate.player6 {
+  .bootAnimate.p1 {
     bottom: 20% !important;
     left: unset !important;
     right: 70% !important;
     animation-name: movefrombottom;
     transform: translateY(-100%); }
-  .bootAnimate.player7 {
+  .bootAnimate.p2 {
     bottom: 40% !important;
     top: unset !important;
     left: unset !important;
     right: 90% !important;
     animation-name: movefrombottom;
     transform: translateY(-100%); }
-  .bootAnimate.player8 {
+  .bootAnimate.p3 {
     top: 10% !important;
     left: 10% !important;
     animation-name: movefromleft; }
-  .bootAnimate.player9 {
+  .bootAnimate.p4 {
     top: 5% !important;
     left: 30% !important;
     animation-name: movefromleft; }

@@ -101,7 +101,7 @@
 
       </div>
       <!-- end player -->
-      <div id="plr5" class="plyr   " ng-click="mainPlayerClicked();sitHere(5)">
+      <!-- <div id="plr5" class="plyr   " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
           <div class="pic">
@@ -117,7 +117,7 @@
         </div>
         <div class="amt">
           <img src="img/coin.png">64,000</div>
-      </div>
+      </div> -->
       <div class="p9 bootAnimate" ng-if="P5bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div>
       <!-- <player id="plr1" ng-click="sitHere(1)" class="plyr p5 sit_here"></player> -->
@@ -148,7 +148,7 @@
       </div>
       <div class="p6 bootAnimate" ng-if="P2bootAmt">
         <img src="img/coin.png" class="coin">{{bootAmt}}</div>
-      <!--p3-->
+      <!p3-->
       <!-- <div id="plr3" ng-click="sitHere(3)" class="plyr p7 sit_here">
         <div class="status">FOLD</div>
         <div class="plyr_pic">
@@ -322,9 +322,8 @@
         <img src="img/coin.png" class="coin">{{bootAmt}}
       </div> -->
 
-
       <!--showCard-->
-      <div ng-if="cardsShow" class="showing_cards">
+      <div class="showing_cards">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
@@ -332,20 +331,22 @@
       </div>
 
 
-      <div ng-if="playingPlayer" class="playing-player-info">
-        <span class="pack"> PACK </span>
-        <span class="slide_show"> side show </span>
-        <span class="info"> {{username}}
-          <img src="img/coin.png">{{credit}}</span>
-        <span class="minus no-click-effect" ng-click="removeCoin()">
-          <i class="icon ion-minus-round"></i>
-        </span>
-        <span class="coin">
-          <img src="img/coin.png">{{coin}} blind</span>
-        <span class="plus no-click-effect" ng-click="addCoin()">+</span>
 
-      </div> -->
+    </div>
 
+
+
+    <div class="playing-player-info" >
+      <span class="pack"> PACK </span>
+      <span class="slide_show"> side show </span>
+      <span class="info"> {{username}}
+        <img src="img/coin.png">{{credit}}</span>
+      <span class="minus no-click-effect" ng-click="removeCoin()">
+        <i class="icon ion-minus-round"></i>
+      </span>
+      <span class="coin">
+        <img src="img/coin.png">{{coin}} blind</span>
+      <span class="plus no-click-effect" ng-click="addCoin()">+</span>
 
     </div>
   </div>
