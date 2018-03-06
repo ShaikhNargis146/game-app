@@ -107,12 +107,15 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(callback);
     },
 
-    makeSeen: function (data, callback) {
-      //data.tableId,data.id
+   
+makeSeen: function (data, callback) {
       $http.post(url + 'Player/makeSeen', {
         data: data
       }).then(callback);
     },
+
+
+
 
     getByPlrNo: function (data, callback) {
       $http.post(url + 'Player/getByPlrNo', {

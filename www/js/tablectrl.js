@@ -111,17 +111,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // }
 
   $scope.showCard = function () {
-    $scope.t = {
-      'id': "",
-      'tableId': ""
-    };
-    $scope.t.id = $scope.players[8]._id;
-    $scope.t.tableId = $scope.tableId;
 
-    console.log("dataaaaaaa", $scope.t)
-    Service.makeSeen($scope.t, function (data) {
-      console.log(data)
-    })
+$scope.cardData={};
+$scope.cardData.id=$scope.players[8]._id;
+$scope.cardData.tableId=$stateParams.id;
+
+Service.makeSeen($scope.cardData, function (data) {
+// console.log("data in cardsee",data)
+console.log("makeseen")
+});
+
+
     console.log("inside show card");
     $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
     $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
