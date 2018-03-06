@@ -178,21 +178,14 @@
 
       <!--player5-->
       <div id="plr5" class="plyr  main-player " ng-click="mainPlayerClicked();sitHere(5)">
-        <div class="status">CALL</div>
         <div class="plyr_pic">
-
-          <img class="pic" src="img/poker/user.png">
-          <div class="plyr_card">
-            <img src="img/poker/card.png">
-            <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
-          </div>
+      <div class="pic">
+        <div class="profile_pic_overlay">
+            <img  src="img/poker/user.png">
         </div>
+      </div>
+       </div>
         <!-- <div class="status">BLIND</div> -->
-        <div class="amt">
-
-          <div> Charles Pull... </div>
-          <img src="img/coin.png">0000000{{credit1}}</div>
         <div class="plyr_name" ng-click="openPlayerDetails(1)">
           <span>{{name1}}</span>
         </div>
@@ -282,10 +275,10 @@
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
+           
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
+      
         <div class="amt">
 
           <div> Charles Pull... </div>
@@ -459,8 +452,8 @@
 
 
       <div class="playing-player-info">
-        <span class="pack"> FOLD </span>
-        <span class="slide_show"> ALL-IN </span>
+        <span class="pack" ng-click="openModal()"> FOLD </span>
+        <span class="slide_show" ng-click="openInfoModal()"> ALL-IN </span>
         <!--<span class="info"> christie kallies
               <img src="img/coin.png">120000 </span>-->
         <!-- <span class="info"> {{username}}
@@ -468,7 +461,7 @@
         <span class="minus no-click-effect" ng-click="removeCoin()">
           <i class="icon ion-minus-round"></i>
         </span> -->
-        <span class="coin">
+        <span class="coin" ng-click="opensearchModal()">
           CALL</span>
         <span class="plus no-click-effect" ng-click="addCoin()">RAISE</span>
 

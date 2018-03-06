@@ -10068,8 +10068,7 @@ body {
   height: 100%;
   width: 100%; }
   .profile_pic_overlay img {
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
     object-fit: fill; }
   .profile_pic_overlay:after {
     content: '';
@@ -10531,7 +10530,8 @@ body {
         color: white;
         text-align: center; }
         .kingtable .main-table .playing-table .plyr img {
-          max-width: 100%; }
+          max-width: 100%;
+          max-height: 100%; }
         .kingtable .main-table .playing-table .plyr .status {
           padding: 2px;
           font-family: 'Cinzel-Bold';
@@ -10541,7 +10541,8 @@ body {
           display: flex;
           flex-direction: row;
           align-items: center;
-          justify-content: center; }
+          justify-content: center;
+          overflow: hidden; }
           .kingtable .main-table .playing-table .plyr .plyr_pic .pic {
             width: 60%;
             margin-right: 40%;
@@ -11604,7 +11605,7 @@ body {
         background: url(../img/dealer.png);
         background-size: 100% 100%; }
       .pokar .main-table .playing-table .main-player {
-        width: 11% !important;
+        width: 18% !important;
         left: 50%;
         bottom: 21%;
         transform: translateX(-50%);
@@ -11622,6 +11623,24 @@ body {
           font-size: 0.8em;
           top: 40%;
           left: 55%; }
+        .pokar .main-table .playing-table .main-player .plyr_pic {
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden; }
+          .pokar .main-table .playing-table .main-player .plyr_pic .pic {
+            margin: 0 auto !important;
+            width: 100% !important;
+            height: 25vh;
+            object-fit: cover;
+            object-position: top; }
+            .pokar .main-table .playing-table .main-player .plyr_pic .pic img {
+              max-width: 100%;
+              max-height: 100%; }
+          .pokar .main-table .playing-table .main-player .plyr_pic .profile_pic_overlay {
+            position: relative;
+            height: 100%;
+            width: 100%; }
       .pokar .main-table .playing-table .doll {
         position: absolute;
         width: 13%;
@@ -11832,3 +11851,46 @@ body {
     top: -24%; }
   .pokar .main-table .playing-table .main-player {
     bottom: 25%; } }
+
+.private-table {
+  height: 68% !important; }
+  .private-table input {
+    background: transparent;
+    border: 1px solid #fff;
+    width: 100%;
+    height: 20%;
+    margin: 1% 10%;
+    color: #fff;
+    font-size: 1em;
+    padding: 2%; }
+  .private-table table {
+    width: 81%; }
+
+.footer-content {
+  font-size: 1em;
+  font-family: 'Cinzel-Bold';
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  border-image-slice: 2;
+  border-top: 1px solid;
+  padding: 2%; }
+
+.table_search_modal {
+  height: 33%;
+  width: 50%;
+  top: 20%;
+  left: 25%; }
+
+.search-table {
+  height: 40% !important; }
+  .search-table .ok {
+    bottom: 13px; }
+  .search-table select {
+    color: white;
+    background: transparent;
+    width: 100%;
+    /* border: none; */
+    border-radius: 0px;
+    border: 1px solid white;
+    padding: 2%; }
+  .search-table td {
+    padding: 2% !important; }

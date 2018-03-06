@@ -258,7 +258,7 @@
         }
       } // add this class to current player 
       .main-player {
-        width: 11% !important;
+        width: 18% !important;
         left: 50%;
         bottom: 21%;
         transform: translateX(-50%);
@@ -281,6 +281,29 @@
           top: 40%;
           left: 55%;
         }
+       .plyr_pic{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        .pic{
+          margin: 0 auto !important;
+          width: 100% !important;
+          height: 25vh;
+          object-fit: cover;
+          object-position: top;
+          img{
+            max-width: 100%;
+            max-height: 100%;
+          }
+       }
+       .profile_pic_overlay{
+        position: relative;
+        height: 100%;
+        width: 100%;
+       }
+       }
+       
       }
       .doll {
         position: absolute;
@@ -631,4 +654,57 @@
   .pokar .main-table .playing-table .main-player {
     bottom: 25%;
   }
+}
+//modal css
+.private-table{
+  height: 68% !important;
+  input{
+    background: transparent ;
+      border: 1px solid #fff ;
+      width: 100% ;
+      height: 20% ;
+      margin: 1% 10% ;
+      color: #fff;
+      font-size: 1em;
+      padding: 2%;
+  
+  }
+   table {
+      width: 81%;
+}
+}
+
+//private info table
+
+.footer-content{
+  font-size: 1em;
+  font-family: 'Cinzel-Bold';
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  border-image-slice: 2;
+  border-top: 1px solid;
+  padding: 2%;
+}
+.table_search_modal{
+  height: 33%;
+  width: 50%;
+  top: 20%;
+  left: 25%;
+}
+.search-table{
+  height: 40% !important;
+  .ok{
+    bottom: 13px;
+  }
+  select{
+    color: white;
+    background: transparent;
+    width: 100%;
+    /* border: none; */
+    border-radius: 0px;
+    border: 1px solid white;
+    padding: 2%;
+  }
+  td {
+    padding: 2% !important;
+}
 }
