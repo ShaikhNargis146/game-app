@@ -120,6 +120,7 @@
         text-align: center;
         img {
           max-width: 100%;
+          max-height: 100%;
         }
         .status {
           padding: 2px;
@@ -132,6 +133,7 @@
           flex-direction: row;
           align-items: center;
           justify-content: center;
+          overflow: hidden;
           .pic {
             width: 60%;
             margin-right: 40%;
@@ -145,8 +147,8 @@
               position: relative;
               width: 20%;
               vertical-align: middle;
-              display: inline-block;  
-              img{
+              display: inline-block;
+              img {
                 width: 100%;
                 vertical-align: middle;
               }
@@ -321,11 +323,10 @@
     .p7 {
       top: 28%;
       right: 3%;
-    }
-    // .p4,
+    } // .p4,
     .p1,
     .p8,
-     {
+      {
       transform: translateY(-100%);
     }
     .p1 {
@@ -910,12 +911,11 @@
         left: 40%;
       }
     }
-
-    &.toplyr1{
+    &.toplyr1 {
       &:nth-child(1) {
         left: 0;
-        animation-name:toplyr1;
-        animation-duration:1s;
+        animation-name: toplyr1;
+        animation-duration: 1s;
       }
       &:nth-child(2) {
         left: 20%;
@@ -927,12 +927,6 @@
   }
 }
 
-
-@keyframes toplyr1{
- 100%{
-   
- }
+@keyframes toplyr1 {
+  100% {}
 }
-
-
-
