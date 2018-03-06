@@ -129,3 +129,16 @@ myApp.filter('serverimage', function () {
     }
   };
 });
+
+myApp.filter('cardimg', function () {
+  return function (input) {
+    if (input) {
+      console.log(input, "inside filter");
+      return "img/cards/"+input+".svg"
+
+    } else {
+      //    return "img/logo.png";
+      return "img/not.png";
+    }
+  };
+});
