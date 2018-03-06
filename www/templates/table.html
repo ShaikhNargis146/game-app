@@ -108,11 +108,20 @@
 
 
       <!--showCard-->
-      <div class="showing_cards">
+      <div class="showing_cards" >
+        <div ng-if="players[8].isBlind"> 
+       
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
         <img src="img/table/card-back.png">
-        <div class="card_see" ng-click="showCard()">See</div>
+      </div>
+      <div ng-if="!players[8].isBlind">
+          <img ng-src="{{ players[8].cards[0] | uppercase | cardimg}}">
+          <img ng-src="{{ players[8].cards[1] | uppercase | cardimg}}">
+          <img ng-src="{{ players[8].cards[2] | uppercase | cardimg}}">
+      </div>
+
+        <div ng-if="players[8].isBlind" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
 
