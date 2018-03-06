@@ -118,6 +118,9 @@
         background-size: 100% 100%;
         color: white;
         text-align: center;
+        .nopalyer_status {
+          display: none;
+        }
         img {
           max-width: 100%;
           max-height: 100%;
@@ -220,6 +223,54 @@
           width: 10% !important;
           bottom: 20%;
         }
+      }
+      .no_player {
+        background: url('../img/sit_here.png');
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%; // height:10vh;
+        transform: translateY(50%);
+        &>* {
+          display: none !important;
+        }
+        &:after {
+          content: "No Player";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5;
+        }
+        &.p8,
+        &.p1 {
+          bottom: 45%;
+        }
+        &.main-player {
+          width: 10% !important;
+          bottom: 20%;
+        }
+        // transform: translateY(-145%);
+        // .status {
+        //   display: none;
+        // }
+        // .nopalyer_status {
+        //   display: block;
+        // }
+        // .plyr_card {  
+        //   display: none;
+        // }
+        // .pic {
+        //   margin: 0 auto !important;
+        // }
+        // .amt {
+        //   opacity: 0;
+        //   visibility: hidden;
+        // }
+        // .plyr_name {
+        //   display: none;
+        // }
       } // add this class to apply card fold css
       .card_fold {
         .plyr_card {
@@ -263,8 +314,7 @@
       .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 0%;
-        // transform: translateX(-50%);
+        bottom: 0%; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
         transform: translate(-50%, -50%);
         .plyr_name {
@@ -458,7 +508,7 @@
         width: 1em;
         vertical-align: middle;
       }
-      span {
+      &>span {
         background: url('../img/text_bg.png');
         background-size: 100% 100%; // margin:10px;
         font-size: 1em;
@@ -512,7 +562,6 @@
       .pic {
         margin: 0 auto !important;
         width: 100% !important;
-        
         height: 25vh;
         object-fit: cover;
         object-position: top;
