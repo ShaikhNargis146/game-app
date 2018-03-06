@@ -110,13 +110,24 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   console.log("main player");
   // }
 
-  // $scope.showCard = function () {
-  //   console.log("inside show card");
-  //   $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
-  //   $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
-  //   $('.showing_cards img:nth-child(3)').attr("src", "img/table/cardA.png");
-  //   $(".card_see").css("display", "none");
-  // }
+  $scope.showCard = function () {
+
+$scope.cardData={};
+$scope.cardData.id=$scope.players[8]._id;
+$scope.cardData.tableId=$stateParams.id;
+
+Service.makeSeen($scope.cardData, function (data) {
+// console.log("data in cardsee",data)
+console.log("makeseen")
+});
+
+
+    console.log("inside show card");
+    $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
+    $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
+    $('.showing_cards img:nth-child(3)').attr("src", "img/table/cardA.png");
+    $(".card_see").css("display", "none");
+  }
 
   $scope.$on('$destroy', function () {
     console.log("destory called from table");
@@ -145,16 +156,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.tableId = $stateParams.id;
 
-  // Service.getOneTable($stateParams.id, function (data) {
-  //   $scope.tableData = data.data.data;
-  //   $scope.bootAmt = $scope.tableData.bootAmt;
-  //   $scope.chalLimit = $scope.tableData.chalLimit;
-  //   $scope.blindAmt = $scope.tableData.blindAmt;
-  //   $scope.chalAmt = $scope.tableData.chalAmt;
-  //   $scope.maxBlind = $scope.tableData.maxBlind;
-  //   $scope.tableShow = $scope.tableData.tableShow;
-  //   $scope.coin = $scope.blindAmt;
-  // });
+  Service.getOneTable($stateParams.id, function (data) {
+    $scope.tableData = data.data.data;
+    $scope.bootAmt = $scope.tableData.bootAmt;
+    $scope.chalLimit = $scope.tableData.chalLimit;
+    $scope.blindAmt = $scope.tableData.blindAmt;
+    $scope.chalAmt = $scope.tableData.chalAmt;
+    $scope.maxBlind = $scope.tableData.maxBlind;
+    $scope.tableShow = $scope.tableData.tableShow;
+    $scope.coin = $scope.blindAmt;
+  });
 
   io.socket.on("ShowWinner", function (data) {});
   $scope.randomCard = function () {
@@ -193,7 +204,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       //completing 9 length array by filling 0 in all empty field
       $scope.players = $scope.fillAllPlayer($scope.players)
-      $scope.players=$scope.rearrangePlayer($scope.players);
+      $scope.players = $scope.rearrangePlayer($scope.players);
       console.log('playyyyers', $scope.players);
     });
   };
@@ -271,19 +282,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.rearrangePlayer = function (demoPlayer) {
     //input [1,2,3,4,5,6,7,8,9] selected 3
     //output [4,5,6,7,8,9,1,2,3]
-    console.log("before re-arrange",demoPlayer);
-    var n=0;
-   var memberId= $scope.playerData.memberId;
-    for(i=0;i<demoPlayer.length;i++)
-    {
-      if(demoPlayer[i].memberId==memberId){
-        console.log(i,"memeber location");
-        n=i+1;
-    
+    console.log("before re-arrange", demoPlayer);
+    var n = 0;
+    var memberId = $scope.playerData.memberId;
+    for (i = 0; i < demoPlayer.length; i++) {
+      if (demoPlayer[i].memberId == memberId) {
+        console.log(i, "memeber location");
+        n = i + 1;
+
       }
     }
     var temp = _.concat(_.slice(demoPlayer, n, demoPlayer.length), _.slice(demoPlayer, 0, n));
-    console.log("before re-arrange",temp);
+    console.log("before re-arrange", temp);
     return temp;
 
   }

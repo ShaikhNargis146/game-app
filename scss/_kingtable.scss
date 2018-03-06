@@ -264,8 +264,9 @@
         width: 18% !important;
         left: 50%;
         bottom: 0%;
-        transform: translateX(-50%);
-        transform: translate(-50%, -70%);
+        // transform: translateX(-50%);
+        // transform: translate(-50%, -70%);
+        transform: translate(-50%, -50%);
         .plyr_name {
           display: none;
         }
@@ -451,7 +452,7 @@
       font-size: 1em;
       /* margin: 0 auto; */
       width: 100%; // transform: translateY(-180%);
-      transform: translateY(-85%);
+      // transform: translateY(-85%);
       z-index: 4;
       img {
         width: 1em;
@@ -511,7 +512,8 @@
       .pic {
         margin: 0 auto !important;
         width: 100% !important;
-        height: 20vh;
+        
+        height: 25vh;
         object-fit: cover;
         object-position: top;
       }
