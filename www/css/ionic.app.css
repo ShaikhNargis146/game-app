@@ -11928,16 +11928,33 @@ body {
   left: 25%; }
 
 .search-table {
-  height: 40% !important; }
-  .search-table .ok {
-    bottom: 13px; }
-  .search-table select {
-    color: white;
+  height: 42% !important;
+  width: 45%;
+  top: 20%;
+  left: 23%; }
+  .search-table ui-select {
     background: transparent;
-    width: 100%;
-    /* border: none; */
-    border-radius: 0px;
+    color: white;
+    border: 1px solid white !important; }
+  .search-table .ui-select-bootstrap .ui-select-choices-row.active > span {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: transparent; }
+  .search-table .ui-select-bootstrap .ui-select-choices-row > span {
+    color: white; }
+  .search-table .ui-select-bootstrap > .ui-select-choices {
+    border: 1px solid white; }
+  .search-table .ui-select-bootstrap > .ui-select-choices {
+    width: 30% !important;
+    left: 51% !important;
+    top: 9%;
+    height: auto;
+    max-height: 100px;
+    position: absolute; }
+  .search-table input[type="search"] {
+    width: 62% !important;
+    background: transparent;
     border: 1px solid white;
-    padding: 2%; }
-  .search-table td {
-    padding: 2% !important; }
+    margin-left: 27%;
+    height: 16px; }

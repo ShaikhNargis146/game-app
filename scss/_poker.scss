@@ -704,22 +704,63 @@
   left: 25%;
 }
 .search-table{
-  height: 40% !important;
-  .ok{
-    bottom: 13px;
-  }
-  select{
-    color: white;
-    background: transparent;
-    width: 100%;
-    /* border: none; */
-    border-radius: 0px;
-    border: 1px solid white;
-    padding: 2%;
-  }
-  td {
-    padding: 2% !important;
+  height: 42% !important;
+  width: 45%;
+  top: 20%;
+  left: 23%;
+//   .ok{
+//     bottom: 13px;
+//   }
+//   select{
+//     color: white;
+//     background: transparent;
+//     width: 100%;
+//     /* border: none; */
+//     border-radius: 0px;
+//     border: 1px solid white;
+//     padding: 2%;
+//   }
+//   td {
+//     padding: 2% !important;
+// }
+ui-select{
+  background: transparent;
+  color: white;
+  border:1px solid white !important;
+}
+.ui-select-bootstrap .ui-select-choices-row.active>span {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: transparent;
+}
+.ui-select-bootstrap .ui-select-choices-row>span {
+
+ 
+  color: white;
+}
+.ui-select-bootstrap > .ui-select-choices{
+  border: 1px solid white;
+}
+ .ui-select-bootstrap > .ui-select-choices{
+  width: 30% !important;
+    left: 51% !important;
+    top: 9%;
+    height: auto;
+    max-height: 100px;
+  
+    position: absolute;
+}
+input[type="search"]{
+  width: 62% !important;
+  background: transparent;
+  border: 1px solid white;
+  margin-left: 27%;
+  height: 16px;
 }
 }
 
+.table-name{
+
+}
 ///table info
