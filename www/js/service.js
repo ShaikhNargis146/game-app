@@ -115,6 +115,11 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         data: data
       }).then(callback);
     },
+    chaal: function (data, callback) {
+      $http.post(url + 'Player/chaal', {
+        data
+      }).then(callback);
+    },
     pack: function (data, callback) {
       $http.post(adminurl + 'Player/fold', {
         data: data
