@@ -4,6 +4,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     screen.orientation.lock('landscape')
   })
 
+
+  //ask for sit here when joining new game
+$scope.sitHere=false;
+
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
     $scope.rightMenu = false;
@@ -72,11 +76,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.playerDetails = modal;
   });
 
-  $scope.openPlayerDetails = function (plrno) {
+  $scope.openPlayerDetails = function ($event, id) {
+    $event.stopPropagation();
+    console.log("playerdetails model called")
     $scope.plrNo = plrno;
     $scope.data = {};
-    $scope.data.sitNummber = plrno;
-    Service.getByPlrNo($scope.data, function (data) {
+    $scope.data.id = id;
+    Service.getByPlrId($scope.data, function (data) {
       $scope.pName = data.data.data.name;
       $scope.pImage1 = data.data.data.image;
       $scope.pUserType = data.data.data.userType;
@@ -110,6 +116,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   console.log("main player");
   // }
 
+
+  //backtolobby
+  $scope.backToLobby = function () {
+    var playerdetails = {};
+    playerdetails.id = $scope.players[8]._id;
+    // playerdetails.tableId = $stateParams.id;
+    Service.deletePlayer(playerdetails, function (data) {
+      console.log(data);
+    })
+    $state.go("lobby");
+  }
+  //show card
   $scope.showCard = function () {
 
     $scope.cardData = {};
@@ -120,7 +138,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       // console.log("data in cardsee",data)
       console.log("makeseen", data)
       if (data.data) {
-        $scope.updatePlayers();
+        // $scope.updatePlayers();
+        console.log("make seen sucess");
       }
 
     });
@@ -178,26 +197,42 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   updateSocketFunction = function (data) {
     console.log("update Socket", data);
-    $scope.turnPlayer = _.find(data.playerCards, function (player) {
-      return player.isTurn;
-    });
-    //cardServed
-    $scope.cardServed = data.cardServed;
-    $scope.communityCards = data.communityCards;
-    $scope.gameType = data.currentGameType;
-    $scope.playersChunk = _.chunk(data.playerCards, 8);
-    $scope.extra = data.extra;
-    $scope.hasTurn = data.hasTurn;
-    $scope.isCheck = data.isCheck;
-    $scope.showWinner = data.showWinner;
-   
+    // $scope.turnPlayer = _.find(data.playerCards, function (player) {
+    //   return player.isTurn;
+    // });
+    // //cardServed
+    // $scope.cardServed = data.cardServed;
+    // $scope.communityCards = data.communityCards;
+    // $scope.gameType = data.currentGameType;
+    // $scope.playersChunk = _.chunk(data.playerCards, 8);
+    // $scope.extra = data.extra;
+    // $scope.hasTurn = data.hasTurn;
+    // $scope.isCheck = data.isCheck;
+    // $scope.showWinner = data.showWinner;
+    console.log(data.players, "updating socket");
+    $scope.players = data.players;
+    // $scope.showSitHere=if()
+
+
+
+    //re-arrange only if player already have seat
+
+    //making 9 length array by filling 0 in all empty field
+    $scope.players = $scope.fillAllPlayer($scope.players)
+    $scope.players = $scope.rearrangePlayer($scope.players);
+
+    // $scope.players = $scope.fillAllPlayer($scope.players)
+    // $scope.players = $scope.rearrangePlayer($scope.players);
+    console.log('playyyyers', $scope.players);
+
+    // $scope.updatePlayers();
     // console.log("data making",data)
     $scope.$apply();
   };
   io.socket.on("Update", updateSocketFunction);
 
   $scope.updatePlayers = function () {
-
+    console.log("inside update player")
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
     console.log("table id ", $scope.l);
@@ -206,12 +241,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       console.log(data.data, "get all service");
       $scope.players = data.data.data.players;
+      // $scope.showSitHere=if()
+    $scope.isIamThere($scope.players,$scope.playerData.memberId);
+   
+    //  console.log($scope.sitHere,"sithere status from updateplayer");
 
-      //completing 9 length array by filling 0 in all empty field
+
+      //re-arrange only if player already have seat
+      //making 9 length array by filling 0 in all empty field
       $scope.players = $scope.fillAllPlayer($scope.players)
       $scope.players = $scope.rearrangePlayer($scope.players);
+
+      // $scope.players = $scope.fillAllPlayer($scope.players)
+      // $scope.players = $scope.rearrangePlayer($scope.players);
       console.log('playyyyers', $scope.players);
+      // $scope.$apply();
     });
+
   };
 
   $scope.updatePlayers();
@@ -226,18 +272,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //player sitting
-  $scope.sitHere = function (sitNum) {
+  $scope.sitHerefn = function (sitNum) {
     // var temp=$scope.players[8];
     // $scope.players[8]= $scope.players[sitNum];
     // $scope.players[sitNum]=temp;
-    $scope.players = $scope.rearrangePlayer($scope.players, sitNum);
+    // $scope.players = $scope.rearrangePlayer($scope.players, sitNum);
+    if (!$scope.sitHere) {
+      console.log("sitHere is false so returning without exe")
+      return
+    }
     console.log($scope.players, "siiiiiiiiiit here")
-
-
-
-
-
-
     // $scope.sitNummber = sitNum;
     $scope.jdata = $.jStorage.get("player");
     console.log("jdata", $scope.jdata)
@@ -248,9 +292,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.memberId = $scope.jdata._id;
     $scope.dataPlayer.totalAmount = $scope.jdata.credit;
     $scope.dataPlayer.tableId = $scope.tableId;
-    // $scope.dataPlayer.sitNummber = $scope.sitNummber;
-    // $scope.dataPlayer.image = $scope.jdata.image;
-    // $scope.dataPlayer.name = $scope.jdata.username;
+    $scope.dataPlayer.sitNummber = $scope.sitNummber;
+    $scope.dataPlayer.image = $scope.jdata.image;
+    $scope.dataPlayer.name = $scope.jdata.username;
     // $scope.dataPlayer.userType = $scope.jdata.userType;
 
 
@@ -260,6 +304,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         // console.log("player saved");
         // $(".main-player").removeClass("sit_here");
         // $scope.playingPlayer = true;
+        $scope.sitHere = false;
+        $scope.updatePlayers();
         console.log(data.data)
       } else {
         console.log("error", data.data.error);
@@ -293,15 +339,55 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     for (i = 0; i < demoPlayer.length; i++) {
       if (demoPlayer[i].memberId == memberId) {
         console.log(i, "memeber location");
+        // $scope.sitHere=true;
         n = i + 1;
 
       }
     }
     var temp = _.concat(_.slice(demoPlayer, n, demoPlayer.length), _.slice(demoPlayer, 0, n));
-    console.log("before re-arrange", temp);
+    console.log("after re-arrange", temp);
     return temp;
 
   }
 
+
+  $scope.isIamThere = function (data,id) {
+    var isthere=false;
+    _.forEach(data, function(value) {
+      console.log(value.memberId,id,"inside isiamthere");
+      if(value.memberId==id){
+        isthere=true;
+        return 
+      }
+      else{
+        console.log("no equallll")
+      }
+    }
+  );
+
+  $scope.sitHere=!isthere;
+  console.log($scope.sitHere,"sithere  status");
+  }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
+  //pack 
+  $scope.pack = function () {
+    playerdetails.id = $scope.players[8]._id;
+    apiService.pack(playerdetails.id, function (data) {});
+  };
+
+  //sideshow
+  $scope.sideShow = function () {
+    playerdetails.id = $scope.players[8]._id;
+    apiService.sideShow(playerdetails.id, function (data) {});
+  };
+
+  //sideShow Maker
+  $scope.doSideShow = function () {
+    apiService.doSideShow(function (data) {});
+  };
+
+  //sideShow Maker
+  $scope.rejectSideShow = function () {
+    apiService.rejectSideShow(function (data) {});
+  };
 });

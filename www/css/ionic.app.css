@@ -10587,7 +10587,7 @@ body {
             text-overflow: ellipsis;
             line-height: 2.5;
             text-align: center;
-            padding-top: 3%;
+            padding-top: 10%;
             padding-left: 15%; }
       .kingtable .main-table .playing-table .sit_here {
         background: url("../img/sit_here.png");
@@ -10598,6 +10598,14 @@ body {
         transform: translateY(50%); }
         .kingtable .main-table .playing-table .sit_here > * {
           display: none !important; }
+        .kingtable .main-table .playing-table .sit_here:before {
+          content: "";
+          width: 20px;
+          height: 30px;
+          background: url("../img/arrow.gif");
+          background-size: 100% 100%;
+          position: absolute;
+          top: -60%; }
         .kingtable .main-table .playing-table .sit_here:after {
           content: "Sit Here";
           height: 100%;
@@ -10617,7 +10625,8 @@ body {
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%;
-        transform: translateY(50%); }
+        transform: translateY(50%);
+        opacity: 0.85; }
         .kingtable .main-table .playing-table .no_player > * {
           display: none !important; }
         .kingtable .main-table .playing-table .no_player:after {
@@ -10718,6 +10727,10 @@ body {
     .kingtable .main-table .p8 {
       bottom: 4%;
       right: 23%; }
+    .kingtable .main-table .p9 {
+      left: 50%;
+      bottom: 45%;
+      transform: translate(-50%, 50%) !important; }
     .kingtable .main-table .showing_cards {
       width: 10%;
       position: absolute;

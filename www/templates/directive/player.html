@@ -1,10 +1,10 @@
 <div>
 
-  <div class="status" ng-if="player.isBlind">
+  <div class="status" ng-if="player.isBlind && !player.isFold">
     BLIND</div>
   <div class="status" ng-if="player.isFold">
     PACK</div>
-  <div class="status" ng-if="!player.isBlind">
+  <div class="status" ng-if="!player.isBlind && !player.isFold">
     SEEN</div>
   <!-- <div class="status nopalyer_status">
     NOPLAYER</div> -->
@@ -60,7 +60,7 @@
   <!-- <pre>{{player}}</pre> -->
   <div class="amt">
     <img src="img/coin.png">{{player.totalAmount}}</div>
-  <div class="plyr_name" ng-click="openPlayerDetails(1)">
+  <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
     <span>{{player.name}}</span>
   </div>
 
