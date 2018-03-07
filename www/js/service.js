@@ -1,7 +1,7 @@
 myApp = angular.module('starter.service', [])
 var adminurl = "http://192.168.1.134:1337/api/";
 // var adminUUU = "http://192.168.1.127:1338"  //
-var adminUUU = "http://192.168.1.134:1338"  
+var adminUUU = "http://192.168.1.134:1338"
 
 var url = adminUUU + '/api/';
 io.sails.url = adminUUU;
@@ -114,6 +114,26 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       $http.post(url + 'Player/makeSeen', {
         data: data
       }).then(callback);
+    },
+    pack: function (callback) {
+      $http.post(adminurl + 'Player/fold').then(function (data) {
+        callback(data);
+      });
+    },
+    sideShow: function (callback) {
+      $http.post(adminurl + 'Player/sideShow', {}).then(function (data) {
+        callback(data.data);
+      });
+    },
+    doSideShow: function (callback) {
+      $http.post(adminurl + 'Player/doSideShow').then(function (data) {
+        callback(data);
+      });
+    },
+    rejectSideShow: function (callback) {
+      $http.post(adminurl + 'Player/cancelSideShow').then(function (data) {
+        callback(data);
+      });
     },
 
 
