@@ -362,6 +362,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("no equallll")
       }
     });
+<<<<<<< HEAD
 
     $scope.sitHere = !isthere;
     console.log($scope.sitHere, "sithere  status");
@@ -376,27 +377,38 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     Service.chaal(playerdetails,function(data){
       consol.log(data)
     });
+=======
+    $scope.serve = function () {
+      var tableId = $stateParams.id;
+      Service.serve(tableId, function (data) {
+        console.log(data);
+      });
+    };
+    $scope.serve();
+    $scope.sitHere = !isthere;
+    console.log($scope.sitHere, "sithere  status");
+>>>>>>> a9f9e885154204240415522e2d9b5743caa35769
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
   //pack 
   $scope.pack = function () {
     playerdetails.id = $scope.players[8]._id;
-    apiService.pack(playerdetails.id, function (data) {});
+    Service.pack(playerdetails.id, function (data) {});
   };
 
   //sideshow
   $scope.sideShow = function () {
     playerdetails.id = $scope.players[8]._id;
-    apiService.sideShow(playerdetails.id, function (data) {});
+    Service.sideShow(playerdetails.id, function (data) {});
   };
 
   //sideShow Maker
   $scope.doSideShow = function () {
-    apiService.doSideShow(function (data) {});
+    Service.doSideShow(function (data) {});
   };
 
   //sideShow Maker
   $scope.rejectSideShow = function () {
-    apiService.rejectSideShow(function (data) {});
+    Service.rejectSideShow(function (data) {});
   };
 });
