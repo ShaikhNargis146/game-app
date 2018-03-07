@@ -362,34 +362,30 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("no equallll")
       }
     });
-<<<<<<< HEAD
 
     $scope.sitHere = !isthere;
     console.log($scope.sitHere, "sithere  status");
   }
 
 
-  $scope.playChaal=function(){
+  $scope.playChaal = function () {
     console.log("play chaal");
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
-    Service.chaal(playerdetails,function(data){
+    Service.chaal(playerdetails, function (data) {
       consol.log(data)
     });
-=======
-    $scope.serve = function () {
-      var tableId = $stateParams.id;
-      Service.serve(tableId, function (data) {
-        console.log(data);
-      });
-    };
-    $scope.serve();
-    $scope.sitHere = !isthere;
-    console.log($scope.sitHere, "sithere  status");
->>>>>>> a9f9e885154204240415522e2d9b5743caa35769
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
+
+  $scope.serve = function () {
+    var tableId = $stateParams.id;
+    Service.serve(tableId, function (data) {
+      console.log(data);
+    });
+  };
+  $scope.serve();
   //pack 
   $scope.pack = function () {
     playerdetails.id = $scope.players[8]._id;
