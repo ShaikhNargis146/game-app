@@ -11948,10 +11948,21 @@ body {
   .search-table .ui-select-bootstrap > .ui-select-choices {
     width: 30% !important;
     left: 51% !important;
-    top: 9%;
-    height: auto;
+    top: 20%;
+    height: 60%;
     max-height: 100px;
     position: absolute; }
+    .search-table .ui-select-bootstrap > .ui-select-choices li {
+      float: right; }
+  .search-table .activated {
+    background: transparent !important; }
+  .search-table .btn-default-focus {
+    background-color: transparent !important;
+    color: #fff;
+    border: none !important;
+    border-color: transparent;
+    box-shadow: none;
+    outline: 0px; }
   .search-table input[type="search"] {
     width: 62% !important;
     background: transparent;

@@ -744,13 +744,26 @@ ui-select{
 }
  .ui-select-bootstrap > .ui-select-choices{
   width: 30% !important;
-    left: 51% !important;
-    top: 9%;
-    height: auto;
-    max-height: 100px;
-  
-    position: absolute;
+  left: 51% !important;
+  top: 20%;
+  height: 60%;
+  max-height: 100px;
+  position: absolute;
+  li{
+    float:right;
+  }
 }
+.activated{
+  background: transparent !important;
+}
+.btn-default-focus{
+  background-color: transparent !important;
+  color:#fff;
+  border:none !important;
+  border-color: transparent;
+  box-shadow: none;
+  outline: 0px;
+}// 
 input[type="search"]{
   width: 62% !important;
   background: transparent;
