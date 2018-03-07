@@ -7,6 +7,8 @@ myApp.controller("PokerCtrl", function ($scope, Service, $state,$ionicModal, $io
     //   $scope.modal.show();
     // };
   //create table modal
+
+
     $ionicModal.fromTemplateUrl('templates/model/create-private-table.html', {
       scope: $scope,
       animation: 'slide-in-up'
