@@ -76,11 +76,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.playerDetails = modal;
   });
 
-  $scope.openPlayerDetails = function (plrno) {
+  $scope.openPlayerDetails = function ($event,id) {
+    $event.stopPropagation();
+    console.log("playerdetails model called")
     $scope.plrNo = plrno;
     $scope.data = {};
-    $scope.data.sitNummber = plrno;
-    Service.getByPlrNo($scope.data, function (data) {
+    $scope.data.id = id;
+    Service.getByPlrId($scope.data, function (data) {
       $scope.pName = data.data.data.name;
       $scope.pImage1 = data.data.data.image;
       $scope.pUserType = data.data.data.userType;

@@ -10598,6 +10598,14 @@ body {
         transform: translateY(50%); }
         .kingtable .main-table .playing-table .sit_here > * {
           display: none !important; }
+        .kingtable .main-table .playing-table .sit_here:before {
+          content: "";
+          width: 20px;
+          height: 30px;
+          background: url("../img/arrow.gif");
+          background-size: 100% 100%;
+          position: absolute;
+          top: -60%; }
         .kingtable .main-table .playing-table .sit_here:after {
           content: "Sit Here";
           height: 100%;
@@ -10617,7 +10625,8 @@ body {
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%;
-        transform: translateY(50%); }
+        transform: translateY(50%);
+        opacity: .6; }
         .kingtable .main-table .playing-table .no_player > * {
           display: none !important; }
         .kingtable .main-table .playing-table .no_player:after {

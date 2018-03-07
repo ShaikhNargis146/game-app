@@ -141,8 +141,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
 
-    getByPlrNo: function (data, callback) {
-      $http.post(url + 'Player/getByPlrNo', {
+    getByPlrId: function (data, callback) {
+      $http.post(url + 'Player/getByPlrId', {
         data: data
       }).then(callback);
     },

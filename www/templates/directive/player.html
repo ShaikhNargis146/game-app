@@ -60,7 +60,7 @@
   <!-- <pre>{{player}}</pre> -->
   <div class="amt">
     <img src="img/coin.png">{{player.totalAmount}}</div>
-  <div class="plyr_name" ng-click="openPlayerDetails(1)">
+  <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
     <span>{{player.name}}</span>
   </div>
 

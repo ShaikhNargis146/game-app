@@ -207,13 +207,13 @@
           display: none !important;
         }
         &:before{
-          // content: "";
-          // width:20px;
-          // height:30px;
-          // background:url("../img/arrow.png");
-          // background-size: 100% 100%;
-          // position: absolute;
-          // top: -60%;
+          content: "";
+          width:20px;
+          height:30px;
+          background:url("../img/arrow.gif");
+          background-size: 100% 100%;
+          position: absolute;
+          top: -60%;
         }
         &:after {
           content: "Sit Here";
@@ -240,6 +240,7 @@
         padding-bottom: 1%;
         width: 8%; // height:10vh;
         transform: translateY(50%);
+        opacity: .6;
         &>* {
           display: none !important;
         }
