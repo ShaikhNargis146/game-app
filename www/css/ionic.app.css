@@ -10727,6 +10727,10 @@ body {
     .kingtable .main-table .p8 {
       bottom: 4%;
       right: 23%; }
+    .kingtable .main-table .p9 {
+      left: 50%;
+      bottom: 45%;
+      transform: translate(-50%, 50%) !important; }
     .kingtable .main-table .showing_cards {
       width: 10%;
       position: absolute;

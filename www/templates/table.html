@@ -58,7 +58,9 @@
         </players>
         <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7]}">
         </players>
-        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':sitHere && !players[8]}">
+        <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9 " ng-class="{'sit_here':sitHere && !players[8]}" ng-if="sitHere">
+        </players>
+        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':sitHere && !players[8]}" ng-if="!sitHere">
         </players>
       </div>
       <!-- end player -->

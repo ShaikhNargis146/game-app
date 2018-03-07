@@ -138,7 +138,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       // console.log("data in cardsee",data)
       console.log("makeseen", data)
       if (data.data) {
-        $scope.updatePlayers();
+        // $scope.updatePlayers();
+        console.log("make seen sucess");
       }
 
     });
@@ -196,18 +197,33 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   updateSocketFunction = function (data) {
     console.log("update Socket", data);
-    $scope.turnPlayer = _.find(data.playerCards, function (player) {
-      return player.isTurn;
-    });
-    //cardServed
-    $scope.cardServed = data.cardServed;
-    $scope.communityCards = data.communityCards;
-    $scope.gameType = data.currentGameType;
-    $scope.playersChunk = _.chunk(data.playerCards, 8);
-    $scope.extra = data.extra;
-    $scope.hasTurn = data.hasTurn;
-    $scope.isCheck = data.isCheck;
-    $scope.showWinner = data.showWinner;
+    // $scope.turnPlayer = _.find(data.playerCards, function (player) {
+    //   return player.isTurn;
+    // });
+    // //cardServed
+    // $scope.cardServed = data.cardServed;
+    // $scope.communityCards = data.communityCards;
+    // $scope.gameType = data.currentGameType;
+    // $scope.playersChunk = _.chunk(data.playerCards, 8);
+    // $scope.extra = data.extra;
+    // $scope.hasTurn = data.hasTurn;
+    // $scope.isCheck = data.isCheck;
+    // $scope.showWinner = data.showWinner;
+    console.log(data.players, "updating socket");
+      $scope.players = data.players;
+      // $scope.showSitHere=if()
+
+
+
+      //re-arrange only if player already have seat
+
+      //making 9 length array by filling 0 in all empty field
+      $scope.players = $scope.fillAllPlayer($scope.players)
+      $scope.players = $scope.rearrangePlayer($scope.players);
+
+      // $scope.players = $scope.fillAllPlayer($scope.players)
+      // $scope.players = $scope.rearrangePlayer($scope.players);
+      console.log('playyyyers', $scope.players);
 
     // $scope.updatePlayers();
     // console.log("data making",data)
@@ -230,7 +246,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
       //re-arrange only if player already have seat
-
       //making 9 length array by filling 0 in all empty field
       $scope.players = $scope.fillAllPlayer($scope.players)
       $scope.players = $scope.rearrangePlayer($scope.players);
