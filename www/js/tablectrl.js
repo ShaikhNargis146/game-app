@@ -76,7 +76,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.playerDetails = modal;
   });
 
-  $scope.openPlayerDetails = function ($event,id) {
+  $scope.openPlayerDetails = function ($event, id) {
     $event.stopPropagation();
     console.log("playerdetails model called")
     $scope.plrNo = plrno;
@@ -210,20 +210,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
     console.log(data.players, "updating socket");
-      $scope.players = data.players;
-      // $scope.showSitHere=if()
+    $scope.players = data.players;
+    // $scope.showSitHere=if()
 
 
 
-      //re-arrange only if player already have seat
+    //re-arrange only if player already have seat
 
-      //making 9 length array by filling 0 in all empty field
-      $scope.players = $scope.fillAllPlayer($scope.players)
-      $scope.players = $scope.rearrangePlayer($scope.players);
+    //making 9 length array by filling 0 in all empty field
+    $scope.players = $scope.fillAllPlayer($scope.players)
+    $scope.players = $scope.rearrangePlayer($scope.players);
 
-      // $scope.players = $scope.fillAllPlayer($scope.players)
-      // $scope.players = $scope.rearrangePlayer($scope.players);
-      console.log('playyyyers', $scope.players);
+    // $scope.players = $scope.fillAllPlayer($scope.players)
+    // $scope.players = $scope.rearrangePlayer($scope.players);
+    console.log('playyyyers', $scope.players);
 
     // $scope.updatePlayers();
     // console.log("data making",data)
@@ -354,11 +354,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
   //pack 
   $scope.pack = function () {
-    apiService.pack(function (data) {});
+    playerdetails.id = $scope.players[8]._id;
+    apiService.pack(playerdetails.id, function (data) {});
   };
 
   //sideshow
   $scope.sideShow = function () {
-    apiService.sideShow(function (data) {});
+    playerdetails.id = $scope.players[8]._id;
+    apiService.sideShow(playerdetails.id, function (data) {});
+  };
+
+  //sideShow Maker
+  $scope.doSideShow = function () {
+    apiService.doSideShow(function (data) {});
+  };
+
+  //sideShow Maker
+  $scope.rejectSideShow = function () {
+    apiService.rejectSideShow(function (data) {});
   };
 });

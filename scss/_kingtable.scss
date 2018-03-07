@@ -191,7 +191,7 @@
             text-overflow: ellipsis;
             line-height: 2.5; // margin: 0px 3px 0px 3px;
             text-align: center; // text-align: left;
-            padding-top: 3%;
+            padding-top: 10%;
             padding-left: 15%;
           }
         }
@@ -206,11 +206,11 @@
         &>* {
           display: none !important;
         }
-        &:before{
+        &:before {
           content: "";
-          width:20px;
-          height:30px;
-          background:url("../img/arrow.gif");
+          width: 20px;
+          height: 30px;
+          background: url("../img/arrow.gif");
           background-size: 100% 100%;
           position: absolute;
           top: -60%;
@@ -240,7 +240,7 @@
         padding-bottom: 1%;
         width: 8%; // height:10vh;
         transform: translateY(50%);
-        opacity: .6;
+        opacity: 0.85;
         &>* {
           display: none !important;
         }
@@ -260,8 +260,7 @@
         &.main-player {
           width: 10% !important;
           bottom: 20%;
-        }
-        // transform: translateY(-145%);
+        } // transform: translateY(-145%);
         // .status {
         //   display: none;
         // }
@@ -397,13 +396,11 @@
       bottom: 4%;
       right: 23%;
     }
-    
-    .p9{
+    .p9 {
       left: 50%;
       bottom: 45%;
-      transform: translate(-50%,50%) !important;
-    }
-    // .other_player {
+      transform: translate(-50%, 50%) !important;
+    } // .other_player {
     //   flex-direction: row;
     //   display: flex;
     //   position: absolute;

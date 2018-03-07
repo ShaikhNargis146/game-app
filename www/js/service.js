@@ -115,18 +115,22 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         data: data
       }).then(callback);
     },
-    pack: function (callback) {
-      $http.post(adminurl + 'Player/fold').then(function (data) {
+    pack: function (data, callback) {
+      $http.post(adminurl + 'Player/fold', {
+        data: data
+      }).then(function (data) {
         callback(data);
       });
     },
     sideShow: function (callback) {
-      $http.post(adminurl + 'Player/sideShow', {}).then(function (data) {
+      $http.post(adminurl + 'Player/sideShow').then(function (data) {
         callback(data.data);
       });
     },
     doSideShow: function (callback) {
-      $http.post(adminurl + 'Player/doSideShow').then(function (data) {
+      $http.post(adminurl + 'Player/doSideShow', {
+        data: data
+      }).then(function (data) {
         callback(data);
       });
     },
