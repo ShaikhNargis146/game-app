@@ -12,32 +12,60 @@
                 Table 
               </td>
               <td>
-                <select>
+                <!-- <select>
                     <option>select</option>
                     <option>table1</option>
                     <option>table2</option>
-                </select>
+                </select> -->
+                <div>
+                    <ui-select ng-model="selected.value">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+              
               </td>
             </tr>
         <tr>
               <td>
               password
               </td>
-              <!--<td>
-                     {{blindAmt}}-{{chalAmt}}/{{2*blindAmt}}-{{2*chalAmt}}
-                    </td>-->
-      
-              <td>
+             
+        <td>
              123
               </td>
             </tr>
-           
-            
-          </tbody>
+        </tbody>
           </table>
-          <div class="ok">
-            <button ng-click=closeTableInfoModal();tableInfoOk()>ok</button>
+<!-- <div>
+    <div class="row">
+        <div class="col-50">
+          <div class="table-name">
+              <label>Table Name</label>
           </div>
+          
+        </div>
+      <div class="50">
+          <ui-select ng-model="selected.value">
+              <ui-select-match>
+                  <span ng-bind="$select.selected.name"></span>
+              </ui-select-match>
+              <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                  <span ng-bind="item.name"></span>
+              </ui-select-choices>
+          </ui-select>
+      </div>
+     
+      </div>
+</div> -->
+         
+          <!-- <div class="ok">
+            <button ng-click=closeTableInfoModal();tableInfoOk()>ok</button>
+          </div> -->
        
         </ion-content>
       </ion-modal-view>
