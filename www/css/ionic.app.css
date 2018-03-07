@@ -10587,7 +10587,7 @@ body {
             text-overflow: ellipsis;
             line-height: 2.5;
             text-align: center;
-            padding-top: 3%;
+            padding-top: 10%;
             padding-left: 15%; }
       .kingtable .main-table .playing-table .sit_here {
         background: url("../img/sit_here.png");
@@ -10626,7 +10626,7 @@ body {
         padding-bottom: 1%;
         width: 8%;
         transform: translateY(50%);
-        opacity: .6; }
+        opacity: 0.85; }
         .kingtable .main-table .playing-table .no_player > * {
           display: none !important; }
         .kingtable .main-table .playing-table .no_player:after {
