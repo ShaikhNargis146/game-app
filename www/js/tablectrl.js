@@ -6,7 +6,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //ask for sit here when joining new game
-$scope.sitHere=false;
+  $scope.sitHere = false;
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -77,8 +77,9 @@ $scope.sitHere=false;
   });
 
   $scope.openPlayerDetails = function ($event, id) {
-    $event.stopPropagation();
     console.log("playerdetails model called")
+    $event.stopPropagation();
+
     $scope.plrNo = plrno;
     $scope.data = {};
     $scope.data.id = id;
@@ -116,12 +117,11 @@ $scope.sitHere=false;
   //   console.log("main player");
   // }
 
-
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
-    // playerdetails.tableId = $stateParams.id;
+    playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
       console.log(data);
     })
@@ -132,7 +132,7 @@ $scope.sitHere=false;
 
     $scope.cardData = {};
     $scope.cardData.id = $scope.players[8]._id;
-    $scope.cardData.tableId = $stateParams.id;
+    $scope.cardData.tableId = $scope.tableId;
 
     Service.makeSeen($scope.cardData, function (data) {
       // console.log("data in cardsee",data)
@@ -242,9 +242,9 @@ $scope.sitHere=false;
       console.log(data.data, "get all service");
       $scope.players = data.data.data.players;
       // $scope.showSitHere=if()
-    $scope.isIamThere($scope.players,$scope.playerData.memberId);
-   
-    //  console.log($scope.sitHere,"sithere status from updateplayer");
+      $scope.isIamThere($scope.players, $scope.playerData.memberId);
+
+      //  console.log($scope.sitHere,"sithere status from updateplayer");
 
 
       //re-arrange only if player already have seat
@@ -351,22 +351,31 @@ $scope.sitHere=false;
   }
 
 
-  $scope.isIamThere = function (data,id) {
-    var isthere=false;
-    _.forEach(data, function(value) {
-      console.log(value.memberId,id,"inside isiamthere");
-      if(value.memberId==id){
-        isthere=true;
-        return 
-      }
-      else{
+  $scope.isIamThere = function (data, id) {
+    var isthere = false;
+    _.forEach(data, function (value) {
+      console.log(value.memberId, id, "inside isiamthere");
+      if (value.memberId == id) {
+        isthere = true;
+        return
+      } else {
         console.log("no equallll")
       }
-    }
-  );
+    });
 
-  $scope.sitHere=!isthere;
-  console.log($scope.sitHere,"sithere  status");
+    $scope.sitHere = !isthere;
+    console.log($scope.sitHere, "sithere  status");
+  }
+
+
+  $scope.playChaal=function(){
+    console.log("play chaal");
+    var playerdetails = {};
+    playerdetails.id = $scope.players[8]._id;
+    playerdetails.tableId = $scope.tableId;
+    Service.chaal(playerdetails,function(data){
+      consol.log(data)
+    });
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
   //pack 

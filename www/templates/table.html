@@ -98,7 +98,7 @@
       <span class="minus no-click-effect" ng-click="removeCoin()">
         <i class="icon ion-minus-round"></i>
       </span>
-      <span class="coin">
+      <span class="coin" ng-click="playChaal()">
         <img src="img/coin.png">{{coin}}
         <span ng-if="players[8].isBlind">blind</span>
         <span ng-if="!players[8].isBlind"> chaal</span>
