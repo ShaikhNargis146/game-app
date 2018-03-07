@@ -6,7 +6,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //ask for sit here when joining new game
-  $scope.sitHere=true;
+  $scope.sitHere = true;
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -214,7 +214,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("Update", updateSocketFunction);
 
   $scope.updatePlayers = function () {
-console.log("inside update player")
+    console.log("inside update player")
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
     console.log("table id ", $scope.l);
@@ -226,13 +226,13 @@ console.log("inside update player")
       // $scope.showSitHere=if()
 
 
-     
+
       //re-arrange only if player already have seat
-     
-         //making 9 length array by filling 0 in all empty field
-        $scope.players = $scope.fillAllPlayer($scope.players)
-        $scope.players = $scope.rearrangePlayer($scope.players);
-      
+
+      //making 9 length array by filling 0 in all empty field
+      $scope.players = $scope.fillAllPlayer($scope.players)
+      $scope.players = $scope.rearrangePlayer($scope.players);
+
       // $scope.players = $scope.fillAllPlayer($scope.players)
       // $scope.players = $scope.rearrangePlayer($scope.players);
       console.log('playyyyers', $scope.players);
@@ -257,7 +257,7 @@ console.log("inside update player")
     // $scope.players[8]= $scope.players[sitNum];
     // $scope.players[sitNum]=temp;
     // $scope.players = $scope.rearrangePlayer($scope.players, sitNum);
-    if(!$scope.sitHere){
+    if (!$scope.sitHere) {
       console.log("sitHere is false so returning without exe")
       return
     }
@@ -284,7 +284,7 @@ console.log("inside update player")
         // console.log("player saved");
         // $(".main-player").removeClass("sit_here");
         // $scope.playingPlayer = true;
-        $scope.sitHere=false;
+        $scope.sitHere = false;
         $scope.updatePlayers();
         console.log(data.data)
       } else {
@@ -331,8 +331,17 @@ console.log("inside update player")
   }
 
 
-  $scope.iAmThere=function(){
+  $scope.iAmThere = function () {
 
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
+  //pack 
+  $scope.pack = function () {
+    apiService.pack(function (data) {});
+  };
+
+  //sideshow
+  $scope.sideShow = function () {
+    apiService.sideShow(function (data) {});
+  };
 });
