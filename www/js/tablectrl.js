@@ -6,7 +6,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //ask for sit here when joining new game
-  $scope.sitHere = true;
+$scope.sitHere=true;
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -242,7 +242,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(data.data, "get all service");
       $scope.players = data.data.data.players;
       // $scope.showSitHere=if()
-
+     $scope.sitHere=!$scope.isIamThere($scope.players,$scope.playerData.memberId);
+     console.log($scope.sitHere,"sithere status from updateplayer");
 
 
       //re-arrange only if player already have seat
@@ -348,8 +349,21 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  $scope.iAmThere = function () {
+  $scope.isIamThere = function (data,id) {
+    var isthere=false;
+    _.forEach(data, function(value) {
+      console.log(value.memberId,id,"inside isiamthere");
+      if(value.memberId==id){
+        isthere=true;
+        return 
+      }
+      else{
+        console.log("no equallll")
+      }
+    }
+  );
 
+  return isthere;
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
   //pack 
