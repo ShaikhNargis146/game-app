@@ -684,6 +684,19 @@
   border-top: 1px solid;
   padding: 2%;
 }
+
+.table-private-info{
+  table{
+    margin: 0% auto !important;
+  }
+}
+.private-table-mar{
+  margin: 6% 0%;
+}
+.content-overflow{
+  height: 96px;
+  overflow: scroll;
+}
 .table_search_modal{
   height: 33%;
   width: 50%;
@@ -708,3 +721,5 @@
     padding: 2% !important;
 }
 }
+
+///table info

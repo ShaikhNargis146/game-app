@@ -42,23 +42,23 @@
       <!-- player -->
       <div class="players">
 
-        <players id="plr1" ng-click="sitHere(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0]}">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0]}">
         </players>
-        <players id="plr2" ng-click="sitHere(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'sit_here':!players[1]}">
+        <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1]}">
         </players>
-        <players id="plr3" ng-click="sitHere(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'sit_here':!players[2]}">
+        <players id="plr3" ng-click="sitHerefn(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'no_player':!players[2]  && !sitHere,'sit_here':sitHere && !players[2]}">
         </players>
-        <players id="plr4" ng-click="sitHere(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'sit_here':!players[3]}">
+        <players id="plr4" ng-click="sitHerefn(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'no_player':!players[3]  && !sitHere,'sit_here':sitHere && !players[3]}">
         </players>
-        <players id="plr5" ng-click="sitHere(5)" ng-player="players[4]" class="plyr p5" ng-class="{'sit_here':!players[4]}">
+        <players id="plr5" ng-click="sitHerefn(5)" ng-player="players[4]" class="plyr p5" ng-class="{'no_player':!players[4]  && !sitHere,'sit_here':sitHere && !players[4]}">
         </players>
-        <players id="plr6" ng-click="sitHere(6)" ng-player="players[5]" class="plyr p6" ng-class="{'sit_here':!players[5]}">
+        <players id="plr6" ng-click="sitHerefn(6)" ng-player="players[5]" class="plyr p6" ng-class="{'no_player':!players[5]  && !sitHere,'sit_here':sitHere && !players[5]}">
         </players>
-        <players id="plr7" ng-click="sitHere(7)" ng-player="players[6]" class="plyr p7" ng-class="{'sit_here':!players[6]}">
+        <players id="plr7" ng-click="sitHerefn(7)" ng-player="players[6]" class="plyr p7" ng-class="{'no_player':!players[6]  && !sitHere,'sit_here':sitHere && !players[6]}">
         </players>
-        <players id="plr8" ng-click="sitHere(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'sit_here':!players[7]}">
+        <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7]}">
         </players>
-        <players id="plr9" ng-click="sitHere(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':!players[8]}">
+        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'sit_here':sitHere && !players[8]}">
         </players>
       </div>
       <!-- end player -->
@@ -70,7 +70,7 @@
 
 
       <!--showCard-->
-      <div class="showing_cards" >
+      <div class="showing_cards" ng-if="!sit_here">
         <div ng-if="players[8].isBlind"> 
        
         <img src="img/table/card-back.png">
@@ -86,7 +86,7 @@
         <div ng-if="players[8].isBlind" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
-    <div class="playing-player-info">
+    <div class="playing-player-info" ng-if="!sitHere">
         <span class="pack"> PACK </span>
         <span class="slide_show"> side show </span>
         <span class="info"> {{players[8].name}}

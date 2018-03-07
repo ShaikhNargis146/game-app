@@ -7,19 +7,21 @@ myApp.controller("PokerCtrl", function ($scope, Service, $state,$ionicModal, $io
     //   $scope.modal.show();
     // };
   //create table modal
+
+
     $ionicModal.fromTemplateUrl('templates/model/create-private-table.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function (modal) {
-      $scope.Modal = modal;
+      $scope.ModalCreate = modal;
     });
   
     $scope.openModal = function () {
       console.log('sdsdsads')
-      $scope.Modal.show();
+      $scope.ModalCreate.show();
     }
     $scope.closeModal = function () {
-      $scope.Modal.hide();
+      $scope.ModalCreate.hide();
     };
   
 //private table info modal
@@ -28,24 +30,24 @@ $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
   scope: $scope,
   animation: 'slide-in-up'
 }).then(function (modal) {
-  $scope.Modal = modal;
+  $scope.ModalInfo = modal;
 });
 
 $scope.openInfoModal = function () {
   console.log('sdsdsads')
-  $scope.Modal.show();
+  $scope.ModalInfo.show();
 }
 //search table
 $ionicModal.fromTemplateUrl('templates/model/search-table.html', {
   scope: $scope,
   animation: 'slide-in-up'
 }).then(function (modal) {
-  $scope.Modal = modal;
+  $scope.ModalSearch = modal;
 });
 
 $scope.opensearchModal = function () {
   console.log('sdsdsads')
-  $scope.Modal.show();
+  $scope.ModalSearch.show();
 }
   });
   

@@ -136,7 +136,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
-
+    deletePlayer: function (data, callback) {
+      $http.post(url + 'Player/deletePlayer', data).then(callback);
+    },
 
 
     getByPlrNo: function (data, callback) {
