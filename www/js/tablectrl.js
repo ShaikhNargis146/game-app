@@ -373,22 +373,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
-    Service.chaal({tableId:$scope.tableId,id:$scope.players[8]._id }, function (data) {
+    Service.chaal({
+      tableId: $scope.tableId,
+      id: $scope.players[8]._id
+    }, function (data) {
       console.log(data)
     });
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
-
-  $scope.serve = function () {
-    var data={};
-    data.tableId=$stateParams.id;
-    Service.serve(data, function (data) {
-      console.log(data);
-    });
-  };
-
-
-  $scope.serve();
 
 
   //pack 

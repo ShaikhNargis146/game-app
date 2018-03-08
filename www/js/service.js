@@ -112,8 +112,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
     makeSeen: function (data, callback) {
       $http.post(url + 'Player/makeSeen', {
-          "tableId": data.tableId,
-          "id": data.id
+        "tableId": data.tableId,
+        "id": data.id
       }).then(callback);
     },
     chaal: function (data, callback) {
@@ -170,12 +170,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     deductBootAmount: function (data, callback) {
       $http.post(url + 'Player/deductBootAmount', {
         data: data
-      }).then(callback);
-    },
-
-    serve: function (data, callback) {
-      $http.post(url + 'Player/serve', {
-        "tableId": data.tableId,
       }).then(callback);
     },
 
