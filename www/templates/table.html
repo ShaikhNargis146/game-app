@@ -71,19 +71,16 @@
         <img src="img/coin.png" class="coin">{{bootAmt}}
       </div>
 
-
-
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere">
-        <div ng-if="players[8].isBlind || players[8].cards.length==0">
+        <!-- <div ng-if="players[8].isBlind || players[8].cards.length=0">
 
           <img src=" img/table/card-back.png ">
           <img src="img/table/card-back.png ">
           <img src="img/table/card-back.png ">
-        </div>
-        <div ng-if="!players[8].isBlind ">
-
-          <div class="custom-row " ng-if="players[8].cards.length==0">
+        </div> -->
+        <div ng-if="!players[8].isBlind">
+          <div class="custom-row " ng-if="players[8].cards.length=0">
             <card card='NONE' class="low-opacity mr2 " ng-style="style " width="23 " height="33 " class="low-opacity mr2 "> </card>
             <card card='NONE' class="low-opacity mr2 " ng-style="style " width="23 " height="33 " class="low-opacity mr2 "> </card>
             <card card='NONE' class="low-opacity mr2 " ng-style="style " width="23 " height="33 " class="low-opacity
@@ -92,19 +89,19 @@
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity" ng-if="gameType.totalCards >= 4">
             </card>
           </div>
-          <div class="row custom-row" ng-if="players[8].cards.length==1">
+          <div class="row custom-row" ng-if="players[8].cards.length=1">
             <card card='DONE' class="mr2" ng-style="style" width="23" height="33"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 3"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 4"> </card>
           </div>
-          <div class="row custom-row" ng-if="players[8].cards.length==2">
+          <div class="row custom-row" ng-if="players[8].cards.length=2">
             <card card='DONE' class="mr2" ng-style="style" width="23" height="33"> </card>
             <card card='DONE' class="mr2" ng-style="style" width="23" height="33"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 3"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 4"> </card>
           </div>
-          <div class=" custom-row" ng-if="players[8].cards.length==3">
+          <div class=" custom-row" ng-if="players[8].cards.length=3">
             <card card='DONE'> </card>
             <card card='DONE'> </card>
             <card card='DONE'> </card>
@@ -121,8 +118,7 @@
           <img ng-src="{{ players[8].cards[1] | uppercase | cardimg}}">
           <img ng-src="{{ players[8].cards[2] | uppercase | cardimg}}"> -->
         </div>
-
-        <div ng-if="players[8].isBlind" class="card_see" ng-click="showCard()" ng-if="player[8].cards.length==0">See</div>
+        <div ng-if="players[8].isBlind || player[8].cards.length=0" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
     <div class="playing-player-info" ng-if="!sitHere">
