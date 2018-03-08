@@ -173,6 +173,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(callback);
     },
 
+    serve: function (data, callback) {
+      $http.post(url + 'Player/serve', {
+        "tableId": data.tableId,
+      }).then(callback);
+    },
+
     createPot: function (data, callback) {
       $http.post(url + 'Pot/createPot', {
         data: data

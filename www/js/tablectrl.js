@@ -382,6 +382,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 
+  $scope.serve = function () {
+    var data = {};
+    data.tableId = $stateParams.id;
+    Service.serve(data, function (data) {
+      console.log(data);
+    });
+  };
+
+
+  $scope.serve();
+
 
   //pack 
   $scope.pack = function () {
