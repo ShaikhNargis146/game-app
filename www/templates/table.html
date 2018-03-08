@@ -125,19 +125,19 @@
       </div>
     </div>
     <div class="playing-player-info" ng-if="!sitHere">
-      <span class="pack" ng-click="pack()"> PACK </span>
-      <span class="slide_show" ng-click="sideShow()"> side show </span>
+      <span class="pack" ng-click="pack()" ng-if="players[8].isTurn"> PACK </span>
+      <span class="slide_show" ng-click="sideShow()" ng-if="players[8].isTurn"> side show </span>
       <span class="info"> {{players[8].name}}
         <img src="img/coin.png">{{players[8].totalAmount}}</span>
-      <span class="minus no-click-effect" ng-click="removeCoin()">
+      <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn">
         <i class="icon ion-minus-round"></i>
       </span>
-      <span class="coin" ng-click="playChaal()">
+      <span class="coin" ng-click="playChaal()" ng-if="players[8].isTurn">
         <img src="img/coin.png">{{coin}}
         <span ng-if="players[8].isBlind">blind</span>
         <span ng-if="!players[8].isBlind"> chaal</span>
       </span>
-      <span class="plus no-click-effect" ng-click="addCoin()">+</span>
+      <span class="plus no-click-effect" ng-click="addCoin()" ng-if="players[8].isTurn">+</span>
 
     </div>
   </div>

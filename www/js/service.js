@@ -117,7 +117,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
     chaal: function (data, callback) {
       $http.post(url + 'Player/chaal', {
-        data
+        "tableId": data.tableId,
+        "id": data.id
       }).then(callback);
     },
     pack: function (data, callback) {
@@ -146,7 +147,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     deletePlayer: function (data, callback) {
-      $http.post(url + 'Player/deletePlayer', data).then(callback);
+      $http.post(url + 'Player/deletePlayer', {
+        "tableId": data.tableId,
+        "id": data.id
+      }).then(callback);
     },
 
 
