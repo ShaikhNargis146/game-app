@@ -373,8 +373,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
-    Service.chaal(playerdetails, function (data) {
-      consol.log(data)
+    Service.chaal({tableId:$scope.tableId,id:$scope.players[8]._id }, function (data) {
+      console.log(data)
     });
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
@@ -385,7 +385,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(data);
     });
   };
-  $scope.serve();
+
+
+  // $scope.serve();
+
+
   //pack 
   $scope.pack = function () {
     playerdetails.id = $scope.players[8]._id;
