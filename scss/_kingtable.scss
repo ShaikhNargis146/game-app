@@ -353,6 +353,18 @@
         transform: translateX(-50%);
         z-index: 2;
       } //bg table css
+      .tip{
+        position: absolute;
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        padding: 0% 2%;
+        font-size: 0.8em;
+        left: 50%;
+        top: -5%;
+        transform: translateX(-50%);
+        color: white;
+        z-index: 3;
+      }
       .bg-table {
         position: relative;
         width: 100%;
@@ -488,14 +500,17 @@
         &:nth-child(1) {
           transform: rotate(-10deg);
           left: -10%;
+          transition: transform 1s;
         }
         &:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
+          transition: transform 1s;
         }
         &:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
+          transition: transform 1s;
         }
         }
       }
@@ -983,7 +998,7 @@
   left: 34%;
   .cards {
     position: relative;
-    img {
+    card {
       position: absolute;
       width: 100%;
       &:nth-child(1) {
@@ -1014,4 +1029,12 @@
 
 @keyframes toplyr1 {
   100% {}
+}
+
+
+//animation
+.custom-row{
+card{
+  transform: translate(-85%,-153%) scale(.3) !important;
+}
 }

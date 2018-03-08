@@ -24,18 +24,21 @@
     <div class="playing-table">
       <img src="img/doll.png" class="doll">
       <img src="img/table.png" class="bg-table">
+      <div class="tip" ng-click="tip()">
+TIP
+      </div>
       <div class="total_played_coin">
         <img src="img/coin.png" class="coin">{{totalMoneyOnTable}}</div>
       <div class="card_shuffle">
         <div class="cards">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
         </div>
         <div class="cards toplyr1">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
         </div>
       </div>
 

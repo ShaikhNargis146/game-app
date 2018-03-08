@@ -216,7 +216,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
     //re-arrange only if player already have seat
-
+    $scope.isIamThere($scope.players, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
     $scope.players = $scope.fillAllPlayer($scope.players)
     $scope.players = $scope.rearrangePlayer($scope.players);
@@ -382,16 +382,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 
-  $scope.serve = function () {
-    var data = {};
-    data.tableId = $stateParams.id;
-    Service.serve(data, function (data) {
-      console.log(data);
-    });
-  };
-
-
-  $scope.serve();
+ 
 
 
   //pack 
