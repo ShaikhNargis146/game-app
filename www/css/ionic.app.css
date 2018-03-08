@@ -10740,18 +10740,20 @@ body {
       flex-direction: row;
       transform: translate(-80%, 0%);
       z-index: 3; }
-      .kingtable .main-table .showing_cards img {
+      .kingtable .main-table .showing_cards .custom-row card {
         padding: 2%;
         width: 100%;
         position: absolute; }
-        .kingtable .main-table .showing_cards img:nth-child(1) {
-          transform: rotate(-6deg);
-          left: 0; }
-        .kingtable .main-table .showing_cards img:nth-child(2) {
+        .kingtable .main-table .showing_cards .custom-row card img {
+          width: 100%; }
+        .kingtable .main-table .showing_cards .custom-row card:nth-child(1) {
+          transform: rotate(-10deg);
+          left: -10%; }
+        .kingtable .main-table .showing_cards .custom-row card:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%; }
-        .kingtable .main-table .showing_cards img:nth-child(3) {
-          transform: rotate(6deg);
+        .kingtable .main-table .showing_cards .custom-row card:nth-child(3) {
+          transform: rotate(10deg);
           left: 65%; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;

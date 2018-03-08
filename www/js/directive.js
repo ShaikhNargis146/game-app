@@ -14,7 +14,7 @@ myApp.directive('card', function () {
           //   width: $scope.width + "px",
           //   height: $scope.height + "px"
           // };
-          $scope.cardFile = "img/" + _.toUpper($scope.card) + ".png";
+          $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
         }
         calc();
         $scope.$watch("card", function () {

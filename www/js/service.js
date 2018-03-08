@@ -174,7 +174,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
     serve: function (data, callback) {
       $http.post(url + 'Player/serve', {
-        data: data
+        "tableId": data.tableId,
       }).then(callback);
     },
 

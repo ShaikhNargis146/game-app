@@ -380,14 +380,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 
   $scope.serve = function () {
-    var tableId = $stateParams.id;
-    Service.serve(tableId, function (data) {
+    var data={};
+    data.tableId=$stateParams.id;
+    Service.serve(data, function (data) {
       console.log(data);
     });
   };
 
 
-  // $scope.serve();
+  $scope.serve();
 
 
   //pack 

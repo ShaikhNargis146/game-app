@@ -477,23 +477,45 @@
       flex-direction: row; // height: 18vh;
       transform: translate(-80%, 0%);
       z-index: 3;
-      img {
-        padding: 2%;
+      .custom-row{
+        card{
+          padding: 2%;
         width: 100%;
         position: absolute;
+        img{
+          width: 100%; 
+        }
         &:nth-child(1) {
-          transform: rotate(-6deg);
-          left: 0;
+          transform: rotate(-10deg);
+          left: -10%;
         }
         &:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
         }
         &:nth-child(3) {
-          transform: rotate(6deg);
+          transform: rotate(10deg);
           left: 65%;
         }
+        }
       }
+      // img {
+      //   padding: 2%;
+      //   width: 100%;
+      //   position: absolute;
+      //   &:nth-child(1) {
+      //     transform: rotate(-6deg);
+      //     left: 0;
+      //   }
+      //   &:nth-child(2) {
+      //     transform: rotate(0deg) scale(1.1);
+      //     left: 35%;
+      //   }
+      //   &:nth-child(3) {
+      //     transform: rotate(6deg);
+      //     left: 65%;
+      //   }
+      // }
       .card_see {
         position: absolute;
         background: url('../img/text_bg.png');
