@@ -382,9 +382,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 
+  //tip
+  $scope.makeTip=function(){
+    var playerdetails = {};
+    playerdetails.id = $scope.players[8]._id;
+    playerdetails.tableId = $scope.tableId;
+    playerdetails.amount=100;
+    Service.maketip(playerdetails,function(data){
+console.log("inside maketip fn",data)
+    })
+  }
  
-
-
   //pack 
   $scope.pack = function () {
     playerdetails.id = $scope.players[8]._id;

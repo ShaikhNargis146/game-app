@@ -10760,15 +10760,18 @@ body {
         .kingtable .main-table .showing_cards .custom-row card:nth-child(1) {
           transform: rotate(-10deg);
           left: -10%;
-          transition: transform 1s; }
+          transition: transform 1s;
+          transition-delay: 500ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
-          transition: transform 1s; }
+          transition: transform 1s;
+          transition-delay: 1000ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
-          transition: transform 1s; }
+          transition: transform 1s;
+          transition-delay: 1500ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -11123,8 +11126,14 @@ body {
 @keyframes toplyr1 {
   100% { } }
 
-.custom-row card {
-  transform: translate(-85%, -153%) scale(0.3) !important; }
+.main_card_anime card:nth-child(1) {
+  transform: translate(-85%, -154%) scale(0.3) !important; }
+
+.main_card_anime card:nth-child(2) {
+  transform: translate(-125%, -154%) scale(0.3) !important; }
+
+.main_card_anime card:nth-child(3) {
+  transform: translate(-150%, -153%) scale(0.3) !important; }
 
 .table6 .player2 {
   right: 5% !important;

@@ -122,6 +122,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         "id": data.id
       }).then(callback);
     },
+    maketip: function (data, callback) {
+      $http.post(url + 'Table/makeTip', { 
+        "tableId": data.tableId,
+        "id": data.id,
+        "amount":data.amount
+      }).then(callback);
+    },
     pack: function (data, callback) {
       $http.post(adminurl + 'Player/fold', {
         data: data

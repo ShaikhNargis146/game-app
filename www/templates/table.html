@@ -24,8 +24,8 @@
     <div class="playing-table">
       <img src="img/doll.png" class="doll">
       <img src="img/table.png" class="bg-table">
-      <div class="tip" ng-click="tip()">
-TIP
+      <div class="tip" ng-click="makeTip()">
+        TIP
       </div>
       <div class="total_played_coin">
         <img src="img/coin.png" class="coin">{{totalMoneyOnTable}}</div>
@@ -84,26 +84,27 @@ TIP
         </div>
         <div ng-if="!players[8].isBlind">
           <div class="custom-row " ng-if="players[8].cards.length==0">
-            <card card='{{players[8].cards[0]}}' > </card>
-            <card card='{{players[8].cards[0]}}' > </card>
+            <card card='{{players[8].cards[0]}}'> </card>
+            <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards>= 3">
             </card>
-            <card card='{{players[8].cards[0]}}' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity" ng-if="gameType.totalCards >= 4">
+            <card card='{{players[8].cards[0]}}' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity"
+              ng-if="gameType.totalCards >= 4">
             </card>
           </div>
           <div class=" custom-row" ng-if="players[8].cards.length==1">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}'> </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 3"> </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 4"> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
           </div>
           <div class=" custom-row" ng-if="players[8].cards.length==2">
             <card card='{{players[8].cards[0]}}'> </card>
-            <card card='{{players[8].cards[0]}}' > </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 3"> </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 4"> </card>
+            <card card='{{players[8].cards[0]}}'> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
           </div>
-          <div class=" custom-row" ng-if="players[8].cards.length==3">
+          <div class=" custom-row main_card_anime" ng-if="players[8].cards.length==3">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>
             <card card='{{players[8].cards[2]}}'> </card>
@@ -111,10 +112,10 @@ TIP
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 4"> </card> -->
           </div>
           <div class=" custom-row" ng-if="players[8].cards.length==4">
-            <card card='{{players[8].cards[0]}}' > </card>
             <card card='{{players[8].cards[0]}}'> </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 3"> </card>
-            <card card='{{players[8].cards[0]}}'  ng-if="gameType.totalCards >= 4"> </card>
+            <card card='{{players[8].cards[0]}}'> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
+            <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
           </div>
           <!-- <img ng-src="{{ players[8].cards[0] | uppercase | cardimg}}">
           <img ng-src="{{ players[8].cards[1] | uppercase | cardimg}}">

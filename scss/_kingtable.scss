@@ -353,7 +353,7 @@
         transform: translateX(-50%);
         z-index: 2;
       } //bg table css
-      .tip{
+      .tip {
         position: absolute;
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
@@ -489,32 +489,34 @@
       flex-direction: row; // height: 18vh;
       transform: translate(-80%, 0%);
       z-index: 3;
-      .custom-row{
-        card{
+      .custom-row {
+        card {
           padding: 2%;
-        width: 100%;
-        position: absolute;
-        img{
-          width: 100%; 
+          width: 100%;
+          position: absolute;
+          img {
+            width: 100%;
+          }
+          &:nth-child(1) {
+            transform: rotate(-10deg);
+            left: -10%;
+            transition: transform 1s;
+            transition-delay: 500ms;
+          }
+          &:nth-child(2) {
+            transform: rotate(0deg) scale(1.1);
+            left: 35%;
+            transition: transform 1s;
+            transition-delay: 1000ms;
+          }
+          &:nth-child(3) {
+            transform: rotate(10deg);
+            left: 65%;
+            transition: transform 1s;
+            transition-delay: 1500ms;
+          }
         }
-        &:nth-child(1) {
-          transform: rotate(-10deg);
-          left: -10%;
-          transition: transform 1s;
-        }
-        &:nth-child(2) {
-          transform: rotate(0deg) scale(1.1);
-          left: 35%;
-          transition: transform 1s;
-        }
-        &:nth-child(3) {
-          transform: rotate(10deg);
-          left: 65%;
-          transition: transform 1s;
-        }
-        }
-      }
-      // img {
+      } // img {
       //   padding: 2%;
       //   width: 100%;
       //   position: absolute;
@@ -1031,10 +1033,17 @@
   100% {}
 }
 
-
 //animation
-.custom-row{
-card{
-  transform: translate(-85%,-153%) scale(.3) !important;
-}
+.main_card_anime {
+  card {
+    &:nth-child(1) {
+      transform: translate(-85%, -154%) scale(.3) !important;
+    }
+    &:nth-child(2) {
+      transform: translate(-125%, -154%) scale(.3) !important;
+    }
+    &:nth-child(3) {
+      transform: translate(-150%, -153%) scale(.3) !important;
+    }
+  }
 }
