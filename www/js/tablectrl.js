@@ -7,6 +7,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //ask for sit here when joining new game
   $scope.sitHere = false;
+  $scope.botAmount=0
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -123,7 +124,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
-      console.log(data);
+      console.log("delete player",data);
     })
     $state.go("lobby");
   }
@@ -209,21 +210,21 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.hasTurn = data.hasTurn;
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
-    console.log(data.players, "updating socket");
-    $scope.players = data.players;
+    console.log("updating player inside socket",data.players );
+    $scope.rawdata = data.players;
     // $scope.showSitHere=if()
-
+    $scope.botAmount=data.pots.totalAmount;
 
 
     //re-arrange only if player already have seat
-    $scope.isIamThere($scope.players, $scope.playerData.memberId);
+    $scope.isIamThere($scope.rawdata, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
-    $scope.players = $scope.fillAllPlayer($scope.players)
-    $scope.players = $scope.rearrangePlayer($scope.players);
+    $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
+    $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
     // $scope.players = $scope.fillAllPlayer($scope.players)
     // $scope.players = $scope.rearrangePlayer($scope.players);
-    console.log('playyyyers', $scope.players);
+    console.log('final playyyyers details from socket', $scope.players);
 
     // $scope.updatePlayers();
     // console.log("data making",data)
@@ -240,17 +241,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       // check whether dealer is selected or not
 
       console.log(data.data, "get all service");
-      $scope.players = data.data.data.players;
+      $scope.rawplayers = data.data.data.players;
+      $scope.botAmount=data.data.data.pots.totalAmount;
+      // console.log("boot amount",$scope.botAmount)
       // $scope.showSitHere=if()
-      $scope.isIamThere($scope.players, $scope.playerData.memberId);
+      $scope.isIamThere($scope.rawplayers, $scope.playerData.memberId);
 
       //  console.log($scope.sitHere,"sithere status from updateplayer");
 
 
       //re-arrange only if player already have seat
       //making 9 length array by filling 0 in all empty field
-      $scope.players = $scope.fillAllPlayer($scope.players)
-      $scope.players = $scope.rearrangePlayer($scope.players);
+      $scope.rawplayers1 = $scope.fillAllPlayer($scope.rawplayers)
+      $scope.players = $scope.rearrangePlayer($scope.rawplayers1);
 
       // $scope.players = $scope.fillAllPlayer($scope.players)
       // $scope.players = $scope.rearrangePlayer($scope.players);
@@ -395,8 +398,13 @@ console.log("inside maketip fn",data)
  
   //pack 
   $scope.pack = function () {
+
+    var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
-    Service.pack(playerdetails.id, function (data) {});
+    playerdetails.tableId = $scope.tableId;
+    Service.pack(playerdetails, function (data) {
+      console.log("inside pack",data);
+    });
   };
 
   //sideshow

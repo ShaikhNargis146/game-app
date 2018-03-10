@@ -10598,14 +10598,6 @@ body {
         transform: translateY(50%); }
         .kingtable .main-table .playing-table .sit_here > * {
           display: none !important; }
-        .kingtable .main-table .playing-table .sit_here:before {
-          content: "";
-          width: 20px;
-          height: 30px;
-          background: url("../img/arrow.gif");
-          background-size: 100% 100%;
-          position: absolute;
-          top: -60%; }
         .kingtable .main-table .playing-table .sit_here:after {
           content: "Sit Here";
           height: 100%;
