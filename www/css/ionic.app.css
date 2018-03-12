@@ -10099,6 +10099,20 @@ body {
     opacity: .5;
     right: 0; }
 
+.addtimer:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: red;
+  background: url("../img/timer.svg");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  left: 0;
+  z-index: 5; }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover;

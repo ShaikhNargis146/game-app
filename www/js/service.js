@@ -1,9 +1,9 @@
 myApp = angular.module('starter.service', [])
-var adminurl = "http://192.168.2.95:1337/api/";
+var adminurl = "http://192.168.1.134:1337/api/";
 // var adminUUU = "http://192.168.1.134:1338"
 // var adminUUU = "http://192.168.1.127:1338"  //
-var adminUUU = "http://192.168.2.95:1338"
-// var adminUUU = "http://192.168.1.134:1338"
+// var adminUUU = "http://192.168.2.95:1338"
+var adminUUU = "http://192.168.1.134:1338"
 
 var url = adminUUU + '/api/';
 io.sails.url = adminUUU;
