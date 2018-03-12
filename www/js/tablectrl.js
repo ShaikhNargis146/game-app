@@ -8,6 +8,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;
+  $scope.PotAmount=0;
+
+
+
+  
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -211,6 +216,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
     // console.log("updating player inside socket",data.players );
+    console.log("pot amt",data.pot.totalAmount)
+    $scope.updatePotAmount(data.pot.totalAmount);
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt,$scope.maxAmt);
@@ -218,7 +225,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.rawdata = data.players;
     // console.log("raw data of player",$scope.rawdata)
     // $scope.showSitHere=if()
-    // $scope.botAmount=data.pot.totalAmount;
+    
 
 
     //re-arrange only if player already have seat
@@ -251,8 +258,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("min and max", $scope.minAmt, $scope.maxAmt)
       // console.log(data.data, "get all service");
       $scope.rawdata = data.data.data.players;
-
-      // $scope.botAmount=data.data.data.pot.totalAmount;
+     
+      $scope.potAmount=data.data.data.pot.totalAmount;
       // console.log("boot amount",$scope.botAmount)
       // $scope.showSitHere=if()
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
@@ -443,5 +450,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.betamount=minamt;
   }
   
-
+  $scope.updatePotAmount=function(potamt){
+    $scope.PotAmount=potamt;
+  }
 });
