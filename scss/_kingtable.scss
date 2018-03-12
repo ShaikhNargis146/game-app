@@ -332,6 +332,13 @@
         bottom: 0%; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
         transform: translate(-50%, -50%);
+        .dealer {
+          &::after {
+            height: 6vh;
+            width: 22%;
+            right: -21%;
+          }
+        }
         .plyr_name {
           display: none;
         }
