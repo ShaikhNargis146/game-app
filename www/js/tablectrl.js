@@ -217,6 +217,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.showWinner = data.showWinner;
     // console.log("updating player inside socket",data.players );
     console.log("pot amt",data.pot.totalAmount)
+    $scope.potAmount=data.pot.totalAmount;
     $scope.updatePotAmount(data.pot.totalAmount);
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
@@ -451,6 +452,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
   
   $scope.updatePotAmount=function(potamt){
-    $scope.PotAmount=potamt;
+    $scope.potAmount=potamt;
   }
 });
