@@ -64,7 +64,7 @@
         <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9 " ng-class="{'sit_here':sitHere && !players[8]}"
           ng-if="sitHere">
         </players>
-        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player addtimer" ng-class="{'sit_here':sitHere && !players[8]}"
+        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player addtimer" ng-class="{'sit_here':sitHere && !players[8],'start_animation':players[8] && players[8].cards.length>0}"
           ng-if="!sitHere">
         </players>
         
@@ -83,8 +83,8 @@
           <card card='NONE'> </card>
           <card card='NONE'> </card>
         </div>
-        <div ng-if="!players[8].isBlind">
-          <div class="custom-row " ng-if="players[8].cards.length==0">
+        <div ng-if="!players[8].isBlind" ng-class="{'main_card_anime':players[8].cards.length>0}">
+          <!-- <div class="custom-row " ng-if="players[8].cards.length==0">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards>= 3">
@@ -92,32 +92,32 @@
             <card card='{{players[8].cards[0]}}' class="low-opacity mr2" ng-style="style" width="23" height="33" class="low-opacity"
               ng-if="gameType.totalCards >= 4">
             </card>
-          </div>
-          <div class=" custom-row" ng-if="players[8].cards.length==1">
+          </div> -->
+          <!-- <div class=" custom-row" ng-if="players[8].cards.length==1">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
-          </div>
-          <div class=" custom-row" ng-if="players[8].cards.length==2">
+          </div> -->
+          <!-- <div class=" custom-row" ng-if="players[8].cards.length==2">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
-          </div>
-          <div class=" custom-row main_card_anime" ng-if="players[8].cards.length==3">
+          </div> -->
+          <div class=" custom-row " >
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>
             <card card='{{players[8].cards[2]}}'> </card>
             <!-- <card card='DONE' class="mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 3"> </card>
             <card card='NONE' class="low-opacity mr2" ng-style="style" width="23" height="33" ng-if="gameType.totalCards >= 4"> </card> -->
           </div>
-          <div class=" custom-row" ng-if="players[8].cards.length==4">
+          <!-- <div class=" custom-row" ng-if="players[8].cards.length==4">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 3"> </card>
             <card card='{{players[8].cards[0]}}' ng-if="gameType.totalCards >= 4"> </card>
-          </div>
+          </div> -->
           <!-- <img ng-src="{{ players[8].cards[0] | uppercase | cardimg}}">
           <img ng-src="{{ players[8].cards[1] | uppercase | cardimg}}">
           <img ng-src="{{ players[8].cards[2] | uppercase | cardimg}}"> -->
@@ -130,16 +130,22 @@
       <span class="slide_show" ng-click="sideShow()" ng-if="players[8].isTurn"> side show </span>
       <span class="info"> {{players[8].name}}
         <img src="img/coin.png">{{players[8].totalAmount}}</span>
-      <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn">
-        <i class="icon ion-minus-round"></i>
+
+      <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt">
+        -
       </span>
+      <span class="minus no-click-effect opacity-05"  ng-if="players[8].isTurn && betamount<=minAmt">
+        -
+      </span>
+
       <span class="coin" ng-click="playChaal()" ng-if="players[8].isTurn">
-        <img src="img/coin.png">{{coin}}
-        <span ng-if="players[8].isBlind">blind</span>
+        <img src="img/coin.png">
+        {{betamount}}
+        <span ng-if="players[8].isBlind">blind </span>
         <span ng-if="!players[8].isBlind"> chaal</span>
       </span>
-      <span class="plus no-click-effect" ng-click="addCoin()" ng-if="players[8].isTurn">+</span>
-
+      <span class="plus no-click-effect" ng-click="addCoin()" ng-if="players[8].isTurn && betamount<maxAmt" >+</span>
+      <span class="plus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount>=maxAmt">+</span>
     </div>
   </div>
 </div>

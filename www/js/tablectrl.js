@@ -7,7 +7,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //ask for sit here when joining new game
   $scope.sitHere = false;
-  $scope.botAmount=0
+  $scope.botAmount = 0;
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -124,7 +124,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
-      console.log("delete player",data);
+      console.log("delete player", data);
     })
     $state.go("lobby");
   }
@@ -211,10 +211,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
     // console.log("updating player inside socket",data.players );
+    $scope.maxAmt = data.maxAmt;
+    $scope.minAmt = data.minAmt;
+    $scope.setBetAmount($scope.minAmt,$scope.maxAmt);
+    console.log("min and max", $scope.minAmt, $scope.maxAmt)
     $scope.rawdata = data.players;
-    console.log("raw data of player",$scope.rawdata)
+    // console.log("raw data of player",$scope.rawdata)
     // $scope.showSitHere=if()
-    $scope.botAmount=data.pots.totalAmount;
+    // $scope.botAmount=data.pot.totalAmount;
 
 
     //re-arrange only if player already have seat
@@ -225,7 +229,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     // $scope.players = $scope.fillAllPlayer($scope.players)
     // $scope.players = $scope.rearrangePlayer($scope.players);
-    console.log('final playyyyers details from socket', $scope.players);
+    // console.log('final playyyyers details from socket', $scope.players);
 
     // $scope.updatePlayers();
     // console.log("data making",data)
@@ -240,11 +244,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("table id ", $scope.l);
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
-
+      console.log("get all ", data)
+      $scope.maxAmt = data.data.data.maxAmt;
+      $scope.minAmt = data.data.data.minAmt;
+      $scope.setBetAmount($scope.minAmt,$scope.maxAmt);
+      console.log("min and max", $scope.minAmt, $scope.maxAmt)
       // console.log(data.data, "get all service");
       $scope.rawdata = data.data.data.players;
-      console.log("raw data of player",$scope.rawdata)
-      $scope.botAmount=data.data.data.pots.totalAmount;
+
+      // $scope.botAmount=data.data.data.pot.totalAmount;
       // console.log("boot amount",$scope.botAmount)
       // $scope.showSitHere=if()
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
@@ -268,12 +276,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.updatePlayers();
   //to add and remove coin
   $scope.addCoin = function () {
-    $scope.coin = $scope.coin * 2;
+    // $scope.coin = $scope.coin * 2;
+        $scope.betamount= $scope.betamount*2;
   }
 
   $scope.removeCoin = function () {
-    if ($scope.coin > 0)
-      $scope.coin = $scope.coin / 2;
+    console.log("inside remove coin .......... add")
+      $scope.betamount = $scope.betamount / 2;
   }
 
   //player sitting
@@ -374,30 +383,31 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.playChaal = function () {
-    console.log("play chaal");
+    // console.log("play chaal");
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
     Service.chaal({
       tableId: $scope.tableId,
-      id: $scope.players[8]._id
+      id: $scope.players[8]._id,
+      amount:$scope.betamount
     }, function (data) {
-      console.log(data)
+      console.log("inside chaal",data)
     });
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
 
   //tip
-  $scope.makeTip=function(){
+  $scope.makeTip = function () {
     var playerdetails = {};
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
-    playerdetails.amount=100;
-    Service.maketip(playerdetails,function(data){
-console.log("inside maketip fn",data)
+    playerdetails.amount = 100;
+    Service.maketip(playerdetails, function (data) {
+      console.log("inside maketip fn", data)
     })
   }
- 
+
   //pack 
   $scope.pack = function () {
 
@@ -405,7 +415,7 @@ console.log("inside maketip fn",data)
     playerdetails.id = $scope.players[8]._id;
     playerdetails.tableId = $scope.tableId;
     Service.pack(playerdetails, function (data) {
-      console.log("inside pack",data);
+      console.log("inside pack", data);
     });
   };
 
@@ -424,4 +434,14 @@ console.log("inside maketip fn",data)
   $scope.rejectSideShow = function () {
     Service.rejectSideShow(function (data) {});
   };
+
+
+ 
+
+  //  betamount;
+  $scope.setBetAmount=function(minamt,maxamt){
+    $scope.betamount=minamt;
+  }
+  
+
 });

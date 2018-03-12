@@ -1033,7 +1033,7 @@
   100% {}
 }
 
-//animation
+//card animation
 .main_card_anime {
   card {
     &:nth-child(1) {
@@ -1046,4 +1046,25 @@
       transform: translate(-150%, -153%) scale(.3) !important;
     }
   }
+}
+
+.start_animation{
+  // &.main-player{
+  //   card {
+  //     &:nth-child(1) {
+  //       transform: translate(-85%, -154%) scale(.3) !important;
+  //     }
+  //     &:nth-child(2) {
+  //       transform: translate(-125%, -154%) scale(.3) !important;
+  //     }
+  //     &:nth-child(3) {
+  //       transform: translate(-150%, -153%) scale(.3) !important;
+  //     }
+  //   }
+  // }
+}
+
+
+.opacity-05{
+  opacity: .5;
 }

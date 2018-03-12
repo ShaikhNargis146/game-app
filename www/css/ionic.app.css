@@ -11141,6 +11141,9 @@ body {
 .main_card_anime card:nth-child(3) {
   transform: translate(-150%, -153%) scale(0.3) !important; }
 
+.opacity-05 {
+  opacity: .5; }
+
 .table6 .player2 {
   right: 5% !important;
   top: 2% !important; }
