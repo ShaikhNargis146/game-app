@@ -196,7 +196,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.coin = $scope.blindAmt;
   });
 
-  io.socket.on("ShowWinner", function (data) {});
+  io.socket.on("ShowWinner", function (data) {
+
+    console.log("show winner",data)
+  });
   $scope.randomCard = function () {
     Service.randomCard();
   };
@@ -216,9 +219,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
     // console.log("updating player inside socket",data.players );
-    console.log("pot amt",data.pot.totalAmount)
-    $scope.potAmount=data.pot.totalAmount;
-    $scope.updatePotAmount(data.pot.totalAmount);
+    if(data.pot){
+      console.log("pot amt",data.pot.totalAmount)
+      $scope.potAmount=data.pot.totalAmount;
+      $scope.updatePotAmount(data.pot.totalAmount);
+    }
+    
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt,$scope.maxAmt);
@@ -259,8 +265,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("min and max", $scope.minAmt, $scope.maxAmt)
       // console.log(data.data, "get all service");
       $scope.rawdata = data.data.data.players;
-     
+     if(data.data.data.pot){
       $scope.potAmount=data.data.data.pot.totalAmount;
+     }
+      
       // console.log("boot amount",$scope.botAmount)
       // $scope.showSitHere=if()
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
