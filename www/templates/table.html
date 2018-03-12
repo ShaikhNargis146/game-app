@@ -45,7 +45,7 @@
       <!-- player -->
       <div class="players">
 
-        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 card_shuffle_animation" ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0]} ">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0], 'card_shuffle_animation':startAnimation }">
         </players>
         <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1]}">
         </players>
@@ -76,7 +76,7 @@
       </div>
 
       <!--showCard-->
-      <div class="showing_cards" ng-if="!sitHere">
+      <div class="showing_cards" ng-if="!sitHere" ng-class="{'main_card_anime':startAnimation}">
         <div class="custom-row" ng-if="players[8].isBlind ">
 
           <card card='NONE'> </card>
@@ -90,7 +90,7 @@
             <card card='{{players[8].cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[8].isBlind" class="card_see" ng-click="showCard()">See</div>
+        <div ng-if="players[8].isBlind && players[8].cards.length>0" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
     <div class="playing-player-info" ng-if="!sitHere">
