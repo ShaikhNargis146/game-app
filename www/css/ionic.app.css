@@ -10577,13 +10577,16 @@ body {
                 vertical-align: middle; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0;
-                transition: transform 1s; }
+                transition: transform 1s;
+                transition-delay: 500ms; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
-                transition: transform 1s; }
+                transition: transform 1s;
+                transition-delay: 1000ms; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
                 left: -20%;
-                transition: transform 1s; }
+                transition: transform 1s;
+                transition-delay: 1500ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10767,17 +10770,17 @@ body {
         .kingtable .main-table .showing_cards .custom-row card img {
           width: 100%; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(1) {
-          transform: translate(-85%, -154%) scale(0.3);
+          transform: rotate(-10deg);
           left: -10%;
           transition: transform 1s;
           transition-delay: 500ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(2) {
-          transform: translate(-125%, -154%) scale(0.3);
+          transform: rotate(0deg) scale(1.1);
           left: 35%;
           transition: transform 1s;
           transition-delay: 1000ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(3) {
-          transform: translate(-150%, -153%) scale(0.3);
+          transform: rotate(10deg);
           left: 65%;
           transition: transform 1s;
           transition-delay: 1500ms; }
@@ -11136,16 +11139,20 @@ body {
   100% { } }
 
 .main_card_anime card:nth-child(1) {
-  transform: rotate(-10deg) !important; }
+  transform: translate(-85%, -154%) scale(0.3) !important;
+  transition: none !important; }
 
 .main_card_anime card:nth-child(2) {
-  transform: rotate(0deg) scale(1.1) !important; }
+  transform: translate(-125%, -154%) scale(0.3) !important;
+  transition: none !important; }
 
 .main_card_anime card:nth-child(3) {
-  transform: rotate(10deg) !important; }
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  transition: none !important; }
 
 .card_shuffle_animation.p1 card:nth-child(1) {
-  transform: scale(1.6) translate(280%, -222%) !important; }
+  transform: scale(1.6) translate(280%, -222%) !important;
+  transition: none !important; }
 
 .opacity-05 {
   opacity: .5; }

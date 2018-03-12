@@ -9,6 +9,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.sitHere = false;
   $scope.botAmount = 0;
   $scope.PotAmount=0;
+  $scope.startAnimation=false; 
 
 
 
@@ -214,7 +215,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.communityCards = data.communityCards;
     // $scope.gameType = data.currentGameType;
     // $scope.playersChunk = _.chunk(data.playerCards, 8);
-    // $scope.extra = data.extra;
+    $scope.extra = data.extra;
+    if($scope.extra)
+    {
+      console.log($scope.extra,"extra")
+    }
+ 
+    if($scope.extra){
+     if($scope.extra.serve){
+      $scope.startAnimation=true ;
+      console.log("start animation true");
+      $timeout(function(){
+        $scope.startAnimation=false ;
+        console.log("inside-timeout startAnimation false")
+      },5000)
+     }
+     
+    }
     // $scope.hasTurn = data.hasTurn;
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
@@ -320,6 +337,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.memberId = $scope.jdata._id;
+    $scope.dataPlayer.accessToken = $scope.jdata.accessToken;
     $scope.dataPlayer.totalAmount = $scope.jdata.credit;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = $scope.sitNummber;
