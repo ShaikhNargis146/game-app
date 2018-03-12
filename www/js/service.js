@@ -122,14 +122,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       $http.post(url + 'Player/chaal', {
         "tableId": data.tableId,
         "id": data.id,
-        "amount":data.amount
+        "amount": data.amount
       }).then(callback);
     },
     maketip: function (data, callback) {
-      $http.post(url + 'Table/makeTip', { 
+      $http.post(url + 'Table/makeTip', {
         "tableId": data.tableId,
         "id": data.id,
-        "amount":data.amount
+        "amount": data.amount
       }).then(callback);
     },
     pack: function (data, callback) {
@@ -141,19 +141,28 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     sideShow: function (callback) {
-      $http.post(adminurl + 'Player/sideShow').then(function (data) {
+      $http.post(url + 'Player/sideShow').then(function (data) {
         callback(data.data);
       });
     },
     doSideShow: function (callback) {
-      $http.post(adminurl + 'Player/doSideShow', {
+      $http.post(url + 'Player/doSideShow', {
         data: data
       }).then(function (data) {
         callback(data);
       });
     },
+    showWinner: function (tableId, callback) {
+      console.log(tableId);
+      $http.post(url + 'Player/showWinner', {
+        "tableId": tableId,
+      }).then(function (data) {
+        callback(data);
+      });
+
+    },
     rejectSideShow: function (callback) {
-      $http.post(adminurl + 'Player/cancelSideShow').then(function (data) {
+      $http.post(url + 'Player/cancelSideShow').then(function (data) {
         callback(data);
       });
     },
