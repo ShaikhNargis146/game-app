@@ -326,6 +326,13 @@
         bottom: 0%; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
         transform: translate(-50%, -50%);
+        .dealer {
+          &::after {
+            height: 6vh;
+            width: 22%;
+            right: -21%;
+          }
+        }
         .plyr_name {
           display: none;
         }
@@ -1048,7 +1055,7 @@
   }
 }
 
-.start_animation{
+.start_animation {
   // &.main-player{
   //   card {
   //     &:nth-child(1) {
@@ -1064,7 +1071,6 @@
   // }
 }
 
-
-.opacity-05{
+.opacity-05 {
   opacity: .5;
 }
