@@ -157,12 +157,15 @@
               }
               &:nth-child(1) {
                 left: 0;
+                transition: transform 1s;
               }
               &:nth-child(2) {
                 left: -10%;
+                transition: transform 1s;
               }
               &:nth-child(3) {
                 left: -20%;
+                transition: transform 1s;
               }
             }
           }
@@ -503,21 +506,38 @@
           position: absolute;
           img {
             width: 100%;
-          }
+          } // &:nth-child(1) {
+          //   transform: rotate(-10deg);
+          //   left: -10%;
+          //   transition: transform 1s;
+          //   transition-delay: 500ms;
+          // }
+          // &:nth-child(2) {
+          //   transform: rotate(0deg) scale(1.1);
+          //   left: 35%;
+          //   transition: transform 1s;
+          //   transition-delay: 1000ms;
+          // }
+          // &:nth-child(3) {
+          //   transform: rotate(10deg);
+          //   left: 65%;
+          //   transition: transform 1s;
+          //   transition-delay: 1500ms;
+          // }
           &:nth-child(1) {
-            transform: rotate(-10deg);
+            transform: translate(-85%, -154%) scale(.3);
             left: -10%;
             transition: transform 1s;
             transition-delay: 500ms;
           }
           &:nth-child(2) {
-            transform: rotate(0deg) scale(1.1);
+            transform: translate(-125%, -154%) scale(.3);
             left: 35%;
             transition: transform 1s;
             transition-delay: 1000ms;
           }
           &:nth-child(3) {
-            transform: rotate(10deg);
+            transform: translate(-150%, -153%) scale(.3);
             left: 65%;
             transition: transform 1s;
             transition-delay: 1500ms;
@@ -1042,20 +1062,31 @@
 
 //card animation
 .main_card_anime {
+  // card {
+  //   &:nth-child(1) {
+  //     transform: translate(-85%, -154%) scale(.3) !important;
+  //   }
+  //   &:nth-child(2) {
+  //     transform: translate(-125%, -154%) scale(.3) !important;
+  //   }
+  //   &:nth-child(3) {
+  //     transform: translate(-150%, -153%) scale(.3) !important;
+  //   }
+  // }
   card {
     &:nth-child(1) {
-      transform: translate(-85%, -154%) scale(.3) !important;
+      transform: rotate(-10deg) !important;
     }
     &:nth-child(2) {
-      transform: translate(-125%, -154%) scale(.3) !important;
+      transform: rotate(0deg) scale(1.1) !important;
     }
     &:nth-child(3) {
-      transform: translate(-150%, -153%) scale(.3) !important;
+      transform: rotate(10deg) !important;
     }
   }
 }
 
-.start_animation {
+.card_shuffle_animation {
   // &.main-player{
   //   card {
   //     &:nth-child(1) {
@@ -1069,6 +1100,19 @@
   //     }
   //   }
   // }
+  &.p1 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.6) translate(280%, -222%) !important;
+      }
+      &:nth-child(2) {
+        // transform: translate(-125%, -154%) scale(.3) !important;
+      }
+      &:nth-child(3) {
+        // transform: translate(-150%, -153%) scale(.3) !important;
+      }
+    }
+  }
 }
 
 .opacity-05 {
