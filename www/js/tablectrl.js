@@ -66,7 +66,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     // $event.preventDefault();
     // $event.stopProgation();
-    console.log("stop propagation");
+    // console.log("stop propagation");
   }
 
   //modal for player details
@@ -146,7 +146,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     });
 
 
-    console.log("inside show card");
+    // console.log("inside show card");
     // $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
     // $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
     // $('.showing_cards img:nth-child(3)').attr("src", "img/table/cardA.png");
@@ -210,14 +210,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.hasTurn = data.hasTurn;
     // $scope.isCheck = data.isCheck;
     // $scope.showWinner = data.showWinner;
-    console.log("updating player inside socket",data.players );
+    // console.log("updating player inside socket",data.players );
     $scope.rawdata = data.players;
+    console.log("raw data of player",$scope.rawdata)
     // $scope.showSitHere=if()
     $scope.botAmount=data.pots.totalAmount;
 
 
     //re-arrange only if player already have seat
-    $scope.isIamThere($scope.rawdata, $scope.playerData.memberId);
+    $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
     $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
     $scope.players = $scope.rearrangePlayer($scope.rawdata2);
@@ -236,28 +237,29 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("inside update player")
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
-    console.log("table id ", $scope.l);
+    // console.log("table id ", $scope.l);
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
 
-      console.log(data.data, "get all service");
-      $scope.rawplayers = data.data.data.players;
+      // console.log(data.data, "get all service");
+      $scope.rawdata = data.data.data.players;
+      console.log("raw data of player",$scope.rawdata)
       $scope.botAmount=data.data.data.pots.totalAmount;
       // console.log("boot amount",$scope.botAmount)
       // $scope.showSitHere=if()
-      $scope.isIamThere($scope.rawplayers, $scope.playerData.memberId);
+      $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
 
       //  console.log($scope.sitHere,"sithere status from updateplayer");
 
 
       //re-arrange only if player already have seat
       //making 9 length array by filling 0 in all empty field
-      $scope.rawplayers1 = $scope.fillAllPlayer($scope.rawplayers)
-      $scope.players = $scope.rearrangePlayer($scope.rawplayers1);
+      $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
+      $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
       // $scope.players = $scope.fillAllPlayer($scope.players)
       // $scope.players = $scope.rearrangePlayer($scope.players);
-      console.log('playyyyers', $scope.players);
+      console.log('playyyyers list', $scope.players);
       // $scope.$apply();
     });
 
@@ -284,7 +286,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("sitHere is false so returning without exe")
       return
     }
-    console.log($scope.players, "siiiiiiiiiit here")
+    // console.log($scope.players, "siiiiiiiiiit here")
     // $scope.sitNummber = sitNum;
     $scope.jdata = $.jStorage.get("player");
     console.log("jdata", $scope.jdata)
@@ -324,7 +326,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       filled[array[i].playerNo - 1] = array[i];
     }
     for (i = 0; i < 9; i++) {
-      console.log(filled[i], "inside fill");
+      // console.log(filled[i], "inside fill");
       if (filled[i] == undefined) {
         filled[i] = 0;
       }
@@ -336,12 +338,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.rearrangePlayer = function (demoPlayer) {
     //input [1,2,3,4,5,6,7,8,9] selected 3
     //output [4,5,6,7,8,9,1,2,3]
-    console.log("before re-arrange", demoPlayer);
+    // console.log("before re-arrange", demoPlayer);
     var n = 0;
     var memberId = $scope.playerData.memberId;
     for (i = 0; i < demoPlayer.length; i++) {
       if (demoPlayer[i].memberId == memberId) {
-        console.log(i, "memeber location");
+        // console.log(i, "memeber location");
         // $scope.sitHere=true;
         n = i + 1;
 
@@ -354,20 +356,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  $scope.isIamThere = function (data, id) {
+  $scope.IamThere = function (data, id) {
     var isthere = false;
     _.forEach(data, function (value) {
-      console.log(value.memberId, id, "inside isiamthere");
+      // console.log(value.memberId, id, "inside isiamthere");
       if (value.memberId == id) {
         isthere = true;
         return
       } else {
-        console.log("no equallll")
+        // console.log("no equallll")
       }
     });
 
     $scope.sitHere = !isthere;
-    console.log($scope.sitHere, "sithere  status");
+    // console.log($scope.sitHere, "sithere  status");
   }
 
 
