@@ -69,10 +69,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.stopProgation = function ($event) {
     $event.stopPropagation(); //wont call parent onclick function
-
-    // $event.preventDefault();
-    // $event.stopProgation();
-    // console.log("stop propagation");
   }
 
   //modal for player details
@@ -119,11 +115,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.tableInfoModal.hide();
   }
 
-  // main playper clicked
-  // $scope.mainPlayerClicked = function () {
-  //   console.log("main player");
-  // }
-
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
@@ -150,13 +141,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
     });
-
-
-    // console.log("inside show card");
-    // $('.showing_cards img:nth-child(1)').attr("src", "img/table/cardA.png");
-    // $('.showing_cards img:nth-child(2)').attr("src", "img/table/cardA.png");
-    // $('.showing_cards img:nth-child(3)').attr("src", "img/table/cardA.png");
-    // $(".card_see").css("display", "none");
   }
 
   $scope.$on('$destroy', function () {
@@ -198,20 +182,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   showWinnerFunction = function (data) {
-    $scope.sideShowData = data;
-    console.log($scope.sideShowData);
+    $scope.showWinner = data;
+    console.log($scope.showWinner);
   };
 
   updateSocketFunction = function (data) {
     console.log("update Socket", data);
-    // $scope.turnPlayer = _.find(data.playerCards, function (player) {
-    //   return player.isTurn;
-    // });
-    // //cardServed
-    // $scope.cardServed = data.cardServed;
-    // $scope.communityCards = data.communityCards;
-    // $scope.gameType = data.currentGameType;
-    // $scope.playersChunk = _.chunk(data.playerCards, 8);
     $scope.extra = data.extra;
     if ($scope.extra) {
       console.log($scope.extra, "extra")
@@ -228,10 +204,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
     }
-    // $scope.hasTurn = data.hasTurn;
-    // $scope.isCheck = data.isCheck;
-    // $scope.showWinner = data.showWinner;
-    // console.log("updating player inside socket",data.players );
     if (data.pot) {
       console.log("pot amt", data.pot.totalAmount)
       $scope.potAmount = data.pot.totalAmount;
@@ -254,11 +226,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
     $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
-    // $scope.players = $scope.fillAllPlayer($scope.players)
-    // $scope.players = $scope.rearrangePlayer($scope.players);
     // console.log('final playyyyers details from socket', $scope.players);
 
-    // $scope.updatePlayers();
     // console.log("data making",data)
     $scope.$apply();
   };
@@ -283,8 +252,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.potAmount = data.data.data.pot.totalAmount;
       }
 
-      // console.log("boot amount",$scope.botAmount)
-      // $scope.showSitHere=if()
+
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
 
       //  console.log($scope.sitHere,"sithere status from updateplayer");
@@ -317,10 +285,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
-    // var temp=$scope.players[8];
-    // $scope.players[8]= $scope.players[sitNum];
-    // $scope.players[sitNum]=temp;
-    // $scope.players = $scope.rearrangePlayer($scope.players, sitNum);
     if (!$scope.sitHere) {
       console.log("sitHere is false so returning without exe")
       return
@@ -347,8 +311,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(data, "sitted");
       if (data.data.value) {
         // console.log("player saved");
-        // $(".main-player").removeClass("sit_here");
-        // $scope.playingPlayer = true;
         $scope.sitHere = false;
         $scope.updatePlayers();
         console.log(data.data)
@@ -366,7 +328,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       filled[array[i].playerNo - 1] = array[i];
     }
     for (i = 0; i < 9; i++) {
-      // console.log(filled[i], "inside fill");
       if (filled[i] == undefined) {
         filled[i] = 0;
       }
@@ -376,15 +337,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.rearrangePlayer = function (demoPlayer) {
-    //input [1,2,3,4,5,6,7,8,9] selected 3
-    //output [4,5,6,7,8,9,1,2,3]
-    // console.log("before re-arrange", demoPlayer);
     var n = 0;
     var memberId = $scope.playerData.memberId;
     for (i = 0; i < demoPlayer.length; i++) {
       if (demoPlayer[i].memberId == memberId) {
         // console.log(i, "memeber location");
-        // $scope.sitHere=true;
         n = i + 1;
 
       }
