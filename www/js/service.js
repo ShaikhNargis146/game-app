@@ -182,10 +182,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
-    deletePlayer: function (data, callback) {
+    deletePlayer: function (playerdetails, callback) {
+      console.log(playerdetails);
       $http.post(url + 'Player/deletePlayer', {
-        "tableId": data.tableId,
-        "id": data.id
+        data: playerdetails
       }).then(callback);
     },
 

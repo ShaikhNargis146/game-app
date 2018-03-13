@@ -118,8 +118,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
-    playerdetails.id = $scope.jsData.accessToken;
+    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
+    console.log(playerdetails, "playerdetails")
     Service.deletePlayer(playerdetails, function (data) {
       console.log("delete player", data);
     })
