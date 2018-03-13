@@ -83,14 +83,14 @@
           <card card='NONE'> </card>
           <card card='NONE'> </card>
         </div>
-        <div ng-if="!players[8].isBlind" ng-class="{'main_card_anime':players[8].cards.length>0}">
+        <div ng-if="!players[8].isBlind">
           <div class=" custom-row ">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>
             <card card='{{players[8].cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[8].isBlind && players[8].cards.length>0" class="card_see" ng-click="showCard()">See</div>
+        <div ng-if="players[8].isBlind && !startAnimation" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
     <div class="playing-player-info" ng-if="!sitHere">
