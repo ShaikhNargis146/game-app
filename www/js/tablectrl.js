@@ -352,18 +352,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.IamThere = function (data, id) {
-    var isthere = false;
+    $scope.isthere = false;
     _.forEach(data, function (value) {
       // console.log(value.memberId, id, "inside isiamthere");
       if (value.memberId == id) {
-        isthere = true;
+        $scope.isthere = true;
+
+        console.log("inside iamthere","value.memberid",value.memberId,"id",id )
         return
       } else {
         // console.log("no equallll")
       }
     });
 
-    $scope.sitHere = !isthere;
+    $scope.sitHere = !$scope.isthere;
     // console.log($scope.sitHere, "sithere  status");
   }
 
