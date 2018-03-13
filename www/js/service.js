@@ -97,13 +97,27 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(callback);
     },
     savePlayerTotable: function (dataPlayer, callback) {
-      console.log(dataPlayer, "dataPlayer")
+      console.log(dataPlayer, "dataPlayer");
       $http({
         url: url + 'Table/addUserToTable',
         method: 'POST',
         data: dataPlayer
       }).then(callback);
     },
+    // savePlayerTotable: function (dataPlayer, callback) {
+    //   console.log(dataPlayer, "dataPlayer");
+    //   var accessToken = dataPlayer.accessToken;
+    //   var tableId = dataPlayer.tableId;
+    //   console.log(tableId, "tableId");
+    //   console.log(accessToken, "accessToken");
+
+    //   $http({
+    //     url: url + 'Table/addUserToTable',
+    //     method: 'POST',
+    //     accessToken: accessToken,
+    //     tableId: tableId
+    //   }).then(callback);
+    // },
 
 
     getOnePlayer: function (id, callback) {

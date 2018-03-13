@@ -118,7 +118,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
-    playerdetails.id = $scope.players[8]._id;
+    playerdetails.id = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
       console.log("delete player", data);
@@ -157,7 +157,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.jsData = $.jStorage.get("player");
-  $scope.jsData.memberId = $scope.jsData._id;
+  $scope.jsData.accessToken = $scope.jsData.accessToken;
   console.log("jsData", $scope.jsData);
   $.jStorage.set("player", $scope.jsData);
   $scope.playerData = $.jStorage.get("player");
@@ -297,22 +297,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $.jStorage.set("player", $scope.jdata);
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
-    $scope.dataPlayer.memberId = $scope.jdata._id;
     $scope.dataPlayer.accessToken = $scope.jdata.accessToken;
-    $scope.dataPlayer.totalAmount = $scope.jdata.credit;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = $scope.sitNummber;
-    $scope.dataPlayer.image = $scope.jdata.image;
-    $scope.dataPlayer.name = $scope.jdata.username;
     // $scope.dataPlayer.userType = $scope.jdata.userType;
 
 
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
       console.log(data, "sitted");
       if (data.data.value) {
-        // console.log("player saved");
         $scope.sitHere = false;
-        // $scope.updatePlayers();
         console.log(data.data)
       } else {
         console.log("error", data.data.error);
@@ -339,9 +333,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.rearrangePlayer = function (demoPlayer) {
     var n = 0;
     var memberId = $scope.playerData.memberId;
+    console.log(memberId);
     for (i = 0; i < demoPlayer.length; i++) {
       if (demoPlayer[i].memberId == memberId) {
-        // console.log(i, "memeber location");
+        console.log(i, "memeber location");
         n = i + 1;
 
       }
