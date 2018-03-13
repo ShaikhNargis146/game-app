@@ -8,6 +8,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
   $scope.playerLogin = function (data, login) {
     console.log("in player login")
     Service.playerLogin(data, function (data) {
+      console.log(data);
       $scope.accessT = data.data;
       if (data.value) {
         console.log("$scope.accessT", $scope.accessT);
