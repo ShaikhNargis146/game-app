@@ -11158,6 +11158,38 @@ body {
   transform: scale(1.6) translate(280%, -222%) !important;
   transition: none !important; }
 
+.card_shuffle_animation.p1 card:nth-child(2) {
+  transform: scale(1.6) translate(232%, -224%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p1 card:nth-child(3) {
+  transform: scale(1.6) translate(190%, -222%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p2 card:nth-child(1) {
+  transform: scale(1.6) translate(935%, -130%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p2 card:nth-child(2) {
+  transform: scale(1.6) translate(895%, -130%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p2 card:nth-child(3) {
+  transform: scale(1.6) translate(834%, -130%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p3 card:nth-child(1) {
+  transform: scale(1.6) translate(935%, -130%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p3 card:nth-child(2) {
+  transform: scale(1.6) translate(895%, -130%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p3 card:nth-child(3) {
+  transform: scale(1.6) translate(880%, -130%) !important;
+  transition: none !important; }
+
 .opacity-05 {
   opacity: .5; }
 

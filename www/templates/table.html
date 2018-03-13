@@ -45,26 +45,26 @@
       <!-- player -->
       <div class="players">
 
-        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0], 'card_shuffle_animation':startAnimation }">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0], 'card_shuffle_animation': players[0] && startAnimation }">
         </players>
-        <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1]}">
+        <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1] , 'card_shuffle_animation': players[1] && startAnimation  }">
         </players>
-        <players id="plr3" ng-click="sitHerefn(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'no_player':!players[2]  && !sitHere,'sit_here':sitHere && !players[2]}">
+        <players id="plr3" ng-click="sitHerefn(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'no_player':!players[2]  && !sitHere,'sit_here':sitHere && !players[2] , 'card_shuffle_animation': players[2] && startAnimation}">
         </players>
-        <players id="plr4" ng-click="sitHerefn(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'no_player':!players[3]  && !sitHere,'sit_here':sitHere && !players[3]}">
+        <players id="plr4" ng-click="sitHerefn(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'no_player':!players[3]  && !sitHere,'sit_here':sitHere && !players[3] , 'card_shuffle_animation': players[3] && startAnimation}">
         </players>
-        <players id="plr5" ng-click="sitHerefn(5)" ng-player="players[4]" class="plyr p5" ng-class="{'no_player':!players[4]  && !sitHere,'sit_here':sitHere && !players[4]}">
+        <players id="plr5" ng-click="sitHerefn(5)" ng-player="players[4]" class="plyr p5" ng-class="{'no_player':!players[4]  && !sitHere,'sit_here':sitHere && !players[4]  , 'card_shuffle_animation': players[4] && startAnimation}">
         </players>
-        <players id="plr6" ng-click="sitHerefn(6)" ng-player="players[5]" class="plyr p6" ng-class="{'no_player':!players[5]  && !sitHere,'sit_here':sitHere && !players[5]}">
+        <players id="plr6" ng-click="sitHerefn(6)" ng-player="players[5]" class="plyr p6" ng-class="{'no_player':!players[5]  && !sitHere,'sit_here':sitHere && !players[5]  , 'card_shuffle_animation': players[5] && startAnimation}">
         </players>
-        <players id="plr7" ng-click="sitHerefn(7)" ng-player="players[6]" class="plyr p7" ng-class="{'no_player':!players[6]  && !sitHere,'sit_here':sitHere && !players[6]}">
+        <players id="plr7" ng-click="sitHerefn(7)" ng-player="players[6]" class="plyr p7" ng-class="{'no_player':!players[6]  && !sitHere,'sit_here':sitHere && !players[6]  , 'card_shuffle_animation': players[6] && startAnimation}">
         </players>
-        <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7]}">
+        <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7]  , 'card_shuffle_animation': players[7] && startAnimation}">
         </players>
         <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9 " ng-class="{'sit_here':sitHere && !players[8]}"
           ng-if="sitHere">
         </players>
-        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player addtimer" ng-class="{'sit_here':sitHere && !players[8],'start_animation':players[8] && players[8].cards.length>0}"
+        <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player addtimer" ng-class="{'sit_here':sitHere && !players[8]}"
           ng-if="!sitHere">
         </players>
 

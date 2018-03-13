@@ -312,7 +312,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data.value) {
         // console.log("player saved");
         $scope.sitHere = false;
-        $scope.updatePlayers();
+        // $scope.updatePlayers();
         console.log(data.data)
       } else {
         console.log("error", data.data.error);
