@@ -9,12 +9,6 @@ var url = adminUUU + '/api/';
 io.sails.url = adminUUU;
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
-var headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-};
 myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet) {
   // Might use a resource here that returns a JSON array
 
@@ -61,14 +55,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
+
+
     sendAccessToken: function (data, callback) {
       var accessToken = data.data;
-      console.log(accessToken);
-      $http({
-        url: adminurl + 'member/getAccessLevel',
-        method: 'POST',
-        headers: headers,
-        data: accessToken
+      $http.post(adminurl + 'member/getAccessLevel', {
+        accessToken: accessToken
       }).then(callback);
     },
 
