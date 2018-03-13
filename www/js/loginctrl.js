@@ -18,7 +18,6 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
           $.jStorage.set("player", data.data.data);
           $scope.playerData = $.jStorage.get("player");
           $scope.data.playerData = $scope.playerData;
-          console.log("login completed");
           $state.go("lobby");
         })
       } else {

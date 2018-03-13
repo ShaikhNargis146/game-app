@@ -203,8 +203,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           console.log("inside-timeout startAnimation false")
         }, 5000)
       }
-
     }
+
     if (data.pot) {
       console.log("pot amt", data.pot.totalAmount)
       $scope.potAmount = data.pot.totalAmount;
@@ -228,10 +228,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
     // console.log('final playyyyers details from socket', $scope.players);
-
     // console.log("data making",data)
     $scope.$apply();
   };
+
   io.socket.on("Update", updateSocketFunction);
   io.socket.on("showWinner", showWinnerFunction);
 
@@ -263,7 +263,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       //making 9 length array by filling 0 in all empty field
 
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
-      console.log("after filler fn",$scope.rawdata2)
+      console.log("after filler fn", $scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
       // $scope.players = $scope.fillAllPlayer($scope.players)
