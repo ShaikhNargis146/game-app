@@ -9,8 +9,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;
-  $scope.PotAmount=0;
-  $scope.startAnimation=false; 
+  $scope.PotAmount = 0;
+  $scope.startAnimation = false;
 
 
 
@@ -198,19 +198,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   showWinnerFunction = function (data) {
-    $scope.sideShowData = data.data.sideShows;
+    $scope.sideShowData = data;
     console.log($scope.sideShowData);
-    if ($scope.player.isActive) {
-      $scope.modal.show();
-      var isWinner = _.find(data.data.winners, function (n) {
-        return n.playerNo == selectPlayer.getPlayer();
-      });
-      if (isWinner) {
-        $scope.isWinner = "You Won";
-      } else {
-        $scope.isWinner = "You Lose";
-      }
-    }
   };
 
   updateSocketFunction = function (data) {
@@ -224,21 +213,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // $scope.gameType = data.currentGameType;
     // $scope.playersChunk = _.chunk(data.playerCards, 8);
     $scope.extra = data.extra;
-    if($scope.extra)
-    {
-      console.log($scope.extra,"extra")
+    if ($scope.extra) {
+      console.log($scope.extra, "extra")
     }
- 
-    if($scope.extra){
-     if($scope.extra.serve){
-      $scope.startAnimation=true ;
-      console.log("start animation true");
-      $timeout(function(){
-        $scope.startAnimation=false ;
-        console.log("inside-timeout startAnimation false")
-      },5000)
-     }
-     
+
+    if ($scope.extra) {
+      if ($scope.extra.serve) {
+        $scope.startAnimation = true;
+        console.log("start animation true");
+        $timeout(function () {
+          $scope.startAnimation = false;
+          console.log("inside-timeout startAnimation false")
+        }, 5000)
+      }
+
     }
     // $scope.hasTurn = data.hasTurn;
     // $scope.isCheck = data.isCheck;

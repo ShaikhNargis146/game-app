@@ -10687,6 +10687,10 @@ body {
         left: 50%;
         bottom: 0%;
         transform: translate(-50%, -50%); }
+        .kingtable .main-table .playing-table .main-player .dealer::after {
+          height: 6vh;
+          width: 22%;
+          right: -21%; }
         .kingtable .main-table .playing-table .main-player .plyr_name {
           display: none; }
         .kingtable .main-table .playing-table .main-player .status {
