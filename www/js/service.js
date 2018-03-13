@@ -136,7 +136,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     chaal: function (data, callback) {
       $http.post(url + 'Player/chaal', {
         "tableId": data.tableId,
-        "id": data.id,
+        "accessToken": data.accessToken,
         "amount": data.amount
       }).then(callback);
     },

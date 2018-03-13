@@ -373,12 +373,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.playChaal = function () {
     // console.log("play chaal");
-    var playerdetails = {};
-    playerdetails.id = $scope.players[8]._id;
-    playerdetails.tableId = $scope.tableId;
     Service.chaal({
       tableId: $scope.tableId,
-      id: $scope.players[8]._id,
+      accessToken: $scope.jdata.accessToken,
       amount: $scope.betamount
     }, function (data) {
       console.log("inside chaal", data)

@@ -1,59 +1,26 @@
 <div ng-class="{dealer:player.isDealer}">
-
   <div class="status" ng-if="player.isBlind && !player.isFold">
     BLIND</div>
   <div class="status" ng-if="player.isFold">
     PACK</div>
   <div class="status" ng-if="!player.isBlind && !player.isFold">
     SEEN</div>
-  <!-- <div class="status nopalyer_status">
-    NOPLAYER</div> -->
-  <!-- <div class="status">RAISE</div> -->
-  <!-- <div class="status">CALL</div> -->
   <div class="plyr_pic">
     <div class="pic">
       <div class="profile_pic_overlay">
         <img ng-src="{{player.image | serverimage}}"> </div>
     </div>
-    <!-- <div class="plyr_card">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
-          <img src="img/card-back.png">
-        </div> -->
     <div class="plyr_card">
-         <div class=" custom-row">
+      <div class=" custom-row">
         <card card='DONE'> </card>
         <card card='DONE'> </card>
         <card card='DONE'> </card>
       </div>
-
     </div>
   </div>
-  <!-- <pre>{{player}}</pre> -->
   <div class="amt">
     <img src="img/coin.png">{{player.totalAmount}}</div>
   <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
     <span>{{player.name}}</span>
   </div>
-
 </div>
-
-
-<!-- <div ng-if="players[8]">
-  <div class="status">BLIND</div>
-  <div class="plyr_pic">
-    <div class="pic">
-      <div class="profile_pic_overlay">
-        <img ng-src="{{image | serverimage}}"> </div>
-    </div>
-    <div class="plyr_card">
-      <img src="img/card-back.png">
-      <img src="img/card-back.png">
-      <img src="img/card-back.png">
-    </div>
-    <div class="card_see">See</div>
-  </div>
-  <div class="amt">
-    <img src="img/coin.png">64,000</div>
-
-</div> -->
