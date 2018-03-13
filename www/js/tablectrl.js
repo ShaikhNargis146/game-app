@@ -159,6 +159,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
+  $scope.jsData.memberId = $scope.jsData._id;
   console.log("jsData", $scope.jsData);
   $.jStorage.set("player", $scope.jsData);
   $scope.playerData = $.jStorage.get("player");
@@ -352,13 +353,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.IamThere = function (data, id) {
+    console.log(data);
     $scope.isthere = false;
     _.forEach(data, function (value) {
-      // console.log(value.memberId, id, "inside isiamthere");
+      console.log(value, id, "inside isiamthere");
       if (value.memberId == id) {
         $scope.isthere = true;
-
-        console.log("inside iamthere","value.memberid",value.memberId,"id",id )
+        console.log("inside iamthere", "value.memberid", value.memberId, "id", id)
         return
       } else {
         // console.log("no equallll")
