@@ -1130,15 +1130,95 @@
   &.p3 {
     card {
       &:nth-child(1) {
-        transform: scale(1.6) translate(935%, -130%) !important;
+        transform: scale(1.6) translate(764%, 188%) !important;
         transition: none !important;
       }
       &:nth-child(2) {
-        transform: scale(1.6) translate(895%, -130%) !important;
+        transform: scale(1.6) translate(718%, 188%) !important;
         transition: none !important;
       }
       &:nth-child(3) {
-        transform: scale(1.6) translate(880%, -130%) !important;
+        transform: scale(1.6) translate(672%, 188%) !important;
+        transition: none !important;
+      }
+    }
+  }
+  &.p4 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(120%, 273%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(70%, 273%) !important;
+        transition: none !important;
+      }
+      &:nth-child(3) {
+        transform: scale(1.5) translate(20%, 273%) !important;
+        transition: none !important;
+      }
+    }
+  }
+  &.p5 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1080%, 273%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-1118%, 274%) !important;
+        transition: none !important;
+      }
+      &:nth-child(3) {
+        transform: scale(1.5) translate(-1174%, 272%) !important;
+        transition: none !important;
+      }
+    }
+  }
+  &.p6 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1784%, 200%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-1826%, 200%) !important; 
+        transition: none !important;
+      }
+      &:nth-child(3) {
+        transform: scale(1.5) translate(-1870%, 200%) !important;
+        transition: none !important;
+      }
+    }
+  }
+  &.p7 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1950%, -138%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-2000%, -138%) !important;
+        transition: none !important;
+      }
+      &:nth-child(3) {
+        transform: scale(1.5) translate(-2045%, -138%) !important;
+        transition: none !important;
+      }
+    }
+  }
+  &.p8 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1260%, -235%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-1295%, -235%) !important;
+        transition: none !important;
+      }
+      &:nth-child(3) {
+        transform: scale(1.5) translate(-1340%, -235%) !important;
         transition: none !important;
       }
     }

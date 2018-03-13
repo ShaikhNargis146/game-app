@@ -260,12 +260,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       //re-arrange only if player already have seat
       //making 9 length array by filling 0 in all empty field
+
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
+      console.log("after filler fn",$scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
       // $scope.players = $scope.fillAllPlayer($scope.players)
       // $scope.players = $scope.rearrangePlayer($scope.players);
-      console.log('playyyyers list', $scope.players);
+      // console.log('playyyyers list', $scope.players);
       // $scope.$apply();
     });
 
