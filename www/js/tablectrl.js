@@ -122,7 +122,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.slideShowModal = modal;
-    $scope.slideShowModal.show();
+    // $scope.slideShowModal.show();/
   });
 
   $scope.showSlideShowModal = function () {
@@ -445,16 +445,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   io.socket.on("sideShow", function (data) {
     console.log("sideShow", data);
-    // if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
-    //   $scope.modal1.show();
-    // }
-    // if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
-    //   $scope.modal3.show();
-    //   $scope.message = {
-    //     content: "Your request for the Side show has been sent!",
-    //     color: "color-balanced"
-    //   }
-    // }
+    if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
+      $scope.showSlideShowModal();
+    }
+    if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
+      // $scope.modal3.show();
+      $scope.message = {
+        content: "Your request for the Side show has been sent!",
+        color: "color-balanced"
+      }
+    }
   });
   //sideShow Maker
   $scope.doSideShow = function () {
