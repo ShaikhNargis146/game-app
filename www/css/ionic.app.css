@@ -11597,6 +11597,15 @@ body {
         font-size: .9em;
         line-height: 1.5; }
 
+.slide-show {
+  height: 46%; }
+  .slide-show .cont {
+    padding: 7% 5%; }
+  .slide-show .slide_show_btn {
+    text-align: center; }
+    .slide-show .slide_show_btn button {
+      margin: 0 2%; }
+
 .pokar {
   background-color: #000; }
   .pokar .top_field {
