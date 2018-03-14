@@ -165,7 +165,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     doSideShow: function (callback) {
-      $http.post(url + 'Player/doSideShow', , {
+      $http.post(url + 'Player/doSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
