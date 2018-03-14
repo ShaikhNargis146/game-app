@@ -3,12 +3,11 @@
   <ion-content>
     <div class="heading">Slide Show </div>
     <div class="cont">
-     player "PLAYER NAME" want slide show with you
+      player "PLAYER NAME" want slide show with you
     </div>
     <div class="slide_show_btn">
-      <button >Accept</button>
-      <button ng-click=closeSlideShowModal()>Reject</button>
-     
+      <button ng-click=doSideShow()>Accept</button>
+      <button ng-click=rejectSideShow();closeSlideShowModal();>Reject</button>
     </div>
   </ion-content>
 </ion-modal-view>
