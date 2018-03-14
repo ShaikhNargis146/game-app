@@ -126,6 +126,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     })
     $state.go("lobby");
   }
+
   //show card
   $scope.showCard = function () {
     $scope.cardData = {};
@@ -403,8 +404,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("inside pack", data);
     });
   };
-  //showWinner
 
+  //showWinner
   $scope.showWinner = function () {
     var tableId = $scope.tableId;
     console.log(tableId);
@@ -412,6 +413,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("inside pack", data);
     });
   };
+
   //sideshow
   $scope.sideShow = function () {
     playerdetails.id = $scope.players[8]._id;

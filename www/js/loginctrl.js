@@ -3,10 +3,9 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
     screen.orientation.lock('portrait')
   })
 
-  console.log("login controller");
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
-    console.log("in player login")
+    console.log("in player login");
     Service.playerLogin(data, function (data) {
       console.log(data);
       $scope.accessT = data.data;
@@ -27,7 +26,15 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
         }
         console.log(login)
       }
-    })
+    });
   }
 
+
+  //js Storage 
+  // $scope.jsData = $.jStorage.get("player");
+  // $scope.jsData.accessToken = $scope.jsData.accessToken;
+
+  // if($scope.jsData.accessToken){
+
+  // }
 });

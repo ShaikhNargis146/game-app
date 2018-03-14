@@ -109,6 +109,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.closePriceRangeModal = function () {
     $scope.priceRangeModal.hide();
   }
+  $scope.logout = function () {
+    $.jStorage.flush();
+  $state.go('login');
+  }
 
   //room summary
 

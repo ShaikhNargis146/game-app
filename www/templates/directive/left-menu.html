@@ -5,27 +5,18 @@
   <div class="menu_cont" ng-click="stopProgation($event)">
     <div class="user_profile left ">
       <div class="profile_pic">
-        <!--<img src="img/playing_profile.png">-->
         <div class="profile_pic_overlay">
           <img ng-src="{{image | serverimage}}">
         </div>
-
       </div>
+
       <div class="profile_info">
-        <!--<div class="name">Christle Kallis</div>
-          <div class="player_badge"> Bronze </div>
-          <div class="amt">
-            <img src="img/lobby/yellow_coin.png"> 100000</div>-->
-
-
         <div class="name">{{username}}</div>
         <div class="player_badge"> {{userType}} </div>
         <div class="amt">
-          <img src="img/lobby/yellow_coin.png"> {{credit}}</div>
-
-
+          <img src="img/lobby/yellow_coin.png"> {{credit}}
+        </div>
       </div>
-
     </div>
     <!-- <div class="amt_modify">
           <span>ADD</span>
