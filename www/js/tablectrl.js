@@ -474,12 +474,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
   //sideShow Maker
   $scope.doSideShow = function () {
-    Service.doSideShow(function (data) {});
+    var playerdetails = {};
+    playerdetails.accessToken = $scope.jsData.accessToken;
+    playerdetails.tableId = $scope.tableId;
+    Service.doSideShow(playerdetails,function (data) {
+      console.log("doSideShow",data);
+    });
   };
 
   //sideShow Maker
   $scope.rejectSideShow = function () {
-    Service.rejectSideShow(function (data) {});
+    var playerdetails = {};
+    playerdetails.accessToken = $scope.jsData.accessToken;
+    playerdetails.tableId = $scope.tableId;
+    Service.rejectSideShow(playerdetails,function (data) {
+      console.log("rejectSideShow",data);
+    });
   };
 
 

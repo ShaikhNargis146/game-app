@@ -164,7 +164,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data.data);
       });
     },
-    doSideShow: function (callback) {
+    doSideShow: function (data,callback) {
       $http.post(url + 'Player/doSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
@@ -181,7 +181,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
 
     },
-    rejectSideShow: function (callback) {
+    rejectSideShow: function (data,callback) {
       $http.post(url + 'Player/cancelSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
