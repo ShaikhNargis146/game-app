@@ -268,10 +268,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("after filler fn", $scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
 
-      // $scope.players = $scope.fillAllPlayer($scope.players)
-      // $scope.players = $scope.rearrangePlayer($scope.players);
-      // console.log('playyyyers list', $scope.players);
-      // $scope.$apply();
     });
 
   };
