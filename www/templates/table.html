@@ -76,22 +76,22 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere" ng-class="{'main_card_anime':startAnimation}">
-        <div class="custom-row" ng-if="players[8].isBlind">
+        <div class="custom-row" ng-if="players[8].isBlind && !players[8].isFold">
           <card card='NONE'> </card>
           <card card='NONE'> </card>
           <card card='NONE'> </card>
         </div>
-        <div ng-if="!players[8].isBlind">
+        <div ng-if="!players[8].isBlind && !players[8].isFold">
           <div class=" custom-row ">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>
             <card card='{{players[8].cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[8].isBlind && !startAnimation" class="card_see" ng-click="showCard()">See</div>
+        <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold" class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere">
+    <div class="playing-player-info" ng-if="!sitHere || !players[8].isFold">
       <span class="pack" ng-click="pack()" ng-if="players[8].isTurn"> PACK </span>
       <span class="slide_show" ng-click="sideShow()" ng-if="(players[8].isTurn) && (remainingPlayer <= 1)"> side show </span>
       <span class="slide_show" ng-click="showWinner()" ng-if="(players[8].isTurn) && (remainingPlayer >= 1)">show </span>

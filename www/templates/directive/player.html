@@ -10,7 +10,7 @@
       <div class="profile_pic_overlay">
         <img ng-src="{{player.image | serverimage}}"> </div>
     </div>
-    <div class="plyr_card">
+    <div class="plyr_card" ng-if="!player.isFold">
       <div class=" custom-row">
         <card card='DONE'> </card>
         <card card='DONE'> </card>
