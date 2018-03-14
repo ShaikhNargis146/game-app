@@ -131,6 +131,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.closeSlideShowModal = function () {
     $scope.slideShowModal.hide();
   }
+
+  $ionicModal.fromTemplateUrl('templates/model/slideshowsend.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.slideShowSendModal = modal;
+    // $scope.slideShowSendModal.show();
+  });
+
+  $scope.showslideShowSendModal = function () {
+    $scope.slideShowSendModal.show();
+  }
+  $scope.closeslideShowSendModal = function () {
+    $scope.slideShowSendModal.hide();
+  }
+
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
