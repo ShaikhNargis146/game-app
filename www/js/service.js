@@ -155,8 +155,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-    sideShow: function (callback) {
-      $http.post(url + 'Player/sideShow').then(function (data) {
+    sideShow: function (data, callback) {
+      console.log(data);
+      $http.post(url + 'Player/sideShow', {
+        "tableId": data.tableId,
+        "accessToken": data.accessToken
+      }).then(function (data) {
         callback(data.data);
       });
     },

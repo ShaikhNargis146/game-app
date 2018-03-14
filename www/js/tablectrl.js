@@ -185,7 +185,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
-    console.log("show winner",$scope.showWinner);
+    console.log("show winner", $scope.showWinner);
   };
 
   updateSocketFunction = function (data) {
@@ -412,10 +412,33 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //sideshow
   $scope.sideShow = function () {
-    playerdetails.id = $scope.players[8]._id;
-    Service.sideShow(playerdetails.id, function (data) {});
+    var playerdetails = {};
+    playerdetails.accessToken = $scope.jsData.accessToken;
+    playerdetails.tableId = $scope.tableId;
+    Service.sideShow(playerdetails, function (data) {
+      console.log(data);
+    });
   };
+  // io.socket.on("sideShowCancel", function (data) {
+  //   console.log(data.data.playerNo);
+  //   if (data.data.playerNo == selectPlayer.getPlayer()) {
+  //     $scope.modal3.show();
+  //   }
+  // });
 
+  io.socket.on("sideShow", function (data) {
+    console.log("sideShow", data);
+    // if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
+    //   $scope.modal1.show();
+    // }
+    // if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
+    //   $scope.modal3.show();
+    //   $scope.message = {
+    //     content: "Your request for the Side show has been sent!",
+    //     color: "color-balanced"
+    //   }
+    // }
+  });
   //sideShow Maker
   $scope.doSideShow = function () {
     Service.doSideShow(function (data) {});
