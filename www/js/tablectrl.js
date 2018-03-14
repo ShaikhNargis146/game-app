@@ -185,7 +185,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
-    console.log($scope.showWinner);
+    console.log("show winner",$scope.showWinner);
   };
 
   updateSocketFunction = function (data) {
