@@ -11597,13 +11597,13 @@ body {
         font-size: .9em;
         line-height: 1.5; }
 
-.slide-show {
+.side-show {
   height: 46%; }
-  .slide-show .cont {
+  .side-show .cont {
     padding: 7% 5%; }
-  .slide-show .slide_show_btn {
+  .side-show .side_show_btn {
     text-align: center; }
-    .slide-show .slide_show_btn button {
+    .side-show .side_show_btn button {
       margin: 0 2%; }
 
 .pokar {

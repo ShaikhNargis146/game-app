@@ -117,40 +117,40 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-  $ionicModal.fromTemplateUrl('templates/model/slideshow.html', {
+  $ionicModal.fromTemplateUrl('templates/model/sideshow.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
-    $scope.slideShowModal = modal;
-    // $scope.slideShowModal.show();/
+    $scope.sideShowModal = modal;
+    // $scope.sideShowModal.show();/
   });
 
-  $scope.showSlideShowModal = function () {
-    $scope.slideShowModal.show();
+  $scope.showSideShowModal = function () {
+    $scope.sideShowModal.show();
 
   }
-  $scope.closeSlideShowModal = function () {
-    $scope.slideShowModal.hide();
+  $scope.closeSideShowModal = function () {
+    $scope.sideShowModal.hide();
   }
 
-  $ionicModal.fromTemplateUrl('templates/model/slideshowsend.html', {
+  $ionicModal.fromTemplateUrl('templates/model/sideshowsend.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
-    $scope.slideShowSendModal = modal;
-    // $scope.showslideShowSendModal();
+    $scope.sideShowSendModal = modal;
+    // $scope.showSideShowSendModal();
     
   });
 
-  $scope.showslideShowSendModal = function () {
-    $scope.slideShowSendModal.show();
+  $scope.showSideShowSendModal = function () {
+    $scope.sideShowSendModal.show();
     $timeout( function(){
-      $scope.closeslideShowSendModal();
+      $scope.closeSideShowSendModal();
     }
     ,2000)
   }
-  $scope.closeslideShowSendModal = function () {
-    $scope.slideShowSendModal.hide();
+  $scope.closeSideShowSendModal = function () {
+    $scope.sideShowSendModal.hide();
   }
 
   //backtolobby
@@ -185,7 +185,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.$on('$destroy', function () {
     console.log("destory called from table");
     $scope.tableInfoModal.remove();
-    $scope.slideShowModal.remove();
+    $scope.sideShowModal.remove();
+    $scope.sideShowSendModal.remove();
     $scope.closeAllModal();
   });
 
@@ -225,6 +226,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
     console.log("show winner", $scope.showWinner);
+    $scope.rawdata=$scope.showWinner.data.players
+    $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+    //making 9 length array by filling 0 in all empty field
+    $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
+    $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+
   };
 
   updateSocketFunction = function (data) {
@@ -389,7 +396,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.IamThere = function (data, id) {
-    console.log(data);
+    // console.log(data);
     $scope.isthere = false;
     _.forEach(data, function (value) {
       console.log(value, id, "inside isiamthere");
@@ -468,11 +475,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("sideShow", function (data) {
     console.log("sideShow", data);
     if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
-      $scope.showSlideShowModal();
+      $scope.showSideShowModal();
     }
     if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
       // $scope.modal3.show();
-      $scope.showslideShowSendModal();
+      $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been sent!",
         color: "color-balanced"
