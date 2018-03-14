@@ -115,6 +115,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.tableInfoModal.hide();
   }
 
+
+
+  $ionicModal.fromTemplateUrl('templates/model/slideshow.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.slideShowModal = modal;
+    $scope.slideShowModal.show();
+  });
+
+  $scope.showSlideShowModal = function () {
+    $scope.slideShowModal.show();
+  }
+  $scope.closeSlideShowModal = function () {
+    $scope.slideShowModal.hide();
+  }
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
@@ -147,6 +163,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.$on('$destroy', function () {
     console.log("destory called from table");
     $scope.tableInfoModal.remove();
+    $scope.slideShowModal.remove();
     $scope.closeAllModal();
   });
 
