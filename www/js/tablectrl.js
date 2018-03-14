@@ -127,6 +127,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.showSlideShowModal = function () {
     $scope.slideShowModal.show();
+
   }
   $scope.closeSlideShowModal = function () {
     $scope.slideShowModal.hide();
@@ -137,11 +138,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.slideShowSendModal = modal;
-    // $scope.slideShowSendModal.show();
+    // $scope.showslideShowSendModal();
+    
   });
 
   $scope.showslideShowSendModal = function () {
     $scope.slideShowSendModal.show();
+    $timeout( function(){
+      $scope.closeslideShowSendModal();
+    }
+    ,2000)
   }
   $scope.closeslideShowSendModal = function () {
     $scope.slideShowSendModal.hide();
@@ -466,6 +472,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
     if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
       // $scope.modal3.show();
+      $scope.showslideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been sent!",
         color: "color-balanced"
