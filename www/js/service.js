@@ -130,7 +130,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     makeSeen: function (data, callback) {
       $http.post(url + 'Player/makeSeen', {
         "tableId": data.tableId,
-        "id": data.id
+        "accessToken": data.accessToken
       }).then(callback);
     },
     chaal: function (data, callback) {
@@ -143,14 +143,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     maketip: function (data, callback) {
       $http.post(url + 'Table/makeTip', {
         "tableId": data.tableId,
-        "id": data.id,
+        "accessToken": data.accessToken,
         "amount": data.amount
       }).then(callback);
     },
     pack: function (data, callback) {
       $http.post(url + 'Player/fold', {
         "tableId": data.tableId,
-        "id": data.id
+        "accessToken": data.accessToken
       }).then(function (data) {
         callback(data);
       });

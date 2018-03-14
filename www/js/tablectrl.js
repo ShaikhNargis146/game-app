@@ -128,7 +128,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
   //show card
   $scope.showCard = function () {
-
     $scope.cardData = {};
     $scope.cardData.id = $scope.players[8]._id;
     $scope.cardData.tableId = $scope.tableId;
@@ -219,7 +218,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.rawdata = data.players;
     // console.log("raw data of player",$scope.rawdata)
     // $scope.showSitHere=if()
-
+    $scope.remainingPlayer = _.filter($scope.rawdata, function (player) {
+      return player.isActive && !player.isFold;
+    }).length;
 
 
     //re-arrange only if player already have seat
@@ -237,7 +238,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("showWinner", showWinnerFunction);
 
   $scope.updatePlayers = function () {
-    console.log("inside update player")
+    console.log("inside update player");
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
     // console.log("table id ", $scope.l);
@@ -247,13 +248,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-      console.log("min and max", $scope.minAmt, $scope.maxAmt)
+      console.log("min and max", $scope.minAmt, $scope.maxAmt);
       // console.log(data.data, "get all service");
       $scope.rawdata = data.data.data.players;
       if (data.data.data.pot) {
         $scope.potAmount = data.data.data.pot.totalAmount;
       }
-
 
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
 
@@ -359,7 +359,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(value, id, "inside isiamthere");
       if (value.memberId == id) {
         $scope.isthere = true;
-        console.log("inside iamthere", "value.memberid", value.memberId, "id", id)
+        console.log("inside iamthere", "value.memberid", value.memberId, "id", id);
         return
       } else {
         // console.log("no equallll")
@@ -375,10 +375,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("play chaal");
     Service.chaal({
       tableId: $scope.tableId,
-      accessToken: $scope.jdata.accessToken,
+      accessToken: $scope.jsData.accessToken,
       amount: $scope.betamount
     }, function (data) {
-      console.log("inside chaal", data)
+      console.log("inside chaal", data);
     });
   }
   // console.log($scope.rearrangePlayer(demoPlayer, 5), "some random practite")
@@ -386,19 +386,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //tip
   $scope.makeTip = function () {
     var playerdetails = {};
-    playerdetails.id = $scope.players[8]._id;
+    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     playerdetails.amount = 100;
     Service.maketip(playerdetails, function (data) {
-      console.log("inside maketip fn", data)
-    })
+      console.log("inside maketip fn", data);
+    });
   }
 
   //pack 
   $scope.pack = function () {
-
     var playerdetails = {};
-    playerdetails.id = $scope.players[8]._id;
+    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.pack(playerdetails, function (data) {
       console.log("inside pack", data);

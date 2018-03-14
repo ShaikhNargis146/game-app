@@ -27,6 +27,7 @@
       <div class="tip" ng-click="makeTip()">
         TIP
       </div>
+      <!-- Cards -->
       <div class="total_played_coin">
         <img src="img/coin.png" class="coin">{{potAmount}}</div>
       <div class="card_shuffle">
@@ -44,14 +45,13 @@
 
       <!-- player -->
       <div class="players">
-
-        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1 " ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0],'winner': !players[0] && players[0].winRank==1, 'card_shuffle_animation': players[0] && startAnimation }">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-player="players[0]" class="plyr p1" ng-class="{'no_player':!players[0] && !sitHere,'sit_here':sitHere && !players[0],'winner': !players[0] && players[0].winRank==1, 'card_shuffle_animation': players[0] && startAnimation }">
         </players>
-        <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2  " ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1],'winner': !players[1] && players[1].winRank==1 , 'card_shuffle_animation': players[1] && startAnimation}">
+        <players id="plr2" ng-click="sitHerefn(2)" ng-player="players[1]" class="plyr p2" ng-class="{'no_player':!players[1]  && !sitHere,'sit_here':sitHere && !players[1],'winner': !players[1] && players[1].winRank==1 , 'card_shuffle_animation': players[1] && startAnimation}">
         </players>
-        <players id="plr3" ng-click="sitHerefn(3)" ng-player="players[2]" class="plyr p3 " ng-class="{'no_player':!players[2]  && !sitHere,'sit_here':sitHere && !players[2] ,'winner': !players[2] && players[2].winRank==1, 'card_shuffle_animation': players[2] && startAnimation}">
+        <players id="plr3" ng-click="sitHerefn(3)" ng-player="players[2]" class="plyr p3" ng-class="{'no_player':!players[2]  && !sitHere,'sit_here':sitHere && !players[2] ,'winner': !players[2] && players[2].winRank==1, 'card_shuffle_animation': players[2] && startAnimation}">
         </players>
-        <players id="plr4" ng-click="sitHerefn(4)" ng-player="players[3]" class="plyr p4  " ng-class="{'no_player':!players[3]  && !sitHere,'sit_here':sitHere && !players[3],'winner': !players[3] && players[3].winRank==1 , 'card_shuffle_animation': players[3] && startAnimation}">
+        <players id="plr4" ng-click="sitHerefn(4)" ng-player="players[3]" class="plyr p4" ng-class="{'no_player':!players[3]  && !sitHere,'sit_here':sitHere && !players[3],'winner': !players[3] && players[3].winRank==1 , 'card_shuffle_animation': players[3] && startAnimation}">
         </players>
         <players id="plr5" ng-click="sitHerefn(5)" ng-player="players[4]" class="plyr p5" ng-class="{'no_player':!players[4]  && !sitHere,'sit_here':sitHere && !players[4]  ,'winner': !players[4] && players[4].winRank==1, 'card_shuffle_animation': players[4] && startAnimation}">
         </players>
@@ -59,15 +59,14 @@
         </players>
         <players id="plr7" ng-click="sitHerefn(7)" ng-player="players[6]" class="plyr p7" ng-class="{'no_player':!players[6]  && !sitHere,'sit_here':sitHere && !players[6] ,'winner': !players[6] && players[6].winRank==1 , 'card_shuffle_animation': players[6] && startAnimation}">
         </players>
-        <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8 " ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7] ,'winner': !players[7] && players[7].winRank==1 , 'card_shuffle_animation': players[7] && startAnimation}">
+        <players id="plr8" ng-click="sitHerefn(8)" ng-player="players[7]" class="plyr p8" ng-class="{'no_player':!players[7]  && !sitHere,'sit_here':sitHere && !players[7] ,'winner': !players[7] && players[7].winRank==1 , 'card_shuffle_animation': players[7] && startAnimation}">
         </players>
-        <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9 " ng-class="{'sit_here':sitHere && !players[8]}"
+        <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9" ng-class="{'sit_here':sitHere && !players[8]}"
           ng-if="sitHere">
         </players>
         <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player addtimer" ng-class="{'sit_here':sitHere && !players[8] ,'winner': !players[8] && players[8].winRank==1}"
           ng-if="!sitHere">
         </players>
-
       </div>
       <!-- end player -->
 
@@ -77,8 +76,7 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere" ng-class="{'main_card_anime':startAnimation}">
-        <div class="custom-row" ng-if="players[8].isBlind ">
-
+        <div class="custom-row" ng-if="players[8].isBlind">
           <card card='NONE'> </card>
           <card card='NONE'> </card>
           <card card='NONE'> </card>
@@ -95,18 +93,17 @@
     </div>
     <div class="playing-player-info" ng-if="!sitHere">
       <span class="pack" ng-click="pack()" ng-if="players[8].isTurn"> PACK </span>
-      <span class="slide_show" ng-click="sideShow()" ng-if="players[8].isTurn"> side show </span>
-      <span class="slide_show" ng-click="showWinner()" ng-if="players[8].isTurn">show </span>
+      <span class="slide_show" ng-click="sideShow()" ng-if="players[8].isTurn || remainingPlayer>=1"> side show </span>
+      <span class="slide_show" ng-click="showWinner()" ng-if="players[8].isTurn || remainingPlayer>=1">show </span>
       <span class="info"> {{players[8].name}}
-        <img src="img/coin.png">{{players[8].totalAmount}}</span>
-
+        <img src="img/coin.png"> {{players[8].totalAmount}}
+      </span>
       <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt">
         -
       </span>
       <span class="minus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount<=minAmt">
         -
       </span>
-
       <span class="coin" ng-click="playChaal()" ng-if="players[8].isTurn">
         <img src="img/coin.png"> {{betamount}}
         <span ng-if="players[8].isBlind">blind </span>
