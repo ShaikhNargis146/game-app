@@ -162,7 +162,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //show card
   $scope.showCard = function () {
     $scope.cardData = {};
-    $scope.cardData.id = $scope.players[8]._id;
+    $scope.cardData.accessToken = $scope.jsData.accessToken;
     $scope.cardData.tableId = $scope.tableId;
 
     Service.makeSeen($scope.cardData, function (data) {
@@ -477,8 +477,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.doSideShow(playerdetails,function (data) {
-      console.log("doSideShow",data);
+    Service.doSideShow(playerdetails, function (data) {
+      console.log("doSideShow", data);
     });
   };
 
@@ -487,8 +487,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.rejectSideShow(playerdetails,function (data) {
-      console.log("rejectSideShow",data);
+    Service.rejectSideShow(playerdetails, function (data) {
+      console.log("rejectSideShow", data);
     });
   };
 

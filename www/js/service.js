@@ -128,6 +128,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
 
     makeSeen: function (data, callback) {
+      console.log("makeSeen", data);
       $http.post(url + 'Player/makeSeen', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
@@ -164,7 +165,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data.data);
       });
     },
-    doSideShow: function (data,callback) {
+    doSideShow: function (data, callback) {
       $http.post(url + 'Player/doSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
@@ -181,7 +182,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
 
     },
-    rejectSideShow: function (data,callback) {
+    rejectSideShow: function (data, callback) {
       $http.post(url + 'Player/cancelSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
