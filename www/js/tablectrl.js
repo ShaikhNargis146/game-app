@@ -139,15 +139,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }).then(function (modal) {
     $scope.sideShowSendModal = modal;
     // $scope.showSideShowSendModal();
-    
+
   });
 
   $scope.showSideShowSendModal = function () {
     $scope.sideShowSendModal.show();
-    $timeout( function(){
+    $timeout(function () {
       $scope.closeSideShowSendModal();
-    }
-    ,2000)
+    }, 2000)
   }
   $scope.closeSideShowSendModal = function () {
     $scope.sideShowSendModal.hide();
@@ -237,8 +236,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   };
 
+
   updateSocketFunction = function (data) {
     console.log("update Socket", data);
+    // $scope.socketId();
     $scope.extra = data.extra;
     if ($scope.extra) {
       console.log($scope.extra, "extra")
@@ -286,8 +287,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   io.socket.on("Update", updateSocketFunction);
   io.socket.on("showWinner", showWinnerFunction);
-
+  //socket Connect and Ids
+  $scope.socketId = function () {
+    io.socket.on('connect', function (socket) {
+      var socketIds = io.socket._raw.id;
+      console.log(socketIds);
+      var accessToken = $scope.jsData.accessToken;
+      console.log(accessToken);
+      Service.connectSocket(accessToken, socketIds, function (data) {
+        console.log("connectSocket", data);
+      });
+    });
+  };
   $scope.updatePlayers = function () {
+    $scope.socketId();
     console.log("inside update player");
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
@@ -308,8 +321,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
 
       //  console.log($scope.sitHere,"sithere status from updateplayer");
-
-
+      //password change
       //re-arrange only if player already have seat
       //making 9 length array by filling 0 in all empty field
 
@@ -335,24 +347,26 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
+    //socket Connect and Ids
+    io.socket.on('connect', function (socket) {
+      var socketIds = io.socket._raw.id;
+      console.log(socketIds);
+      var accessToken = $scope.jsData.accessToken;
+      console.log(accessToken);
+      Service.connectSocket(accessToken, socketIds, function (data) {
+        console.log("connectSocket", data);
+      });
+    });
     if (!$scope.sitHere) {
       console.log("sitHere is false so returning without exe")
       return
     }
-    // console.log($scope.players, "siiiiiiiiiit here")
-    // $scope.sitNummber = sitNum;
-    $scope.jdata = $.jStorage.get("player");
-    console.log("jdata", $scope.jdata)
-    // $scope.jdata.sitNummber = $scope.sitNummber;
-    // $.jStorage.set("player", $scope.jdata);
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
-    $scope.dataPlayer.accessToken = $scope.jdata.accessToken;
+    $scope.dataPlayer.accessToken = $scope.jsData.accessToken;
     $scope.dataPlayer.tableId = $scope.tableId;
-    $scope.dataPlayer.sitNummber = $scope.sitNummber;
+    $scope.dataPlayer.sitNummber = sitNum;
     // $scope.dataPlayer.userType = $scope.jdata.userType;
-
-
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
       console.log(data, "sitted");
       if (data.data.value) {
@@ -521,10 +535,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.potAmount = potamt;
   }
 
-  $scope.updateWinner=function(data){
-//need to update player
+  $scope.updateWinner = function (data) {
+    //need to update player
 
-console.log("updatewinner",data);
+    console.log("updatewinner", data);
 
   }
 });

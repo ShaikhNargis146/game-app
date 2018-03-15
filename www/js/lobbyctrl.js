@@ -111,7 +111,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
   $scope.logout = function () {
     $.jStorage.flush();
-  $state.go('login');
+    $state.go('login');
   }
 
   //room summary
@@ -156,6 +156,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.userType = $scope.playerData.userType;
   $scope.credit = $scope.playerData.credit;
   $scope.image = $scope.playerData.image;
+  $scope.accessToken = $scope.playerData.accessToken;
 
 
 

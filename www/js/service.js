@@ -198,7 +198,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         "accessToken": playerdetails.accessToken,
       }).then(callback);
     },
+    connectSocket: function (accessToken, socketIds, callback) {
+      console.log("accessToken", accessToken);
+      console.log("socketIds", socketIds);
 
+      $http.post(url + 'Player/updateSocket', {
+        accessToken: accessToken,
+        socketId: socketIds
+      }).then(function (data) {
+        callback(data);
+      });
+    },
 
     getByPlrId: function (data, callback) {
       $http.post(url + 'Player/getByPlrId', {
