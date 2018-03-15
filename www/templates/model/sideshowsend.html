@@ -1,15 +1,14 @@
 <ion-modal-view class="custom-model statement-model room_summary small-model side-show">
 
-    <ion-content>
-      <div class="heading">Side Show </div>
-      <div class="cont">
-       your request for the side show has been sent
-      </div>
-      <div class="side_show_btn">
-       
-        <button ng-click=closeSideShowSendModal()>Ok</button>
-       
-      </div>
-    </ion-content>
-  </ion-modal-view>
-  
+  <ion-content>
+    <div class="heading">Side Show </div>
+    <div class="cont">
+      {{message}}
+    </div>
+    <div class="side_show_btn">
+
+      <button ng-click=closeSideShowSendModal()>Ok</button>
+
+    </div>
+  </ion-content>
+</ion-modal-view>
