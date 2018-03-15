@@ -48,6 +48,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.sitHere = false;
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
+  $scope.winPlayerNo=-1;
   $scope.startAnimation = false;
 
 
@@ -251,11 +252,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
     console.log("show winner", $scope.showWinner);
-    // $scope.updateWinner($scope.showWinner.data.players);
+    $scope.winPlayerNo=$scope.updatePlayerNo($scope.showWinner.data.players);
   };
 
 
   updateSocketFunction = function (data) {
+    // $scope.winPlayerNo=-1;
     var data = data.data;
     console.log("update Socket", data);
     // $scope.socketId();
@@ -537,10 +539,31 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.potAmount = potamt;
   }
 
-  $scope.updateWinner = function (data) {
+
+  $scope.updatePlayerNo = function (data) {
     //need to update player
 
-    // console.log("updatewinner", data);
 
+    var plrno=-1;
+    for (var i=0;i<data.length;i++){
+      console.log("inside winrank",data[i])
+      // if($scope.players[i]!=0){
+      //   console.log("inside plyre no 1",$scope.players[i]);
+        if(data[i].winRank==1){
+          plrno=data[i].playerNo;
+        }
+      // }
+
+      // if(($scope.players[i]) && ($scope.players[i].winRank==1)){
+      //   console.log("update plyr no");
+      //   plrno=$scope.players[i].playerNo;
+      // }
+    
+   
   }
+  console.log("update plyr no ", plrno);
+  return plrno;
+}
 });
+
+
