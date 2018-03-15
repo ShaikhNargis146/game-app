@@ -90,7 +90,7 @@
         </players>
         <players id="plr9" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr main-player" ng-class="{'no_player':!sitHere && !players[8] ,'winner': players[8] && players[8].winRank==1,'addtimer' : players[8].isTurn}"
           ng-if="!sitHere">
-        </players> 
+        </players>
       </div>
       <!-- end player -->
 
@@ -117,8 +117,8 @@
     </div>
     <div class="playing-player-info" ng-if="!sitHere && !players[8].isFold">
       <span class="pack" ng-click="pack()" ng-if="players[8].isTurn"> PACK </span>
-      <span class="slide_show" ng-click="sideShow()" ng-if="(players[8].isTurn)"> side show </span>
-      <span class="slide_show " ng-click="showWinner()" ng-if="(players[8].isTurn) && (remainingPlayer>= 1)">show </span>
+      <span class="slide_show" ng-click="sideShow()" ng-if="(players[8].isTurn)&& (remainingPlayer > 2)"> side show </span>
+      <span class="slide_show " ng-click="showWinner()" ng-if="(players[8].isTurn) && (remainingPlayer = 2)">show </span>
       <span class="info"> {{players[8].name}}-{{players[8].playerNo}}
         <img src="img/coin.png"> {{players[8].totalAmount}}
       </span>
