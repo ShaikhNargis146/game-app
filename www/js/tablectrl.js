@@ -22,8 +22,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("socket connected");
     console.log(io.socket._raw.id);
     $.jStorage.set("socketId", io.socket._raw.id);
-    $scope.socketId = io.socket._raw.id;
+    $scope.socketId = $.jStorage.get("socketId");
     $scope.accessToken = $scope.jsData.accessToken;
+    $scope.$apply();
     Service.connectSocket($scope.accessToken, $scope.socketId, function (data) {
       console.log("connectSocket", data);
     })
@@ -249,21 +250,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
-    // console.log("show winner", $scope.showWinner);
-    $scope.updateWinner($scope.showWinner.data.players);
-    // $scope.rawdata=$scope.showWinner.data.players
-    // $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
-    // //making 9 length array by filling 0 in all empty field
-    // $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
-    // $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-
-
-
+    console.log("show winner", $scope.showWinner);
+    // $scope.updateWinner($scope.showWinner.data.players);
   };
 
 
   updateSocketFunction = function (data) {
-    var data=data.data;
+    var data = data.data;
     console.log("update Socket", data);
     // $scope.socketId();
     $scope.extra = data.extra;
@@ -293,7 +286,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
     console.log("min and max", $scope.minAmt, $scope.maxAmt)
     $scope.rawdata = data.players;
-    console.log("raw data of player",$scope.rawdata)
+    console.log("raw data of player", $scope.rawdata)
     // $scope.showSitHere=if()
     $scope.remainingPlayer = _.filter($scope.rawdata, function (player) {
       return player.isActive && !player.isFold;
@@ -343,7 +336,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
       console.log("after filler fn", $scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-      console.log("after rearrange",$scope.players)
+      console.log("after rearrange", $scope.players)
 
     });
 
@@ -368,6 +361,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("sitHere is false so returning without exe")
       return
     }
+    $scope.socketId = $.jStorage.get("socketId");
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.accessToken = $scope.jsData.accessToken;
