@@ -1,6 +1,5 @@
 var updateSocketFunction;
 var showWinnerFunction;
-var connectSocket;
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
@@ -18,19 +17,30 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.credit = $scope.playerData.credit;
 
 
-  $scope.socketIds = function () {
-    io.socket.on('connect', function (socket) {
-      console.log("socket connected");
-      $.jStorage.set("socketId", io.socket._raw.id);
-      $scope.socketId = $.jStorage.get("socketId");
-      $scope.accessToken = $scope.jsData.accessToken;
-      Service.connectSocket($scope.accessToken, $scope.socketId, function (data) {
-        console.log("connectSocket", data);
-      })
-    });
-  };
 
-  $scope.socketId = $.jStorage.get("socketId");
+  io.socket.on('connect', function (socket) {
+    console.log("socket connected");
+    console.log(io.socket._raw.id);
+    $.jStorage.set("socketId", io.socket._raw.id);
+    $scope.socketId = io.socket._raw.id;
+    $scope.accessToken = $scope.jsData.accessToken;
+    Service.connectSocket($scope.accessToken, $scope.socketId, function (data) {
+      console.log("connectSocket", data);
+    })
+  });
+
+  // io.socket.on('connect', function (socket) {
+  //   console.log("socket connected");
+  //   $.jStorage.set("socketId", io.socket._raw.id);
+  //   $scope.socketId = $.jStorage.get("socketId");
+  //   $scope.accessToken = $scope.jsData.accessToken;
+  //   apiService.connectSocket($scope.accessToken, $scope.socketId, function (data) {
+  //     console.log("connectSocket", data);
+  //   });
+  // });
+
+  //$scope.socketId = $.jStorage.get("socketId");
+  //console.log($scope.socketId);
 
 
   //ask for sit here when joining new game
@@ -302,11 +312,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-  // io.socket.on("Update", updateSocketFunction);
-  // io.socket.on("Update", connectfunction);
-  // io.socket.on("showWinner", showWinnerFunction);
+  io.socket.on("Update", updateSocketFunction);
+  io.socket.on("showWinner", showWinnerFunction);
   $scope.updatePlayers = function () {
-    $scope.socketIds();
     // console.log("inside update player");
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
@@ -353,7 +361,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
-
     console.log("got socket", $scope.socketId);
     if (!$scope.sitHere) {
       console.log("sitHere is false so returning without exe")
@@ -375,8 +382,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("error", data.data.error);
       }
     });
-
-
   }
 
 
