@@ -226,11 +226,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
     console.log("show winner", $scope.showWinner);
-    $scope.rawdata=$scope.showWinner.data.players
-    $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
-    //making 9 length array by filling 0 in all empty field
-    $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
-    $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+    $scope.updateWinner($scope.showWinner.data.players);
+    // $scope.rawdata=$scope.showWinner.data.players
+    // $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+    // //making 9 length array by filling 0 in all empty field
+    // $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
+    // $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+
+
 
   };
 
@@ -516,5 +519,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.updatePotAmount = function (potamt) {
     $scope.potAmount = potamt;
+  }
+
+  $scope.updateWinner=function(data){
+//need to update player
+
+console.log("updatewinner",data);
+
   }
 });
