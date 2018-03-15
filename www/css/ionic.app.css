@@ -11029,7 +11029,8 @@ body {
   color: white;
   opacity: 0;
   white-space: nowrap;
-  animation-duration: 2s; }
+  animation-duration: 2s;
+  animation-delay: 1s; }
   .bootAnimate .coin {
     width: 1em;
     vertical-align: middle;

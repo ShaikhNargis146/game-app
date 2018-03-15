@@ -263,6 +263,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   updateSocketFunction = function (data) {
+    var data=data.data;
     console.log("update Socket", data);
     // $scope.socketId();
     $scope.extra = data.extra;
@@ -287,12 +288,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.updatePotAmount(data.pot.totalAmount);
     }
 
-    $scope.maxAmt = data.maxAmt;
-    $scope.minAmt = data.minAmt;
+    $scope.maxAmt = data.maxSeenAmt;
+    $scope.minAmt = data.maxBlindAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
     console.log("min and max", $scope.minAmt, $scope.maxAmt)
     $scope.rawdata = data.players;
-    // console.log("raw data of player",$scope.rawdata)
+    console.log("raw data of player",$scope.rawdata)
     // $scope.showSitHere=if()
     $scope.remainingPlayer = _.filter($scope.rawdata, function (player) {
       return player.isActive && !player.isFold;
@@ -321,9 +322,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("table id ", $scope.l);
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
-      // console.log("get all ", data)
-      $scope.maxAmt = data.data.data.maxAmt;
-      $scope.minAmt = data.data.data.minAmt;
+      console.log("get all ", data)
+      $scope.maxAmt = data.data.data.maxSeenAmt;
+      $scope.minAmt = data.data.data.maxBlindAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
       // console.log("min and max", $scope.minAmt, $scope.maxAmt);
       // console.log(data.data, "get all service");
