@@ -36,14 +36,14 @@ opacity:1;
 @keyframes bg {
   0% {
     fill:#F9FF00;
-opacity:1;
+opacity:.2;
 
   }
   
   
   95% {
     fill:rgb(255, 2, 2);
-opacity:1;
+opacity:.2;
   }
   100%{
    opacity:0;

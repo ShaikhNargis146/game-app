@@ -288,8 +288,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.updatePotAmount(data.pot.totalAmount);
     }
 
-    $scope.maxAmt = data.maxSeenAmt;
-    $scope.minAmt = data.maxBlindAmt;
+    $scope.maxAmt = data.maxAmt;
+    $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
     console.log("min and max", $scope.minAmt, $scope.maxAmt)
     $scope.rawdata = data.players;
@@ -323,8 +323,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
       console.log("get all ", data)
-      $scope.maxAmt = data.data.data.maxSeenAmt;
-      $scope.minAmt = data.data.data.maxBlindAmt;
+      $scope.maxAmt = data.data.data.maxAmt;
+      $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
       // console.log("min and max", $scope.minAmt, $scope.maxAmt);
       // console.log(data.data, "get all service");
@@ -343,6 +343,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
       console.log("after filler fn", $scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+      console.log("after rearrange",$scope.players)
 
     });
 
