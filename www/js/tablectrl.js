@@ -290,10 +290,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.rawdata = data.players;
     console.log("raw data of player", $scope.rawdata)
     // $scope.showSitHere=if()
-    $scope.remainingPlayer = _.filter($scope.rawdata, function (player) {
-      return player.isActive && !player.isFold;
+    $scope.remainingPlayer = _.filter(data.players, function (n) {
+      return n.isActive && !n.isFold;
     }).length;
 
+    console.log("remainingPlayer", $scope.remainingPlayer);
 
     //re-arrange only if player already have seat
     $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
@@ -327,7 +328,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data.data.pot) {
         $scope.potAmount = data.data.data.pot.totalAmount;
       }
-
+      $scope.remainingPlayer = _.filter(data.data.data.players, function (n) {
+        return n.isActive && !n.isFold;
+      }).length;
+      console.log("remainingPlayer", $scope.remainingPlayer);
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
 
       //  console.log($scope.sitHere,"sithere status from updateplayer");
@@ -483,7 +487,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.sideShow(playerdetails, function (data) {
-      // console.log(data);
+      console.log(data);
     });
   };
   // io.socket.on("sideShowCancel", function (data) {
@@ -493,20 +497,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   }
   // });
 
-  // io.socket.on("sideShow", function (data) {
-  //   console.log("sideShow", data);
-  //   if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
-  //     $scope.showSideShowModal();
-  //   }
-  //   if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
-  //     // $scope.modal3.show();
-  //     $scope.showSideShowSendModal();
-  //     $scope.message = {
-  //       content: "Your request for the Side show has been sent!",
-  //       color: "color-balanced"
-  //     }
-  //   }
-  // });
+  io.socket.on("sideShow", function (data) {
+    console.log("sideShow", data);
+    if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
+      $scope.showSideShowModal();
+    }
+    if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
+      // $scope.modal3.show();
+      $scope.showSideShowSendModal();
+      $scope.message = {
+        content: "Your request for the Side show has been sent!"
+      }
+    }
+  });
   //sideShow Maker
   $scope.doSideShow = function () {
     var playerdetails = {};
