@@ -147,7 +147,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playNow = function ($event) {
 
     if (!$scope.VariationActive) {
-      $scope.openPriceRangeModal()
+      $scope.openPriceRangeModal();
       $event.stopPropagation();
     }
 
@@ -157,7 +157,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playJoker = function ($event) {
 
     if (!$scope.VariationActive) {
-      $scope.openPriceRangeModal()
+      $scope.openPriceRangeModal();
       $event.stopPropagation();
 
     }
@@ -174,6 +174,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $state.go('table', {
       'id': $scope.tableId
     });
+    $scope.closePriceRangeModal();
   }
 
 
