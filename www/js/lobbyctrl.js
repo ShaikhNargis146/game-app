@@ -12,10 +12,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
   $scope.closeAllTab();
 
-
-
-
-
   $scope.closeMenu = function () {
     $scope.sideMenu = false;
   }
@@ -114,25 +110,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $state.go('login');
   }
 
-  //room summary
-
-  // $ionicModal.fromTemplateUrl('templates/model/room-summary.html', {
-  //   scope: $scope,
-  //   animation: 'slide-in-up'
-  // }).then(function (modal) {
-  //   $scope.roomSummaryModel = modal;
-  //   $scope.roomSummaryModel.show();
-  // });
-
-  // $scope.openRoomSummaryModel = function () {
-  //       $scope.roomSummaryModel.show();
-  // }
-  // $scope.closeRoomSummaryModel = function () {
-  //   $scope.roomSummaryModel.hide();
-
-  // }
-
-
 
   // going to next SVGViewElement
   $scope.goTO = function (view) {
@@ -152,13 +129,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.playerData = $.jStorage.get("player");
+  console.log($scope.playerData);
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
-  $scope.credit = $scope.playerData.credit;
+  $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
   $scope.image = $scope.playerData.image;
   $scope.accessToken = $scope.playerData.accessToken;
 
-
+  if (!$scope.accessToken) {
+    $state.go("login");
+  }
 
   //onclick for each play type
   $scope.variationToggle = function ($event) {
@@ -249,12 +229,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ACStatementModal.remove();
     $scope.transferStatementModal.remove();
     $scope.changePasswordModel.remove();
-
     $scope.priceRangeModal.remove();
     $scope.closeAllTab();
-    // $scope.roomSummaryModel.remove();
   });
-  // $scope.stopPropagation=function($event){
-  // $event.stopPropagation();
-  // }
+
 });

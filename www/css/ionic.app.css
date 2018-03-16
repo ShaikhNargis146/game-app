@@ -10065,7 +10065,6 @@ body {
 
 .profile_pic_overlay {
   position: relative;
-  height: 100%;
   width: 100%; }
   .profile_pic_overlay img {
     max-height: 100%;
@@ -11837,7 +11836,6 @@ body {
               max-height: 100%; }
           .pokar .main-table .playing-table .main-player .plyr_pic .profile_pic_overlay {
             position: relative;
-            height: 100%;
             width: 100%; }
       .pokar .main-table .playing-table .doll {
         position: absolute;

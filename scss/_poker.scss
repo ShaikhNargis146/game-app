@@ -281,29 +281,27 @@
           top: 40%;
           left: 55%;
         }
-       .plyr_pic{
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        .pic{
-          margin: 0 auto !important;
-          width: 100% !important;
-          height: 25vh;
-          object-fit: cover;
-          object-position: top;
-          img{
-            max-width: 100%;
-            max-height: 100%;
+        .plyr_pic {
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          .pic {
+            margin: 0 auto !important;
+            width: 100% !important;
+            height: 25vh;
+            object-fit: cover;
+            object-position: top;
+            img {
+              max-width: 100%;
+              max-height: 100%;
+            }
           }
-       }
-       .profile_pic_overlay{
-        position: relative;
-        height: 100%;
-        width: 100%;
-       }
-       }
-       
+          .profile_pic_overlay {
+            position: relative;
+            width: 100%;
+          }
+        }
       }
       .doll {
         position: absolute;
@@ -574,7 +572,6 @@
 //for ipad 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .pokar .main-table .playing-table .bg-table {
-   
     height: 100%;
     bottom: 16vh;
   }
@@ -600,7 +597,7 @@
     .player6 {
       top: 27%;
       right: 8%;
-  }
+    }
   }
   .pokar .main-table .playing-table .main-player {
     bottom: 26%;
@@ -610,10 +607,10 @@
     left: 43.4%;
   }
 }
+
 // ipad pro
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
   .pokar .main-table .playing-table .bg-table {
-   
     height: 100%;
     bottom: 16vh;
   }
@@ -621,15 +618,13 @@
     bottom: 0px;
   }
   .pokar .main-table .amount {
-   
     top: 3%;
     left: 43.3%;
   }
-  .pokar .main-table .playing-cards-table{
+  .pokar .main-table .playing-cards-table {
     top: 16%;
-
   }
-  .pokar .main-table{
+  .pokar .main-table {
     .player5 {
       top: 28%;
     }
@@ -643,40 +638,37 @@
       top: 27%;
     }
     .player1 {
-     
       top: -25%;
     }
     .player2 {
-      
       top: -24%;
+    }
   }
-  } 
   .pokar .main-table .playing-table .main-player {
     bottom: 25%;
   }
 }
+
 //modal css
-.private-table{
+.private-table {
   height: 68% !important;
-  input{
-    background: transparent ;
-      border: 1px solid #fff ;
-      width: 100% ;
-      height: 20% ;
-      margin: 1% 10% ;
-      color: #fff;
-      font-size: 1em;
-      padding: 2%;
-  
+  input {
+    background: transparent;
+    border: 1px solid #fff;
+    width: 100%;
+    height: 20%;
+    margin: 1% 10%;
+    color: #fff;
+    font-size: 1em;
+    padding: 2%;
   }
-   table {
-      width: 81%;
-}
+  table {
+    width: 81%;
+  }
 }
 
 //private info table
-
-.footer-content{
+.footer-content {
   font-size: 1em;
   font-family: 'Cinzel-Bold';
   border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
@@ -685,95 +677,96 @@
   padding: 2%;
 }
 
-.table-private-info{
-  table{
+.table-private-info {
+  table {
     margin: 0% auto !important;
   }
 }
-.private-table-mar{
+
+.private-table-mar {
   margin: 6% 0%;
 }
-.content-overflow{
+
+.content-overflow {
   height: 96px;
   overflow: scroll;
 }
-.table_search_modal{
+
+.table_search_modal {
   height: 33%;
   width: 50%;
   top: 20%;
   left: 25%;
 }
-.search-table{
+
+.search-table {
   height: 42% !important;
   width: 45%;
   top: 20%;
   left: 23%;
-//   .ok{
-//     bottom: 13px;
-//   }
-//   select{
-//     color: white;
-//     background: transparent;
-//     width: 100%;
-//     /* border: none; */
-//     border-radius: 0px;
-//     border: 1px solid white;
-//     padding: 2%;
-//   }
-//   td {
-//     padding: 2% !important;
-// }
-ui-select{
-  background: transparent;
-  color: white;
-  border:1px solid white !important;
-}
-.ui-select-bootstrap .ui-select-choices-row.active>span {
-  color: #fff;
-  text-decoration: none;
-  outline: 0;
-  background-color: transparent;
-}
-.ui-select-bootstrap .ui-select-choices-row>span {
-
- 
-  color: white;
-}
-.ui-select-bootstrap > .ui-select-choices{
-  border: 1px solid white;
-}
- .ui-select-bootstrap > .ui-select-choices{
-  width: 30% !important;
-  left: 51% !important;
-  top: 20%;
-  height: 60%;
-  max-height: 100px;
-  position: absolute;
-  li{
-    float:right;
+  //   .ok{
+  //     bottom: 13px;
+  //   }
+  //   select{
+  //     color: white;
+  //     background: transparent;
+  //     width: 100%;
+  //     /* border: none; */
+  //     border-radius: 0px;
+  //     border: 1px solid white;
+  //     padding: 2%;
+  //   }
+  //   td {
+  //     padding: 2% !important;
+  // }
+  ui-select {
+    background: transparent;
+    color: white;
+    border: 1px solid white !important;
+  }
+  .ui-select-bootstrap .ui-select-choices-row.active>span {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: transparent;
+  }
+  .ui-select-bootstrap .ui-select-choices-row>span {
+    color: white;
+  }
+  .ui-select-bootstrap>.ui-select-choices {
+    border: 1px solid white;
+  }
+  .ui-select-bootstrap>.ui-select-choices {
+    width: 30% !important;
+    left: 51% !important;
+    top: 20%;
+    height: 60%;
+    max-height: 100px;
+    position: absolute;
+    li {
+      float: right;
+    }
+  }
+  .activated {
+    background: transparent !important;
+  }
+  .btn-default-focus {
+    background-color: transparent !important;
+    color: #fff;
+    border: none !important;
+    border-color: transparent;
+    box-shadow: none;
+    outline: 0px;
+  } // 
+  input[type="search"] {
+    width: 62% !important;
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 27%;
+    height: 16px;
   }
 }
-.activated{
-  background: transparent !important;
-}
-.btn-default-focus{
-  background-color: transparent !important;
-  color:#fff;
-  border:none !important;
-  border-color: transparent;
-  box-shadow: none;
-  outline: 0px;
-}// 
-input[type="search"]{
-  width: 62% !important;
-  background: transparent;
-  border: 1px solid white;
-  margin-left: 27%;
-  height: 16px;
-}
-}
 
-.table-name{
+.table-name {}
 
-}
 ///table info

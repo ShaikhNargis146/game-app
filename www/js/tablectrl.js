@@ -14,7 +14,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.image = $scope.playerData.image;
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
-  $scope.credit = $scope.playerData.credit;
+  $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
 
 
 
@@ -239,7 +239,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
     console.log("show winner", $scope.showWinner);
-    $scope.winPlayerNo = $scope.updatePlayerNo($scope.showWinner.data.players);
+    $scope.winner = _.find(data.players, {
+      'winRank': 1
+    });
+    console.log($scope.winner);
+    // $scope.winPlayerNo = $scope.updatePlayerNo($scope.showWinner.data.players);
   };
 
 
@@ -476,12 +480,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(data);
     });
   };
-  // io.socket.on("sideShowCancel", function (data) {
-  //   console.log(data.data.playerNo);
-  //   if (data.data.playerNo == selectPlayer.getPlayer()) {
-  //     $scope.modal3.show();
-  //   }
-  // });
+  io.socket.on("sideShowCancel", function (data) {
+    console.log(data.data.playerNo);
+    if (data.data.playerNo == selectPlayer.getPlayer()) {}
+  });
 
   io.socket.on("sideShow", function (data) {
     console.log("sideShow", data);
@@ -489,13 +491,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.showSideShowModal();
     }
     if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
-      // $scope.modal3.show();
       $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been sent!"
       }
     }
   });
+
   //sideShow Maker
   $scope.doSideShow = function () {
     var playerdetails = {};
@@ -529,20 +531,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  $scope.updatePlayerNo = function (data) {
-    //need to update player
+  // $scope.updatePlayerNo = function (data) {
+  //   //need to update player
 
 
-    var plrno = -1;
-    for (var i = 0; i < data.length; i++) {
-      console.log("inside winrank", data[i])
-      // if($scope.players[i]!=0){
-      //   console.log("inside plyre no 1",$scope.players[i]);
-      if (data[i].winRank == 1) {
-        plrno = data[i].playerNo;
-      }
-    }
-    console.log("update plyr no ", plrno);
-    return plrno;
-  }
+  //   var plrno = -1;
+  //   for (var i = 0; i < data.length; i++) {
+  //     console.log("inside winrank", data[i])
+  //     // if($scope.players[i]!=0){
+  //     //   console.log("inside plyre no 1",$scope.players[i]);
+  //     if (data[i].winRank == 1) {
+  //       plrno = data[i].playerNo;
+  //     }
+  //   }
+  //   console.log("update plyr no ", plrno);
+  //   return plrno;
+  // }
 });

@@ -270,7 +270,6 @@ body {
 
 .profile_pic_overlay {
   position: relative;
-  height: 100%;
   width: 100%;
   img {
     max-height: 100%; // width: 100%;
@@ -309,8 +308,7 @@ body {
   }
 }
 
-
-.addtimer{
+.addtimer {
   &:before {
     content: '';
     height: 100%;
@@ -336,5 +334,3 @@ body {
 //model scss
 @import "model";
 @import "poker";
-
-

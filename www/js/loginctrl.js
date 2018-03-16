@@ -16,7 +16,6 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
           console.log("dataaaaa.....................", data);
           $.jStorage.set("player", data.data.data);
           $scope.playerData = $.jStorage.get("player");
-          $scope.data.playerData = $scope.playerData;
           $state.go("lobby");
         })
       } else {
@@ -27,14 +26,14 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
         console.log(login)
       }
     });
-  }
+  };
 
 
   //js Storage 
   // $scope.jsData = $.jStorage.get("player");
   // $scope.jsData.accessToken = $scope.jsData.accessToken;
 
-  // if($scope.jsData.accessToken){
-
+  // if ($scope.jsData.accessToken) {
+  //   $state.go("lobby");
   // }
 });
