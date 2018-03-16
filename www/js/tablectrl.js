@@ -30,25 +30,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     })
   });
 
-  // io.socket.on('connect', function (socket) {
-  //   console.log("socket connected");
-  //   $.jStorage.set("socketId", io.socket._raw.id);
-  //   $scope.socketId = $.jStorage.get("socketId");
-  //   $scope.accessToken = $scope.jsData.accessToken;
-  //   apiService.connectSocket($scope.accessToken, $scope.socketId, function (data) {
-  //     console.log("connectSocket", data);
-  //   });
-  // });
-
-  //$scope.socketId = $.jStorage.get("socketId");
-  //console.log($scope.socketId);
-
 
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
-  $scope.winPlayerNo=-1;
+  $scope.winPlayerNo = -1;
   $scope.startAnimation = false;
 
 
@@ -252,7 +239,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
     console.log("show winner", $scope.showWinner);
-    $scope.winPlayerNo=$scope.updatePlayerNo($scope.showWinner.data.players);
+    $scope.winPlayerNo = $scope.updatePlayerNo($scope.showWinner.data.players);
   };
 
 
@@ -410,7 +397,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (demoPlayer[i].memberId == memberId) {
         // console.log(i, "memeber location");
         n = i + 1;
-
       }
     }
     var temp = _.concat(_.slice(demoPlayer, n, demoPlayer.length), _.slice(demoPlayer, 0, n));
@@ -547,26 +533,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     //need to update player
 
 
-    var plrno=-1;
-    for (var i=0;i<data.length;i++){
-      console.log("inside winrank",data[i])
+    var plrno = -1;
+    for (var i = 0; i < data.length; i++) {
+      console.log("inside winrank", data[i])
       // if($scope.players[i]!=0){
       //   console.log("inside plyre no 1",$scope.players[i]);
-        if(data[i].winRank==1){
-          plrno=data[i].playerNo;
-        }
-      // }
-
-      // if(($scope.players[i]) && ($scope.players[i].winRank==1)){
-      //   console.log("update plyr no");
-      //   plrno=$scope.players[i].playerNo;
-      // }
-    
-   
+      if (data[i].winRank == 1) {
+        plrno = data[i].playerNo;
+      }
+    }
+    console.log("update plyr no ", plrno);
+    return plrno;
   }
-  console.log("update plyr no ", plrno);
-  return plrno;
-}
 });
-
-
