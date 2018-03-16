@@ -1,7 +1,6 @@
 <div class="main_lobby menu_content no-click-effect" ng-click="closeAllTab()">
   <div class="user_profile ">
     <div class="profile_pic ">
-      <!--<img src="img/playing_profile.png" ng-click="openMenu($event)">-->
       <div class="profile_pic_overlay" ng-click="openMenu($event)">
         <img ng-src="{{image | serverimage}}">
       </div>
@@ -11,8 +10,7 @@
       <div class="name">{{username}}</div>
       <div class="player_badge"> {{userType}} </div>
       <div class="amt">
-        <!--<img src="img/lobby/yellow_coin.png"> 100000</div>-->
-        <img src="img/lobby/yellow_coin.png"> {{balance}}</div>
+        <img src="img/lobby/yellow_coin.png"> {{balance|number:0}}</div>
     </div>
   </div>
 

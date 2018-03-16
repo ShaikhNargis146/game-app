@@ -1,72 +1,47 @@
 <ion-modal-view class="custom-model statement-model table_info_modal small-model search-table">
 
-        <ion-content>
-          <!-- <div class="close" ng-click="closeTableInfoModal()">
+  <ion-content>
+    <!-- <div class="close" ng-click="closeTableInfoModal()">
                   <img src="img/close.png">
                 </div> -->
-      
-          <table>
-            <tbody>
-            <tr>
-              <td>
-                Table 
-              </td>
-              <td>
-                <!-- <select>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            Table
+          </td>
+          <td>
+            <!-- <select>
                     <option>select</option>
                     <option>table1</option>
                     <option>table2</option>
                 </select> -->
-                <div>
-                    <ui-select ng-model="selected.value">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.name"></span>
-                        </ui-select-match>
-                        <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-                            <span ng-bind="item.name"></span>
-                        </ui-select-choices>
-                    </ui-select>
-                </div>
-              
-              </td>
-            </tr>
-        <tr>
-              <td>
-              password
-              </td>
-             
-        <td>
-             123
-              </td>
-            </tr>
-        </tbody>
-          </table>
-<!-- <div>
-    <div class="row">
-        <div class="col-50">
-          <div class="table-name">
-              <label>Table Name</label>
-          </div>
-          
-        </div>
-      <div class="50">
-          <ui-select ng-model="selected.value">
-              <ui-select-match>
+            <div>
+              <ui-select ng-model="selected.value">
+                <ui-select-match>
                   <span ng-bind="$select.selected.name"></span>
-              </ui-select-match>
-              <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                </ui-select-match>
+                <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
                   <span ng-bind="item.name"></span>
-              </ui-select-choices>
-          </ui-select>
-      </div>
-     
-      </div>
-</div> -->
-         
-          <!-- <div class="ok">
-            <button ng-click=closeTableInfoModal();tableInfoOk()>ok</button>
-          </div> -->
-       
-        </ion-content>
-      </ion-modal-view>
-      
+                </ui-select-choices>
+              </ui-select>
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            password
+          </td>
+
+          <td>
+            123
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </ion-content>
+</ion-modal-view>
