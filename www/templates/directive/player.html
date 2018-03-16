@@ -2,7 +2,7 @@
   <div class="winner-display">
     <div class="winner-player" ng-class="{'winner':player.playerNo==winnerPlayerNo}"></div>
   </div>
-  <div class="p{{pos}} bootAnimate" ng-if="player.isChaal=true">
+  <div class="p{{pos}} bootAnimate" ng-if="player.isChaal==true">
     <img src="img/coin.png" class="coin">{{betamount}}
   </div>
   <div class="pie_loader" ng-if="player.isTurn">
