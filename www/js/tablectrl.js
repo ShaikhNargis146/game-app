@@ -2,8 +2,8 @@ var updateSocketFunction;
 var showWinnerFunction;
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout) {
   $ionicPlatform.ready(function () {
-    screen.orientation.lock('landscape')
-  })
+    screen.orientation.lock('landscape');
+  });
 
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
