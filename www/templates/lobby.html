@@ -18,38 +18,46 @@
     <div class="logo">
       <img src="img/logo.png">
     </div>
-    <div class="categorys row">
-      <div class="play_now  col" ng-click="playNow($event)">
-        <span class="text-grad"> Play Now </span>
-      </div>
-      <div class="play_joker  col" ng-click="playJoker($event)">
-        <span class="text-grad"> Play Joker</span>
-      </div>
-      <div class="variation col" ng-click="variationToggle($event)">
-        <span class=" text-grad"> Variation </span>
-      </div>
-      <div class="private_table col" ng-click="goTO('privatetable')">
-        <span class="text-grad"> Private Table </span>
-      </div>
-      <div class="poker col" ui-sref="poker">
-        <span class="text-grad"> Poker </span>
-      </div>
+    <div class="categorys">
+      <ion-scroll direction="x">
+        <div class="row">
+          <div class="play_now box-black  col" ng-click="playNow($event)">
+            <span class="text-grad"> Play Now </span>
+          </div>
+          <div class="play_joker box-black  col" ng-click="playJoker($event)">
+            <span class="text-grad"> Play Joker</span>
+          </div>
+          <div class="variation box-black col" ng-click="variationToggle($event)">
+            <span class=" text-grad"> Variation </span>
+          </div>
+          <div class="private_table box-black col" ng-click="goTO('privatetable')">
+            <span class="text-grad"> Private Table </span>
+          </div>
+          <div class="poker box-black col" ui-sref="poker">
+            <span class="text-grad"> Poker </span>
+          </div>
+        </div>
+      </ion-scroll>
     </div>
-    <div class="categorys row variation_subtype" ng-if='VariationActive'>
-      <div class=" col" ng-click="openPriceRangeModal()">
-        <span class="text-grad"> Folding joker </span>
-      </div>
-      <div class=" col" ng-click="openPriceRangeModal()">
-        <span class="text-grad"> red and black </span>
-      </div>
-      <div class=" col" ng-click="openPriceRangeModal()">
-        <span class="text-grad"> One-eyed Jack </span>
-      </div>
-      <div class=" col" ng-click="openPriceRangeModal()">
-        <span class="text-grad"> odd sequence </span>
-      </div>
+    <div class="categorys variation_subtype">
+      <ion-scroll direction="x">
+        <div class="row" ng-if='VariationActive'>
+          <div class=" box-black col" ng-click="openPriceRangeModal()">
+            <span class="text-grad"> Folding joker </span>
+          </div>
+          <div class="box-black col" ng-click="openPriceRangeModal()">
+            <span class="text-grad"> red and black </span>
+          </div>
+          <div class="box-black col" ng-click="openPriceRangeModal()">
+            <span class="text-grad"> One-eyed Jack </span>
+          </div>
+          <div class="box-black col" ng-click="openPriceRangeModal()">
+            <span class="text-grad"> odd sequence </span>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
 
-    </div>
 
     <!-- include class="vertical_scroll" to provide scroll to the overflow -->
     <!--<div class="table_type" ng-if="showType">

@@ -2,7 +2,7 @@
 
   <ion-content>
     <div class="heading">
-      <span class="border-gradient">  Table  </span>
+      <span class="border-gradient"> Table </span>
     </div>
 
 
@@ -19,12 +19,12 @@
       </div>
     </div> -->
 
-    <div class="table_type no-click-effect" ng-click="$event.stopPropagation()">
-      <div class="type" ng-repeat="t in tableData track by $index">
-        <span  ng-click="goToTable(t)"> {{t.chalLimit}} </span>
-      </div>
 
-    </div>
+    <ion-scroll direction="x" class="table_type no-click-effect" ng-click="$event.stopPropagation()">
+      <div class="type" ng-repeat="t in tableData track by $index">
+        <span ng-click="goToTable(t)"> {{t.chalLimit}} </span>
+      </div>
+    </ion-scroll>
 
 
   </ion-content>

@@ -10313,21 +10313,8 @@ body {
         margin: 0 auto; }
     .main_lobby .lobby_content .categorys {
       width: 80%;
-      margin: 0 auto;
-      overflow: auto; }
-      .main_lobby .lobby_content .categorys::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background-color: #F5F5F5;
-        border-radius: 10px; }
-      .main_lobby .lobby_content .categorys::-webkit-scrollbar {
-        width: 0px;
-        height: 5px;
-        background-color: #F5F5F5;
-        border-radius: 10px; }
-      .main_lobby .lobby_content .categorys::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: #495159; }
-      .main_lobby .lobby_content .categorys > div {
+      margin: 0 auto; }
+      .main_lobby .lobby_content .categorys .box-black {
         background: url("../img/lobby/text_bg.png");
         background-size: 100% 100%;
         margin: 2%;
@@ -10335,8 +10322,9 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; }
-        .main_lobby .lobby_content .categorys > div span {
+        justify-content: center;
+        color: white; }
+        .main_lobby .lobby_content .categorys .box-black span {
           font-size: 1em;
           line-height: 1.5; }
     .main_lobby .lobby_content .variation_subtype {
@@ -10344,9 +10332,9 @@ body {
       visibility: none;
       opacity: 0;
       width: 60%; }
-      .main_lobby .lobby_content .variation_subtype > div {
+      .main_lobby .lobby_content .variation_subtype .box-black {
         padding: 3%; }
-        .main_lobby .lobby_content .variation_subtype > div span {
+        .main_lobby .lobby_content .variation_subtype .box-black span {
           font-size: .7em; }
   .main_lobby .variation_active {
     transition: all 500ms;
@@ -11670,7 +11658,6 @@ body {
     width: 80%;
     margin: 0 auto;
     white-space: nowrap;
-    overflow-x: scroll;
     height: calc(40vh - 41px); }
     .price_range_modal .table_type .type {
       width: 28%;
