@@ -19,14 +19,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on('connect', function (socket) {
-    console.log("socket connected");
-    console.log(io.socket._raw.id);
+    // console.log("socket connected");
+    // console.log(io.socket._raw.id);
     $.jStorage.set("socketId", io.socket._raw.id);
     $scope.socketId = $.jStorage.get("socketId");
     $scope.accessToken = $scope.jsData.accessToken;
     $scope.$apply();
     Service.connectSocket($scope.accessToken, $scope.socketId, function (data) {
-      console.log("connectSocket", data);
+      // console.log("connectSocket", data);
     })
   });
 
@@ -184,7 +184,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
-      console.log("delete player", data);
+      // console.log("delete player", data);
     })
     $state.go("lobby");
   }
@@ -238,11 +238,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   showWinnerFunction = function (data) {
     $scope.showWinner = data;
-    console.log("show winner", $scope.showWinner);
+    // console.log("show winner", $scope.showWinner);
     $scope.winner = _.find(data.players, {
       'winRank': 1
     });
-    console.log($scope.winner);
+    // console.log($scope.winner);
     // $scope.winPlayerNo = $scope.updatePlayerNo($scope.showWinner.data.players);
   };
 
@@ -250,7 +250,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   updateSocketFunction = function (data) {
     // $scope.winPlayerNo=-1;
     var data = data.data;
-    console.log("update Socket", data);
+    // console.log("update Socket", data);
     // $scope.socketId();
     $scope.extra = data.extra;
     if ($scope.extra) {
@@ -277,15 +277,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-    console.log("min and max", $scope.minAmt, $scope.maxAmt)
+    // console.log("min and max", $scope.minAmt, $scope.maxAmt)
     $scope.rawdata = data.players;
-    console.log("raw data of player", $scope.rawdata)
+    // console.log("raw data of player", $scope.rawdata)
     // $scope.showSitHere=if()
     $scope.remainingPlayer = _.filter(data.players, function (n) {
       return n.isActive && !n.isFold;
     }).length;
 
-    console.log("remainingPlayer", $scope.remainingPlayer);
+    // console.log("remainingPlayer", $scope.remainingPlayer);
 
     //re-arrange only if player already have seat
     $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
@@ -331,9 +331,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       //making 9 length array by filling 0 in all empty field
 
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
-      console.log("after filler fn", $scope.rawdata2)
+      // console.log("after filler fn", $scope.rawdata2)
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-      console.log("after rearrange", $scope.players)
+      // console.log("after rearrange", $scope.players)
 
     });
 
@@ -347,15 +347,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   $scope.removeCoin = function () {
-    console.log("inside remove coin .......... add")
+    // console.log("inside remove coin .......... add")
     $scope.betamount = $scope.betamount / 2;
   }
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
-    console.log("got socket", $scope.socketId);
+    // console.log("got socket", $scope.socketId);
     if (!$scope.sitHere) {
-      console.log("sitHere is false so returning without exe")
+      // console.log("sitHere is false so returning without exe")
       return
     }
     $scope.socketId = $.jStorage.get("socketId");
@@ -367,12 +367,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.socketId = $scope.socketId;
     // $scope.dataPlayer.userType = $scope.jdata.userType;
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
-      console.log(data, "sitted");
+      // console.log(data, "sitted");
       if (data.data.value) {
         $scope.sitHere = false;
-        console.log(data.data)
+        // console.log(data.data)
       } else {
-        console.log("error", data.data.error);
+        // console.log("error", data.data.error);
       }
     });
   }
@@ -477,16 +477,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.sideShow(playerdetails, function (data) {
-      console.log(data);
+      // console.log(data);
     });
   };
   io.socket.on("sideShowCancel", function (data) {
-    console.log(data.data.playerNo);
+    // console.log(data.data.playerNo);
     if (data.data.playerNo == selectPlayer.getPlayer()) {}
   });
 
   io.socket.on("sideShow", function (data) {
-    console.log("sideShow", data);
+    // console.log("sideShow", data);
     if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
       $scope.showSideShowModal();
     }
@@ -504,7 +504,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.doSideShow(playerdetails, function (data) {
-      console.log("doSideShow", data);
+      // console.log("doSideShow", data);
     });
   };
 
@@ -514,7 +514,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.rejectSideShow(playerdetails, function (data) {
-      console.log("rejectSideShow", data);
+      // console.log("rejectSideShow", data);
     });
   };
 
