@@ -30,10 +30,10 @@ myApp.directive('card', function () {
       scope: {
         player: "=ngPlayer",
         gameType: "=ngGameType",
-        pos:"=ngPos",
-        sitHere:"=ngSitHere",
-        winPlayerNo:"=ngWin",
-        startAnimation:"=ngAnimation"
+        pos: "=ngPos",
+        sitHere: "=ngSitHere",
+        winPlayerNo: "=ngWin",
+        startAnimation: "=ngAnimation"
       },
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {}
@@ -47,11 +47,11 @@ myApp.directive('card', function () {
         player: "=ngPlayer",
 
         gameType: "=ngGameType",
-        pos:"=ngPos",
-        mainplayer:"@ngMain",
-        sitHere:"=ngSitHere",
-        winPlayerNo:"=ngWin",
-        startAnimation:"=ngAnimation"
+        pos: "=ngPos",
+        mainplayer: "@ngMain",
+        sitHere: "=ngSitHere",
+        winPlayerNo: "=ngWin",
+        startAnimation: "=ngAnimation"
       },
       templateUrl: 'templates/directive/main-player.html',
       link: function (scope, element, attr) {}
@@ -69,7 +69,6 @@ myApp.directive('card', function () {
         $scope.style = {
           "margin-left": "10px"
         }
-        //  console.log("jokerCard Loaded");
       }
     };
   })
@@ -78,9 +77,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/game-history.html',
-      link: function ($scope, element, attr) {
-        //console.log("Player Loaded");
-      }
+      link: function ($scope, element, attr) {}
     };
   })
   .directive('tableInfo', function () {
@@ -88,9 +85,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/table-info.html',
-      link: function ($scope, element, attr) {
-        //console.log("Player Loaded");
-      }
+      link: function ($scope, element, attr) {}
     };
   })
   .directive('leftMenu', function () {
@@ -98,9 +93,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/left-menu.html',
-      link: function ($scope, element, attr) {
-        //console.log("Player Loaded");
-      }
+      link: function ($scope, element, attr) {}
     };
   })
   .directive('rightMenu', function () {
@@ -108,8 +101,6 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/right-menu.html',
-      link: function ($scope, element, attr) {
-        //console.log("Player Loaded");
-      }
+      link: function ($scope, element, attr) {}
     };
   });
