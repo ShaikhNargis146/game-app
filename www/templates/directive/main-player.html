@@ -1,0 +1,33 @@
+
+  <div class="plyr  main-player" ng-class="{'sit_here':sitHere && !player,'no_player':!sitHere && player==0 ,'winner': player &&  player.playerNo==winPlayerNo,'addtimer' : player.isTurn}">
+  
+  
+        <div ng-class="{dealer:player.isDealer}">
+      <div class="status" ng-if="player.isBlind && !player.isFold">
+        BLIND </div>
+      <div class="status" ng-if="player.isFold">
+        PACK</div>
+      <div class="status" ng-if="!player.isBlind && !player.isFold">
+        SEEN  </div>
+      <div class="plyr_pic">
+        <div class="pic">
+          <div class="profile_pic_overlay">
+            <img ng-src="{{player.image | serverimage}}"> </div>
+        </div>
+        <div class="plyr_card" ng-if="!player.isFold">
+          <div class=" custom-row">
+            <card card='DONE'> </card>
+            <card card='DONE'> </card>
+            <card card='DONE'> </card>
+          </div>
+        </div>
+      </div>
+      <div class="amt">
+        <img src="img/coin.png">{{player.totalAmount}}</div>
+      <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
+        <span>{{player.name}}</span>
+      </div>
+    </div>
+    
+    </div>
+    

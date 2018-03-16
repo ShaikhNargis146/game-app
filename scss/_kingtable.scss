@@ -628,6 +628,13 @@
 .kingtable {
   .plyr {
     width: 10% !important;
+    .no_player{
+      width:100% !important;
+      transform: translateY(0%) !important;
+    }
+    .sit_here{
+      width:100% !important;
+    }
   }
   .pic {
     width: 50% !important;

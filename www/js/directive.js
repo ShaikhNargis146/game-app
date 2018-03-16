@@ -29,9 +29,29 @@ myApp.directive('card', function () {
       replace: false,
       scope: {
         player: "=ngPlayer",
-        gameType: "=ngGameType"
+        gameType: "=ngGameType",
+        pos:"=ngPos",
+        sitHere:"=ngSitHere",
+        winPlayerNo:"=ngWin",
+        startAnimation:"=ngAnimation"
       },
       templateUrl: 'templates/directive/player.html',
+      link: function (scope, element, attr) {}
+    };
+  })
+  .directive('mainplayer', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      scope: {
+        player: "=ngPlayer",
+        gameType: "=ngGameType",
+        pos:"=ngPos",
+        sitHere:"=ngSitHere",
+        winPlayerNo:"=ngWin",
+        startAnimation:"=ngAnimation"
+      },
+      templateUrl: 'templates/directive/main-player.html',
       link: function (scope, element, attr) {}
     };
   })
