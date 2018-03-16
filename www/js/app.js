@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var myApp = angular.module('starter', ['ionic', 'starter.service','ui.select', 'ngSanitize'])
+var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -13,9 +13,6 @@ var myApp = angular.module('starter', ['ionic', 'starter.service','ui.select', '
       // for form inputs)
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
-        console.log("disable preffered font done");
-        // console.log(MobileAccessibility.getTextZoom(),"get text zoom");
-        // console.log(MobileAccessibility.updateTextZoom(10),"update text zoom")
       }
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -75,9 +72,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service','ui.select', '
     $urlRouterProvider.otherwise('login');
   });
 
-myApp.controller("AppCtrl", function ($scope) {
-  console.log("hi")
-});
+myApp.controller("AppCtrl", function ($scope) {});
 
 
 
@@ -133,8 +128,7 @@ myApp.filter('serverimage', function () {
 myApp.filter('cardimg', function () {
   return function (input) {
     if (input) {
-      console.log(input, "inside filter");
-      return "img/cards/"+input+".svg"
+      return "img/cards/" + input + ".svg"
 
     } else {
       //    return "img/logo.png";
