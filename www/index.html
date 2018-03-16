@@ -24,7 +24,7 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
   <link href="lib/angular-ui-select/dist/select.css" rel="stylesheet">
- 
+
 
   <link href="css/ionic.app.css" rel="stylesheet">
   <!-- ionic/angularjs js -->
@@ -34,6 +34,14 @@
   <script src="cordova.js"></script>
   <script src="lib/jquery/dist/jquery.js"></script>
   <script src="lib/sails/sails.io.js"></script>
+  <script>
+    var adminurl = "http://192.168.1.129:1337/api/"; // Main Server 
+    var adminUUU = "http://192.168.1.111:1338"; // Teen Patti Game Server
+    io.sails.url = adminUUU;
+    var socketId;
+
+  </script>
+
   <script src="lib/angular-ui-select/dist/select.js"></script>
 
 
@@ -50,6 +58,9 @@
   <script src="js/pokerctrl.js"></script>
   <script src="js/tablectrl.js"></script>
   <script src="js/table6ctrl.js"></script>
+
+
+
 
 </head>
 

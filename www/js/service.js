@@ -1,9 +1,7 @@
 myApp = angular.module('starter.service', []);
-var adminurl = "http://192.168.1.129:1337/api/"; // Main Server 
-var adminUUU = "http://192.168.1.111:1338"; // Teen Patti Game Server
+
 
 var url = adminUUU + '/api/';
-io.sails.url = adminUUU;
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet) {
@@ -11,8 +9,21 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
   // Some fake testing data
 
+  io.socket.on('connect', function (socket) {
+    console.log("socket connected");
+    socketId = io.socket._raw.id;
+    $.jStorage.set("socketId", io.socket._raw.id);
 
-  return {
+    obj.connectSocket(function () {
+
+    });
+
+  });
+
+
+
+
+  var obj = {
     all: function () {
       return chats;
     },
@@ -101,21 +112,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         data: dataPlayer
       }).then(callback);
     },
-    // savePlayerTotable: function (dataPlayer, callback) {
-    //   console.log(dataPlayer, "dataPlayer");
-    //   var accessToken = dataPlayer.accessToken;
-    //   var tableId = dataPlayer.tableId;
-    //   console.log(tableId, "tableId");
-    //   console.log(accessToken, "accessToken");
-
-    //   $http({
-    //     url: url + 'Table/addUserToTable',
-    //     method: 'POST',
-    //     accessToken: accessToken,
-    //     tableId: tableId
-    //   }).then(callback);
-    // },
-
 
     getOnePlayer: function (id, callback) {
       $http.post(url + 'Player/getOne', {
@@ -195,16 +191,18 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         "accessToken": playerdetails.accessToken,
       }).then(callback);
     },
-    connectSocket: function (accessToken, socketIds, callback) {
-      console.log("accessToken", accessToken);
-      console.log("socketIds", socketIds);
+    connectSocket: function (callback) {
+      var player = $.jStorage.get("player");
+      if (player) {
+        var accessToken = player.accessToken;
+        $http.post(url + 'Player/updateSocket', {
+          accessToken: accessToken,
+          socketId: socketId
+        }).then(function (data) {
+          callback(data);
+        });
+      }
 
-      $http.post(url + 'Player/updateSocket', {
-        accessToken: accessToken,
-        socketId: socketIds
-      }).then(function (data) {
-        callback(data);
-      });
     },
 
     getByPlrId: function (data, callback) {
@@ -244,5 +242,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
 
-  }
+  };
+  return obj;
 });
