@@ -11670,7 +11670,8 @@ body {
     width: 80%;
     margin: 0 auto;
     white-space: nowrap;
-    overflow-x: scroll; }
+    overflow-x: scroll;
+    height: calc(40vh - 41px); }
     .price_range_modal .table_type .type {
       width: 28%;
       background: url("../img/lobby/text_bg.png");

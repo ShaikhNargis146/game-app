@@ -139,7 +139,6 @@
     margin: 0 auto;
     padding-top: 2%;
     form {
-
       .login_button {
         background: url('../img/login_button_background1.png');
         background-size: 100% 100%;
@@ -437,9 +436,9 @@
     span {
       width: 60%;
       display: inline-block;
-     border-right:0;
-     border-left:0;
-     border-top:0;
+      border-right: 0;
+      border-left: 0;
+      border-top: 0;
       border-bottom: 1px solid;
     }
   }
@@ -448,6 +447,7 @@
     margin: 0 auto;
     white-space: nowrap;
     overflow-x: scroll;
+    height: calc(40vh - 41px);
     .type {
       width: 28%;
       background: url('../img/lobby/text_bg.png');
@@ -467,16 +467,15 @@
   }
 }
 
-
-.side-show{
+.side-show {
   height: 46%;
-.cont{
-  padding: 7% 5%;
-}
-.side_show_btn{
-  text-align: center;
-  button{
-    margin:0 2%;
+  .cont {
+    padding: 7% 5%;
   }
-}
+  .side_show_btn {
+    text-align: center;
+    button {
+      margin: 0 2%;
+    }
+  }
 }
