@@ -295,12 +295,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("table id ", $scope.l);
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
-      console.log("get all ", data)
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-      // console.log("min and max", $scope.minAmt, $scope.maxAmt);
-      // console.log(data.data, "get all service");
       $scope.rawdata = data.data.data.players;
       if (data.data.data.pot) {
         $scope.potAmount = data.data.data.pot.totalAmount;
@@ -308,18 +305,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.remainingPlayer = _.filter(data.data.data.players, function (n) {
         return n.isActive && !n.isFold;
       }).length;
-      console.log("remainingPlayer", $scope.remainingPlayer);
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
-
-      //  console.log($scope.sitHere,"sithere status from updateplayer");
-      //password change
-      //re-arrange only if player already have seat
-      //making 9 length array by filling 0 in all empty field
-
-      $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata)
-      // console.log("after filler fn", $scope.rawdata2)
+      $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-      // console.log("after rearrange", $scope.players)
 
     });
 
