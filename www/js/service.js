@@ -10,7 +10,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
   // Some fake testing data
 
   io.socket.on('connect', function (socket) {
-    console.log("socket connected");
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
 
@@ -105,7 +104,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(callback);
     },
     savePlayerTotable: function (dataPlayer, callback) {
-      console.log(dataPlayer, "dataPlayer");
       $http({
         url: url + 'Table/addUserToTable',
         method: 'POST',
@@ -121,7 +119,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
 
     makeSeen: function (data, callback) {
-      console.log("makeSeen", data);
       $http.post(url + 'Player/makeSeen', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
@@ -150,7 +147,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     sideShow: function (data, callback) {
-      console.log(data);
       $http.post(url + 'Player/sideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
@@ -167,7 +163,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     showWinner: function (tableId, callback) {
-      console.log(tableId);
       $http.post(url + 'Player/showWinner', {
         "tableId": tableId,
       }).then(function (data) {
@@ -185,7 +180,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     deletePlayer: function (playerdetails, callback) {
-      console.log(playerdetails);
       $http.post(url + 'Player/deletePlayer', {
         "tableId": playerdetails.tableId,
         "accessToken": playerdetails.accessToken,

@@ -31,7 +31,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openPLModal = function () {
-    console.log('sdsdsads')
     $scope.PLModal.show();
   }
   $scope.closePLModal = function () {
@@ -87,8 +86,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
   $scope.closeChangePasswordModel = function () {
     $scope.changePasswordModel.hide();
-    console.log("cancel modal");
-
   }
   //game price range 
   $ionicModal.fromTemplateUrl('templates/model/game_price_range.html', {
@@ -116,11 +113,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     // if (!$scope.VariationActive) {
     //   $state.go('table');
     // }
-    console.log("view", view)
     $scope.gameType = view;
-    if ($scope.gameType == "playnow") {
-      console.log("show tables");
-    }
+    if ($scope.gameType == "playnow") {}
   }
 
 
@@ -129,7 +123,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.playerData = $.jStorage.get("player");
-  console.log($scope.playerData);
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
   $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
@@ -177,7 +170,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.goToTable = function (table) {
-    console.log("table id", table._id);
     $scope.tableId = table._id;
     $state.go('table', {
       'id': $scope.tableId
@@ -212,7 +204,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       });
 
     } else {
-      console.log("passwords does not matches");
       $scope.fail2 = true;
       $scope.success = false;
       $scope.fail1 = false;
@@ -224,7 +215,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
-    console.log("destory called lobby");
     $scope.PLModal.remove();
     $scope.ACStatementModal.remove();
     $scope.transferStatementModal.remove();
