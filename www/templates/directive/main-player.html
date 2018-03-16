@@ -1,5 +1,5 @@
 
-  <div class="plyr  main-player" ng-class="{'sit_here':sitHere && !player,'no_player':!sitHere && player==0 ,'winner': player &&  player.playerNo==winPlayerNo,'addtimer' : player.isTurn}">
+  <div class="plyr  p{{pos}} {{mainplayer}}" ng-class="{'sit_here':sitHere && !player,'no_player':!sitHere && player==0 ,'winner': player &&  player.playerNo==winPlayerNo,'addtimer' : player.isTurn}">
   
   
         <div ng-class="{dealer:player.isDealer}">

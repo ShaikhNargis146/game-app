@@ -45,8 +45,10 @@ myApp.directive('card', function () {
       replace: false,
       scope: {
         player: "=ngPlayer",
+
         gameType: "=ngGameType",
         pos:"=ngPos",
+        mainplayer:"@ngMain",
         sitHere:"=ngSitHere",
         winPlayerNo:"=ngWin",
         startAnimation:"=ngAnimation"

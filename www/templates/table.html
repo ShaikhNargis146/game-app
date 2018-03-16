@@ -104,8 +104,8 @@
         <players id="plr8" ng-click="sitHerefn(8)" ng-pos="8" ng-player="players[7]" ng-sit-here="sitHere" ng-win="winPlayerNo" ng-animation="startAnimation">
         </players>
 
-        <mainPlayer ng-click="sitHerefn(9)" ng-if="sitHere" ng-player="players[8]" ng-sit-here="sitHere"  ng-win="winPlayerNo"> </mainPlayer>
-        <mainPlayer ng-click="sitHerefn(9)" ng-if="!sitHere" ng-player="players[8]" ng-sit-here="sitHere"  ng-win="winPlayerNo"> </mainPlayer>
+        <mainPlayer ng-click="sitHerefn(9)" ng-if="sitHere" ng-pos="9" ng-main="9" ng-player="players[8]" ng-sit-here="sitHere"  ng-win="winPlayerNo"> </mainPlayer>
+        <mainPlayer ng-click="sitHerefn(9)" ng-if="!sitHere" ng-pos="0" ng-main="main-player" ng-player="players[8]" ng-sit-here="sitHere"  ng-win="winPlayerNo"> </mainPlayer>
         <!-- <players id="plr9-temp" ng-click="sitHerefn(9)" ng-player="players[8]" class="plyr p9" ng-class="{'sit_here':sitHere && !players[8]}"
           >
         </players>
