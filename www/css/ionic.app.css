@@ -10838,6 +10838,11 @@ body {
 
 .kingtable .plyr {
   width: 10% !important; }
+  .kingtable .plyr .no_player {
+    width: 100% !important;
+    transform: translateY(0%) !important; }
+  .kingtable .plyr .sit_here {
+    width: 100% !important; }
 
 .kingtable .pic {
   width: 50% !important;
