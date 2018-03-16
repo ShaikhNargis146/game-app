@@ -218,6 +218,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.extra) {
       if ($scope.extra.serve) {
+        console.log("serve")
         $scope.startAnimation = true;
         $timeout(function () {
           $scope.startAnimation = false;

@@ -1,7 +1,22 @@
-<div class="plyr p{{pos}}" ng-class="{'no_player':player==0 && !sitHere,'sit_here':sitHere && !player,'card_shuffle_animation': player && player.cards.length>0  && startAnimation ,'addtimer' : player.isTurn}">
+<div class="plyr p{{pos}}" ng-class="{'no_player':player==0 && !sitHere,'sit_here':sitHere && !player,'winner': player.playerNo==winPlayerNo, 'card_shuffle_animation': player && player.cards.length>0  && startAnimation}">
   <div class="winner-display">
-    <div class="winner-player" ng-class="{'winner': player.playerNo==winnerPlayerNo}"></div>
+    <div class="winner-player" ng-class="{'winner': player.playerNo==winnerPlayerNo"></div>
   </div>
+
+  <div class="pie_loader" ng-if="player.isTurn">
+    <!-- 
+    <svg width="100%" height="100%" viewbox="0 0 250 250">
+      <path id="border" transform="translate(125, 125)" />
+      <path id="loader" transform="translate(125, 125) scale(.84)" />
+    </svg> -->
+    <div class="animation_wrapper">
+      <div class="pie spinner"></div>
+      <div class="pie filler"></div>
+      <div class="mask"></div>
+    </div>
+  </div>
+
+
   <div ng-class="{dealer:player.isDealer}">
     <div class="status" ng-if="player.isBlind && !player.isFold">
       BLIND </div>

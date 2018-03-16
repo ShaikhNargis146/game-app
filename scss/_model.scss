@@ -134,8 +134,84 @@
 .change_password-model {
   .field {
     text-align: center;
-    padding: 20px;
+    padding: 8%;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 2%;
     form {
+
+      .login_button {
+        background: url('../img/login_button_background1.png');
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center; // margin: 10px;
+        margin: 6% 3%;
+        .icon {
+          width: 25%;
+          transform: translateY(30%);
+        }
+        input {
+          transform: translateY(15%);
+          height: 100%;
+          font-weight: bold; // font-family: 'Cinzel-Bold';
+          font-weight: bold;
+          font-size: 1em;
+          color: white;
+          background: transparent;
+          &::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &:-ms-input-placeholder {
+            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &::placeholder {
+            /* Most modern browsers support this now. */
+            background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
+            background: linear-gradient(right, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-family: 'Cinzel-Bold';
+            font-weight: bold;
+            font-size: 1em;
+          }
+        }
+      }
       table {
         width: 90%;
         margin: 0 auto;
@@ -145,8 +221,12 @@
         }
       }
       input {
-        display: inline-block;
-        height: 1.1em;
+        // display: inline-block;
+        // height: 2em;
+        // background: url("../img/login_button_background1.png");
+        // background-size:100% 100%;
+        // color: white;
+        // padding-left: 6%;
       }
       button {
         background: url("../img/model/submit_background.png");
@@ -154,6 +234,10 @@
         color: white;
         padding: 5px 25px;
         border: 0px;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%);
       }
     }
   }

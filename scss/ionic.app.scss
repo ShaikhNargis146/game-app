@@ -19,6 +19,8 @@ $border-color :linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
+@import "www/lib/compass-sass-mixins/lib/compass";
+
 @import "www/lib/ionic/scss/ionic";
 //font
 @font-face {
@@ -271,6 +273,7 @@ body {
 .profile_pic_overlay {
   position: relative;
   width: 100%;
+  height:100%;
   img {
     max-height: 100%; // width: 100%;
     object-fit: fill;
@@ -325,6 +328,24 @@ body {
   }
 }
 
+
+.pie_loader{
+position: absolute;
+width:100%;
+height:100%;
+background: rgba(255, 0, 0, 0.46);
+z-index: 5;
+  svg {
+    display: block;
+    margin: 50px auto;
+  }
+  
+  #loader 
+  { fill: #0088cc }
+  
+  #border 
+  { fill: #00517a }
+}
 //login page scss
 @import "login";
 //king table scss
@@ -334,3 +355,4 @@ body {
 //model scss
 @import "model";
 @import "poker";
+@import "timer";

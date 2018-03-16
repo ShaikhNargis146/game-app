@@ -157,18 +157,18 @@
               }
               &:nth-child(1) {
                 left: 0;
-                transition: transform 1s;
-            transition-delay: 500ms;
+                transition: transform 10ms;
+            transition-delay: none;
               }
               &:nth-child(2) {
                 left: -10%;
                 transition: transform 1s;
-                transition-delay: 1000ms;
+                transition-delay: 50ms;
               }
               &:nth-child(3) {
                 left: -20%;
                 transition: transform 1s;
-                transition-delay: 1500ms;
+                transition-delay: 100ms;
               }
             }
           }
@@ -531,19 +531,19 @@
             transform: rotate(-10deg);
             left: -10%;
             transition: transform 1s;
-            transition-delay: 500ms;
+            // transition-delay: 500ms;
           }
           &:nth-child(2) {
             transform: rotate(0deg) scale(1.1);
             left: 35%;
             transition: transform 1s;
-            transition-delay: 1000ms;
+            transition-delay: 50ms;
           }
           &:nth-child(3) {
             transform: rotate(10deg);
             left: 65%;
             transition: transform 1s;
-            transition-delay: 1500ms;
+            transition-delay: 100ms;
           }
         }
       } // img {
