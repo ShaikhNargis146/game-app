@@ -17,20 +17,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
 
 
-
-  io.socket.on('connect', function (socket) {
-    // console.log("socket connected");
-    // console.log(io.socket._raw.id);
-    $.jStorage.set("socketId", io.socket._raw.id);
-    $scope.socketId = $.jStorage.get("socketId");
-    $scope.accessToken = $scope.jsData.accessToken;
-    $scope.$apply();
-    Service.connectSocket($scope.accessToken, $scope.socketId, function (data) {
-      // console.log("connectSocket", data);
-    })
-  });
-
-
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;
@@ -528,23 +514,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.updatePotAmount = function (potamt) {
     $scope.potAmount = potamt;
-  }
+  };
 
-
-  // $scope.updatePlayerNo = function (data) {
-  //   //need to update player
-
-
-  //   var plrno = -1;
-  //   for (var i = 0; i < data.length; i++) {
-  //     console.log("inside winrank", data[i])
-  //     // if($scope.players[i]!=0){
-  //     //   console.log("inside plyre no 1",$scope.players[i]);
-  //     if (data[i].winRank == 1) {
-  //       plrno = data[i].playerNo;
-  //     }
-  //   }
-  //   console.log("update plyr no ", plrno);
-  //   return plrno;
-  // }
 });
