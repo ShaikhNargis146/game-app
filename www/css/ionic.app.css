@@ -10065,7 +10065,8 @@ body {
 
 .profile_pic_overlay {
   position: relative;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
   .profile_pic_overlay img {
     max-height: 100%;
     object-fit: fill; }
@@ -10111,6 +10112,20 @@ body {
   opacity: .5;
   left: 0;
   z-index: 5; }
+
+.pie_loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.46);
+  z-index: 5; }
+  .pie_loader svg {
+    display: block;
+    margin: 50px auto; }
+  .pie_loader #loader {
+    fill: #0088cc; }
+  .pie_loader #border {
+    fill: #00517a; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10576,16 +10591,16 @@ body {
                 vertical-align: middle; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0;
-                transition: transform 1s;
-                transition-delay: 500ms; }
+                transition: transform 10ms;
+                transition-delay: none; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
                 transition: transform 1s;
-                transition-delay: 1000ms; }
+                transition-delay: 50ms; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
                 left: -20%;
                 transition: transform 1s;
-                transition-delay: 1500ms; }
+                transition-delay: 100ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10775,18 +10790,17 @@ body {
         .kingtable .main-table .showing_cards .custom-row card:nth-child(1) {
           transform: rotate(-10deg);
           left: -10%;
-          transition: transform 1s;
-          transition-delay: 500ms; }
+          transition: transform 1s; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
           transition: transform 1s;
-          transition-delay: 1000ms; }
+          transition-delay: 50ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
           transition: transform 1s;
-          transition-delay: 1500ms; }
+          transition-delay: 100ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -12195,3 +12209,70 @@ body {
     border: 1px solid white;
     margin-left: 27%;
     height: 16px; }
+
+.pie_loader {
+  overflow: hidden;
+  opacity: .5; }
+  .pie_loader .animation_wrapper {
+    position: relative;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+
+.animation_wrapper, .animation_wrapper * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.animation_wrapper {
+  width: 150px;
+  height: 150px; }
+
+.animation_wrapper .pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  background: #08C;
+  border: 5px solid rgba(0,0,0,0.5); }
+
+.animation_wrapper .spinner {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  z-index: 200;
+  border-right: none;
+  animation: rota 15s linear infinite; }
+
+.animation_wrapper:hover .spinner,
+.animation_wrapper:hover .filler,
+.animation_wrapper:hover .mask {
+  animation-play-state: running; }
+
+.animation_wrapper .filler {
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  left: 50%;
+  opacity: 0;
+  z-index: 100;
+  animation: opa 15s steps(1, end) infinite reverse;
+  border-left: none; }
+
+.animation_wrapper .mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  opacity: 1;
+  z-index: 300;
+  animation: opa 15s steps(1, end) infinite; }
+
+@keyframes rota {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes opa {
+  0% {
+    opacity: 1; }
+  50%, 100% {
+    opacity: 0; } }
