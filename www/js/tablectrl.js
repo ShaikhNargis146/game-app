@@ -2,8 +2,8 @@ var updateSocketFunction;
 var showWinnerFunction;
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout) {
   $ionicPlatform.ready(function () {
-    screen.orientation.lock('landscape')
-  })
+    screen.orientation.lock('landscape');
+  });
 
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
@@ -31,27 +31,27 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.rightMenu = false;
     $scope.leftMenu = false;
     $scope.viewHistory = false;
-  }
+  };
 
   $scope.closeAllModal();
 
   $scope.closeLeftMenu = function () {
     $scope.closeAllModal();
     $scope.leftMenu = false;
-  }
+  };
   $scope.openLeftMenu = function () {
     $scope.closeAllModal();
     $scope.leftMenu = true;
-  }
+  };
 
   $scope.openRightMenu = function () {
     $scope.closeAllModal();
     $scope.rightMenu = true;
-  }
+  };
   $scope.closeRightMenu = function () {
     $scope.closeAllModal();
     $scope.rightMenu = false;
-  }
+  };
 
 
 
@@ -64,7 +64,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.closeAllModal();
       $scope.viewHistory = true;
     }
-  }
+  };
 
   //toggle for table-info
   $scope.toggleTableInfo = function () {
@@ -75,11 +75,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.closeAllModal();
       $scope.showTableinfo = true;
     }
-  }
+  };
 
   $scope.stopProgation = function ($event) {
     $event.stopPropagation(); //wont call parent onclick function
-  }
+  };
 
   //modal for player details
   $ionicModal.fromTemplateUrl('templates/model/player-details.html', {
@@ -106,7 +106,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.closePlayerDetails = function () {
     $scope.playerDetails.hide();
-  }
+  };
 
   //table info modal
   $ionicModal.fromTemplateUrl('templates/model/tableinfo.html', {
@@ -119,10 +119,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.showTableInfoModal = function () {
     $scope.tableInfoModal.show();
-  }
+  };
   $scope.closeTableInfoModal = function () {
     $scope.tableInfoModal.hide();
-  }
+  };
 
 
 
@@ -137,10 +137,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.showSideShowModal = function () {
     $scope.sideShowModal.show();
 
-  }
+  };
   $scope.closeSideShowModal = function () {
     $scope.sideShowModal.hide();
-  }
+  };
 
   $ionicModal.fromTemplateUrl('templates/model/sideshowsend.html', {
     scope: $scope,
@@ -155,20 +155,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.sideShowSendModal.show();
     $timeout(function () {
       $scope.closeSideShowSendModal();
-    }, 2000)
-  }
+    }, 2000);
+  };
   $scope.closeSideShowSendModal = function () {
     $scope.sideShowSendModal.hide();
-  }
+  };
 
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.deletePlayer(playerdetails, function (data) {})
+    Service.deletePlayer(playerdetails, function (data) {});
     $state.go("lobby");
-  }
+  };
 
   //show card
   $scope.showCard = function () {
@@ -180,7 +180,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data) {}
 
     });
-  }
+  };
 
   $scope.$on('$destroy', function () {
     $scope.tableInfoModal.remove();
@@ -220,7 +220,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   updateSocketFunction = function (data) {
-    var data = data.data;
+    data = data.data;
     $scope.extra = data.extra;
     if ($scope.extra) {}
 
@@ -229,7 +229,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.startAnimation = true;
         $timeout(function () {
           $scope.startAnimation = false;
-        }, 5000)
+        }, 5000);
       }
     }
 
@@ -286,16 +286,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //to add and remove coin
   $scope.addCoin = function () {
     $scope.betamount = $scope.betamount * 2;
-  }
+  };
 
   $scope.removeCoin = function () {
     $scope.betamount = $scope.betamount / 2;
-  }
+  };
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
     if (!$scope.sitHere) {
-      return
+      return;
     }
     $scope.socketId = $.jStorage.get("socketId");
     $scope.dataPlayer = {};
@@ -311,7 +311,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       } else {}
     });
-  }
+  };
 
 
   //fill all player
@@ -321,12 +321,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       filled[array[i].playerNo - 1] = array[i];
     }
     for (i = 0; i < 9; i++) {
-      if (filled[i] == undefined) {
+      if (filled[i] === undefined) {
         filled[i] = 0;
       }
     }
     return filled;
-  }
+  };
 
 
   $scope.rearrangePlayer = function (demoPlayer) {
@@ -349,13 +349,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       if (value.memberId == id) {
         $scope.isthere = true;
-        return
+        return;
       } else {}
     });
 
     $scope.sitHere = !$scope.isthere;
 
-  }
+  };
 
 
   $scope.playChaal = function () {
@@ -365,7 +365,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       accessToken: $scope.jsData.accessToken,
       amount: $scope.betamount
     }, function (data) {});
-  }
+  };
 
   //tip
   $scope.makeTip = function () {
@@ -374,7 +374,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.tableId = $scope.tableId;
     playerdetails.amount = 100;
     Service.maketip(playerdetails, function (data) {});
-  }
+  };
 
   //pack 
   $scope.pack = function () {
@@ -409,7 +409,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been sent!"
-      }
+      };
     }
   });
 
@@ -435,7 +435,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //  betamount;
   $scope.setBetAmount = function (minamt, maxamt) {
     $scope.betamount = minamt;
-  }
+  };
 
   $scope.updatePotAmount = function (potamt) {
     $scope.potAmount = potamt;
