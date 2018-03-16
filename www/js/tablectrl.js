@@ -20,9 +20,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.sitHere = false;
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
-  $scope.winPlayerNo = -1;
   $scope.startAnimation = false;
-
+  $scope.winnerPlayerNo = -1;
 
 
 
@@ -210,18 +209,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.coin = $scope.blindAmt;
   });
 
-  showWinnerFunction = function (data) {
-    $scope.showWinner = data;
-
-    $scope.winner = _.find(data.players, {
-      'winRank': 1
-    });
-  };
-
-
+  // Update Socket Player
   updateSocketFunction = function (data) {
     data = data.data;
     $scope.extra = data.extra;
+    $scope.winnerPlayerNo = -1;
     if ($scope.extra) {}
 
     if ($scope.extra) {
@@ -255,6 +247,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
+  showWinnerFunction = function (data) {
+    console.log("winner data", data.data.players);
+    $scope.showWinnerPlayer = data.data.players;
+    $scope.winner = _.find($scope.showWinnerPlayer, {
+      'winRank': 1,
+      'winner': true
+    })
+    $scope.winnerPlayerNo = $scope.winner.playerNo;
+    console.log("winnerPlayerNo", $scope.winnerPlayerNo);
+  };
+
+  //showWinner
+  $scope.showWinner = function () {
+    console.log("entered");
+    var tableId = $scope.tableId;
+    Service.showWinner(tableId, function (data) {});
+  };
 
   io.socket.on("Update", updateSocketFunction);
   io.socket.on("showWinner", showWinnerFunction);
@@ -382,12 +391,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.pack(playerdetails, function (data) {});
-  };
-
-  //showWinner
-  $scope.showWinner = function () {
-    var tableId = $scope.tableId;
-    Service.showWinner(tableId, function (data) {});
   };
 
   //sideshow

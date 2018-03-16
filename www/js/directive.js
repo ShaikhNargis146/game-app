@@ -32,7 +32,7 @@ myApp.directive('card', function () {
         gameType: "=ngGameType",
         pos: "=ngPos",
         sitHere: "=ngSitHere",
-        winPlayerNo: "=ngWin",
+        winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation"
       },
       templateUrl: 'templates/directive/player.html',
@@ -50,7 +50,7 @@ myApp.directive('card', function () {
         pos: "=ngPos",
         mainplayer: "@ngMain",
         sitHere: "=ngSitHere",
-        winPlayerNo: "=ngWin",
+        winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation"
       },
       templateUrl: 'templates/directive/main-player.html',

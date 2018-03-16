@@ -12,11 +12,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
   io.socket.on('connect', function (socket) {
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
-
-    obj.connectSocket(function () {
-
-    });
-
+    obj.connectSocket(function () {});
   });
 
 
@@ -163,6 +159,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     showWinner: function (tableId, callback) {
+      console.log("showWinner")
       $http.post(url + 'Player/showWinner', {
         "tableId": tableId,
       }).then(function (data) {
