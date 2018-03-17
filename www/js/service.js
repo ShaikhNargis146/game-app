@@ -166,8 +166,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     showWinner: function (tableId, callback) {
-      return console.log("showWinner")
-      $http.post(url + 'Player/showWinner', {
+      console.log("showWinner")
+      return $http.post(url + 'Player/showWinner', {
         "tableId": tableId,
       }).then(function (data) {
         callback(data);
