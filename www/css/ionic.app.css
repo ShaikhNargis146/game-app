@@ -10841,6 +10841,9 @@ body {
       .kingtable .main-table .playing-player-info .coin {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%; }
+      .kingtable .main-table .playing-player-info button {
+        border: 0px;
+        height: 3em; }
 
 .kingtable .plyr {
   width: 10% !important; }
