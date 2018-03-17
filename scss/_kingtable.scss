@@ -146,6 +146,9 @@
             position: absolute;
             left: 40%;
             width: 150%;
+            &.plyr_card1 {
+              width: 105% !important;
+              }              
             card {
               position: relative;
               width: 20%;
@@ -301,18 +304,19 @@
       } //add this class to apply winner css
       .winner {
         &::before {
-          display: block;
-          content: '';
-          background: url('../img/winner.png');
-          background-size: 75% 100%;
-          background-repeat: no-repeat;
-          height: 7vh;
-          width: 100%;
-          position: absolute;
-          top: 0;
-          transform: translateY(-108%);
+        display: block;
+        content: '';
+        background: url('../img/winner.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 22px;
+        width: 50px;
+        position: absolute;
+        position: absolute;
+        top: 0;
+        transform: translateY(-108%);
         }
-      } // add this class to apply dealer css
+        } // add this class to apply dealer css
       .dealer {
         &::after {
           display: block;

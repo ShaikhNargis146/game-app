@@ -10565,6 +10565,8 @@ body {
             position: absolute;
             left: 40%;
             width: 150%; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
+              width: 105% !important; }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
               width: 20%;
@@ -10663,10 +10665,11 @@ body {
         display: block;
         content: '';
         background: url("../img/winner.png");
-        background-size: 75% 100%;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
-        height: 7vh;
-        width: 100%;
+        height: 22px;
+        width: 50px;
+        position: absolute;
         position: absolute;
         top: 0;
         transform: translateY(-108%); }
