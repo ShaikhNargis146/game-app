@@ -251,7 +251,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.startAnimation = true;
         $timeout(function () {
           $scope.startAnimation = false;
-        }, 5000);
+        }, 50);
       }
     }
 
