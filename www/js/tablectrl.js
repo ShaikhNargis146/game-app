@@ -267,6 +267,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.remainingPlayer = _.filter(data.players, function (n) {
       return n.isActive && !n.isFold;
     }).length;
+    $scope.seenPlayer = _.filter(data.players, function (n) {
+      return n.isBlind && !n.isFold;
+    }).length;
+    console.log("seenPlayer", $scope.seenPlayer);
     //re-arrange only if player already have seat
     $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
@@ -325,6 +329,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
       $scope.remainingPlayer = _.filter(data.data.data.players, function (n) {
         return n.isActive && !n.isFold;
+      }).length;
+      $scope.seenPlayer = _.filter(data.data.data.players, function (n) {
+        return n.isBlind && !n.isFold;
       }).length;
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
