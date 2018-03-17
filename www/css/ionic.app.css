@@ -10136,12 +10136,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center; }
+    text-align: center;
+    width: 50vw; }
     .login .login_block .login_logo {
-      width: 50%; }
+      width: 40%;
+      margin-bottom: 10px; }
     .login .login_block input {
-      height: 8vh;
-      width: 100%;
       border-radius: 6px;
       background: transparent; }
     .login .login_block .blc {
@@ -10183,23 +10183,20 @@ body {
         font-weight: bold;
         font-size: 1em;
         border: 0px; }
+    .login .login_block .input-login {
+      margin: 0 5px; }
     .login .login_block .login_button {
       background: url("../img/login_button_background1.png");
       background-size: 100% 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin: 3%; }
-      .login .login_block .login_button .icon {
-        width: 35%;
-        transform: translateY(20%); }
+      margin: 0;
+      border-image: none;
+      border: none;
+      padding: 10px 20px; }
+      .login .login_block .login_button img {
+        width: 25px; }
       .login .login_block .login_button input {
-        transform: translateY(15%);
-        height: 100%;
-        font-weight: bold;
-        font-weight: bold;
-        font-size: 1em;
-        color: white; }
+        color: white;
+        height: 28px; }
         .login .login_block .login_button input::-webkit-input-placeholder {
           /* WebKit, Blink, Edge */
           background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -10241,19 +10238,15 @@ body {
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-weight: bold;
-          font-family: 'Cinzel-Bold';
-          font-weight: bold;
-          font-size: 1em; }
+          font-weight: bold; }
     .login .login_block .bg-style {
       background: url("../img/login_button_backgroun2.png"); }
     .login .login_block .valid {
       color: red;
       float: left;
-      /* padding-right: 10%; */
       padding-left: 5%;
-      margin-top: -2%;
-      line-height: 2; }
+      margin-bottom: 2px;
+      line-height: 120%; }
     .login .login_block .invailduser {
       width: 100%; }
 
