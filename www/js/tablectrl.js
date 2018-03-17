@@ -13,9 +13,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.image = $scope.playerData.image;
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
-  $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
+  // $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
 
-
+  Service.sendAccessToken($scope.jsData.accessToken, function (data) {
+    $scope.playerData = data.data.data;
+    $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
+    // console.log(data);
+  })
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;

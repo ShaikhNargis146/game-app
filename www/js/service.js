@@ -52,8 +52,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
-    sendAccessToken: function (data, callback) {
-      var accessToken = data.data;
+    sendAccessToken: function (accessToken, callback) {
       $http.post(adminurl + 'member/getAccessLevel', {
         accessToken: accessToken
       }).then(function (data) {

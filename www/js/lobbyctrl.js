@@ -125,9 +125,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = $.jStorage.get("player");
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
-  $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
   $scope.image = $scope.playerData.image;
   $scope.accessToken = $scope.playerData.accessToken;
+
+  console.log($scope.accessToken);
 
   if (!$scope.accessToken) {
     $state.go("login");
@@ -181,11 +182,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
 
-  // Service.sendAccessToken($scope.accessToken, function (data) {
-  //   $.jStorage.set("player", data.data.data);
-  //   $scope.playerData = $.jStorage.get("player");
-  //   $state.go("lobby");
-  // })
+  Service.sendAccessToken($scope.accessToken, function (data) {
+    $scope.playerData = data.data;
+    $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
+    console.log(data);
+  })
 
   //change password//
 

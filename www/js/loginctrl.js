@@ -8,7 +8,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
     $scope.loginPromise = Service.playerLogin(data, function (data) {
       $scope.accessT = data.data;
       if (data.value) {
-        Service.sendAccessToken(data, function (data) {
+        Service.sendAccessToken($scope.accessT, function (data) {
           $.jStorage.set("player", data.data.data);
           $scope.playerData = $.jStorage.get("player");
           $state.go("lobby");
