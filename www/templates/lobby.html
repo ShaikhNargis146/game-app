@@ -84,7 +84,7 @@
 
     <div class="table_type no-click-effect" ng-if="showType" ng-click="$event.stopPropagation()">
       <div class="type" ng-repeat="t in tableData track by $index">
-        <span class="text-grad" ng-click="goToTable(t)"> {{t.chalLimit}} </span>
+        <span class="text-grad" ng-click="goToTable(t)" promise-btn="goToTable"> {{t.chalLimit}} </span>
       </div>
 
     </div>

@@ -1,6 +1,4 @@
 myApp = angular.module('starter.service', []);
-
-
 var url = adminUUU + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
@@ -58,31 +56,31 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
-
-
     sendAccessToken: function (data, callback) {
       var accessToken = data.data;
       $http.post(adminurl + 'member/getAccessLevel', {
         accessToken: accessToken
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     //from teenpatti 
-
-
-
-
     tableData: function (callback) {
       $http({
         url: url + 'Table/search',
         method: 'POST'
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     getOneTable: function (id, callback) {
       $http.post(url + 'Table/getOne', {
         _id: id
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     getAllActive: function (data, callback) {
@@ -90,27 +88,35 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         url: url + 'Table/getAllActive',
         method: 'POST',
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     getAll: function (data, callback) {
       $http({
         url: url + 'Player/getAll',
         method: 'POST',
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     savePlayerTotable: function (dataPlayer, callback) {
       $http({
         url: url + 'Table/addUserToTable',
         method: 'POST',
         data: dataPlayer
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     getOnePlayer: function (id, callback) {
       $http.post(url + 'Player/getOne', {
         _id: id
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
 
@@ -118,21 +124,27 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       $http.post(url + 'Player/makeSeen', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     chaal: function (data, callback) {
       $http.post(url + 'Player/chaal', {
         "tableId": data.tableId,
         "accessToken": data.accessToken,
         "amount": data.amount
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     maketip: function (data, callback) {
       $http.post(url + 'Table/makeTip', {
         "tableId": data.tableId,
         "accessToken": data.accessToken,
         "amount": data.amount
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     pack: function (data, callback) {
       $http.post(url + 'Player/fold', {
@@ -180,7 +192,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       $http.post(url + 'Player/deletePlayer', {
         "tableId": playerdetails.tableId,
         "accessToken": playerdetails.accessToken,
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
     connectSocket: function (callback) {
       var player = $.jStorage.get("player");
@@ -199,40 +213,51 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     getByPlrId: function (data, callback) {
       $http.post(url + 'Player/getByPlrId', {
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     makeDealer: function (data, callback) {
       $http.post(url + 'Player/makeDealer', {
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     deductBootAmount: function (data, callback) {
       $http.post(url + 'Player/deductBootAmount', {
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     serve: function (data, callback) {
       $http.post(url + 'Player/serve', {
         "tableId": data.tableId,
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     createPot: function (data, callback) {
       $http.post(url + 'Pot/createPot', {
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
 
     addAmountToPot: function (data, callback) {
       $http.post(url + 'Pot/addAmountToPot', {
         data: data
-      }).then(callback);
+      }).then(function (data) {
+        callback(data);
+      });
     },
-
-
   };
+
   return obj;
 });

@@ -243,7 +243,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
-    $scope.winnerPlayerNo = -1;
     if ($scope.extra) {}
 
     if ($scope.extra) {
@@ -268,7 +267,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.remainingPlayer = _.filter(data.players, function (n) {
       return n.isActive && !n.isFold;
     }).length;
-
     //re-arrange only if player already have seat
     $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
@@ -296,6 +294,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     })
     $scope.winnerPlayerNo = $scope.winner.playerNo;
     console.log("winnerPlayerNo", $scope.winnerPlayerNo);
+
+    $timeout(function () {
+      $scope.winnerPlayerNo = -1;
+    }, 8000);
   };
 
   //showWinner
