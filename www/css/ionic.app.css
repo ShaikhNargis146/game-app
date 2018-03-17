@@ -10812,6 +10812,15 @@ body {
       .kingtable .main-table .playing-player-info img {
         width: 1em;
         vertical-align: middle; }
+      .kingtable .main-table .playing-player-info > button {
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        font-size: 1em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block;
+        color: white;
+        font-family: 'Cinzel-Black'; }
       .kingtable .main-table .playing-player-info > span {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
@@ -10829,8 +10838,7 @@ body {
         border: 0px;
         height: 3em;
         color: white;
-        font-size: 1em;
-        font-family: 'Cinzel-Black'; }
+        font-size: 1em; }
       .kingtable .main-table .playing-player-info .info {
         background: url("../img/text_bg3.png");
         background-size: 100% 100%;
@@ -12236,7 +12244,7 @@ body {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  animation: rota 15s linear infinite; }
+  animation: rota 60s linear infinite; }
 
 .animation_wrapper:hover .spinner,
 .animation_wrapper:hover .filler,
@@ -12248,7 +12256,7 @@ body {
   left: 50%;
   opacity: 0;
   z-index: 100;
-  animation: opa 15s steps(1, end) infinite reverse;
+  animation: opa 60s steps(1, end) infinite reverse;
   border-left: none; }
 
 .animation_wrapper .mask {
@@ -12258,7 +12266,7 @@ body {
   background: inherit;
   opacity: 1;
   z-index: 300;
-  animation: opa 15s steps(1, end) infinite; }
+  animation: opa 60s steps(1, end) infinite; }
 
 @keyframes rota {
   0% {

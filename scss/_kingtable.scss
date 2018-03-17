@@ -594,7 +594,20 @@
         width: 1em;
         vertical-align: middle;
       }
-      &>span {
+      &>button {
+        background: url('../img/text_bg.png');
+        background-size: 100% 100%; // margin:10px;
+        font-size: 1em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block;
+        color:white;
+        font-family: 'Cinzel-Black';
+        span{
+
+        }
+      }
+       &>span {
         background: url('../img/text_bg.png');
         background-size: 100% 100%; // margin:10px;
         font-size: 1em;
@@ -614,7 +627,7 @@
         height: 3em;
         color: white;
         font-size: 1em;
-        font-family: 'Cinzel-Black';
+    
       }
       .info {
         background: url('../img/text_bg3.png');
