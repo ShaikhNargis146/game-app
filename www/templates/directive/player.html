@@ -12,8 +12,6 @@
       <div class="mask"></div>
     </div>
   </div>
-
-
   <div ng-class="{dealer:player.isDealer}">
     <div class="status" ng-if="player.isBlind && !player.isFold">
       BLIND </div>
@@ -42,10 +40,9 @@
       </div>
     </div>
     <div class="amt">
-      <img src="img/coin.png">{{player.totalAmount}}</div>
+      <img src="img/coin.png">{{player.balance - player.totalAmount}}</div>
     <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
       <span>{{player.name}}</span>
     </div>
   </div>
-
 </div>

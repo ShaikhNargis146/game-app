@@ -6,12 +6,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-
   io.socket.on('connect', function (socket) {
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function () {});
   });
+
+  
 
 
 
