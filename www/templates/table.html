@@ -150,7 +150,7 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere && (players[8].cards.length > 0)" ng-class="{'main_card_anime':players[8].cards.length>0 && startAnimation}">
-        <div class="custom-row" ng-if="players[8].isBlind && !players[8].isFold && players[8].isBlind">
+        <div class="custom-row" ng-if="players[8] && players[8].isBlind && !players[8].isFold && remainingPlayer>1">
           <card card='NONE'> </card>
           <card card='NONE'> </card>
           <card card='NONE'> </card>
@@ -162,7 +162,7 @@
             <card card='{{players[8].cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold && (players[8].cards.length > 0)" class="card_see"
+        <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold && (players[8].cards.length > 0) && (remainingPlayer>1)" class="card_see"
           ng-click="showCard()">See</div>
       </div>
     </div>
