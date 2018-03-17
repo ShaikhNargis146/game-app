@@ -312,7 +312,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.showWinner = function () {
     console.log("entered");
     var tableId = $scope.tableId;
-    Service.showWinner(tableId, function (data) {});
+    $scope.showWinnerPromise = Service.showWinner(tableId, function (data) {});
   };
 
   io.socket.on("Update", updateSocketFunction);
@@ -427,7 +427,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.playChaal = function () {
 
-    Service.chaal({
+    $scope.chaalPromise = Service.chaal({
       tableId: $scope.tableId,
       accessToken: $scope.jsData.accessToken,
       amount: $scope.betamount
@@ -451,7 +451,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.pack(playerdetails, function (data) {
+    $scope.packPromise = Service.pack(playerdetails, function (data) {
       console.log("pack", data)
     });
   };
@@ -461,7 +461,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.sideShow(playerdetails, function (data) {
+    $scope.sideShowPromise = Service.sideShow(playerdetails, function (data) {
 
 
     });

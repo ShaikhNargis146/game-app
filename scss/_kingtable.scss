@@ -601,13 +601,13 @@
         padding: 1.5% 2.5%;
         padding-bottom: 1%;
         display: inline-block;
-        color:white;
+        color: white;
         font-family: 'Cinzel-Black';
-        span{
-
-        }
       }
-       &>span {
+      &>button[disabled] {
+        opacity: 0.5;
+      }
+      &>span {
         background: url('../img/text_bg.png');
         background-size: 100% 100%; // margin:10px;
         font-size: 1em;
@@ -627,7 +627,6 @@
         height: 3em;
         color: white;
         font-size: 1em;
-    
       }
       .info {
         background: url('../img/text_bg3.png');
@@ -642,8 +641,7 @@
         background: url('../img/text_bg2.png');
         background-size: 100% 100%;
       }
-
-      button{
+      button {
         border: 0px;
         height: 3em;
       }

@@ -10821,6 +10821,8 @@ body {
         display: inline-block;
         color: white;
         font-family: 'Cinzel-Black'; }
+      .kingtable .main-table .playing-player-info > button[disabled] {
+        opacity: 0.5; }
       .kingtable .main-table .playing-player-info > span {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
