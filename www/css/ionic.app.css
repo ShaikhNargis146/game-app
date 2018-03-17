@@ -10821,7 +10821,8 @@ body {
       .kingtable .main-table .playing-player-info .slide_show {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
-        margin: 0px 5px; }
+        margin: 0px 5px;
+        min-width: 16%; }
       .kingtable .main-table .playing-player-info .info {
         background: url("../img/text_bg3.png");
         background-size: 100% 100%;
@@ -11031,8 +11032,7 @@ body {
   color: white;
   opacity: 0;
   white-space: nowrap;
-  animation-duration: 2s;
-  animation-delay: 1s; }
+  animation-duration: 1s; }
   .bootAnimate .coin {
     width: 1em;
     vertical-align: middle;
@@ -11087,7 +11087,7 @@ body {
   50% {
     opacity: 1; }
   80% {
-    opacity: 0; }
+    opacity: 1; }
   100% {
     right: 50%;
     top: 15%;
@@ -11099,7 +11099,7 @@ body {
   50% {
     opacity: 1; }
   80% {
-    opacity: 0; }
+    opacity: 1; }
   100% {
     left: 50%;
     top: 20%;
@@ -11111,7 +11111,7 @@ body {
   50% {
     opacity: 1; }
   80% {
-    opacity: 0; }
+    opacity: 1; }
   100% {
     right: 50%;
     bottom: 70%;
