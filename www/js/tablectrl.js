@@ -23,6 +23,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.startAnimation = false;
   $scope.winnerPlayerNo = -1;
 
+  $scope.insufficientFunds = false;
+
 
 
   $scope.closeAllModal = function () {
@@ -160,12 +162,38 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.sideShowSendModal.hide();
   };
 
+  $ionicModal.fromTemplateUrl('templates/model/insufficient-funds.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.insufficientFundsModal = modal;
+    // $scope.showSideShowSendModal();
+
+  });
+
+  $scope.showInsufficientFundsModal = function () {
+    $scope.insufficientFundsModal.show();
+    $timeout(function () {
+      $scope.closeInsufficientFundsModal();
+    }, 2000);
+  };
+  $scope.closeInsufficientFundsModal = function () {
+    $scope.insufficientFundsModal.hide();
+  };
+
+
+
+
+
+
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.deletePlayer(playerdetails, function (data) {});
+    Service.deletePlayer(playerdetails, function (data) {
+      console.log("delete player", data);
+    });
     $state.go("lobby");
   };
 
@@ -185,6 +213,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.tableInfoModal.remove();
     $scope.sideShowModal.remove();
     $scope.sideShowSendModal.remove();
+    $scope.insufficientFundsModal.remove();
     $scope.closeAllModal();
   });
 
@@ -211,6 +240,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   // Update Socket Player
   updateSocketFunction = function (data) {
+    console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
     $scope.winnerPlayerNo = -1;
@@ -244,6 +274,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     //making 9 length array by filling 0 in all empty field
     $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
     $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+
+
+
+    if (($scope.players[8].isTurn) && (($scope.players[8].balance - $scope.players[8].totalAmount) < (data.table.chalAmt * 2 * 3))) {
+      $scope.insufficientFunds = true;
+      $scope.showInsufficientFundsModal();
+    } else {
+      $scope.insufficientFunds = false;
+    }
     $scope.$apply();
   };
 
@@ -274,6 +313,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.l.tableId = $stateParams.id;
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
+      console.log("update player", data)
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
@@ -316,10 +356,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.socketId = $scope.socketId;
     // $scope.dataPlayer.userType = $scope.jdata.userType;
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
+      console.log("sit here", data);
       if (data.data.value) {
         $scope.sitHere = false;
 
-      } else {}
+      } else {
+        if (data.error = "Insufficient Balance")
+          $scope.showInsufficientFundsModal();
+      }
     });
   };
 
@@ -374,7 +418,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       tableId: $scope.tableId,
       accessToken: $scope.jsData.accessToken,
       amount: $scope.betamount
-    }, function (data) {});
+    }, function (data) {
+
+      console.log("chaal", data)
+    });
   };
 
   //tip
@@ -391,7 +438,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.pack(playerdetails, function (data) {});
+    Service.pack(playerdetails, function (data) {
+      console.log("pack", data)
+    });
   };
 
   //sideshow
@@ -399,10 +448,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
-    Service.sideShow(playerdetails, function (data) {});
+    Service.sideShow(playerdetails, function (data) {
+
+
+    });
   };
+
+
   io.socket.on("sideShowCancel", function (data) {
-    if (data.data.playerNo == selectPlayer.getPlayer()) {}
+    if (data.data.ToPlayer.accessToken == $scope.jsData.accessToken) {
+      $scope.showSideShowSendModal();
+      $scope.message = {
+        content: "Your request for the Side show has been rejected!"
+      };
+    }
   });
 
   io.socket.on("sideShow", function (data) {

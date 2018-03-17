@@ -117,9 +117,9 @@
       </div>
       <!-- end player -->
 
-      <div class="p9 bootAnimate" ng-if="true">
+      <!-- <div class="p9 bootAnimate" ng-if="true">
         <img src="img/coin.png" class="coin">{{potAmt}}
-      </div>
+      </div> -->
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere && (players[8].cards.length > 0)" ng-class="{'main_card_anime':players[8].cards.length>0 && startAnimation}">
@@ -139,26 +139,26 @@
           ng-click="showCard()">See</div>
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere && players[8] && !players[8].isFold">
-      <span class="pack" ng-click="pack()" ng-if="players[8].isTurn"> PACK</span>
-      <span class="slide_show" ng-click="sideShow()" ng-if="(players[8].isTurn)&& (remainingPlayer > 2)"> side show </span>
-      <span class="slide_show " ng-click="showWinner()" ng-if="(players[8].isTurn) && (remainingPlayer == 2)">show</span>
-      <span class="info"> {{players[8].name}}
+    <div class="playing-player-info" ng-if="!sitHere && players[8] ">
+      <span class="pack" ng-click="pack()" ng-if="players[8].isTurn && !players[8].isFold"> PACK</span>
+      <span class="slide_show" ng-click="sideShow()" ng-if="(players[8].isTurn)&& (remainingPlayer > 2) && !players[8].isFold"> side show </span>
+      <span class="slide_show " ng-click="showWinner()" ng-if="(players[8].isTurn) && (remainingPlayer == 2) && !players[8].isFold">show</span>
+      <span class="info" ng-class="{'color_red':insufficientFunds}"> {{players[8].name}}
         <img src="img/coin.png"> {{players[8].balance - players[8].totalAmount}}
       </span>
-      <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt">
+      <span class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt && !players[8].isFold">
         -
       </span>
-      <span class="minus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount<=minAmt">
+      <span class="minus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount<=minAmt && !players[8].isFold">
         -
       </span>
-      <span class="coin" ng-click="playChaal()" ng-if="players[8].isTurn">
+      <span class="coin" ng-click="playChaal()" ng-if="players[8].isTurn && !players[8].isFold">
         <img src="img/coin.png"> {{betamount}}
         <span ng-if="players[8].isBlind">blind </span>
         <span ng-if="!players[8].isBlind"> chaal</span>
       </span>
-      <span class="plus no-click-effect" ng-click="addCoin()" ng-if="players[8].isTurn && betamount<maxAmt">+</span>
-      <span class="plus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount>=maxAmt">+</span>
+      <span class="plus no-click-effect" ng-click="addCoin()" ng-if="players[8].isTurn && betamount<maxAmt && !players[8].isFold">+</span>
+      <span class="plus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount>=maxAmt && !players[8].isFold">+</span>
     </div>
   </div>
 </div>
