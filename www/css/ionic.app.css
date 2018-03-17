@@ -10825,7 +10825,12 @@ body {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
         margin: 0px 5px;
-        min-width: 16%; }
+        min-width: 16%;
+        border: 0px;
+        height: 3em;
+        color: white;
+        font-size: 1em;
+        font-family: 'Cinzel-Black'; }
       .kingtable .main-table .playing-player-info .info {
         background: url("../img/text_bg3.png");
         background-size: 100% 100%;

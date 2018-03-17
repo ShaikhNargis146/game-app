@@ -148,7 +148,7 @@
             width: 150%;
             &.plyr_card1 {
               width: 105% !important;
-              }              
+            }
             card {
               position: relative;
               width: 20%;
@@ -161,7 +161,7 @@
               &:nth-child(1) {
                 left: 0;
                 transition: transform 10ms;
-            transition-delay: none;
+                transition-delay: none;
               }
               &:nth-child(2) {
                 left: -10%;
@@ -304,19 +304,19 @@
       } //add this class to apply winner css
       .winner {
         &::before {
-        display: block;
-        content: '';
-        background: url('../img/winner.png');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        height: 22px;
-        width: 50px;
-        position: absolute;
-        position: absolute;
-        top: 0;
-        transform: translateY(-108%);
+          display: block;
+          content: '';
+          background: url('../img/winner.png');
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          height: 22px;
+          width: 50px;
+          position: absolute;
+          position: absolute;
+          top: 0;
+          transform: translateY(-108%);
         }
-        } // add this class to apply dealer css
+      } // add this class to apply dealer css
       .dealer {
         &::after {
           display: block;
@@ -534,8 +534,7 @@
           &:nth-child(1) {
             transform: rotate(-10deg);
             left: -10%;
-            transition: transform 1s;
-            // transition-delay: 500ms;
+            transition: transform 1s; // transition-delay: 500ms;
           }
           &:nth-child(2) {
             transform: rotate(0deg) scale(1.1);
@@ -611,6 +610,11 @@
         background-size: 100% 100%;
         margin: 0px 5px;
         min-width: 16%;
+        border: 0px;
+        height: 3em;
+        color: white;
+        font-size: 1em;
+        font-family: 'Cinzel-Black';
       }
       .info {
         background: url('../img/text_bg3.png');
@@ -633,12 +637,12 @@
 .kingtable {
   .plyr {
     width: 10% !important;
-    .no_player{
-      width:100% !important;
+    .no_player {
+      width: 100% !important;
       transform: translateY(0%) !important;
     }
-    .sit_here{
-      width:100% !important;
+    .sit_here {
+      width: 100% !important;
     }
   }
   .pic {
@@ -1091,23 +1095,21 @@
   card {
     &:nth-child(1) {
       transform: translate(-85%, -154%) scale(.3) !important;
-    transition: none !important;
+      transition: none !important;
     }
     &:nth-child(2) {
       transform: translate(-125%, -154%) scale(.3) !important;
-      transition: none !important;
-      // transition: transform 2s;
+      transition: none !important; // transition: transform 2s;
     }
     &:nth-child(3) {
       transform: translate(-150%, -153%) scale(.3) !important;
-      transition: none !important;
-      // transition: transform 3s;
+      transition: none !important; // transition: transform 3s;
     }
   }
 }
 
 .card_shuffle_animation {
-   &.p1 {
+  &.p1 {
     card {
       &:nth-child(1) {
         transform: scale(1.6) translate(280%, -222%) !important;
@@ -1194,7 +1196,7 @@
         transition: none !important;
       }
       &:nth-child(2) {
-        transform: scale(1.5) translate(-1826%, 200%) !important; 
+        transform: scale(1.5) translate(-1826%, 200%) !important;
         transition: none !important;
       }
       &:nth-child(3) {
