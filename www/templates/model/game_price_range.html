@@ -22,7 +22,7 @@
 
     <ion-scroll direction="x" class="table_type no-click-effect" ng-click="$event.stopPropagation()">
       <div class="type" ng-repeat="t in tableData track by $index" ng-click="goToTable(t)">
-        <span> {{t.chalLimit}} </span>
+        <span> {{t.blindAmt}} - {{t.chalAmt}} </span>
       </div>
     </ion-scroll>
 

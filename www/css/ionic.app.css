@@ -10007,6 +10007,9 @@ body {
 .color-white {
   color: white; }
 
+.color_red {
+  color: red; }
+
 .border-gradient {
   border: 1px solid;
   border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
@@ -10184,7 +10187,7 @@ body {
         font-size: 1em;
         border: 0px; }
     .login .login_block .input-login {
-      margin: 0 5px; }
+      margin: 5px; }
     .login .login_block .login_button {
       background: url("../img/login_button_background1.png");
       background-size: 100% 100%;

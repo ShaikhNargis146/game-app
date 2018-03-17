@@ -9,6 +9,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.5",
     "angular-ui-select": "^0.19.8",
-    "compass-sass-mixins": "*"
+    "compass-sass-mixins": "*",
+    "angular-promise-buttons": "^0.1.22"
   }
 }
