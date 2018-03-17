@@ -181,7 +181,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
 
-
+  // Service.sendAccessToken($scope.accessToken, function (data) {
+  //   $.jStorage.set("player", data.data.data);
+  //   $scope.playerData = $.jStorage.get("player");
+  //   $state.go("lobby");
+  // })
 
   //change password//
 
@@ -191,7 +195,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.playerData = $.jStorage.get("player");
       $scope.passwordData._id = $scope.playerData._id;
 
-      Service.passwordchange(data, function (data) {
+      $scope.changePasswordPromise = Service.passwordchange(data, function (data) {
         if (data.data == "Old password did not match") {
           $scope.fail1 = true;
           $scope.success = false;

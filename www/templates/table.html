@@ -155,7 +155,7 @@
           <card card='NONE'> </card>
           <card card='NONE'> </card>
         </div>
-        <div ng-if="!players[8].isBlind && !players[8].isFold">
+        <div ng-if="(!players[8].isBlind && !players[8].isFold) || (!players[8].isFold && winnerPlayerNo != -1)">
           <div class=" custom-row ">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>

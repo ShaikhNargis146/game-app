@@ -2,7 +2,7 @@ myApp = angular.module('starter.service', []);
 var url = adminUUU + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
-myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet) {
+myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet, $timeout) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -11,12 +11,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function () {});
   });
-
-  
-
-
-
-
+  // var defered = $q.defer();
   var obj = {
     all: function () {
       return chats;
@@ -44,14 +39,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     //from teenpatti backend
 
     playerLogin: function (data, callback) {
-      $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
+      return $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
         data = data.data;
         callback(data);
       });
     },
 
     passwordchange: function (data, callback) {
-      $http.post(adminurl + 'member/changePassword', data).then(function (data) {
+      return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
         data = data.data;
         callback(data);
       });
@@ -122,7 +117,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
 
     makeSeen: function (data, callback) {
-      $http.post(url + 'Player/makeSeen', {
+      return $http.post(url + 'Player/makeSeen', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
@@ -130,7 +125,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     chaal: function (data, callback) {
-      $http.post(url + 'Player/chaal', {
+      return $http.post(url + 'Player/chaal', {
         "tableId": data.tableId,
         "accessToken": data.accessToken,
         "amount": data.amount
@@ -148,7 +143,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     pack: function (data, callback) {
-      $http.post(url + 'Player/fold', {
+      return $http.post(url + 'Player/fold', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
@@ -156,7 +151,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     sideShow: function (data, callback) {
-      $http.post(url + 'Player/sideShow', {
+      return $http.post(url + 'Player/sideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
@@ -164,7 +159,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     doSideShow: function (data, callback) {
-      $http.post(url + 'Player/doSideShow', {
+      return $http.post(url + 'Player/doSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
@@ -172,7 +167,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     showWinner: function (tableId, callback) {
-      console.log("showWinner")
+      return console.log("showWinner")
       $http.post(url + 'Player/showWinner', {
         "tableId": tableId,
       }).then(function (data) {
@@ -181,7 +176,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
     },
     rejectSideShow: function (data, callback) {
-      $http.post(url + 'Player/cancelSideShow', {
+      return $http.post(url + 'Player/cancelSideShow', {
         "tableId": data.tableId,
         "accessToken": data.accessToken
       }).then(function (data) {
@@ -190,13 +185,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     deletePlayer: function (playerdetails, callback) {
-      $http.post(url + 'Player/deletePlayer', {
+      return $http.post(url + 'Player/deletePlayer', {
         "tableId": playerdetails.tableId,
         "accessToken": playerdetails.accessToken,
       }).then(function (data) {
         callback(data);
       });
     },
+
     connectSocket: function (callback) {
       var player = $.jStorage.get("player");
       if (player) {

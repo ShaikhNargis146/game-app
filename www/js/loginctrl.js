@@ -5,7 +5,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
 
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
-    Service.playerLogin(data, function (data) {
+    $scope.loginPromise = Service.playerLogin(data, function (data) {
       $scope.accessT = data.data;
       if (data.value) {
         Service.sendAccessToken(data, function (data) {
