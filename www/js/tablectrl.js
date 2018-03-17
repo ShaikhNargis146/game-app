@@ -16,8 +16,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
 
   Service.sendAccessToken($scope.jsData.accessToken, function (data) {
-    $scope.playerData = data.data.data;
-    $scope.balance = $scope.playerData.creditLimit + $scope.playerData.balanceUp;
+    $scope.playerDataBalance = data.data.data;
+    $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
     // console.log(data);
   })
   //ask for sit here when joining new game
