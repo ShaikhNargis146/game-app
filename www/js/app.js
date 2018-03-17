@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize'])
+var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

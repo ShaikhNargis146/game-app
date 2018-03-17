@@ -2,11 +2,6 @@
   <div class="login_block">
     <img src="img/login/logo.png" class="login_logo">
     <form name="login">
-      <!-- <div class="login_button">
-        <img src="img/login/icon_king.png" class="icon placeholder-icon">
-        <input type="text" name="username" ng-model="data.username" placeholder="USER NAME" required>
-      </div> -->
-
       <div class="list list-inset input-login bg-transparent">
         <label class="item item-input login_button">
           <img src="img/login/icon_king.png" class="icon placeholder-icon">
@@ -21,16 +16,9 @@
         </label>
         <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* Password is required.</span>
       </div>
-      <!-- <div class="login_button">
-        <img src="img/login/icon_lock.png" class="icon">
-        <input type="password" name="password" ng-model="data.password" placeholder="PASSWORD" required>
-      </div>
-      <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* password is required.</span> -->
-
       <div class="valid invailduser" ng-if="invalidUser">incorrect username or password</div>
-
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-click="playerLogin(data,login)">LOGIN</button>
+        <button class="button" type='submit' ng-click="playerLogin(data,login)" promise-btn>LOGIN</button>
       </div>
 
     </form>
