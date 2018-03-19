@@ -286,7 +286,6 @@ body {
     height: 100%;
     width: 100%;
     display: block;
-    background: red;
     background: url('../img/pic_overlay.png');
     background-size: 100% 100%;
     position: absolute;
@@ -348,7 +347,6 @@ body {
     fill: #00517a
   }
 }
-
 
 //login page scss
 @import "login";

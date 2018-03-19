@@ -132,16 +132,6 @@
           line-height: 2;
         }
         .plyr_pic {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          .pic {
-            width: 60%;
-            margin-right: 40%;
-            padding: 0 5%;
-          }
           .plyr_card {
             position: absolute;
             left: 40%;
@@ -333,9 +323,9 @@
       .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 0%; // transform: translateX(-50%);
+        bottom: 45px; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
         .dealer {
           &::after {
             height: 6vh;

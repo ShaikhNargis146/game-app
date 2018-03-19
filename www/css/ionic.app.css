@@ -10078,7 +10078,6 @@ body {
     height: 100%;
     width: 100%;
     display: block;
-    background: red;
     background: url("../img/pic_overlay.png");
     background-size: 100% 100%;
     position: absolute;
@@ -10194,7 +10193,7 @@ body {
       margin: 0;
       border-image: none;
       border: none;
-      padding: 10px 20px; }
+      padding: 10px 5%; }
       .login .login_block .login_button img {
         width: 25px; }
       .login .login_block .login_button input {
@@ -10551,42 +10550,32 @@ body {
           font-family: 'Cinzel-Bold';
           font-size: .6em;
           line-height: 2; }
-        .kingtable .main-table .playing-table .plyr .plyr_pic {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden; }
-          .kingtable .main-table .playing-table .plyr .plyr_pic .pic {
-            width: 60%;
-            margin-right: 40%;
-            padding: 0 5%; }
-          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
-            position: absolute;
-            left: 40%;
-            width: 150%; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
-              width: 105% !important; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
-              position: relative;
-              width: 20%;
-              vertical-align: middle;
-              display: inline-block; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
-                width: 100%;
-                vertical-align: middle; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
-                left: 0;
-                transition: transform 10ms;
-                transition-delay: none; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
-                left: -10%;
-                transition: transform 1s;
-                transition-delay: 50ms; }
-              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
-                left: -20%;
-                transition: transform 1s;
-                transition-delay: 100ms; }
+        .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
+          position: absolute;
+          left: 40%;
+          width: 150%; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
+            width: 105% !important; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
+            position: relative;
+            width: 20%;
+            vertical-align: middle;
+            display: inline-block; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
+              width: 100%;
+              vertical-align: middle; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
+              left: 0;
+              transition: transform 10ms;
+              transition-delay: none; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
+              left: -10%;
+              transition: transform 1s;
+              transition-delay: 50ms; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
+              left: -20%;
+              transition: transform 1s;
+              transition-delay: 100ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10686,8 +10675,8 @@ body {
       .kingtable .main-table .playing-table .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 0%;
-        transform: translate(-50%, -50%); }
+        bottom: 45px;
+        transform: translate(-50%, 0%); }
         .kingtable .main-table .playing-table .main-player .dealer::after {
           height: 6vh;
           width: 22%;
