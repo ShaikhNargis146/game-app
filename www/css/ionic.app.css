@@ -10567,7 +10567,8 @@ body {
             left: 40%;
             width: 150%; }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
-              width: 105% !important; }
+              width: 105% !important;
+              transform: scale(2); }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
               width: 20%;
@@ -10955,8 +10956,7 @@ body {
     width: 100%; }
     .option_menu .menu_cont .user_profile .profile_pic {
       width: 30%;
-      padding: 2%;
-      height: 20vh; }
+      padding: 2%; }
       .option_menu .menu_cont .user_profile .profile_pic img {
         width: 100%; }
     .option_menu .menu_cont .user_profile .profile_info {

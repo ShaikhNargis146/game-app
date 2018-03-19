@@ -148,6 +148,7 @@
             width: 150%;
             &.plyr_card1 {
               width: 105% !important;
+              transform: scale(2);
             }
             card {
               position: relative;
@@ -779,7 +780,7 @@
       .profile_pic {
         width: 30%;
         padding: 2%;
-        height: 20vh;
+        // height: 20vh;
         img {
           width: 100%;
         }
