@@ -28,7 +28,6 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-
       .state('table', {
         url: '/table/:id',
         cache: false,
@@ -42,13 +41,18 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         controller: 'Table6Ctrl'
       })
       // .state('app.table', {
-      //   url: '/table',
+      //   url: '/table/:id',
       //   views: {
       //     'menuContent': {
       //       templateUrl: 'templates/table.html'
       //     }
       //   }
-      // })
+      // })      
+      .state('redirecting', {
+        url: '/redirecting',
+        templateUrl: 'templates/redirecting.html',
+        controller: 'RedirectingCtrl'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
@@ -59,17 +63,15 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         cache: false,
         templateUrl: 'templates/lobby.html',
         controller: 'LobbyCtrl'
-
       })
       .state('poker', {
         url: '/poker',
         cache: false,
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'
-
       })
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('login');
+    $urlRouterProvider.otherwise('redirecting');
   });
 
 myApp.controller("AppCtrl", function ($scope) {});

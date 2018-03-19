@@ -1,3 +1,16 @@
+myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPlatform) {
+  $ionicPlatform.ready(function () {
+    screen.orientation.lock('portrait')
+  })
+
+  var player = $.jStorage.get("player");
+  if (player) {
+    $state.go("lobby");
+  } else {
+    $state.go("login");
+  }
+});
+
 myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait')
@@ -10,7 +23,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
       if (data.value) {
         Service.sendAccessToken($scope.accessT, function (data) {
           $.jStorage.set("player", data.data.data);
-          $scope.playerData = $.jStorage.get("player");
+          $scope.playerData = data.data.data;
           $state.go("lobby");
         })
       } else {

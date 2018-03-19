@@ -11,6 +11,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function () {});
   });
+  var player = $.jStorage.get("player");
+  // console.log(player.accessToken);
   // var defered = $q.defer();
   var obj = {
     all: function () {
@@ -125,54 +127,72 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
 
     makeSeen: function (data, callback) {
-      return $http.post(url + 'Player/makeSeen', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/makeSeen', {
+          "tableId": data.tableId,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     chaal: function (data, callback) {
-      return $http.post(url + 'Player/chaal', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken,
-        "amount": data.amount
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/chaal', {
+          "tableId": data.tableId,
+          "accessToken": accessToken,
+          "amount": data.amount
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     maketip: function (data, callback) {
-      $http.post(url + 'Table/makeTip', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken,
-        "amount": data.amount
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        $http.post(url + 'Table/makeTip', {
+          "tableId": data.tableId,
+          "accessToken": accessToken,
+          "amount": data.amount
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     pack: function (data, callback) {
-      return $http.post(url + 'Player/fold', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/fold', {
+          "tableId": data.tableId,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     sideShow: function (data, callback) {
-      return $http.post(url + 'Player/sideShow', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken
-      }).then(function (data) {
-        callback(data.data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/sideShow', {
+          "tableId": data.tableId,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data.data);
+        });
+      }
     },
     doSideShow: function (data, callback) {
-      return $http.post(url + 'Player/doSideShow', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/doSideShow', {
+          "tableId": data.tableId,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     showWinner: function (tableId, callback) {
       console.log("showWinner")
@@ -184,25 +204,30 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
     },
     rejectSideShow: function (data, callback) {
-      return $http.post(url + 'Player/cancelSideShow', {
-        "tableId": data.tableId,
-        "accessToken": data.accessToken
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/cancelSideShow', {
+          "tableId": data.tableId,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
 
     deletePlayer: function (playerdetails, callback) {
-      return $http.post(url + 'Player/deletePlayer', {
-        "tableId": playerdetails.tableId,
-        "accessToken": playerdetails.accessToken,
-      }).then(function (data) {
-        callback(data);
-      });
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/deletePlayer', {
+          "tableId": playerdetails.tableId,
+          "accessToken": accessToken,
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
 
     connectSocket: function (callback) {
-      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         $http.post(url + 'Player/updateSocket', {
@@ -262,15 +287,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-    getTransaction: function (data, pageNo, callback) {
-      return $http.post(url + 'Transaction/getPlayerTransaction', {
-        "page": pageNo,
-        "accessToken": data
-      }).then(function (data) {
-        callback(data.data);
-      });
+    getTransaction: function (pageNo, callback) {
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Transaction/getPlayerTransaction', {
+          "page": pageNo,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data.data);
+        });
+      }
     },
   };
-
   return obj;
 });
