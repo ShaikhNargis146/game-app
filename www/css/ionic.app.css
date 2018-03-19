@@ -10129,6 +10129,9 @@ body {
   .pie_loader #border {
     fill: #00517a; }
 
+.border_btm {
+  border-bottom: 1px solid grey; }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover;
