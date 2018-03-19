@@ -1,4 +1,4 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http,$timeout) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http, $timeout) {
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
@@ -65,11 +65,14 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.openTransferStatement = function () {
 
 
-    Service.searchPlayerTransaction({'_id':$scope.playerId,pageNo:1},function(data){
-      console.log("get transaction",data);
-      $scope.transferStatementData=data.data.data;
-      console.log("get transaction data",$scope.transferStatementData);
-    } )
+    Service.searchPlayerTransaction({
+      '_id': $scope.playerId,
+      pageNo: 1
+    }, function (data) {
+      console.log("get transaction", data);
+      $scope.transferStatementData = data.data.data;
+      console.log("get transaction data", $scope.transferStatementData);
+    })
     $scope.transferStatementModal.show();
   }
   $scope.closeTransferStatement = function () {
@@ -192,17 +195,21 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   Service.sendAccessToken($scope.accessToken, function (data) {
-    $scope.playerDataBalance = data.data;
-    // $scope.playerName=data.data.data.username;
-    // console.log(data.data.data.username, $scope.playerName )
-    $scope.playerId=data.data.data._id;
+    $scope.playerDataBalance = data.data.data;
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
-    console.log("send access token",data);
   })
 
-  $timeout(function(){
-   
-  },1000)
+  $scope.accountStatement = function () {
+    var pageNo = 1;
+    Service.getTransaction($scope.accessToken, pageNo, function (data) {
+      $scope.results = data.data.results;
+      console.log(data);
+      console.log($scope.results);
+    });
+  }
+  $timeout(function () {
+
+  }, 1000)
 
   //change password//
 

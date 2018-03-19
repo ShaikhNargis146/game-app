@@ -112,12 +112,12 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere && (players[8].cards.length > 0)" ng-class="{'main_card_anime':players[8].cards.length>0 && startAnimation}">
-        <div class="custom-row" ng-if="players[8] && players[8].isBlind && !players[8].isFold && remainingPlayer>1">
+        <div class="custom-row" ng-if="(players[8] && players[8].isBlind && !players[8].isFold && remainingPlayer>1) || (!players[8].isFold && winnerPlayerNo == -1 && remainingPlayer == 1)">
           <card card='NONE'> </card>
           <card card='NONE'> </card>
           <card card='NONE'> </card>
         </div>
-        <div ng-if="(!players[8].isBlind && !players[8].isFold) || (!players[8].isFold && winnerPlayerNo != -1 && remainingPlayer == 1)">
+        <div ng-if="(!players[8].isBlind && !players[8].isFold) || (!players[8].isFold && winnerPlayerNo != -1 && remainingPlayer > 1)">
           <div class=" custom-row ">
             <card card='{{players[8].cards[0]}}'> </card>
             <card card='{{players[8].cards[1]}}'> </card>

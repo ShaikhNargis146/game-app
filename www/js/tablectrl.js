@@ -20,6 +20,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
     // console.log(data);
   })
+
   //ask for sit here when joining new game
   $scope.sitHere = false;
   $scope.botAmount = 0;
@@ -253,7 +254,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
-        console.log("chaal amt played" , $scope.chaalAmt );
+        console.log("chaal amt played", $scope.chaalAmt);
       }
 
       if ($scope.extra.serve) {

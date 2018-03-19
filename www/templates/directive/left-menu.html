@@ -14,10 +14,15 @@
         <div class="name">{{username}}</div>
         <div class="player_badge"> {{userType}} </div>
         <div class="amt">
-          <img src="img/lobby/yellow_coin.png"> 
+          <img src="img/lobby/yellow_coin.png">
+          <span ng-if="!players[8]">
+            {{balance}}
+          </span>
           <!-- {{balance}} -->
-          
-          {{players[8].balance - players[8].totalAmount}}
+          <span ng-if="players[8]">
+            {{players[8].balance - players[8].totalAmount}}
+          </span>
+
         </div>
       </div>
     </div>
