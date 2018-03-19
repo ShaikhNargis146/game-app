@@ -148,7 +148,11 @@
             width: 150%;
             &.plyr_card1 {
               width: 105% !important;
-              transform: scale(2);
+              .custom-row{
+                transform: scale(1.8);
+                // z-index:5;
+              }
+              
             }
             card {
               position: relative;

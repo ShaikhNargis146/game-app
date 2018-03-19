@@ -10414,8 +10414,7 @@ body {
     align-items: flex-start; }
     .lobby_menu .menu_cont .user_profile .profile_pic {
       width: 30%;
-      padding: 2%;
-      height: 20vh; }
+      padding: 2%; }
       .lobby_menu .menu_cont .user_profile .profile_pic img {
         width: 100%;
         height: 100%;
@@ -10567,8 +10566,9 @@ body {
             left: 40%;
             width: 150%; }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
-              width: 105% !important;
-              transform: scale(2); }
+              width: 105% !important; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 .custom-row {
+                transform: scale(1.8); }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
               width: 20%;
