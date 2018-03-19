@@ -11,6 +11,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function () {});
   });
+  var socketId = $.jStorage.get("socketId");
+  console.log(socketId);
   var player = $.jStorage.get("player");
   // console.log(player.accessToken);
   // var defered = $q.defer();
