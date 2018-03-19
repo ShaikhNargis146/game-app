@@ -74,4 +74,4 @@ opacity: .5;
   }
 }
 
-@include timer('.animation_wrapper', 60, 300px,  #ccaf00, '5px solid rgba(0,0,0,0.5)');
+@include timer('.animation_wrapper', 15, 300px,  #ccaf00, '5px solid rgba(0,0,0,0.5)');

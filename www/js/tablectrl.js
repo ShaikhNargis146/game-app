@@ -383,6 +383,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.sitHere = false;
 
       } else {
+        if(data.data.error="position filled"){
+          console.log("position filled");
+          return
+        }
         if (data.error = "Insufficient Balance")
           $scope.showInsufficientFundsModal();
       }
