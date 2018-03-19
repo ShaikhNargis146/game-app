@@ -60,6 +60,15 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
 
+    searchPlayerTransaction: function (data, callback) {
+      $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
+        _id: data._id,
+        pageNo:data.pageNo
+      }).then(function (data) {
+        callback(data);
+      });
+    },
+
     //from teenpatti 
     tableData: function (callback) {
       $http({

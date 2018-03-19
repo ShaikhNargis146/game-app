@@ -1,4 +1,4 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http,$timeout) {
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
@@ -60,7 +60,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }).then(function (modal) {
     $scope.transferStatementModal = modal;
   });
+
+
   $scope.openTransferStatement = function () {
+
+
+    Service.searchPlayerTransaction({'_id':$scope.playerId,pageNo:1},function(data){
+      console.log("get transaction",data);
+      $scope.transferStatementData=data.data.data;
+      console.log("get transaction data",$scope.transferStatementData);
+    } )
     $scope.transferStatementModal.show();
   }
   $scope.closeTransferStatement = function () {
@@ -184,9 +193,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   Service.sendAccessToken($scope.accessToken, function (data) {
     $scope.playerDataBalance = data.data;
+    // $scope.playerName=data.data.data.username;
+    // console.log(data.data.data.username, $scope.playerName )
+    $scope.playerId=data.data.data._id;
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
-    console.log(data);
+    console.log("send access token",data);
   })
+
+  $timeout(function(){
+   
+  },1000)
 
   //change password//
 
