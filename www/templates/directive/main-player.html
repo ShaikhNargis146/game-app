@@ -22,12 +22,14 @@
   </div>
 
   <div ng-class="{dealer:player.isDealer}">
-    <div class="status" ng-if="player.isBlind && !player.isFold">
+    <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive">
       BLIND </div>
-    <div class="status" ng-if="player.isFold">
+    <div class="status" ng-if="player.isFold && player.isActive">
       PACK</div>
-    <div class="status" ng-if="!player.isBlind && !player.isFold">
+    <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive">
       SEEN </div>
+    <div class="status" ng-if="!player.isActive">
+      Waiting... </div>
     <div class="plyr_pic">
       <div class="pic">
         <div class="profile_pic_overlay">

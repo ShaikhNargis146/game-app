@@ -28,6 +28,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.winnerPlayerNo = -1;
 
   $scope.insufficientFunds = false;
+  $scope.chaalAmt = 0;
 
 
 
@@ -247,9 +248,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
-    if ($scope.extra) {}
 
     if ($scope.extra) {
+
+      if ($scope.extra.chaalAmt) {
+        $scope.chaalAmt = $scope.extra.chaalAmt;
+        console.log("chaal amt played" , $scope.chaalAmt );
+      }
+
       if ($scope.extra.serve) {
         console.log("serve")
         $scope.startAnimation = true;
@@ -258,6 +264,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         }, 50);
       }
     }
+
+
 
     if (data.pot) {
       $scope.potAmount = data.pot.totalAmount;

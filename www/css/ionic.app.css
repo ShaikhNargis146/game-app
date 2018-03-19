@@ -10550,32 +10550,42 @@ body {
           font-family: 'Cinzel-Bold';
           font-size: .6em;
           line-height: 2; }
-        .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
-          position: absolute;
-          left: 40%;
-          width: 150%; }
-          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
-            width: 105% !important; }
-          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
-            position: relative;
-            width: 20%;
-            vertical-align: middle;
-            display: inline-block; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
-              width: 100%;
-              vertical-align: middle; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
-              left: 0;
-              transition: transform 10ms;
-              transition-delay: none; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
-              left: -10%;
-              transition: transform 1s;
-              transition-delay: 50ms; }
-            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
-              left: -20%;
-              transition: transform 1s;
-              transition-delay: 100ms; }
+        .kingtable .main-table .playing-table .plyr .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .pic {
+            width: 60%;
+            margin-right: 40%;
+            padding: 0 5%; }
+          .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
+            position: absolute;
+            left: 40%;
+            width: 150%; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
+              width: 105% !important; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
+              position: relative;
+              width: 20%;
+              vertical-align: middle;
+              display: inline-block; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
+                width: 100%;
+                vertical-align: middle; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
+                left: 0;
+                transition: transform 10ms;
+                transition-delay: none; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
+                left: -10%;
+                transition: transform 1s;
+                transition-delay: 50ms; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
+                left: -20%;
+                transition: transform 1s;
+                transition-delay: 100ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
