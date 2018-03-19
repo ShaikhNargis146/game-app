@@ -4,78 +4,31 @@
       <div class="close" ng-click="closeTransferStatement()" ><img src="img/close.png"></div>
     <div class="heading">Transfer statement</div>
     <div class="top_field">
-      Date within
+      <!-- Date within
       <select>
         <option selected>1 Day</option>
         <option>2 Day</option>
         <option>3 Day</option>
       </select>
       of
-      <input type="text" ng-model="month">
+      <input type="text" ng-model="month"> -->
     </div>
 
     <div class="statement_content ">
       <table>
         <tr>
           <th>Date</th>
-          <th>description</th>
-          <th>amount</th>
+          <th>To</th>
+          <th>Type</th>
+          <th>Amount</th>
         </tr>
 
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-        
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-        
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-      
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-         
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-         
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-        
-        </tr>
+      <tr class="border_btm" ng-repeat="data in transferStatementData.results">
+        <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
+        <td>{{data.toUser.username}}</td>
+        <td> {{data.transactionType}}</td>
+        <td> {{data.amount}}</td>
+      </tr>
       </table>
 
 
