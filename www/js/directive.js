@@ -29,6 +29,7 @@ myApp.directive('card', function () {
       replace: false,
       scope: {
         player: "=ngPlayer",
+        remainingPlayer: "=ngRemainingPlayer",
         gameType: "=ngGameType",
         pos: "=ngPos",
         sitHere: "=ngSitHere",
@@ -45,7 +46,6 @@ myApp.directive('card', function () {
       replace: false,
       scope: {
         player: "=ngPlayer",
-
         gameType: "=ngGameType",
         pos: "=ngPos",
         mainplayer: "@ngMain",

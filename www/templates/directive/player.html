@@ -15,13 +15,13 @@
     </div>
     <div ng-class="{dealer:player.isDealer}">
       <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive">
-        BLIND </div>
+        BLIND</div>
       <div class="status" ng-if="player.isFold && player.isActive">
         PACK</div>
       <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive">
         SEEN </div>
-        <div class="status" ng-if="!player.isActive">
-          Waiting...</div>
+      <div class="status" ng-if="!player.isActive">
+        Waiting...</div>
       <div class="plyr_pic">
         <div class="pic">
           <div class="profile_pic_overlay">
@@ -34,7 +34,7 @@
             <card card='DONE'></card>
           </div>
         </div>
-        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && winnerPlayerNo != -1">
+        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && winnerPlayerNo != -1 && remainingPlayer > 1">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
@@ -49,6 +49,5 @@
       </div>
     </div>
   </div>
-  
-  </div>
-  
+
+</div>

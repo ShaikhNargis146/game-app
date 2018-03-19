@@ -239,7 +239,20 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
   });
-
+  //seat selection Player
+  io.socket.on("seatSelection", function (data) {
+    data = data.data;
+    console.log(data);
+    $scope.extra = data.extra;
+    if ($scope.tableId == $scope.extra.tableId) {
+      $scope.rawdata = data.players;
+      //re-arrange only if player already have seat
+      $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+      //making 9 length array by filling 0 in all empty field
+      $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
+      $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+    }
+  });
   // Update Socket Player
   updateSocketFunction = function (data) {
     data = data.data;
@@ -460,7 +473,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    if (data.data.ToPlayer.accessToken == $scope.jsData.accessToken) {
+    if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
       $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been rejected!"
