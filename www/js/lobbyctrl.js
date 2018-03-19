@@ -69,9 +69,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       '_id': $scope.playerId,
       pageNo: 1
     }, function (data) {
-      console.log("get transaction", data);
       $scope.transferStatementData = data.data.data;
-      console.log("get transaction data", $scope.transferStatementData);
     })
     $scope.transferStatementModal.show();
   }
@@ -203,8 +201,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     var pageNo = 1;
     Service.getTransaction($scope.accessToken, pageNo, function (data) {
       $scope.results = data.data.results;
-      console.log(data);
-      console.log($scope.results);
     });
   }
   $timeout(function () {
