@@ -5,7 +5,7 @@
       <img src="img/close.png">
     </div>
     <div class="heading">Account Statement</div>
-    <div class="top_field">
+    <!-- <div class="top_field">
       Date within
       <select>
         <option selected>1 Day</option>
@@ -14,78 +14,24 @@
       </select>
       of
       <input type="text" ng-model="month">
-    </div>
+    </div> -->
 
     <div class="statement_content ">
       <table>
         <tr>
           <th>Date</th>
-          <th>Description</th>
-          <th>P&L</th>
-          <th>credit Limit</th>
+          <th>W &amp; L</th>
           <th>balance</th>
         </tr>
+        <tr ng-repeat="result in results">
+          <td>
+            {{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
+            <br/> teenpatti
+          </td>
+          <td>{{result.type}}</td>
+          <td>{{result.amount}}</td>
+        </tr>
 
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
-        <tr>
-          <td>
-            20 jan 2018
-            <br/> teenpatti
-          </td>
-          <td>7.30 pm</td>
-          <td>$2950</td>
-          <td>$1280</td>
-          <td>3BTC</td>
-        </tr>
 
       </table>
 

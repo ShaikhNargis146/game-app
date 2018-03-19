@@ -63,7 +63,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     searchPlayerTransaction: function (data, callback) {
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
         _id: data._id,
-        pageNo:data.pageNo
+        pageNo: data.pageNo
       }).then(function (data) {
         callback(data);
       });
@@ -260,6 +260,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         data: data
       }).then(function (data) {
         callback(data);
+      });
+    },
+    getTransaction: function (data, pageNo, callback) {
+      return $http.post(url + 'Transaction/getPlayerTransaction', {
+        "page": pageNo,
+        "accessToken": data
+      }).then(function (data) {
+        callback(data.data);
       });
     },
   };
