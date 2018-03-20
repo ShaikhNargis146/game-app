@@ -12,7 +12,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     obj.connectSocket(function () {});
   });
   var socketId = $.jStorage.get("socketId");
-  var player = $.jStorage.get("player");
+
   console.log(socketId);
   // var defered = $q.defer();
   var obj = {
@@ -109,6 +109,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     savePlayerTotable: function (dataPlayer, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         console.log(dataPlayer.tableId);
@@ -142,6 +143,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
 
     makeSeen: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/makeSeen', {
@@ -153,6 +155,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     chaal: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/chaal', {
@@ -165,6 +168,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     maketip: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         $http.post(url + 'Table/makeTip', {
@@ -177,6 +181,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     pack: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/fold', {
@@ -188,6 +193,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     sideShow: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/sideShow', {
@@ -199,6 +205,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     doSideShow: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/doSideShow', {
@@ -218,6 +225,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     rejectSideShow: function (data, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/cancelSideShow', {
@@ -230,6 +238,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     deletePlayer: function (playerdetails, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Player/deletePlayer', {
@@ -242,6 +251,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     connectSocket: function (callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         $http.post(url + 'Player/updateSocket', {
@@ -254,6 +264,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
 
     },
     getTransaction: function (pageNo, callback) {
+      var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
         return $http.post(url + 'Transaction/getPlayerTransaction', {

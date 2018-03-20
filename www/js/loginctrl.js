@@ -20,6 +20,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
   $scope.playerLogin = function (data, login) {
     $scope.loginPromise = Service.playerLogin(data, function (data) {
       $scope.accessT = data.data;
+      console.log($scope.accessT);
       if (data.value) {
         Service.sendAccessToken($scope.accessT, function (data) {
           $.jStorage.set("player", data.data.data);
