@@ -112,7 +112,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       console.log(dataPlayer.tableId)
       if (player) {
         var accessToken = player.accessToken;
-        console.log(dataPlayer.tableId)
+        // console.log(dataPlayer.tableId);
+        dataPlayer.socketId = socketId;
+        dataPlayer.accessToken = accessToken;
+        console.log(dataPlayer);
         $http({
           url: url + 'Table/addUserToTable',
           method: 'POST',

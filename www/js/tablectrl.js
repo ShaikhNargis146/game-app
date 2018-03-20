@@ -380,10 +380,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.socketId = $.jStorage.get("socketId");
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
-    $scope.dataPlayer.accessToken = $scope.jsData.accessToken;
+    // $scope.dataPlayer.accessToken = $scope.jsData.accessToken;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
-    $scope.dataPlayer.socketId = $scope.socketId;
+    // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
       if (data.data.value) {
         $scope.sitHere = false;
