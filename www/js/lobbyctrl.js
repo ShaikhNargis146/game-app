@@ -138,8 +138,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.image = $scope.playerData.image;
   $scope.accessToken = $scope.playerData.accessToken;
 
-  console.log($scope.accessToken);
-
   if (!$scope.accessToken) {
     $state.go("login");
   }
