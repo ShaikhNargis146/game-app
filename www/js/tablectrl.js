@@ -10,7 +10,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.ShowLoader = true;
   $timeout(function () {
     $scope.ShowLoader = false;
-  }, 2000);
+  }, 5000);
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
   $scope.jsData.memberId = $scope.jsData._id;
