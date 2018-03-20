@@ -13,7 +13,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
   });
   var socketId = $.jStorage.get("socketId");
   var player = $.jStorage.get("player");
-  console.log(player.accessToken);
   console.log(socketId);
   // var defered = $q.defer();
   var obj = {
@@ -110,8 +109,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       });
     },
     savePlayerTotable: function (dataPlayer, callback) {
+      console.log(dataPlayer.tableId)
       if (player) {
         var accessToken = player.accessToken;
+        console.log(dataPlayer.tableId)
         $http({
           url: url + 'Table/addUserToTable',
           method: 'POST',
