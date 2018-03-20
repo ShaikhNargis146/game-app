@@ -10565,10 +10565,12 @@ body {
             position: absolute;
             left: 40%;
             width: 150%; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card .custom-row {
+              transition: transform 500ms; }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
               width: 105% !important; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 .custom-row {
-                transform: scale(1.8); }
+                transform: scale(2.5); }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
               width: 20%;

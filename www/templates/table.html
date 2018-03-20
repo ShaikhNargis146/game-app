@@ -112,7 +112,7 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere && (players[8].cards.length > 0)" ng-class="{'main_card_anime':players[8].cards.length>0 && startAnimation}">
-        <div class="custom-row" ng-if="(players[8] && players[8].isBlind && !players[8].isFold && remainingPlayer>1) || (!players[8].isFold && winnerPlayerNo == -1 && remainingPlayer == 1)">
+        <div class="custom-row" ng-if="(players[8] && players[8].isBlind && !players[8].isFold && remainingPlayer>1) || ( winnerPlayerNo == -1 && remainingPlayer == 1)">
           <card card='NONE'></card>
           <card card='NONE'></card>
           <card card='NONE'></card>
@@ -135,6 +135,7 @@
       <button class="slide_show " ng-click="showWinner()" promise-btn="showWinnerPromise" ng-if="(players[8].isTurn) && (remainingPlayer == 2) && !players[8].isFold">show</button>
       <span class="info" ng-class="{'color_red':insufficientFunds}"> {{players[8].name}}
         <img src="img/coin.png"> {{players[8].balance - players[8].totalAmount}}
+        <!-- <span ng-if="insufficientFunds && " >3X remaining</span> -->
       </span>
       <button class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt && !players[8].isFold">
         -

@@ -297,9 +297,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-    if (($scope.players[8].isTurn) && (($scope.players[8].balance - $scope.players[8].totalAmount) < (data.table.chalAmt * 2 * 3))) {
+    if (($scope.players[8].balance - $scope.players[8].totalAmount) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
-      $scope.showInsufficientFundsModal();
+      // $scope.showInsufficientFundsModal();
     } else {
       $scope.insufficientFunds = false;
     }

@@ -146,10 +146,13 @@
             position: absolute;
             left: 40%;
             width: 150%;
+            .custom-row{
+              transition: transform 500ms;
+            }
             &.plyr_card1 {
               width: 105% !important;
               .custom-row{
-                transform: scale(1.8);
+                transform: scale(2.5);
                 // z-index:5;
               }
               
