@@ -9,7 +9,7 @@
       <!-- <img src="img/option.png" class=""> -->
       <i class="icon ion-navicon-round"></i>
     </div>
-    <game-history></game-history>
+    <!-- <game-history></game-history> -->
     <div class="right_side_icon right">
       <div class="setting_menu_icon">
         <span class="icon ion-information" ng-click="toggleTableInfo()"></span>
@@ -134,7 +134,7 @@
         ng-disabled="seenPlayer > 0" promise-btn="sideShowPromise"> side show </button>
       <button class="slide_show " ng-click="showWinner()" promise-btn="showWinnerPromise" ng-if="(players[8].isTurn) && (remainingPlayer == 2) && !players[8].isFold">show</button>
       <span class="info" ng-class="{'color_red':insufficientFunds}"> {{players[8].name}}
-        <img src="img/coin.png"> {{players[8].balance - players[8].totalAmount}}
+        <img src="img/coin.png"> {{players[8].balance}}
         <!-- <span ng-if="insufficientFunds && " >3X remaining</span> -->
       </span>
       <button class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt && !players[8].isFold">
