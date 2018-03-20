@@ -23,7 +23,7 @@
           <th>Amount</th>
         </tr>
 
-      <tr class="border_btm" ng-repeat="data in transferStatementData.results">
+      <tr class="border_btm" ng-repeat="data in transferStatementData">
         <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
         <td>{{data.toUser.username}}</td>
         <td> {{data.transactionType}}</td>

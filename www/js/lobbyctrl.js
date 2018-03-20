@@ -69,7 +69,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       '_id': $scope.playerId,
       pageNo: 1
     }, function (data) {
-      $scope.transferStatementData = data.data.data;
+      $scope.transferStatementData = data.data.data.results;
+      console.log(data);
     })
     $scope.transferStatementModal.show();
   }
@@ -133,8 +134,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.playerData = $.jStorage.get("player");
+  console.log($scope.playerData);
   $scope.username = $scope.playerData.username;
   $scope.userType = $scope.playerData.userType;
+  $scope.playerId = $scope.playerData._id;
   $scope.image = $scope.playerData.image;
   $scope.accessToken = $scope.playerData.accessToken;
 
@@ -187,7 +190,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   Service.sendAccessToken($scope.accessToken, function (data) {
-    console.log("access token",data)
+    console.log("access token", data)
     $scope.playerDataBalance = data.data.data;
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
   })
@@ -195,7 +198,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.accountStatement = function () {
     var pageNo = 1;
     Service.getTransaction(pageNo, function (data) {
-      $scope.results = data.data.results;
+      console.log(data);
+      $scope.results = data.data.data.results;
     });
   }
   $timeout(function () {

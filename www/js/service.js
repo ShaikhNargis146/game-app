@@ -64,6 +64,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     },
 
     searchPlayerTransaction: function (data, callback) {
+      console.log(data._id);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
         _id: data._id,
         pageNo: data.pageNo
