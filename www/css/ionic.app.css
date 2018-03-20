@@ -10143,9 +10143,16 @@ body {
   z-index: 20; }
   .table_loader span {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); }
+  .table_loader img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* color: red; */
+    width: 5%; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10586,6 +10593,7 @@ body {
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
               width: 105% !important; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 .custom-row {
+                transition: transform 500ms;
                 transform: scale(2.5); }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
               position: relative;
@@ -10692,7 +10700,9 @@ body {
         position: absolute;
         position: absolute;
         top: 0;
-        transform: translateY(-108%); }
+        transform: translateY(-108%);
+        height: 40px;
+        width: 70px; }
       .kingtable .main-table .playing-table .dealer::after {
         display: block;
         content: '';

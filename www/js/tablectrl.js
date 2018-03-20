@@ -35,6 +35,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
+  $scope.startCoinAnime=false;
 
 
 
@@ -267,7 +268,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.extra = data.extra;
 
     if ($scope.extra) {
-
+  if($scope.extra.newGame){
+    console.log("new game start here");
+    $scope.chaalAmt=data.table.blindAmt;
+    $scope.startCoinAnime=true;
+    $timeout(function(){
+      $scope.startCoinAnime=false;
+    },500 )
+  }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
       }

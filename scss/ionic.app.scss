@@ -366,9 +366,17 @@ span{
   position: absolute;
   // width:100%;
   // height: 100%;
-  top:50%;
+  top:40%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* color: red; */
+  width: 5%;
 }
 
 }
