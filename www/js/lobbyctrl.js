@@ -191,6 +191,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   Service.sendAccessToken($scope.accessToken, function (data) {
+    console.log("access token",data)
     $scope.playerDataBalance = data.data.data;
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
   })

@@ -10131,6 +10131,22 @@ body {
 .border_btm {
   border-bottom: 1px solid grey; }
 
+.table_loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.5em;
+  z-index: 20; }
+  .table_loader span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover;
@@ -10850,8 +10866,7 @@ body {
         background-size: 100% 100%;
         min-width: 25%; }
       .kingtable .main-table .playing-player-info .minus {
-        font-size: 1em;
-        margin: 0px 5px; }
+        font-size: 1em; }
       .kingtable .main-table .playing-player-info .coin {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%; }

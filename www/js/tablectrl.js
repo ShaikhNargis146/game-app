@@ -1,10 +1,16 @@
 var updateSocketFunction;
 var showWinnerFunction;
-myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout) {
+myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
   });
 
+
+
+  $scope.ShowLoader = true;
+  $timeout(function () {
+    $scope.ShowLoader = false;
+  }, 2000);
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
   $scope.jsData.memberId = $scope.jsData._id;
@@ -18,6 +24,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.playerDataBalance = data.data.data;
     $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
   })
+
 
   //ask for sit here when joining new game
   $scope.sitHere = false;
