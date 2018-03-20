@@ -138,10 +138,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.image = $scope.playerData.image;
   $scope.accessToken = $scope.playerData.accessToken;
 
-  if (!$scope.accessToken) {
-    $state.go("login");
-  }
-
   //onclick for each play type
   $scope.variationToggle = function ($event) {
     $event.stopPropagation();
@@ -197,7 +193,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.accountStatement = function () {
     var pageNo = 1;
-    Service.getTransaction($scope.accessToken, pageNo, function (data) {
+    Service.getTransaction(pageNo, function (data) {
       $scope.results = data.data.results;
     });
   }

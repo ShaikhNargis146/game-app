@@ -249,6 +249,29 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
 
     },
+    getTransaction: function (pageNo, callback) {
+      if (player) {
+        var accessToken = player.accessToken;
+        $http.post(url + 'Transaction/getPlayerTransaction', {
+          accessToken: accessToken,
+          "page": pageNo
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    // getTransaction: function (pageNo, callback) {
+    //   if (player) {
+    //     var accessToken = player.accessToken;
+    //     console.log(accessToken);
+    //     return $http.post(url + 'Transaction/getPlayerTransaction', {
+    //       "page": pageNo,
+    //       "accessToken": accessToken
+    //     }).then(function (data) {
+    //       callback(data);
+    //     });
+    //   }
+    // },
 
     getByPlrId: function (data, callback) {
       $http.post(url + 'Player/getByPlrId', {
@@ -296,18 +319,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }).then(function (data) {
         callback(data);
       });
-    },
-    getTransaction: function (pageNo, callback) {
-      if (player) {
-        var accessToken = player.accessToken;
-        return $http.post(url + 'Transaction/getPlayerTransaction', {
-          "page": pageNo,
-          "accessToken": accessToken
-        }).then(function (data) {
-          callback(data.data);
-        });
-      }
-    },
+    }
   };
   return obj;
 });
