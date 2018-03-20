@@ -90,16 +90,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-
-    getAllActive: function (data, callback) {
-      $http({
-        url: url + 'Table/getAllActive',
-        method: 'POST',
-        data: data
-      }).then(function (data) {
-        callback(data);
-      });
-    },
     getAll: function (data, callback) {
       $http({
         url: url + 'Player/getAll',
@@ -113,12 +103,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       var player = $.jStorage.get("player");
       if (player) {
         var accessToken = player.accessToken;
-        console.log(dataPlayer.tableId);
-        console.log(dataPlayer);
-        console.log(dataPlayer.tableId);
-        console.log(socketId);
-        console.log(accessToken);
-        $http({
+        return $http({
           url: url + 'Table/addUserToTable',
           method: 'POST',
           data: {
@@ -218,12 +203,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
     },
     showWinner: function (tableId, callback) {
-      console.log("showWinner")
-      return $http.post(url + 'Player/showWinner', {
-        "tableId": tableId,
-      }).then(function (data) {
-        callback(data);
-      });
+      var player = $.jStorage.get("player");
+      console.log("showWinner", player.accessToken)
+      if (player) {
+        var accessToken = player.accessToken;
+        return $http.post(url + 'Player/showWinner', {
+          "accessToken": accessToken,
+          "tableId": tableId,
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     rejectSideShow: function (data, callback) {
       var player = $.jStorage.get("player");
