@@ -11295,6 +11295,9 @@ body {
 .opacity-05 {
   opacity: .5; }
 
+.custom-row {
+  transition: transform 500ms; }
+
 .table6 .player2 {
   right: 5% !important;
   top: 2% !important; }

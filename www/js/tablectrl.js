@@ -385,15 +385,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.sitNummber = sitNum;
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
+      // console.log("sit",data)
       if (data.data.value) {
         $scope.sitHere = false;
 
       } else {
-        if (data.data.error = "position filled") {
+        if (data.data.error == "position filled") {
           console.log("position filled");
           return
         }
-        if (data.error = "Insufficient Balance")
+        if (data.data.error == "Insufficient Balance")
           $scope.showInsufficientFundsModal();
       }
     });
