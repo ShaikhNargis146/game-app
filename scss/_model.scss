@@ -134,7 +134,7 @@
 .change_password-model {
   .field {
     text-align: center;
-    padding: 8%;
+    padding: 5%;
     width: 70%;
     margin: 0 auto;
     padding-top: 2%;
@@ -219,26 +219,36 @@
           font-size: 1.1em;
         }
       }
-      input {
-        // display: inline-block;
-        // height: 2em;
-        // background: url("../img/login_button_background1.png");
-        // background-size:100% 100%;
-        // color: white;
-        // padding-left: 6%;
-      }
       button {
         background: url("../img/model/submit_background.png");
         background-size: 100% 100%;
         color: white;
         padding: 5px 25px;
         border: 0px;
-        position: absolute;
-        bottom: 5%;
-        left: 50%;
-        transform: translate(-50%);
       }
     }
+  }
+}
+
+.rel {
+  position: relative;
+}
+
+.form-update {
+  .field form .login_button {
+    margin: 10px 3% 20px;
+    padding: 11px 25px 15px;
+  }
+  form {
+    margin-bottom: 40px;
+  }
+  span.valid {
+    position: absolute;
+    left: 20px;
+    margin-top: -21px;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
   }
 }
 

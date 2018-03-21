@@ -237,6 +237,85 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
 
+  //private Table
+
+  $ionicModal.fromTemplateUrl('templates/model/create-private-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalCreate = modal;
+  });
+
+  $scope.createPrivateModal = function () {
+    $scope.ModalCreate.show();
+  }
+  $scope.closeModal = function () {
+    $scope.ModalCreate.hide();
+  };
+
+  //private table info modal
+
+  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalInfo = modal;
+  });
+
+  $scope.openInfoModal = function () {
+    $scope.ModalInfo.show();
+  }
+  //search table
+  $ionicModal.fromTemplateUrl('templates/model/search-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalSearch = modal;
+  });
+
+  $scope.opensearchModal = function () {
+    $scope.ModalSearch.show();
+  }
+
+  $scope.itemArray = [{
+      id: 1,
+      name: 'private'
+    },
+    {
+      id: 2,
+      name: 'second'
+    },
+    {
+      id: 3,
+      name: 'third'
+    },
+    {
+      id: 4,
+      name: 'fourth'
+    },
+    {
+      id: 5,
+      name: 'fifth'
+    },
+  ];
+
+  $scope.selected = {
+    value: $scope.itemArray[0]
+  };
+
+
+  //privatetable call
+  $scope.createPrivateTable = function (formData) {
+    formData.accessToken = $.jStorage.get("accessToken");
+    NavigationService.createTable(formData, function (data) {
+      if (data.value) {
+        toastr.success("Table Created Successfully");
+        $state.go("viewTable");
+      } else {
+        toastr.error("Error in Table Creation");
+      }
+    });
+  };
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {

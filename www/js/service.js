@@ -36,11 +36,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
       }
       return null;
     },
-
-
-
-    //from teenpatti backend
-
     playerLogin: function (data, callback) {
       return $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
         data = data.data;
@@ -62,7 +57,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-
     searchPlayerTransaction: function (data, callback) {
       console.log(data._id);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
@@ -306,7 +300,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-
+    createTable: function (data, callback) {
+      $http.post(url + 'Table/createPrivateTable', data).then(function (data) {
+        data = data.data;
+        callback(data);
+      });
+    },
     addAmountToPot: function (data, callback) {
       $http.post(url + 'Pot/addAmountToPot', {
         data: data
