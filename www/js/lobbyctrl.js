@@ -114,6 +114,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.priceRangeModal.hide();
   }
   $scope.logout = function () {
+    var accessToken = $.jStorage.get("accessToken");
+    Service.playerLogout(accessToken, function (data) {
+      // console.log("logout", data);
+    });
     $.jStorage.flush();
     $state.go('login');
   }
@@ -203,9 +207,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.results = data.data.data.results;
     });
   }
-  $timeout(function () {
-
-  }, 1000)
 
   //change password//
 
@@ -249,7 +250,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.createPrivateModal = function () {
     $scope.ModalCreate.show();
   }
-  $scope.closeModal = function () {
+  $scope.closePrivateTable = function () {
     $scope.ModalCreate.hide();
   };
 
@@ -307,13 +308,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //privatetable call
   $scope.createPrivateTable = function (formData) {
     formData.accessToken = $.jStorage.get("accessToken");
-    NavigationService.createTable(formData, function (data) {
+    Service.createTable(formData, function (data) {
+      console.log("private Table", data)
       if (data.value) {
-        toastr.success("Table Created Successfully");
-        $state.go("viewTable");
-      } else {
-        toastr.error("Error in Table Creation");
-      }
+
+      } else {}
     });
   };
 

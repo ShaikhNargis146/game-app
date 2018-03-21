@@ -42,6 +42,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
+    logout: function (data, callback) {
+      return $http.post(adminurl + 'member/playerLogout', {
+        accessToken: data
+      }).then(function (data) {
+        callback(data);
+      });
+    },
 
     passwordchange: function (data, callback) {
       return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
