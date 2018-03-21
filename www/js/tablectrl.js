@@ -279,6 +279,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("new game start here");
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
+        $scope.winnerPlayerNo = -1;
         $timeout(function () {
           $scope.startCoinAnime = false;
         }, 1000)
@@ -339,9 +340,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     })
     $scope.winnerPlayerNo = $scope.winner.playerNo;
 
-    $timeout(function () {
-      $scope.winnerPlayerNo = -1;
-    }, 8000);
   };
 
   //showWinner
@@ -358,6 +356,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.l.tableId = $stateParams.id;
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
+
       console.log("get all", data);
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
