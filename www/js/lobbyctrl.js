@@ -114,10 +114,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.priceRangeModal.hide();
   }
   $scope.logout = function () {
-    var accessToken = $.jStorage.get("accessToken");
-    Service.playerLogout(accessToken, function (data) {
-      // console.log("logout", data);
-    });
+    // var accessToken = $.jStorage.get("accessToken");
+    // Service.playerLogout(accessToken, function (data) {
+    //   // console.log("logout", data);
+    // });
     $.jStorage.flush();
     $state.go('login');
   }
