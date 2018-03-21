@@ -382,6 +382,15 @@ body {
   opacity: .5;
 }
 
+.custom_button {
+  background: url('../img/text_bg.png');
+  background-size: 100% 100%;
+  border: 0px;
+  color: white;
+  font-size: 1em;
+  padding: 5px 20%;
+}
+
 //login page scss
 @import "login";
 //king table scss
