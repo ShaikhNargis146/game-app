@@ -4,6 +4,7 @@
   bottom: 10%;
   left: 10%;
   min-height: 5vh;
+  height: 80vh;
   width: 80%;
   background: url('../img/model_bg.png');
   background-size: 100% 100%;
@@ -146,11 +147,14 @@
 .change_password-model {
   .field {
     text-align: center;
-    padding: 5%;
-    width: 70%;
-    margin: 0 auto;
+    padding: 5%; // width: 70%;
+    // margin: 0 auto;
     padding-top: 2%;
+    height: calc(80vh - 17vh);
+    overflow-y: scroll;
     form {
+      width: 70%;
+      margin: 0 auto;
       .login_button {
         background: url('../img/login_button_background1.png');
         background-size: 100% 100%;

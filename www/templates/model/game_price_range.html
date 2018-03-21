@@ -41,7 +41,7 @@
           <th>Max Players</th>
           <th>Action</th>
         </tr>
-        <tr ng-repeat="data in tableData">
+        <tr ng-repeat="data in tableData | filter : !'private'">
           <td>{{data.name}} </td>
           <td>{{data.chalLimit}} </td>
           <td>{{data.maximumNoOfPlayers}}</td>
