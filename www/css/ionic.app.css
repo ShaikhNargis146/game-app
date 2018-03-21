@@ -10480,7 +10480,7 @@ body {
     word-spacing: 20px; }
 
 .kingtable {
-  background: url("../img/table-background.png");
+  background: url("../img/table-background.jpg");
   background-size: cover; }
   .kingtable .top_field {
     position: relative;
@@ -11316,12 +11316,61 @@ body {
   transition: none !important; }
 
 .total_played_coin {
-  transition: all 2s; }
+  transition: none; }
   .total_played_coin.to_p1 {
     transform: none !important;
     bottom: unset !important;
     top: 65% !important;
-    left: 16% !important; }
+    left: 16% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p2 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 30% !important;
+    left: -1% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p3 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 3% !important;
+    left: 15% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p4 {
+    transform: none !important;
+    bottom: unset !important;
+    top: -5% !important;
+    left: 33% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p5 {
+    transform: none !important;
+    bottom: unset !important;
+    top: -5% !important;
+    left: 66% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p6 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 0% !important;
+    left: 85% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p7 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 35% !important;
+    left: 92% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p8 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 60% !important;
+    left: 72% !important;
+    transition: all 3s !important; }
+  .total_played_coin.to_p9 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 70% !important;
+    left: 52% !important;
+    transition: all 3s !important; }
 
 .table6 .player2 {
   right: 5% !important;
