@@ -6,11 +6,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
 
-
+  //loader for table
   $scope.ShowLoader = true;
-  $timeout(function () {
+  // console.log("socket id from socket", $.jStorage.get("socktId"));
+  if ($.jStorage.get("socketId")) {
     $scope.ShowLoader = false;
-  }, 5000);
+  } else {
+    $timeout(function () {
+      $scope.ShowLoader = false;
+    }, 5000);
+  }
+
+
   $scope.jsData = $.jStorage.get("player");
   $scope.jsData.accessToken = $scope.jsData.accessToken;
   $scope.jsData.memberId = $scope.jsData._id;
