@@ -119,6 +119,10 @@
       th {
         font-family: 'Cinzel-Bold';
         font-size: .9em;
+        text-align: center;
+        &:nth-child(1) {
+          text-align: left;
+        }
       }
       td {
         font-size: .8em;
@@ -126,6 +130,14 @@
         line-height: 1.5;
         padding-bottom: 5px;
         padding-top: 5px;
+        text-align: center;
+      }
+      tr {
+        &>td {
+          &:nth-child(1) {
+            text-align: left;
+          }
+        }
       }
     }
   }
@@ -434,46 +446,43 @@
 }
 
 .price_range_modal {
-  height: 40vh;
-  top: 40%;
-  background: url("../img/model/price_range_bg.png");
-  background-size: 100% 100%;
-  ion-content {
-    padding: 0px;
-  }
-  .heading {
-    padding: 2%;
-    span {
-      width: 60%;
-      display: inline-block;
-      border-right: 0;
-      border-left: 0;
-      border-top: 0;
-      border-bottom: 1px solid;
-    }
-  }
-  .table_type {
-    width: 80%;
-    margin: 0 auto;
-    white-space: nowrap;
-    height: calc(40vh - 41px);
-    .type {
-      width: 28%;
-      background: url('../img/lobby/text_bg.png');
-      background-size: 100% 100%;
-      margin: 2%;
-      padding: 3%;
-      text-align: center; // display: flex;
-      // flex-direction: column;
-      // align-items: center;
-      // justify-content: center; // color:white;
-      display: inline-block;
-      span {
-        font-size: .9em;
-        line-height: 1.5;
-      }
-    }
-  }
+  // height: 40vh;
+  // top: 40%;
+  // background: url("../img/model/price_range_bg.png");
+  // background-size: 100% 100%;
+  // ion-content {
+  //   padding: 0px;
+  // } 
+  // .heading {
+  //   padding: 2%;
+  //   span {
+  //     width: 60%;
+  //     display: inline-block;
+  //     border-right: 0;
+  //     border-left: 0;
+  //     border-top: 0;
+  //     border-bottom: 1px solid;
+  //   }
+  // }
+  // .table_type {
+  //   width: 80%;
+  //   margin: 0 auto;
+  //   white-space: nowrap;
+  //   height: calc(40vh - 41px);
+  //   .type {
+  //     width: 28%;
+  //     background: url('../img/lobby/text_bg.png');
+  //     background-size: 100% 100%;
+  //     margin: 2%;
+  //     padding: 3%;
+  //     text-align: center; 
+  //     display: inline-block;
+  //     span {
+  //       font-size: .9em;
+  //       line-height: 1.5;
+  //     }
+  //   }
+  // }
 }
 
 .side-show {

@@ -298,6 +298,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     if (data.pot) {
       $scope.potAmount = data.pot.totalAmount;
       $scope.updatePotAmount(data.pot.totalAmount);
+    } else {
+      $scope.potAmount = 0;
     }
 
     $scope.maxAmt = data.maxAmt;
@@ -373,7 +375,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-
+      console.log("final upadate plyr", $scope.players)
     });
 
   };
@@ -390,6 +392,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //player sitting
   $scope.sitHerefn = function (sitNum) {
+    console.log("sit");
     if (!$scope.sitHere) {
       return;
     }
@@ -401,7 +404,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.sitNummber = sitNum;
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerTotable($scope.dataPlayer, function (data) {
-      // console.log("sit",data)
+      console.log("sit", data);
       if (data.data.value) {
         $scope.sitHere = false;
 
@@ -416,6 +419,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     });
   };
 
+
+  $scope.standUp = function () {
+    var playerdetails = {};
+    playerdetails.accessToken = $scope.jsData.accessToken;
+    playerdetails.tableId = $scope.tableId;
+    console.log("standup")
+    Service.deletePlayer(playerdetails, function (data) {
+      // $scope.sitHere = false;
+      // $scope.updatePlayers();
+      // $scope.closeAllModal();
+      console.log("delete player in stadup", data)
+      $state.reload();
+
+
+    });
+
+  }
 
   //fill all player
   $scope.fillAllPlayer = function (array) {

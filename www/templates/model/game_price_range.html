@@ -1,31 +1,60 @@
-<ion-modal-view class="custom-model statement-model price_range_modal">
+<!-- <ion-modal-view class="custom-model statement-model ">
 
   <ion-content>
     <div class="heading">
       <span class="border-gradient"> Table </span>
     </div>
-
-
-    <!-- <div class="type" ui-sref="table">
-      <div class="left_img">
-        <img src="img/lobby/price_modal/left_img.png" class="img-responsive">
-      </div>
-      <div class="right_img">
-        <img src="img/lobby/price_modal/right_img.png" class="img-responsive">
-        <div class="price">
-          <img src="img/coin.svg" class="coin">500 -
-          <img src="img/coin.svg" class="coin">1000
-        </div>
-      </div>
-    </div> -->
-
-
     <ion-scroll direction="x" class="table_type no-click-effect" ng-click="$event.stopPropagation()">
       <div class="type" ng-repeat="t in tableData track by $index" ng-click="goToTable(t)" promise-btn="goToTable">
         <span> {{t.blindAmt}} - {{t.chalAmt}} </span>
       </div>
     </ion-scroll>
 
+
+  </ion-content>
+</ion-modal-view> -->
+
+
+<ion-modal-view class="custom-model statement-model price_range_modal">
+
+  <ion-content>
+    <div class="close" ng-click="closePriceRangeModal()">
+      <img src="img/close.png">
+    </div>
+    <div class="heading">table</div>
+    <div class="top_field">
+      <!-- Filter
+      <select>
+        <option selected>1 Day</option>
+        <option>2 Day</option>
+        <option>3 Day</option>
+      </select>
+      of
+      <input type="text" ng-model="month"> -->
+    </div>
+
+    <div class="statement_content ">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Stakes</th>
+          <th>Max Players</th>
+          <th>Action</th>
+        </tr>
+        <tr ng-repeat="data in tableData">
+          <td>{{data.name}} </td>
+          <td>{{data.chalLimit}} </td>
+          <td>{{data.maximumNoOfPlayers}}</td>
+          <td>
+            <button class="custom_button" ng-click="goToTable(data)">PLAY</button>
+          </td>
+        </tr>
+
+
+      </table>
+
+
+    </div>
 
   </ion-content>
 </ion-modal-view>
