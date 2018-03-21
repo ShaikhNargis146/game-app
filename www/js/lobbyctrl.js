@@ -160,6 +160,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
 
 
+    //for table selection//
+
+    Service.tableData(function (data) {
+      console.log(data);
+      $scope.tableData = data.data.data.results;
+    });
   }
 
   $scope.playJoker = function ($event) {
@@ -171,11 +177,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
   }
 
-  //for table selection//
-
-  Service.tableData(function (data) {
-    $scope.tableData = data.data.data.results;
-  });
 
   $scope.goToTable = function (table) {
     $scope.tableId = table._id;
