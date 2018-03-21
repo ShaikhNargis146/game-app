@@ -35,7 +35,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
-  $scope.startCoinAnime=false;
+  $scope.startCoinAnime = false;
 
 
 
@@ -263,19 +263,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
   // Update Socket Player
   updateSocketFunction = function (data) {
-    console.log("update socket",data);
+    console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
 
     if ($scope.extra) {
-  if($scope.extra.newGame){
-    console.log("new game start here");
-    $scope.chaalAmt=data.table.blindAmt;
-    $scope.startCoinAnime=true;
-    $timeout(function(){
-      $scope.startCoinAnime=false;
-    },500 )
-  }
+      if ($scope.extra.newGame) {
+        console.log("new game start here");
+        $scope.chaalAmt = data.table.blindAmt;
+        $scope.startCoinAnime = true;
+        $timeout(function () {
+          $scope.startCoinAnime = false;
+        }, 500)
+      }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
       }
@@ -287,8 +287,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         }, 50);
       }
     }
-
-
 
     if (data.pot) {
       $scope.potAmount = data.pot.totalAmount;
@@ -313,7 +311,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-    if (($scope.players[8].balance ) < (data.table.chalAmt * 2 * 3)) {
+    if (($scope.players[8].balance) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
       // $scope.showInsufficientFundsModal();
     } else {
@@ -324,7 +322,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   showWinnerFunction = function (data) {
-    console.log("show winnwe",data);
+    console.log("show winnwe", data);
     $scope.showWinnerPlayer = data.data.players;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
@@ -351,7 +349,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.l.tableId = $stateParams.id;
     Service.getAll($scope.l, function (data) {
       // check whether dealer is selected or not
-      console.log("get all",data);
+      console.log("get all", data);
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
