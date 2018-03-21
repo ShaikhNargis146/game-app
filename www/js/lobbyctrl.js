@@ -4,6 +4,21 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     screen.orientation.lock('landscape')
   })
 
+
+  $scope.accessToken = $.jStorage.get("accessToken");
+
+  $scope.playerData= function(){
+    Service.sendAccessToken(function (data) {
+    $scope.singlePlayerData = data.data.data;
+    $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
+    $scope.image = $scope.singlePlayerData.image;
+    $scope.username = $scope.singlePlayerData.username;
+    $scope.userType = $scope.singlePlayerData.userType;
+    $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+  })
+};
+
+$scope.playerData();
   //to close all tab and side menu
   $scope.closeAllTab = function () {
     $scope.VariationActive = false;
@@ -19,6 +34,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $event.stopPropagation();
     $scope.sideMenu = true;
   }
+
 
   //storing all model in $scope
 
@@ -132,19 +148,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     if ($scope.gameType == "playnow") {}
   }
 
-
-
-
-
-
-  $scope.playerData = $.jStorage.get("player");
-  console.log($scope.playerData);
-  $scope.username = $scope.playerData.username;
-  $scope.userType = $scope.playerData.userType;
-  $scope.playerId = $scope.playerData._id;
-  $scope.image = $scope.playerData.image;
-  $scope.accessToken = $scope.playerData.accessToken;
-
   //onclick for each play type
   $scope.variationToggle = function ($event) {
     $event.stopPropagation();
@@ -190,15 +193,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.closePriceRangeModal();
   }
 
-
-
-
-
-  Service.sendAccessToken($scope.accessToken, function (data) {
-    console.log("access token", data)
-    $scope.playerDataBalance = data.data.data;
-    $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
-  })
 
   $scope.accountStatement = function () {
     var pageNo = 1;

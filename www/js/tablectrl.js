@@ -18,19 +18,21 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  $scope.jsData = $.jStorage.get("player");
-  $scope.jsData.accessToken = $scope.jsData.accessToken;
-  $scope.jsData.memberId = $scope.jsData._id;
-  $.jStorage.set("player", $scope.jsData);
-  $scope.playerData = $.jStorage.get("player");
-  $scope.image = $scope.playerData.image;
-  $scope.username = $scope.playerData.username;
-  $scope.userType = $scope.playerData.userType;
+  $scope.accessToken = $.jStorage.get("accessToken");
 
-  Service.sendAccessToken($scope.jsData.accessToken, function (data) {
-    $scope.playerDataBalance = data.data.data;
-    $scope.balance = $scope.playerDataBalance.creditLimit + $scope.playerDataBalance.balanceUp;
+
+  $scope.playerData= function(){
+    Service.sendAccessToken(function (data) {
+    $scope.singlePlayerData = data.data.data;
+    $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
+    $scope.image = $scope.singlePlayerData.image;
+    $scope.username = $scope.singlePlayerData.username;
+    $scope.userType = $scope.singlePlayerData.userType;
+    $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
   })
+};
+
+$scope.playerData();
 
 
   //ask for sit here when joining new game
@@ -208,7 +210,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //backtolobby
   $scope.backToLobby = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {});
     $state.go("lobby");
@@ -217,7 +218,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //show card
   $scope.showCard = function () {
     $scope.cardData = {};
-    $scope.cardData.accessToken = $scope.jsData.accessToken;
     $scope.cardData.tableId = $scope.tableId;
 
     Service.makeSeen($scope.cardData, function (data) {
@@ -398,7 +398,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.socketId = $.jStorage.get("socketId");
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
-    // $scope.dataPlayer.accessToken = $scope.jsData.accessToken;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
     // $scope.dataPlayer.socketId = $scope.socketId;
@@ -421,7 +420,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.standUp = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     console.log("standup")
     Service.deletePlayer(playerdetails, function (data) {
@@ -484,7 +482,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     $scope.chaalPromise = Service.chaal({
       tableId: $scope.tableId,
-      accessToken: $scope.jsData.accessToken,
       amount: $scope.betamount
     }, function (data) {});
   };
@@ -492,7 +489,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //tip
   $scope.makeTip = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     playerdetails.amount = 100;
     Service.maketip(playerdetails, function (data) {});
@@ -501,7 +497,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //pack 
   $scope.pack = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     $scope.packPromise = Service.pack(playerdetails, function (data) {});
   };
@@ -509,7 +504,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //sideshow
   $scope.sideShow = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     $scope.sideShowPromise = Service.sideShow(playerdetails, function (data) {
 
@@ -519,7 +513,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
+    if (data.data.toPlayer.accessToken == $scope.accessToken) {
       $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been rejected!"
@@ -528,10 +522,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   io.socket.on("sideShow", function (data) {
-    if (data.data.toPlayer.accessToken == $scope.jsData.accessToken) {
+    if (data.data.toPlayer.accessToken == $scope.accessToken) {
       $scope.showSideShowModal();
     }
-    if (data.data.fromPlayer.accessToken == $scope.jsData.accessToken) {
+    if (data.data.fromPlayer.accessToken == $scope.accessToken) {
       $scope.showSideShowSendModal();
       $scope.message = {
         content: "Your request for the Side show has been sent!"
@@ -542,7 +536,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //sideShow Maker
   $scope.doSideShow = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.doSideShow(playerdetails, function (data) {});
   };
@@ -550,7 +543,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //sideShow Maker
   $scope.rejectSideShow = function () {
     var playerdetails = {};
-    playerdetails.accessToken = $scope.jsData.accessToken;
     playerdetails.tableId = $scope.tableId;
     Service.rejectSideShow(playerdetails, function (data) {});
   };

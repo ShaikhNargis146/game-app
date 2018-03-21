@@ -23,11 +23,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform)
       console.log($scope.accessT);
       $.jStorage.set("accessToken", data.data);
       if (data.value) {
-        Service.sendAccessToken($scope.accessT, function (data) {
-          $.jStorage.set("player", data.data.data);
-          $scope.playerData = data.data.data;
           $state.go("lobby");
-        })
       } else {
         if (!login.$invalid) {
           $scope.invalidUser = true;
