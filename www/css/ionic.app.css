@@ -10141,18 +10141,18 @@ body {
   color: white;
   font-size: 1.5em;
   z-index: 20; }
-  .table_loader span {
+  .table_loader .center {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-  .table_loader img {
-    position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* color: red; */
+    font-size: 1em;
+    text-align: center; }
+  .table_loader img {
     width: 5%; }
+  .table_loader .loader-logo {
+    width: 30%;
+    margin: 6%; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10697,6 +10697,16 @@ body {
         background-repeat: no-repeat;
         height: 22px;
         width: 50px;
+        position: absolute;
+        position: absolute;
+        top: 0;
+        transform: translateY(-108%); }
+      .kingtable .main-table .playing-table .winner_main::before {
+        display: block;
+        content: '';
+        background: url("../img/winner.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
         position: absolute;
         position: absolute;
         top: 0;
@@ -12251,7 +12261,7 @@ body {
   opacity: .5; }
   .pie_loader .animation_wrapper {
     position: relative;
-    background: white;
+    background: #ccaf00;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
@@ -12270,7 +12280,7 @@ body {
   height: 100%;
   transform-origin: 100% 50%;
   position: absolute;
-  background: #ccaf00;
+  background: white;
   border: 5px solid rgba(0,0,0,0.5); }
 
 .animation_wrapper .spinner {

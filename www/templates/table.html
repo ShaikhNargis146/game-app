@@ -99,7 +99,7 @@
         </mainPlayer>
         <mainPlayer ng-click="sitHerefn(9)" ng-if="!sitHere" ng-pos="0" ng-main="main-player" ng-player="players[8]" ng-sit-here="sitHere"
           ng-win="winnerPlayerNo"> </mainPlayer>
-        <div class="p9 bootAnimate" ng-if="(players[8].isChaal==true && !players[8].isFold) ||  (players[0] && startCoinAnime)">
+        <div class="p9 bootAnimate" ng-if="(players[8].isChaal==true && !players[8].isFold) ||  (players[8] && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <!--end  main Player -->
@@ -156,6 +156,11 @@
 
 
 <div class="loader table_loader" ng-if="ShowLoader">
-<span>Loading... </span>
-<img src="img/spinner.gif"> 
+  <div class="center">
+      <img src="img/logo.png" class="loader-logo">
+      <div>Loading... </div>
+      <img src="img/spinner.gif" > 
+  </div>
+      
+
 </div>

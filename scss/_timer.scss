@@ -5,7 +5,7 @@ opacity: .5;
     position: relative;
     // margin: 40px auto;
     // background: white;
-    background: white;
+    background: #ccaf00;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -74,4 +74,4 @@ opacity: .5;
   }
 }
 
-@include timer('.animation_wrapper', 15, 300px,  #ccaf00, '5px solid rgba(0,0,0,0.5)');
+@include timer('.animation_wrapper', 15, 300px,  white, '5px solid rgba(0,0,0,0.5)');

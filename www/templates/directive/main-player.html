@@ -1,9 +1,9 @@
-<div class="plyr  p{{pos}} {{mainplayer}}" ng-class="{'sit_here':sitHere && !player,'no_player':!sitHere && player==0 ,'winner': player &&  player.playerNo==winnerPlayerNo}">
+<div class="plyr  p{{pos}} {{mainplayer}}" ng-class="{'sit_here':sitHere && !player,'no_player':!sitHere && player==0 }">
 
 
 
   <div class="winner-display">
-    <div class="winner-player" ng-class="{'winner':player.playerNo==winnerPlayerNo}"></div>
+    <div class="winner-player" ng-class="{'winner_main':player.playerNo==winnerPlayerNo}"></div>
   </div>
   <!-- <div class="p9 {{mainplayer}} bootAnimate" ng-if="true">
     <img src="img/coin.png" class="coin">{{betamount}}

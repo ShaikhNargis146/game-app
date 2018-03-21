@@ -111,6 +111,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
             tableId: dataPlayer.tableId,
             socketId: socketId,
             accessToken: accessToken
+
           }
 
         }).then(function (data) {

@@ -274,7 +274,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.startCoinAnime=true;
     $timeout(function(){
       $scope.startCoinAnime=false;
-    },500 )
+    },1000 )
   }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;

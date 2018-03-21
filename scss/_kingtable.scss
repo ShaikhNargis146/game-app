@@ -324,10 +324,28 @@
           position: absolute;
           top: 0;
           transform: translateY(-108%);
+          // height: 40px;
+          // width: 70px;
+        }
+      }
+      .winner_main{
+        &::before {
+          display: block;
+          content: '';
+          background: url('../img/winner.png');
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          // height: 22px;
+          // width: 50px;
+          position: absolute;
+          position: absolute;
+          top: 0;
+          transform: translateY(-108%);
           height: 40px;
           width: 70px;
         }
-      } // add this class to apply dealer css
+      }
+      // add this class to apply dealer css
       .dealer {
         &::after {
           display: block;
