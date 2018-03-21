@@ -10154,6 +10154,9 @@ body {
     width: 30%;
     margin: 6%; }
 
+.opacity-05 {
+  opacity: .5; }
+
 .login {
   background: url("../img/login/background.png");
   background-size: cover;
@@ -11312,11 +11315,13 @@ body {
   transform: scale(1.5) translate(-1340%, -235%) !important;
   transition: none !important; }
 
-.opacity-05 {
-  opacity: .5; }
-
-.custom-row {
-  transition: transform 500ms; }
+.total_played_coin {
+  transition: all 2s; }
+  .total_played_coin.to_p1 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 65% !important;
+    left: 16% !important; }
 
 .table6 .player2 {
   right: 5% !important;

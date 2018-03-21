@@ -80,6 +80,19 @@ myApp.directive('card', function () {
       link: function ($scope, element, attr) {}
     };
   })
+  .directive('potAmount', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      scope: {
+        amount: "=ngAmount",
+        winnerPlayerNo: "=ngWinner",
+        players: "=ngPlayer"
+      },
+      templateUrl: 'templates/directive/pot-amount.html',
+      link: function ($scope, element, attr) {}
+    };
+  })
   .directive('tableInfo', function () {
     return {
       restrict: 'E',

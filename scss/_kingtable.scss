@@ -146,17 +146,15 @@
             position: absolute;
             left: 40%;
             width: 150%;
-            .custom-row{
+            .custom-row {
               transition: transform 500ms;
             }
             &.plyr_card1 {
               width: 105% !important;
-              .custom-row{
+              .custom-row {
                 transition: transform 500ms;
-                transform: scale(2.5);
-                // z-index:5;
+                transform: scale(2.5); // z-index:5;
               }
-              
             }
             card {
               position: relative;
@@ -323,19 +321,17 @@
           position: absolute;
           position: absolute;
           top: 0;
-          transform: translateY(-108%);
-          // height: 40px;
+          transform: translateY(-108%); // height: 40px;
           // width: 70px;
         }
       }
-      .winner_main{
+      .winner_main {
         &::before {
           display: block;
           content: '';
           background: url('../img/winner.png');
           background-size: 100% 100%;
-          background-repeat: no-repeat;
-          // height: 22px;
+          background-repeat: no-repeat; // height: 22px;
           // width: 50px;
           position: absolute;
           position: absolute;
@@ -344,8 +340,7 @@
           height: 40px;
           width: 70px;
         }
-      }
-      // add this class to apply dealer css
+      } // add this class to apply dealer css
       .dealer {
         &::after {
           display: block;
@@ -663,8 +658,7 @@
         min-width: 25%;
       }
       .minus {
-        font-size: 1em;
-        // margin: 0px 5px;
+        font-size: 1em; // margin: 0px 5px;
       }
       .coin {
         background: url('../img/text_bg2.png');
@@ -807,8 +801,7 @@
       width: 100%;
       .profile_pic {
         width: 30%;
-        padding: 2%;
-        // height: 20vh;
+        padding: 2%; // height: 20vh;
         img {
           width: 100%;
         }
@@ -1284,11 +1277,12 @@
   }
 }
 
-.opacity-05 {
-  opacity: .5;
-}
-
-
-.custom-row{
-  transition: transform 500ms;
+.total_played_coin {
+  transition: all 2s;
+  &.to_p1 {
+    transform: none !important;
+    bottom: unset !important;
+    top: 65% !important;
+    left: 16% !important;
+  }
 }

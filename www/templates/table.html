@@ -28,8 +28,8 @@
         TIP
       </div> -->
       <!-- Cards -->
-      <div class="total_played_coin">
-        <img src="img/coin.png" class="coin">{{potAmount}}</div>
+      <pot-amount ng-amount="100" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
+
       <div class="card_shuffle">
         <div class="cards">
           <card card='NONE'> </card>
@@ -157,10 +157,10 @@
 
 <div class="loader table_loader" ng-if="ShowLoader">
   <div class="center">
-      <img src="img/logo.png" class="loader-logo">
-      <div>Loading... </div>
-      <img src="img/spinner.gif" > 
+    <img src="img/logo.png" class="loader-logo">
+    <div>Loading... </div>
+    <img src="img/spinner.gif">
   </div>
-      
+
 
 </div>
