@@ -9932,6 +9932,10 @@ body {
     .custom_menu .menu_cont.activated {
       transform: none; }
 
+.loader {
+  text-align: center;
+  padding: 20px; }
+
 .menu_open {
   opacity: 1;
   visibility: visible;

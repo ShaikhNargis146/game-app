@@ -7,18 +7,18 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.accessToken = $.jStorage.get("accessToken");
 
-  $scope.playerData= function(){
+  $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
-    $scope.singlePlayerData = data.data.data;
-    $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
-    $scope.image = $scope.singlePlayerData.image;
-    $scope.username = $scope.singlePlayerData.username;
-    $scope.userType = $scope.singlePlayerData.userType;
-    $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-  })
-};
+      $scope.singlePlayerData = data.data.data;
+      $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
+      $scope.image = $scope.singlePlayerData.image;
+      $scope.username = $scope.singlePlayerData.username;
+      $scope.userType = $scope.singlePlayerData.userType;
+      $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+    })
+  };
 
-$scope.playerData();
+  $scope.playerData();
   //to close all tab and side menu
   $scope.closeAllTab = function () {
     $scope.VariationActive = false;
@@ -160,7 +160,6 @@ $scope.playerData();
 
 
   $scope.playNow = function ($event) {
-
     if (!$scope.VariationActive) {
       $scope.openPriceRangeModal();
       $event.stopPropagation();
