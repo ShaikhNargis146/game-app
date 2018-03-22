@@ -124,7 +124,7 @@
             <card card='{{players[8].cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold && (players[8].cards.length > 0) && (remainingPlayerCount == -1) && winnerPlayerNo > 0"
+        <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold && (players[8].cards.length > 0) && (remainingPlayerCount > 1 && winnerPlayerNo == -1)"
           class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
