@@ -35,18 +35,22 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
     $scope.loginPromise = Service.playerLogin(data, function (data) {
-      console.log("logout", data);
       $.jStorage.set("accessToken", data.data);
-      if (data.value) {
+      if (data && !_.isEmpty(data.data)) {
         $state.go("lobby");
-      }
-      if (data.error == "Member already Logged In") {
+      } else if (data.error == "Member already Logged In") {
         $scope.message = {
           heading: "User Already Loged In",
           content: "User already loged in another device. Logout from that device. Try Again!!!"
         };
         $scope.showMessageModal();
-      };
+      } else {
+        $scope.message = {
+          heading: "Incorrect Username Password",
+          content: "Try Again!!!"
+        };
+        $scope.showMessageModal();
+      }
     });
   };
 
