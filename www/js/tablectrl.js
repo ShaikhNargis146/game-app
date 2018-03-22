@@ -119,7 +119,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
-
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerToTable($scope.dataPlayer, function (data) {
       if (data.data.value) {
@@ -129,7 +128,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         startSocketUpdate();
       } else {
         if (data.data.error == "position filled") {
-          $scope.showInsufficientFundsModal(); // change it to popup for position filled
+          $scope.message = {
+            heading: "Position Filled",
+            content: "Position is already filled"
+          };
+          $scope.showMessageModal();
 
         } else if (data.data.error == "Insufficient Balance") {
           $scope.showInsufficientFundsModal();
