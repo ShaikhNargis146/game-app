@@ -386,6 +386,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
       if ($scope.extra.serve) {
+        console.log("Serve");
+        $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
         $timeout(function () {
           $scope.startAnimation = false;
@@ -411,7 +413,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
-    console.log($scope.remainingPlayerCount);
     $scope.blindPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold && player.blind) {
         return true;

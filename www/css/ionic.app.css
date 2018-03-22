@@ -12389,3 +12389,6 @@ body {
     opacity: 1; }
   50%, 100% {
     opacity: 0; } }
+
+.player-fold {
+  opacity: 0.4; }

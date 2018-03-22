@@ -407,3 +407,6 @@ body {
 @import "model";
 @import "poker";
 @import "timer";
+.player-fold {
+  opacity: 0.4;
+}
