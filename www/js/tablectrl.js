@@ -436,6 +436,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       'winRank': 1,
       'winner': true
     });
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+      if (player && player.isActive && !player.isFold) {
+        return true;
+      }
+    }).length;
     $scope.winnerPlayerNo = $scope.winner.playerNo;
   }
 
