@@ -133,7 +133,7 @@
       <button class="pack" ng-click="pack()" ng-if="getPlayer(0).isTurn && !getPlayer(0).isFold" promise-btn="packPromise">
         PACK</button>
       <button class="slide_show" ng-click="sideShow()" ng-if="(getPlayer(0).isTurn)&& (remainingPlayerCount > 2) && !getPlayer(0).isFold"
-        ng-disabled="blindPlayerCount == 0" promise-btn="sideShowPromise"> side show </button>
+        ng-disabled="blindPlayerCount > 0" promise-btn="sideShowPromise"> side show </button>
       <button class="slide_show " ng-click="showWinner()" promise-btn="showWinnerPromise" ng-if="(getPlayer(0).isTurn) && (remainingPlayerCount == 2) && !getPlayer(0).isFold">show</button>
       <span class="info" ng-class="{'color_red':insufficientFunds}"> {{getPlayer(0).name}}
         <img src="img/coin.png"> {{getPlayer(0).balance}}
