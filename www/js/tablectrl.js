@@ -140,7 +140,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.getPlayer = function (number) {
     var player = _.find($scope.players, function (n) {
-      if (((myTableNo + number) % 9) == n.playerNo) {
+      if (((myTableNo + number) % 9) == (n.playerNo % 9)) {
         return n;
       }
     });
