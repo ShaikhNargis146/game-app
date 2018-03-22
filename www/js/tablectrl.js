@@ -82,6 +82,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.potAmount = data.data.data.pot.totalAmount;
       }
       $scope.iAmThere($scope.players);
+      if ($scope.isThere) {
+        console.log($scope.isThere);
+        console.log(data.data);
+        updateSocketFunction(data.data, true);
+      }
     });
 
   };
@@ -117,7 +122,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     myTableNo = sitNum;
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerToTable($scope.dataPlayer, function (data) {
-      console.log("sit", data);
       if (data.data.value) {
         $scope.sitHere = false;
         startSocketUpdate();
@@ -360,7 +364,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //seat selection Player
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
-  function updateSocketFunction(data) {
+  function updateSocketFunction(data, dontDigest) {
     console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
@@ -410,15 +414,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     }).length;
 
-
-    console.log($scope.players, myTableNo);
     if (($scope.getPlayer(0).balance) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
       // $scope.showInsufficientFundsModal();
     } else {
       $scope.insufficientFunds = false;
     }
-    $scope.$apply();
+    if (!dontDigest) {
+      $scope.$apply();
+    }
   }
 
 
@@ -455,18 +459,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.standUp = function () {
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
-    console.log("standup");
     Service.deletePlayer(playerdetails, function (data) {
-      // $scope.sitHere = false;
-      // $scope.updatePlayers();
-      // $scope.closeAllModal();
-      console.log("delete player in stadup", data)
       $state.reload();
-
-
     });
-
-  }
+  };
 
   //fill all player
   $scope.fillAllPlayer = function (array) {
@@ -481,21 +477,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
     return filled;
   };
-
-
-  $scope.rearrangePlayer = function (demoPlayer) {
-    var n = 0;
-    var memberId = $scope.playerData.memberId;
-    for (i = 0; i < demoPlayer.length; i++) {
-      if (demoPlayer[i].memberId == memberId) {
-        n = i + 1;
-      }
-    }
-    var temp = _.concat(_.slice(demoPlayer, n, demoPlayer.length), _.slice(demoPlayer, 0, n));
-    return temp;
-
-  };
-
 
 
 
