@@ -373,7 +373,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.extra) {
       if ($scope.extra.newGame) {
-        console.log("new game start here");
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
         $scope.winnerPlayerNo = -1;
@@ -386,7 +385,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
       if ($scope.extra.serve) {
-        console.log("Serve");
         $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
         $timeout(function () {
@@ -432,7 +430,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
-    console.log("winner", data);
     $scope.showWinnerPlayer = data.data.players;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
