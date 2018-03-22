@@ -116,4 +116,14 @@ myApp.directive('card', function () {
       templateUrl: 'templates/directive/right-menu.html',
       link: function ($scope, element, attr) {}
     };
+  })
+  .directive('playerArea', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/player-area.html',
+      link: function ($scope, element, attr) {
+
+      }
+    };
   });

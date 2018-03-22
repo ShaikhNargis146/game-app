@@ -45,10 +45,10 @@
 
       <!-- player -->
       <div class="players">
-        <players id="plr1" ng-click="sitHerefn(1)" ng-remaining-player="remainingPlayer" ng-pos="1" ng-player="players[0]" ng-sit-here="sitHere"
-          ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-remaining-player="remainingPlayer" ng-pos="1" ng-player="players[getTableNo(0)]"
+          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p1 bootAnimate" ng-if="(players[0].isChaal==true && !players[0].isFold) || (players[0] && startCoinAnime)">
+        <div class="p1 bootAnimate" ng-if="(players[getTableNo(0)].isChaal==true && !players[getTableNo(0)].isFold) || (players[getTableNo(0)] && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{ chaalAmt}}
         </div>
         <players id="plr2" ng-click="sitHerefn(2)" ng-pos="2" ng-remaining-player="remainingPlayer" ng-player="players[1]" ng-sit-here="sitHere"

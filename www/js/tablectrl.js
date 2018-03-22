@@ -6,6 +6,128 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
 
+
+  $scope.playerData = function () {
+    Service.sendAccessToken(function (data) {
+      if (data && data.data && data.data.data) {
+        $scope.singlePlayerData = data.data.data;
+        $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
+        $scope.image = $scope.singlePlayerData.image;
+        $scope.username = $scope.singlePlayerData.username;
+        $scope.userType = $scope.singlePlayerData.userType;
+        $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+        $scope.memberId = data.data.data.memberId;
+      } else {
+        $state.go("login");
+      }
+    });
+  };
+  $scope.playerData();
+
+
+  $scope.tableId = $stateParams.id;
+
+  Service.getOneTable($stateParams.id, function (data) {
+    $scope.tableData = data.data.data;
+    $scope.bootAmt = $scope.tableData.bootAmt;
+    $scope.chalLimit = $scope.tableData.chalLimit;
+    $scope.blindAmt = $scope.tableData.blindAmt;
+    $scope.chalAmt = $scope.tableData.chalAmt;
+    $scope.maxBlind = $scope.tableData.maxBlind;
+    $scope.tableShow = $scope.tableData.tableShow;
+    $scope.coin = $scope.blindAmt;
+  });
+
+  // All Above Functions
+
+
+
+
+
+
+  // Game Play functions
+
+  $scope.botAmount = 0;
+  $scope.PotAmount = 0;
+  $scope.startAnimation = false;
+  $scope.winnerPlayerNo = -1;
+
+  $scope.insufficientFunds = false;
+  $scope.chaalAmt = 0;
+  $scope.startCoinAnime = false;
+
+
+  // Socket Update function with REST API
+  $scope.updatePlayers = function () {
+
+    $scope.l = {};
+    $scope.l.tableId = $stateParams.id;
+    Service.getAll($scope.l, function (data) {
+      // check whether dealer is selected or not
+      $scope.maxAmt = data.data.data.maxAmt;
+      $scope.minAmt = data.data.data.minAmt;
+      $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
+      $scope.players = data.data.data.players;
+      // $scope.rawdata = data.data.data.players;
+      if (data.data.data.pot) {
+        $scope.potAmount = data.data.data.pot.totalAmount;
+      }
+      $scope.iAmThere($scope.players);
+      // $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
+      // $scope.players = $scope.rearrangePlayer($scope.rawdata2);
+    });
+
+  };
+
+  $scope.updatePlayers();
+
+  $scope.iAmThere = function (data) {
+    $scope.isThere = false;
+    _.forEach(data, function (value) {
+      if (value.memberId == $scope.memberId) {
+        $scope.isThere = true;
+        return false;
+      }
+    });
+    console.log($scope.isThere);
+    $scope.sitHere = !$scope.isThere;
+
+
+    // In Case he is already Sitting Please Enable the Game
+  };
+
+
+  //player sitting
+  $scope.sitHerefn = function (sitNum) {
+    if (!$scope.sitHere) {
+      return;
+    }
+    $scope.dataPlayer = {};
+    $scope.dataPlayer.playerNo = sitNum;
+    $scope.dataPlayer.tableId = $scope.tableId;
+    $scope.dataPlayer.sitNummber = sitNum;
+    // $scope.dataPlayer.socketId = $scope.socketId;
+    Service.savePlayerToTable($scope.dataPlayer, function (data) {
+      console.log("sit", data);
+      if (data.data.value) {
+        $scope.sitHere = false;
+        $scope.myTableNo = data.data.data.playerNo;
+        $scope.tableConstant = 9 - $scope.myTableNo;
+      } else {
+        if (data.data.error == "position filled") {
+          $scope.showInsufficientFundsModal(); // change it to popup for position filled
+        } else if (data.data.error == "Insufficient Balance") {
+          $scope.showInsufficientFundsModal();
+        }
+      }
+    });
+  };
+
+  $scope.getTableNo = function (number) {
+    return (number + $scope.tableConstant) % 9;
+  };
+
+
   //loader for table
   $scope.ShowLoader = true;
   // console.log("socket id from socket", $.jStorage.get("socktId"));
@@ -18,33 +140,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  $scope.accessToken = $.jStorage.get("accessToken");
 
 
-  $scope.playerData = function () {
-    Service.sendAccessToken(function (data) {
-      $scope.singlePlayerData = data.data.data;
-      $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
-      $scope.image = $scope.singlePlayerData.image;
-      $scope.username = $scope.singlePlayerData.username;
-      $scope.userType = $scope.singlePlayerData.userType;
-      $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-    })
-  };
-
-  $scope.playerData();
 
 
   //ask for sit here when joining new game
-  $scope.sitHere = false;
-  $scope.botAmount = 0;
-  $scope.PotAmount = 0;
-  $scope.startAnimation = false;
-  $scope.winnerPlayerNo = -1;
-
-  $scope.insufficientFunds = false;
-  $scope.chaalAmt = 0;
-  $scope.startCoinAnime = false;
 
 
 
@@ -242,18 +342,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //for table data//
 
-  $scope.tableId = $stateParams.id;
 
-  Service.getOneTable($stateParams.id, function (data) {
-    $scope.tableData = data.data.data;
-    $scope.bootAmt = $scope.tableData.bootAmt;
-    $scope.chalLimit = $scope.tableData.chalLimit;
-    $scope.blindAmt = $scope.tableData.blindAmt;
-    $scope.chalAmt = $scope.tableData.chalAmt;
-    $scope.maxBlind = $scope.tableData.maxBlind;
-    $scope.tableShow = $scope.tableData.tableShow;
-    $scope.coin = $scope.blindAmt;
-  });
   //seat selection Player
   io.socket.on("seatSelection", function (data) {
     data = data.data;
@@ -323,7 +412,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.insufficientFunds = false;
     }
     $scope.$apply();
-  };
+  }
 
 
   function showWinnerFunction(data) {
@@ -332,10 +421,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
       'winner': true
-    })
+    });
     $scope.winnerPlayerNo = $scope.winner.playerNo;
-
-  };
+  }
 
   //showWinner
   $scope.showWinner = function () {
@@ -344,37 +432,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   io.socket.on("Update", updateSocketFunction);
-  io.socket.on("showWinner", showWinnerFunction);
-  $scope.updatePlayers = function () {
+  // io.socket.on("showWinner", showWinnerFunction);
 
-    $scope.l = {};
-    $scope.l.tableId = $stateParams.id;
-    Service.getAll($scope.l, function (data) {
-      // check whether dealer is selected or not
-
-      console.log("get all", data);
-      $scope.maxAmt = data.data.data.maxAmt;
-      $scope.minAmt = data.data.data.minAmt;
-      $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-      $scope.rawdata = data.data.data.players;
-      if (data.data.data.pot) {
-        $scope.potAmount = data.data.data.pot.totalAmount;
-      }
-      $scope.remainingPlayer = _.filter(data.data.data.players, function (n) {
-        return n.isActive && !n.isFold;
-      }).length;
-      $scope.seenPlayer = _.filter(data.data.data.players, function (n) {
-        return n.isBlind && !n.isFold;
-      }).length;
-      $scope.iAmThere($scope.rawdata, $scope.playerData.memberId);
-      $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
-      $scope.players = $scope.rearrangePlayer($scope.rawdata2);
-      console.log("final upadate plyr", $scope.players)
-    });
-
-  };
-
-  $scope.updatePlayers();
   //to add and remove coin
   $scope.addCoin = function () {
     $scope.betamount = $scope.betamount * 2;
@@ -384,39 +443,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.betamount = $scope.betamount / 2;
   };
 
-  //player sitting
-  $scope.sitHerefn = function (sitNum) {
-    console.log("sit");
-    if (!$scope.sitHere) {
-      return;
-    }
-    $scope.socketId = $.jStorage.get("socketId");
-    $scope.dataPlayer = {};
-    $scope.dataPlayer.playerNo = sitNum;
-    $scope.dataPlayer.tableId = $scope.tableId;
-    $scope.dataPlayer.sitNummber = sitNum;
-    // $scope.dataPlayer.socketId = $scope.socketId;
-    Service.savePlayerTotable($scope.dataPlayer, function (data) {
-      console.log("sit", data);
-      if (data.data.value) {
-        $scope.sitHere = false;
 
-      } else {
-        if (data.data.error == "position filled") {
-          console.log("position filled");
-          return
-        }
-        if (data.data.error == "Insufficient Balance")
-          $scope.showInsufficientFundsModal();
-      }
-    });
-  };
 
 
   $scope.standUp = function () {
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
-    console.log("standup")
+    console.log("standup");
     Service.deletePlayer(playerdetails, function (data) {
       // $scope.sitHere = false;
       // $scope.updatePlayers();
@@ -458,19 +491,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
-  $scope.iAmThere = function (data, id) {
-    $scope.isthere = false;
-    _.forEach(data, function (value) {
 
-      if (value.memberId == id) {
-        $scope.isthere = true;
-        return;
-      } else {}
-    });
-
-    $scope.sitHere = !$scope.isthere;
-
-  };
 
 
   $scope.playChaal = function () {
@@ -500,10 +521,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.sideShow = function () {
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
-    $scope.sideShowPromise = Service.sideShow(playerdetails, function (data) {
-
-
-    });
+    $scope.sideShowPromise = Service.sideShow(playerdetails, function (data) {});
   };
 
 

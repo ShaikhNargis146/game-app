@@ -2,7 +2,7 @@ myApp = angular.module('starter.service', []);
 var url = adminUUU + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
-myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionSheet, $timeout) {
+myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -69,6 +69,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
           console.log(data);
           callback(data);
         });
+      } else {
+        $state.go("login");
       }
     },
     searchPlayerTransaction: function (data, callback) {
@@ -107,7 +109,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
         callback(data);
       });
     },
-    savePlayerTotable: function (dataPlayer, callback) {
+    savePlayerToTable: function (dataPlayer, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         return $http({
@@ -118,9 +120,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
             tableId: dataPlayer.tableId,
             socketId: socketId,
             accessToken: accessToken
-
           }
-
         }).then(function (data) {
           callback(data);
         });
