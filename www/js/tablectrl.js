@@ -278,23 +278,23 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.sideShowModal.hide();
   };
 
-  $ionicModal.fromTemplateUrl('templates/model/sideshowsend.html', {
+  $ionicModal.fromTemplateUrl('templates/model/message.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
-    $scope.sideShowSendModal = modal;
-    // $scope.showSideShowSendModal();
+    $scope.messageModal = modal;
+    // $scope.showMessageModal();
 
   });
 
-  $scope.showSideShowSendModal = function () {
-    $scope.sideShowSendModal.show();
+  $scope.showMessageModal = function () {
+    $scope.messageModal.show();
     $timeout(function () {
-      $scope.closeSideShowSendModal();
+      $scope.closeMessageModal();
     }, 2000);
   };
-  $scope.closeSideShowSendModal = function () {
-    $scope.sideShowSendModal.hide();
+  $scope.closeMessageModal = function () {
+    $scope.messageModal.hide();
   };
 
   $ionicModal.fromTemplateUrl('templates/model/insufficient-funds.html', {
@@ -302,7 +302,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.insufficientFundsModal = modal;
-    // $scope.showSideShowSendModal();
+    // $scope.showMessageModal();
 
   });
 
@@ -343,7 +343,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.$on('$destroy', function () {
     $scope.tableInfoModal.remove();
     $scope.sideShowModal.remove();
-    $scope.sideShowSendModal.remove();
+    $scope.messageModal.remove();
     $scope.insufficientFundsModal.remove();
     $scope.closeAllModal();
   });
@@ -532,10 +532,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   io.socket.on("sideShowCancel", function (data) {
     if (data.data.toPlayer.accessToken == $scope.accessToken) {
-      $scope.showSideShowSendModal();
       $scope.message = {
+        heading: "Side Show",
         content: "Your request for the Side show has been rejected!"
       };
+      $scope.showMessageModal();
+
     }
   });
 
@@ -544,10 +546,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.showSideShowModal();
     }
     if (data.data.fromPlayer.accessToken == $scope.accessToken) {
-      $scope.showSideShowSendModal();
       $scope.message = {
+        heading: "Side Show",
         content: "Your request for the Side show has been sent!"
       };
+      $scope.showMessageModal();
+
     }
   });
 
