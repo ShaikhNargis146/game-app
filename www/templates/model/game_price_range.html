@@ -42,7 +42,7 @@
         </tr>
         <tr ng-repeat="data in tableData | filter : !'private'">
           <td>{{data.name}} </td>
-          <td>{{data.chalLimit}} </td>
+          <td>{{data.bootAmt}} - {{data.chalAmt}} </td>
           <td>{{data.maximumNoOfPlayers}}</td>
           <td>
             <button class="custom_button" ng-click="goToTable(data)">PLAY</button>
