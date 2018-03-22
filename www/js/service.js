@@ -39,17 +39,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       });
     },
-    logout: function (callback) {
+    playerLogout: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
-        return $http.post(adminurl + 'member/playerLogout', {
+        return $http.post(adminurl + 'member/logout', {
           accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
       }
     },
-
     passwordchange: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {

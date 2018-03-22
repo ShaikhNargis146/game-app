@@ -11,26 +11,42 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
   }
 });
 
-myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform) {
+myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait')
   })
+  $ionicModal.fromTemplateUrl('templates/model/message.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.messageModal = modal;
+  });
+
+  $scope.showMessageModal = function () {
+    $scope.messageModal.show();
+    $timeout(function () {
+      $scope.closeMessageModal();
+    }, 2000);
+  };
+  $scope.closeMessageModal = function () {
+    $scope.messageModal.hide();
+  };
 
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
     $scope.loginPromise = Service.playerLogin(data, function (data) {
-      $scope.accessT = data.data;
-      console.log($scope.accessT);
+      console.log("logout", data);
       $.jStorage.set("accessToken", data.data);
-      $scope.accessToken = $.jStorage.get("accessToken");
-      console.log($scope.accessToken);
       if (data.value) {
         $state.go("lobby");
-      } else {
-        if (!login.$invalid) {
-          $scope.invalidUser = true;
-        }
       }
+      if (data.error == "Member already Logged In") {
+        $scope.message = {
+          heading: "User Already Loged In",
+          content: "User already loged in another device. Logout from that device. Try Again!!!"
+        };
+        $scope.showMessageModal();
+      };
     });
   };
 
