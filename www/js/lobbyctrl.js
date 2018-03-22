@@ -185,11 +185,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.goToTable = function (table) {
+
     $scope.tableId = table._id;
-    $state.go('table', {
-      'id': $scope.tableId
-    });
     $scope.closePriceRangeModal();
+    $timeout(function () {
+      $state.go('table', {
+        'id': $scope.tableId
+      });
+    }, 300)
+
+
   }
 
 

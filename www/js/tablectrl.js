@@ -29,6 +29,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.tableId = $stateParams.id;
 
   Service.getOneTable($stateParams.id, function (data) {
+    $scope.gotTableInfo = true;
     $scope.tableData = data.data.data;
     $scope.bootAmt = $scope.tableData.bootAmt;
     $scope.chalLimit = $scope.tableData.chalLimit;
@@ -124,6 +125,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       } else {
         if (data.data.error == "position filled") {
           $scope.showInsufficientFundsModal(); // change it to popup for position filled
+
         } else if (data.data.error == "Insufficient Balance") {
           $scope.showInsufficientFundsModal();
         }
