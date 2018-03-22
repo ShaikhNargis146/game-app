@@ -45,62 +45,62 @@
 
       <!-- player -->
       <div class="players">
-        <players id="plr1" ng-click="sitHerefn(1)" ng-remaining-player="remainingPlayer" ng-pos="1" ng-player="players[getTableNo(0)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr1" ng-click="sitHerefn(1)" ng-remaining-player="remainingPlayer" ng-pos="1" ng-player="getPlayer(-1)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p1 bootAnimate" ng-if="(players[getTableNo(0)].isChaal==true && !players[getTableNo(0)].isFold) || (players[getTableNo(0)] && startCoinAnime)">
+        <div class="p1 bootAnimate" ng-if="(getPlayer(-1).isChaal==true && !getPlayer(-1).isFold) || (getPlayer(-1) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{ chaalAmt}}
         </div>
-        <players id="plr2" ng-click="sitHerefn(2)" ng-pos="2" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(1)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr2" ng-click="sitHerefn(2)" ng-pos="2" ng-remaining-player="remainingPlayer" ng-player="getPlayer(-2)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p2 bootAnimate" ng-if="(players[getTableNo(1)].isChaal==true && !players[getTableNo(1)].isFold) || (players[getTableNo(1)] && startCoinAnime)">
+        <div class="p2 bootAnimate" ng-if="(getPlayer(-2).isChaal==true && !getPlayer(-2).isFold) || (getPlayer(-2) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr3" ng-click="sitHerefn(3)" ng-pos="3" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(2)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr3" ng-click="sitHerefn(3)" ng-pos="3" ng-remaining-player="remainingPlayer" ng-player="getPlayer(-3)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p3 bootAnimate" ng-if="(players[getTableNo(2)].isChaal==true && !players[getTableNo(2)].isFold) ||  (players[getTableNo(2)] && startCoinAnime) ">
+        <div class="p3 bootAnimate" ng-if="(getPlayer(-3).isChaal==true && !getPlayer(-3).isFold) ||  (getPlayer(-3) && startCoinAnime) ">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(3)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-remaining-player="remainingPlayer" ng-player="getPlayer(-4)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p4 bootAnimate" ng-if="(players[getTableNo(3)].isChaal==true && !players[getTableNo(3)].isFold) ||  (players[getTableNo(3)] && startCoinAnime)">
+        <div class="p4 bootAnimate" ng-if="(getPlayer(-4).isChaal==true && !getPlayer(-4).isFold) ||  (getPlayer(-4) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr5" ng-click="sitHerefn(5)" ng-pos="5" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(4)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr5" ng-click="sitHerefn(5)" ng-pos="5" ng-remaining-player="remainingPlayer" ng-player="getPlayer(4)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p5 bootAnimate" ng-if="(players[getTableNo(4)].isChaal==true && !players[getTableNo(4)].isFold) ||  (players[getTableNo(4)] && startCoinAnime)">
+        <div class="p5 bootAnimate" ng-if="(getPlayer(4).isChaal==true && !getPlayer(4).isFold) ||  (getPlayer(4) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr6" ng-click="sitHerefn(6)" ng-pos="6" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(5)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr6" ng-click="sitHerefn(6)" ng-pos="6" ng-remaining-player="remainingPlayer" ng-player="getPlayer(3)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p6 bootAnimate" ng-if="(players[getTableNo(5)].isChaal==true && !players[getTableNo(5)].isFold)  || (players[getTableNo(5)] && startCoinAnime)">
+        <div class="p6 bootAnimate" ng-if="(getPlayer(3).isChaal==true && !getPlayer(3).isFold)  || (getPlayer(3) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr7" ng-click="sitHerefn(7)" ng-pos="7" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(6)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr7" ng-click="sitHerefn(7)" ng-pos="7" ng-remaining-player="remainingPlayer" ng-player="getPlayer(2)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p7 bootAnimate" ng-if="(players[getTableNo(6)].isChaal==true && !players[getTableNo(6)].isFold) || (players[getTableNo(6)] && startCoinAnime)">
+        <div class="p7 bootAnimate" ng-if="(getPlayer(2).isChaal==true && !getPlayer(2).isFold) || (getPlayer(2) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <players id="plr8" ng-click="sitHerefn(8)" ng-pos="8" ng-remaining-player="remainingPlayer" ng-player="players[getTableNo(7)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation">
+        <players id="plr8" ng-click="sitHerefn(8)" ng-pos="8" ng-remaining-player="remainingPlayer" ng-player="getPlayer(1)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo" ng-animation="startAnimation">
         </players>
-        <div class="p8 bootAnimate" ng-if="(players[getTableNo(7)].isChaal==true && !players[getTableNo(7)].isFold) ||  (players[getTableNo(7)] && startCoinAnime)">
+        <div class="p8 bootAnimate" ng-if="(getPlayer(1).isChaal==true && !getPlayer(1).isFold) ||  (getPlayer(1) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
 
         <!-- main Player -->
-        <mainPlayer ng-click="sitHerefn(9)" ng-if="sitHere" ng-pos="9" ng-main="9" ng-player="players[getTableNo(8)]" ng-sit-here="sitHere"
+        <mainPlayer ng-click="sitHerefn(9)" ng-if="sitHere" ng-pos="9" ng-main="9" ng-player="getPlayer(0)" ng-sit-here="sitHere"
           ng-win="winnerPlayerNo">
         </mainPlayer>
-        <mainPlayer ng-click="sitHerefn(9)" ng-if="!sitHere" ng-pos="0" ng-main="main-player" ng-player="players[getTableNo(8)]"
-          ng-sit-here="sitHere" ng-win="winnerPlayerNo"> </mainPlayer>
-        <div class="p9 bootAnimate" ng-if="(players[getTableNo(8)].isChaal==true && !players[getTableNo(8)].isFold) ||  (players[getTableNo(8)] && startCoinAnime)">
+        <mainPlayer ng-click="sitHerefn(9)" ng-if="!sitHere" ng-pos="0" ng-main="main-player" ng-player="getPlayer(0)" ng-sit-here="sitHere"
+          ng-win="winnerPlayerNo"> </mainPlayer>
+        <div class="p9 bootAnimate" ng-if="(getPlayer(0).isChaal==true && !getPlayer(0).isFold) ||  (getPlayer(0) && startCoinAnime)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <!--end  main Player -->
@@ -112,46 +112,46 @@
       </div> -->
 
       <!--showCard-->
-      <div class="showing_cards" ng-if="!sitHere && (players[getTableNo(8)].cards.length > 0)" ng-class="{'main_card_anime':players[getTableNo(8)].cards.length>0 && startAnimation}">
-        <div class="custom-row" ng-if="(players[getTableNo(8)] && players[getTableNo(8)].isBlind && !players[getTableNo(8)].isFold && remainingPlayer>1) || ( winnerPlayerNo == -1 && remainingPlayer == 1)">
+      <div class="showing_cards" ng-if="!sitHere && (getPlayer(0).cards.length > 0)" ng-class="{'main_card_anime':getPlayer(0).cards.length>0 && startAnimation}">
+        <div class="custom-row" ng-if="(getPlayer(0) && getPlayer(0).isBlind && !getPlayer(0).isFold && remainingPlayer>1) || ( winnerPlayerNo == -1 && remainingPlayer == 1)">
           <card card='NONE'></card>
           <card card='NONE'></card>
           <card card='NONE'></card>
         </div>
-        <div ng-if="(!players[getTableNo(8)].isBlind && !players[getTableNo(8)].isFold) || (!players[getTableNo(8)].isFold && winnerPlayerNo != -1 && remainingPlayer > 1)">
+        <div ng-if="(!getPlayer(0).isBlind && !getPlayer(0).isFold) || (!getPlayer(0).isFold && winnerPlayerNo != -1 && remainingPlayer > 1)">
           <div class=" custom-row ">
-            <card card='{{players[getTableNo(8)].cards[0]}}'> </card>
-            <card card='{{players[getTableNo(8)].cards[1]}}'> </card>
-            <card card='{{players[getTableNo(8)].cards[2]}}'> </card>
+            <card card='{{getPlayer(0).cards[0]}}'> </card>
+            <card card='{{getPlayer(0).cards[1]}}'> </card>
+            <card card='{{getPlayer(0).cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="players[getTableNo(8)].isBlind && !startAnimation && !players[getTableNo(8)].isFold && (players[getTableNo(8)].cards.length > 0) && (remainingPlayer>1) && (winnerPlayerNo==-1)"
+        <div ng-if="getPlayer(0).isBlind && !startAnimation && !getPlayer(0).isFold && (getPlayer(0).cards.length > 0) && (remainingPlayer>1) && (winnerPlayerNo==-1)"
           class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere && players[getTableNo(8)] ">
-      <button class="pack" ng-click="pack()" ng-if="players[getTableNo(8)].isTurn && !players[getTableNo(8)].isFold" promise-btn="packPromise">
+    <div class="playing-player-info" ng-if="!sitHere && getPlayer(0) ">
+      <button class="pack" ng-click="pack()" ng-if="getPlayer(0).isTurn && !getPlayer(0).isFold" promise-btn="packPromise">
         PACK</button>
-      <button class="slide_show" ng-click="sideShow()" ng-if="(players[getTableNo(8)].isTurn)&& (remainingPlayer > 2) && !players[getTableNo(8)].isFold"
+      <button class="slide_show" ng-click="sideShow()" ng-if="(getPlayer(0).isTurn)&& (remainingPlayer > 2) && !getPlayer(0).isFold"
         ng-disabled="seenPlayer > 0" promise-btn="sideShowPromise"> side show </button>
-      <button class="slide_show " ng-click="showWinner()" promise-btn="showWinnerPromise" ng-if="(players[getTableNo(8)].isTurn) && (remainingPlayer == 2) && !players[getTableNo(8)].isFold">show</button>
-      <span class="info" ng-class="{'color_red':insufficientFunds}"> {{players[getTableNo(8)].name}}
-        <img src="img/coin.png"> {{players[getTableNo(8)].balance}}
+      <button class="slide_show " ng-click="showWinner()" promise-btn="showWinnerPromise" ng-if="(getPlayer(0).isTurn) && (remainingPlayer == 2) && !getPlayer(0).isFold">show</button>
+      <span class="info" ng-class="{'color_red':insufficientFunds}"> {{getPlayer(0).name}}
+        <img src="img/coin.png"> {{getPlayer(0).balance}}
         <!-- <span ng-if="insufficientFunds && " >3X remaining</span> -->
       </span>
-      <button class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[getTableNo(8)].isTurn && betamount>minAmt && !players[getTableNo(8)].isFold">
+      <button class="minus no-click-effect" ng-click="removeCoin()" ng-if="getPlayer(0).isTurn && betamount>minAmt && !getPlayer(0).isFold">
         -
       </button>
-      <button class="minus no-click-effect opacity-05" ng-if="players[getTableNo(8)].isTurn && betamount<=minAmt && !players[getTableNo(8)].isFold">
+      <button class="minus no-click-effect opacity-05" ng-if="getPlayer(0).isTurn && betamount<=minAmt && !getPlayer(0).isFold">
         -
       </button>
-      <button class="coin" ng-click="playChaal()" promise-btn="chaalPromise" ng-if="players[getTableNo(8)].isTurn && !players[getTableNo(8)].isFold">
+      <button class="coin" ng-click="playChaal()" promise-btn="chaalPromise" ng-if="getPlayer(0).isTurn && !getPlayer(0).isFold">
         <img src="img/coin.png"> {{betamount}}
-        <span ng-if="players[getTableNo(8)].isBlind">blind </span>
-        <span ng-if="!players[getTableNo(8)].isBlind"> chaal</span>
+        <span ng-if="getPlayer(0).isBlind">blind </span>
+        <span ng-if="!getPlayer(0).isBlind"> chaal</span>
       </button>
-      <button class="plus no-click-effect" ng-click="addCoin()" ng-if="players[getTableNo(8)].isTurn && betamount<maxAmt && !players[getTableNo(8)].isFold">+</button>
-      <button class="plus no-click-effect opacity-05" ng-if="players[getTableNo(8)].isTurn && betamount>=maxAmt && !players[getTableNo(8)].isFold">+</button>
+      <button class="plus no-click-effect" ng-click="addCoin()" ng-if="getPlayer(0).isTurn && betamount<maxAmt && !getPlayer(0).isFold">+</button>
+      <button class="plus no-click-effect opacity-05" ng-if="getPlayer(0).isTurn && betamount>=maxAmt && !getPlayer(0).isFold">+</button>
     </div>
   </div>
 </div>
