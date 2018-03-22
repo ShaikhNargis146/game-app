@@ -314,6 +314,14 @@
   width: 50%;
   top: 25%;
   left: 25%; // transform: translate(-50%,-50%) !important;
+  &.room_summary-potrate {
+    width: 80%;
+    top: 25%;
+    left: 10%;
+    bottom: 50%;
+    height: auto;
+    min-height: auto;
+  }
   .heading {
     font-family: 'Cinzel-Bold';
     border-image: $border-color;
