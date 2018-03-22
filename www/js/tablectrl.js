@@ -399,6 +399,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
     $scope.players = data.players;
 
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+      if (player.isActive && !player.isFold) {
+        return true;
+      }
+    }).length;
+    $scope.blindPlayerCount = _.filter($scope.players, function (player) {
+      if (player.isActive && !player.isFold && player.blind) {
+        return true;
+      }
+    }).length;
 
 
     console.log($scope.players, myTableNo);
