@@ -113,19 +113,19 @@
 
       <!--showCard-->
       <div class="showing_cards" ng-if="!sitHere && (getPlayer(0).cards.length > 0)" ng-class="{'main_card_anime':getPlayer(0).cards.length>0 && startAnimation}">
-        <div class="custom-row" ng-if="(getPlayer(0) && getPlayer(0).isBlind && !getPlayer(0).isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1)">
+        <div class="custom-row" ng-if="(getPlayer(0) && getPlayer(0).isBlind && !getPlayer(0).isFold && remainingPlayerCount>1) || ( !showWinningCard && remainingPlayerCount == 1)">
           <card card='NONE'></card>
           <card card='NONE'></card>
           <card card='NONE'></card>
         </div>
-        <div ng-if="(!getPlayer(0).isBlind && !getPlayer(0).isFold) || (!getPlayer(0).isFold && winnerPlayerNo != -1 && remainingPlayerCount > 1)">
+        <div ng-if="(!getPlayer(0).isBlind && !getPlayer(0).isFold) || (!getPlayer(0).isFold && showWinningCard && remainingPlayerCount > 1)">
           <div class=" custom-row ">
             <card card='{{getPlayer(0).cards[0]}}'> </card>
             <card card='{{getPlayer(0).cards[1]}}'> </card>
             <card card='{{getPlayer(0).cards[2]}}'> </card>
           </div>
         </div>
-        <div ng-if="getPlayer(0).isBlind && !startAnimation && !getPlayer(0).isFold && (getPlayer(0).cards.length > 0) && (remainingPlayerCount>1) && (winnerPlayerNo==-1)"
+        <div ng-if="getPlayer(0).isBlind && !startAnimation && !getPlayer(0).isFold && (getPlayer(0).cards.length > 0) && (remainingPlayerCount>1) && (!showWinningCard)"
           class="card_see" ng-click="showCard()">See</div>
       </div>
     </div>
