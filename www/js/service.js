@@ -53,19 +53,20 @@ myApp.factory('Service', function ($http, $ionicLoading, $timeout, $ionicActionS
     passwordchange: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
-      return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
-        data = data.data;
-        callback(data);
-      });
-    }
+        return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
+          data = data.data;
+          callback(data);
+        });
+      }
     },
 
-    sendAccessToken: function (accessToken, callback) {
+    sendAccessToken: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-        if (accessToken) {
+      if (accessToken) {
         $http.post(adminurl + 'member/getAccessLevel', {
           accessToken: accessToken
         }).then(function (data) {
+          console.log(data);
           callback(data);
         });
       }
