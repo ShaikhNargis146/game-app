@@ -21,18 +21,18 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.accessToken = $.jStorage.get("accessToken");
 
 
-  $scope.playerData= function(){
+  $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
-    $scope.singlePlayerData = data.data.data;
-    $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
-    $scope.image = $scope.singlePlayerData.image;
-    $scope.username = $scope.singlePlayerData.username;
-    $scope.userType = $scope.singlePlayerData.userType;
-    $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-  })
-};
+      $scope.singlePlayerData = data.data.data;
+      $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
+      $scope.image = $scope.singlePlayerData.image;
+      $scope.username = $scope.singlePlayerData.username;
+      $scope.userType = $scope.singlePlayerData.userType;
+      $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+    })
+  };
 
-$scope.playerData();
+  $scope.playerData();
 
 
   //ask for sit here when joining new game
@@ -262,14 +262,14 @@ $scope.playerData();
     if ($scope.tableId == $scope.extra.tableId) {
       $scope.rawdata = data.players;
       //re-arrange only if player already have seat
-      $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+      $scope.iAmThere($scope.rawdata, $scope.playerData.memberId);
       //making 9 length array by filling 0 in all empty field
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
     }
   });
   // Update Socket Player
-  updateSocketFunction = function (data) {
+  function updateSocketFunction(data) {
     console.log("update socket", data);
     data = data.data;
     $scope.extra = data.extra;
@@ -307,14 +307,9 @@ $scope.playerData();
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
     $scope.rawdata = data.players;
-    $scope.remainingPlayer = _.filter(data.players, function (n) {
-      return n.isActive && !n.isFold;
-    }).length;
-    $scope.seenPlayer = _.filter(data.players, function (n) {
-      return n.isBlind && !n.isFold;
-    }).length;
+
     //re-arrange only if player already have seat
-    $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+    $scope.iAmThere($scope.rawdata, $scope.playerData.memberId);
     //making 9 length array by filling 0 in all empty field
     $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
     $scope.players = $scope.rearrangePlayer($scope.rawdata2);
@@ -331,7 +326,7 @@ $scope.playerData();
   };
 
 
-  showWinnerFunction = function (data) {
+  function showWinnerFunction(data) {
     console.log("show winnwe", data);
     $scope.showWinnerPlayer = data.data.players;
     $scope.winner = _.find($scope.showWinnerPlayer, {
@@ -371,7 +366,7 @@ $scope.playerData();
       $scope.seenPlayer = _.filter(data.data.data.players, function (n) {
         return n.isBlind && !n.isFold;
       }).length;
-      $scope.IamThere($scope.rawdata, $scope.playerData.memberId);
+      $scope.iAmThere($scope.rawdata, $scope.playerData.memberId);
       $scope.rawdata2 = $scope.fillAllPlayer($scope.rawdata);
       $scope.players = $scope.rearrangePlayer($scope.rawdata2);
       console.log("final upadate plyr", $scope.players)
@@ -463,7 +458,7 @@ $scope.playerData();
   };
 
 
-  $scope.IamThere = function (data, id) {
+  $scope.iAmThere = function (data, id) {
     $scope.isthere = false;
     _.forEach(data, function (value) {
 
