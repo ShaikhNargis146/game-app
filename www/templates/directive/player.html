@@ -27,7 +27,7 @@
           <div class="profile_pic_overlay">
             <img ng-src="{{player.image | serverimage}}"> </div>
         </div>
-        <div class="plyr_card" ng-class="{'player-fold':player.fold}" ng-if=" (player.cards.length > 0) || showWinnerPlayer.length == 1">
+        <div class="plyr_card" ng-class="{'player-fold':player.isFold}" ng-if=" (player.cards.length > 0) || showWinnerPlayer.length == 1">
           <div class=" custom-row">
             <card card='DONE'></card>
             <card card='DONE'></card>
