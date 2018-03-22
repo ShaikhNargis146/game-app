@@ -435,7 +435,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       'winRank': 1,
       'winner': true
     });
-    if ($scope.winner) {
+    if ($scope.winner && $scope.winner.playerNo) {
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
 
