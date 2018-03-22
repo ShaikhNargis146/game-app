@@ -94,7 +94,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (value.memberId == $scope.memberId) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
-        console.log(value.playerNo);
         startSocketUpdate();
         return false;
       }
@@ -438,7 +437,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.showWinnerPromise = Service.showWinner(tableId, function (data) {});
   };
 
-  // io.socket.on("showWinner", showWinnerFunction);
+  io.socket.on("showWinner", showWinnerFunction);
 
   //to add and remove coin
   $scope.addCoin = function () {
