@@ -64,6 +64,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
   $scope.startCoinAnime = false;
+  $scope.winnerPlayerNo = -1;
 
 
 
@@ -83,8 +84,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
       $scope.iAmThere($scope.players);
       if ($scope.isThere) {
-        console.log($scope.isThere);
-        console.log(data.data);
         updateSocketFunction(data.data, true);
       }
     });
@@ -96,7 +95,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
     _.forEach(data, function (value) {
-      console.log(value);
       if (value && value.memberId == $scope.memberId) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
@@ -125,7 +123,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data.value) {
         $scope.sitHere = false;
         myTableNo = data.data.data.playerNo;
-        console.log(myTableNo);
         startSocketUpdate();
       } else {
         if (data.data.error == "position filled") {
@@ -154,7 +151,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //loader for table
   $scope.ShowLoader = true;
-  // console.log("socket id from socket", $.jStorage.get("socktId"));
   if ($.jStorage.get("socketId")) {
     $scope.ShowLoader = false;
   } else {
@@ -371,7 +367,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
-    console.log("update socket", data);
+
     data = data.data;
     $scope.extra = data.extra;
 
@@ -380,7 +376,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("new game start here");
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
-        $scope.winnerPlayerNo = false;
+        $scope.winnerPlayerNo = -1;
         $timeout(function () {
           $scope.startCoinAnime = false;
         }, 1000);
@@ -415,13 +411,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
+    console.log($scope.remainingPlayerCount);
     $scope.blindPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold && player.blind) {
         return true;
       }
     }).length;
 
-    if (($scope.players[8].balance) < (data.table.chalAmt * 2 * 3)) {
+    if ($scope.players && $scope.players[8] && ($scope.players[8].balance) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
       // $scope.showInsufficientFundsModal();
     } else {
@@ -589,7 +586,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       return _.cloneDeep(playerReturn);
     });
     $scope.players = players;
-    console.log($scope.players);
   }
 
   // $scope.players = [{

@@ -27,14 +27,15 @@
           <div class="profile_pic_overlay">
             <img ng-src="{{player.image | serverimage}}"> </div>
         </div>
-        <div class="plyr_card" ng-if="!player.isFold && (player.cards.length > 0) && player.playerNo != winnerPlayerNo">
+        <div class="plyr_card" ng-if="!player.isFold && (player.cards.length > 0) && winnerPlayerNo == -1">
           <div class=" custom-row">
             <card card='DONE'></card>
             <card card='DONE'></card>
             <card card='DONE'></card>
           </div>
         </div>
-        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && winnerPlayerNo && remainingPlayerCount > 1">
+        {{remainingPlayerCount}}
+        <div class="plyr_card plyr_card1 " ng-if="player.active && !player.isFold && winnerPlayerNo >= 0">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
