@@ -35,7 +35,7 @@
           </div>
         </div>
         {{remainingPlayerCount}}
-        <div class="plyr_card plyr_card1 " ng-if="player.active && !player.isFold && winnerPlayerNo >= 0">
+        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && winnerPlayerNo >= 0 && remainingPlayerCount>1">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
