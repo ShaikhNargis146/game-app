@@ -10,7 +10,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
-      $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
       $scope.image = $scope.singlePlayerData.image;
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
@@ -130,12 +129,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.priceRangeModal.hide();
   }
   $scope.logout = function () {
-    // var accessToken = $.jStorage.get("accessToken");
-    // Service.playerLogout(accessToken, function (data) {
-    //   // console.log("logout", data);
-    // });
-    $.jStorage.flush();
-    $state.go('login');
+    Service.playerLogout(function (data) {
+      console.log("logout", data);
+      if (data.data.data == "Logged out") {
+        $.jStorage.flush();
+        $state.go('login');
+      }
+    });
   }
 
 
