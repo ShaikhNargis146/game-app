@@ -1,7 +1,8 @@
 var updateSocketFunction;
 var showWinnerFunction;
-var myTableNo;
+var myTableNo = 0;
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
+  myTableNo = 0;
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
   });
@@ -59,7 +60,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
   $scope.startAnimation = false;
-  $scope.winnerPlayerNo = false;
 
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
@@ -77,7 +77,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
       $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-      $scope.players = data.data.data.players;
+      reArragePlayers(data.data.data.players);
       if (data.data.data.pot) {
         $scope.potAmount = data.data.data.pot.totalAmount;
       }
@@ -138,14 +138,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     });
   };
 
-  $scope.getPlayer = function (number) {
-    var player = _.find($scope.players, function (n) {
-      if (((myTableNo + number) % 9) == (n.playerNo % 9)) {
-        return n;
-      }
-    });
-    return player;
-  };
+  // $scope.getPlayer = function (number) {
+  //   var player = _.find($scope.players, function (n) {
+  //     if (((myTableNo + number) % 9) == (n.playerNo % 9)) {
+  //       return n;
+  //     }
+  //   });
+  //   return player;
+  // };
 
 
   //loader for table
@@ -403,7 +403,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
-    $scope.players = data.players;
+
+    reArragePlayers(data.players);
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player.isActive && !player.isFold) {
@@ -416,7 +417,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     }).length;
 
-    if (($scope.getPlayer(0).balance) < (data.table.chalAmt * 2 * 3)) {
+    if (($scope.players[8].balance) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
       // $scope.showInsufficientFundsModal();
     } else {
@@ -435,7 +436,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       'winner': true
     });
     $scope.winnerPlayerNo = $scope.winner.playerNo;
-
   }
 
   //showWinner
@@ -563,5 +563,45 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.updatePotAmount = function (potamt) {
     $scope.potAmount = potamt;
   };
+
+
+
+  function reArragePlayers(playersData) {
+    var diff = 9 - myTableNo;
+    var players = _.times(9, function (n) {
+      var playerReturn = _.find(playersData, function (singlePlayer) {
+
+        var checkNo = (singlePlayer.playerNo + diff);
+        if (checkNo > 9) {
+          checkNo = checkNo - 9;
+        }
+
+        if ((n + 1) == checkNo) {
+          return singlePlayer;
+        } else {
+          return null;
+        }
+      });
+      return playerReturn;
+    });
+    $scope.players = players;
+  }
+
+  // $scope.players = [{
+  //   playerNo: 2,
+  //   user: 1
+  // }, {
+  //   playerNo: 5,
+  //   user: 2
+  // }, {
+  //   playerNo: 7,
+  //   user: 3
+  // }];
+
+  // var testPlayers = reArragePlayers($scope.players);
+
+  // console.log(testPlayers);
+
+
 
 });
