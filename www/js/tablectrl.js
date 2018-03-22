@@ -119,12 +119,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
-    myTableNo = sitNum;
-    console.log("table no", myTableNo);
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerToTable($scope.dataPlayer, function (data) {
       if (data.data.value) {
         $scope.sitHere = false;
+        myTableNo = data.data.data.playerNo;
+        console.log(myTableNo);
         startSocketUpdate();
       } else {
         if (data.data.error == "position filled") {
@@ -143,7 +143,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.getPlayer = function (number) {
     var player = _.find($scope.players, function (n) {
-      if ((myTableNo + number) == n.playerNo) {
+      if (((myTableNo + number) % 9) == (n.playerNo % 9)) {
         return n;
       }
     });
