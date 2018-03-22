@@ -346,7 +346,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //seat selection Player
   io.socket.on("seatSelection", function (data) {
     data = data.data;
-    console.log(data);
+    console.log("Seat Selections", data);
     $scope.extra = data.extra;
     if ($scope.tableId == $scope.extra.tableId) {
       $scope.rawdata = data.players;
