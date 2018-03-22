@@ -30,7 +30,7 @@ myApp.directive('card', function () {
       scope: {
         player: "=ngPlayer",
         remainingPlayerCount: "=ngRemainingPlayer",
-        showWinnerPlayer: "=ngShowWinnerPlayer",
+        showWinnerPlayer: "=ngWinnerPlayer",
         gameType: "=ngGameType",
         pos: "=ngPos",
         sitHere: "=ngSitHere",
