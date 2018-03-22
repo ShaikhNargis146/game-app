@@ -59,7 +59,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
   $scope.startAnimation = false;
-  $scope.showWinningCard = false;
+  $scope.winnerPlayerNo = false;
 
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
@@ -370,7 +370,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         console.log("new game start here");
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
-        $scope.showWinningCard = false;
+        $scope.winnerPlayerNo = false;
         $timeout(function () {
           $scope.startCoinAnime = false;
         }, 1000);
@@ -428,7 +428,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       'winRank': 1,
       'winner': true
     });
-    $scope.showWinningCard = true;
+    $scope.winnerPlayerNo = $scope.winner.playerNo;
+
   }
 
   //showWinner
