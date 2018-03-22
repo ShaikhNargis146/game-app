@@ -513,7 +513,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    if (data.data.toPlayer.accessToken == $scope.accessToken) {
+    if (data.data.toPlayer.memberId == $scope.memberId) {
       $scope.message = {
         heading: "Side Show",
         content: "Your request for the Side show has been rejected!"
@@ -524,16 +524,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   io.socket.on("sideShow", function (data) {
-    if (data.data.toPlayer.accessToken == $scope.accessToken) {
+    if (data.data.toPlayer.memberId == $scope.memberId) {
       $scope.showSideShowModal();
     }
-    if (data.data.fromPlayer.accessToken == $scope.accessToken) {
+    if (data.data.fromPlayer.memberId == $scope.memberId) {
       $scope.message = {
         heading: "Side Show",
         content: "Your request for the Side show has been sent!"
       };
       $scope.showMessageModal();
-
     }
   });
 
