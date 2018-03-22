@@ -1,27 +1,25 @@
-.pie_loader{
-overflow: hidden;
-opacity: .5;
+.pie_loader {
+  overflow: hidden;
+  opacity: .5;
   .animation_wrapper {
-    position: relative;
-    // margin: 40px auto;
+    position: relative; // margin: 40px auto;
     // background: white;
-    background: #ccaf00;
+    background: rgba(32, 194, 192, 0.812);
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 }
 
-
-
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {
-  #{$item}, #{$item} * { @include box-sizing(border-box); }
-
-  #{$item} { 
+  #{$item},
+  #{$item} * {
+    @include box-sizing(border-box);
+  }
+  #{$item} {
     width: $size;
     height: $size;
   }
-
   #{$item} .pie {
     width: 50%;
     height: 100%;
@@ -30,29 +28,25 @@ opacity: .5;
     background: $color;
     border: #{$border};
   }
-
   #{$item} .spinner {
     border-radius: 100% 0 0 100% / 50% 0 0 50%;
     z-index: 200;
     border-right: none;
     animation: rota $duration + s linear infinite;
   }
-
   #{$item}:hover .spinner,
-  #{$item}:hover .filler, 
+  #{$item}:hover .filler,
   #{$item}:hover .mask {
-    animation-play-state: $hover;    
+    animation-play-state: $hover;
   }
-
   #{$item} .filler {
-    border-radius: 0 100% 100% 0 / 0 50% 50% 0; 
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
     left: 50%;
     opacity: 0;
     z-index: 100;
-    animation: opa $duration + s steps(1,end) infinite reverse;
+    animation: opa $duration + s steps(1, end) infinite reverse;
     border-left: none;
   }
-
   #{$item} .mask {
     width: 50%;
     height: 100%;
@@ -60,18 +54,25 @@ opacity: .5;
     background: inherit;
     opacity: 1;
     z-index: 300;
-    animation: opa $duration + s steps(1,end) infinite;
+    animation: opa $duration + s steps(1, end) infinite;
   }
-
   @keyframes rota {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-
   @keyframes opa {
-    0% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    0% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
   }
 }
 
-@include timer('.animation_wrapper', 15, 300px,  white, '5px solid rgba(0,0,0,0.5)');
+@include timer('.animation_wrapper', 15, 300px, #000000, '5px solid rgba(0,0,0,0.5)');
