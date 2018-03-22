@@ -96,7 +96,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
     _.forEach(data, function (value) {
-      if (value.memberId == $scope.memberId) {
+      console.log(value);
+      if (value && value.memberId == $scope.memberId) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
         startSocketUpdate();
@@ -410,12 +411,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     reArragePlayers(data.players);
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
-      if (player.isActive && !player.isFold) {
+      if (player && player.isActive && !player.isFold) {
         return true;
       }
     }).length;
     $scope.blindPlayerCount = _.filter($scope.players, function (player) {
-      if (player.isActive && !player.isFold && player.blind) {
+      if (player && player.isActive && !player.isFold && player.blind) {
         return true;
       }
     }).length;
@@ -585,9 +586,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           return null;
         }
       });
-      return playerReturn;
+      return _.cloneDeep(playerReturn);
     });
     $scope.players = players;
+    console.log($scope.players);
   }
 
   // $scope.players = [{
