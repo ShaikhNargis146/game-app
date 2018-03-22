@@ -139,14 +139,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         return n;
       }
     });
-    // if (player >= 0) {
-    //   return $scope.players[player];
-    // } else {
-    //   return {};
-    // }
     return player;
-
-
   };
 
 
