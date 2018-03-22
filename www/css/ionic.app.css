@@ -12328,12 +12328,13 @@ body {
   opacity: .5; }
   .pie_loader .animation_wrapper {
     position: relative;
-    background: #ccaf00;
+    background: rgba(32, 194, 192, 0.812);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
 
-.animation_wrapper, .animation_wrapper * {
+.animation_wrapper,
+.animation_wrapper * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -12347,7 +12348,7 @@ body {
   height: 100%;
   transform-origin: 100% 50%;
   position: absolute;
-  background: white;
+  background: #000000;
   border: 5px solid rgba(0,0,0,0.5); }
 
 .animation_wrapper .spinner {
@@ -12387,7 +12388,8 @@ body {
 @keyframes opa {
   0% {
     opacity: 1; }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 0; } }
 
 .player-fold {

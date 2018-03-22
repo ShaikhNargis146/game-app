@@ -412,7 +412,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     }).length;
     $scope.blindPlayerCount = _.filter($scope.players, function (player) {
-      if (player && player.isActive && !player.isFold && player.blind) {
+      if (player && player.isActive && !player.isFold && player.isBlind) {
         return true;
       }
     }).length;
