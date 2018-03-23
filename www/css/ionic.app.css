@@ -10772,7 +10772,8 @@ body {
         position: absolute;
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
-        padding: 0% 2%;
+        padding: 3px 2% 0px;
+        letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
         top: -5%;

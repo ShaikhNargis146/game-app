@@ -234,7 +234,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.openPlayerDetails = function ($event, id) {
     $event.stopPropagation();
-
     $scope.plrNo = plrno;
     $scope.data = {};
     $scope.data.id = id;
@@ -488,7 +487,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.playChaal = function () {
-
     $scope.chaalPromise = Service.chaal({
       tableId: $scope.tableId,
       amount: $scope.betamount
@@ -496,13 +494,28 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   //tip
-  $scope.makeTip = function () {
+  $scope.makeTip = function (data) {
+    console.log(data);
     var playerdetails = {};
-    playerdetails.tableId = $scope.tableId;
-    playerdetails.amount = 100;
-    Service.maketip(playerdetails, function (data) {});
+    playerdetails.memberId = $scope.memberId;
+    playerdetails.amount = data;
+    Service.giveTip(playerdetails, function (data) {
+      console.log(data);
+    });
   };
-
+  //Make Tip modal
+  $ionicModal.fromTemplateUrl('templates/model/make-tip.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.makeTipModal = modal;
+  });
+  $scope.openMakeTipModal = function () {
+    $scope.makeTipModal.show();
+  };
+  $scope.closeMakeTipModal = function () {
+    $scope.makeTipModal.hide();
+  };
   //pack 
   $scope.pack = function () {
     var playerdetails = {};

@@ -71,6 +71,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         $state.go("login");
       }
     },
+    giveTip: function (data, callback) {
+      console.log("give", data);
+      $http.post(adminurl + 'member/giveTip', {
+        "_id": data.memberId,
+        "amount": data.amount
+      }).then(function (data) {
+        console.log("give Tip Response", data);
+        callback(data);
+      });
+    },
     searchPlayerTransaction: function (data, callback) {
       console.log(data._id);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
@@ -160,18 +170,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         return $http.post(url + 'Player/chaal', {
-          "tableId": data.tableId,
-          "accessToken": accessToken,
-          "amount": data.amount
-        }).then(function (data) {
-          callback(data);
-        });
-      }
-    },
-    maketip: function (data, callback) {
-      var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
-        $http.post(url + 'Table/makeTip', {
           "tableId": data.tableId,
           "accessToken": accessToken,
           "amount": data.amount
