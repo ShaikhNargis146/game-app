@@ -1,10 +1,10 @@
 .pie_loader {
   overflow: hidden;
-  opacity: .5;
+  opacity: .8;
   .animation_wrapper {
     position: relative; // margin: 40px auto;
     // background: white;
-    background: rgba(0, 0, 0, 0.89);
+    background: #db1616;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -75,4 +75,4 @@
   }
 }
 
-@include timer('.animation_wrapper', 15, 300px, #ff0700, '5px solid rgba(0,0,0,0.5)');
+@include timer('.animation_wrapper', 15, 300px, #040404, '5px solid rgba(0,0,0,0.5)');

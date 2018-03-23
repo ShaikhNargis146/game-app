@@ -10762,9 +10762,9 @@ body {
           left: 55%; }
       .kingtable .main-table .playing-table .doll {
         position: absolute;
-        width: 10%;
+        width: 12%;
         left: 50%;
-        top: -23%;
+        top: -32%;
         transform: translateX(-50%);
         z-index: 2; }
       .kingtable .main-table .playing-table .tip {
@@ -12407,10 +12407,10 @@ body {
 
 .pie_loader {
   overflow: hidden;
-  opacity: .5; }
+  opacity: .8; }
   .pie_loader .animation_wrapper {
     position: relative;
-    background: rgba(0, 0, 0, 0.89);
+    background: #db1616;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
@@ -12430,7 +12430,7 @@ body {
   height: 100%;
   transform-origin: 100% 50%;
   position: absolute;
-  background: #ff0700;
+  background: #040404;
   border: 5px solid rgba(0,0,0,0.5); }
 
 .animation_wrapper .spinner {
