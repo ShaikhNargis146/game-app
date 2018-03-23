@@ -169,7 +169,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     //for table selection//
 
     Service.tableData(function (data) {
-      console.log(data);
+      console.log("tabledata", data);
       $scope.tableData = data.data.data.results;
     });
   }
@@ -311,7 +311,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
-        console.log($scope.privateTableData, "private table", data.data)
+
 
       } else {}
     });
@@ -332,23 +332,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.privateLogInModal.hide();
   };
 
-  $scope.goToPrivateTable = function (data) {
-    console.log("inside login", data);
+  $scope.goToPrivateTableLogIn = function (data) {
     $scope.privateDataForModal = data;
     $scope.showPrivateLogInModal();
     //
   }
 
-  $scope.privateTableLogIN = function (tableID, password) {
-    console.log("inside private table", tableID, password);
-
+  $scope.goToPrivateTable = function (tableID, password) {
     Service.getAccessToTable({
       'tableId': tableID,
       'password': password
     }, function (data) {
-      console.log("inside api call getaccesstable", data);
       $scope.tableId = data.data.data._id;
       $scope.closePrivateLogInModal();
+      $scope.closePriceRangeModal();
       $timeout(function () {
         $state.go('table', {
           'id': $scope.tableId
