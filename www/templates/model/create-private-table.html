@@ -1,11 +1,10 @@
-<ion-modal-view class="custom-model statement-model change_password-model form-update">
-
+<ion-modal-view class="custom-model statement-model change_password-model form-update private_table">
   <ion-content>
     <div class="close" ng-click="closePrivateTable()">
       <img src="img/close.png">
     </div>
     <div class="heading">Create Private Table</div>
-    <div class="field vertical_scroll">
+    <div class="field vertical_scroll" ng-if="!privateTableData">
       <form name="createTable">
         <div class="rel">
           <div class="login_button">
@@ -32,15 +31,20 @@
           </div>
           <span class="valid" ng-show="createTable.tableShow.$touched && createTable.tableShow.$invalid">*Table show is required.</span>
         </div>
-        <div class="rel">
+        <!-- <div class="rel">
           <div class="login_button">
             <input type="number" name="maxBlind" ng-model="data.blindAmt" placeholder="Max Blind*" required>
           </div>
           <span class="valid" ng-show="createTable.maxBlind.$touched && createTable.maxBlind.$invalid">*Max Blind is required.</span>
-        </div>
+        </div> -->
 
         <button type="submit" ng-click="createPrivateTable(data)" promise-btn="createPrivateTablePromise" ng-disabled="createTable.$invalid">Create</button>
       </form>
+    </div>
+    <div ng-if="privateTableData">
+      <div class="private_data">
+        Your Password for Private Table {{privateTableData.name}} is {{privateTableData.password}}
+      </div>
     </div>
   </ion-content>
 </ion-modal-view>

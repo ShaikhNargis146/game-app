@@ -309,6 +309,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     Service.createTable(formData, function (data) {
       console.log("private Table", data)
       if (data.value) {
+        $scope.privateTableData = data.data;
+        console.log($scope.privateTableData, "private table", data.data)
 
       } else {}
     });
