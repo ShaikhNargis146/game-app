@@ -71,16 +71,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         $state.go("login");
       }
     },
-    giveTip: function (data, callback) {
-      console.log("give", data);
-      $http.post(adminurl + 'member/giveTip', {
-        "_id": data.memberId,
-        "amount": data.amount
-      }).then(function (data) {
-        console.log("give Tip Response", data);
-        callback(data);
-      });
-    },
+    // giveTip: function (data, callback) {
+    //   console.log("give", data);
+    //   $http.post(adminurl + 'member/giveTip', {
+    //     "id": data.memberId,
+    //     "amount": data.amount
+    //   }).then(function (data) {
+    //     console.log("give Tip Response", data);
+    //     callback(data);
+    //   });
+    // },
     searchPlayerTransaction: function (data, callback) {
       console.log(data._id);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
