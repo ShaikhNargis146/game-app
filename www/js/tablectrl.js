@@ -74,6 +74,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
     Service.getAll($scope.l, function (data) {
+      console.log(data);
       // check whether dealer is selected or not
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
