@@ -10723,7 +10723,6 @@ body {
         background-size: 100% 100%;
         background-repeat: no-repeat;
         position: absolute;
-        position: absolute;
         top: 0;
         transform: translateY(-108%);
         height: 40px;
@@ -11395,6 +11394,65 @@ body {
     transition: all 3s !important;
     opacity: 0; }
 
+.wnr {
+  display: none; }
+  .wnr img {
+    position: absolute; }
+
+.winner_anime {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .winner_anime img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%; }
+    .winner_anime img.anime1 {
+      opacity: .5;
+      top: -55%;
+      left: -50%;
+      opacity: 0;
+      animation: winner 4s infinite; }
+    .winner_anime img.anime2 {
+      top: 15%;
+      opacity: .5;
+      left: -50%;
+      opacity: 0;
+      animation: winner 6s infinite; }
+    .winner_anime img.anime3 {
+      opacity: .5;
+      opacity: 0;
+      top: -15%;
+      left: 50%;
+      animation: winner 8s infinite; }
+    .winner_anime img.anime4 {
+      top: -50%;
+      opacity: .5;
+      left: 10%;
+      opacity: 0;
+      animation: winner 10s infinite; }
+
+@keyframes winner {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.5; }
+  25% {
+    transform: scale(1);
+    opacity: 1; }
+  50% {
+    transform: scale(0.5);
+    opacity: .5; }
+  75% {
+    transform: scale(0.7);
+    opacity: 1; }
+  100% {
+    transform: scale(0.1);
+    opacity: .5; } }
+
 .table6 .player2 {
   right: 5% !important;
   top: 2% !important; }
@@ -11577,6 +11635,7 @@ body {
       .change_password-model .field form .login_button input {
         transform: translateY(15%);
         height: 100%;
+        width: 100%;
         font-weight: bold;
         font-weight: bold;
         font-size: 1em;
@@ -12351,7 +12410,7 @@ body {
   opacity: .5; }
   .pie_loader .animation_wrapper {
     position: relative;
-    background: rgba(32, 194, 192, 0.812);
+    background: rgba(0, 0, 0, 0.89);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }
@@ -12371,7 +12430,7 @@ body {
   height: 100%;
   transform-origin: 100% 50%;
   position: absolute;
-  background: #000000;
+  background: #ff0700;
   border: 5px solid rgba(0,0,0,0.5); }
 
 .animation_wrapper .spinner {

@@ -3,7 +3,13 @@
 
 
   <div class="winner-display">
-    <div class="winner-player" ng-class="{'winner_main':player.playerNo==winnerPlayerNo}"></div>
+    <div class="winner-player " ng-class="{'winner_main':player.playerNo==winnerPlayerNo}">
+      <!-- 
+      <img src="img/table/glow.png" class="anime1">
+      <img src="img/table/glow.png" class="anime2">
+      <img src="img/table/glow.png" class="anime3">
+      <img src="img/table/glow.png" class="anime4"> -->
+    </div>
   </div>
   <!-- <div class="p9 {{mainplayer}} bootAnimate" ng-if="true">
     <img src="img/coin.png" class="coin">{{betamount}}
@@ -22,6 +28,13 @@
   </div>
 
   <div ng-class="{dealer:player.isDealer}">
+    <div class="wnr" ng-class="{'winner_anime':player.playerNo==winnerPlayerNo}">
+
+      <img src="img/table/glow.png" class="anime1">
+      <img src="img/table/glow.png" class="anime2">
+      <img src="img/table/glow.png" class="anime3">
+      <img src="img/table/glow.png" class="anime4">
+    </div>
     <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive">
       BLIND </div>
     <div class="status" ng-if="player.isFold && player.isActive">

@@ -143,7 +143,7 @@
       <button class="minus no-click-effect opacity-05" ng-if="players[8].isTurn && betamount<=minAmt && !players[8].isFold">
         -
       </button>
-      <button class="coin" ng-click="playChaal()" promise-btn="chaalPromise" ng-if="players[8].isTurn && !players[8].isFold">
+      <button class="coin" ng-click="playChaal()" ng-disabled="players[8].balance < betamount" promise-btn="chaalPromise" ng-if="players[8].isTurn && !players[8].isFold">
         <img src="img/coin.png"> {{betamount}}
         <span ng-if="players[8].isBlind">blind </span>
         <span ng-if="!players[8].isBlind"> chaal</span>

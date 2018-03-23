@@ -4,7 +4,7 @@
   .animation_wrapper {
     position: relative; // margin: 40px auto;
     // background: white;
-    background: rgba(32, 194, 192, 0.812);
+    background: rgba(0, 0, 0, 0.89);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -75,4 +75,4 @@
   }
 }
 
-@include timer('.animation_wrapper', 15, 300px, #000000, '5px solid rgba(0,0,0,0.5)');
+@include timer('.animation_wrapper', 15, 300px, #ff0700, '5px solid rgba(0,0,0,0.5)');

@@ -334,7 +334,6 @@
           background-repeat: no-repeat; // height: 22px;
           // width: 50px;
           position: absolute;
-          position: absolute;
           top: 0;
           transform: translateY(-108%);
           height: 40px;
@@ -1352,5 +1351,79 @@
     left: 42% !important;
     transition: all 3s !important;
     opacity: 0;
+  }
+}
+
+.wnr {
+  display: none;
+  img {
+    position: absolute;
+  }
+}
+
+.winner_anime {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    &.anime1 {
+      // top: -50%;
+      opacity: .5; // left: -50%;
+      top: -55%;
+      left: -50%;
+      opacity: 0;
+      animation: winner 4s infinite; // animation-iteration-count: 3;
+    }
+    &.anime2 {
+      top: 15%;
+      opacity: .5;
+      left: -50%;
+      opacity: 0;
+      animation: winner 6s infinite; // animation-iteration-count: 3;
+    }
+    &.anime3 {
+      opacity: .5;
+      opacity: 0;
+      top: -15%;
+      left: 50%;
+      animation: winner 8s infinite; // animation-iteration-count: 3;
+    }
+    &.anime4 {
+      top: -50%;
+      opacity: .5;
+      left: 10%;
+      opacity: 0;
+      animation: winner 10s infinite; // animation-iteration-count: 3;
+    }
+  }
+}
+
+@keyframes winner {
+  0% {
+    transform: scale(.1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(.5);
+    opacity: .5;
+  }
+  75% {
+    transform: scale(.7);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(.1);
+    opacity: .5;
   }
 }
