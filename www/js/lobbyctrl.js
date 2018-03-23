@@ -128,6 +128,22 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.closePriceRangeModal = function () {
     $scope.priceRangeModal.hide();
   }
+
+  //my private Table Info 
+  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.myPrivateModal = modal;
+
+
+  });
+  $scope.openMyPrivateModal = function () {
+    $scope.myPrivateModal.show();
+  }
+  $scope.closeMyPrivateModal = function () {
+    $scope.myPrivateModal.hide();
+  }
   $scope.logout = function () {
     Service.playerLogout(function (data) {
       console.log("logout", data);
@@ -164,13 +180,40 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.openPriceRangeModal();
       $event.stopPropagation();
     }
-
-
     //for table selection//
-
     Service.tableData(function (data) {
       console.log("tabledata", data);
       $scope.tableData = data.data.data.results;
+    });
+  }
+  $scope.formData = {};
+  $scope.formData.page = 1;
+  $scope.formData.type = '';
+  $scope.formData.keyword = '';
+  $scope.searchInTable = function (data) {
+    $scope.formData.page = 1;
+    if (data.length >= 1) {
+      $scope.formData.keyword = data;
+      $scope.myPrivateTable();
+    } else if (data.length == '') {
+      $scope.formData.keyword = data;
+      $scope.myPrivateTable();
+    }
+  }
+  $scope.myPrivateTable = function ($event) {
+    $scope.formData.page = $scope.formData.page++;
+    if (!$scope.VariationActive) {
+      $scope.openMyPrivateModal();
+      $event.stopPropagation();
+    }
+    //for table selection//
+    Service.getPrivateTables(function (data) {
+      console.log("tabledata", data);
+      if (data.data.data.results) {
+        $scope.tableData = data.data.data.results;
+      }
+      $scope.totalItems = data.data.total;
+      $scope.maxRow = data.data.options.count;
     });
   }
 
@@ -245,8 +288,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalCreate = modal;
   });
 
-  $scope.createPrivateModal = function () {
+  $scope.createPrivateModal = function ($event) {
     $scope.ModalCreate.show();
+    $event.stopPropagation();
   }
   $scope.closePrivateTable = function () {
     $scope.ModalCreate.hide();

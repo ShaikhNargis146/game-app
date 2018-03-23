@@ -1,76 +1,31 @@
-<ion-modal-view class="custom-model statement-model table_info_modal table-private-info small-model">
-
+<ion-modal-view class="custom-model statement-model price_range_modal">
   <ion-content>
-    <!-- <div class="close" ng-click="closeTableInfoModal()">
-            <img src="img/close.png">
-          </div> -->
-    <div class="heading"> Praivate Table Info</div>
-    <div class="private-table-mar">
-    <table>
-      <thead>
+    <div class="close" ng-click="closeMyPrivateModal()">
+      <img src="img/close.png">
+    </div>
+    <div class="heading">My Private table</div>
+    <div class="statement_content" ng-if="tableData">
+      <table>
         <tr>
-          <th>Table Name</th>
+          <th>Name</th>
+          <th>type</th>
+          <th>Stakes</th>
+          <!-- <th>Max Players</th> -->
           <th>Password</th>
         </tr>
-      </thead>
-    </table>
-    <div class="content-overflow">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              Table Name
-            </td>
-            <td>
-              private
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Table Name
-            </td>
-            <td>
-              private
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Table Name
-            </td>
-            <td>
-              private
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Table Name
-            </td>
-            <td>
-              private
-            </td>
-          </tr>
-          <tr>
-              <td>
-                Table Name
-              </td>
-              <td>
-                private
-              </td>
-            </tr>
-            <tr>
-                <td>
-                  Table Name
-                </td>
-                <td>
-                  private
-                </td>
-              </tr>
-        </tbody>
+        <tr ng-repeat="data in tableData">
+          <td>{{data.name}} </td>
+          <td>
+            <span ng-if="data.type"> {{data.type}}</span>
+            <span ng-if="!data.type"> normal</span>
+          </td>
+          <td>{{data.bootAmt}} - {{data.chalAmt}} </td>
+          <td>{{data.password}}</td>
+        </tr>
       </table>
-      </div>
- </div>
- <div class="text-center footer-content">
-      Praivate Table Info
+    </div>
+    <div class="loader" ng-if="!tableData">
+      Loading ..
     </div>
   </ion-content>
 </ion-modal-view>

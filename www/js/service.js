@@ -101,6 +101,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
 
+    getPrivateTables: function (callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (accessToken) {
+        $http.post(url + 'Table/getPrivateTables', {
+          accessToken: accessToken,
+          page: 1
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     getOneTable: function (id, callback) {
       $http.post(url + 'Table/getOne', {
         _id: id
