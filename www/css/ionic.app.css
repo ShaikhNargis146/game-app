@@ -10179,7 +10179,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 50vw; }
+    width: 70%; }
     .login .login_block .login_logo {
       width: 40%;
       margin-bottom: 10px; }
@@ -11695,6 +11695,13 @@ body {
   width: 50%;
   top: 25%;
   left: 25%; }
+  .room_summary.room_summary-potrate {
+    width: 80%;
+    top: 25%;
+    left: 10%;
+    bottom: 40%;
+    height: auto;
+    min-height: 240px; }
   .room_summary .heading {
     font-family: 'Cinzel-Bold';
     border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);

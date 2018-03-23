@@ -24,9 +24,9 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
   $scope.showMessageModal = function () {
     $scope.messageModal.show();
-    $timeout(function () {
-      $scope.closeMessageModal();
-    }, 2000);
+    // $timeout(function () {
+    //   $scope.closeMessageModal();
+    // }, 2000);
   };
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
