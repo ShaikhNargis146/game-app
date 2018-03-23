@@ -3,8 +3,8 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
     screen.orientation.lock('portrait')
   })
 
-  var player = $.jStorage.get("player");
-  if (player) {
+  var accessToken = $.jStorage.get("accessToken");
+  if (accessToken) {
     $state.go("lobby");
   } else {
     $state.go("login");
@@ -24,9 +24,9 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
   $scope.showMessageModal = function () {
     $scope.messageModal.show();
-    // $timeout(function () {
-    //   $scope.closeMessageModal();
-    // }, 2000);
+    $timeout(function () {
+      $scope.closeMessageModal();
+    }, 2000);
   };
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
