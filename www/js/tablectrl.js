@@ -607,5 +607,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // console.log(testPlayers);
 
 
+  //seat selection Player
+  io.socket.on("removePlayer", function (data) {
+    if (data) {
+      $state.go("lobby");
+    }
+  });
 
 });
