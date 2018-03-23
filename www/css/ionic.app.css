@@ -11809,6 +11809,15 @@ body {
   margin: 20px;
   line-height: 1.5; }
 
+.priate_table_login {
+  top: 15%;
+  bottom: 15%;
+  width: 80%;
+  left: 10%;
+  height: 60vh; }
+  .priate_table_login .field {
+    height: auto; }
+
 .side-show {
   height: 46%; }
   .side-show .cont {

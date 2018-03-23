@@ -98,6 +98,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       });
     },
+    getAccessToTable: function (data, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (accessToken) {
+        return $http.post(url + 'Table/getAccessToTable', {
+          'tableId': data.tableId,
+          'password': data.password
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     getAll: function (data, callback) {
       $http({
         url: url + 'Player/getAll',

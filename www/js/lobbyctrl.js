@@ -252,6 +252,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalCreate.hide();
   };
 
+
   //private table info modal
 
   $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
@@ -316,6 +317,54 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     });
   };
 
+  //private table  login in 
+  $ionicModal.fromTemplateUrl('templates/model/private-table-login.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.privateLogInModal = modal;
+  });
+
+  $scope.showPrivateLogInModal = function () {
+    $scope.privateLogInModal.show();
+  }
+  $scope.closePrivateLogInModal = function () {
+    $scope.privateLogInModal.hide();
+  };
+
+  $scope.goToPrivateTable = function (data) {
+    console.log("inside login", data);
+    $scope.privateDataForModal = data;
+    $scope.showPrivateLogInModal();
+    //
+  }
+
+  $scope.privateTableLogIN = function (tableID, password) {
+    console.log("inside private table", tableID, password);
+
+    Service.getAccessToTable({
+      'tableId': tableID,
+      'password': password
+    }, function (data) {
+      console.log("inside api call getaccesstable", data);
+      $scope.tableId = data.data.data._id;
+      $scope.closePrivateLogInModal();
+      $timeout(function () {
+        $state.go('table', {
+          'id': $scope.tableId
+        });
+      }, 300)
+    })
+    // $scope.tableId = table._id;
+    // $scope.closePriceRangeModal();
+    // $timeout(function () {
+    //   $state.go('table', {
+    //     'id': $scope.tableId
+    //   });
+    // }, 300)
+
+  }
+
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
     $scope.PLModal.remove();
@@ -323,6 +372,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.transferStatementModal.remove();
     $scope.changePasswordModel.remove();
     $scope.priceRangeModal.remove();
+    $scope.privateLogInModal.remove();
     $scope.closeAllTab();
   });
 
