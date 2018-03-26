@@ -2,7 +2,9 @@
 <left-menu></left-menu>
 
 <!-- right menu -->
-<right-menu></right-menu>
+
+<!-- <right-menu></right-menu> -->
+
 <div class="kingtable">
   <div class="top_field">
     <div class="option_menu_icon left" ng-click="openLeftMenu()">
@@ -13,7 +15,7 @@
     <div class="right_side_icon right">
       <div class="setting_menu_icon">
         <span class="icon ion-information" ng-click="toggleTableInfo()"></span>
-        <img src="img/option.png" ng-click="openRightMenu()">
+        <!-- <img src="img/option.png" ng-click="openRightMenu()"> -->
       </div>
       <table-info></table-info>
     </div>
@@ -44,6 +46,8 @@
 
       <!-- player -->
       <div class="players">
+
+        <div class="new_game_timer" ng-if="showNewGameTime">New Game will start in 25s </div>
         <players id="plr1" ng-click="sitHerefn(1)" ng-remaining-player="remainingPlayerCount" ng-pos="1" ng-player="players[0]" ng-sit-here="sitHere"
           ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
         </players>

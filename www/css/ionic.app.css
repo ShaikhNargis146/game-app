@@ -10361,7 +10361,9 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: white; }
+        color: white;
+        flex: .5;
+        margin: 0 auto; }
         .main_lobby .lobby_content .categorys .box-black span {
           font-size: 1em;
           line-height: 1.5; }
@@ -10515,7 +10517,8 @@ body {
         padding-bottom: 5%; }
         .kingtable .top_field .right_side_icon .setting_menu_icon .icon {
           font-size: 2em;
-          padding: 0 15px; }
+          margin-right: 15px;
+          display: block; }
         .kingtable .top_field .right_side_icon .setting_menu_icon img {
           width: 2em; }
       .kingtable .top_field .right_side_icon .table-info th {
@@ -11401,6 +11404,15 @@ body {
   display: none; }
   .wnr img {
     position: absolute; }
+
+.new_game_timer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-35%, -35%);
+  background: rgba(87, 84, 84, 0.25);
+  z-index: 5;
+  color: white; }
 
 .winner_anime {
   display: block;

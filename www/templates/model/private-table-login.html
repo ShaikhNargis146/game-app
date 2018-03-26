@@ -14,6 +14,7 @@
             <input type="text" name="tablePassword" ng-model="data.password" placeholder="Table Password*" required>
           </div>
           <span class="valid" ng-show="createTable.tablePassword.$touched && createTable.tablePassword.$invalid">* Table Password is required.</span>
+          <span class="valid" ng-if="errorInPrivateLogIn && !(createTable.tablePassword.$touched && createTable.tablePassword.$invalid)">* Incorrect Table Password</span>
         </div>
 
         <!-- <div class="rel">

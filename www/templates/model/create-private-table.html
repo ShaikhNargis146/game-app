@@ -13,11 +13,17 @@
           <span class="valid" ng-show="createTable.tablename.$touched && createTable.tablename.$invalid">* Table Name is required.</span>
         </div>
 
-        <div class="rel">
+        <!-- <div class="rel">
           <div class="login_button">
-            <input type="number" name="bootAmount" ng-model="data.bootAmount" placeholder="Boot Amount*" required>
+            <input type="number" name="bootAmount" ng-model="data.bootAmt" placeholder="Boot Amount*" required>
           </div>
           <span class="valid" ng-show="createTable.bootAmount.$touched && createTable.bootAmount.$invalid">* Boot Amount is required.</span>
+        </div> -->
+        <div class="rel">
+          <div class="login_button">
+            <input type="number" name="blindLimit" ng-model="data.blindAmt" placeholder="Blind Amount*" required>
+          </div>
+          <span class="valid" ng-show="createTable.blindLimit.$touched && createTable.blindLimit.$invalid">* Blind Amount is required.</span>
         </div>
         <div class="rel">
           <div class="login_button">

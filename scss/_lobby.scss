@@ -74,7 +74,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: white; //
+        flex: .5;
+        margin: 0 auto;
         span {
           font-size: 1em;
           line-height: 1.5;
@@ -215,8 +217,7 @@
       align-items: flex-start; // width: 57vw;
       .profile_pic {
         width: 30%;
-        padding: 2%;
-        // height: 20vh;
+        padding: 2%; // height: 20vh;
         img {
           width: 100%;
           height: 100%;
