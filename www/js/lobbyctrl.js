@@ -283,35 +283,39 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   // }
 
   //Account Statement
-  $scope.loadMorePrivateTable = function () {
-    if ($scope.pageNo < $scope.paging.maxPage) {
-      $scope.pageNo++;
-      $scope.loadingDisable = true;
-      $scope.myPrivateTable();
-    } else {
+  // $scope.loadMorePrivateTable = function () {
+  //   if ($scope.pageNo < $scope.paging.maxPage) {
+  //     $scope.pageNo++;
+  //     $scope.loadingDisable = true;
+  //     $scope.myPrivateTable();
+  //   } else {
 
-    }
-  };
+  //   }
+  // };
 
   $scope.myPrivateTable = function () {
-    Service.getPrivateTables($scope.pageNo, function (data) {
-      console.log(data);
-      if (data) {
-        if (data.data.data.count === 0) {
-          $scope.noDataFound = true;
-          // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "Oops! Your Account Statement  is empty.",
-          };
-        }
-        $scope.paging = data.data.data.total;
-        _.each(data.data.results, function (n) {
-          console.log("private Table", n);
-          $scope.privateTableData.push(n);
-        });
-        $scope.loadingDisable = false;
-      } else {}
+    var pageNo = 1;
+    Service.getPrivateTables(pageNo, function (data) {
+      $scope.privateTableData = data.data.results;
     });
+    // Service.getPrivateTables($scope.pageNo, function (data) {
+    //   console.log(data);
+    //   if (data) {
+    //     if (data.data.data.count === 0) {
+    //       $scope.noDataFound = true;
+    //       // Error Message or no data found 
+    //       $scope.displayMessage = {
+    //         main: "Oops! Your Account Statement  is empty.",
+    //       };
+    //     }
+    //     $scope.paging = data.data.data.total;
+    //     _.each(data.data.results, function (n) {
+    //       console.log("private Table", n);
+    //       $scope.privateTableData.push(n);
+    //     });
+    //     $scope.loadingDisable = false;
+    //   } else {}
+    // });
   };
 
   $scope.playJoker = function ($event) {

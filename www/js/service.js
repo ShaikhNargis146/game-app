@@ -2,6 +2,7 @@ myApp = angular.module('starter.service', []);
 var url = adminUUU + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
+var maxRow = 10;
 myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
   // Might use a resource here that returns a JSON array
 
@@ -73,21 +74,31 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     giveTip: function (data, callback) {
       console.log("give", data);
-      $http.post(adminurl + 'member/giveTip', {
-        "id": data.memberId,
-        "amount": data.amount
-      }).then(function (data) {
-        console.log("give Tip Response", data);
-        callback(data);
-      });
+      var accessToken = $.jStorage.get("accessToken");
+      if (accessToken) {
+        $http.post(url + 'Table/makeTip', {
+          "accessToken": accessToken,
+          "amount": data.amount
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
-    searchPlayerTransaction: function (data, callback) {
-      console.log(data._id);
+    searchPlayerTransaction: function (memberId, pageNo, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var skip = maxRow * (pageNo - 1);
+      console.log(skip);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
-        _id: data._id,
-        pageNo: data.pageNo
+        _id: memberId,
+        pageNo: skip
       }).then(function (data) {
-        callback(data);
+        if (data.data) {
+          var totalCount = data.data.data.total;
+          data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+          callback(data);
+        } else {}
       });
     },
 
@@ -274,13 +285,22 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     },
     getTransaction: function (pageNo, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var skip = maxRow * (pageNo - 1);
+      console.log(skip);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
-          "page": 5,
+          "page": skip,
           "accessToken": accessToken
         }).then(function (data) {
-          callback(data);
+          if (data.data) {
+            var totalCount = data.data.data.total;
+            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            callback(data);
+          } else {}
         });
       }
     },
