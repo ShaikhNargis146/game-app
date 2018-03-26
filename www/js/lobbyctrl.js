@@ -298,6 +298,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     Service.getPrivateTables(function (data) {
       console.log(data);
       $scope.privateTableDatas = data.data.data.results;
+      console.log($scope.privateTableDatas);
     });
     // Service.getPrivateTables($scope.pageNo, function (data) {
     //   console.log(data);
@@ -401,7 +402,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openMyPrivateTable = function () {
+    Service.getPrivateTables(function (data) {
+      $scope.privateTableDatas = data.data.data.results;
+      console.log($scope.privateTableDatas);
+    });
     $scope.ModalInfo.show();
+
   }
   //search table
   $ionicModal.fromTemplateUrl('templates/model/search-table.html', {
@@ -449,8 +455,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
-
-
       } else {}
     });
   };
