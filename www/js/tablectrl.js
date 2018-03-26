@@ -65,7 +65,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.chaalAmt = 0;
   $scope.startCoinAnime = false;
   $scope.winnerPlayerNo = -1;
-
+  $scope.showNewGameTime = false;
 
 
   // Socket Update function with REST API
@@ -381,6 +381,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.extra) {
       if ($scope.extra.newGame) {
+        console.log("new game", data);
+        $scope.showNewGameTime = false;
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
         $scope.winnerPlayerNo = -1;
@@ -439,6 +441,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function showWinnerFunction(data) {
     $scope.showWinnerPlayer = data.data.players;
+    $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
       'winner': true
@@ -505,7 +508,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.makeTip = function (data) {
     console.log(data);
     var playerdetails = {};
-    playerdetails.memberId = $scope.memberId;
     playerdetails.amount = data;
     Service.giveTip(playerdetails, function (data) {
       console.log(data);

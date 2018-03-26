@@ -1361,6 +1361,16 @@
   }
 }
 
+.new_game_timer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-35%, -35%);
+  background: rgba(87, 84, 84, 0.25);
+  z-index: 5;
+  color: white;
+}
+
 .winner_anime {
   display: block;
   position: absolute;
