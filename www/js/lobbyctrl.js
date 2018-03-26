@@ -455,6 +455,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
+
+        $timeout(function () {
+          $scope.privateTableData = false;
+        }, 10000);
       } else {}
     });
   };
