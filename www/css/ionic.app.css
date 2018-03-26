@@ -10515,7 +10515,8 @@ body {
         padding-bottom: 5%; }
         .kingtable .top_field .right_side_icon .setting_menu_icon .icon {
           font-size: 2em;
-          padding: 0 15px; }
+          margin-right: 15px;
+          display: block; }
         .kingtable .top_field .right_side_icon .setting_menu_icon img {
           width: 2em; }
       .kingtable .top_field .right_side_icon .table-info th {
