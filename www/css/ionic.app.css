@@ -10361,7 +10361,9 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: white; }
+        color: white;
+        flex: .5;
+        margin: 0 auto; }
         .main_lobby .lobby_content .categorys .box-black span {
           font-size: 1em;
           line-height: 1.5; }

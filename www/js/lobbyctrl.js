@@ -389,14 +389,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       'tableId': tableID,
       'password': password
     }, function (data) {
-      $scope.tableId = data.data.data._id;
-      $scope.closePrivateLogInModal();
-      $scope.closePriceRangeModal();
-      $timeout(function () {
-        $state.go('table', {
-          'id': $scope.tableId
-        });
-      }, 300)
+      console.log(data.data.value);
+      if (data.data.value) {
+        $scope.tableId = data.data.data._id;
+        $scope.closePrivateLogInModal();
+        $scope.closePriceRangeModal();
+        $timeout(function () {
+          $state.go('table', {
+            'id': $scope.tableId
+          });
+        }, 300)
+      } else {
+        $scope.errorInPrivateLogIn = true;
+      }
+
     })
     // $scope.tableId = table._id;
     // $scope.closePriceRangeModal();
