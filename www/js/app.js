@@ -11,6 +11,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
+      StatusBar.hide();
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -19,8 +20,10 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         cordova.plugins.Keyboard.disableScroll(true);
 
       }
+
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
+
         StatusBar.styleDefault();
       }
     });

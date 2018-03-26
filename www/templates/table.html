@@ -136,7 +136,7 @@
         ng-disabled="players[8].balance < betamount">show</button>
       <span class="info" ng-class="{'color_red':insufficientFunds}"> {{players[8].name}}
         <img src="img/coin.png"> {{players[8].balance}}
-        <!-- <span ng-if="insufficientFunds && " >3X remaining</span> -->
+        <span ng-if="betamount && players[8].balance && insufficientFunds && getRemaining() < 4"> {{ getRemaining()}}X remaining</span>
       </span>
       <button class="minus no-click-effect" ng-click="removeCoin()" ng-if="players[8].isTurn && betamount>minAmt && !players[8].isFold">
         -

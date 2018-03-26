@@ -35,6 +35,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.chalLimit = $scope.tableData.chalLimit;
     $scope.blindAmt = $scope.tableData.blindAmt;
     $scope.chalAmt = $scope.tableData.chalAmt;
+    console.log("chaal amt", $scope.chalAmt);
     $scope.maxBlind = $scope.tableData.maxBlind;
     $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
@@ -133,7 +134,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           $scope.showMessageModal();
 
         } else if (data.data.error == "Insufficient Balance") {
-          $scope.showInsufficientFundsModal();
+          // $scope.showInsufficientFundsModal();
+          $scope.message = {
+            heading: "Insufficient Funds",
+            content: "Minimum amount required to enter this table is <span class='balance-error'> " + ($scope.chalAmt * 10) + "</span>",
+            error: true
+          };
+          $scope.showMessageModal();
         }
       }
     });
@@ -296,7 +303,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.messageModal.show();
     $timeout(function () {
       $scope.closeMessageModal();
-    }, 2000);
+    }, 3000);
   };
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
@@ -358,7 +365,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     event.preventDefault();
     event.stopPropagation();
   });
-
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    event.preventDefault();
+  }, 100);
   //for table data//
 
 
@@ -625,5 +634,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $state.go("lobby");
     }
   });
+
+
+  $scope.getRemaining = function () {
+    if ($scope.players[8]) {
+      return _.floor(($scope.players[8].balance / $scope.betamount));
+    } else {
+      return;
+    }
+  }
 
 });

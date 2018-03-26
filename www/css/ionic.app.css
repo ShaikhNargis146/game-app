@@ -10014,6 +10014,9 @@ body {
 .color_red {
   color: red; }
 
+.balance-error {
+  font-size: 1.2em; }
+
 .border-gradient {
   border: 1px solid;
   border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
@@ -12437,7 +12440,7 @@ body {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  animation: rota 15s linear infinite; }
+  animation: rota 30s linear infinite; }
 
 .animation_wrapper:hover .spinner,
 .animation_wrapper:hover .filler,
@@ -12449,7 +12452,7 @@ body {
   left: 50%;
   opacity: 0;
   z-index: 100;
-  animation: opa 15s steps(1, end) infinite reverse;
+  animation: opa 30s steps(1, end) infinite reverse;
   border-left: none; }
 
 .animation_wrapper .mask {
@@ -12459,7 +12462,7 @@ body {
   background: inherit;
   opacity: 1;
   z-index: 300;
-  animation: opa 15s steps(1, end) infinite; }
+  animation: opa 30s steps(1, end) infinite; }
 
 @keyframes rota {
   0% {

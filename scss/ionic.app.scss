@@ -211,6 +211,11 @@ body {
   color: red;
 }
 
+.balance-error {
+  // color: red;
+  font-size: 1.2em;
+}
+
 .border-gradient {
   border: 1px solid;
   border-image: $border-color;

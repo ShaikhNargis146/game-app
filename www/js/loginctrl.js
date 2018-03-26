@@ -62,4 +62,8 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   // if ($scope.jsData.accessToken) {
   //   $state.go("lobby");
   // }
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    console.log("back button");
+    event.preventDefault();
+  }, 100);
 });
