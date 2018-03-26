@@ -14,7 +14,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.pageNo = 0;
   $scope.results = [];
   $scope.transferStatementData = [];
-  $scope.privateTableData = [];
+  // $scope.privateTableDatas = [];
   $scope.noDataFound = false;
   $scope.loadingDisable = false;
   $scope.paging = {
@@ -295,8 +295,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.myPrivateTable = function () {
     var pageNo = 1;
-    Service.getPrivateTables(pageNo, function (data) {
-      $scope.privateTableData = data.data.results;
+    Service.getPrivateTables(function (data) {
+      console.log(data);
+      $scope.privateTableDatas = data.data.data.results;
     });
     // Service.getPrivateTables($scope.pageNo, function (data) {
     //   console.log(data);
