@@ -1,9 +1,9 @@
 myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http, $timeout) {
 
   $ionicPlatform.ready(function () {
-    screen.orientation.lock('landscape')
+    screen.orientation.lock('landscape');
   })
-
+  screen.orientation.lock('landscape');
 
   $scope.accessToken = $.jStorage.get("accessToken");
 

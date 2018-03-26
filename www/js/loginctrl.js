@@ -2,7 +2,7 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait')
   })
-
+  screen.orientation.lock('portrait');
   var accessToken = $.jStorage.get("accessToken");
   if (accessToken) {
     $state.go("lobby");

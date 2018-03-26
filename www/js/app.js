@@ -50,11 +50,13 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       // })      
       .state('redirecting', {
         url: '/redirecting',
+        cache: false,
         templateUrl: 'templates/redirecting.html',
         controller: 'RedirectingCtrl'
       })
       .state('login', {
         url: '/login',
+        cache: false,
         templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
       })
