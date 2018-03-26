@@ -5,12 +5,27 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   })
   screen.orientation.lock('landscape');
 
+
+  $ionicPlatform.registerBackButtonAction(function (event) {
+    console.log("back button");
+    event.preventDefault();
+  }, 100);
+
+  $scope.pageNo = 0;
+  $scope.results = [];
+  $scope.transferStatementData = [];
+  $scope.privateTableData = [];
+  $scope.noDataFound = false;
+  $scope.loadingDisable = false;
+  $scope.paging = {
+    maxPage: 1
+  };
+
   $scope.accessToken = $.jStorage.get("accessToken");
 
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
-      console.log($scope.singlePlayerData);
       $scope.image = $scope.singlePlayerData.image;
       $scope.memberId = $scope.singlePlayerData._id;
       $scope.username = $scope.singlePlayerData.username;
@@ -69,6 +84,38 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ACStatementModal.hide();
   }
 
+  //Account Statement
+  $scope.loadMore = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
+      $scope.accountStatement();
+    } else {
+
+    }
+  };
+
+  $scope.accountStatement = function () {
+    Service.getTransaction($scope.pageNo, function (data) {
+      console.log(data);
+      if (data) {
+        if (data.data.data.count === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "Oops! Your Account Statement  is empty.",
+          };
+        }
+        $scope.paging = data.data.data.total;
+        _.each(data.data.data.results, function (n) {
+          console.log(n);
+          $scope.results.push(n);
+        });
+        $scope.loadingDisable = false;
+      } else {}
+    });
+  };
+
 
   //transfer statement
   $ionicModal.fromTemplateUrl('templates/model/transfer-statement.html', {
@@ -79,21 +126,53 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
 
+
   $scope.openTransferStatement = function () {
 
-    console.log($scope.memberId);
-    Service.searchPlayerTransaction({
-      _id: $scope.memberId,
-      pageNo: 1
-    }, function (data) {
-      $scope.transferStatementData = data.data.data.results;
-      console.log(data);
-    })
+    // console.log($scope.memberId);
+    // Service.searchPlayerTransaction({
+    //   _id: $scope.memberId,
+    //   pageNo: 1
+    // }, function (data) {
+    //   $scope.transferStatementData = data.data.data.results;
+    //   console.log(data);
+    // })
     $scope.transferStatementModal.show();
   }
   $scope.closeTransferStatement = function () {
     $scope.transferStatementModal.hide();
   }
+
+  //Transfer Statement
+  $scope.loadTransferMore = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
+      $scope.accountStatement();
+    } else {
+
+    }
+  };
+
+  $scope.transferStatement = function () {
+    Service.searchPlayerTransaction($scope.memberId, $scope.pageNo, function (data) {
+      if (data) {
+        if (data.data.data.count === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "Oops! Your Transfer Statement  is empty.",
+          };
+        }
+        $scope.paging = data.data.data.total;
+        _.each(data.data.data.results, function (n) {
+          console.log(n);
+          $scope.transferStatementData.push(n);
+        });
+        $scope.loadingDisable = false;
+      } else {}
+    });
+  };
 
 
   //password change
@@ -188,36 +267,52 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.tableData = data.data.data.results;
     });
   }
-  $scope.formData = {};
-  $scope.formData.page = 1;
-  $scope.formData.type = '';
-  $scope.formData.keyword = '';
-  $scope.searchInTable = function (data) {
-    $scope.formData.page = 1;
-    if (data.length >= 1) {
-      $scope.formData.keyword = data;
+  // $scope.formData = {};
+  // $scope.formData.page = 1;
+  // $scope.formData.type = '';
+  // $scope.formData.keyword = '';
+  // $scope.searchInTable = function (data) {
+  //   $scope.formData.page = 1;
+  //   if (data.length >= 1) {
+  //     $scope.formData.keyword = data;
+  //     $scope.myPrivateTable();
+  //   } else if (data.length == '') {
+  //     $scope.formData.keyword = data;
+  //     $scope.myPrivateTable();
+  //   }
+  // }
+
+  //Account Statement
+  $scope.loadMorePrivateTable = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
       $scope.myPrivateTable();
-    } else if (data.length == '') {
-      $scope.formData.keyword = data;
-      $scope.myPrivateTable();
+    } else {
+
     }
-  }
-  $scope.myPrivateTable = function ($event) {
-    $scope.formData.page = $scope.formData.page++;
-    if (!$scope.VariationActive) {
-      $scope.openMyPrivateModal();
-      $event.stopPropagation();
-    }
-    //for table selection//
-    Service.getPrivateTables(function (data) {
-      console.log("tabledata", data);
-      if (data.data.data.results) {
-        $scope.tableData = data.data.data.results;
-      }
-      $scope.totalItems = data.data.total;
-      $scope.maxRow = data.data.options.count;
+  };
+
+  $scope.myPrivateTable = function () {
+    Service.getPrivateTables($scope.pageNo, function (data) {
+      console.log(data);
+      if (data) {
+        if (data.data.data.count === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "Oops! Your Account Statement  is empty.",
+          };
+        }
+        $scope.paging = data.data.data.total;
+        _.each(data.data.results, function (n) {
+          console.log("private Table", n);
+          $scope.privateTableData.push(n);
+        });
+        $scope.loadingDisable = false;
+      } else {}
     });
-  }
+  };
 
   $scope.playJoker = function ($event) {
 
@@ -243,21 +338,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
 
 
-  $scope.accountStatement = function () {
-    var pageNo = 1;
-    Service.getTransaction(pageNo, function (data) {
-      console.log(data);
-      $scope.results = data.data.data.results;
-    });
-  }
-
   //change password//
 
   $scope.passwordChange = function (data) {
     $scope.passwordData = data;
     if (data.newPassword == data.repeatPassword) {
       $scope.playerData = $.jStorage.get("player");
-      $scope.passwordData._id = $scope.playerData._id;
+      $scope.passwordData._id = $scope.memberId;
 
       $scope.changePasswordPromise = Service.passwordchange(data, function (data) {
         if (data.data == "Old password did not match") {
@@ -308,7 +395,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalInfo = modal;
   });
 
-  $scope.openInfoModal = function () {
+  $scope.openMyPrivateTable = function () {
     $scope.ModalInfo.show();
   }
   //search table

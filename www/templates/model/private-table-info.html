@@ -13,7 +13,7 @@
           <!-- <th>Max Players</th> -->
           <th>Password</th>
         </tr>
-        <tr ng-repeat="data in tableData">
+        <tr ng-repeat="data in privateTableData" infinite-scroll="loadMorePrivateTable()" infinite-scroll-distance="1" infinite-scroll-disabled="loadingDisable">
           <td>{{data.name}} </td>
           <td>
             <span ng-if="data.type"> {{data.type}}</span>

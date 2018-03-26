@@ -1,7 +1,9 @@
-<ion-modal-view class="custom-model statement-model" >
+<ion-modal-view class="custom-model statement-model">
 
-  <ion-content >
-      <div class="close" ng-click="closeTransferStatement()" ><img src="img/close.png"></div>
+  <ion-content>
+    <div class="close" ng-click="closeTransferStatement()">
+      <img src="img/close.png">
+    </div>
     <div class="heading">Transfer statement</div>
     <div class="top_field">
       <!-- Date within
@@ -23,12 +25,13 @@
           <th>Amount</th>
         </tr>
 
-      <tr class="border_btm" ng-repeat="data in transferStatementData">
-        <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
-        <td>{{data.toUser.username}}</td>
-        <td> {{data.transactionType}}</td>
-        <td> {{data.amount}}</td>
-      </tr>
+        <tr class="border_btm" ng-repeat="data in transferStatementData" infinite-scroll="loadTransferMore()" infinite-scroll-distance="1"
+          infinite-scroll-disabled="loadingDisable">
+          <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
+          <td>{{data.toUser.username}}</td>
+          <td> {{data.transactionType}}</td>
+          <td> {{data.amount}}</td>
+        </tr>
       </table>
 
 
