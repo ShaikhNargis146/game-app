@@ -10,7 +10,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
+      console.log($scope.singlePlayerData);
       $scope.image = $scope.singlePlayerData.image;
+      $scope.memberId = $scope.singlePlayerData._id;
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
@@ -79,9 +81,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.openTransferStatement = function () {
 
-
+    console.log($scope.memberId);
     Service.searchPlayerTransaction({
-      '_id': $scope.playerId,
+      _id: $scope.memberId,
       pageNo: 1
     }, function (data) {
       $scope.transferStatementData = data.data.data.results;

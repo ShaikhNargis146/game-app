@@ -13,12 +13,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     Service.sendAccessToken(function (data) {
       if (data && data.data && data.data.data) {
         $scope.singlePlayerData = data.data.data;
-        $scope.singlePlayerData.memberId = $scope.singlePlayerData._id;
         $scope.image = $scope.singlePlayerData.image;
         $scope.username = $scope.singlePlayerData.username;
         $scope.userType = $scope.singlePlayerData.userType;
         $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-        $scope.memberId = data.data.data.memberId;
+        $scope.memberId = data.data.data._id;
       } else {
         $state.go("login");
       }

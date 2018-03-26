@@ -102,6 +102,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
 
     getPrivateTables: function (callback) {
+      // if (!pageNo) {
+      //   pageNo = 1;
+      // }
+      // var skip = maxRow * (pageNo - 1);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         $http.post(url + 'Table/getPrivateTables', {
@@ -273,7 +277,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
-          "page": pageNo,
+          "page": 5,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data);
