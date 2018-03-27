@@ -87,6 +87,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         updateSocketFunction(data.data, true);
       }
 
+
+
+      $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+        if (player && player.isActive && !player.isFold) {
+          return true;
+        }
+      }).length;
+      $scope.blindPlayerCount = _.filter($scope.players, function (player) {
+        if (player && player.isActive && !player.isFold && player.isBlind) {
+          return true;
+        }
+      }).length;
+
       $scope.changeTimer(data.data.data.table.autoFoldDelay);
     });
 

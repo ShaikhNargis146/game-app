@@ -35,13 +35,13 @@
       <img src="img/table/glow.png" class="anime3">
       <img src="img/table/glow.png" class="anime4">
     </div>
-    <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive">
+    <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
       BLIND </div>
-    <div class="status" ng-if="player.isFold && player.isActive">
+    <div class="status" ng-if="player.isFold && player.isActive  && remainingPlayerCount>1">
       PACK</div>
-    <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive">
+    <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive  && remainingPlayerCount>1">
       SEEN </div>
-    <div class="status" ng-if="!player.isActive">
+    <div class="status" ng-if="!player.isActive || remainingPlayerCount==1">
       Waiting... </div>
     <div class="plyr_pic">
       <div class="pic">
