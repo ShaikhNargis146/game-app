@@ -10631,11 +10631,11 @@ body {
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
                 transition: transform 1s;
-                transition-delay: 50ms; }
+                transition-delay: 500ms; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
                 left: -20%;
                 transition: transform 1s;
-                transition-delay: 100ms; }
+                transition-delay: 1000ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10843,12 +10843,12 @@ body {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
           transition: transform 1s;
-          transition-delay: 50ms; }
+          transition-delay: 500ms; }
         .kingtable .main-table .showing_cards .custom-row card:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
           transition: transform 1s;
-          transition-delay: 100ms; }
+          transition-delay: 1000ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -11467,6 +11467,100 @@ body {
   100% {
     transform: scale(0.1);
     opacity: .5; } }
+
+.tip_animate {
+  position: absolute;
+  z-index: 5;
+  color: white;
+  opacity: 0;
+  white-space: nowrap;
+  animation-duration: 1s; }
+  .tip_animate .coin {
+    width: 1em;
+    vertical-align: middle;
+    margin-right: 10%; }
+  .tip_animate.p5 {
+    top: 0% !important;
+    right: 30% !important;
+    animation-name: tipmovefromright; }
+  .tip_animate.p6 {
+    top: 10% !important;
+    right: 10% !important;
+    animation-name: tipmovefromright; }
+  .tip_animate.p7 {
+    top: 50% !important;
+    right: 6% !important;
+    animation-name: tipmovefromright; }
+  .tip_animate.p8 {
+    bottom: 20% !important;
+    right: 25% !important;
+    animation-name: tipmovefrombottom; }
+  .tip_animate.p9 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 50% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%); }
+  .tip_animate.p1 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 70% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%); }
+  .tip_animate.p2 {
+    bottom: 40% !important;
+    top: unset !important;
+    left: unset !important;
+    right: 90% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%); }
+  .tip_animate.p3 {
+    top: 10% !important;
+    left: 10% !important;
+    animation-name: tipmovefromleft; }
+  .tip_animate.p4 {
+    top: 5% !important;
+    left: 30% !important;
+    animation-name: tipmovefromleft; }
+
+@keyframes tipmovefromright {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    right: 50%;
+    top: 15%;
+    opacity: 0;
+    transform: translateY(-400%); } }
+
+@keyframes tipmovefromleft {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    left: 50%;
+    top: 20%;
+    opacity: 0;
+    transform: translateY(-400%); } }
+
+@keyframes tipmovefrombottom {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    right: 50%;
+    bottom: 70%;
+    opacity: 0;
+    transform: translateY(-400%); } }
 
 .table6 .player2 {
   right: 5% !important;
@@ -12452,8 +12546,7 @@ body {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  animation: rota 30s linear infinite;
-  animation-iteration-count: 1; }
+  animation: rota 15s linear infinite; }
 
 .animation_wrapper:hover .spinner,
 .animation_wrapper:hover .filler,
@@ -12465,9 +12558,8 @@ body {
   left: 50%;
   opacity: 0;
   z-index: 100;
-  animation: opa 30s steps(1, end) infinite reverse;
-  border-left: none;
-  animation-iteration-count: 1; }
+  animation: opa 15s steps(1, end) infinite reverse;
+  border-left: none; }
 
 .animation_wrapper .mask {
   width: 50%;
@@ -12476,8 +12568,7 @@ body {
   background: inherit;
   opacity: 1;
   z-index: 300;
-  animation: opa 30s steps(1, end) infinite;
-  animation-iteration-count: 1; }
+  animation: opa 15s steps(1, end) infinite; }
 
 @keyframes rota {
   0% {

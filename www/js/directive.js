@@ -94,6 +94,19 @@ myApp.directive('card', function () {
       link: function ($scope, element, attr) {}
     };
   })
+  .directive('tipAmount', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      scope: {
+        amount: "=ngAmount",
+        PlayerNo: "=ngPlayerNo",
+        players: "=ngPlayer"
+      },
+      templateUrl: 'templates/directive/tip-amount.html',
+      link: function ($scope, element, attr) {}
+    };
+  })
   .directive('tableInfo', function () {
     return {
       restrict: 'E',

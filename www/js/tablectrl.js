@@ -441,6 +441,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
+    console.log("show winner");
     $scope.showWinnerPlayer = data.data.players;
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
@@ -663,5 +664,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $(".animation_wrapper .filler").css("animation-duration", duration + "s");
     $(".animation_wrapper .mask").css("animation-duration", duration + "s");
   }
+
+
+  // $scope.testNo = 1;
+
+  // $timeout(function () {
+  //   console.log("+1");
+  //   $scope.testNo = $scope.testNo + 1;
+  //   $timeout(function () {
+  //     console.log("+2");
+  //     $scope.testNo = $scope.testNo + 1;
+  //     $timeout(function () {
+  //       console.log("+3");
+  //       $scope.testNo = $scope.testNo + 1;
+  //     }, 5000);
+  //   }, 5000);
+
+  // }, 5000);
 
 });

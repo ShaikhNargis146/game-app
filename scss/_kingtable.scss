@@ -173,12 +173,12 @@
               &:nth-child(2) {
                 left: -10%;
                 transition: transform 1s;
-                transition-delay: 50ms;
+                transition-delay: 500ms;
               }
               &:nth-child(3) {
                 left: -20%;
                 transition: transform 1s;
-                transition-delay: 100ms;
+                transition-delay: 1000ms;
               }
             }
           }
@@ -564,13 +564,13 @@
             transform: rotate(0deg) scale(1.1);
             left: 35%;
             transition: transform 1s;
-            transition-delay: 50ms;
+            transition-delay: 500ms;
           }
           &:nth-child(3) {
             transform: rotate(10deg);
             left: 65%;
             transition: transform 1s;
-            transition-delay: 100ms;
+            transition-delay: 1000ms;
           }
         }
       } // img {
@@ -1435,5 +1435,125 @@
   100% {
     transform: scale(.1);
     opacity: .5;
+  }
+}
+
+.tip_animate {
+  position: absolute;
+  z-index: 5;
+  color: white;
+  opacity: 0;
+  white-space: nowrap;
+  animation-duration: 1s;
+  .coin {
+    width: 1em;
+    vertical-align: middle;
+    margin-right: 10%;
+  }
+  &.p5 {
+    top: 0% !important;
+    right: 30% !important;
+    animation-name: tipmovefromright;
+  }
+  &.p6 {
+    top: 10% !important;
+    right: 10% !important;
+    animation-name: tipmovefromright;
+  }
+  &.p7 {
+    top: 50% !important;
+    right: 6% !important;
+    animation-name: tipmovefromright;
+  }
+  &.p8 {
+    bottom: 20% !important;
+    right: 25% !important;
+    animation-name: tipmovefrombottom;
+  }
+  &.p9 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 50% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%);
+  }
+  &.p1 {
+    bottom: 20% !important;
+    left: unset !important;
+    right: 70% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%);
+  }
+  &.p2 {
+    bottom: 40% !important;
+    top: unset !important;
+    left: unset !important;
+    right: 90% !important;
+    animation-name: tipmovefrombottom;
+    transform: translateY(-100%);
+  }
+  &.p3 {
+    top: 10% !important;
+    left: 10% !important;
+    animation-name: tipmovefromleft;
+  }
+  &.p4 {
+    top: 5% !important;
+    left: 30% !important;
+    animation-name: tipmovefromleft;
+  }
+}
+
+@keyframes tipmovefromright {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    right: 50%;
+    top: 15%;
+    opacity: 0;
+    transform: translateY(-400%);
+  }
+}
+
+@keyframes tipmovefromleft {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 50%;
+    top: 20%;
+    opacity: 0;
+    transform: translateY(-400%);
+  }
+}
+
+@keyframes tipmovefrombottom {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    right: 50%;
+    bottom: 70%;
+    opacity: 0;
+    transform: translateY(-400%);
   }
 }
