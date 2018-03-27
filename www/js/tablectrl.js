@@ -87,7 +87,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         updateSocketFunction(data.data, true);
       }
 
-
+      $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
+        if ((player && player.isActive) || (player && player.isActive == false)) {
+          return true;
+        }
+      }).length;
+      if ($scope.remainingActivePlayers == 9) {
+        $scope.message = {
+          heading: "Table Full",
+          content: "Try after sometime !!",
+          error: true
+        };
+        $scope.showMessageModal();
+      }
 
       $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
         if (player && player.isActive && !player.isFold) {
@@ -657,7 +669,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //seat selection Player
   io.socket.on("removePlayer", function (data) {
     if (data) {
-      $state.go("lobby");
+      $state.reload();
     }
   });
 
@@ -669,7 +681,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       return;
     }
   }
-
 
   $scope.changeTimer = function (duration) {
     console.log(duration);
