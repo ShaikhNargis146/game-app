@@ -4,6 +4,17 @@
       <img src="img/close.png">
     </div>
     <div class="heading">table</div>
+    <div class="top_field filter">
+      <!-- Filter with
+      <ui-select ng-model="ctrl.person.selected" theme="bootstrap">
+        <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="item in filterType | filter: $select.search">
+          <div ng-bind-html="item.name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
+      of
+      <input type="text" ng-model="month"> -->
+    </div>
     <div class="statement_content" ng-if="tableData">
       <table>
         <tr>

@@ -10781,7 +10781,7 @@ body {
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: -5%;
+        top: 5%;
         transform: translateX(-50%);
         color: white;
         z-index: 3; }
