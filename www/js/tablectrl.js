@@ -86,6 +86,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if ($scope.isThere) {
         updateSocketFunction(data.data, true);
       }
+
+      $scope.changeTimer(data.data.data.table.autoFoldDelay);
     });
 
   };
@@ -475,7 +477,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
-      $state.reload();
+      console.log(data);
+      $timeout(function () {
+        $state.reload();
+      }, 500)
+
+      if (data.data.value) {
+
+      } else {
+
+      }
     });
   };
 
@@ -643,6 +654,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     } else {
       return;
     }
+  }
+
+
+  $scope.changeTimer = function (duration) {
+    console.log(duration);
+    $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
+    $(".animation_wrapper .filler").css("animation-duration", duration + "s");
+    $(".animation_wrapper .mask").css("animation-duration", duration + "s");
   }
 
 });
