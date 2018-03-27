@@ -103,23 +103,40 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
 
     //from teenpatti 
-    tableData: function (callback) {
-      $http({
-        url: url + 'Table/search',
-        method: 'POST'
+    tableData: function (pageNo, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var skip = maxRow * (pageNo - 1);
+      console.log(skip);
+      $http.post(url + 'Table/search', {
+        page: skip
       }).then(function (data) {
-        callback(data);
+        if (data.data) {
+          var totalCount = data.data.data.total;
+          data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+          callback(data);
+        } else {}
       });
     },
 
-    getPrivateTables: function (callback) {
+    getPrivateTables: function (pageNo, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var skip = maxRow * (pageNo - 1);
+      console.log(skip);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         $http.post(url + 'Table/getPrivateTables', {
           accessToken: accessToken,
-          page: 1
+          page: skip
         }).then(function (data) {
-          callback(data);
+          if (data.data) {
+            var totalCount = data.data.data.total;
+            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            callback(data);
+          } else {}
         });
       }
     },

@@ -45,7 +45,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function startSocketUpdate() {
     io.socket.off("Update", updateSocketFunction);
     io.socket.on("Update", updateSocketFunction);
-
   }
 
   // All Above Functions
