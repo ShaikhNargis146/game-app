@@ -14,7 +14,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.pageNo = 0;
   $scope.results = [];
   $scope.transferStatementData = [];
-  // $scope.privateTableDatas = [];
+  $scope.privateTableDatas = [];
+  $scope.tableData = [];
   $scope.noDataFound = false;
   $scope.loadingDisable = false;
   $scope.paging = {
@@ -26,6 +27,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
+      console.log($scope.singlePlayerData);
       $scope.image = $scope.singlePlayerData.image;
       $scope.memberId = $scope.singlePlayerData._id;
       $scope.username = $scope.singlePlayerData.username;
@@ -255,69 +257,83 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
   }
 
-
+  //for table selection//
   $scope.playNow = function ($event) {
     if (!$scope.VariationActive) {
       $scope.openPriceRangeModal();
       $event.stopPropagation();
     }
-    //for table selection//
-    Service.tableData(function (data) {
-      console.log("tabledata", data);
-      $scope.tableData = data.data.data.results;
+  }
+  $scope.loadMorePrivateTable = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
+      $scope.getTable();
+    } else {
+
+    }
+  };
+  $scope.getTable = function () {
+    // Service.tableData(function (data) {
+    //   console.log("tabledata", data);
+    //   $scope.tableData = data.data.data.results;
+    // });
+
+    Service.tableData($scope.pageNo, function (data) {
+      // console.log(data);
+      if (data) {
+        if (data.data.data.count === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "Oops! Table is empty.",
+          };
+        }
+        $scope.paging = data.data.data.total;
+        _.each(data.data.data.results, function (n) {
+          console.log("Proper Table", n);
+          $scope.tableData.push(n);
+        });
+        $scope.loadingDisable = false;
+      } else {}
     });
   }
-  // $scope.formData = {};
-  // $scope.formData.page = 1;
-  // $scope.formData.type = '';
-  // $scope.formData.keyword = '';
-  // $scope.searchInTable = function (data) {
-  //   $scope.formData.page = 1;
-  //   if (data.length >= 1) {
-  //     $scope.formData.keyword = data;
-  //     $scope.myPrivateTable();
-  //   } else if (data.length == '') {
-  //     $scope.formData.keyword = data;
-  //     $scope.myPrivateTable();
-  //   }
-  // }
 
-  //Account Statement
-  // $scope.loadMorePrivateTable = function () {
-  //   if ($scope.pageNo < $scope.paging.maxPage) {
-  //     $scope.pageNo++;
-  //     $scope.loadingDisable = true;
-  //     $scope.myPrivateTable();
-  //   } else {
+  //Private Table Info
+  $scope.loadMorePrivateTable = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
+      $scope.myPrivateTable();
+    } else {
 
-  //   }
-  // };
+    }
+  };
 
   $scope.myPrivateTable = function () {
-    var pageNo = 1;
-    Service.getPrivateTables(function (data) {
-      console.log(data);
-      $scope.privateTableDatas = data.data.data.results;
-      console.log($scope.privateTableDatas);
-    });
-    // Service.getPrivateTables($scope.pageNo, function (data) {
+    // Service.getPrivateTables(function (data) {
     //   console.log(data);
-    //   if (data) {
-    //     if (data.data.data.count === 0) {
-    //       $scope.noDataFound = true;
-    //       // Error Message or no data found 
-    //       $scope.displayMessage = {
-    //         main: "Oops! Your Account Statement  is empty.",
-    //       };
-    //     }
-    //     $scope.paging = data.data.data.total;
-    //     _.each(data.data.results, function (n) {
-    //       console.log("private Table", n);
-    //       $scope.privateTableData.push(n);
-    //     });
-    //     $scope.loadingDisable = false;
-    //   } else {}
+    //   $scope.privateTableDatas = data.data.data.results;
+    //   console.log($scope.privateTableDatas);
     // });
+    Service.getPrivateTables($scope.pageNo, function (data) {
+      // console.log(data);
+      if (data) {
+        if (data.data.data.count === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "Oops! Your Private Table is empty.",
+          };
+        }
+        $scope.paging = data.data.data.total;
+        _.each(data.data.data.results, function (n) {
+          console.log("private Table", n);
+          $scope.privateTableDatas.push(n);
+        });
+        $scope.loadingDisable = false;
+      } else {}
+    });
   };
 
   $scope.playJoker = function ($event) {
@@ -402,10 +418,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openMyPrivateTable = function () {
-    Service.getPrivateTables(function (data) {
-      $scope.privateTableDatas = data.data.data.results;
-      console.log($scope.privateTableDatas);
-    });
     $scope.ModalInfo.show();
 
   }
