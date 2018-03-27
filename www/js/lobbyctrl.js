@@ -229,8 +229,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
   $scope.logout = function () {
     Service.playerLogout(function (data) {
-      // console.log("logout", data);
-      if (data.data.data == "Logged out") {
+      console.log("logout", data.data.value);
+      if (data.data.value) {
         $.jStorage.flush();
         $state.go('login');
       }
