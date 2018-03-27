@@ -7,7 +7,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $ionicPlatform.registerBackButtonAction(function (event) {
-    console.log("back button");
+    // console.log("back button");
     event.preventDefault();
   }, 100);
 
@@ -27,7 +27,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
-      console.log($scope.singlePlayerData);
+      // console.log($scope.singlePlayerData);
       $scope.image = $scope.singlePlayerData.image;
       $scope.memberId = $scope.singlePlayerData._id;
       $scope.username = $scope.singlePlayerData.username;
@@ -99,7 +99,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.accountStatement = function () {
     Service.getTransaction($scope.pageNo, function (data) {
-      console.log(data);
+      // console.log(data);
       if (data) {
         if (data.data.data.count === 0) {
           $scope.noDataFound = true;
@@ -110,7 +110,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         }
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
-          console.log(n);
+          // console.log(n);
           $scope.results.push(n);
         });
         $scope.loadingDisable = false;
@@ -168,7 +168,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         }
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
-          console.log(n);
+          // console.log(n);
           $scope.transferStatementData.push(n);
         });
         $scope.loadingDisable = false;
@@ -229,7 +229,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
   $scope.logout = function () {
     Service.playerLogout(function (data) {
-      console.log("logout", data);
+      // console.log("logout", data);
       if (data.data.data == "Logged out") {
         $.jStorage.flush();
         $state.go('login');
@@ -274,13 +274,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
   };
   $scope.getTable = function () {
-    // Service.tableData(function (data) {
-    //   console.log("tabledata", data);
-    //   $scope.tableData = data.data.data.results;
-    // });
-
     Service.tableData($scope.pageNo, function (data) {
-      // console.log(data);
       if (data) {
         if (data.data.data.count === 0) {
           $scope.noDataFound = true;
@@ -291,7 +285,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         }
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
-          console.log("Proper Table", n);
+          // console.log("Proper Table", n);
           $scope.tableData.push(n);
         });
         $scope.loadingDisable = false;
@@ -311,13 +305,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
   $scope.myPrivateTable = function () {
-    // Service.getPrivateTables(function (data) {
-    //   console.log(data);
-    //   $scope.privateTableDatas = data.data.data.results;
-    //   console.log($scope.privateTableDatas);
-    // });
     Service.getPrivateTables($scope.pageNo, function (data) {
-      // console.log(data);
       if (data) {
         if (data.data.data.count === 0) {
           $scope.noDataFound = true;
@@ -328,7 +316,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         }
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
-          console.log("private Table", n);
+          // console.log("private Table", n);
           $scope.privateTableDatas.push(n);
         });
         $scope.loadingDisable = false;
@@ -464,7 +452,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.createPrivateTable = function (formData) {
     formData.accessToken = $.jStorage.get("accessToken");
     Service.createTable(formData, function (data) {
-      console.log("private Table", data)
+      // console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
 
@@ -501,7 +489,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       'tableId': tableID,
       'password': password
     }, function (data) {
-      console.log(data.data.value);
+      // console.log(data.data.value);
       if (data.data.value) {
         $scope.tableId = data.data.data._id;
         $scope.closePrivateLogInModal();
