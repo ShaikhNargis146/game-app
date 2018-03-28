@@ -11,7 +11,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     event.preventDefault();
   }, 100);
 
-  $scope.pageNo = 0;
+  $scope.pageNo = 1;
   $scope.results = [];
   $scope.transferStatementData = [];
   $scope.privateTableDatas = [];
@@ -23,7 +23,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
 
-  $scope.filterType = ['private', 'public']
+  $scope.filterType = ['private', 'public'];
 
   $scope.accessToken = $.jStorage.get("accessToken");
 
@@ -74,7 +74,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.PLModal.hide();
   };
 
-  //account statement
+  //account statementloadingDisable
   $ionicModal.fromTemplateUrl('templates/model/account-statement.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -83,6 +83,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openACStatement = function () {
+    $scope.results = [];
     $scope.ACStatementModal.show();
   }
   $scope.closeACStatement = function () {
@@ -91,6 +92,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Account Statement
   $scope.loadMore = function () {
+    console.log("in load more" + $scope.pageNo + $scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
@@ -110,9 +112,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             main: "Oops! Your Account Statement  is empty.",
           };
         }
-        $scope.paging = data.data.data.total;
+        $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
-          // console.log("accountStatement", n);
           $scope.results.push(n);
         });
         $scope.loadingDisable = false;
@@ -453,12 +454,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //privatetable call
   $scope.createPrivateTable = function (formData) {
-    formData.accessToken = $.jStorage.get("accessToken");
     Service.createTable(formData, function (data) {
-      // console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
-
         $timeout(function () {
           $scope.privateTableData = false;
         }, 10000);
@@ -515,11 +513,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     //   });
     // }, 300)
 
-  }
-  $scope.type = [
-    "private",
-    "public"
-  ]
+  };
   //Filter Table Data
   $scope.filterTables = function (data, tablesData) {
     var fliterData
@@ -527,10 +521,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     if (tablesData) {
       fliterData.name = tablesData.name;
     }
-
     $scope.filterTablePromise = Service.getFilterTableData(fliterData, function (data) {
       console.log("service", data.data.data.results);
-      $scope.tableData = data.data.data.results;
+      $scope.tablesData = data.data.data.results;
     });
   };
 
