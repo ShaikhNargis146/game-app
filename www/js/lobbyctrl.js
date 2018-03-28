@@ -11,7 +11,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     event.preventDefault();
   }, 100);
 
-  $scope.pageNo = 0;
+  $scope.pageNo = 1;
   $scope.results = [];
   $scope.transferStatementData = [];
   $scope.privateTableDatas = [];
@@ -23,7 +23,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
 
-  $scope.filterType = ['private', 'public']
+  $scope.filterType = ['private', 'public'];
 
   $scope.accessToken = $.jStorage.get("accessToken");
 
@@ -74,15 +74,17 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.PLModal.hide();
   };
 
-  //account statement
+  //account statementloadingDisable
   $ionicModal.fromTemplateUrl('templates/model/account-statement.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
+    $scope.results = [];
     $scope.ACStatementModal = modal;
   });
 
   $scope.openACStatement = function () {
+    $scope.results = [];
     $scope.ACStatementModal.show();
   }
   $scope.closeACStatement = function () {
@@ -91,6 +93,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Account Statement
   $scope.loadMore = function () {
+    // console.log("in load more" + $scope.pageNo + $scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
@@ -110,9 +113,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             main: "Oops! Your Account Statement  is empty.",
           };
         }
-        $scope.paging = data.data.data.total;
+        $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
-          // console.log("accountStatement", n);
           $scope.results.push(n);
         });
         $scope.loadingDisable = false;
@@ -126,21 +128,14 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
+    $scope.transferStatementData = [];
     $scope.transferStatementModal = modal;
   });
 
 
 
   $scope.openTransferStatement = function () {
-
-    // console.log($scope.memberId);
-    // Service.searchPlayerTransaction({
-    //   _id: $scope.memberId,
-    //   pageNo: 1
-    // }, function (data) {
-    //   $scope.transferStatementData = data.data.data.results;
-    //   console.log(data);
-    // })
+    $scope.transferStatementData = [];
     $scope.transferStatementModal.show();
   }
   $scope.closeTransferStatement = function () {
@@ -168,7 +163,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             main: "Oops! Your Transfer Statement  is empty.",
           };
         }
-        $scope.paging = data.data.data.total;
+        $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
           // console.log(n);
           $scope.transferStatementData.push(n);
@@ -203,60 +198,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
+    $scope.tablesData = [];
     $scope.priceRangeModal = modal;
-
-
   });
   $scope.openPriceRangeModal = function () {
+    $scope.tablesData = [];
     $scope.priceRangeModal.show();
   }
   $scope.closePriceRangeModal = function () {
     $scope.priceRangeModal.hide();
-  }
-
-  //my private Table Info 
-  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.myPrivateModal = modal;
-
-
-  });
-  $scope.openMyPrivateModal = function () {
-    $scope.myPrivateModal.show();
-  }
-  $scope.closeMyPrivateModal = function () {
-    $scope.myPrivateModal.hide();
-  }
-  $scope.logout = function () {
-    Service.playerLogout(function (data) {
-      console.log("logout", data.data.value);
-      if (data.data.value) {
-        $.jStorage.flush();
-        $state.go('login');
-      }
-    });
-  }
-
-
-  // going to next SVGViewElement
-  $scope.goTO = function (view) {
-    // if (!$scope.VariationActive) {
-    //   $state.go('table');
-    // }
-    $scope.gameType = view;
-    if ($scope.gameType == "playnow") {}
-  }
-
-  //onclick for each play type
-  $scope.variationToggle = function ($event) {
-    $event.stopPropagation();
-    if ($scope.VariationActive) {
-      $scope.VariationActive = false;
-    } else {
-      $scope.VariationActive = true;
-    }
   }
 
   //for table selection//
@@ -285,7 +235,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             main: "Oops! Table is empty.",
           };
         }
-        $scope.paging = data.data.data.total;
+        $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
           // console.log("Proper Table", n);
           $scope.tablesData.push(n);
@@ -293,6 +243,23 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         $scope.loadingDisable = false;
       } else {}
     });
+  }
+
+
+  //my private Table Info 
+  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.myPrivateModal = modal;
+    $scope.privateTableDatas = [];
+  });
+  $scope.openMyPrivateModal = function () {
+    $scope.privateTableDatas = [];
+    $scope.myPrivateModal.show();
+  }
+  $scope.closeMyPrivateModal = function () {
+    $scope.myPrivateModal.hide();
   }
 
   //Private Table Info
@@ -317,7 +284,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             main: "Oops! Your Private Table is empty.",
           };
         }
-        $scope.paging = data.data.data.total;
+        $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
           // console.log("private Table", n);
           $scope.privateTableDatas.push(n);
@@ -326,6 +293,35 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       } else {}
     });
   };
+
+  //logout
+  $scope.logout = function () {
+    Service.playerLogout(function (data) {
+      console.log("logout", data.data.value);
+      if (data.data.value) {
+        $.jStorage.flush();
+        $state.go('login');
+      }
+    });
+  }
+
+
+  // going to next SVGViewElement
+  $scope.goTO = function (view) {
+    $scope.gameType = view;
+    if ($scope.gameType == "playnow") {}
+  }
+
+  //onclick for each play type
+  $scope.variationToggle = function ($event) {
+    $event.stopPropagation();
+    if ($scope.VariationActive) {
+      $scope.VariationActive = false;
+    } else {
+      $scope.VariationActive = true;
+    }
+  }
+
 
   $scope.playJoker = function ($event) {
 
@@ -426,6 +422,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openMyPrivateTable = function () {
+    $scope.privateTableDatas = [];
     $scope.ModalInfo.show();
 
   }
@@ -441,41 +438,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalSearch.show();
   }
 
-  $scope.itemArray = [{
-      id: 1,
-      name: 'private'
-    },
-    {
-      id: 2,
-      name: 'second'
-    },
-    {
-      id: 3,
-      name: 'third'
-    },
-    {
-      id: 4,
-      name: 'fourth'
-    },
-    {
-      id: 5,
-      name: 'fifth'
-    },
-  ];
-
-  $scope.selected = {
-    value: $scope.itemArray[0]
-  };
 
 
   //privatetable call
   $scope.createPrivateTable = function (formData) {
-    formData.accessToken = $.jStorage.get("accessToken");
     Service.createTable(formData, function (data) {
-      // console.log("private Table", data)
       if (data.value) {
         $scope.privateTableData = data.data;
-
         $timeout(function () {
           $scope.privateTableData = false;
         }, 10000);
@@ -532,22 +501,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     //   });
     // }, 300)
 
-  }
-  $scope.type = [
-    "private",
-    "public"
-  ]
+  };
   //Filter Table Data
-  $scope.filterTables = function (data, tablesData) {
+  $scope.filterTables = function (data) {
     var fliterData
     fliterData = data;
-    if (tablesData) {
-      fliterData.name = tablesData.name;
-    }
-
     $scope.filterTablePromise = Service.getFilterTableData(fliterData, function (data) {
-      console.log("service", data.data.data.results);
-      $scope.tableData = data.data.data.results;
+      $scope.tablesData = data.data.data.results;
     });
   };
 
