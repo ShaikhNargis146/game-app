@@ -522,9 +522,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   ]
   //Filter Table Data
   $scope.filterTables = function (data, tablesData) {
-    console.log(data.type);
-    console.log(data);
-    $scope.filterTablePromise = Service.getFilterTableData(data, function (data) {
+    var fliterData
+    fliterData = data;
+    if (tablesData) {
+      fliterData.name = tablesData.name;
+    }
+
+    $scope.filterTablePromise = Service.getFilterTableData(fliterData, function (data) {
       console.log("service", data.data.data.results);
       $scope.tableData = data.data.data.results;
     });

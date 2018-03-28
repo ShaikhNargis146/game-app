@@ -12611,3 +12611,24 @@ body {
 
 .player-fold {
   opacity: 0.4; }
+
+span.ui-select-placeholder {
+  display: inline-block;
+  padding: 8px 18px 5px;
+  color: white;
+  font-family: 'Cinzel-Regular';
+  font-size: 1em;
+  background: url(../img/model/input_bg.png);
+  background-size: 100% 100%;
+  width: 35%; }
+
+input.form-control.ui-select-search {
+  display: inline-block;
+  padding: 6px 27px 4px;
+  color: white;
+  font-family: 'Cinzel-Regular';
+  font-size: 1em;
+  background: url(../img/model/input_bg.png);
+  background-size: 100% 100%;
+  width: 35% !important;
+  height: 2em; }
