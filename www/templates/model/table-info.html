@@ -45,8 +45,8 @@
           <td>{{data.blindAmt}} - {{data.chalAmt}} </td>
           <td>{{data.maximumNoOfPlayers}}</td>
           <td>
-            <button class="custom_button" ng-click="goToTable(data)" ng-if="!data.type">PLAY</button>
-            <button class="custom_button" ng-click="goToPrivateTableLogIn(data)" ng-if="data.type">Log In</button>
+            <button class="custom_button" ng-click="goToTable(data)" ng-if="data.type=='public'">PLAY</button>
+            <button class="custom_button" ng-click="goToPrivateTableLogIn(data)" ng-if="data.type=='private'">Log In</button>
           </td>
         </tr>
       </table>
