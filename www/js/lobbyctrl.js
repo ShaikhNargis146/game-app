@@ -514,6 +514,16 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   }
 
+  //Filter Table Data
+  $scope.filterTables = function (data, filterTable) {
+    console.log(data);
+    $scope.datafilter = {};
+    $scope.datafilter.filter = data;
+    $scope.filterTablePromise = Service.getFilterTableData($scope.datafilter, function (data) {
+
+    });
+  };
+
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
     $scope.PLModal.remove();

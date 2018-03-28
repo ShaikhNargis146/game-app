@@ -89,7 +89,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var skip = maxRow * (pageNo - 1);
-      console.log(skip);
+      // console.log(skip);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
         _id: memberId,
         pageNo: skip
@@ -102,15 +102,33 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
 
+
     //from teenpatti 
     tableData: function (pageNo, callback) {
       if (!pageNo) {
         pageNo = 1;
       }
       var skip = maxRow * (pageNo - 1);
-      console.log(skip);
+      // console.log(skip);
       $http.post(url + 'Table/search', {
         page: skip
+      }).then(function (data) {
+        if (data.data) {
+          var totalCount = data.data.data.total;
+          data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+          callback(data);
+        } else {}
+      });
+    },
+    getFilterTableData: function (data, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var skip = maxRow * (pageNo - 1);
+      console.log(skip);
+      $http.post(url + 'Table/filterTables', {
+        data: data,
+        page: 1
       }).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
@@ -125,7 +143,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var skip = maxRow * (pageNo - 1);
-      console.log(skip);
+      // console.log(skip);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         $http.post(url + 'Table/getPrivateTables', {
@@ -239,6 +257,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+
     doSideShow: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
@@ -250,6 +269,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+
     showWinner: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
@@ -261,6 +281,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+
     rejectSideShow: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
@@ -287,6 +308,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     connectSocket: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
+      console.log(accessToken);
       if (accessToken) {
         $http.post(url + 'Player/updateSocket', {
           accessToken: accessToken,
@@ -297,12 +319,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
 
     },
+
     getTransaction: function (pageNo, callback) {
       if (!pageNo) {
         pageNo = 1;
       }
       var skip = maxRow * (pageNo - 1);
-      console.log(skip);
+      // console.log(skip);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
@@ -317,6 +340,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+
     getByPlrId: function (data, callback) {
       $http.post(url + 'Player/getByPlrId', {
         data: data
@@ -356,12 +380,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       });
     },
+
     createTable: function (data, callback) {
       $http.post(url + 'Table/createPrivateTable', data).then(function (data) {
         data = data.data;
         callback(data);
       });
     },
+
     addAmountToPot: function (data, callback) {
       $http.post(url + 'Pot/addAmountToPot', {
         data: data

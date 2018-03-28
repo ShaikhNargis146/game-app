@@ -56,12 +56,12 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
 
   //js Storage 
-  // $scope.jsData = $.jStorage.get("player");
-  // $scope.jsData.accessToken = $scope.jsData.accessToken;
+  $scope.jsData = $.jStorage.get("player");
+  $scope.accessToken = $scope.accessToken;
 
-  // if ($scope.jsData.accessToken) {
-  //   $state.go("lobby");
-  // }
+  if ($scope.accessToken) {
+    $state.go("lobby");
+  }
   $ionicPlatform.registerBackButtonAction(function (event) {
     console.log("back button");
     event.preventDefault();

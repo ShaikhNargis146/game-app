@@ -4,17 +4,26 @@
       <img src="img/close.png">
     </div>
     <div class="heading">table</div>
-    <div class="top_field filter">
-      <!-- Filter with
-      <ui-select ng-model="ctrl.person.selected" theme="bootstrap">
-        <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-        <ui-select-choices repeat="item in filterType | filter: $select.search">
-          <div ng-bind-html="item.name | highlight: $select.search"></div>
-        </ui-select-choices>
-      </ui-select>
-      of
-      <input type="text" ng-model="month"> -->
-    </div>
+    <form name="filterTable">
+      <div class="top_field filter">
+        Filter with
+        <ui-select ng-model="data.type" theme="bootstrap">
+          <ui-select-match placeholder="Type">{{$select.selected.name}}</ui-select-match>
+          <ui-select-choices repeat="item in filterType | filter: $select.search">
+            <div ng-bind-html="item.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+        <ui-select ng-model="data.name" theme="bootstrap">
+          <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
+          <ui-select-choices repeat="item in filterType | filter: $select.search">
+            <div ng-bind-html="item.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+        <input type="text" ng-model="data.blindAmt" placeholder="Blind Amt">
+        <input type="text" ng-model="data.ChalAmt" placeholder="Chaal Amt">
+        <button class="custom_button" type='submit' ng-click="filterTables(data)" promise-btn="filterTablePromise"> Search </button>
+      </div>
+    </form>
     <div class="statement_content" ng-if="tableData">
       <table>
         <tr>
@@ -28,7 +37,7 @@
           <td>{{data.name}} </td>
           <td>
             <span ng-if="data.type"> {{data.type}}</span>
-            <span ng-if="!data.type"> normal</span>
+            <span ng-if="!data.type">Public</span>
           </td>
           <td>{{data.blindAmt}} - {{data.chalAmt}} </td>
           <td>{{data.maximumNoOfPlayers}}</td>
