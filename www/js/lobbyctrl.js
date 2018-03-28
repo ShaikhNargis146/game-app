@@ -12,12 +12,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }, 100);
 
   $scope.pageNo = 1;
+  $scope.loadingDisable = false;
   $scope.results = [];
   $scope.transferStatementData = [];
   $scope.privateTableDatas = [];
   $scope.tablesData = [];
   $scope.noDataFound = false;
-  $scope.loadingDisable = false;
   $scope.paging = {
     maxPage: 1
   };
@@ -80,11 +80,21 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.results = [];
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
+    $scope.paging = {
+      maxPage: 1
+    };
     $scope.ACStatementModal = modal;
   });
 
   $scope.openACStatement = function () {
     $scope.results = [];
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
+    $scope.paging = {
+      maxPage: 1
+    };
     $scope.ACStatementModal.show();
   }
   $scope.closeACStatement = function () {
@@ -129,6 +139,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.transferStatementData = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
     $scope.transferStatementModal = modal;
   });
 
@@ -136,6 +151,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.openTransferStatement = function () {
     $scope.transferStatementData = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
     $scope.transferStatementModal.show();
   }
   $scope.closeTransferStatement = function () {
@@ -199,10 +219,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.tablesData = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
     $scope.priceRangeModal = modal;
   });
   $scope.openPriceRangeModal = function () {
     $scope.tablesData = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
     $scope.priceRangeModal.show();
   }
   $scope.closePriceRangeModal = function () {
@@ -253,9 +283,19 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }).then(function (modal) {
     $scope.myPrivateModal = modal;
     $scope.privateTableDatas = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
   });
   $scope.openMyPrivateModal = function () {
     $scope.privateTableDatas = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
     $scope.myPrivateModal.show();
   }
   $scope.closeMyPrivateModal = function () {

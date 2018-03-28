@@ -309,7 +309,15 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     connectSocket: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
       console.log(accessToken);
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
+        callApi();
+      } else {
+        $timeout(function () {
+          callApi();
+        }, 2000);
+      }
+
+      function callApi() {
         $http.post(url + 'Player/updateSocket', {
           accessToken: accessToken,
           socketId: socketId
