@@ -326,7 +326,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         }).then(function (data) {
           if (data.data) {
             var totalCount = data.data.data.total;
-            console.log("totalCount", totalCount);
+            // console.log("totalCount", totalCount);
             data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
             callback(data);
           } else {}
