@@ -122,9 +122,15 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!data.pageNo) {
         pageNo = 1;
       }
+      var filter = data;
       $http.post(url + 'Table/filterTables', {
-        filter: data,
-        page: pageNo
+        filter: {
+          blindAmt: filter.blindAmt,
+          chalAmt: filter.chalAmt,
+          name: filter.name,
+          type: filter.type,
+        },
+        page: 1
       }).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
