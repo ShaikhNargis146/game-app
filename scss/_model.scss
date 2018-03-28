@@ -459,7 +459,16 @@
 }
 
 .price_range_modal {
-  // height: 40vh;
+  ion-content {
+    padding: 4%;
+    margin: 0%;
+    margin-bottom: 5%;
+  }
+  .close {
+    position: absolute;
+    right: 3%;
+    top: 5%;
+  } // height: 40vh;
   // top: 40%;
   // background: url("../img/model/price_range_bg.png");
   // background-size: 100% 100%;

@@ -22,6 +22,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     maxPage: 1
   };
 
+
+  $scope.filterType = ['private', 'public']
+
   $scope.accessToken = $.jStorage.get("accessToken");
 
   $scope.playerData = function () {
@@ -516,10 +519,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Filter Table Data
   $scope.filterTables = function (data, filterTable) {
-    console.log(data);
+
     $scope.datafilter = {};
     $scope.datafilter.filter = data;
+    $scope.datafilter.page = 1;
+    console.log($scope.datafilter);
     $scope.filterTablePromise = Service.getFilterTableData($scope.datafilter, function (data) {
+      console.log("service", data);
+      console.log("service", data.data.data.results);
+      $scope.tableData = data.data.data.results;
 
     });
   };
