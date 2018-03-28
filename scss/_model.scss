@@ -54,7 +54,8 @@
       // border-bottom: 1px solid;
       border: 0px;
       color: white;
-      padding: 2px 3%;
+      padding: 2px 0%;
+      padding-left: 2%;
       option {
         font-family: 'Cinzel-Regular';
         font-size: 1em;
@@ -468,6 +469,13 @@
     position: absolute;
     right: 3%;
     top: 5%;
+  }
+  .btn_search {
+    padding: 1%;
+    width: 20%;
+    margin: 1% auto;
+    display: block;
+    margin-bottom: 0px;
   } // height: 40vh;
   // top: 40%;
   // background: url("../img/model/price_range_bg.png");

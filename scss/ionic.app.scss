@@ -417,25 +417,69 @@ body {
 }
 
 //UI Select
-span.ui-select-placeholder {
+.custom-filter {
   display: inline-block;
-  padding: 8px 18px 5px;
-  color: white;
-  font-family: 'Cinzel-Regular';
-  font-size: 1em;
-  background: url(../img/model/input_bg.png);
-  background-size: 100% 100%;
   width: 35%;
-}
-
-input.form-control.ui-select-search {
-  display: inline-block;
-  padding: 6px 27px 4px;
-  color: white;
-  font-family: 'Cinzel-Regular';
-  font-size: 1em;
-  background: url(../img/model/input_bg.png);
+  margin: 0 2%;
+  margin-top: 1%;
+  background: url("../img/model/input_bg.png");
   background-size: 100% 100%;
-  width: 35% !important;
-  height: 2em;
+  span.ui-select-placeholder {
+    display: inline-block;
+    padding: 4px 25px 5px;
+    color: white;
+    font-family: 'Cinzel-Regular';
+    font-size: 1em;
+    width: 100%;
+    height: 2.1em;
+  }
+  input.form-control.ui-select-search {
+    display: inline-block;
+    padding: 6px 27px 4px;
+    color: white;
+    font-family: 'Cinzel-Regular';
+    font-size: 1em;
+    background: url("../img/model/input_bg.png");
+    background-size: 100% 100%;
+    width: 100% !important;
+    height: 2em;
+    padding: 0px;
+    padding-left: 5%;
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: transparent;
+    }
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      color: transparent;
+    }
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      color: transparent;
+    }
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      color: transparent;
+    }
+  } //dropdown
+  .ui-select-dropdown {
+    border: 1px solid grey;
+    position: absolute;
+    width: 30%;
+    background: #3c4146;
+  } //element in dropdown
+  .ui-select-choices-row>span {
+    color: white;
+  }
+  .btn-default-focus {
+    background-color: white;
+    height: 2em;
+  } //selected match
+  .ui-select-match-text span {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 15%;
+    height: 1.5em;
+  }
 }

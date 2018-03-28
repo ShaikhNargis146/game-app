@@ -11673,7 +11673,8 @@ body {
       background-size: 100% 100%;
       border: 0px;
       color: white;
-      padding: 2px 3%; }
+      padding: 2px 0%;
+      padding-left: 2%; }
       .statement-model .top_field select option {
         font-family: 'Cinzel-Regular';
         font-size: 1em;
@@ -11997,6 +11998,13 @@ body {
   position: absolute;
   right: 3%;
   top: 5%; }
+
+.price_range_modal .btn_search {
+  padding: 1%;
+  width: 20%;
+  margin: 1% auto;
+  display: block;
+  margin-bottom: 0px; }
 
 .private_table .private_data {
   font-size: 2em;
@@ -12612,23 +12620,58 @@ body {
 .player-fold {
   opacity: 0.4; }
 
-span.ui-select-placeholder {
+.custom-filter {
   display: inline-block;
-  padding: 8px 18px 5px;
-  color: white;
-  font-family: 'Cinzel-Regular';
-  font-size: 1em;
-  background: url(../img/model/input_bg.png);
-  background-size: 100% 100%;
-  width: 35%; }
-
-input.form-control.ui-select-search {
-  display: inline-block;
-  padding: 6px 27px 4px;
-  color: white;
-  font-family: 'Cinzel-Regular';
-  font-size: 1em;
-  background: url(../img/model/input_bg.png);
-  background-size: 100% 100%;
-  width: 35% !important;
-  height: 2em; }
+  width: 35%;
+  margin: 0 2%;
+  margin-top: 1%;
+  background: url("../img/model/input_bg.png");
+  background-size: 100% 100%; }
+  .custom-filter span.ui-select-placeholder {
+    display: inline-block;
+    padding: 4px 25px 5px;
+    color: white;
+    font-family: 'Cinzel-Regular';
+    font-size: 1em;
+    width: 100%;
+    height: 2.1em; }
+  .custom-filter input.form-control.ui-select-search {
+    display: inline-block;
+    padding: 6px 27px 4px;
+    color: white;
+    font-family: 'Cinzel-Regular';
+    font-size: 1em;
+    background: url("../img/model/input_bg.png");
+    background-size: 100% 100%;
+    width: 100% !important;
+    height: 2em;
+    padding: 0px;
+    padding-left: 5%; }
+    .custom-filter input.form-control.ui-select-search::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: transparent; }
+    .custom-filter input.form-control.ui-select-search::-moz-placeholder {
+      /* Firefox 19+ */
+      color: transparent; }
+    .custom-filter input.form-control.ui-select-search:-ms-input-placeholder {
+      /* IE 10+ */
+      color: transparent; }
+    .custom-filter input.form-control.ui-select-search:-moz-placeholder {
+      /* Firefox 18- */
+      color: transparent; }
+  .custom-filter .ui-select-dropdown {
+    border: 1px solid grey;
+    position: absolute;
+    width: 30%;
+    background: #3c4146; }
+  .custom-filter .ui-select-choices-row > span {
+    color: white; }
+  .custom-filter .btn-default-focus {
+    background-color: white;
+    height: 2em; }
+  .custom-filter .ui-select-match-text span {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 15%;
+    height: 1.5em; }
