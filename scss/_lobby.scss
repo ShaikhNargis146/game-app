@@ -30,6 +30,7 @@
       padding-top: 2%;
       .name {
         color: #d0d0d0;
+        font-family: 'Cinzel-Bold';
       }
       .amt {
         background: url('../img/text_bg2.png');
@@ -226,19 +227,22 @@
       }
       .profile_info {
         color: white;
-        font-size: .9em;
-        line-height: 1.8;
+        font-size: 1em;
+        line-height: 140%;
         padding-top: 2%;
         .player_badge {
           font-family: 'Cinzel-Bold';
         }
         .name {
           color: #d0d0d0;
+          font-family: 'Cinzel-Bold';
+          margin-bottom: 2px;
         }
         .amt {
           background: url('../img/text_bg2.png');
           background-size: 100% 100%;
           text-align: center;
+          margin-bottom: 2px;
           padding: 5px 15px;
           white-space: nowrap;
           img {
@@ -256,6 +260,8 @@
       border-top: 0; // padding:0px 2%;
       margin: 0% 4%;
       font-size: 1em;
+      font-family: 'Cinzel-Bold';
+      letter-spacing: 1px;
       padding: 10px 0px;
     }
     .amt_modify {

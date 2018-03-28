@@ -56,9 +56,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
 
   //js Storage 
-  $scope.jsData = $.jStorage.get("player");
-  $scope.accessToken = $scope.accessToken;
-
+  $scope.accessToken = $.jStorage.get("accessToken");
   if ($scope.accessToken) {
     $state.go("lobby");
   }

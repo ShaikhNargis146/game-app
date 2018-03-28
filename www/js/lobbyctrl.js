@@ -103,14 +103,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       if (data) {
         if (data.data.data.count === 0) {
           $scope.noDataFound = true;
-          // Error Message or no data found 
           $scope.displayMessage = {
             main: "Oops! Your Account Statement  is empty.",
           };
         }
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
-          // console.log(n);
+          // console.log("accountStatement", n);
           $scope.results.push(n);
         });
         $scope.loadingDisable = false;
@@ -264,7 +263,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $event.stopPropagation();
     }
   }
-  $scope.loadMorePrivateTable = function () {
+  $scope.loadMoreTable = function () {
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
@@ -295,6 +294,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Private Table Info
   $scope.loadMorePrivateTable = function () {
+    console.log($scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;

@@ -10323,7 +10323,8 @@ body {
       line-height: 1.8;
       padding-top: 2%; }
       .main_lobby .user_profile .profile_info .name {
-        color: #d0d0d0; }
+        color: #d0d0d0;
+        font-family: 'Cinzel-Bold'; }
       .main_lobby .user_profile .profile_info .amt {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
@@ -10464,17 +10465,20 @@ body {
         object-fit: fill; }
     .lobby_menu .menu_cont .user_profile .profile_info {
       color: white;
-      font-size: .9em;
-      line-height: 1.8;
+      font-size: 1em;
+      line-height: 140%;
       padding-top: 2%; }
       .lobby_menu .menu_cont .user_profile .profile_info .player_badge {
         font-family: 'Cinzel-Bold'; }
       .lobby_menu .menu_cont .user_profile .profile_info .name {
-        color: #d0d0d0; }
+        color: #d0d0d0;
+        font-family: 'Cinzel-Bold';
+        margin-bottom: 2px; }
       .lobby_menu .menu_cont .user_profile .profile_info .amt {
         background: url("../img/text_bg2.png");
         background-size: 100% 100%;
         text-align: center;
+        margin-bottom: 2px;
         padding: 5px 15px;
         white-space: nowrap; }
         .lobby_menu .menu_cont .user_profile .profile_info .amt img {
@@ -10488,6 +10492,8 @@ body {
     border-top: 0;
     margin: 0% 4%;
     font-size: 1em;
+    font-family: 'Cinzel-Bold';
+    letter-spacing: 1px;
     padding: 10px 0px; }
   .lobby_menu .menu_cont .amt_modify {
     text-align: center;
@@ -11717,12 +11723,12 @@ body {
       margin: 2%; }
       .statement-model .statement_content table th {
         font-family: 'Cinzel-Bold';
-        font-size: .9em;
+        font-size: 1em;
         text-align: center; }
         .statement-model .statement_content table th:nth-child(1) {
           text-align: left; }
       .statement-model .statement_content table td {
-        font-size: .8em;
+        font-size: 1em;
         border-bottom: 1px solid grey;
         line-height: 1.5;
         padding-bottom: 5px;
