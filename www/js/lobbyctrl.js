@@ -398,6 +398,23 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalCreate.hide();
   };
 
+  //Rules
+
+  $ionicModal.fromTemplateUrl('templates/model/rules.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.rulesModal = modal;
+  });
+
+  $scope.openRulesModal = function ($event) {
+    $scope.rulesModal.show();
+    $event.stopPropagation();
+  }
+  $scope.closeRulesModal = function () {
+    $scope.rulesModal.hide();
+  };
+
 
   //private table info modal
 
@@ -542,6 +559,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.changePasswordModel.remove();
     $scope.priceRangeModal.remove();
     $scope.privateLogInModal.remove();
+    $scope.rulesModal.remove();
     $scope.closeAllTab();
   });
 
