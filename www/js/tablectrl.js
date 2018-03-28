@@ -65,7 +65,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.startCoinAnime = false;
   $scope.winnerPlayerNo = -1;
   $scope.showNewGameTime = false;
-
+  $scope.tipAmount = -1;
+  $scope.TipPlayerNo = -1;
 
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
@@ -562,6 +563,22 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.closeMakeTipModal = function () {
     $scope.makeTipModal.hide();
   };
+
+
+
+  //tip socket
+  io.socket.on("tip", function (data) {
+    $scope.tipAmount = data.data.amount;
+    $scope.TipPlayerNo = data.data.playerNo;
+
+    //to reset tip and plyr no
+    $timeout(function () {
+      $scope.tipAmount = -1;
+      $scope.TipPlayerNo = -1;
+    }, 2000);
+
+  });
+
   //pack 
   $scope.pack = function () {
     var playerdetails = {};

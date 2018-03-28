@@ -10524,7 +10524,8 @@ body {
         .kingtable .top_field .right_side_icon .setting_menu_icon .icon {
           font-size: 2em;
           margin-right: 15px;
-          display: block; }
+          display: block;
+          padding: 0px 5px; }
         .kingtable .top_field .right_side_icon .setting_menu_icon img {
           width: 2em; }
       .kingtable .top_field .right_side_icon .table-info th {
@@ -11489,7 +11490,7 @@ body {
   color: white;
   opacity: 0;
   white-space: nowrap;
-  animation-duration: 1s; }
+  animation-duration: 2s; }
   .tip_animate .coin {
     width: 1em;
     vertical-align: middle;
