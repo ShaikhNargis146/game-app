@@ -15,7 +15,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.results = [];
   $scope.transferStatementData = [];
   $scope.privateTableDatas = [];
-  $scope.tableData = [];
+  $scope.tablesData = [];
   $scope.noDataFound = false;
   $scope.loadingDisable = false;
   $scope.paging = {
@@ -199,7 +199,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.changePasswordModel.hide();
   }
   //game price range 
-  $ionicModal.fromTemplateUrl('templates/model/game_price_range.html', {
+  $ionicModal.fromTemplateUrl('templates/model/table-info.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
@@ -288,7 +288,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         $scope.paging = data.data.data.total;
         _.each(data.data.data.results, function (n) {
           // console.log("Proper Table", n);
-          $scope.tableData.push(n);
+          $scope.tablesData.push(n);
         });
         $scope.loadingDisable = false;
       } else {}
@@ -516,19 +516,17 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     // }, 300)
 
   }
-
+  $scope.type = [
+    "private",
+    "public"
+  ]
   //Filter Table Data
-  $scope.filterTables = function (data, filterTable) {
-
-    $scope.datafilter = {};
-    $scope.datafilter.filter = data;
-    $scope.datafilter.page = 1;
-    console.log($scope.datafilter);
-    $scope.filterTablePromise = Service.getFilterTableData($scope.datafilter, function (data) {
-      console.log("service", data);
+  $scope.filterTables = function (data, tablesData) {
+    console.log(data.type);
+    console.log(data);
+    $scope.filterTablePromise = Service.getFilterTableData(data, function (data) {
       console.log("service", data.data.data.results);
       $scope.tableData = data.data.data.results;
-
     });
   };
 

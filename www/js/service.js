@@ -128,7 +128,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       console.log(skip);
       console.log(data);
       $http.post(url + 'Table/filterTables', {
-        data: data
+        filter: data,
+        page: 1
       }).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
