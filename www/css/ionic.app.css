@@ -11981,6 +11981,16 @@ body {
       right: 2%;
       bottom: 10%; }
 
+.price_range_modal ion-content {
+  padding: 4%;
+  margin: 0%;
+  margin-bottom: 5%; }
+
+.price_range_modal .close {
+  position: absolute;
+  right: 3%;
+  top: 5%; }
+
 .private_table .private_data {
   font-size: 2em;
   text-align: center;

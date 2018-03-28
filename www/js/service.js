@@ -121,14 +121,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
     getFilterTableData: function (data, callback) {
-      if (!pageNo) {
+      if (!data.pageNo) {
         pageNo = 1;
       }
       var skip = maxRow * (pageNo - 1);
       console.log(skip);
+      console.log(data);
       $http.post(url + 'Table/filterTables', {
-        data: data,
-        page: 1
+        data: data
       }).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
