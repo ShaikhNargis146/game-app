@@ -9,12 +9,12 @@
         Filter with
         <select ng-model="data.type" ng-options="x for x in type">
         </select>
-        <ui-select ng-model="tablesData.selected.type" theme="bootstrap">
+        <!-- <ui-select ng-model="tablesData.selected.type" theme="bootstrap">
           <ui-select-match placeholder="Type">{{$select.selected.type}}</ui-select-match>
           <ui-select-choices repeat="item in tablesData | filter: $select.search">
             <div ng-bind-html="item.type | highlight: $select.search"></div>
           </ui-select-choices>
-        </ui-select>
+        </ui-select> -->
         <ui-select ng-model="tablesData.selected.name" theme="bootstrap">
           <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
           <ui-select-choices repeat="item in tablesData | filter: $select.search">
@@ -23,7 +23,7 @@
         </ui-select>
         <input type="text" ng-model="data.blindAmt" placeholder="Blind Amt">
         <input type="text" ng-model="data.chalAmt" placeholder="Chaal Amt">
-        <button class="custom_button" type='submit' ng-click="filterTables(data,tablesData.selected.type)" promise-btn="filterTablePromise">
+        <button class="custom_button" type='submit' ng-click="filterTables(data,tablesData.selected.name)" promise-btn="filterTablePromise">
           Search </button>
       </div>
     </form>
