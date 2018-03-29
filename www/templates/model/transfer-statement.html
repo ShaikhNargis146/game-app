@@ -35,8 +35,6 @@
           <td ng-if="data.transactionType=='Debit'"> Credit</td> -->
           <td ng-if="data.fromUser._id==memberId"> Debit</td>
           <td ng-if="data.toUser._id==memberId"> Credit</td>
-
-          <td> </td>
           <td> {{data.amount}}</td>
         </tr>
       </table>
