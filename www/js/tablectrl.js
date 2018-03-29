@@ -70,8 +70,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //sound initialize
   $scope.buttonAudio = new Audio('audio/button.mp3');
   $scope.shuffleAudio = new Audio('audio/shuffle.wav');
-  $scope.winnerAudio = new Audio('audio/winner.mp3');
-  $scope.coinAudio = new Audio('audio/winner.mp3');
+  $scope.winnerAudio = new Audio('audio/winner.wav');
+  $scope.coinAudio = new Audio('audio/coin.wav');
 
   $scope.destroyAudio = function () {
     console.log("destroy audio");
@@ -425,7 +425,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
-
+    $scope.winnerAudio.pause();
+    $scope.winnerAudio.currentTime = 0;
     data = data.data;
     $scope.extra = data.extra;
 
@@ -444,6 +445,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
+        $scope.coinAudio.play();
       }
 
       if ($scope.extra.serve) {
@@ -562,7 +564,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.playChaal = function () {
-    $scope.coinAudio.play();
+    // $scope.coinAudio.play();
     $scope.chaalPromise = Service.chaal({
       tableId: $scope.tableId,
       amount: $scope.betamount
