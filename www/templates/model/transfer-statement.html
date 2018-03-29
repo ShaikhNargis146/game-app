@@ -31,7 +31,8 @@
           <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
           <td> {{data.fromUser.username}} </td>
           <td>{{data.toUser.username}}</td>
-          <td> {{data.transactionType}}</td>
+          <td ng-if="data.transactionType=='Credit'"> Debit</td>
+          <td ng-if="data.transactionType=='Debit'"> Credit</td>
           <td> {{data.amount}}</td>
         </tr>
       </table>
