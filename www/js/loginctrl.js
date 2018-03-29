@@ -62,6 +62,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   }
   $ionicPlatform.registerBackButtonAction(function (event) {
     console.log("back button");
-    event.preventDefault();
+    ionic.Platform.exitApp();
+    // event.preventDefault();
   }, 100);
 });
