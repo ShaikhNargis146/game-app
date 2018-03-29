@@ -7,8 +7,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     screen.orientation.lock('landscape');
   });
 
-
-
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       if (data && data.data && data.data.data) {
@@ -67,6 +65,27 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.showNewGameTime = false;
   $scope.tipAmount = -1;
   $scope.TipPlayerNo = -1;
+
+
+  //sound initialize
+  $scope.buttonAudio = new Audio('audio/button.mp3');
+  $scope.shuffleAudio = new Audio('audio/shuffle.wav');
+  $scope.winnerAudio = new Audio('audio/winner.mp3');
+  $scope.coinAudio = new Audio('audio/winner.mp3');
+
+  $scope.destroyAudio = function () {
+    console.log("destroy audio");
+    $scope.buttonAudio.pause();
+    $scope.buttonAudio.currentTime = 0;
+    $scope.winnerAudio.pause();
+    $scope.winnerAudio.currentTime = 0;
+    $scope.shuffleAudio.pause();
+    $scope.shuffleAudio.currentTime = 0;
+    $scope.coinAudio.pause();
+    $scope.coinAudio.currentTime = 0;
+  }
+
+
 
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
@@ -142,15 +161,26 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     if (!$scope.sitHere) {
       return;
     }
+    $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
+
+    $timeout(function () {
+      if ($scope.ShowLoader) {
+        $scope.ShowLoader = false;
+        $scope.updatePlayers();
+      }
+    }, 5000);
+
     // $scope.dataPlayer.socketId = $scope.socketId;
     Service.savePlayerToTable($scope.dataPlayer, function (data) {
+      $scope.ShowLoader = false;
       if (data.data.value) {
         $scope.sitHere = false;
         myTableNo = data.data.data.playerNo;
+        $scope.updatePlayers();
         startSocketUpdate();
       } else {
         if (data.data.error == "position filled") {
@@ -379,13 +409,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     });
   };
 
-  $scope.$on('$destroy', function () {
-    $scope.tableInfoModal.remove();
-    $scope.sideShowModal.remove();
-    $scope.messageModal.remove();
-    $scope.insufficientFundsModal.remove();
-    $scope.closeAllModal();
-  });
 
   //back button
   $ionicPlatform.onHardwareBackButton(function (event) {
@@ -413,6 +436,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
         $scope.winnerPlayerNo = -1;
+        $scope.winnerAudio.pause();
+        $scope.winnerAudio.currentTime = 0;
         $timeout(function () {
           $scope.startCoinAnime = false;
         }, 1000);
@@ -422,6 +447,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
 
       if ($scope.extra.serve) {
+        $scope.shuffleAudio.play();
         $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
         $timeout(function () {
@@ -468,6 +494,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function showWinnerFunction(data) {
     console.log("show winner");
+    $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
@@ -535,6 +562,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.playChaal = function () {
+    $scope.coinAudio.play();
     $scope.chaalPromise = Service.chaal({
       tableId: $scope.tableId,
       amount: $scope.betamount
@@ -543,6 +571,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //tip
   $scope.makeTip = function (data) {
+    $scope.coinAudio.play();
     console.log(data);
     var playerdetails = {};
     playerdetails.amount = data;
@@ -581,6 +610,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //pack 
   $scope.pack = function () {
+    $scope.buttonAudio.play();
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
     $scope.packPromise = Service.pack(playerdetails, function (data) {});
@@ -588,6 +618,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //sideshow
   $scope.sideShow = function () {
+    $scope.buttonAudio.play();
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
     $scope.sideShowPromise = Service.sideShow(playerdetails, function (data) {});
@@ -667,22 +698,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.players = players;
   }
 
-  // $scope.players = [{
-  //   playerNo: 2,
-  //   user: 1
-  // }, {
-  //   playerNo: 5,
-  //   user: 2
-  // }, {
-  //   playerNo: 7,
-  //   user: 3
-  // }];
-
-  // var testPlayers = reArragePlayers($scope.players);
-
-  // console.log(testPlayers);
-
-
   //seat selection Player
   io.socket.on("removePlayer", function (data) {
     if (data) {
@@ -707,20 +722,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  // $scope.testNo = 1;
 
-  // $timeout(function () {
-  //   console.log("+1");
-  //   $scope.testNo = $scope.testNo + 1;
-  //   $timeout(function () {
-  //     console.log("+2");
-  //     $scope.testNo = $scope.testNo + 1;
-  //     $timeout(function () {
-  //       console.log("+3");
-  //       $scope.testNo = $scope.testNo + 1;
-  //     }, 5000);
-  //   }, 5000);
 
-  // }, 5000);
+  $scope.$on('$destroy', function () {
+    $scope.tableInfoModal.remove();
+    $scope.sideShowModal.remove();
+    $scope.messageModal.remove();
+    $scope.insufficientFundsModal.remove();
+    $scope.destroyAudio();
+    $scope.closeAllModal();
+  });
+
 
 });
