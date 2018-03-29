@@ -20,6 +20,7 @@
       <table>
         <tr>
           <th>Date</th>
+          <th>From</th>
           <th>To</th>
           <th>Type</th>
           <th>Amount</th>
@@ -28,6 +29,7 @@
         <tr class="border_btm" ng-repeat="data in transferStatementData" infinite-scroll="loadTransferMore()" infinite-scroll-distance="1"
           infinite-scroll-disabled="loadingDisable">
           <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
+          <td> {{data.fromUser.username}} </td>
           <td>{{data.toUser.username}}</td>
           <td> {{data.transactionType}}</td>
           <td> {{data.amount}}</td>
