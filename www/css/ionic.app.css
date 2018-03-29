@@ -11694,7 +11694,7 @@ body {
       height: 2em; }
   .statement-model .statement_content {
     overflow-y: scroll;
-    height: 75%; }
+    height: 60%; }
     .statement-model .statement_content::-webkit-scrollbar {
       width: 3px;
       height: 6px; }
@@ -12000,8 +12000,8 @@ body {
   top: 5%; }
 
 .price_range_modal .btn_search {
-  padding: 1%;
-  width: 20%;
+  padding: 3%;
+  width: 50%;
   margin: 1% auto;
   display: block;
   margin-bottom: 0px; }

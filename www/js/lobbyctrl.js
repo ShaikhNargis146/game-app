@@ -10,19 +10,23 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     // console.log("back button");
     event.preventDefault();
   }, 100);
+  //reset Page
+  $scope.resetpage = function () {
+    $scope.pageNo = 1;
+    $scope.cachedPage = 1;
+    $scope.loadingDisable = false;
+    $scope.results = [];
+    $scope.transferStatementData = [];
+    $scope.privateTableDatas = [];
+    $scope.tablesData = [];
+    $scope.tablesDataFilter = [];
+    $scope.noDataFound = false;
+    $scope.paging = {
+      maxPage: 1
+    };
+  }
 
-  $scope.pageNo = 1;
-  $scope.loadingDisable = false;
-  $scope.results = [];
-  $scope.transferStatementData = [];
-  $scope.privateTableDatas = [];
-  $scope.tablesData = [];
-  $scope.noDataFound = false;
-  $scope.paging = {
-    maxPage: 1
-  };
-
-
+  $scope.resetpage();
   $scope.filterType = ['private', 'public'];
 
   $scope.accessToken = $.jStorage.get("accessToken");
@@ -246,35 +250,116 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $event.stopPropagation();
     }
   }
-  $scope.loadMoreTable = function () {
+  // $scope.loadMoreTable = function () {
+  //   if ($scope.pageNo < $scope.paging.maxPage) {
+  //     $scope.pageNo++;
+  //     $scope.loadingDisable = true;
+  //     $scope.getTable();
+  //   } else {
+
+  //   }
+  // };
+  // $scope.getTable = function () {
+  //   Service.tableData($scope.pageNo, function (data) {
+  //     if (data) {
+  //       if (data.data.data.count === 0) {
+  //         $scope.noDataFound = true;
+  //         // Error Message or no data found 
+  //         $scope.displayMessage = {
+  //           main: "Oops! Table is empty.",
+  //         };
+  //       }
+  //       $scope.paging = data.data.data.options;
+  //       _.each(data.data.data.results, function (n) {
+  //         // console.log("Proper Table", n);
+  //         $scope.tablesData.push(n);
+  //       });
+  //       $scope.loadingDisable = false;
+  //     } else {}
+  //   });
+  // }
+
+
+
+  // $scope.loadMoreFilterTable = function () {
+  //   console.log("loadMoreTable");
+  //   $scope.pageNo++;
+  //   if ($scope.pageNo == $scope.cachedPage) {
+  //     console.log("in pageno");
+  //     if ($scope.pageNo < $scope.paging.maxPage) {
+  //       $scope.loadingDisable = false;
+  //       $scope.filterTables();
+  //     } else {
+  //       $scope.loadingDisable = true;
+  //     }
+  //   }
+  // };
+
+
+  $scope.loadMoreFilterTable = function () {
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
-      $scope.getTable();
+      $scope.filterTables();
     } else {
 
     }
   };
-  $scope.getTable = function () {
-    Service.tableData($scope.pageNo, function (data) {
+
+  //Filter Table Data
+
+  $scope.filterTables = function () {
+    Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data) {
       if (data) {
         if (data.data.data.count === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
           $scope.displayMessage = {
-            main: "Oops! Table is empty.",
+            main: "Oops! Your Private Table is empty.",
           };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
-          // console.log("Proper Table", n);
-          $scope.tablesData.push(n);
+          // console.log("private Table", n);
+          $scope.tablesDataFilter.push(n);
         });
         $scope.loadingDisable = false;
       } else {}
     });
-  }
+  };
 
+
+  // $scope.filterData = {};
+  // $scope.filterTables = function () {
+  //   if ($scope.pageNo <= 2) {
+  //     $scope.cachedPage = $scope.pageNo;
+  //   }
+  //   $scope.filterTablePromise = Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data, i) {
+  //     $scope.cachedPage = i + 1;
+  //     $scope.pageNo = i;
+  //     $scope.loadingDisable = true
+  //     if (data) {
+  //       if (data.data.data.count === 0) {
+  //         $scope.noDataFound = true;
+  //         $scope.displayMessage = {
+  //           main: "Oops! Your Table is empty.",
+  //         };
+  //       }
+  //       $scope.paging = data.data.data.options;
+  //       console.log($scope.paging);
+  //       _.each(data.data.data.results, function (n) {
+  //         $scope.tablesDataFilter.push(n);
+  //       });
+  //       $scope.loadingDisable = false;
+  //     } else {}
+  //   });
+  // };
+
+  //resetFilter
+  $scope.resetFilter = function () {
+    $scope.filterData = {};
+    $scope.filterTables();
+  };
 
   //my private Table Info 
   $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
@@ -374,7 +459,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.goToTable = function (table) {
-
     $scope.tableId = table._id;
     $scope.closePriceRangeModal();
     $timeout(function () {
@@ -542,14 +626,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     // }, 300)
 
   };
-  //Filter Table Data
-  $scope.filterTables = function (data) {
-    var fliterData
-    fliterData = data;
-    $scope.filterTablePromise = Service.getFilterTableData(fliterData, function (data) {
-      $scope.tablesData = data.data.data.results;
-    });
-  };
+
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {

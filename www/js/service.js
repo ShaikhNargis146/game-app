@@ -118,11 +118,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         } else {}
       });
     },
-    getFilterTableData: function (data, callback) {
-      if (!data.pageNo) {
+    getFilterTableData: function (data, pageNo, callback) {
+      if (!pageNo) {
         pageNo = 1;
       }
       var filter = data;
+      console.log(filter);
       $http.post(url + 'Table/filterTables', {
         filter: {
           blindAmt: filter.blindAmt,
@@ -130,7 +131,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           name: filter.name,
           type: filter.type,
         },
-        page: 1
+        page: pageNo
       }).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
@@ -308,7 +309,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     connectSocket: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-      console.log(accessToken);
       if (!_.isEmpty(accessToken)) {
         callApi();
       } else {

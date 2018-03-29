@@ -80,7 +80,7 @@
   }
   .statement_content {
     overflow-y: scroll;
-    height: 75%;
+    height: 60%;
     &::-webkit-scrollbar {
       width: 3px;
       height: 6px;
@@ -471,8 +471,8 @@
     top: 5%;
   }
   .btn_search {
-    padding: 1%;
-    width: 20%;
+    padding: 3%;
+    width: 50%;
     margin: 1% auto;
     display: block;
     margin-bottom: 0px;
