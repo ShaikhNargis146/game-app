@@ -536,8 +536,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
+    console.log("show winner", data);
     $scope.winnerAudio.play();
-    $scope.changeTableMessage(data.data.players[0].name + " won the game");
+
     $scope.showWinnerPlayer = data.data.players;
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
@@ -547,6 +548,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     if ($scope.winner && $scope.winner.playerNo) {
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
+    $scope.changeTableMessage($scope.winner.name + " won the game");
 
   }
 
