@@ -7,7 +7,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $ionicPlatform.registerBackButtonAction(function (event) {
-    // console.log("back button");
     event.preventDefault();
   }, 100);
   //reset Page
@@ -34,7 +33,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       $scope.singlePlayerData = data.data.data;
-      // console.log($scope.singlePlayerData);
       $scope.image = $scope.singlePlayerData.image;
       $scope.memberId = $scope.singlePlayerData._id;
       $scope.username = $scope.singlePlayerData.username;
@@ -107,7 +105,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Account Statement
   $scope.loadMore = function () {
-    // console.log("in load more" + $scope.pageNo + $scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
@@ -119,12 +116,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.accountStatement = function () {
     Service.getTransaction($scope.pageNo, function (data) {
-      // console.log(data);
       if (data) {
-        if (data.data.data.count === 0) {
+        if (data.data.data.total === 0) {
           $scope.noDataFound = true;
+          // Error Message or no data found 
           $scope.displayMessage = {
-            main: "Oops! Your Account Statement  is empty.",
+            main: "<p>No Data Found.</p>",
           };
         }
         $scope.paging = data.data.data.options;
@@ -181,16 +178,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.transferStatement = function () {
     Service.searchPlayerTransaction($scope.memberId, $scope.pageNo, function (data) {
       if (data) {
-        if (data.data.data.count === 0) {
+        if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
           $scope.displayMessage = {
-            main: "Oops! Your Transfer Statement  is empty.",
+            main: "<p>No Data Found.</p>",
           };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
-          // console.log(n);
           $scope.transferStatementData.push(n);
         });
         $scope.loadingDisable = false;
@@ -252,60 +248,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $event.stopPropagation();
     }
   }
-  // $scope.loadMoreTable = function () {
-  //   if ($scope.pageNo < $scope.paging.maxPage) {
-  //     $scope.pageNo++;
-  //     $scope.loadingDisable = true;
-  //     $scope.getTable();
-  //   } else {
-
-  //   }
-  // };
-  // $scope.getTable = function () {
-  //   Service.tableData($scope.pageNo, function (data) {
-  //     if (data) {
-  //       if (data.data.data.count === 0) {
-  //         $scope.noDataFound = true;
-  //         // Error Message or no data found 
-  //         $scope.displayMessage = {
-  //           main: "Oops! Table is empty.",
-  //         };
-  //       }
-  //       $scope.paging = data.data.data.options;
-  //       _.each(data.data.data.results, function (n) {
-  //         // console.log("Proper Table", n);
-  //         $scope.tablesData.push(n);
-  //       });
-  //       $scope.loadingDisable = false;
-  //     } else {}
-  //   });
-  // }
-
-
-
-  // $scope.loadMoreFilterTable = function () {
-  //   console.log("loadMoreTable");
-  //   $scope.pageNo++;
-  //   if ($scope.pageNo == $scope.cachedPage) {
-  //     console.log("in pageno");
-  //     if ($scope.pageNo < $scope.paging.maxPage) {
-  //       $scope.loadingDisable = false;
-  //       $scope.filterTables();
-  //     } else {
-  //       $scope.loadingDisable = true;
-  //     }
-  //   }
-  // };
 
   $scope.getcheck = function () {
     return $scope.loadingDisable;
   }
   $scope.loadMoreFilterTable = function () {
-    console.log("loadMoreFilterTable");
-    console.log("$scope.pageNo", $scope.pageNo);
-    console.log("$scope.paging.maxPage", $scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
-      console.log($scope.pageNo);
       $scope.pageNo++;
       $scope.loadingDisable = true;
       $scope.filterTables();
@@ -317,15 +265,14 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.filterTables = function () {
     Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data) {
       if (data) {
-        // if (data.data.data.count === 0) {
-        //   $scope.noDataFound = true;
-        //   // Error Message or no data found 
-        //   $scope.displayMessage = {
-        //     main: "Table is empty.",
-        //   };
-        // }
+        if (data.data.data.total === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          $scope.displayMessage = {
+            main: "<p>No Data Found.</p>",
+          };
+        }
         $scope.paging = data.data.data.options;
-        console.log(" $scope.paging.maxPage", $scope.paging.maxPage)
         _.each(data.data.data.results, function (n) {
           $scope.tablesDataFilter.push(n);
         });
@@ -334,33 +281,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       } else {}
     });
   };
-
-
-  // $scope.filterData = {};
-  // $scope.filterTables = function () {
-  //   if ($scope.pageNo <= 2) {
-  //     $scope.cachedPage = $scope.pageNo;
-  //   }
-  //   $scope.filterTablePromise = Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data, i) {
-  //     $scope.cachedPage = i + 1;
-  //     $scope.pageNo = i;
-  //     $scope.loadingDisable = true
-  //     if (data) {
-  //       if (data.data.data.count === 0) {
-  //         $scope.noDataFound = true;
-  //         $scope.displayMessage = {
-  //           main: "Oops! Your Table is empty.",
-  //         };
-  //       }
-  //       $scope.paging = data.data.data.options;
-  //       console.log($scope.paging);
-  //       _.each(data.data.data.results, function (n) {
-  //         $scope.tablesDataFilter.push(n);
-  //       });
-  //       $scope.loadingDisable = false;
-  //     } else {}
-  //   });
-  // };
 
   //resetFilter
   $scope.resetFilter = function () {
@@ -396,7 +316,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Private Table Info
   $scope.loadMorePrivateTable = function () {
-    console.log($scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
@@ -409,16 +328,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.myPrivateTable = function () {
     Service.getPrivateTables($scope.pageNo, function (data) {
       if (data) {
-        if (data.data.data.count === 0) {
+        if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
           $scope.displayMessage = {
-            main: "Oops! Your Private Table is empty.",
+            main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
           };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
-          // console.log("private Table", n);
           $scope.privateTableDatas.push(n);
         });
         $scope.loadingDisable = false;
@@ -430,7 +348,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //logout
   $scope.logout = function () {
     Service.playerLogout(function (data) {
-      console.log("logout", data.data.value);
       if (data.data.value) {
         $.jStorage.flush();
         $state.go('login');
@@ -610,7 +527,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       'tableId': tableID,
       'password': password
     }, function (data) {
-      // console.log(data.data.value);
       if (data.data.value) {
         $scope.tableId = data.data.data._id;
         $scope.closePrivateLogInModal();
@@ -625,13 +541,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       }
 
     })
-    // $scope.tableId = table._id;
-    // $scope.closePriceRangeModal();
-    // $timeout(function () {
-    //   $state.go('table', {
-    //     'id': $scope.tableId
-    //   });
-    // }, 300)
 
   };
 

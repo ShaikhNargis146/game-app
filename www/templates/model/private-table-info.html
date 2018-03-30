@@ -23,7 +23,8 @@
         </tr>
       </table>
     </div> -->
-    <div class="custom-table" ng-if="tablesDataFilter">
+    <div class="top_field"></div>
+    <div class="custom-table" ng-if="privateTableDatas">
       <ion-list>
         <ion-item class="item">
           <div class="row">
@@ -58,6 +59,9 @@
           </div>
         </ion-item>
       </ion-list>
+    </div>
+    <!-- no Data found -->
+    <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
     </div>
     <!-- //loader -->
     <div class="loader" ng-if="!tablesDataFilter">

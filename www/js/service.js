@@ -73,7 +73,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
     },
     giveTip: function (data, callback) {
-      console.log("give", data);
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         $http.post(url + 'Table/makeTip', {
@@ -88,7 +87,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!pageNo) {
         pageNo = 1;
       }
-      // console.log(skip);
       $http.post(adminurl + 'transaction/searchPlayerTransactionData', {
         _id: memberId,
         pageNo: pageNo
@@ -107,7 +105,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!pageNo) {
         pageNo = 1;
       }
-      // console.log(skip);
       $http.post(url + 'Table/search', {
         page: pageNo
       }).then(function (data) {
@@ -344,7 +341,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         }).then(function (data) {
           if (data.data) {
             var totalCount = data.data.data.total;
-            // console.log("totalCount", totalCount);
             data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
             callback(data);
           } else {}
@@ -396,9 +392,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       var accessToken = $.jStorage.get("accessToken");
       if (accessToken) {
         data.accessToken = accessToken;
-        console.log(data);
         $http.post(url + 'Table/createPrivateTable', data).then(function (data) {
-          console.log(data);
           data = data.data;
           callback(data);
         });

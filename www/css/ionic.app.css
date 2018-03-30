@@ -10219,7 +10219,6 @@ body {
         width: 100%;
         background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
         background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-        transform: translateY(10%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -11434,13 +11433,30 @@ ion-item.item {
     position: absolute; }
 
 .new_game_timer {
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  /* position: absolute; */
+  top: 3%;
+  /* width: 100%; */
   left: 50%;
-  transform: translate(-35%, -35%);
-  background: rgba(87, 84, 84, 0.25);
+  transform: translate(-50%, 0);
+  background: rgba(21, 19, 19, 0.25);
   z-index: 5;
-  color: white; }
+  color: #fffcfc;
+  width: 55%;
+  text-align: center; }
+
+.table_message {
+  position: fixed;
+  /* position: absolute; */
+  top: 3%;
+  /* width: 100%; */
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: rgba(21, 19, 19, 0.25);
+  z-index: 5;
+  color: #fffcfc;
+  width: 55%;
+  text-align: center; }
 
 .winner_anime {
   display: block;
@@ -12009,7 +12025,7 @@ ion-item.item {
 .price_range_modal .close {
   position: absolute;
   right: 3%;
-  top: 5%; }
+  top: 10%; }
 
 .price_range_modal .btn_search {
   padding: 3%;
