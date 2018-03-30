@@ -12009,7 +12009,7 @@ ion-item.item {
 .price_range_modal .close {
   position: absolute;
   right: 3%;
-  top: 5%; }
+  top: 10%; }
 
 .price_range_modal .btn_search {
   padding: 3%;

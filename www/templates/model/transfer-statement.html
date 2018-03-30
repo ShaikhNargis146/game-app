@@ -82,6 +82,10 @@
         </ion-item>
       </ion-list>
     </div>
+    <!-- no Data found -->
+    <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
+    </div>
+    <!-- loader -->
     <div class="loader" ng-if="!transferStatementData">
       Loading ..
     </div>
