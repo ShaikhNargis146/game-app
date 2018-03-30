@@ -86,9 +86,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.results = [];
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.ACStatementModal = modal;
   });
 
@@ -96,9 +96,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.results = [];
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.ACStatementModal.show();
   }
   $scope.closeACStatement = function () {
@@ -132,6 +132,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.results.push(n);
         });
         $scope.loadingDisable = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {}
     });
   };
@@ -143,9 +144,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.transferStatementData = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.transferStatementModal = modal;
@@ -155,9 +156,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.openTransferStatement = function () {
     $scope.transferStatementData = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.transferStatementModal.show();
@@ -193,6 +194,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.transferStatementData.push(n);
         });
         $scope.loadingDisable = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {}
     });
   };
@@ -223,18 +225,18 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.tablesData = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.priceRangeModal = modal;
   });
   $scope.openPriceRangeModal = function () {
     $scope.tablesData = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.priceRangeModal.show();
@@ -295,15 +297,19 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //   }
   // };
 
-
+  $scope.getcheck = function () {
+    return $scope.loadingDisable;
+  }
   $scope.loadMoreFilterTable = function () {
+    console.log("loadMoreFilterTable");
+    console.log("$scope.pageNo", $scope.pageNo);
+    console.log("$scope.paging.maxPage", $scope.paging.maxPage);
     if ($scope.pageNo < $scope.paging.maxPage) {
+      console.log($scope.pageNo);
       $scope.pageNo++;
       $scope.loadingDisable = true;
       $scope.filterTables();
-    } else {
-
-    }
+    } else {}
   };
 
   //Filter Table Data
@@ -311,19 +317,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.filterTables = function () {
     Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data) {
       if (data) {
-        if (data.data.data.count === 0) {
-          $scope.noDataFound = true;
-          // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "Oops! Your Private Table is empty.",
-          };
-        }
+        // if (data.data.data.count === 0) {
+        //   $scope.noDataFound = true;
+        //   // Error Message or no data found 
+        //   $scope.displayMessage = {
+        //     main: "Table is empty.",
+        //   };
+        // }
         $scope.paging = data.data.data.options;
+        console.log(" $scope.paging.maxPage", $scope.paging.maxPage)
         _.each(data.data.data.results, function (n) {
-          // console.log("private Table", n);
           $scope.tablesDataFilter.push(n);
         });
         $scope.loadingDisable = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {}
     });
   };
@@ -368,17 +375,17 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }).then(function (modal) {
     $scope.myPrivateModal = modal;
     $scope.privateTableDatas = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
   });
   $scope.openMyPrivateModal = function () {
     $scope.privateTableDatas = [];
-    $scope.paging = {
-      maxPage: 1
-    };
+    // $scope.paging = {
+    //   maxPage: 1
+    // };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.myPrivateModal.show();
@@ -415,6 +422,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.privateTableDatas.push(n);
         });
         $scope.loadingDisable = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       } else {}
     });
   };

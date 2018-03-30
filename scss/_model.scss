@@ -1,10 +1,10 @@
 .custom-model {
-  top: 10%;
+  top: 5%;
   right: 10%;
-  bottom: 10%;
+  bottom: 5%;
   left: 10%;
   min-height: 5vh;
-  height: 80vh;
+  height: 90vh;
   width: 80%;
   background: url('../img/model_bg.png');
   background-size: 100% 100%;
@@ -620,3 +620,42 @@
 //     }
 //   }
 // }
+//table Scss
+.custom-table .item {
+  background: transparent;
+  color: #fff;
+  font-size: 1em;
+}
+
+.col-15 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 30%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 30%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+
+.bold {
+  font-family: 'Cinzel-Bold'
+}
+
+.custom-table-top {
+  padding-top: 110px;
+}
+
+.custom-header {
+  background: #2d353e;
+  position: absolute;
+  padding-top: 12px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-left: 3px solid #a9731f;
+  border-top: 3px solid #a9721f;
+  border-right: 3px solid #fdf5c0;
+}

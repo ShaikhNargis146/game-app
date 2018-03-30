@@ -123,7 +123,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var filter = data;
-      console.log(filter);
       $http.post(url + 'Table/filterTables', {
         filter: {
           blindAmt: filter.blindAmt,

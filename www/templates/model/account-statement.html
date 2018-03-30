@@ -16,7 +16,7 @@
       <input type="text" ng-model="month"> -->
     </div>
 
-    <div class="statement_content ">
+    <!-- <div class="statement_content ">
       <table>
         <tr>
           <th>Date</th>
@@ -31,12 +31,45 @@
           <td>{{result.type}}</td>
           <td>{{result.amount}}</td>
         </tr>
-
-
       </table>
+    </div> -->
 
 
+    <div class="custom-table" ng-if="results">
+      <ion-list>
+        <ion-item class="item">
+          <div class="row">
+            <div class="col-60">
+              <div class="bold">Date</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">W &amp; L</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">amount</div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item collection-repeat="result in results" class="item">
+          <div class="row">
+            <div class="col-60">
+              <div>{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
+                <br/> teenpatti</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center">{{result.type}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center">{{result.amount}}</div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
     </div>
-
+    <div class="loader" ng-if="!results">
+      Loading ..
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
+  </ion-content>
   </ion-content>
 </ion-modal-view>

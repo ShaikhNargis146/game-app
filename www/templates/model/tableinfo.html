@@ -53,6 +53,9 @@
     <div class="loader" ng-if="!gotTableInfo">
       Loading ..
     </div>
+    <ion-infinite-scroll icon="ion-loading-c" ng-if="getcheck()" on-infinite="loadMore();">
+    </ion-infinite-scroll>
+
 
   </ion-content>
 </ion-modal-view>

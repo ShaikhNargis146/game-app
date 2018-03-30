@@ -16,7 +16,7 @@
       <input type="text" ng-model="month"> -->
     </div>
 
-    <div class="statement_content ">
+    <!-- <div class="statement_content ">
       <table>
         <tr>
           <th>Date</th>
@@ -31,16 +31,60 @@
           <td> {{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</td>
           <td> {{data.fromUser.username}} </td>
           <td>{{data.toUser.username}}</td>
-          <!-- <td ng-if="data.transactionType=='Credit'"> Debit</td>
-          <td ng-if="data.transactionType=='Debit'"> Credit</td> -->
           <td ng-if="data.fromUser._id==memberId"> Debit</td>
           <td ng-if="data.toUser._id==memberId"> Credit</td>
           <td> {{data.amount}}</td>
         </tr>
       </table>
+    </div> -->
 
 
+    <div class="custom-table" ng-if="transferStatementData">
+      <ion-list>
+        <ion-item class="item">
+          <div class="row">
+            <div class="col-60">
+              <div class="bold">Date</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">From</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">To</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">Type</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">Amount</div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item collection-repeat="data in transferStatementData" class="item">
+          <div class="row">
+            <div class="col-60">
+              <div>{{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center">{{data.fromUser.username}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center">{{data.toUser.username}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center" ng-if="data.fromUser._id==memberId"> Debit</div>
+              <div class="text-center" ng-if="data.toUser._id==memberId"> Credit</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center">{{data.amount}}</div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
     </div>
-
+    <div class="loader" ng-if="!transferStatementData">
+      Loading ..
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
   </ion-content>
 </ion-modal-view>
