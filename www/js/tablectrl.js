@@ -33,7 +33,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.chalLimit = $scope.tableData.chalLimit;
     $scope.blindAmt = $scope.tableData.blindAmt;
     $scope.chalAmt = $scope.tableData.chalAmt;
-    console.log("chaal amt", $scope.chalAmt);
     $scope.maxBlind = $scope.tableData.maxBlind;
     $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
@@ -74,7 +73,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.coinAudio = new Audio('audio/coin.wav');
 
   $scope.destroyAudio = function () {
-    console.log("destroy audio");
     $scope.buttonAudio.pause();
     $scope.buttonAudio.currentTime = 0;
     $scope.winnerAudio.pause();
@@ -93,7 +91,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.l = {};
     $scope.l.tableId = $stateParams.id;
     Service.getAll($scope.l, function (data) {
-      console.log(data);
       // check whether dealer is selected or not
       $scope.maxAmt = data.data.data.maxAmt;
       $scope.minAmt = data.data.data.minAmt;
@@ -432,7 +429,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.extra) {
       if ($scope.extra.newGame) {
-        console.log("new game", data);
         $scope.showNewGameTime = false;
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
@@ -495,7 +491,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
-    console.log("show winner");
     $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
     $scope.showNewGameTime = true;
@@ -533,7 +528,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var playerdetails = {};
     playerdetails.tableId = $scope.tableId;
     Service.deletePlayer(playerdetails, function (data) {
-      console.log(data);
       $timeout(function () {
         $state.reload();
       }, 500)
@@ -574,12 +568,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //tip
   $scope.makeTip = function (data) {
     $scope.coinAudio.play();
-    console.log(data);
     var playerdetails = {};
     playerdetails.amount = data;
-    Service.giveTip(playerdetails, function (data) {
-      console.log(data);
-    });
+    Service.giveTip(playerdetails, function (data) {});
   };
   //Make Tip modal
   $ionicModal.fromTemplateUrl('templates/model/make-tip.html', {
@@ -717,7 +708,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   $scope.changeTimer = function (duration) {
-    console.log(duration);
     $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
     $(".animation_wrapper .filler").css("animation-duration", duration + "s");
     $(".animation_wrapper .mask").css("animation-duration", duration + "s");
