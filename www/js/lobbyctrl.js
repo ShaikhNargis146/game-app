@@ -343,7 +343,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.noDataFound = true;
           // Error Message or no data found 
           $scope.displayMessage = {
-            main: "<p>Your Private table is empty.</p><p>Create your table to view.</p>",
+            main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
           };
         }
         $scope.paging = data.data.data.options;
