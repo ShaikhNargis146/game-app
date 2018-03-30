@@ -177,13 +177,18 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
     },
     getAll: function (data, callback) {
-      $http({
-        url: url + 'Player/getAll',
-        method: 'POST',
-        data: data
-      }).then(function (data) {
-        callback(data);
-      });
+      var accessToken = $.jStorage.get("accessToken");
+      if (accessToken) {
+        data.accessToken = accessToken;
+        $http({
+          url: url + 'Player/getAll',
+          method: 'POST',
+          data: data
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+
     },
     savePlayerToTable: function (dataPlayer, callback) {
       var accessToken = $.jStorage.get("accessToken");

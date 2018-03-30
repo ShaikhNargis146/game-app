@@ -1,5 +1,6 @@
 var updateSocketFunction;
 var showWinnerFunction;
+var sideShowSocket;
 var myTableNo = 0;
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
   myTableNo = 0;
@@ -65,13 +66,29 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.showNewGameTime = false;
   $scope.tipAmount = -1;
   $scope.TipPlayerNo = -1;
+  $scope.tableMessageShow = false;
+  $scope.tableMessage = "";
+  $scope.runVibratorFlag = true;
 
+  $scope.changeTableMessage = function (message) {
+    $scope.tableMessageShow = true;
+    console.log("change table", message);
+    $scope.tableMessage = message;
+    console.log("update change table", $scope.tableMessage, $scope.tableMessageShow);
+    $scope.$apply();
+    $timeout(function () {
+      $scope.tableMessageShow = false;
+      console.log("inside time out", $scope.tableMessageShow);
+    }, 5000);
+
+  }
 
   //sound initialize
   $scope.buttonAudio = new Audio('audio/button.mp3');
   $scope.shuffleAudio = new Audio('audio/shuffle.wav');
   $scope.winnerAudio = new Audio('audio/winner.wav');
   $scope.coinAudio = new Audio('audio/coin.wav');
+  $scope.timerAudio = new Audio('audio/timer.mp3');
 
   $scope.destroyAudio = function () {
     console.log("destroy audio");
@@ -425,6 +442,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
+    console.log("socket", data);
     $scope.winnerAudio.pause();
     $scope.winnerAudio.currentTime = 0;
     data = data.data;
@@ -452,6 +470,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.shuffleAudio.play();
         $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
+
         $timeout(function () {
           $scope.startAnimation = false;
         }, 50);
@@ -482,12 +501,38 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     }).length;
 
+
     if ($scope.players && $scope.players[8] && ($scope.players[8].balance) < (data.table.chalAmt * 2 * 3)) {
       $scope.insufficientFunds = true;
       // $scope.showInsufficientFundsModal();
     } else {
       $scope.insufficientFunds = false;
     }
+
+
+    //for vibration on turn
+
+    if ($scope.players[8] && $scope.players[8].isTurn) {
+
+      $scope.timerAudio.play();
+      if ($scope.runVibratorFlag) {
+        //to vibrate only one time on socket update
+        $scope.runVibratorFlag = false;
+        navigator.vibrate(500);
+      }
+
+
+
+    } else {
+      console.log("turn false");
+      $scope.runVibratorFlag = true;
+      $scope.timerAudio.pause();
+      $scope.coinAudio.currentTime = 0;
+
+    }
+
+
+
     if (!dontDigest) {
       $scope.$apply();
     }
@@ -495,8 +540,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
-    console.log("show winner");
+    console.log("show winner", data);
     $scope.winnerAudio.play();
+    $scope.changeTableMessage(data.data.players[0].name + " won the game");
     $scope.showWinnerPlayer = data.data.players;
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
@@ -628,6 +674,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
+    console.log("side show cancel", data);
+    var mess = data.data.fromPlayer.name + " denied the  side show request ";
+    $scope.changeTableMessage(mess);
     if (data.data.toPlayer.memberId == $scope.memberId) {
       $scope.message = {
         heading: "Side Show",
@@ -638,18 +687,30 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   });
 
-  io.socket.on("sideShow", function (data) {
-    if (data.data.toPlayer.memberId == $scope.memberId) {
-      $scope.showSideShowModal();
+  io.socket.on("sideShow", sideShowSocket);
+
+  function sideShowSocket(data) {
+    {
+      // console.log("side show", data.data.fromPlayer.name + " requested a side show with " + data.data.toPlayer.name);
+      $scope.slideShowData = data.data;
+      console.log("side show", $scope.slideShowData)
+      var mess = $scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name;
+      // $scope.changeTableMessage($scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name);
+      $scope.changeTableMessage(mess);
+      // $scope.changeTableMessage("to check");
+      if (data.data.toPlayer.memberId == $scope.memberId) {
+        $scope.showSideShowModal();
+      }
+      if (data.data.fromPlayer.memberId == $scope.memberId) {
+        $scope.message = {
+          heading: "Side Show",
+          content: "Your request for the Side show has been sent!"
+        };
+        $scope.showMessageModal();
+      }
+
     }
-    if (data.data.fromPlayer.memberId == $scope.memberId) {
-      $scope.message = {
-        heading: "Side Show",
-        content: "Your request for the Side show has been sent!"
-      };
-      $scope.showMessageModal();
-    }
-  });
+  }
 
   //sideShow Maker
   $scope.doSideShow = function () {
