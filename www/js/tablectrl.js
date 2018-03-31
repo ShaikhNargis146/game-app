@@ -71,13 +71,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.changeTableMessage = function (message) {
     $scope.tableMessageShow = true;
-    console.log("change table", message);
+    // console.log("change table", message);
     $scope.tableMessage = message;
-    console.log("update change table", $scope.tableMessage, $scope.tableMessageShow);
+    // console.log("update change table", $scope.tableMessage, $scope.tableMessageShow);
     $scope.$apply();
     $timeout(function () {
       $scope.tableMessageShow = false;
-      console.log("inside time out", $scope.tableMessageShow);
+      // console.log("inside time out", $scope.tableMessageShow);
     }, 5000);
 
   }
@@ -439,7 +439,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
-    console.log("socket", data);
+    // console.log("socket", data);
     $scope.winnerAudio.pause();
     $scope.winnerAudio.currentTime = 0;
     data = data.data;
@@ -520,7 +520,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
     } else {
-      console.log("turn false");
+      // console.log("turn false");
       $scope.runVibratorFlag = true;
       $scope.timerAudio.pause();
       $scope.coinAudio.currentTime = 0;
@@ -538,8 +538,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function showWinnerFunction(data) {
     console.log("show winner", data);
     $scope.winnerAudio.play();
-
     $scope.showWinnerPlayer = data.data.players;
+    reArragePlayers(data.data.players);
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
@@ -548,6 +548,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     if ($scope.winner && $scope.winner.playerNo) {
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
+    console.log($scope.winner);
     $scope.changeTableMessage($scope.winner.name + " won the game");
 
   }
@@ -667,7 +668,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    console.log("side show cancel", data);
+    // console.log("side show cancel", data);
     var mess = data.data.fromPlayer.name + " denied the  side show request ";
     $scope.changeTableMessage(mess);
     if (data.data.toPlayer.memberId == $scope.memberId) {
