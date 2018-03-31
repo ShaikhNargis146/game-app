@@ -543,18 +543,32 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.updateSocketVar = 1;
     $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
-    reArragePlayers(data.data.players);
+    // reArragePlayers(data.data.players);
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
       'winner': true
     });
+    console.log($scope.players);
+    _.forEach($scope.showWinnerPlayer,
+      function (p) {
+        var playerNo = -1;
+        playerNo = _.findIndex($scope.players, function (pl) {
+          if (pl) {
+            return pl.playerNo == p.playerNo;
+          }
+        });
+        if (playerNo >= 0) {
+          $scope.players[playerNo] = p;
+          reArragePlayers($scope.players);
+        }
+      });
+
     if ($scope.winner && $scope.winner.playerNo) {
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
-    // console.log($scope.winner);
+    console.log($scope.winner);
     $scope.changeTableMessage($scope.winner.name + " won the game");
-
   }
 
   //showWinner
@@ -742,17 +756,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     var diff = 9 - myTableNo;
     var players = _.times(9, function (n) {
       var playerReturn = _.find(playersData, function (singlePlayer) {
+        if (singlePlayer) {
+          var checkNo = (singlePlayer.playerNo + diff);
+          if (checkNo > 9) {
+            checkNo = checkNo - 9;
+          }
 
-        var checkNo = (singlePlayer.playerNo + diff);
-        if (checkNo > 9) {
-          checkNo = checkNo - 9;
+          if ((n + 1) == checkNo) {
+            return singlePlayer;
+          } else {
+            return null;
+          }
         }
 
-        if ((n + 1) == checkNo) {
-          return singlePlayer;
-        } else {
-          return null;
-        }
       });
       return _.cloneDeep(playerReturn);
     });
