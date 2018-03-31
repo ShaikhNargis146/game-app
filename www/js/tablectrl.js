@@ -24,7 +24,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
   $scope.playerData();
 
-
+  $scope.updateSocketVar = 0;
   $scope.tableId = $stateParams.id;
 
   Service.getOneTable($stateParams.id, function (data) {
@@ -447,6 +447,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.extra) {
       if ($scope.extra.newGame) {
+        $scope.updateSocketVar = 0;
         $scope.showNewGameTime = false;
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
@@ -483,8 +484,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.maxAmt = data.maxAmt;
     $scope.minAmt = data.minAmt;
     $scope.setBetAmount($scope.minAmt, $scope.maxAmt);
+    if ($scope.updateSocketVar == 0) {
+      reArragePlayers(data.players);
+    }
 
-    reArragePlayers(data.players);
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
@@ -537,6 +540,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function showWinnerFunction(data) {
     console.log("show winner", data);
+    $scope.updateSocketVar = 1;
     $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
     reArragePlayers(data.data.players);
@@ -548,7 +552,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     if ($scope.winner && $scope.winner.playerNo) {
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
-    console.log($scope.winner);
+    // console.log($scope.winner);
     $scope.changeTableMessage($scope.winner.name + " won the game");
 
   }
