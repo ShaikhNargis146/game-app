@@ -601,6 +601,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $timeout(function () {
           $state.reload();
           $scope.destroyAudio();
+          navigator.vibrate(500);
         }, 500)
         if (data.data.value) {} else {
 

@@ -120,9 +120,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "<p>No Data Found.</p>",
-          };
+          // $scope.displayMessage = {
+          //   main: "<p>No Data Found.</p>",
+          // };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
@@ -181,9 +181,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "<p>No Data Found.</p>",
-          };
+          // $scope.displayMessage = {
+          //   main: "<p>No Data Found.</p>",
+          // };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
@@ -268,9 +268,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "<p>No Data Found.</p>",
-          };
+          // $scope.displayMessage = {
+          //   main: "<p>No Data Found.</p>",
+          // };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
@@ -331,9 +331,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
           // Error Message or no data found 
-          $scope.displayMessage = {
-            main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
-          };
+          // $scope.displayMessage = {
+          //   main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
+          // };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
