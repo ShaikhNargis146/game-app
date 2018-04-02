@@ -15,11 +15,11 @@
         <div class="player_badge"> {{userType}} </div>
         <div class="amt">
           <img src="img/lobby/yellow_coin.png">
-          <span ng-if="!players[8]">
+          <span ng-if="!(players[8].memberId == memberId)">
             {{balance | number:0 }}
           </span>
           <!-- {{balance}} -->
-          <span ng-if="players[8]">
+          <span ng-if="players[8].memberId == memberId">
             {{players[8].balance | number:0 }}
           </span>
 

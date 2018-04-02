@@ -18,7 +18,18 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
+        cordova.plugins.backgroundMode.on('activate', function () {
+          $scope.destroyAudio = function () {
+            $scope.buttonAudio.pause();
+            $scope.buttonAudio.currentTime = 0;
+            $scope.winnerAudio.pause();
+            $scope.winnerAudio.currentTime = 0;
+            $scope.shuffleAudio.pause();
+            $scope.shuffleAudio.currentTime = 0;
+            $scope.coinAudio.pause();
+            $scope.coinAudio.currentTime = 0;
+          }
+        });
       }
 
       if (window.StatusBar) {

@@ -42,7 +42,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     playerLogout: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(adminurl + 'member/logout', {
           accessToken: accessToken
         }).then(function (data) {
@@ -52,7 +52,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     passwordchange: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
           data = data.data;
           callback(data);
@@ -62,7 +62,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     sendAccessToken: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         $http.post(adminurl + 'member/getAccessLevel', {
           accessToken: accessToken
         }).then(function (data) {
@@ -74,7 +74,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     giveTip: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         $http.post(url + 'Table/makeTip', {
           "accessToken": accessToken,
           "amount": data.amount
@@ -142,7 +142,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         $http.post(url + 'Table/getPrivateTables', {
           accessToken: accessToken,
           page: pageNo
@@ -164,7 +164,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     getAccessToTable: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Table/getAccessToTable', {
           'tableId': data.tableId,
           'password': data.password
@@ -175,12 +175,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     getAll: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
-        data.accessToken = accessToken;
-        $http({
-          url: url + 'Player/getAll',
-          method: 'POST',
-          data: data
+      if (!_.isEmpty(accessToken)) {
+        $http.post(url + 'Player/getAll', {
+          accessToken: accessToken,
+          tableId: data
         }).then(function (data) {
           callback(data);
         });
@@ -189,7 +187,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     savePlayerToTable: function (dataPlayer, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http({
           url: url + 'Table/addUserToTable',
           method: 'POST',
@@ -216,9 +214,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     makeSeen: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/makeSeen', {
-          "tableId": data.tableId,
+          "tableId": data,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data);
@@ -227,7 +225,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     chaal: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/chaal', {
           "tableId": data.tableId,
           "accessToken": accessToken,
@@ -239,9 +237,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     pack: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/fold', {
-          "tableId": data.tableId,
+          "tableId": data,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data);
@@ -250,9 +248,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     sideShow: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/sideShow', {
-          "tableId": data.tableId,
+          "tableId": data,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data.data);
@@ -262,9 +260,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     doSideShow: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/doSideShow', {
-          "tableId": data.tableId,
+          "tableId": data,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data);
@@ -274,7 +272,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     showWinner: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/showWinner', {
           "accessToken": accessToken,
           "tableId": tableId,
@@ -286,9 +284,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     rejectSideShow: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/cancelSideShow', {
-          "tableId": data.tableId,
+          "tableId": data,
           "accessToken": accessToken
         }).then(function (data) {
           callback(data);
@@ -296,11 +294,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
     },
 
-    deletePlayer: function (playerdetails, callback) {
+    deletePlayer: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      console.log(tableId);
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/deletePlayer', {
-          "tableId": playerdetails.tableId,
+          "tableId": tableId,
           "accessToken": accessToken,
         }).then(function (data) {
           callback(data);
@@ -319,14 +318,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
 
       function callApi() {
-        $http.post(url + 'Player/updateSocket', {
-          accessToken: accessToken,
-          socketId: socketId
-        }).then(function (data) {
-          callback(data);
-        });
-      }
-
+        var accessToken = $.jStorage.get("accessToken");
+        if (!_.isEmpty(accessToken)) {
+          $http.post(url + 'Player/updateSocket', {
+            accessToken: accessToken,
+            socketId: socketId
+          }).then(function (data) {
+            callback(data);
+          });
+        }
+      };
     },
 
     getTransaction: function (pageNo, callback) {
@@ -334,7 +335,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
           "page": pageNo,
           "accessToken": accessToken
@@ -390,7 +391,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     createTable: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (accessToken) {
+      if (!_.isEmpty(accessToken)) {
         data.accessToken = accessToken;
         $http.post(url + 'Table/createPrivateTable', data).then(function (data) {
           data = data.data;
