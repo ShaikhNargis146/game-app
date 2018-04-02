@@ -11,13 +11,11 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <!-- for Android -->
     <feature name="Insomnia">
-    <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+        <param name="android-package" value="nl.xservices.plugins.Insomnia" />
     </feature>
-    <!-- for iOS -->
     <feature name="Insomnia">
-    <param name="ios-package" value="Insomnia" />
+        <param name="ios-package" value="Insomnia" />
     </feature>
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="16" />
@@ -97,6 +95,6 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <allow-navigation href="http://192.168.1.127:8101" />
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
-    <engine name="android" spec="^7.1.0" />
     <plugin name="cordova-plugin-insomnia" spec="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git" />
+    <engine name="android" spec="^7.1.0" />
 </widget>
