@@ -10646,7 +10646,7 @@ ion-item.item {
                 vertical-align: middle; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0;
-                transition: transform 10ms;
+                transition: transform 500ms;
                 transition-delay: none; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
@@ -10656,6 +10656,24 @@ ion-item.item {
                 left: -20%;
                 transition: transform 1s;
                 transition-delay: 1000ms; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card {
+              left: 48% !important; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(1) {
+                left: 0;
+                transition: transform 500ms;
+                transition-delay: none; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(2) {
+                left: -17%;
+                transition: transform 1s;
+                transition-delay: 500ms; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(3) {
+                left: -33%;
+                transition: transform 1s;
+                transition-delay: 1000ms; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(4) {
+                left: -47%;
+                transition: transform 1s;
+                transition-delay: 1500ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10869,6 +10887,25 @@ ion-item.item {
           left: 65%;
           transition: transform 1s;
           transition-delay: 1000ms; }
+      .kingtable .main-table .showing_cards .custom-row.card4 card:nth-child(1) {
+        transform: rotate(-11deg);
+        left: -20%;
+        transition: transform 1s; }
+      .kingtable .main-table .showing_cards .custom-row.card4 card:nth-child(2) {
+        transform: rotate(-6deg) scale(1.1);
+        left: 16%;
+        transition: transform 1s;
+        transition-delay: 500ms; }
+      .kingtable .main-table .showing_cards .custom-row.card4 card:nth-child(3) {
+        transform: rotate(5deg) scale(1.1);
+        left: 46%;
+        transition: transform 1s;
+        transition-delay: 1000ms; }
+      .kingtable .main-table .showing_cards .custom-row.card4 card:nth-child(4) {
+        transform: rotate(15deg);
+        left: 76%;
+        transition: transform 1s;
+        transition-delay: 1500ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -11257,6 +11294,11 @@ ion-item.item {
   transform: translate(-150%, -153%) scale(0.3) !important;
   transition: none !important; }
 
+.main_card_anime card:nth-child(4) {
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  left: 50% !important;
+  transition: none !important; }
+
 .card_shuffle_animation.p1 card:nth-child(1) {
   transform: scale(1.6) translate(280%, -222%) !important;
   transition: none !important; }
@@ -11266,6 +11308,10 @@ ion-item.item {
   transition: none !important; }
 
 .card_shuffle_animation.p1 card:nth-child(3) {
+  transform: scale(1.6) translate(190%, -222%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p1 card:nth-child(4) {
   transform: scale(1.6) translate(190%, -222%) !important;
   transition: none !important; }
 
@@ -11281,6 +11327,10 @@ ion-item.item {
   transform: scale(1.6) translate(834%, -130%) !important;
   transition: none !important; }
 
+.card_shuffle_animation.p2 card:nth-child(4) {
+  transform: scale(1.6) translate(834%, -130%) !important;
+  transition: none !important; }
+
 .card_shuffle_animation.p3 card:nth-child(1) {
   transform: scale(1.6) translate(764%, 188%) !important;
   transition: none !important; }
@@ -11290,6 +11340,10 @@ ion-item.item {
   transition: none !important; }
 
 .card_shuffle_animation.p3 card:nth-child(3) {
+  transform: scale(1.6) translate(672%, 188%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p3 card:nth-child(4) {
   transform: scale(1.6) translate(672%, 188%) !important;
   transition: none !important; }
 
@@ -11305,6 +11359,10 @@ ion-item.item {
   transform: scale(1.5) translate(20%, 273%) !important;
   transition: none !important; }
 
+.card_shuffle_animation.p4 card:nth-child(4) {
+  transform: scale(1.5) translate(20%, 273%) !important;
+  transition: none !important; }
+
 .card_shuffle_animation.p5 card:nth-child(1) {
   transform: scale(1.5) translate(-1080%, 273%) !important;
   transition: none !important; }
@@ -11314,6 +11372,10 @@ ion-item.item {
   transition: none !important; }
 
 .card_shuffle_animation.p5 card:nth-child(3) {
+  transform: scale(1.5) translate(-1174%, 272%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p5 card:nth-child(4) {
   transform: scale(1.5) translate(-1174%, 272%) !important;
   transition: none !important; }
 
@@ -11329,6 +11391,10 @@ ion-item.item {
   transform: scale(1.5) translate(-1870%, 200%) !important;
   transition: none !important; }
 
+.card_shuffle_animation.p6 card:nth-child(4) {
+  transform: scale(1.5) translate(-1870%, 200%) !important;
+  transition: none !important; }
+
 .card_shuffle_animation.p7 card:nth-child(1) {
   transform: scale(1.5) translate(-1950%, -138%) !important;
   transition: none !important; }
@@ -11341,6 +11407,10 @@ ion-item.item {
   transform: scale(1.5) translate(-2045%, -138%) !important;
   transition: none !important; }
 
+.card_shuffle_animation.p7 card:nth-child(4) {
+  transform: scale(1.5) translate(-2045%, -138%) !important;
+  transition: none !important; }
+
 .card_shuffle_animation.p8 card:nth-child(1) {
   transform: scale(1.5) translate(-1260%, -235%) !important;
   transition: none !important; }
@@ -11350,6 +11420,10 @@ ion-item.item {
   transition: none !important; }
 
 .card_shuffle_animation.p8 card:nth-child(3) {
+  transform: scale(1.5) translate(-1340%, -235%) !important;
+  transition: none !important; }
+
+.card_shuffle_animation.p8 card:nth-child(4) {
   transform: scale(1.5) translate(-1340%, -235%) !important;
   transition: none !important; }
 

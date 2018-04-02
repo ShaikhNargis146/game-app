@@ -8,6 +8,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     screen.orientation.lock('landscape');
   });
 
+  $ionicPlatform.on('pause', function () {
+    // Handle event on pause
+    $scope.destroyAudio();
+  });
+
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
       if (data && data.data && data.data.data) {
@@ -103,6 +108,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.shuffleAudio.currentTime = 0;
     $scope.coinAudio.pause();
     $scope.coinAudio.currentTime = 0;
+    $scope.timerAudio.pause();
+    $scope.timerAudio.currentTime = 0;
   }
 
   // Socket Update function with REST API
@@ -440,7 +447,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
-    // console.log("socket", data);
+    console.log("socket", data);
+
     $scope.winnerAudio.pause();
     $scope.winnerAudio.currentTime = 0;
     data = data.data;
@@ -489,6 +497,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       reArragePlayers(data.players);
     }
 
+    $scope.changeTimer(data.table.autoFoldDelay);
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
@@ -795,6 +804,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   $scope.changeTimer = function (duration) {
+    console.log("duration", duration);
     $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
     $(".animation_wrapper .filler").css("animation-duration", duration + "s");
     $(".animation_wrapper .mask").css("animation-duration", duration + "s");
