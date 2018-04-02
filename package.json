@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "cordova-android": "^7.1.0",
+    "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -38,7 +39,8 @@
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-vibration": {},
-      "cordova-plugin-insomnia": {}
+      "cordova-plugin-insomnia": {},
+      "cordova-plugin-background-mode": {}
     },
     "platforms": [
       "android"

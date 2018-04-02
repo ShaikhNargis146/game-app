@@ -112,8 +112,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.timerAudio.currentTime = 0;
   }
 
-
-
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
     if (!_.isEmpty($scope.tableId)) {
@@ -555,7 +553,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.updateSocketVar = 1;
     $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
-    // reArragePlayers(data.data.players);
+    console.log(data.data.players);
     $scope.showNewGameTime = true;
     $scope.winner = _.find($scope.showWinnerPlayer, {
       'winRank': 1,
