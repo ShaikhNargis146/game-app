@@ -3,7 +3,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
   })
-  screen.orientation.lock('landscape');
+  // screen.orientation.lock('landscape');
 
 
   $ionicPlatform.registerBackButtonAction(function (event) {
