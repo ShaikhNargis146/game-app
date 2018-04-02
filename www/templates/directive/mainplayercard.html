@@ -1,0 +1,41 @@
+this is sparta
+
+<div class="showing_cards" ng-if="!sitHere && (players[8].cards.length > 0)" ng-class="{'main_card_anime':players[8].cards.length>0 && startAnimation}">
+
+  <!-- three card -->
+  <div class="custom-row" ng-if="( (players[8] && players[8].isBlind && !players[8].isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && players[8].cards.length<4">
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+  </div>
+  <div ng-if="( (!players[8].isBlind && !players[8].isFold) || (!players[8].isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && players[8].cards.length<4">
+    <div class=" custom-row ">
+      <card card='{{players[8].cards[0]}}'> </card>
+      <card card='{{players[8].cards[1]}}'> </card>
+      <card card='{{players[8].cards[2]}}'> </card>
+    </div>
+  </div>
+  <!-- end of three card -->
+  <!-- four card -->
+  <div class="custom-row card4" ng-if="( (players[8] && players[8].isBlind && !players[8].isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && players[8].cards.length==4">
+    <!-- <div class="custom-row card4" ng-if="true"> -->
+
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+  </div>
+  <div ng-if="( (!players[8].isBlind && !players[8].isFold) || (!players[8].isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && players[8].cards.length==4">
+    <!-- <div> -->
+    <div class=" custom-row card4">
+      <card card='{{players[8].cards[0]}}'> </card>
+      <card card='{{players[8].cards[1]}}'> </card>
+      <card card='{{players[8].cards[2]}}'> </card>
+      <card card='{{players[8].cards[2]}}'> </card>
+    </div>
+  </div>
+
+  <!-- end of four card -->
+  <div ng-if="players[8].isBlind && !startAnimation && !players[8].isFold && (players[8].cards.length > 0) && (remainingPlayerCount > 1 && winnerPlayerNo == -1)"
+    class="card_see" ng-click="showCard()">See</div>
+</div>
