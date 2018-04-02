@@ -65,16 +65,19 @@ myApp.directive('card', function () {
       replace: false,
       scope: {
         player: "=ngPlayer",
-        gameType: "=ngGameType",
-        pos: "=ngPos",
-        mainplayer: "@ngMain",
+        // gameType: "=ngGameType",
+        // pos: "=ngPos",
+        // mainplayer: "@ngMain",
         sitHere: "=ngSitHere",
         winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation",
-        remainingPlayerCount: "=ngRemainingPlayer"
+        remainingPlayerCount: "=ngRemainingPlayer",
+        showCard: "&"
       },
       templateUrl: 'templates/directive/mainplayercard.html',
-      link: function (scope, element, attr) {}
+      link: function (scope, element, attr) {
+        scope.showCard()
+      }
     };
   })
   .directive('joker', function () {

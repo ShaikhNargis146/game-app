@@ -804,9 +804,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   $scope.changeTimer = function (duration) {
-    console.log("duration", duration);
     $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
-    $(".animation_wrapper .filler").css("animation-duration", duration + "s");
+    $(".animation_wrapper .filler").css("animation-duration", duration + "  s");
     $(".animation_wrapper .mask").css("animation-duration", duration + "s");
   }
 
