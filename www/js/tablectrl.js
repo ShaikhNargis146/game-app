@@ -712,13 +712,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.closeSideShowModal();
     var mess = data.data.fromPlayer.name + " denied the  side show request ";
     $scope.changeTableMessage(mess);
-    if (data.data.toPlayer.memberId == $scope.memberId) {
+    if (data.data.fromPlayer.memberId == $scope.memberId) {
       $scope.message = {
         heading: "Side Show",
         content: "Your request for the Side show has been rejected!"
       };
       $scope.showMessageModal();
-
     }
   });
 
