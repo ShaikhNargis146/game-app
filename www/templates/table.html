@@ -23,6 +23,12 @@
   </div>
 
   <div class="main-table" ng-click="closeAllModal()">
+    <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
+      <span> New Game will start in 15s </span>
+    </div>
+    <div class="table_message opt-tan" ng-if="tableMessageShow">
+      <span>{{tableMessage}} </span>
+    </div>
     <div class="playing-table">
       <img src="img/doll.png" class="doll">
       <img src="img/table.png" class="bg-table">
@@ -30,6 +36,9 @@
         TIP
       </div>
       <!-- Cards -->
+      <!-- <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
+        <span> New Game will start in 15s </span>
+      </div> -->
       <pot-amount ng-amount="potAmount" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
       <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount>
 
@@ -48,13 +57,6 @@
 
       <!-- player -->
       <div class="players">
-
-        <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
-          <span> New Game will start in 15s </span>
-        </div>
-        <div class="table_message opt-tan" ng-if="tableMessageShow">
-          <span>{{tableMessage}} </span>
-        </div>
         <players id="plr1" ng-click="sitHerefn(1)" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount" ng-pos="1"
           ng-player="players[0]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
         </players>
