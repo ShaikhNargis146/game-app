@@ -424,7 +424,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
       $timeout(function () {
         $state.go("lobby");
-      }, 500);
+      }, 1000);
 
 
     }
