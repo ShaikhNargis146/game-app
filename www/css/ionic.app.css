@@ -10329,9 +10329,10 @@ body {
         background-size: 100% 100%;
         text-align: center;
         padding: 5px 15px;
-        white-space: nowrap; }
+        white-space: nowrap;
+        font-size: 1.2em; }
         .main_lobby .user_profile .profile_info .amt img {
-          width: 1em;
+          width: 1.2em;
           vertical-align: middle; }
   .main_lobby .lobby_content {
     width: 100%;
@@ -10479,9 +10480,10 @@ body {
         text-align: center;
         margin-bottom: 2px;
         padding: 5px 15px;
-        white-space: nowrap; }
+        white-space: nowrap;
+        font-size: 1.2em; }
         .lobby_menu .menu_cont .user_profile .profile_info .amt img {
-          width: 1em;
+          width: 1.2em;
           vertical-align: middle; }
   .lobby_menu .menu_cont .item {
     background: transparent;
@@ -10793,7 +10795,7 @@ ion-item.item {
         .kingtable .main-table .playing-table .main-player .status {
           font-size: 1em; }
         .kingtable .main-table .playing-table .main-player .amt {
-          font-size: 1em; }
+          font-size: 1.2em; }
         .kingtable .main-table .playing-table .main-player .card_see {
           position: absolute;
           background: url("../img/text_bg.png");
@@ -10942,7 +10944,7 @@ ion-item.item {
       .kingtable .main-table .playing-player-info > span {
         background: url("../img/text_bg.png");
         background-size: 100% 100%;
-        font-size: 1em;
+        font-size: 1.2em;
         padding: 1.5% 2.5%;
         padding-bottom: 1%;
         display: inline-block; }
@@ -11086,9 +11088,10 @@ ion-item.item {
         background-size: 100% 100%;
         text-align: center;
         padding: 5px 15px;
-        white-space: nowrap; }
+        white-space: nowrap;
+        font-size: 1.2em; }
         .option_menu .menu_cont .user_profile .profile_info .amt img {
-          width: 1em;
+          width: 1.2em;
           vertical-align: middle; }
   .option_menu .menu_cont .item {
     background: transparent;
@@ -12154,7 +12157,7 @@ ion-item.item {
   font-family: 'Cinzel-Bold'; }
 
 .custom-table-top {
-  padding-top: 110px; }
+  padding-top: 112px; }
 
 .custom-header {
   background: #2d353e;
@@ -12820,3 +12823,10 @@ ion-item.item {
   height: 1.5em;
   width: 1.5em;
   vertical-align: middle; }
+
+@media only screen and (max-width: 812px) and (min-width: 700px) {
+  .kingtable .main-table .playing-table {
+    width: 85%;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -40px; } }

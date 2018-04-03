@@ -20,6 +20,25 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
 
         StatusBar.styleDefault();
       }
+
+
+
+      // Preload audio resources
+      window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadComplex('coin', 'audio/coin.wav', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadComplex('winner', 'audio/winner.wav', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadComplex('shuffle', 'audio/shuffle.wav', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
+      window.plugins.NativeAudio.preloadComplex('button', 'audio/button.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
     });
   })
 

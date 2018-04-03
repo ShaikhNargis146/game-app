@@ -399,7 +399,7 @@
           font-size: 1em;
         }
         .amt {
-          font-size: 1em;
+          font-size: 1.2em;
         }
         .card_see {
           position: absolute;
@@ -670,7 +670,7 @@
       &>span {
         background: url('../img/text_bg.png');
         background-size: 100% 100%; // margin:10px;
-        font-size: 1em;
+        font-size: 1.2em;
         padding: 1.5% 2.5%;
         padding-bottom: 1%;
         display: inline-block;
@@ -859,8 +859,9 @@
           text-align: center;
           padding: 5px 15px;
           white-space: nowrap;
+          font-size: 1.2em;
           img {
-            width: 1em;
+            width: 1.2em;
             vertical-align: middle;
           }
         }

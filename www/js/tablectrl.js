@@ -2,6 +2,7 @@ var updateSocketFunction;
 var showWinnerFunction;
 var sideShowSocket;
 var myTableNo = 0;
+
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
   myTableNo = 0;
   $ionicPlatform.ready(function () {
@@ -93,24 +94,39 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //sound initialize
-  $scope.buttonAudio = new Audio('audio/button.mp3');
-  $scope.shuffleAudio = new Audio('audio/shuffle.wav');
-  $scope.winnerAudio = new Audio('audio/winner.wav');
-  $scope.coinAudio = new Audio('audio/coin.wav');
-  $scope.timerAudio = new Audio('audio/timer.mp3');
+  // $scope.buttonAudio = new Audio('audio/button.mp3');
+  // $scope.shuffleAudio = new Audio('audio/shuffle.wav');
+  // $scope.winnerAudio = new Audio('audio/winner.wav');
+  // $scope.coinAudio = new Audio('audio/coin.wav');
+  // $scope.timerAudio = new Audio('audio/timer.mp3');
+
+
   // $scope.timerAudio.play();
   $scope.destroyAudio = function () {
-    $scope.buttonAudio.pause();
-    $scope.buttonAudio.currentTime = 0;
-    $scope.winnerAudio.pause();
-    $scope.winnerAudio.currentTime = 0;
-    $scope.shuffleAudio.pause();
-    $scope.shuffleAudio.currentTime = 0;
-    $scope.coinAudio.pause();
-    $scope.coinAudio.currentTime = 0;
-    $scope.timerAudio.pause();
-    $scope.timerAudio.currentTime = 0;
+
+    // $scope.buttonAudio.pause();
+    // $scope.buttonAudio.currentTime = 0;
+    // $scope.winnerAudio.pause();
+    // $scope.winnerAudio.currentTime = 0;
+    // $scope.shuffleAudio.pause();
+    // $scope.shuffleAudio.currentTime = 0;
+    // $scope.coinAudio.pause();
+    // $scope.coinAudio.currentTime = 0;
+    // $scope.timerAudio.pause();
+    // $scope.timerAudio.currentTime = 0;
     // $scope.apply();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        // running on device/emulator
+        window.plugins.NativeAudio.stop('timer');
+        window.plugins.NativeAudio.stop('coin');
+        window.plugins.NativeAudio.stop('winner');
+        window.plugins.NativeAudio.stop('shuffle');
+        window.plugins.NativeAudio.stop('button');
+      }
+
+    });
+
   }
 
   // Socket Update function with REST API
@@ -476,31 +492,49 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data);
 
-    $scope.winnerAudio.pause();
-    $scope.winnerAudio.currentTime = 0;
+
     data = data.data;
     $scope.extra = data.extra;
 
     if ($scope.extra) {
       if ($scope.extra.newGame) {
+        $ionicPlatform.ready(function () {
+          if (window.cordova) {
+            // running on device/emulator
+            window.plugins.NativeAudio.stop('winner');
+          }
+
+        })
+
+
         $scope.updateSocketVar = 0;
         $scope.showNewGameTime = false;
         $scope.chaalAmt = data.table.blindAmt;
         $scope.startCoinAnime = true;
         $scope.winnerPlayerNo = -1;
-        $scope.winnerAudio.pause();
-        $scope.winnerAudio.currentTime = 0;
         $timeout(function () {
           $scope.startCoinAnime = false;
         }, 1000);
       }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
-        $scope.coinAudio.play();
+        $ionicPlatform.ready(function () {
+          if (window.cordova) {
+            window.plugins.NativeAudio.stop('winner');
+          }
+        })
+
+
       }
 
       if ($scope.extra.serve) {
-        $scope.shuffleAudio.play();
+        $ionicPlatform.ready(function () {
+          if (window.cordova) {
+            window.plugins.NativeAudio.play('shuffle');
+          }
+        })
+
+        // $scope.shuffleAudio.play();
         $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
 
@@ -550,7 +584,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.players[8] && $scope.players[8].isTurn) {
 
-      $scope.timerAudio.play();
+      // $scope.timerAudio.play();
+      $ionicPlatform.ready(function () {
+        if (window.cordova) {
+          window.plugins.NativeAudio.play('timer');
+        }
+      })
+
       if ($scope.runVibratorFlag) {
         //to vibrate only one time on socket update
         $scope.runVibratorFlag = false;
@@ -562,8 +602,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     } else {
       // console.log("turn false");
       $scope.runVibratorFlag = true;
-      $scope.timerAudio.pause();
-      $scope.coinAudio.currentTime = 0;
+      // $scope.timerAudio.pause();
+      $ionicPlatform.ready(function () {
+        if (window.cordova) {
+          window.plugins.NativeAudio.stop('timer');
+          window.plugins.NativeAudio.stop('coin');
+        }
+      })
+
+      // $scope.coinAudio.currentTime = 0;
 
     }
 
@@ -578,7 +625,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function showWinnerFunction(data) {
     console.log("show winner", data);
     $scope.updateSocketVar = 1;
-    $scope.winnerAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('winner');
+      }
+    })
+
+    // $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
     console.log(data.data.players);
     $scope.showNewGameTime = true;
@@ -655,7 +708,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //tip
   $scope.makeTip = function (data) {
-    $scope.coinAudio.play();
+    // $scope.coinAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('coin');
+      }
+    })
+
     var playerdetails = {};
     playerdetails.amount = data;
     Service.giveTip(playerdetails, function (data) {});
@@ -691,7 +750,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //pack 
   $scope.pack = function () {
-    $scope.buttonAudio.play();
+    // $scope.buttonAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('button');
+      }
+    })
+
+
     if (!_.isEmpty($scope.tableId)) {
       $scope.packPromise = Service.pack($scope.tableId, function (data) {});
     }
@@ -699,7 +765,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //sideshow
   $scope.sideShow = function () {
-    $scope.buttonAudio.play();
+    // $scope.buttonAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('button');
+      }
+    })
+
     if (!_.isEmpty($scope.tableId)) {
       $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {});
     }

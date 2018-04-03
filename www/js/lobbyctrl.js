@@ -2,6 +2,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
+    if (window.cordova) {
+      // running on device/emulator
+      window.plugins.NativeAudio.stop('timer');
+      window.plugins.NativeAudio.stop('coin');
+      window.plugins.NativeAudio.stop('winner');
+      window.plugins.NativeAudio.stop('shuffle');
+      window.plugins.NativeAudio.stop('button');
+    }
+
   })
   // screen.orientation.lock('landscape');
 
