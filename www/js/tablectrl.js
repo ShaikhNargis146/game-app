@@ -718,7 +718,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         content: "Your request for the Side show has been rejected!"
       };
       $scope.showMessageModal();
-
     }
   });
 
