@@ -430,6 +430,25 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   };
 
+
+  //stand up
+  $scope.standUp = function () {
+    $scope.destroyAudio();
+    if (!_.isEmpty($scope.tableId)) {
+      Service.deletePlayer($scope.tableId, function (data) {
+        $scope.destroyAudio();
+        navigator.vibrate(500);
+        $timeout(function () {
+          $state.reload();
+        }, 1000)
+        if (data.data.value) {} else {
+
+        }
+      });
+    };
+  };
+
+
   //show card
   $scope.showCard = function () {
     if (!_.isEmpty($scope.tableId)) {
@@ -605,25 +624,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.removeCoin = function () {
     $scope.betamount = $scope.betamount / 2;
-  };
-
-
-
-
-  $scope.standUp = function () {
-    $scope.destroyAudio();
-    if (!_.isEmpty($scope.tableId)) {
-      Service.deletePlayer($scope.tableId, function (data) {
-        $scope.destroyAudio();
-        navigator.vibrate(500);
-        $timeout(function () {
-          $state.reload();
-        }, 1000)
-        if (data.data.value) {} else {
-
-        }
-      });
-    };
   };
 
   //fill all player
