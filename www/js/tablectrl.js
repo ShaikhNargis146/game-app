@@ -416,9 +416,16 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //backtolobby
   $scope.backToLobby = function () {
+    $scope.destroyAudio();
     if (!_.isEmpty($scope.tableId)) {
       Service.deletePlayer($scope.tableId, function (data) {});
-      $state.go("lobby");
+      $scope.destroyAudio();
+
+      $timeout(function () {
+        $state.go("lobby");
+      }, 500);
+
+
     }
   };
 
@@ -603,12 +610,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.standUp = function () {
+    $scope.destroyAudio();
     if (!_.isEmpty($scope.tableId)) {
       Service.deletePlayer($scope.tableId, function (data) {
+        $scope.destroyAudio();
+        navigator.vibrate(500);
         $timeout(function () {
           $state.reload();
-          $scope.destroyAudio();
-          navigator.vibrate(500);
         }, 500)
         if (data.data.value) {} else {
 
@@ -813,11 +821,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   $scope.$on('$destroy', function () {
+    $scope.destroyAudio();
     $scope.tableInfoModal.remove();
     $scope.sideShowModal.remove();
     $scope.messageModal.remove();
     $scope.insufficientFundsModal.remove();
-    $scope.destroyAudio();
     $scope.closeAllModal();
   });
 
