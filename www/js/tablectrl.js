@@ -618,7 +618,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         navigator.vibrate(500);
         $timeout(function () {
           $state.reload();
-        }, 500)
+        }, 1000)
         if (data.data.value) {} else {
 
         }
