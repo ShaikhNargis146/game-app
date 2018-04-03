@@ -98,7 +98,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.winnerAudio = new Audio('audio/winner.wav');
   $scope.coinAudio = new Audio('audio/coin.wav');
   $scope.timerAudio = new Audio('audio/timer.mp3');
-
+  // $scope.timerAudio.play();
   $scope.destroyAudio = function () {
     $scope.buttonAudio.pause();
     $scope.buttonAudio.currentTime = 0;
@@ -110,6 +110,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.coinAudio.currentTime = 0;
     $scope.timerAudio.pause();
     $scope.timerAudio.currentTime = 0;
+    // $scope.apply();
   }
 
   // Socket Update function with REST API
@@ -706,7 +707,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    // console.log("side show cancel", data);
+
+    console.log("side show cancel", data);
+    $scope.closeSideShowModal();
     var mess = data.data.fromPlayer.name + " denied the  side show request ";
     $scope.changeTableMessage(mess);
     if (data.data.toPlayer.memberId == $scope.memberId) {
