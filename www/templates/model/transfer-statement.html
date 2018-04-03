@@ -63,20 +63,20 @@
         <ion-item collection-repeat="data in transferStatementData" class="item">
           <div class="row">
             <div class="col-20">
-              <div>{{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</div>
+              <div class="bold">{{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{data.fromUser.username}}</div>
+              <div class="text-center bold">{{data.fromUser.username}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{data.toUser.username}}</div>
+              <div class="text-center bold">{{data.toUser.username}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center" ng-if="data.fromUser._id==memberId"> Debit</div>
-              <div class="text-center" ng-if="data.toUser._id==memberId"> Credit</div>
+              <div class="text-center bold" ng-if="data.fromUser._id==memberId"> Debit</div>
+              <div class="text-center bold" ng-if="data.toUser._id==memberId"> Credit</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{data.amount}}</div>
+              <div class="text-center bold">{{data.amount}}</div>
             </div>
           </div>
         </ion-item>

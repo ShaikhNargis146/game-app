@@ -53,14 +53,14 @@
         <ion-item collection-repeat="result in results" class="item">
           <div class="row">
             <div class="col-60">
-              <div>{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
+              <div class="bold">{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
                 <br/> teenpatti</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{result.type}}</div>
+              <div class="text-center bold">{{result.type}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{result.amount}}</div>
+              <div class="text-center bold">{{result.amount}}</div>
             </div>
           </div>
         </ion-item>

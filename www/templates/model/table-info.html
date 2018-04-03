@@ -33,30 +33,6 @@
     </form>
   </div>
   <ion-content>
-    <!-- //Table Data Filter -->
-    <!-- <table>
-        <tr>
-          <th>Name</th>
-          <th>type</th>
-          <th>Stakes</th>
-          <th>Max Players</th>
-          <th>Action</th>
-        </tr>
-        <tr ng-repeat="dataFilter in tablesDataFilter" infinite-scroll="loadMoreFilterTable()" infinite-scroll-distance="0" infinite-scroll-disabled="loadingDisable"
-          infinite-scroll-continer='".statement_content"'>
-          <td>{{dataFilter.name}} </td>
-          <td>
-            <span ng-if="dataFilter.type"> {{dataFilter.type}}</span>
-            <span ng-if="!dataFilter.type">Public</span>
-          </td>
-          <td>{{dataFilter.blindAmt}} - {{dataFilter.chalAmt}} </td>
-          <td>{{dataFilter.noOfPlayers}} / {{dataFilter.maximumNoOfPlayers}}</td>
-          <td>
-            <button class="custom_button" ng-click="goToTable(dataFilter)" ng-if="dataFilter.type=='public'">PLAY</button>
-            <button class="custom_button" ng-click="goToPrivateTableLogIn(dataFilter)" ng-if="dataFilter.type=='private'">Log In</button>
-          </td>
-        </tr>
-      </table> -->
     <div class="custom-table custom-table-top" ng-if="tablesDataFilter">
       <ion-list>
         <ion-item class="item">
@@ -81,20 +57,20 @@
         <ion-item collection-repeat="dataFilter in tablesDataFilter" class="item">
           <div class="row">
             <div class="col-30">
-              <div>{{dataFilter.name}}</div>
+              <div class="bold">{{dataFilter.name}}</div>
             </div>
             <div class="col-15">
-              <div class="text-center">{{dataFilter.type}}</div>
+              <div class="text-center bold">{{dataFilter.type}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{dataFilter.blindAmt}} - {{dataFilter.chalAmt}}</div>
+              <div class="text-center bold">{{dataFilter.blindAmt}} - {{dataFilter.chalAmt}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center">{{dataFilter.noOfPlayers}} / {{dataFilter.maximumNoOfPlayers}}</div>
+              <div class="text-center bold">{{dataFilter.noOfPlayers}} / {{dataFilter.maximumNoOfPlayers}}</div>
             </div>
             <div class="col-20">
-              <button class="custom_button" ng-click="goToTable(dataFilter)" ng-if="dataFilter.type=='public'">PLAY</button>
-              <button class="custom_button" ng-click="goToPrivateTableLogIn(dataFilter)" ng-if="dataFilter.type=='private'">Log In</button>
+              <button class="custom_button bold" ng-click="goToTable(dataFilter)" ng-if="dataFilter.type=='public'">PLAY</button>
+              <button class="custom_button bold" ng-click="goToPrivateTableLogIn(dataFilter)" ng-if="dataFilter.type=='private'">Log In</button>
             </div>
           </div>
         </ion-item>
