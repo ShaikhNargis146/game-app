@@ -48,8 +48,16 @@
         <div class="profile_pic_overlay">
           <img ng-src="{{player.image | serverimage}}"> </div>
       </div>
-      <div class="plyr_card" ng-if="!player.isFold">
+      <div class="plyr_card" ng-if="!player.isFold && player.cards.length<4">
         <div class=" custom-row">
+          <card card='DONE'> </card>
+          <card card='DONE'> </card>
+          <card card='DONE'> </card>
+        </div>
+      </div>
+      <div class="plyr_card plyr_card_4card" ng-if="!player.isFold && player.cards.length==4">
+        <div class=" custom-row">
+          <card card='DONE'> </card>
           <card card='DONE'> </card>
           <card card='DONE'> </card>
           <card card='DONE'> </card>

@@ -1,9 +1,16 @@
 myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPlatform) {
-  $ionicPlatform.ready(function () {
+  if(ionic.Platform.isAndroid()){
+$ionicPlatform.ready(function () {
     screen.orientation.lock('portrait')
   })
   screen.orientation.lock('portrait');
-  var accessToken = $.jStorage.get("accessToken");
+  }else{
+    $ionicPlatform.ready(function () {
+      screen.orientation.lock('portrait')
+    })
+console.log("nothing for ios")
+  }
+    var accessToken = $.jStorage.get("accessToken");
   if (accessToken) {
     $state.go("lobby");
   } else {
