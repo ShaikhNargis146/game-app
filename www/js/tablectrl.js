@@ -735,7 +735,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     })
 
     if (!_.isEmpty($scope.tableId)) {
-      $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {});
+      $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {
+        $scope.sideShowDataFromMemberId = data.data.fromPlayer.memberId;
+        console.log($scope.sideShowDataFromMemberId);
+      });
     }
   };
 
