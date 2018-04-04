@@ -744,18 +744,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-
     console.log("side show cancel", data);
     $scope.closeSideShowModal();
     var mess = data.data.toPlayer.name + " denied the  side show request ";
     $scope.changeTableMessage(mess);
-    if (data.data.fromPlayer.memberId == $scope.memberId) {
-      $scope.message = {
-        heading: "Side Show",
-        content: "Your request for the Side show has been rejected!"
-      };
-      $scope.showMessageModal();
-    }
+    // if (data.data.fromPlayer.memberId == $scope.memberId) {
+    //   $scope.message = {
+    //     heading: "Side Show",
+    //     content: "Your request for the Side show has been rejected!"
+    //   };
+    //   $scope.showMessageModal();
+    // }
   });
 
   io.socket.on("sideShow", sideShowSocket);
@@ -772,13 +771,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (data.data.toPlayer.memberId == $scope.memberId) {
         $scope.showSideShowModal();
       }
-      if (data.data.fromPlayer.memberId == $scope.memberId) {
-        $scope.message = {
-          heading: "Side Show",
-          content: "Your request for the Side show has been sent!"
-        };
-        $scope.showMessageModal();
-      }
+      // if (data.data.fromPlayer.memberId == $scope.memberId) {
+      //   $scope.message = {
+      //     heading: "Side Show",
+      //     content: "Your request for the Side show has been sent!"
+      //   };
+      //   $scope.showMessageModal();
+      // }
 
     }
   }
