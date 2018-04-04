@@ -602,7 +602,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       'winRank': 1,
       'winner': true
     });
-    console.log($scope.players);
     _.forEach($scope.showWinnerPlayer,
       function (p) {
         var playerNo = -1;
