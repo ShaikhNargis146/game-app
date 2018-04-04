@@ -75,9 +75,7 @@ myApp.directive('card', function () {
         showCard: "&"
       },
       templateUrl: 'templates/directive/mainplayercard.html',
-      link: function (scope, element, attr) {
-        scope.showCard()
-      }
+      link: function (scope, element, attr) {}
     };
   })
   .directive('joker', function () {
