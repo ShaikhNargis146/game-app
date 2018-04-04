@@ -31,6 +31,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.playerData();
 
   $scope.updateSocketVar = 0;
+  $scope.sideShowDataFrom = 0;
   $scope.tableId = $stateParams.id;
 
   if (_.isEmpty($scope.tableId)) {
@@ -119,7 +120,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         if ($scope.isThere) {
           updateSocketFunction(data.data, true);
         }
-
+        $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
             return true;
@@ -345,8 +346,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.showSideShowModal = function () {
     $scope.sideShowModal.show();
-
   };
+
   $scope.closeSideShowModal = function () {
     $scope.sideShowModal.hide();
   };
@@ -736,14 +737,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if (!_.isEmpty($scope.tableId)) {
       $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {
-        $scope.sideShowDataFromMemberId = data.data.fromPlayer.memberId;
-        console.log($scope.sideShowDataFromMemberId);
+        if (data.data) {
+          $scope.sideShowDataFrom = 1;
+        }
       });
     }
   };
 
 
   io.socket.on("sideShowCancel", function (data) {
+    $scope.sideShowDataFrom = 1;
+    $scope.$apply();
     console.log("side show cancel", data);
     $scope.closeSideShowModal();
     var mess = data.data.toPlayer.name + " denied the  side show request ";
@@ -761,6 +765,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function sideShowSocket(data) {
     {
+      $scope.sideShowDataFrom = 0;
       // console.log("side show", data.data.fromPlayer.name + " requested a side show with " + data.data.toPlayer.name);
       $scope.slideShowData = data.data;
       console.log("side show", $scope.slideShowData)
@@ -784,13 +789,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   //sideShow Maker
   $scope.doSideShow = function () {
+    $scope.sideShowDataFrom = 0;
     if (!_.isEmpty($scope.tableId)) {
-      Service.doSideShow($scope.tableId, function (data) {});
+      Service.doSideShow($scope.tableId, function (data) {
+
+      });
     }
   };
 
   //sideShow Maker
   $scope.rejectSideShow = function () {
+    $scope.sideShowDataFrom = 0;
     if (!_.isEmpty($scope.tableId)) {
       Service.rejectSideShow($scope.tableId, function (data) {});
     }
