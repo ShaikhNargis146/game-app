@@ -456,6 +456,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data);
 
+    $scope.sideShowDataFrom = 0;
 
     data = data.data;
     $scope.extra = data.extra;
@@ -748,7 +749,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   io.socket.on("sideShowCancel", function (data) {
-    $scope.sideShowDataFrom = 1;
+    $scope.sideShowDataFrom = 0;
     $scope.$apply();
     console.log("side show cancel", data);
     $scope.closeSideShowModal();
