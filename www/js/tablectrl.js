@@ -55,19 +55,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     io.socket.on("Update", updateSocketFunction);
   }
 
-  // All Above Functions
-
 
 
 
 
 
   // Game Play functions
-
   $scope.botAmount = 0;
   $scope.PotAmount = 0;
   $scope.startAnimation = false;
-
   $scope.insufficientFunds = false;
   $scope.chaalAmt = 0;
   $scope.startCoinAnime = false;
@@ -94,27 +90,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //sound initialize
-  // $scope.buttonAudio = new Audio('audio/button.mp3');
-  // $scope.shuffleAudio = new Audio('audio/shuffle.wav');
-  // $scope.winnerAudio = new Audio('audio/winner.wav');
-  // $scope.coinAudio = new Audio('audio/coin.wav');
-  // $scope.timerAudio = new Audio('audio/timer.mp3');
-
-
-  // $scope.timerAudio.play();
   $scope.destroyAudio = function () {
-
-    // $scope.buttonAudio.pause();
-    // $scope.buttonAudio.currentTime = 0;
-    // $scope.winnerAudio.pause();
-    // $scope.winnerAudio.currentTime = 0;
-    // $scope.shuffleAudio.pause();
-    // $scope.shuffleAudio.currentTime = 0;
-    // $scope.coinAudio.pause();
-    // $scope.coinAudio.currentTime = 0;
-    // $scope.timerAudio.pause();
-    // $scope.timerAudio.currentTime = 0;
-    // $scope.apply();
     $ionicPlatform.ready(function () {
       if (window.cordova) {
         // running on device/emulator
@@ -124,9 +100,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         window.plugins.NativeAudio.stop('shuffle');
         window.plugins.NativeAudio.stop('button');
       }
-
     });
-
   }
 
   // Socket Update function with REST API
@@ -190,8 +164,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
     $scope.sitHere = !$scope.isThere;
-
-
     // In Case he is already Sitting Please Enable the Game
   };
 
@@ -235,7 +207,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.message = {
               heading: "Insufficient Funds",
               content: "Minimum amount required to enter this table is <span class='balance-error'> " + ($scope.chalAmt * 10) + "</span>",
-              error: true
+              error: true.playing - player - info
             };
             $scope.showMessageModal();
           }
@@ -243,15 +215,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       });
     }
   };
-
-  // $scope.getPlayer = function (number) {
-  //   var player = _.find($scope.players, function (n) {
-  //     if (((myTableNo + number) % 9) == (n.playerNo % 9)) {
-  //       return n;
-  //     }
-  //   });
-  //   return player;
-  // };
 
 
   //loader for table
