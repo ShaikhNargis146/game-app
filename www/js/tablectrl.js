@@ -207,7 +207,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.message = {
               heading: "Insufficient Funds",
               content: "Minimum amount required to enter this table is <span class='balance-error'> " + ($scope.chalAmt * 10) + "</span>",
-              error: true.playing - player - info
+              error: true
             };
             $scope.showMessageModal();
           }
@@ -481,15 +481,17 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
       if ($scope.extra.chaalAmt) {
         $scope.chaalAmt = $scope.extra.chaalAmt;
-        $ionicPlatform.ready(function () {
-          if (window.cordova) {
-            window.plugins.NativeAudio.stop('winner');
-          }
-        })
+        if (window.cordova) {
+          window.plugins.NativeAudio.play('coin');
+        }
+
 
 
       }
-
+      //if card stucks up bychance and then make it false
+      if ($scope.startAnimation) {
+        $scope.startAnimation = false;
+      }
       if ($scope.extra.serve) {
         $ionicPlatform.ready(function () {
           if (window.cordova) {
@@ -569,7 +571,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $ionicPlatform.ready(function () {
         if (window.cordova) {
           window.plugins.NativeAudio.stop('timer');
-          window.plugins.NativeAudio.stop('coin');
+          // window.plugins.NativeAudio.stop('coin');
         }
       })
 
