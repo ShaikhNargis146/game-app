@@ -57,7 +57,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-
+  io.socket.off("Update", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
 
 
 
@@ -149,7 +156,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.changeTimer(data.data.data.table.autoFoldDelay);
       });
     }
-
   };
 
   $scope.updatePlayers();
@@ -227,15 +233,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.ShowLoader = false;
     }, 5000);
   }
-
-
-
-
-
-
-  //ask for sit here when joining new game
-
-
 
   $scope.closeAllModal = function () {
     $scope.showTableinfo = false;
@@ -390,11 +387,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.insufficientFundsModal.hide();
   };
 
-
-
-
-
-
   //backtolobby
   $scope.backToLobby = function () {
     $scope.destroyAudio();
@@ -405,8 +397,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $timeout(function () {
         $state.go("lobby");
       }, 1000);
-
-
     }
   };
 
@@ -449,12 +439,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }, 100);
   //for table data//
 
-
+  io.socket.off("seatSelection", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
   //seat selection Player
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
-    console.log("socket", data);
+    console.log("socket", data.data);
 
     $scope.sideShowDataFrom = 0;
 
@@ -635,6 +632,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   io.socket.on("showWinner", showWinnerFunction);
+  io.socket.off("showWinner", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
 
   //to add and remove coin
   $scope.addCoin = function () {
@@ -714,6 +719,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   });
 
+  io.socket.off("tip", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
   //pack 
   $scope.pack = function () {
     // $scope.buttonAudio.play();
@@ -765,6 +778,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   io.socket.on("sideShow", sideShowSocket);
+
+  io.socket.off("sideShow", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
 
   function sideShowSocket(data) {
     {
@@ -851,7 +873,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $state.reload();
     }
   });
-
+  io.socket.off("removePlayer", function (data) {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
 
   $scope.getRemaining = function () {
     if ($scope.players[8]) {
@@ -860,6 +889,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       return;
     }
   }
+
+  io.socket.off('connect', function () {
+    $scope.message = {
+      heading: "Internet Connection",
+      content: "Check Your Internet Connection",
+      error: true
+    };
+    $scope.showMessageModal();
+  });
 
   $scope.changeTimer = function (duration) {
     $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
