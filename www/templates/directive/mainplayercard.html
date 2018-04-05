@@ -1,12 +1,12 @@
 <div class="showing_cards" ng-if="!sitHere && (player.cards.length > 0)" ng-class="{'main_card_anime':player.cards.length>0 && startAnimation}">
   <!-- three card -->
-  <div class="custom-row" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length<4">
+  <div class="custom-row custom-row-card" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length<4">
     <card card='NONE'></card>
     <card card='NONE'></card>
     <card card='NONE'></card>
   </div>
   <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && player.cards.length<4">
-    <div class=" custom-row ">
+    <div class=" custom-row custom-row-card">
       <card card='{{player.cards[0]}}'> </card>
       <card card='{{player.cards[1]}}'> </card>
       <card card='{{player.cards[2]}}'> </card>
@@ -14,7 +14,7 @@
   </div>
   <!-- end of three card -->
   <!-- four card -->
-  <div class="custom-row card4" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length==4">
+  <div class="custom-row card4 custom-row-card" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length==4">
     <!-- <div class="custom-row card4" ng-if="true"> -->
 
     <card card='NONE'></card>
@@ -24,7 +24,7 @@
   </div>
   <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && player.cards.length==4">
     <!-- <div> -->
-    <div class=" custom-row card4">
+    <div class=" custom-row card4 custom-row-card">
       <card card='{{player.cards[0]}}'> </card>
       <card card='{{player.cards[1]}}'> </card>
       <card card='{{player.cards[2]}}'> </card>
