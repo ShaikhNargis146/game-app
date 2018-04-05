@@ -55,6 +55,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     passwordchange: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
+      data.accessToken = accessToken;
       if (!_.isEmpty(accessToken)) {
         return $http.post(adminurl + 'member/changePassword', data).then(function (data) {
           data = data.data;
