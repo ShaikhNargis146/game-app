@@ -1,16 +1,16 @@
 myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPlatform) {
-  if(ionic.Platform.isAndroid()){
-$ionicPlatform.ready(function () {
-    screen.orientation.lock('portrait')
-  })
-  screen.orientation.lock('portrait');
-  }else{
+  if (ionic.Platform.isAndroid()) {
     $ionicPlatform.ready(function () {
       screen.orientation.lock('portrait')
     })
-console.log("nothing for ios")
+    screen.orientation.lock('portrait');
+  } else {
+    $ionicPlatform.ready(function () {
+      screen.orientation.lock('portrait')
+    })
+    console.log("nothing for ios")
   }
-    var accessToken = $.jStorage.get("accessToken");
+  var accessToken = $.jStorage.get("accessToken");
   if (accessToken) {
     $state.go("lobby");
   } else {
@@ -42,6 +42,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   $scope.invalidUser = false;
   $scope.playerLogin = function (data, login) {
     $scope.loginPromise = Service.playerLogin(data, function (data) {
+      console.log("login", data);
       $.jStorage.set("accessToken", data.data);
       if (data && !_.isEmpty(data.data)) {
         $state.go("lobby");
@@ -49,6 +50,12 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
         $scope.message = {
           heading: "User Already Loged In",
           content: "User already loged in another device. Logout from that device. Try Again!!!"
+        };
+        $scope.showMessageModal();
+      } else if (data.error == "Login denied") {
+        $scope.message = {
+          heading: "Login denied",
+          content: "Login denied"
         };
         $scope.showMessageModal();
       } else {
