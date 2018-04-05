@@ -22,7 +22,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       }
 
 
-
+      window.plugins.insomnia.keepAwake();
       // Preload audio resources
       window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
         console.log('error: ' + msg);
