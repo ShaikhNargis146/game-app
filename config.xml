@@ -20,6 +20,18 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <!-- for iOS -->
+    <feature name="Insomnia">
+    <param name="ios-package" value="Insomnia" />
+    </feature>
+    <!-- for Android -->
+    <feature name="Insomnia">
+    <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
+    <!-- for wp8 -->
+    <feature name="Insomnia">
+    <param name="wp-package" value="Insomnia" />
+    </feature>
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
