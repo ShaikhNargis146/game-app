@@ -252,9 +252,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //for table selection//
   $scope.playNow = function ($event) {
+    console.log("demo");
+    $scope.openPriceRangeModal();
+    $event.stopPropagation();
     if (!$scope.VariationActive) {
-      $scope.openPriceRangeModal();
-      $event.stopPropagation();
+
     }
   }
 

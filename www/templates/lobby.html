@@ -21,9 +21,25 @@
     <div class="categorys">
       <ion-scroll direction="x">
         <div class="row">
-          <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
+          <div class="variation box-black" ng-click="variationToggle($event)">
+            TeenPatti
+          </div>
+          <!-- <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
             <span class="text-grad"> Play Now </span>
           </div>
+          <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
+            <span class="text-grad"> Private Table </span>
+          </div>
+          <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
+            <span class="text-grad"> My Private Table </span>
+          </div>
+          <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
+            <span class="text-grad"> Create Private Table </span>
+          </div> -->
+
+          <!-- <div class="variation box-black col" ng-click="variationToggle($event)">
+            <span class=" text-grad"> Variation </span>
+          </div> -->
           <!-- <div class="play_joker box-black  col" ng-click="playJoker($event)">
               <span class="text-grad"> Play Joker</span>
             </div>
@@ -44,18 +60,18 @@
     </div>
     <div class="categorys variation_subtype">
       <ion-scroll direction="x">
-        <div class="row" ng-if='VariationActive'>
-          <div class=" box-black col" ng-click="openPriceRangeModal()">
-            <span class="text-grad"> Folding joker </span>
+        <div class="row" ng-if='VariationActive' ng-click="$event.stopPropagation">
+          <div class=" box-black col" ng-click="playNow($event);resetFilter();">
+            <span class="text-grad"> Play Now </span>
           </div>
-          <div class="box-black col" ng-click="openPriceRangeModal()">
-            <span class="text-grad"> red and black </span>
+          <div class="box-black col" ng-click=" rivateTable($event);resetFilterPrivateTable();">
+            <span class="text-grad"> Private Table </span>
           </div>
-          <div class="box-black col" ng-click="openPriceRangeModal()">
-            <span class="text-grad"> One-eyed Jack </span>
+          <div class="box-black col" ng-click="myPrivateTable();openMyPrivateTable($event);">
+            <span class="text-grad"> My Private Table </span>
           </div>
-          <div class="box-black col" ng-click="openPriceRangeModal()">
-            <span class="text-grad"> odd sequence </span>
+          <div class="box-black col" ng-click="createPrivateModal($event);">
+            <span class="text-grad"> Create Private Table </span>
           </div>
         </div>
       </ion-scroll>

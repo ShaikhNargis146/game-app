@@ -69,8 +69,7 @@
       margin: 0 auto;
       .box-black {
         background: url('../img/lobby/text_bg.png');
-        background-size: 100% 100%;
-        margin: 2%;
+        background-size: 100% 100%; // margin: 2%;
         padding: 5%;
         display: flex;
         flex-direction: column;
@@ -92,6 +91,7 @@
       width: 60%;
       .box-black {
         padding: 3%;
+        margin: 2%;
         span {
           font-size: .7em;
         }
