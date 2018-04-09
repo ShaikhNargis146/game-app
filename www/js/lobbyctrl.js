@@ -565,5 +565,32 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.rulesModal.remove();
     $scope.closeAllTab();
   });
+  //AROnline modal
+  $ionicModal.fromTemplateUrl('templates/model/aronline.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ARonlineModal = modal;
+  });
+  $scope.openARonlineModal = function () {
+    $scope.ARonlineModal.show();
+  }
+  $scope.closeARonlineModal = function () {
+    $scope.ARonlineModal.hide();
+  }
+  $scope.items = [
+    'Live ROULETTE',
+    'Live BLACKJACK',
+    'Live CASINO HOLD',
+    'Live BACCARAT',
+    'Live ULTIMATE TEXAS HOLDEM ',
+    'Live EXTREME TEXAS HOLDEM ',
+    'Live THREE CARD POKER ',
+    'Live TRIPLE CARD POKER',
+    'Live CARIBBEAN STUD',
+    'Live MONEY WHEEL',
+    'Live POKER'
+  ];
+
 
 });
