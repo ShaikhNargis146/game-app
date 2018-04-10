@@ -77,55 +77,30 @@
         width: 25px;
       }
       input {
-        color: white;
+        color: white!important;
         height: 28px;
         &::-webkit-input-placeholder {
-          /* WebKit, Blink, Edge */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: white!important;
+          border: none;
         }
         &:-moz-placeholder {
-          /* Mozilla Firefox 4 to 18 */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: white!important;
         }
         &::-moz-placeholder {
-          /* Mozilla Firefox 19+ */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: white!important;
         }
         &:-ms-input-placeholder {
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: white!important;
         }
         &::-ms-input-placeholder {
-          /* Microsoft Edge */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: white!important;
         }
         &::placeholder {
-          /* Most modern browsers support this now. */
-          background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
-          background: linear-gradient(right, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          border: 0!important;
+          color: white!important;
           font-weight: bold;
+          border: none!important;
+          border: 0!important;
         }
       }
     }
