@@ -64,7 +64,7 @@
           <div class=" box-black col" ng-click="playNow($event);resetFilter();">
             <span class="text-grad"> Play Now </span>
           </div>
-          <div class="box-black col" ng-click=" rivateTable($event);resetFilterPrivateTable();">
+          <div class="box-black col" ng-click=" privateTableFilterModal($event);privateResetFilter();">
             <span class="text-grad"> Private Table </span>
           </div>
           <div class="box-black col" ng-click="myPrivateTable();openMyPrivateTable($event);">
@@ -155,12 +155,12 @@
       <ion-item ng-click="openTransferStatement();transferStatement();">
         transfer statement
       </ion-item>
-      <ion-item ng-click="myPrivateTable();openMyPrivateTable($event);">
+      <!-- <ion-item ng-click="myPrivateTable();openMyPrivateTable($event);">
         My Private Table
       </ion-item>
       <ion-item ng-click="createPrivateModal($event)">
         Create Private Table
-      </ion-item>
+      </ion-item> -->
       <ion-item ng-click="openRulesModal($event)">
         Rules
       </ion-item>

@@ -28,6 +28,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.privateTableDatas = [];
     $scope.tablesData = [];
     $scope.tablesDataFilter = [];
+    $scope.privateTablesDataFilter = [];
     $scope.noDataFound = false;
     $scope.paging = {
       maxPage: 1
@@ -252,12 +253,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //for table selection//
   $scope.playNow = function ($event) {
-    console.log("demo");
     $scope.openPriceRangeModal();
     $event.stopPropagation();
-    if (!$scope.VariationActive) {
+    // if (!$scope.VariationActive) {
 
-    }
+    // }
   }
 
   $scope.getcheck = function () {
@@ -299,8 +299,84 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.filterTables();
   };
 
+
+  //Private Table Modal
+  $ionicModal.fromTemplateUrl('templates/model/table-private-info.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.privateTablesDataFilter = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
+    $scope.privateTableModal = modal;
+  });
+  $scope.openPrivateTableModal = function () {
+    $scope.privateTablesDataFilter = [];
+    $scope.paging = {
+      maxPage: 1
+    };
+    $scope.pageNo = 1;
+    $scope.loadingDisable = false;
+    $scope.privateTableModal.show();
+  }
+  $scope.closePrivateTableModal = function () {
+    $scope.privateTableModal.hide();
+  }
+
+  //for table selection//
+  $scope.privateTableFilterModal = function ($event) {
+    $scope.openPrivateTableModal();
+    $event.stopPropagation();
+    if (!$scope.VariationActive) {
+
+    }
+  }
+
+
+  //Private Table Filter
+  $scope.loadMorePrivateFilterTable = function () {
+    if ($scope.pageNo < $scope.paging.maxPage) {
+      $scope.pageNo++;
+      $scope.loadingDisable = true;
+      $scope.privateFilterTables();
+    } else {}
+  };
+
+
+  $scope.privateFilterTables = function () {
+    Service.getFilterTableData($scope.privateFilterData, $scope.pageNo, function (data) {
+      if (data) {
+        if (data.data.data.total === 0) {
+          $scope.noDataFound = true;
+          // Error Message or no data found 
+          // $scope.displayMessage = {
+          //   main: "<p>No Data Found.</p>",
+          // };
+        }
+        $scope.paging = data.data.data.options;
+        _.each(data.data.data.results, function (n) {
+          $scope.privateTablesDataFilter.push(n);
+        });
+        $scope.loadingDisable = false;
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      } else {}
+    });
+  };
+
+  //resetFilter
+  $scope.privateResetFilter = function () {
+    $scope.privateFilterData = {
+      type: "private"
+    };
+    $scope.privateFilterTables();
+  };
+
+
   //my private Table Info 
-  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
+  $ionicModal.fromTemplateUrl('templates/model/my-private-table-info.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
@@ -474,18 +550,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //private table info modal
 
-  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.ModalInfo = modal;
-  });
-
   $scope.openMyPrivateTable = function () {
     $scope.privateTableDatas = [];
     $scope.ModalInfo.show();
-
   }
+
   //search table
   $ionicModal.fromTemplateUrl('templates/model/search-table.html', {
     scope: $scope,
@@ -567,5 +636,4 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.rulesModal.remove();
     $scope.closeAllTab();
   });
-
 });
