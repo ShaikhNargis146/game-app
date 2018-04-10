@@ -153,7 +153,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           }
         }).length;
 
-        $scope.changeTimer(data.data.data.table.autoFoldDelay);
+        // $scope.changeTimer(data.data.data.table.autoFoldDelay);
       });
     }
   };
@@ -522,7 +522,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       reArragePlayers(data.players);
     }
 
-    $scope.changeTimer(data.table.autoFoldDelay);
+    // $scope.changeTimer(data.table.autoFoldDelay);
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
@@ -899,11 +899,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.showMessageModal();
   });
 
-  $scope.changeTimer = function (duration) {
-    $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
-    $(".animation_wrapper .filler").css("animation-duration", duration + "  s");
-    $(".animation_wrapper .mask").css("animation-duration", duration + "s");
-  }
+  // $scope.changeTimer = function (duration) {
+  //   $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
+  //   $(".animation_wrapper .filler").css("animation-duration", duration + "  s");
+  //   $(".animation_wrapper .mask").css("animation-duration", duration + "s");
+  // }
 
 
 
