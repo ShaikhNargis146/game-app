@@ -645,6 +645,10 @@
   padding-top: 112px;
 }
 
+.platform-ios .custom-table-top{
+  padding-top: 118px;
+}
+
 .custom-header {
   background: #2d353e;
   position: absolute;
@@ -658,4 +662,8 @@
   border-left: 3px solid #a9731f;
   border-top: 3px solid #a9721f;
   border-right: 3px solid #fdf5c0;
+}
+
+.platform-ios .custom-header{
+  z-index: 100;
 }

@@ -1,7 +1,11 @@
 myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http, $timeout) {
 
   $ionicPlatform.ready(function () {
+    if (ionic.Platform.isAndroid()) {
     screen.orientation.lock('landscape');
+    }else{
+    
+    }
     if (window.cordova) {
       // running on device/emulator
       window.plugins.NativeAudio.stop('timer');
