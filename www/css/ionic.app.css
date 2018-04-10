@@ -9683,7 +9683,9 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex, a.item.item-complex, button.item.item-complex {
+  .item-complex,
+  a.item.item-complex,
+  button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -10239,50 +10241,30 @@ body {
       .login .login_block .login_button img {
         width: 25px; }
       .login .login_block .login_button input {
-        color: white;
+        color: white !important;
         height: 28px; }
         .login .login_block .login_button input::-webkit-input-placeholder {
           /* WebKit, Blink, Edge */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          color: white !important;
+          border: none; }
         .login .login_block .login_button input:-moz-placeholder {
           /* Mozilla Firefox 4 to 18 */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          color: white !important; }
         .login .login_block .login_button input::-moz-placeholder {
           /* Mozilla Firefox 19+ */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          color: white !important; }
         .login .login_block .login_button input:-ms-input-placeholder {
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          color: white !important; }
         .login .login_block .login_button input::-ms-input-placeholder {
           /* Microsoft Edge */
-          background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent; }
+          color: white !important; }
         .login .login_block .login_button input::placeholder {
+          border: 0 !important;
           /* Most modern browsers support this now. */
-          background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
-          background: linear-gradient(right, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold; }
+          color: white !important;
+          font-weight: bold;
+          border: none !important;
+          border: 0 !important; }
     .login .login_block .bg-style {
       background: url("../img/login_button_backgroun2.png"); }
     .login .login_block .valid {
@@ -10356,7 +10338,6 @@ body {
       .main_lobby .lobby_content .categorys .box-black {
         background: url("../img/lobby/text_bg.png");
         background-size: 100% 100%;
-        margin: 2%;
         padding: 5%;
         display: flex;
         flex-direction: column;
@@ -10374,7 +10355,8 @@ body {
       opacity: 0;
       width: 60%; }
       .main_lobby .lobby_content .variation_subtype .box-black {
-        padding: 3%; }
+        padding: 3%;
+        margin: 2%; }
         .main_lobby .lobby_content .variation_subtype .box-black span {
           font-size: .7em; }
   .main_lobby .variation_active {
@@ -11518,7 +11500,6 @@ ion-item.item {
   transform: translate(-50%, 0);
   background: rgba(21, 19, 19, 0.25);
   z-index: 5;
-  color: #fffcfc;
   width: 55%;
   text-align: center;
   color: #00f9da;
@@ -11533,7 +11514,6 @@ ion-item.item {
   transform: translate(-50%, 0);
   background: rgba(21, 19, 19, 0.25);
   z-index: 5;
-  color: #fffcfc;
   width: 55%;
   text-align: center;
   color: #00f9da;
