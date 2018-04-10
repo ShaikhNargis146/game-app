@@ -388,7 +388,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
   });
-  $scope.openMyPrivateModal = function () {
+  $scope.openMyPrivateTable = function () {
     $scope.privateTableDatas = [];
     $scope.paging = {
       maxPage: 1
@@ -550,10 +550,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //private table info modal
 
-  $scope.openMyPrivateTable = function () {
-    $scope.privateTableDatas = [];
-    $scope.ModalInfo.show();
-  }
+  // $scope.openMyPrivateTable = function () {
+  //   $scope.privateTableDatas = [];
+  //   $scope.ModalInfo.show();
+  // }
 
   //search table
   $ionicModal.fromTemplateUrl('templates/model/search-table.html', {

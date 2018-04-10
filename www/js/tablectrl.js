@@ -753,9 +753,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if (!_.isEmpty($scope.tableId)) {
       $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {
-        if (data.data) {
+        $timeout(function () {
           $scope.sideShowDataFrom = 1;
-        }
+        }, 50);
       });
     }
   };
