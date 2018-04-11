@@ -12,7 +12,8 @@
   font-family: 'Cinzel-Regular';
   padding: 2%;
   ion-content {
-    padding: 4%;
+    padding: 0%;
+    margin: 5%;
   }
 }
 
@@ -150,9 +151,8 @@
     text-align: center;
     padding: 5%; // width: 70%;
     // margin: 0 auto;
-    padding-top: 2%;
-    height: calc(80vh - 17vh);
-    overflow-y: scroll;
+    padding-top: 2%; // height: calc(80vh - 17vh);
+    // overflow-y: scroll;
     form {
       width: 70%;
       margin: 0 auto;
@@ -645,7 +645,7 @@
   padding-top: 112px;
 }
 
-.platform-ios .custom-table-top{
+.platform-ios .custom-table-top {
   padding-top: 118px;
 }
 
@@ -664,6 +664,6 @@
   border-right: 3px solid #fdf5c0;
 }
 
-.platform-ios .custom-header{
+.platform-ios .custom-header {
   z-index: 100;
 }
