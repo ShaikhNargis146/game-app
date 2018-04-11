@@ -8,10 +8,12 @@
 var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
 
   .run(function ($ionicPlatform) {
+   
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       StatusBar.hide();
+   
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -21,7 +23,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         StatusBar.styleDefault();
       }
 
-
+     
       window.plugins.insomnia.keepAwake();
       // Preload audio resources
       window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
@@ -42,7 +44,9 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+    $ionicConfigProvider.views.maxCache(10);
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
       .state('table', {
         url: '/table/:id',

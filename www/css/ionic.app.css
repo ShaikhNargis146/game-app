@@ -9683,7 +9683,9 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex, a.item.item-complex, button.item.item-complex {
+  .item-complex,
+  a.item.item-complex,
+  button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -11725,7 +11727,8 @@ ion-item.item {
   font-family: 'Cinzel-Regular';
   padding: 2%; }
   .custom-model ion-content {
-    padding: 4%; }
+    padding: 0%;
+    margin: 5%; }
 
 .small-model {
   top: 15%;
@@ -11827,9 +11830,7 @@ ion-item.item {
 .change_password-model .field {
   text-align: center;
   padding: 5%;
-  padding-top: 2%;
-  height: calc(80vh - 17vh);
-  overflow-y: scroll; }
+  padding-top: 2%; }
   .change_password-model .field form {
     width: 70%;
     margin: 0 auto; }
@@ -12681,6 +12682,10 @@ ion-item.item {
     background: #db1616;
     left: 50%;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
 .animation_wrapper,
@@ -12696,6 +12701,10 @@ ion-item.item {
 .animation_wrapper .pie {
   width: 50%;
   height: 100%;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
   position: absolute;
   background: #040404;
@@ -12705,8 +12714,11 @@ ion-item.item {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  animation: rota 20s linear infinite;
-  -webkit-animation: rota 20s linear infinite; }
+  -webkit-animation: rota 20s linear infinite;
+  -moz-animation: rota 20s linear infinite;
+  -ms-animation: rota 20s linear infinite;
+  -o-animation: rota 20s linear infinite;
+  animation: rota 20s linear infinite; }
 
 .animation_wrapper:hover .spinner,
 .animation_wrapper:hover .filler,
@@ -12718,6 +12730,10 @@ ion-item.item {
   left: 50%;
   opacity: 0;
   z-index: 100;
+  -webkit-animation: opa 20s steps(1, end) infinite reverse;
+  -moz-animation: opa 20s steps(1, end) infinite reverse;
+  -ms-animation: opa 20s steps(1, end) infinite reverse;
+  -o-animation: opa 20s steps(1, end) infinite reverse;
   animation: opa 20s steps(1, end) infinite reverse;
   -webkit-animation: opa 20s steps(1, end) infinite reverse;
   border-left: none; }
@@ -12729,14 +12745,32 @@ ion-item.item {
   background: inherit;
   opacity: 1;
   z-index: 300;
-  animation: opa 20s steps(1, end) infinite;
-  -webkit-animation: opa 20s steps(1, end) infinite; }
+  -webkit-animation: opa 20s steps(1, end) infinite;
+  -moz-animation: opa 20s steps(1, end) infinite;
+  -ms-animation: opa 20s steps(1, end) infinite;
+  -o-animation: opa 20s steps(1, end) infinite;
+  animation: opa 20s steps(1, end) infinite; }
 
-@keyframes rota {
+@-webkit-keyframes opa {
   0% {
-    transform: rotate(0deg); }
+    opacity: 1; }
+  50%,
   100% {
-    transform: rotate(360deg); } }
+    opacity: 0; } }
+
+@-moz-keyframes opa {
+  0% {
+    opacity: 1; }
+  50%,
+  100% {
+    opacity: 0; } }
+
+@-o-keyframes opa {
+  0% {
+    opacity: 1; }
+  50%,
+  100% {
+    opacity: 0; } }
 
 @keyframes opa {
   0% {
@@ -12744,6 +12778,62 @@ ion-item.item {
   50%,
   100% {
     opacity: 0; } }
+
+@-webkit-keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-moz-keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-o-keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 .player-fold {
   opacity: 0.4; }
