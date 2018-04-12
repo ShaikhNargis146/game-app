@@ -1072,7 +1072,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   function(){
       //Do something
   });
-  $('#pietimer1').pietimer('start');
+  $scope.timerOut=function(){
+    $('#pietimer1').pietimer('start');
+  }
+
   
   
   // }, 500);
