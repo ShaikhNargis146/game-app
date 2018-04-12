@@ -7,6 +7,7 @@
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -24,6 +25,7 @@
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -41,6 +43,7 @@
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -58,6 +61,7 @@
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -68,14 +72,12 @@
 }
 
 /* Styles for old versions of IE */
-
 .btn-spinner {
   font-family: sans-serif;
   font-weight: 100;
 }
 
 /* :not(:required) hides this rule from IE9 and below */
-
 .btn-spinner:not(:required) {
   -webkit-animation: three-quarters 1250ms infinite linear;
   -moz-animation: three-quarters 1250ms infinite linear;
@@ -93,24 +95,22 @@
   text-indent: -9999px;
   width: 18px;
   height: 18px;
+
 }
 
 // slide in out
 .btn-spinner:not(:required) {
   margin-left: -22px;
   opacity: 0;
-  -webkit-transition: 0.4s margin ease-out, 0.2s opacity ease-out;
-  -moz-transition: 0.4s margin ease-out, 0.2s opacity ease-out;
-  -o-transition: 0.4s margin ease-out, 0.2s opacity ease-out;
-  transition: 0.4s margin ease-out, 0.2s opacity ease-out;
+  transition: 0.4s margin ease-out,
+  0.2s opacity ease-out;
 }
 
 .is-loading {
   .btn-spinner {
-    -webkit-transition: 0.2s margin ease-in, 0.4s opacity ease-in;
-    -moz-transition: 0.2s margin ease-in, 0.4s opacity ease-in;
-    -o-transition: 0.2s margin ease-in, 0.4s opacity ease-in;
-    transition: 0.2s margin ease-in, 0.4s opacity ease-in;
+    transition: 0.2s margin ease-in,
+    0.4s opacity ease-in;
+
     margin-left: 5px;
     opacity: 1;
   }
