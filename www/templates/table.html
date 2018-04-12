@@ -60,7 +60,7 @@
         <players id="plr1" ng-click="sitHerefn(1)" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount" ng-pos="1"
           ng-player="players[0]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
         </players>
-        <div class="p1 bootAnimate" ng-if="(players[0].isChaal==true && !players[0].isFold && remainingPlayerCount>1) || (players[0] && startCoinAnime && remainingPlayerCount>1)">
+        <div   class="p1 bootAnimate" ng-if="(players[0].isChaal==true && !players[0].isFold && remainingPlayerCount>1) || (players[0] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{ chaalAmt}}
         </div>
         <players id="plr2" ng-click="sitHerefn(2)" ng-pos="2" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
@@ -72,11 +72,11 @@
         <players id="plr3" ng-click="sitHerefn(3)" ng-pos="3" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
           ng-player="players[2]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
         </players>
-        <div class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
+        <div  class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <div id="canvaspietimer" ng-init="callTimer()">
-          <div id="pietimerholder"></div>
+        <div >
+          <div id="pietimer1"></div>
         </div>
         <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
           ng-player="players[3]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
