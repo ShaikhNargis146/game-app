@@ -7,12 +7,15 @@
       <img src="img/coin.png" class="coin">{{betamount}}
     </div> -->
 
-    <div class="pie_loader" ng-if="player.isTurn && !sitHere">
+    <!-- <div class="pie_loader" ng-if="player.isTurn && !sitHere">
       <div class="animation_wrapper">
         <div class="pie spinner"></div>
         <div class="pie filler"></div>
         <div class="mask"></div>
       </div>
+    </div> -->
+    <div ng-click="timerOut()">
+      <div class="pietimer1"></div>
     </div>
     <div ng-class="{dealer:player.isDealer}">
       <div class="wnr" ng-class="{'winner_anime':player.playerNo==winnerPlayerNo}">

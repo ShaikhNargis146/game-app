@@ -35,7 +35,8 @@ myApp.directive('card', function () {
         pos: "=ngPos",
         sitHere: "=ngSitHere",
         winnerPlayerNo: "=ngWin",
-        startAnimation: "=ngAnimation"
+        startAnimation: "=ngAnimation",
+        timerOut: "&"
       },
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {}

@@ -58,52 +58,60 @@
       <!-- player -->
       <div class="players">
         <players id="plr1" ng-click="sitHerefn(1)" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount" ng-pos="1"
-          ng-player="players[0]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[0]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
-        <div   class="p1 bootAnimate" ng-if="(players[0].isChaal==true && !players[0].isFold && remainingPlayerCount>1) || (players[0] && startCoinAnime && remainingPlayerCount>1)">
+        <div class="p1 bootAnimate" ng-if="(players[0].isChaal==true && !players[0].isFold && remainingPlayerCount>1) || (players[0] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{ chaalAmt}}
         </div>
         <players id="plr2" ng-click="sitHerefn(2)" ng-pos="2" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[1]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[1]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p2 bootAnimate" ng-if="(players[1].isChaal==true && !players[1].isFold && remainingPlayerCount>1) || (players[1] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <players id="plr3" ng-click="sitHerefn(3)" ng-pos="3" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[2]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[2]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
-        <div  class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
+        <div class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <div >
-          <div id="pietimer1"></div>
+        <div>
+          <div class="pietimer1"></div>
         </div>
         <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[3]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[3]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p4 bootAnimate" ng-if="(players[3].isChaal==true && !players[3].isFold && remainingPlayerCount>1) ||  (players[3] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <players id="plr5" ng-click="sitHerefn(5)" ng-pos="5" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[4]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[4]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p5 bootAnimate" ng-if="(players[4].isChaal==true && !players[4].isFold && remainingPlayerCount>1) ||  (players[4] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <players id="plr6" ng-click="sitHerefn(6)" ng-pos="6" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[5]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[5]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p6 bootAnimate" ng-if="(players[5].isChaal==true && !players[5].isFold && remainingPlayerCount>1)  || (players[5] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <players id="plr7" ng-click="sitHerefn(7)" ng-pos="7" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[6]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[6]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p7 bootAnimate" ng-if="(players[6].isChaal==true && !players[6].isFold && remainingPlayerCount>1) || (players[6] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
         <players id="plr8" ng-click="sitHerefn(8)" ng-pos="8" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-          ng-player="players[7]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+          ng-player="players[7]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
+          ng-winner-player="showWinnerPlayer">
         </players>
         <div class="p8 bootAnimate" ng-if="(players[7].isChaal==true && !players[7].isFold && remainingPlayerCount>1) ||  (players[7] && startCoinAnime && remainingPlayerCount>1)">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
