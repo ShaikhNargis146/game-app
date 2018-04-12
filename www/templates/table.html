@@ -75,6 +75,9 @@
         <div class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
+        <div id="canvaspietimer" ng-init="callTimer()">
+          <div id="pietimerholder"></div>
+        </div>
         <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
           ng-player="players[3]" ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
         </players>

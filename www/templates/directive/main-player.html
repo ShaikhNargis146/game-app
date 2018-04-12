@@ -14,18 +14,18 @@
   <!-- <div class="p9 {{mainplayer}} bootAnimate" ng-if="true">
     <img src="img/coin.png" class="coin">{{betamount}}
   </div> -->
-  <div class="pie_loader" ng-if="player.isTurn  && !sitHere">
-    <!-- 
+  <!-- <div class="pie_loader"> -->
+  <!-- 
         <svg width="100%" height="100%" viewbox="0 0 250 250">
           <path id="border" transform="translate(125, 125)" />
           <path id="loader" transform="translate(125, 125) scale(.84)" />
         </svg> -->
-    <div class="animation_wrapper">
+  <!-- <div class="animation_wrapper">
       <div class="pie spinner"></div>
       <div class="pie filler"></div>
       <div class="mask"></div>
     </div>
-  </div>
+  </div> -->
 
   <div ng-class="{dealer:player.isDealer}">
     <div class="wnr" ng-class="{'winner_anime':player.playerNo==winnerPlayerNo}">
@@ -70,5 +70,4 @@
       <span>{{player.name}}</span>
     </div>
   </div>
-
 </div>

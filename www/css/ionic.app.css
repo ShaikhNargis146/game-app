@@ -9683,9 +9683,7 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex,
-  a.item.item-complex,
-  button.item.item-complex {
+  .item-complex, a.item.item-complex, button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -12909,3 +12907,12 @@ ion-item.item {
     margin-top: -15px; }
   .kingtable .main-table .showing_cards .card_see {
     margin-top: 5%; } }
+
+#pietimerholder {
+  border: 1px solid #f90;
+  text-align: center;
+  padding: 2em;
+  margin: 2em;
+  position: absolute;
+  top: 0;
+  z-index: 5; }
