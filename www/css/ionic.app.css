@@ -9683,7 +9683,9 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex, a.item.item-complex, button.item.item-complex {
+  .item-complex,
+  a.item.item-complex,
+  button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -10493,6 +10495,9 @@ ion-item.item {
   flex: 0 0 30%;
   max-width: 30%; }
 
+.ma-center {
+  margin: 0 auto !important; }
+
 .kingtable {
   background: url("../img/table-background.jpg");
   background-size: cover; }
@@ -10652,6 +10657,16 @@ ion-item.item {
                 left: -47%;
                 transition: transform 1s;
                 transition-delay: 1500ms; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card {
+              left: 48% !important; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(1) {
+                left: 10%;
+                transition: transform 500ms;
+                transition-delay: none; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(2) {
+                left: -12%;
+                transition: transform 1s;
+                transition-delay: 500ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10884,6 +10899,15 @@ ion-item.item {
         left: 76%;
         transition: transform 1s;
         transition-delay: 1500ms; }
+      .kingtable .main-table .showing_cards .custom-row.card2 card:nth-child(1) {
+        transform: rotate(-10deg) scale(1);
+        left: 25%;
+        transition: transform 1s; }
+      .kingtable .main-table .showing_cards .custom-row.card2 card:nth-child(2) {
+        transform: rotate(10deg) scale(1);
+        left: 45%;
+        transition: transform 1s;
+        transition-delay: 500ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -11663,6 +11687,14 @@ ion-item.item {
     opacity: 0;
     transform: translateY(-400%); } }
 
+.card-joker {
+  width: 3vw;
+  position: absolute;
+  top: 18%;
+  right: 34%; }
+  .card-joker .card {
+    width: 100%; }
+
 .table6 .player2 {
   right: 5% !important;
   top: 2% !important; }
@@ -11725,7 +11757,8 @@ ion-item.item {
   font-family: 'Cinzel-Regular';
   padding: 2%; }
   .custom-model ion-content {
-    padding: 4%; }
+    padding: 0%;
+    margin: 5%; }
 
 .small-model {
   top: 15%;
@@ -11827,9 +11860,7 @@ ion-item.item {
 .change_password-model .field {
   text-align: center;
   padding: 5%;
-  padding-top: 2%;
-  height: calc(80vh - 17vh);
-  overflow-y: scroll; }
+  padding-top: 2%; }
   .change_password-model .field form {
     width: 70%;
     margin: 0 auto; }

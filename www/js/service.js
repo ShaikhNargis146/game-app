@@ -124,15 +124,18 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         pageNo = 1;
       }
       var filter = data;
-      $http.post(url + 'Table/filterTables', {
+      var reqData = {
         filter: {
           blindAmt: filter.blindAmt,
           chalAmt: filter.chalAmt,
           name: filter.name,
-          type: filter.type,
+          type: filter.type
         },
         page: pageNo
-      }).then(function (data) {
+      };
+      filter.gameType ? reqData.filter.gameType = filter.gameType : '';
+      console.log(reqData, filter);
+      $http.post(url + 'Table/filterTables', reqData).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
           data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
@@ -141,16 +144,20 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
 
-    getPrivateTables: function (pageNo, callback) {
+    getPrivateTables: function (pageNo, data, callback) {
       if (!pageNo) {
         pageNo = 1;
       }
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(url + 'Table/getPrivateTables', {
+        var reqData = {
           accessToken: accessToken,
-          page: pageNo
-        }).then(function (data) {
+          page: pageNo,
+          filter: {}
+        };
+        data.gameType ? reqData.filter.gameType = data.gameType : '';
+
+        $http.post(url + 'Table/getPrivateTables', reqData).then(function (data) {
           if (data.data) {
             var totalCount = data.data.data.total;
             data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
