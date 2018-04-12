@@ -8,12 +8,12 @@
 var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
 
   .run(function ($ionicPlatform) {
-   
+
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       StatusBar.hide();
-   
+
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -23,7 +23,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         StatusBar.styleDefault();
       }
 
-     
+
       window.plugins.insomnia.keepAwake();
       // Preload audio resources
       window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
@@ -44,7 +44,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(10);
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
@@ -92,6 +92,18 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'
       })
+      .state('home', {
+        url: '/home',
+        cache: false,
+        templateUrl: 'templates/roulette/home.html',
+        controller: 'HomeCtrl'
+      })
+      .state('spinner', {
+        url: '/spinner',
+        cache: false,
+        templateUrl: 'templates/roulette/spinner.html',
+        controller: 'SpinnerCtrl'
+      });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('redirecting');
   });
