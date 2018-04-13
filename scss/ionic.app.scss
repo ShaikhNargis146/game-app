@@ -516,10 +516,23 @@ body {
 
 .pietimer1 {
   border: 1px solid #f90;
-  text-align: center;
-  padding: 2em;
-  margin: 2em;
+  text-align: center; // padding: 2em;
+  // margin: 2em;
   position: absolute;
   top: 0;
   z-index: 5;
+}
+
+.timer_pie {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  canvas {
+    height: 100%;
+    width: 100%;
+    transform: scale(3);
+  }
 }
