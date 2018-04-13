@@ -14,7 +14,7 @@
         <div class="mask"></div>
       </div>
     </div> -->
-    <div ng-click="timerOut()">
+    <div class="timer_pie" ng-init="timerOuts()" ng-if="player.isTurn && !sitHere">
       <div class="pietimer1"></div>
     </div>
     <div ng-class="{dealer:player.isDealer}">

@@ -1066,15 +1066,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $('.pietimer1').pietimer({
       seconds: 20,
       color: 'rgba(0, 0, 0, 0.8)',
-      height: 100,
-      width: 100
+      height: "100%",
+      width: "100%"
     },
     function () {
       //Do something
     });
   $scope.timerOut = function () {
     console.log("inside timerout");
-    $('.pietimer1').pietimer('stop');
+    // $('.pietimer1').pietimer('stop');
     $('.pietimer1').pietimer('start');
 
   }
