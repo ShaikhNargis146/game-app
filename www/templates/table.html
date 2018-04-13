@@ -23,15 +23,18 @@
   </div>
 
   <div class="main-table" ng-click="closeAllModal()">
-    <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
+    <div class="new_game_timer" ng-if="showNewGameTime">
       <span> New Game will start in 15s </span>
     </div>
     <div class="table_message opt-tan" ng-if="tableMessageShow">
       <span>{{tableMessage}} </span>
     </div>
+    <div class="table_message opt-tan" ng-if="winner.length > 0">
+      <span ng-repeat="winners in winner" ng-if="winners.winRank==1">{{winners.name}}</span> won the game.
+    </div>
     <div class="playing-table">
-      <img src="img/doll.png" class="doll" ng-click="timerOut()">
-      <img src="img/table.png" class="bg-table">
+      <img src="img/doll.png" class="doll" ng-click="timerStart()">
+      <img src="img/table.png" class="bg-table" ng-click="timerStop()">
       <div class="tip" ng-click="openMakeTipModal()" ng-if="!sitHere">
         TIP
       </div>
@@ -39,7 +42,7 @@
       <!-- <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
         <span> New Game will start in 15s </span>
       </div> -->
-      <pot-amount ng-amount="potAmount" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
+      <pot-amount ng-amount="potAmount" ng-player="players"> </pot-amount>
       <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount>
 
       <div class="card_shuffle">
@@ -78,9 +81,9 @@
         <div class="p3 bootAnimate" ng-if="(players[2].isChaal==true && !players[2].isFold && remainingPlayerCount>1) ||  (players[2] && startCoinAnime && remainingPlayerCount>1) ">
           <img src="img/coin.png" class="coin">{{chaalAmt}}
         </div>
-        <div>
+        <!-- <div>
           <div class="pietimer1"></div>
-        </div>
+        </div> -->
         <players id="plr4" ng-click="sitHerefn(4)" ng-pos="4" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
           ng-player="players[3]" ng-sit-here="sitHere" timer-out="timerOut()" ng-win="winnerPlayerNo" ng-animation="startAnimation"
           ng-winner-player="showWinnerPlayer">

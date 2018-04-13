@@ -2,9 +2,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
-    screen.orientation.lock('landscape');
-    }else{
-    
+      screen.orientation.lock('landscape');
+    } else {
+
     }
     if (window.cordova) {
       // running on device/emulator
@@ -615,6 +615,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         $scope.tableId = data.data.data._id;
         $scope.closePrivateLogInModal();
         $scope.closePriceRangeModal();
+        $scope.closePrivateTableModal();
         $timeout(function () {
           $state.go('table', {
             'id': $scope.tableId

@@ -42,20 +42,11 @@ myApp.directive('card', function () {
       link: function (scope, element, attr) {
 
         $('.pietimer1').pietimer({
-            seconds: 20,
-            color: 'rgb(219, 22, 22,0.5)',
-            height: 100,
-            width: 100
-          },
-          function () {
-            //Do something
-          });
-        scope.timerOuts = function () {
-          console.log("inside timerout", scope.player.name);
-          $('.pietimer1').pietimer('stop');
-          console.log($('.pietimer' + scope.pos));
-          $('.pietimer1').pietimer('start');
-        }
+          seconds: 20,
+          color: 'rgb(219, 22, 22,0.5)',
+          height: 100,
+          width: 100
+        });
       }
     };
   })
