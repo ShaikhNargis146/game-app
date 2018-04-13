@@ -548,7 +548,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalCreate = modal;
   });
 
-  $scope.createPrivateModal = function ($event) {
+  $scope.createPrivateModal = function ($event, gameTypeModal) {
+    $scope.gameTypeModal = gameTypeModal;
+    $scope.data = {};
+    gameTypeModal ? $scope.data.gameType = gameTypeModal : '';
     $scope.ModalCreate.show();
     $event.stopPropagation();
   }

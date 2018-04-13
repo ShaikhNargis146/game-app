@@ -133,8 +133,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         },
         page: pageNo
       };
-      filter.gameType ? reqData.filter.gameType = filter.gameType : '';
-      console.log(reqData, filter);
+      if (filter.gameType) {
+        if (filter.gameType == 'Muphlis') {
+          filter.gameType == ['Muphlis', 'Lowest'];
+        }
+        reqData.filter.gameType = filter.gameType;
+      }
       $http.post(url + 'Table/filterTables', reqData).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;

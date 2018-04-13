@@ -73,8 +73,7 @@
           <div class="box-black col" ng-class="{'ma-center': gameType=='Joker'}" ng-click="variationToggle($event,'Joker')" ng-hide="gameType && gameType!='Joker'">
             <span class="text-grad"> Joker </span>
           </div>
-          <div class="box-black col" ng-class="{'ma-center': gameType.length==2}" ng-click="variationToggle($event,['Muphlis','Lowest'])"
-            ng-hide="gameType && gameType.length!=2">
+          <div class="box-black col" ng-class="{'ma-center': gameType=='Muphlis'}" ng-click="variationToggle($event,'Muphlis')" ng-hide="gameType && gameType!='Muphlis'">
             <span class="text-grad"> Muphlis </span>
           </div>
         </div>
@@ -92,7 +91,7 @@
           <div class="box-black col" ng-click="myPrivateTable();openMyPrivateTable($event);">
             <span class="text-grad"> My Private Table </span>
           </div>
-          <div class="box-black col" ng-click="createPrivateModal($event);">
+          <div class="box-black col" ng-click="createPrivateModal($event,gameType);">
             <span class="text-grad"> Create Private Table </span>
           </div>
           <!-- <div class="box-black col" ng-click="createPrivateModal($event);">
