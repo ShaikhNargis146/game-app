@@ -36,7 +36,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.coinSelect = function (coin) {
     switch (coin) {
       case "coin1":
-        // console.log("#### coin1");
         $scope.coinSelects = "coin1";
         if ($scope.coin1) {
 
@@ -49,7 +48,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         }
         break;
       case "coin2":
-        // console.log("#### coin2");
         $scope.coinSelects = "coin2";
         if ($scope.coin2) {
 
@@ -160,7 +158,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             });
           }
           coin1=coin1mod;
-          console.log("SRuuuu", temp.img);
         }
         if (coin2 >= 2) {
           coin2div = coin2 / 2;
@@ -205,7 +202,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           coin3=coin3mod;
         }
       }
-      console.log("temp", temp);
       return temp;
     }
 
@@ -230,68 +226,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           });
         }
         $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
-        console.log("********************************", $scope.displayArray);
-
-        // if (!_.isEmpty($scope.place[betName])) {
-        //   var c = 0;
-        //   var c1=0;
-        //   var c2=0;
-        //   var c3=0;
-        //   for (i = 0; i < $scope.place[betName].img.length; i++) {
-        //     if ($scope.place[betName].img[i].id == 1) {
-        //       c++;
-        //     } else if ($scope.place[betName].img[i].id == 2) {
-        //       c1++;
-        //     }
-        //     else if ($scope.place[betName].img[i].id == 3) {
-        //       c2++;
-        //       console.log("c", c2);
-        //     }
-        //   }
-
-        //   if (c == 5) {
-
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 1
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin2.png",
-        //       id: 2
-        //     });
-        //  c1++;
-        //   } 
-        //   if (c1 == 2) {
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 2
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin3.png",
-        //       id: 3
-        //     });
-        //     c2++;
-        //     console.log("c2",c2);
-        //   }
-        //   if (c2 == 10) {
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 3
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin4.png",
-        //       id: 4
-        //     });
-        //     c2++;
-        //     console.log("c2",c2);
-        //   }
-        // }
       }
       if ($scope.coinSelects == "coin2") {
         $scope.coin2[field] = true;
@@ -313,31 +247,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           });
         }
         $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
-        console.log("********************************", $scope.place[betName].img);
-
-        // if (!_.isEmpty($scope.place[betName])) {
-        //   var c = 0;
-        //   for (i = 0; i < $scope.place[betName].img.length; i++) {
-        //     if ($scope.place[betName].img[i].id == 2) {
-        //       c++;
-        //     }
-        //   }
-
-        //   if (c == 5) {
-
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 2
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin3.png",
-        //       id: 3
-        //     });
-        //   }
-        // }
-        // console.log($scope.place);
       }
       if ($scope.coinSelects == "coin3") {
         $scope.coin3[field] = true;
@@ -359,31 +268,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           });
         }
         $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
-        console.log("********************************", $scope.place[betName].img);
-
-        // if (!_.isEmpty($scope.place[betName])) {
-        //   var c = 0;
-        //   for (i = 0; i < $scope.place[betName].img.length; i++) {
-        //     if ($scope.place[betName].img[i].id == 3) {
-        //       c++;
-        //     }
-        //   }
-
-        //   if (c == 2) {
-
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 3
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin4.png",
-        //       id: 4
-        //     });
-        //   }
-        // }
-        // console.log($scope.place);
       }
       if ($scope.coinSelects == "coin4") {
         $scope.coin4[field] = true;
@@ -405,31 +289,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           });
         }
         $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
-        console.log("********************************", $scope.place[betName].img, betName);
-
-        // if (!_.isEmpty($scope.place[betName])) {
-        //   var c = 0;
-        //   for (i = 0; i < $scope.place[betName].img.length; i++) {
-        //     if ($scope.place[betName].img[i].id == 4) {
-        //       c++;
-        //     }
-        //   }
-
-        //   if (c == 3) {
-
-        //     var newarr = $scope.place[betName].img.filter(function (a) {
-        //       return a.id !== 4
-        //     });
-
-        //     $scope.place[betName].img = newarr;
-
-        //     $scope.place[betName].img.push({
-        //       img: "img/roulette/coin5.png",
-        //       id: 5
-        //     });
-        //   }
-        // }
-        // console.log($scope.place);
       }
 
 
@@ -438,12 +297,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       } else {
         $scope.amountBet[field] = $scope.betAmount;
       }
-      if ($scope.totalMoney[field]) {
-        $scope.totalMoney = $scope.totalMoney - $scope.amount;
-      } 
-      console.log("TOTALMONEY",$scope.totalMoney);
-      // console.log("$scope.amountBet$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", $scope.newArray);
-      // console.log("$scope.amountBet################################", $scope.amountBet[field]);
+        $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
+      console.log("TOTALMONEY",$scope.totalMoney,$scope.betAmount);
       if ($scope.betUser.length != 0) {
         var index = _.find($scope.betUser,
           function (o) {
@@ -464,13 +319,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           amountplaces: $scope.amountBet[bet]
         });
       }
-
-      // console.log("$scope.betAmount", $scope.betAmount);
-      // console.log("$scope.amount[field]$scope.amount[field]", $scope.amountBet);
-      // console.log("$scope.amount $scope.amount ", $scope.amount);
-      // console.log(" $scope.betUser $scope.betUser ", $scope.betUser);
-
-      // console.log("$scope.userBet1", $scope.userBet1);
     } else {
       $scope.message = {
         heading: "Please Select coin",
@@ -487,13 +335,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   }
 
   io.socket.on("betsNotAllowed", function (data) {
-    // console.log("in socket", data);
     if (data.data == "Bets are Not Allowed") {
-      // console.log("in timeout function ", $scope.betUser);
       if ($scope.betUser) {
         _.each($scope.betUser, function (user) {
           Service.saveUserBets(user, function (data) {
-            // console.log("################", data);
             $rootScope.result = data.data.results;
           })
         });
@@ -512,14 +357,12 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   }
   var btnSpin = $("#btnSpin");
   btnSpin.click(function () {
-    // console.log("btn clicked");
     $state.go("spinner");
   });
 })
 
 
 myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope) {
-  // console.log("Spinner");
   var rotationsTime = 8;
   var wheelSpinTime = 6;
   var ballSpinTime = 5;
@@ -607,7 +450,6 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
   var ballbg = $(".ball");
   var btnSpin = $("#btnSpin");
   var toppart = $("#toppart");
-  // console.log("$.keyframe", $.keyframe);
   var pfx = $.keyframe.getVendorPrefix();
   var transform = pfx + "transform";
   var rinner = $("#rcircle");
@@ -654,7 +496,6 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
       $(newHold).appendTo(newSlice);
       $(newSlice).appendTo(rinner);
     }
-    //console.log(numberLoc);
   }
 
   $timeout(function () {
