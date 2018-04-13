@@ -647,6 +647,7 @@
 
 .platform-ios .custom-table-top {
   padding-top: 118px;
+  z-index: -1;
 }
 
 .custom-header {
@@ -664,6 +665,6 @@
   border-right: 3px solid #fdf5c0;
 }
 
-.platform-ios .custom-header {
-  z-index: 100;
-}
+// .platform-ios .custom-header {
+//   z-index: 100;
+// }

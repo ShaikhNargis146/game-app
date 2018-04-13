@@ -9683,7 +9683,9 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex, a.item.item-complex, button.item.item-complex {
+  .item-complex,
+  a.item.item-complex,
+  button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -12135,7 +12137,8 @@ ion-item.item {
   padding-top: 112px; }
 
 .platform-ios .custom-table-top {
-  padding-top: 118px; }
+  padding-top: 118px;
+  z-index: -1; }
 
 .custom-header {
   background: #2d353e;
@@ -12150,9 +12153,6 @@ ion-item.item {
   border-left: 3px solid #a9731f;
   border-top: 3px solid #a9721f;
   border-right: 3px solid #fdf5c0; }
-
-.platform-ios .custom-header {
-  z-index: 100; }
 
 .pokar {
   background-color: #000; }
