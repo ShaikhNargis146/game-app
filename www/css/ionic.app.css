@@ -12841,6 +12841,9 @@ ion-item.item {
   display: table;
   position: relative;
   display: table;
+  cursor: move;
+  font-size: 12px;
+  font-family: 'Crimson Text', serif;
   /*transform: rotate(90deg);
       margin:300px 0 0 -230px;*/ }
 

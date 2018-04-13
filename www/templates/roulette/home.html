@@ -2,16 +2,13 @@
   <div class="roulette-cell">
     <div class="div-inline upper-button">
       <span>Money</span>
-      <p>$1000</p>
+      <pre>{{$scope.totalMoney}}</pre>
+      <p>{{$scope.totalMoney}}</p>
     </div>
     <div class="div-inline upper-button">
       <span>Current Bet</span>
       <p>{{amount}} &#8377;</p>
     </div>
-    <!-- <div class="div-inline upper-button">
-      <span>Money</span>
-      <p>$1000</p>
-    </div> -->
     <div class="div-inline upper-button">
       <span>Logout</span>
       <button ng-click="logout()"></button>
@@ -21,24 +18,9 @@
       <div class="div-inline width6 history">
         <ul class="coin">
           <li style="margin-top:3px;" ng-repeat="coin in coins">
-            <div><img src="img/roulette/{{coin}}.png" ng-class="{{coin}}.{{coin}}?'MyClass':'MyClass1'" ng-click="coinSelect('{{coin}}')">
+            <div><img src="img/roulette/{{coin}}.png" ng-class="{{coin}}.{{coin}}?'MyClass':''" ng-click="coinSelect('{{coin}}')">
             </div>
           </li>
-          <!-- <li>
-            <div id="second"><img src="img/coin2.png" ng-click="coinSelect('coin2')"></div>
-          </li>
-          <li>
-            <div><img src="img/coin3.png" ng-click="coinSelect('coin3')"></div>
-          </li>
-          <li>
-            <div><img src="img/coin4.png" ng-click="coinSelect('coin4')"></div>
-          </li>
-          <li>
-            <div><img src="img/coin5.png" ng-click="coinSelect('coin5')"></div>
-          </li>
-          <li>
-            <div><img src="img/coin6.png" ng-click="coinSelect('coin6')"></div>
-          </li> -->
         </ul>
       </div>
       <div class="div-inline width80">
@@ -49,24 +31,10 @@
               <div class="num red">
                 <span>3</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[3].img track by $index">
+                  <div ng-repeat="image in displayArray[3].img track by $index">
+                     <!-- ng-style="top:calc(top-3)px" -->
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.three">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.three">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.three">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.three">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.three">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
@@ -74,297 +42,116 @@
               <div class="num black">
                 <span>6</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[6].img track by $index">
+                  <div ng-repeat="image in displayArray[6].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.six">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.six">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.six">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.six">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.six">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('9','nine')">
               <div class="num red"><span>9</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[9].img track by $index">
+                  <div ng-repeat="image in displayArray[9].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.nine">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.nine">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.nine">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.nine">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.nine">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('12','twelve')">
               <div class="num red"><span>12</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[12].img track by $index">
+                  <div ng-repeat="image in displayArray[12].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twelve">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twelve">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twelve">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twelve">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twelve">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('15', 'fifteen')">
               <div class="num black"><span>15</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[15].img track by $index">
+                  <div ng-repeat="image in displayArray[15].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.fifteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.fifteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.fifteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.fifteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.fifteen">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('18', 'eighteen')">
               <div class="num red"><span>18</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[18].img track by $index">
+                  <div ng-repeat="image in displayArray[18].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.eighteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.eighteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.eighteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.eighteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.eighteen">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('21','twentyOne')">
               <div class="num red"><span>21</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[21].img track by $index">
+                  <div ng-repeat="image in displayArray[21].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyOne">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyOne">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyOne">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyOne">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyOne">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('24', 'twentyFour')">
               <div class="num black"><span>24</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[24].img track by $index">
+                  <div ng-repeat="image in displayArray[24].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyFour">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyFour">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyFour">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyFour">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyFour">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('27', 'twentySeven')">
               <div class="num red"><span>27</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[24].img track by $index">
+                  <div ng-repeat="image in displayArray[27].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentySeven">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentySeven">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentySeven">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentySeven">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentySeven">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('30','thirty')">
               <div class="num red"><span>30</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[30].img track by $index">
+                  <div ng-repeat="image in displayArray[30].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirty">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirty">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirty">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirty">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirty">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('33','thirtyThree')">
               <div class="num black"><span>33</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[33].img track by $index">
+                  <div ng-repeat="image in displayArray[33].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtyThree">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtyThree">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtyThree">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtyThree">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtyThree">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('36', 'thirtySix')">
               <div class="num red"><span>36</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[36].img track by $index">
+                  <div ng-repeat="image in displayArray[36].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtySix">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtySix">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtySix">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtySix">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtySix">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td class="sector" data-sector="1" ng-click="userBet('121','thirdColumn')"><span class="vt">2 to 1</span>
-              <div class="absolute-coin">
-                <div ng-repeat="image in place[121].img track by $index">
+              <div class="absolute-coin-big">
+                <div ng-repeat="image in displayArray[121].img track by $index">
                   <img src="{{image.img}}">
                 </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.thirdColumn">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.thirdColumn">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.thirdColumn">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.thirdColumn">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.thirdColumn">
-                  <img src="img/coin6.png">
-                </div> -->
               </div>
             </td>
-            <!--<td class="num history" rowspan="5"><span>history</span></td>-->
           </tr>
           <tr class="nums">
             <td class="hidden"></td>
             <td ng-click="userBet('2','two')">
               <div class="num black"><span>2</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[2].img track by $index">
+                  <div ng-repeat="image in displayArray[2].img track by $index">
                     <img src="{{image.img}}">
                   </div>
                 </div>
@@ -373,885 +160,378 @@
             <td ng-click="userBet('5','five')">
               <div class="num red"><span>5</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[5].img track by $index">
+                  <div ng-repeat="image in displayArray[5].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.five">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.five">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.five">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.five">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.five">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('8','eight')">
               <div class="num black"><span>8</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[8].img track by $index">
+                  <div ng-repeat="image in displayArray[8].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.eight">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.eight">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.eight">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.eight">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.eight">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('11','eleven')">
               <div class="num black"><span>11</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[11].img track by $index">
+                  <div ng-repeat="image in displayArray[11].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.eleven">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.eleven">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.eleven">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.eleven">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.eleven">
-                    <img src="img/coin6.png">
-                  </div> -->
                 </div>
               </div>
             </td>
             <td ng-click="userBet('14','fourteen')">
               <div class="num red"><span>14</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in place[14].img track by $index">
+                  <div ng-repeat="image in displayArray[14].img track by $index">
                     <img src="{{image.img}}">
                   </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.fourteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.fourteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.fourteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.fourteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.fourteen">
-                    <img src="img/coin6.png"> -->
-                  </div>
                 </div>
               </div>
-            </td>
-            <td ng-click="userBet('17','seventeen')">
-              <div class="num black"><span>17</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[17].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.seventeen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.seventeen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.seventeen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.seventeen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.seventeen">
-                    <img src="img/coin6.png"> -->
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('20','twenty')">
-              <div class="num black"><span>20</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[20].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twenty">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twenty">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twenty">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twenty">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twenty">
-                    <img src="img/coin6.png"> -->
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('23','twentyThree')">
-              <div class="num red"><span>23</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[23].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyThree">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyThree">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyThree">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyThree">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyThree">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('26','twentySix')">
-              <div class="num black"><span>26</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[26].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentySix">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentySix">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentySix">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentySix">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentySix">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('29','twentyNine')">
-              <div class="num black"><span>29</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[29].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyNine">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyNine">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyNine">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyNine">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyNine">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('32','thirtyTwo')">
-              <div class="num red"><span>32</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[32].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtyTwo">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtyTwo">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtyTwo">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtyTwo">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtyTwo">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('35','thirtyFive')">
-              <div class="num black"><span>35</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[35].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtyFive">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtyFive">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtyFive">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtyFive">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtyFive">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')"><span class="vt">2 to 1</span>
-              <div class="absolute-coin">
-                <div ng-repeat="image in place[221].img track by $index">
-                  <img src="{{image.img}}">
-                </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.secondColumn">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.secondColumn">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.secondColumn">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.secondColumn">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.secondColumn">
-                  <img src="img/coin6.png">
-                </div> -->
-              </div>
-            </td>
-          </tr>
-          <tr class="nums">
-            <td class="hidden"></td>
-            <td ng-click="userBet('1','one')">
-              <div class="num red"><span>1</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[1].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.one">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.one">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.one">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.one">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.one">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('4','four')">
-              <div class="num black"><span>4</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[4].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.four">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.four">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.four">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.four">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.four">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('7','seven')">
-              <div class="num red"><span>7</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[7].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.seven">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.seven">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.seven">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.seven">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.seven">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('10','ten')">
-              <div class="num black"><span>10</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[10].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.ten">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.ten">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.ten">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.ten">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.ten">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('13','thirteen')">
-              <div class="num black"><span>13</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[13].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirteen">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('16','sixteen')">
-              <div class="num red"><span>16</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[16].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.sixteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.sixteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.sixteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.sixteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.sixteen">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('19','nineteen')">
-              <div class="num red"><span>19</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[19].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.nineteen">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.nineteen">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.nineteen">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.nineteen">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.nineteen">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('22','twentyTwo')">
-              <div class="num black"><span>22</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[22].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyTwo">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyTwo">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyTwo">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyTwo">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyTwo">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('25','twentyFive')">
-              <div class="num red"><span>25</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[25].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyFive">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyFive">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyFive">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyFive">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyFive">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('28',twentyEight)">
-              <div class="num black"><span>28</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[28].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.twentyEight">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.twentyEight">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.twentyEight">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.twentyEight">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.twentyEight">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('31','thirtyOne')">
-              <div class="num black"><span>31</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[31].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtyOne">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtyOne">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtyOne">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtyOne">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtyOne">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td ng-click="userBet('34', 'thirtyFour')">
-              <div class="num red"><span>34</span>
-                <div class="absolute-coin">
-                  <div ng-repeat="image in place[34].img track by $index">
-                    <img src="{{image.img}}">
-                  </div>
-                  <!-- <div ng-if="coin2.coin2 && coin2.thirtyFour">
-                    <img src="img/coin2.png">
-                  </div>
-                  <div ng-if="coin3.coin3 && coin3.thirtyFour">
-                    <img src="img/coin3.png">
-                  </div>
-                  <div ng-if="coin4.coin4 && coin4.thirtyFour">
-                    <img src="img/coin4.png">
-                  </div>
-                  <div ng-if="coin5.coin5 && coin5.thirtyFour">
-                    <img src="img/coin5.png">
-                  </div>
-                  <div ng-if="coin6.coin6 && coin6.thirtyFour">
-                    <img src="img/coin6.png">
-                  </div> -->
-                </div>
-              </div>
-            </td>
-            <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')"><span class="vt">2 to 1</span>
-              <div class="absolute-coin">
-                <div ng-repeat="image in place[321].img track by $index">
-                  <img src="{{image.img}}">
-                </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.firstColumn">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.firstColumn">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.firstColumn">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.firstColumn">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.firstColumn">
-                  <img src="img/coin6.png">
-                </div> -->
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="empty"></td>
-            <td colspan="4" class="sector" data-sector="4" ng-click="userBet('First Dozen', 'firstDozen')">1st 12
-              <div class="absolute-coin-big">
-                <div ng-repeat="image in place[1].img track by $index">
-                  <img src="{{image.img}}">
-                </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.firstDozen">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.firstDozen">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.firstDozen">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.firstDozen">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.firstDozen">
-                  <img src="img/coin6.png">
-                </div> -->
-              </div>
-            </td>
-            <td colspan="4" class="sector" data-sector="5" ng-click="userBet('Middle Dozen','middleDozen')">2nd 12
-              <div class="absolute-coin-big">
-                <div ng-repeat="image in place[1].img track by $index">
-                  <img src="{{image.img}}">
-                </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.middleDozen">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.middleDozen">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.middleDozen">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.middleDozen">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.middleDozen">
-                  <img src="img/coin6.png">
-                </div> -->
-              </div>
-            </td>
-            <td colspan="4" class="sector" data-sector="6" ng-click="userBet('Last Dozen','lastDozen')">3rd 12
-              <div class="absolute-coin-big">
-                <div ng-repeat="image in place[1].img track by $index">
-                  <img src="{{image.img}}">
-                </div>
-                <!-- <div ng-if="coin2.coin2 && coin2.lastDozen">
-                  <img src="img/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.lastDozen">
-                  <img src="img/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.lastDozen">
-                  <img src="img/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.lastDozen">
-                  <img src="img/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.lastDozen">
-                  <img src="img/coin6.png">
-                </div> -->
-              </div>
-            </td>
-            <td class="empty"></td>
-          </tr>
-          <tr>
-            <td class="empty"></td>
-            <td colspan="2" class="sector" data-sector="7" ng-click="userBet('Low Bet','lowBet')">1 to 18
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.lowBet">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.lowBet">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.lowBet">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.lowBet">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.lowBet">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.lowBet">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td colspan="2" class="sector" data-sector="8" ng-click="userBet('Even number','evenNumber')">EVEN
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.evenNumber">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.evenNumber">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.evenNumber">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.evenNumber">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.evenNumber">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.evenNumber">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td colspan="2" class="sector red" data-sector="9" ng-click="userBet('Red color','redColor')">RED
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.redColor">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.redColor">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.redColor">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.redColor">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.redColor">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.redColor">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td colspan="2" class="sector black" data-sector="10" ng-click="userBet('Black color','blackColor')">BLACK
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.blackColor">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.blackColor">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.blackColor">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.blackColor">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.blackColor">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.blackColor">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td colspan="2" class="sector" data-sector="11" ng-click="userBet('Odd numbers','oddNumber')">ODD
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.oddNumber">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.oddNumber">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.oddNumber">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.oddNumber">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.oddNumber">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.oddNumber">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td colspan="2" class="sector" data-sector="12" ng-click="userBet('High Bet', 'highBet')">19 to 36
-              <div class="absolute-coin-big">
-                <div ng-if="coin1.coin1 && coin1.highBet">
-                  <img src="{{image.img}}">
-                </div>
-                <div ng-if="coin2.coin2 && coin2.highBet">
-                  <img src="img/roulette/coin2.png">
-                </div>
-                <div ng-if="coin3.coin3 && coin3.highBet">
-                  <img src="img/roulette/coin3.png">
-                </div>
-                <div ng-if="coin4.coin4 && coin4.highBet">
-                  <img src="img/roulette/coin4.png">
-                </div>
-                <div ng-if="coin5.coin5 && coin5.highBet">
-                  <img src="img/roulette/coin5.png">
-                </div>
-                <div ng-if="coin6.coin6 && coin6.highBet">
-                  <img src="img/roulette/coin6.png">
-                </div>
-              </div>
-            </td>
-            <td class="empty"></td>
-          </tr>
-          <tr>
-            <!--<input type="button" value="spin" id='spin' ng-click="openModal()" /></tr>-->
-        </table>
       </div>
-      <div class="div-inline width12 history scroll">
-        History
-        <ul class="history-list">
-          <li class="div-inline">
-            <div class="num red"><span>12</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>22</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>10</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>5</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>12</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>22</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>10</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>5</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>12</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>22</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>10</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>5</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>12</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>22</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num green"><span>10</span></div>
-          </li>
-          <li class="div-inline">
-            <div class="num red"><span>5</span></div>
-          </li>
-        </ul>
-      </div>
+      </td>
+      <td ng-click="userBet('17','seventeen')">
+        <div class="num black"><span>17</span>
+          <div class="absolute-coin">
+            <div ng-repeat="image in displayArray[17].img track by $index">
+              <img src="{{image.img}}">
+            </div>
+          </div>
+        </div>
     </div>
-    <div class="absolute-button">
-      <div class="div-inline upper-button">
-        <span>Money</span>
-        <p>$1000</p>
+    </td>
+    <td ng-click="userBet('20','twenty')">
+      <div class="num black"><span>20</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[20].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
       </div>
-      <div class="div-inline upper-button pdbutton">
-        <span>Tier</span>
-      </div>
-      <div class="div-inline upper-button pdbutton">
-        <span>Orphelins</span>
-      </div>
-      <div class="div-inline upper-button pdbutton">
-        <span>Neighbors</span>
-      </div>
-      <div class="div-inline upper-button pdbutton">
-        <span>Finals Bet</span>
-      </div>
-      <div id="btnSpin" class="div-inline upper-button pdbutton">Spin</div>
-    </div>
   </div>
+  </td>
+  <td ng-click="userBet('23','twentyThree')">
+    <div class="num red"><span>23</span>
+      <div class="absolute-coin">
+        <div ng-repeat="image in displayArray[23].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </div>
+  </td>
+  <td ng-click="userBet('26','twentySix')">
+    <div class="num black"><span>26</span>
+      <div class="absolute-coin">
+        <div ng-repeat="image in displayArray[26].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </div>
+  </td>
+  <td ng-click="userBet('29','twentyNine')">
+    <div class="num black"><span>29</span>
+      <div class="absolute-coin">
+        <div ng-repeat="image in displayArray[29].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </div>
+  </td>
+  <td ng-click="userBet('32','thirtyTwo')">
+    <div class="num red"><span>32</span>
+      <div class="absolute-coin">
+        <div ng-repeat="image in displayArray[32].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </div>
+  </td>
+  <td ng-click="userBet('35','thirtyFive')">
+    <div class="num black"><span>35</span>
+      <div class="absolute-coin">
+        <div ng-repeat="image in displayArray[35].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </div>
+  </td>
+  <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')"><span class="vt">2 to 1</span>
+    <div class="absolute-coin-big">
+      <div ng-repeat="image in displayArray[221].img track by $index">
+        <img src="{{image.img}}">
+      </div>
+    </div>
+  </td>
+  </tr>
+  <tr class="nums">
+    <td class="hidden"></td>
+    <td ng-click="userBet('1','one')">
+      <div class="num red"><span>1</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[1].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('4','four')">
+      <div class="num black"><span>4</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[4].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('7','seven')">
+      <div class="num red"><span>7</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[7].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('10','ten')">
+      <div class="num black"><span>10</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[10].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('13','thirteen')">
+      <div class="num black"><span>13</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[13].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('16','sixteen')">
+      <div class="num red"><span>16</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[16].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('19','nineteen')">
+      <div class="num red"><span>19</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[19].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('22','twentyTwo')">
+      <div class="num black"><span>22</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[22].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('25','twentyFive')">
+      <div class="num red"><span>25</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[25].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('28',twentyEight)">
+      <div class="num black"><span>28</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[28].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('31','thirtyOne')">
+      <div class="num black"><span>31</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[31].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td ng-click="userBet('34', 'thirtyFour')">
+      <div class="num red"><span>34</span>
+        <div class="absolute-coin">
+          <div ng-repeat="image in displayArray[34].img track by $index">
+            <img src="{{image.img}}">
+          </div>
+        </div>
+      </div>
+    </td>
+    <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')"><span class="vt">2 to 1</span>
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray[321].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="empty"></td>
+    <td colspan="4" class="sector" data-sector="4" ng-click="userBet('112', 'firstDozen')">1st 12
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray[112].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="4" class="sector" data-sector="5" ng-click="userBet('212','middleDozen')">2nd 12
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray[212].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="4" class="sector" data-sector="6" ng-click="userBet('312','lastDozen')">3rd 12
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray[312].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td class="empty"></td>
+  </tr>
+  <tr>
+    <td class="empty"></td>
+    <td colspan="2" class="sector" data-sector="7" ng-click="userBet('118','lowBet')">1 to 18
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray[118].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="2" class="sector" data-sector="8" ng-click="userBet('even','evenNumber')">EVEN
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray['even'].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="2" class="sector red" data-sector="9" ng-click="userBet('red','redColor')">RED
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray['red'].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="2" class="sector black" data-sector="10" ng-click="userBet('black','blackColor')">BLACK
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray['black'].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="2" class="sector" data-sector="11" ng-click="userBet('odd','oddNumber')">ODD
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray['odd'].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td colspan="2" class="sector" data-sector="12" ng-click="userBet('1936', 'highBet')">19 to 36
+      <div class="absolute-coin-big">
+        <div ng-repeat="image in displayArray['1936'].img track by $index">
+          <img src="{{image.img}}">
+        </div>
+      </div>
+    </td>
+    <td class="empty"></td>
+  </tr>
+  <tr>
+    <!--<input type="button" value="spin" id='spin' ng-click="openModal()" /></tr>-->
+    </table>
+</div>
+<div class="div-inline width12 history scroll">
+  History
+  <ul class="history-list">
+    <li class="div-inline">
+      <div class="num red"><span>12</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>22</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>10</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>5</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>12</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>22</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>10</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>5</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>12</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>22</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>10</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>5</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>12</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>22</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num green"><span>10</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red"><span>5</span></div>
+    </li>
+  </ul>
+</div>
+</div>
+<div class="absolute-button">
+  <div class="div-inline upper-button">
+    <span>Money</span>
+    <p>$1000</p>
+  </div>
+  <div class="div-inline upper-button pdbutton">
+    <span>Tier</span>
+  </div>
+  <div class="div-inline upper-button pdbutton">
+    <span>Orphelins</span>
+  </div>
+  <div class="div-inline upper-button pdbutton">
+    <span>Neighbors</span>
+  </div>
+  <div class="div-inline upper-button pdbutton">
+    <span>Finals Bet</span>
+  </div>
+  <div id="btnSpin" class="div-inline upper-button pdbutton">Spin</div>
+</div>
+</div>
 </div>
