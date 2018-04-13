@@ -228,6 +228,25 @@
             font-size: 1em;
           }
         }
+        select {
+          transform: translateY(15%);
+          height: 100%;
+          width: 100%;
+          font-weight: bold; // font-family: 'Cinzel-Bold';
+          font-weight: bold;
+          font-size: 1em;
+          color: white;
+          background: transparent;
+          border: none;
+          option {
+            font-family: 'Cinzel-Regular';
+            font-size: 1em;
+            background-color: #3f474f; // background: url('../img/model/input_bg.png');
+            // background-size: 100% 100%;
+            color: white;
+            padding: 2px 3%;
+          }
+        }
       }
       table {
         width: 90%;

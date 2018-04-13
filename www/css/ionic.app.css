@@ -11928,6 +11928,22 @@ ion-item.item {
           font-family: 'Cinzel-Bold';
           font-weight: bold;
           font-size: 1em; }
+      .change_password-model .field form .login_button select {
+        transform: translateY(15%);
+        height: 100%;
+        width: 100%;
+        font-weight: bold;
+        font-weight: bold;
+        font-size: 1em;
+        color: white;
+        background: transparent;
+        border: none; }
+        .change_password-model .field form .login_button select option {
+          font-family: 'Cinzel-Regular';
+          font-size: 1em;
+          background-color: #3f474f;
+          color: white;
+          padding: 2px 3%; }
     .change_password-model .field form table {
       width: 90%;
       margin: 0 auto; }
