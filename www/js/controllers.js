@@ -9,7 +9,5 @@
 //   //$scope.$on('$ionicView.enter', function(e) {
 //   //});
 
- 
+
 // })
-
-
