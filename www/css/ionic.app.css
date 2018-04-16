@@ -12840,12 +12840,9 @@ ion-item.item {
   background: #1C7022;
   display: table;
   position: relative;
-  display: table;
   cursor: move;
-  font-size: 12px;
   font-family: 'Crimson Text', serif;
-  /*transform: rotate(90deg);
-      margin:300px 0 0 -230px;*/ }
+  font-size: 1vw; }
 
 .roulette-cell {
   display: table-cell;
@@ -12859,10 +12856,28 @@ tr {
   border-collapse: collapse;
   /*border-spacing: 0;*/ }
 
+.upper-button {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: black;
+  font-size: 1.5em;
+  color: white;
+  padding: 0 3%;
+  margin-right: 8px;
+  line-height: 1.5;
+  vertical-align: middle;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5); }
+  .upper-button hr {
+    margin: 5px 0; }
+
+.div-inline {
+  display: inline-block; }
+
 .history-list .num {
-  border-radius: 50px;
-  width: 24px;
-  height: 24px; }
+  border-radius: 50%;
+  border: solid 1px white;
+  width: 1.8vw;
+  height: 1.8vw; }
 
 .width100 {
   width: 100%; }
@@ -12889,48 +12904,46 @@ tr {
   display: table-cell;
   vertical-align: middle; }
 
-.roulette td div {
-  padding: 2px;
-  margin: 2px;
-  border-spacing: 0;
-  border-collapse: collapse;
-  width: 25px;
-  height: 25px;
-  border-radius: 50px;
+.roulette td {
+  border: 2px solid rgba(255, 255, 0, 0.7);
+  height: 5vw;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
-  font-size: 10px;
+  color: white;
+  position: relative;
+  white-space: nowrap; }
+  .roulette td:hover {
+    background: rgba(255, 255, 255, 0.4); }
+
+.roulette td .num {
+  transform: rotate(270deg);
+  margin: 2px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 1.8vw;
   color: white;
   margin: 0 auto;
   white-space: nowrap; }
 
-.roulette td {
-  border: 2px solid rgba(255, 255, 0, 0.7);
-  height: 40px;
-  border-radius: 50px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: bold;
-  font-size: 10px;
-  color: white;
-  position: relative;
-  white-space: nowrap; }
+.sector {
+  font-size: 1.8vw; }
+  .sector:hover {
+    background: rgba(255, 255, 255, 0.3); }
 
 .history {
   background: black;
   color: white;
   text-align: center;
-  border-radius: 5px !important;
-  vertical-align: top !important;
-  height: 250px;
-  border: 1px solid rgba(255, 255, 255, 0.46); }
-  .history span {
-    transform: rotate(0deg) !important;
-    font-size: 12px;
-    margin: 5px;
-    padding-top: 3px;
-    font-weight: 600; }
+  border-radius: 5px;
+  vertical-align: top;
+  height: 250px; }
 
 .scroll {
   height: 230px;
@@ -12946,21 +12959,14 @@ tr {
 .roulette .sector {
   background: #1C7022; }
 
-.roulette .sector .vt {
-  font-size: 10px; }
-
-.roulette .num {
-  font-size: 10px; }
-
 .roulette .num span {
   display: block;
-  transform: rotate(270deg); }
+  padding: 0.45vw; }
 
 .roulette .zero {
   width: 50px;
-  font-size: 40px;
+  font-size: 4em;
   padding: 0px 15px;
-  font-size: 5px;
   line-height: 1.5; }
 
 .roulette .empty {
@@ -12972,9 +12978,6 @@ tr {
   left: 15%; }
 
 /* colors */
-.roulette .green {
-  background: #1C7022; }
-
 .roulette .red {
   background: #A91607; }
 
@@ -12984,21 +12987,15 @@ tr {
 /* cells hovers */
 .roulette .sector.hover,
 .roulette .num.hover {
-  font-size: 26px;
   -moz-box-shadow: inset 0 0 5px #FFF, inset 0 0 5px #FFF;
   -webkit-box-shadow: inset 0 0 5px #FFF, inset 0 0 5px #FFF;
   box-shadow: inset 0 0 5px #FFF, inset 0 0 5px #FFF; }
 
-.roulette .sector.hover .vt {
-  font-size: 17px; }
-
 .roulette .sector.hover {
-  font-size: 22px;
   background: #1C9022 !important;
   color: #FBEC0F !important; }
 
 .roulette .green.hover {
-  font-size: 68px;
   background: #3CC042 !important;
   color: #FBEC0F !important; }
 
@@ -13211,21 +13208,6 @@ tr {
   margin: 0 0 0 auto;
   cursor: move; }
 
-.upper-button {
-  border-radius: 10px;
-  margin-bottom: 5px;
-  background: black;
-  color: white;
-  padding: 0px 15px;
-  margin-right: 8px;
-  line-height: 1.5;
-  font-size: 10px;
-  vertical-align: middle;
-  border: 1px solid rgba(255, 255, 255, 0.46); }
-
-.div-inline {
-  display: inline-block; }
-
 .spinner_main .control {
   text-align: center;
   color: #fff;
@@ -13278,16 +13260,6 @@ tr {
   height: 20em;
   border-radius: 20em;
   z-index: 20; }
-
-.spinner_main .num {
-  position: absolute;
-  top: 0.4em;
-  color: white;
-  z-index: 40;
-  left: 10.28em;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 700; }
 
 .spinner_main .redbg {
   background: #a90329;
@@ -13665,15 +13637,17 @@ tr {
     .login .login_block .invailduser {
       width: 100%; }
 
-.absolute-coin img {
+.absolute-coin {
   position: absolute;
-  top: 10px;
-  left: 3px; }
+  top: 55% !important;
+  left: 60%;
+  transform: translate(-50%, -50%); }
 
 .absolute-coin-big {
   position: absolute;
-  top: 0;
-  left: 0; }
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .MyClass {
   box-shadow: 1px 1px 20px white;
