@@ -92,7 +92,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         break;
     }
   }
-  $ionicModal.fromTemplateUrl('modal/message.html', {
+  $ionicModal.fromTemplateUrl('templates/model/message.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
