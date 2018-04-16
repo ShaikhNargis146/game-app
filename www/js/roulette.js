@@ -506,7 +506,6 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
 
   $timeout(function () {
     winningNum = $scope.spinner.numberToCome;
-    console.log(winningNum);
     spinTo(winningNum);
   }, 1000);
 
