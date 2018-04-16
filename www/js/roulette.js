@@ -299,7 +299,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       }
       $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
       console.log("TOTALMONEY", $scope.totalMoney, $scope.betAmount);
-      if ($scope.betUser.length != 0) {
+      if ($scope.betUser.length !== 0) {
         var index = _.find($scope.betUser,
           function (o) {
             return o.bet == betName;
@@ -355,14 +355,18 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       }
     });
   };
-  var btnSpin = $("#btnSpin");
-  btnSpin.click(function () {
-    $state.go("spinner");
+
+
+  io.socket.on("spinWheel", function (data) {
+    $state.go("spinnerNo", {
+      number: btoa(data.result + "roulette" + _.random(0, 9999999))
+    });
   });
+
 });
 
 
-myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope) {
+myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope, $stateParams) {
   var rotationsTime = 8;
   var wheelSpinTime = 6;
   var ballSpinTime = 5;
@@ -457,7 +461,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
   $.keyframe.debug = true;
 
   $scope.spinner = {
-    numberToCome: _.random(0, 32)
+    numberToCome: parseInt(atob($stateParams.number))
   };
   createWheel();
   $scope.results = $rootScope.result;
@@ -501,15 +505,10 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
   }
 
   $timeout(function () {
-    if ($("input").val() == "") {
-      var rndNum = Math.floor(Math.random() * 34 + 0);
-    } else {
-      var rndNum = $("input").val();
-    }
-
-    winningNum = rndNum;
+    winningNum = $scope.spinner.numberToCome;
+    console.log(winningNum);
     spinTo(winningNum);
-  }, 100);
+  }, 1000);
 
   // btnSpin.click(function () {
   //   console.log("btn clicked");

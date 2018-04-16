@@ -103,6 +103,12 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         cache: false,
         templateUrl: 'templates/roulette/spinner.html',
         controller: 'SpinnerCtrl'
+      })
+      .state('spinnerNo', {
+        url: '/spinner/:number',
+        cache: false,
+        templateUrl: 'templates/roulette/spinner.html',
+        controller: 'SpinnerCtrl'
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('redirecting');

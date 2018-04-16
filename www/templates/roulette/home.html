@@ -17,7 +17,8 @@
       <div class="div-inline width6 history">
         <ul class="coin">
           <li style="margin-top:3px;" ng-repeat="coin in coins">
-            <div><img src="img/roulette/{{coin}}.png" ng-class="{{coin}}.{{coin}}?'MyClass':''" ng-click="coinSelect('{{coin}}')">
+            <div>
+              <img src="img/roulette/{{coin}}.png" ng-class="{{coin}}.{{coin}}?'MyClass':''" ng-click="coinSelect('{{coin}}')">
             </div>
           </li>
         </ul>
@@ -25,13 +26,15 @@
       <div class="div-inline width80">
         <table>
           <tr class="nums">
-            <td class="num green zero" rowspan="3" ng-click="userBet('0')"><span>0</span></td>
+            <td class="num green zero" rowspan="3" ng-click="userBet('0')">
+              <span>0</span>
+            </td>
             <td ng-click="userBet('3','three')">
               <div class="num red">
                 <span>3</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[3].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
-                     <!-- ng-style="top:calc(top-3)px" -->
+                    <!-- ng-style="top:calc(top-3)px" -->
                     <img src="{{image.img}}">
                   </div>
                 </div>
@@ -48,7 +51,8 @@
               </div>
             </td>
             <td ng-click="userBet('9','nine')">
-              <div class="num red"><span>9</span>
+              <div class="num red">
+                <span>9</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[9].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -57,16 +61,18 @@
               </div>
             </td>
             <td ng-click="userBet('12','twelve')">
-              <div class="num red"><span>12</span>
+              <div class="num red">
+                <span>12</span>
                 <div class="absolute-coin">
-                  <div ng-repeat="image in displayArray[12].img track by $index"ng-style="{'top':'{{10-3*$index}}px'}">
+                  <div ng-repeat="image in displayArray[12].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
                   </div>
                 </div>
               </div>
             </td>
             <td ng-click="userBet('15', 'fifteen')">
-              <div class="num black"><span>15</span>
+              <div class="num black">
+                <span>15</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[15].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -75,7 +81,8 @@
               </div>
             </td>
             <td ng-click="userBet('18', 'eighteen')">
-              <div class="num red"><span>18</span>
+              <div class="num red">
+                <span>18</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[18].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -84,7 +91,8 @@
               </div>
             </td>
             <td ng-click="userBet('21','twentyOne')">
-              <div class="num red"><span>21</span>
+              <div class="num red">
+                <span>21</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[21].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -93,7 +101,8 @@
               </div>
             </td>
             <td ng-click="userBet('24', 'twentyFour')">
-              <div class="num black"><span>24</span>
+              <div class="num black">
+                <span>24</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[24].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -102,7 +111,8 @@
               </div>
             </td>
             <td ng-click="userBet('27', 'twentySeven')">
-              <div class="num red"><span>27</span>
+              <div class="num red">
+                <span>27</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[27].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -111,7 +121,8 @@
               </div>
             </td>
             <td ng-click="userBet('30','thirty')">
-              <div class="num red"><span>30</span>
+              <div class="num red">
+                <span>30</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[30].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -120,7 +131,8 @@
               </div>
             </td>
             <td ng-click="userBet('33','thirtyThree')">
-              <div class="num black"><span>33</span>
+              <div class="num black">
+                <span>33</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[33].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -129,7 +141,8 @@
               </div>
             </td>
             <td ng-click="userBet('36', 'thirtySix')">
-              <div class="num red"><span>36</span>
+              <div class="num red">
+                <span>36</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[36].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -137,7 +150,8 @@
                 </div>
               </div>
             </td>
-            <td class="sector" data-sector="1" ng-click="userBet('121','thirdColumn')"><span class="vt">2 to 1</span>
+            <td class="sector" data-sector="1" ng-click="userBet('121','thirdColumn')">
+              <span class="vt">2 to 1</span>
               <div class="absolute-coin-big">
                 <div ng-repeat="image in displayArray[121].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                   <img src="{{image.img}}">
@@ -148,7 +162,8 @@
           <tr class="nums">
             <td class="hidden"></td>
             <td ng-click="userBet('2','two')">
-              <div class="num black"><span>2</span>
+              <div class="num black">
+                <span>2</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[2].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -157,7 +172,8 @@
               </div>
             </td>
             <td ng-click="userBet('5','five')">
-              <div class="num red"><span>5</span>
+              <div class="num red">
+                <span>5</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[5].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -166,7 +182,8 @@
               </div>
             </td>
             <td ng-click="userBet('8','eight')">
-              <div class="num black"><span>8</span>
+              <div class="num black">
+                <span>8</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[8].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -175,7 +192,8 @@
               </div>
             </td>
             <td ng-click="userBet('11','eleven')">
-              <div class="num black"><span>11</span>
+              <div class="num black">
+                <span>11</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[11].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -184,7 +202,8 @@
               </div>
             </td>
             <td ng-click="userBet('14','fourteen')">
-              <div class="num red"><span>14</span>
+              <div class="num red">
+                <span>14</span>
                 <div class="absolute-coin">
                   <div ng-repeat="image in displayArray[14].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
                     <img src="{{image.img}}">
@@ -194,7 +213,8 @@
       </div>
       </td>
       <td ng-click="userBet('17','seventeen')">
-        <div class="num black"><span>17</span>
+        <div class="num black">
+          <span>17</span>
           <div class="absolute-coin">
             <div ng-repeat="image in displayArray[17].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
               <img src="{{image.img}}">
@@ -204,7 +224,8 @@
     </div>
     </td>
     <td ng-click="userBet('20','twenty')">
-      <div class="num black"><span>20</span>
+      <div class="num black">
+        <span>20</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[20].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -214,7 +235,8 @@
   </div>
   </td>
   <td ng-click="userBet('23','twentyThree')">
-    <div class="num red"><span>23</span>
+    <div class="num red">
+      <span>23</span>
       <div class="absolute-coin">
         <div ng-repeat="image in displayArray[23].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -223,7 +245,8 @@
     </div>
   </td>
   <td ng-click="userBet('26','twentySix')">
-    <div class="num black"><span>26</span>
+    <div class="num black">
+      <span>26</span>
       <div class="absolute-coin">
         <div ng-repeat="image in displayArray[26].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -232,7 +255,8 @@
     </div>
   </td>
   <td ng-click="userBet('29','twentyNine')">
-    <div class="num black"><span>29</span>
+    <div class="num black">
+      <span>29</span>
       <div class="absolute-coin">
         <div ng-repeat="image in displayArray[29].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -241,7 +265,8 @@
     </div>
   </td>
   <td ng-click="userBet('32','thirtyTwo')">
-    <div class="num red"><span>32</span>
+    <div class="num red">
+      <span>32</span>
       <div class="absolute-coin">
         <div ng-repeat="image in displayArray[32].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -250,7 +275,8 @@
     </div>
   </td>
   <td ng-click="userBet('35','thirtyFive')">
-    <div class="num black"><span>35</span>
+    <div class="num black">
+      <span>35</span>
       <div class="absolute-coin">
         <div ng-repeat="image in displayArray[35].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -258,7 +284,8 @@
       </div>
     </div>
   </td>
-  <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')"><span class="vt">2 to 1</span>
+  <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')">
+    <span class="vt">2 to 1</span>
     <div class="absolute-coin-big">
       <div ng-repeat="image in displayArray[221].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
         <img src="{{image.img}}">
@@ -269,7 +296,8 @@
   <tr class="nums">
     <td class="hidden"></td>
     <td ng-click="userBet('1','one')">
-      <div class="num red"><span>1</span>
+      <div class="num red">
+        <span>1</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[1].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -278,7 +306,8 @@
       </div>
     </td>
     <td ng-click="userBet('4','four')">
-      <div class="num black"><span>4</span>
+      <div class="num black">
+        <span>4</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[4].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -287,7 +316,8 @@
       </div>
     </td>
     <td ng-click="userBet('7','seven')">
-      <div class="num red"><span>7</span>
+      <div class="num red">
+        <span>7</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[7].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -296,7 +326,8 @@
       </div>
     </td>
     <td ng-click="userBet('10','ten')">
-      <div class="num black"><span>10</span>
+      <div class="num black">
+        <span>10</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[10].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -305,7 +336,8 @@
       </div>
     </td>
     <td ng-click="userBet('13','thirteen')">
-      <div class="num black"><span>13</span>
+      <div class="num black">
+        <span>13</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[13].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -314,7 +346,8 @@
       </div>
     </td>
     <td ng-click="userBet('16','sixteen')">
-      <div class="num red"><span>16</span>
+      <div class="num red">
+        <span>16</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[16].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -323,7 +356,8 @@
       </div>
     </td>
     <td ng-click="userBet('19','nineteen')">
-      <div class="num red"><span>19</span>
+      <div class="num red">
+        <span>19</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[19].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -332,7 +366,8 @@
       </div>
     </td>
     <td ng-click="userBet('22','twentyTwo')">
-      <div class="num black"><span>22</span>
+      <div class="num black">
+        <span>22</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[22].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -341,7 +376,8 @@
       </div>
     </td>
     <td ng-click="userBet('25','twentyFive')">
-      <div class="num red"><span>25</span>
+      <div class="num red">
+        <span>25</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[25].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -350,7 +386,8 @@
       </div>
     </td>
     <td ng-click="userBet('28',twentyEight)">
-      <div class="num black"><span>28</span>
+      <div class="num black">
+        <span>28</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[28].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -359,7 +396,8 @@
       </div>
     </td>
     <td ng-click="userBet('31','thirtyOne')">
-      <div class="num black"><span>31</span>
+      <div class="num black">
+        <span>31</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[31].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -368,7 +406,8 @@
       </div>
     </td>
     <td ng-click="userBet('34', 'thirtyFour')">
-      <div class="num red"><span>34</span>
+      <div class="num red">
+        <span>34</span>
         <div class="absolute-coin">
           <div ng-repeat="image in displayArray[34].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
             <img src="{{image.img}}">
@@ -376,7 +415,8 @@
         </div>
       </div>
     </td>
-    <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')"><span class="vt">2 to 1</span>
+    <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')">
+      <span class="vt">2 to 1</span>
       <div class="absolute-coin-big">
         <div ng-repeat="image in displayArray[321].img track by $index" ng-style="{'top':'{{10-3*$index}}px'}">
           <img src="{{image.img}}">
@@ -463,52 +503,84 @@
   History
   <ul class="history-list">
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>22</span></div>
+      <div class="num green">
+        <span>22</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>10</span></div>
+      <div class="num green">
+        <span>10</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>22</span></div>
+      <div class="num green">
+        <span>22</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>10</span></div>
+      <div class="num green">
+        <span>10</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>22</span></div>
+      <div class="num green">
+        <span>22</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>10</span></div>
+      <div class="num green">
+        <span>10</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>22</span></div>
+      <div class="num green">
+        <span>22</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num green"><span>10</span></div>
+      <div class="num green">
+        <span>10</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
   </ul>
 </div>
@@ -530,7 +602,7 @@
   <div class="div-inline upper-button pdbutton">
     <span>Finals Bet</span>
   </div>
-  <div id="btnSpin" class="div-inline upper-button pdbutton">Spin</div>
+  <!-- <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div> -->
 </div>
 </div>
 </div>
