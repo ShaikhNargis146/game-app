@@ -13,6 +13,12 @@
       <hr>
       <div>Max Bet: 1000 &#8377;</div>
     </div>
+    <div class="div-inline upper-button">
+      <div ng-click="Undo()">Undo</div>
+    </div>
+    <div class="div-inline upper-button">
+        <div ng-click="removeAll()">Remove All</div>
+    </div>
 
     <div class="width100">
       <div class="div-inline width6 history">
@@ -27,8 +33,13 @@
       <div class="div-inline width80">
         <table>
           <tr class="nums">
-            <td class="num zero" rowspan="3" ng-click="userBet('0')">
-              <span>0</span>
+            <td rowspan="3" ng-click="userBet('0')">
+              <div class="zero">
+                <span>0</span>
+                <div class="absolute-coin" ng-repeat="image in displayArray[0].img track by $index">
+                  <img src="{{image.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
+                </div>
+              </div>
             </td>
             <td ng-click="userBet('3','three')">
               <div class="num red">
@@ -474,24 +485,27 @@
     </ul>
   </div>
   </div>
-  <div class="absolute-button">
-    <div class="div-inline upper-button">
-      <span>Money</span>
-      <p>$1000</p>
+  <div class="main_abs_div">
+
+    <div class="absolute-button">
+      <div class="div-inline upper-button">
+        <span>Money</span>
+        <p>$1000</p>
+      </div>
+      <div class="div-inline upper-button pdbutton">
+        <span>Tier</span>
+      </div>
+      <div class="div-inline upper-button pdbutton">
+        <span>Orphelins</span>
+      </div>
+      <div class="div-inline upper-button pdbutton">
+        <span>Neighbors</span>
+      </div>
+      <div class="div-inline upper-button pdbutton">
+        <span>Finals Bet</span>
+      </div>
+      <!-- <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div> -->
     </div>
-    <div class="div-inline upper-button pdbutton">
-      <span>Tier</span>
-    </div>
-    <div class="div-inline upper-button pdbutton">
-      <span>Orphelins</span>
-    </div>
-    <div class="div-inline upper-button pdbutton">
-      <span>Neighbors</span>
-    </div>
-    <div class="div-inline upper-button pdbutton">
-      <span>Finals Bet</span>
-    </div>
-    <!-- <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div> -->
   </div>
   </div>
   </div>

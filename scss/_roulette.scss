@@ -157,10 +157,11 @@ background: rgba(255, 255, 255, 0.3);
 
 .roulette .num span {
   display: block;
-  padding: 0.45vw;
+  padding: 30% 0.45vw;;
 }
 
 .roulette .zero {
+  transform: rotate(270deg);
   width: 50px;
   font-size: 4em;
   padding: 0px 15px;
@@ -170,11 +171,14 @@ background: rgba(255, 255, 255, 0.3);
 .roulette .empty {
   border: none;
 }
-
+.main_abs_div{
+  position: relative;
+}
 .absolute-button {
   position: absolute;
-  bottom: 5%;
-  left: 15%;
+  width: 100%;
+  top: 5%;
+  left: 13%;
 }
 
 /* colors */

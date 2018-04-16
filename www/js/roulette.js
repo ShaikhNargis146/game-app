@@ -302,7 +302,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         $scope.amountBet[field] = $scope.betAmount;
       }
       $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
-      console.log("TOTALMONEY", $scope.totalMoney, $scope.betAmount);
       if ($scope.betUser.length !== 0) {
         var index = _.find($scope.betUser,
           function (o) {
@@ -332,6 +331,16 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     }
 
   };
+
+
+  $scope.Undo = function () {}
+
+  $scope.removeAll = function () {
+    $scope.displayArray = [];
+  }
+
+
+
   if ($scope.betUser) {
     // $timeout(function () {
 
