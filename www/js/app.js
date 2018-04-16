@@ -92,8 +92,8 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'
       })
-      .state('home', {
-        url: '/home',
+      .state('roulette', {
+        url: '/roulette',
         cache: false,
         templateUrl: 'templates/roulette/home.html',
         controller: 'HomeCtrl'

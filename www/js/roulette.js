@@ -366,7 +366,15 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 
-myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope, $stateParams) {
+myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
+
+
+
+  io.socket.on("startBetting", function (data) {
+    $state.go("roulette");
+  });
+
+
   var rotationsTime = 8;
   var wheelSpinTime = 6;
   var ballSpinTime = 5;
