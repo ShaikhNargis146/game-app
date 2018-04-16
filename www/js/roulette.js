@@ -1,4 +1,4 @@
-myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope) {
+myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
   //   $ionicModal.fromTemplateUrl('../modal/spinner.html', {
   //     scope: $scope,
   //     animation: 'slide-in-up'
@@ -11,6 +11,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   //   $scope.closeModal = function() {
   //     $scope.modal.hide();
   //   };
+
+  RouletteService.getLastResults(function (data) {
+    $scope.lastResults = data;
+  });
 
   $scope.accessToken = $.jStorage.get("accessToken");
   if (_.isEmpty($scope.accessToken)) {
@@ -338,7 +342,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     if (data.data == "Bets are Not Allowed") {
       if ($scope.betUser) {
         _.each($scope.betUser, function (user) {
-          Service.saveUserBets(user, function (data) {
+          RouletteService.saveUserBets(user, function (data) {
             $rootScope.result = data.data.results;
           });
         });
@@ -622,4 +626,17 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
       complete: function () {} //[optional]  Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
     });
   }
+});
+
+myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
+  return {
+    getLastResults: function (callback) {
+      $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
+        callback(data.data.data);
+      });
+    },
+    saveUserBets: function (data, callback) {
+
+    }
+  };
 });

@@ -501,85 +501,10 @@
 </div>
 <div class="div-inline width12 history scroll">
   History
-  <ul class="history-list">
-    <li class="div-inline">
+  <ul class="">
+    <li class="div-inline" ng-repeat="result in lastResults">
       <div class="num red">
-        <span>12</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>22</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>10</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>5</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>12</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>22</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>10</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>5</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>12</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>22</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>10</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>5</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>12</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>22</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num green">
-        <span>10</span>
-      </div>
-    </li>
-    <li class="div-inline">
-      <div class="num red">
-        <span>5</span>
+        <span>{{result.results}}</span>
       </div>
     </li>
   </ul>
