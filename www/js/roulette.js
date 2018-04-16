@@ -56,7 +56,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin2: true,
             amount: 5,
             count: 0
-          }
+          };
         }
         break;
       case "coin3":
@@ -149,7 +149,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin2++;
           }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 1
+            return a.id !== 1;
           });
           for (i = 0; i < coin1mod; i++) {
             temp.img.push({
@@ -170,7 +170,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin3++;
           }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 2
+            return a.id !== 2;
           });
           for (i = 0; i < coin2mod; i++) {
             temp.img.push({
@@ -191,7 +191,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin4++;
           }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 3
+            return a.id !== 3;
           });
           for (i = 0; i < coin3mod; i++) {
             temp.img.push({
@@ -203,7 +203,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         }
       }
       return temp;
-    }
+    };
 
     if ($scope.coinSelects) {
       if ($scope.coinSelects == "coin1") {
@@ -305,7 +305,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             return o.bet == betName;
           });
 
-        if (index == undefined) {
+        if (!index) {
           $scope.betUser.push({
             bet: betName,
             amountplaces: $scope.amountBet[bet]
@@ -327,7 +327,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       $scope.showMessageModal();
     }
 
-  }
+  };
   if ($scope.betUser) {
     // $timeout(function () {
 
@@ -340,7 +340,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         _.each($scope.betUser, function (user) {
           Service.saveUserBets(user, function (data) {
             $rootScope.result = data.data.results;
-          })
+          });
         });
       }
       $state.go("spinner");
@@ -354,12 +354,12 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         $state.go("home");
       }
     });
-  }
+  };
   var btnSpin = $("#btnSpin");
   btnSpin.click(function () {
     $state.go("spinner");
   });
-})
+});
 
 
 myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope) {
