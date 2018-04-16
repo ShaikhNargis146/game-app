@@ -607,6 +607,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.privateTableData = false;
         }, 10000);
       } else {}
+      if (data.error.message == "Error, expected `name` to be unique. Value: `Demo Joker") {
+        console.log("same name");
+      }
     });
   };
 

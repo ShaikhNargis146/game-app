@@ -134,8 +134,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         page: pageNo
       };
       if (filter.gameType) {
-        if (filter.gameType == 'Muphlis') {
-          filter.gameType = ['Muphlis', 'Lowest'];
+        if (filter.gameType == 'Muflis') {
+          filter.gameType = ['Muflis', 'Lowest'];
         }
         reqData.filter.gameType = filter.gameType;
       }

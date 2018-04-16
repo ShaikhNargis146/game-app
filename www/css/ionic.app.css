@@ -9683,9 +9683,7 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex,
-  a.item.item-complex,
-  button.item.item-complex {
+  .item-complex, a.item.item-complex, button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -10343,7 +10341,7 @@ body {
         justify-content: center;
         color: white;
         flex: .5;
-        margin: 0 auto; }
+        margin: 2%; }
         .main_lobby .lobby_content .categorys .box-black span {
           font-size: 1em;
           line-height: 1.5; }
@@ -10356,7 +10354,7 @@ body {
         padding: 3%;
         margin: 2%; }
         .main_lobby .lobby_content .variation_subtype .box-black span {
-          font-size: .7em; }
+          font-size: 1em; }
   .main_lobby .variation_active {
     transition: all 500ms;
     margin-top: -12%; }
@@ -10382,6 +10380,9 @@ body {
         opacity: 1; }
         .main_lobby .variation_active .variation_subtype > div span {
           opacity: 1; }
+
+.main_lobby .variation_active .categorys .variation.box-black {
+  margin: 0 auto; }
 
 .lobby_menu .menu_close {
   color: #f9df93;
@@ -10494,6 +10495,9 @@ ion-item.item {
   -ms-flex: 0 0 30%;
   flex: 0 0 30%;
   max-width: 30%; }
+
+.ma-center {
+  margin: 0 auto !important; }
 
 .kingtable {
   background: url("../img/table-background.jpg");
@@ -10654,6 +10658,16 @@ ion-item.item {
                 left: -47%;
                 transition: transform 1s;
                 transition-delay: 1500ms; }
+            .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card {
+              left: 48% !important; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(1) {
+                left: 10%;
+                transition: transform 500ms;
+                transition-delay: none; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(2) {
+                left: -12%;
+                transition: transform 1s;
+                transition-delay: 500ms; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -10832,7 +10846,7 @@ ion-item.item {
       bottom: 4%;
       left: 23%; }
     .kingtable .main-table .p8 {
-      bottom: 4%;
+      bottom: 1%;
       right: 23%; }
     .kingtable .main-table .p9 {
       left: 50%;
@@ -10886,6 +10900,15 @@ ion-item.item {
         left: 76%;
         transition: transform 1s;
         transition-delay: 1500ms; }
+      .kingtable .main-table .showing_cards .custom-row.card2 card:nth-child(1) {
+        transform: rotate(-10deg) scale(1);
+        left: 25%;
+        transition: transform 1s; }
+      .kingtable .main-table .showing_cards .custom-row.card2 card:nth-child(2) {
+        transform: rotate(10deg) scale(1);
+        left: 45%;
+        transition: transform 1s;
+        transition-delay: 500ms; }
       .kingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -11665,6 +11688,74 @@ ion-item.item {
     opacity: 0;
     transform: translateY(-400%); } }
 
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px; }
+  .flip-container .card {
+    width: 100%; }
+
+/* flip the pane when hovered */
+.flip-container,
+.front,
+.back {
+  height: 10vw;
+  position: absolute;
+  top: 18%;
+  right: 57%; }
+
+.joker-card-animation {
+  animation: joker-anime 50ms ease 0s forwards; }
+  .joker-card-animation .front,
+  .joker-card-animation .back {
+    width: 5vw; }
+
+.joker-card-animation .flipper {
+  animation: joker-flipper 300ms ease 50ms forwards; }
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative; }
+
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg); }
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg); }
+
+@keyframes joker-anime {
+  0% {
+    height: 10vw;
+    width: 3vw;
+    position: absolute;
+    top: 18%;
+    right: 57%; }
+  100% {
+    height: 10vw;
+    width: 5vw;
+    position: absolute;
+    top: 18%;
+    right: 28%; } }
+
+@keyframes joker-flipper {
+  0% {
+    transform: rotateY(0deg); }
+  100% {
+    transform: rotateY(180deg); } }
+
 .table6 .player2 {
   right: 5% !important;
   top: 2% !important; }
@@ -11898,6 +11989,22 @@ ion-item.item {
           font-family: 'Cinzel-Bold';
           font-weight: bold;
           font-size: 1em; }
+      .change_password-model .field form .login_button select {
+        transform: translateY(15%);
+        height: 100%;
+        width: 100%;
+        font-weight: bold;
+        font-weight: bold;
+        font-size: 1em;
+        color: white;
+        background: transparent;
+        border: none; }
+        .change_password-model .field form .login_button select option {
+          font-family: 'Cinzel-Regular';
+          font-size: 1em;
+          background-color: #3f474f;
+          color: white;
+          padding: 2px 3%; }
     .change_password-model .field form table {
       width: 90%;
       margin: 0 auto; }
@@ -12083,7 +12190,8 @@ ion-item.item {
 .price_range_modal .close {
   position: absolute;
   right: 3%;
-  top: 5%; }
+  top: 5%;
+  z-index: 5; }
 
 .price_range_modal .btn_search {
   padding: 3%;
@@ -12672,10 +12780,12 @@ ion-item.item {
     margin-left: 27%;
     height: 16px; }
 
-.pie_loader {
+.platform-android .pie_loader,
+.platform-browser .pie_loader {
   overflow: hidden;
   opacity: .8; }
-  .pie_loader .animation_wrapper {
+  .platform-android .pie_loader .animation_wrapper,
+  .platform-browser .pie_loader .animation_wrapper {
     position: relative;
     background: rgba(219, 22, 22, 0.501);
     left: 50%;
@@ -12686,17 +12796,17 @@ ion-item.item {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
-.animation_wrapper,
-.animation_wrapper * {
+.platform-android .animation_wrapper,
+.platform-android .animation_wrapper * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.animation_wrapper {
+.platform-android .animation_wrapper {
   width: 300px;
   height: 300px; }
 
-.animation_wrapper .pie {
+.platform-android .animation_wrapper .pie {
   width: 50%;
   height: 100%;
   -webkit-transform-origin: 100% 50%;
@@ -12708,7 +12818,7 @@ ion-item.item {
   background: #040404;
   border: 5px solid rgba(0,0,0,0.5); }
 
-.animation_wrapper .spinner {
+.platform-android .animation_wrapper .spinner {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
@@ -12718,12 +12828,12 @@ ion-item.item {
   -o-animation: rota 20s linear infinite;
   animation: rota 20s linear infinite; }
 
-.animation_wrapper:hover .spinner,
-.animation_wrapper:hover .filler,
-.animation_wrapper:hover .mask {
+.platform-android .animation_wrapper:hover .spinner,
+.platform-android .animation_wrapper:hover .filler,
+.platform-android .animation_wrapper:hover .mask {
   animation-play-state: running; }
 
-.animation_wrapper .filler {
+.platform-android .animation_wrapper .filler {
   border-radius: 0 100% 100% 0 / 0 50% 50% 0;
   left: 50%;
   opacity: 0;
@@ -12736,7 +12846,7 @@ ion-item.item {
   -webkit-animation: opa 20s steps(1, end) infinite reverse;
   border-left: none; }
 
-.animation_wrapper .mask {
+.platform-android .animation_wrapper .mask {
   width: 50%;
   height: 100%;
   position: absolute;
@@ -12832,6 +12942,93 @@ ion-item.item {
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg); } }
+
+.platform-ios .pie_loader {
+  overflow: hidden;
+  opacity: .8;
+  background: rgba(219, 22, 22, 0.8); }
+  .platform-ios .pie_loader .animation_wrapper {
+    position: relative;
+    background: #4caf50;
+    left: 50%;
+    top: 0%;
+    -webkit-transform: translate(-50%, -12%);
+    -moz-transform: translate(-50%, -12%);
+    -ms-transform: translate(-50%, -12%);
+    -o-transform: translate(-50%, -12%);
+    transform: translate(-50%, -12%); }
+
+.platform-ios .animation_wrapper,
+.platform-ios .animation_wrapper *, .platform-browser .animation_wrapper,
+.platform-browser .animation_wrapper * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.platform-ios .animation_wrapper, .platform-browser .animation_wrapper {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: linear-timer 20s linear infinite;
+  -moz-animation: linear-timer 20s linear infinite;
+  -ms-animation: linear-timer 20s linear infinite;
+  -o-animation: linear-timer 20s linear infinite;
+  animation: linear-timer 20s linear infinite; }
+
+@-webkit-keyframes linear-timer {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); }
+  100% {
+    -webkit-transform: translate(-50%, 100%);
+    -moz-transform: translate(-50%, 100%);
+    -ms-transform: translate(-50%, 100%);
+    -o-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%); } }
+
+@-moz-keyframes linear-timer {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); }
+  100% {
+    -webkit-transform: translate(-50%, 100%);
+    -moz-transform: translate(-50%, 100%);
+    -ms-transform: translate(-50%, 100%);
+    -o-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%); } }
+
+@-o-keyframes linear-timer {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); }
+  100% {
+    -webkit-transform: translate(-50%, 100%);
+    -moz-transform: translate(-50%, 100%);
+    -ms-transform: translate(-50%, 100%);
+    -o-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%); } }
+
+@keyframes linear-timer {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0); }
+  100% {
+    -webkit-transform: translate(-50%, 100%);
+    -moz-transform: translate(-50%, 100%);
+    -ms-transform: translate(-50%, 100%);
+    -o-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%); } }
 
 .player-fold {
   opacity: 0.4; }

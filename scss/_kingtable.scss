@@ -487,7 +487,7 @@
       left: 23%;
     }
     .p8 {
-      bottom: 4%;
+      bottom: 1%;
       right: 23%;
     }
     .p9 {
@@ -1691,12 +1691,96 @@
   }
 }
 
-.card-joker {
-  width: 3vw;
-  position: absolute;
-  top: 18%;
-  right: 34%;
+/* entire container, keeps perspective */
+
+.flip-container {
+  perspective: 1000px;
   .card {
     width: 100%;
+  }
+}
+
+/* flip the pane when hovered */
+
+// .flip-container:hover .flipper,
+// .flip-container.hover .flipper {
+// }
+.flip-container,
+.front,
+.back {
+  height: 10vw;
+  position: absolute;
+  top: 18%;
+  right: 57%; // animation-name: joker-anime;
+  // animation-duration: 1s;
+}
+
+.joker-card-animation {
+  animation: (joker-anime 50ms ease 0s forwards);
+  .front,
+  .back {
+    width: 5vw;
+  }
+}
+
+.joker-card-animation .flipper {
+  animation: (joker-flipper 300ms ease 50ms forwards);
+}
+
+/* flip speed goes here */
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+  transform: rotateY(180deg);
+}
+
+@keyframes joker-anime {
+  0% {
+    height: 10vw;
+    width: 3vw;
+    position: absolute;
+    top: 18%;
+    right: 57%;
+  }
+  100% {
+    height: 10vw;
+    width: 5vw;
+    position: absolute;
+    top: 18%;
+    right: 28%;
+  }
+}
+
+@keyframes joker-flipper {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
   }
 }

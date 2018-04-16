@@ -127,6 +127,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot.totalAmount;
         }
+
+        $scope.tableData = data.data.data.table;
         $scope.iAmThere($scope.players);
         if ($scope.isThere) {
           updateSocketFunction(data.data, true);
@@ -456,14 +458,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data.data);
-
     $scope.sideShowDataFrom = 0;
     $scope.winner = {};
     data = data.data;
     $scope.extra = data.extra;
-
+    $scope.tableData = data.table;
     if ($scope.extra) {
       if ($scope.extra.newGame) {
+        $scope.tableData = data.table;
         $ionicPlatform.ready(function () {
           if (window.cordova) {
             // running on device/emulator
@@ -508,7 +510,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
         $timeout(function () {
           $scope.startAnimation = false;
-        }, 50);
+        }, 100);
       }
     }
 

@@ -7,7 +7,7 @@
       <img src="img/coin.png" class="coin">{{betamount}}
     </div> -->
 
-    <div class="pie_loader" ng-if="player.isTurn && !sitHere && player.winRank">
+    <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winRank">
       <div class="animation_wrapper">
         <div class="pie spinner"></div>
         <div class="pie filler"></div>
@@ -19,7 +19,6 @@
     </div> -->
     <div ng-class="{dealer:player.isDealer}">
       <div class="wnr" ng-class="{'winner_anime':player.winRank== 1}">
-
         <img src="img/table/glow.png" class="anime1">
         <img src="img/table/glow.png" class="anime2">
         <img src="img/table/glow.png" class="anime3">
@@ -46,7 +45,7 @@
 
           </div>
         </div>
-        <div class="plyr_card plyr_card_2card " ng-if="!player.isFold && winnerPlayerNo > 0 && showWinnerPlayer.length>1 && player.cards.length==2">
+        <div class="plyr_card plyr_card_2card " ng-if="!player.isFold && player.winRank && showWinnerPlayer.length>1 && player.cards.length==2">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
@@ -59,10 +58,9 @@
             <card card='DONE'></card>
             <card card='DONE'></card>
             <card card='DONE'></card>
-
           </div>
         </div>
-        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && winnerPlayerNo > 0 && showWinnerPlayer.length>1 && player.cards.length==3">
+        <div class="plyr_card plyr_card1 " ng-if="!player.isFold && player.winRank && showWinnerPlayer.length>1 && player.cards.length==3">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>

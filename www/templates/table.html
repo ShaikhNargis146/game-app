@@ -23,7 +23,7 @@
   </div>
 
   <div class="main-table" ng-click="closeAllModal()">
-    <div class="new_game_timer" ng-if="showNewGameTime">
+    <div class="new_game_timer" ng-if="showNewGameTime && remainingPlayerCount>1">
       <span> New Game will start in 15s </span>
     </div>
     <div class="table_message opt-tan" ng-if="tableMessageShow">
@@ -57,9 +57,14 @@
           <card card='NONE'> </card>
         </div>
       </div>
-      <div class="card-joker" ng-if="tableData.jokerCardValue">
-        <div class="cards">
-          <card card='{{tableData.jokerCardValue}}'> </card>
+      <div class="flip-container" ng-if="tableData.jokerCardValue && !startAnimation" ng-class="{'joker-card-animation':!startAnimation} ">
+        <div class="flipper">
+          <div class="card-joker">
+            <div class="cards">
+              <card card='NONE' class="front"></card>
+              <card card='{{tableData.jokerCardValue}}' class="back"></card>
+            </div>
+          </div>
         </div>
       </div>
 
