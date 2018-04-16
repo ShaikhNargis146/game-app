@@ -56,7 +56,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin2: true,
             amount: 5,
             count: 0
-          }
+          };
         }
         break;
       case "coin3":
@@ -106,7 +106,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
   $scope.bet = [];
   $scope.amountBet = [];
-  $scope.totalMoney=10000;
+  $scope.totalMoney = 10000;
   $scope.betUser = [];
   $scope.place = [];
   $scope.displayArray = [];
@@ -149,15 +149,15 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             coin2++;
           }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 1
+            return a.id !== 1;
           });
-          for(i=0;i < coin1mod;i++){
+          for (i = 0; i < coin1mod; i++) {
             temp.img.push({
               img: "img/roulette/coin1.png",
               id: 1
             });
           }
-          coin1=coin1mod;
+          coin1 = coin1mod;
         }
         if (coin2 >= 2) {
           coin2div = coin2 / 2;
@@ -168,17 +168,17 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
               id: 3
             });
             coin3++;
-          } 
+          }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 2
+            return a.id !== 2;
           });
-          for(i=0;i < coin2mod;i++){
+          for (i = 0; i < coin2mod; i++) {
             temp.img.push({
               img: "img/roulette/coin2.png",
               id: 2
             });
           }
-          coin2=coin2mod;
+          coin2 = coin2mod;
         }
         if (coin3 >= 10) {
           coin3div = coin3 / 10;
@@ -189,21 +189,21 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
               id: 4
             });
             coin4++;
-          } 
+          }
           temp.img = temp.img.filter(function (a) {
-            return a.id !== 3
+            return a.id !== 3;
           });
-          for(i=0;i < coin3mod;i++){
+          for (i = 0; i < coin3mod; i++) {
             temp.img.push({
               img: "img/roulette/coin3.png",
               id: 3
             });
           }
-          coin3=coin3mod;
+          coin3 = coin3mod;
         }
       }
       return temp;
-    }
+    };
 
     if ($scope.coinSelects) {
       if ($scope.coinSelects == "coin1") {
@@ -297,15 +297,15 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       } else {
         $scope.amountBet[field] = $scope.betAmount;
       }
-        $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
-      console.log("TOTALMONEY",$scope.totalMoney,$scope.betAmount);
-      if ($scope.betUser.length != 0) {
+      $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
+      console.log("TOTALMONEY", $scope.totalMoney, $scope.betAmount);
+      if ($scope.betUser.length !== 0) {
         var index = _.find($scope.betUser,
           function (o) {
             return o.bet == betName;
           });
 
-        if (index == undefined) {
+        if (!index) {
           $scope.betUser.push({
             bet: betName,
             amountplaces: $scope.amountBet[bet]
@@ -327,7 +327,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       $scope.showMessageModal();
     }
 
-  }
+  };
   if ($scope.betUser) {
     // $timeout(function () {
 
@@ -340,7 +340,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         _.each($scope.betUser, function (user) {
           Service.saveUserBets(user, function (data) {
             $rootScope.result = data.data.results;
-          })
+          });
         });
       }
       $state.go("spinner");
@@ -354,15 +354,27 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
         $state.go("home");
       }
     });
-  }
-  var btnSpin = $("#btnSpin");
-  btnSpin.click(function () {
-    $state.go("spinner");
+  };
+
+
+  io.socket.on("spinWheel", function (data) {
+    $state.go("spinnerNo", {
+      number: btoa(data.result + "roulette" + _.random(0, 9999999))
+    });
   });
-})
+
+});
 
 
-myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootScope) {
+myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
+
+
+
+  io.socket.on("startBetting", function (data) {
+    $state.go("roulette");
+  });
+
+
   var rotationsTime = 8;
   var wheelSpinTime = 6;
   var ballSpinTime = 5;
@@ -456,8 +468,10 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
   var numberLoc = [];
   $.keyframe.debug = true;
 
+  $scope.spinner = {
+    numberToCome: parseInt(atob($stateParams.number))
+  };
   createWheel();
-
   $scope.results = $rootScope.result;
 
   function createWheel() {
@@ -499,15 +513,9 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
   }
 
   $timeout(function () {
-    if ($("input").val() == "") {
-      var rndNum = Math.floor(Math.random() * 34 + 0);
-    } else {
-      var rndNum = $("input").val();
-    }
-
-    winningNum = rndNum;
+    winningNum = $scope.spinner.numberToCome;
     spinTo(winningNum);
-  }, 100);
+  }, 1000);
 
   // btnSpin.click(function () {
   //   console.log("btn clicked");
@@ -614,4 +622,4 @@ myApp.controller('SpinnerCtrl', function ($scope, $ionicModal, $timeout, $rootSc
       complete: function () {} //[optional]  Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
     });
   }
-})
+});

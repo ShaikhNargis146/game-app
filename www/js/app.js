@@ -92,14 +92,20 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'
       })
-      .state('home', {
-        url: '/home',
+      .state('roulette', {
+        url: '/roulette',
         cache: false,
         templateUrl: 'templates/roulette/home.html',
         controller: 'HomeCtrl'
       })
       .state('spinner', {
         url: '/spinner',
+        cache: false,
+        templateUrl: 'templates/roulette/spinner.html',
+        controller: 'SpinnerCtrl'
+      })
+      .state('spinnerNo', {
+        url: '/spinner/:number',
         cache: false,
         templateUrl: 'templates/roulette/spinner.html',
         controller: 'SpinnerCtrl'

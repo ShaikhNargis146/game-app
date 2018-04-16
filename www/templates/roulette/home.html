@@ -126,7 +126,8 @@
                 </div>
               </div>
             </td>
-            <td class="sector" data-sector="1" ng-click="userBet('121','thirdColumn')"><span class="vt">2 to 1</span>
+            <td class="sector" data-sector="1" ng-click="userBet('121','thirdColumn')">
+              <span class="vt">2 to 1</span>
               <div class="absolute-coin-big">
                 <div class="absolute-coin" ng-repeat="image in displayArray[121].img track by $index">
                   <img src="{{image.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
@@ -235,7 +236,8 @@
       </div>
     </div>
   </td>
-  <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')"><span class="vt">2 to 1</span>
+  <td class="sector" data-sector="2" ng-click="userBet('221','secondColumn')">
+    <span class="vt">2 to 1</span>
     <div class="absolute-coin-big">
       <div class="absolute-coin" ng-repeat="image in displayArray[221].img track by $index">
         <img src="{{image.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
@@ -341,7 +343,8 @@
         </div>
       </div>
     </td>
-    <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')"><span class="vt">2 to 1</span>
+    <td class="sector" data-sector="3" ng-click="userBet('321', 'firstColumn')">
+      <span class="vt">2 to 1</span>
       <div class="absolute-coin-big">
         <div ng-repeat="image in displayArray[321].img track by $index">
           <img src="{{image.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
@@ -428,7 +431,9 @@
   History
   <ul class="history-list">
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
       <div class="num black"><span>22</span></div>
@@ -437,22 +442,14 @@
       <div class="num black"><span>10</span></div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
-    </li>
-    <li class="div-inline">
-      <div class="num black"><span>22</span></div>
-    </li>
-    <li class="div-inline">
-      <div class="num black"><span>10</span></div>
-    </li>
-    <li class="div-inline">
-      <div class="num red"><span>5</span></div>
-    </li>
-    <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
       <div class="num black"><span>22</span></div>
@@ -461,10 +458,14 @@
       <div class="num black"><span>10</span></div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>12</span></div>
+      <div class="num red">
+        <span>12</span>
+      </div>
     </li>
     <li class="div-inline">
       <div class="num black"><span>22</span></div>
@@ -473,7 +474,25 @@
       <div class="num black"><span>10</span></div>
     </li>
     <li class="div-inline">
-      <div class="num red"><span>5</span></div>
+      <div class="num red">
+        <span>5</span>
+      </div>
+    </li>
+    <li class="div-inline">
+      <div class="num red">
+        <span>12</span>
+      </div>
+    </li>
+    <li class="div-inline">
+      <div class="num black"><span>22</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num black"><span>10</span></div>
+    </li>
+    <li class="div-inline">
+      <div class="num red">
+        <span>5</span>
+      </div>
     </li>
   </ul>
 </div>
@@ -495,7 +514,7 @@
   <div class="div-inline upper-button pdbutton">
     <span>Finals Bet</span>
   </div>
-  <div id="btnSpin" class="div-inline upper-button pdbutton">Spin</div>
+  <!-- <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div> -->
 </div>
 </div>
 </div>
