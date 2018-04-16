@@ -58,7 +58,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData();
   //to close all tab and side menu
   $scope.closeAllTab = function () {
-    $scope.VariationActive = false;
+    // $scope.VariationActive = false;
     $scope.sideMenu = false;
     $scope.showType = false;
   }
@@ -299,7 +299,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //resetFilter
   $scope.resetFilter = function () {
-    $scope.filterData = {};
+    // $scope.filterData = {};
+    if ($scope.gameType != null) {
+      $scope.filterData = {
+        gameType: $scope.gameType
+      };
+    } else {
+      $scope.filterData = {};
+    }
+
     $scope.filterTables();
   };
 
@@ -375,6 +383,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.privateFilterData = {
       type: "private"
     };
+    if ($scope.gameType) {
+      $scope.privateFilterData.gameType = $scope.gameType
+    }
     $scope.privateFilterTables();
   };
 
@@ -417,7 +428,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
   $scope.myPrivateTable = function () {
-    Service.getPrivateTables($scope.pageNo, function (data) {
+    var reqData = {};
+    if ($scope.gameType) {
+      reqData.gameType = $scope.gameType;
+    }
+    Service.getPrivateTables($scope.pageNo, reqData, function (data) {
       if (data) {
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
@@ -454,13 +469,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
 
   //onclick for each play type
-  $scope.variationToggle = function ($event) {
+  $scope.variationToggle = function ($event, tab) {
     $event.stopPropagation();
-    if ($scope.VariationActive) {
-      $scope.VariationActive = false;
-    } else {
-      $scope.VariationActive = true;
-    }
+    $scope.gameType = $scope.gameType ? null : tab;
+    $scope.VariationActive = !$scope.VariationActive;
+
+    // if ($scope.VariationActive) {
+    //   $scope.VariationActive = false;
+    // } else {
+    //   $scope.VariationActive = true;
+    // }
+  }
+  $scope.variationGame = function ($event) {
+    $event.stopPropagation();
+    $scope.VariationTab = !$scope.VariationTab;
   }
 
 
@@ -526,7 +548,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ModalCreate = modal;
   });
 
-  $scope.createPrivateModal = function ($event) {
+  $scope.createPrivateModal = function ($event, gameTypeModal) {
+    $scope.gameTypeModal = gameTypeModal;
+    $scope.data = {};
+    gameTypeModal ? $scope.data.gameType = gameTypeModal : '';
     $scope.ModalCreate.show();
     $event.stopPropagation();
   }

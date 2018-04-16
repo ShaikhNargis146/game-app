@@ -1,11 +1,24 @@
 <div class="showing_cards" ng-if="!sitHere && (player.cards.length > 0)" ng-class="{'main_card_anime':player.cards.length>0 && startAnimation}">
+
+  <!-- two card -->
+  <div class="custom-row card2 custom-row-card" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length==2">
+    <card card='NONE'></card>
+    <card card='NONE'></card>
+  </div>
+  <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && player.cards.length==2">
+    <div class=" custom-row custom-row-card card2">
+      <card card='{{player.cards[0]}}'> </card>
+      <card card='{{player.cards[1]}}'> </card>
+    </div>
+  </div>
+  <!-- end of two card -->
   <!-- three card -->
-  <div class="custom-row custom-row-card" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length<4">
+  <div class="custom-row custom-row-card" ng-if="( (player && player.isBlind && !player.isFold && remainingPlayerCount>1) || ( winnerPlayerNo == -1 && remainingPlayerCount == 1) ) && player.cards.length==3">
     <card card='NONE'></card>
     <card card='NONE'></card>
     <card card='NONE'></card>
   </div>
-  <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && player.winRank && remainingPlayerCount > 1) ) && player.cards.length<4">
+  <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && winnerPlayerNo > 0 && remainingPlayerCount > 1) ) && player.cards.length==3">
     <div class=" custom-row custom-row-card">
       <card card='{{player.cards[0]}}'> </card>
       <card card='{{player.cards[1]}}'> </card>

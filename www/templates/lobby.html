@@ -14,15 +14,18 @@
     </div>
   </div>
 
-  <div class="lobby_content" ng-class="{'variation_active':VariationActive}">
+  <div class="lobby_content" ng-class="{'variation_active':VariationActive || VariationTab}">
     <div class="logo">
       <img src="img/logo.png">
     </div>
     <div class="categorys">
       <ion-scroll direction="x">
         <div class="row">
-          <div class="variation box-black" ng-click="variationToggle($event)">
+          <div class="variation box-black" ng-click="variationToggle($event)" ng-hide="VariationTab">
             TeenPatti
+          </div>
+          <div class="variation box-black" ng-click="variationGame($event)" ng-hide="VariationActive">
+            TeenPatti Variation
           </div>
           <!-- <div class="play_now box-black  col" ng-click="playNow($event);resetFilter();">
             <span class="text-grad"> Play Now </span>
@@ -60,6 +63,24 @@
     </div>
     <div class="categorys variation_subtype">
       <ion-scroll direction="x">
+        <div class="row text-center" ng-if="VariationTab" ng-click="$event.stopPropagation">
+          <div class=" box-black col" ng-class="{'ma-center': gameType=='2 Cards'}" ng-click="variationToggle($event,'2 Cards')" ng-hide="gameType && gameType!='2 Cards'">
+            <span class="text-grad"> 2 card </span>
+          </div>
+          <div class="box-black col" ng-class="{'ma-center': gameType=='4 Cards'}" ng-click="variationToggle($event,'4 Cards')" ng-hide="gameType && gameType!='4 Cards'">
+            <span class="text-grad"> 4 card </span>
+          </div>
+          <div class="box-black col" ng-class="{'ma-center': gameType=='Joker'}" ng-click="variationToggle($event,'Joker')" ng-hide="gameType && gameType!='Joker'">
+            <span class="text-grad"> Joker </span>
+          </div>
+          <div class="box-black col" ng-class="{'ma-center': gameType=='Muphlis'}" ng-click="variationToggle($event,'Muphlis')" ng-hide="gameType && gameType!='Muphlis'">
+            <span class="text-grad"> Muphlis </span>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+    <div class="categorys variation_subtype">
+      <ion-scroll direction="x">
         <div class="row" ng-if='VariationActive' ng-click="$event.stopPropagation">
           <div class=" box-black col" ng-click="playNow($event);resetFilter();">
             <span class="text-grad"> Play Now </span>
@@ -70,9 +91,12 @@
           <div class="box-black col" ng-click="myPrivateTable();openMyPrivateTable($event);">
             <span class="text-grad"> My Private Table </span>
           </div>
-          <div class="box-black col" ng-click="createPrivateModal($event);">
+          <div class="box-black col" ng-click="createPrivateModal($event,gameType);">
             <span class="text-grad"> Create Private Table </span>
           </div>
+          <!-- <div class="box-black col" ng-click="createPrivateModal($event);">
+            <span class="text-grad"> Create Private Table </span>
+          </div> -->
         </div>
       </ion-scroll>
     </div>

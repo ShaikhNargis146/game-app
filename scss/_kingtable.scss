@@ -207,6 +207,21 @@
                 }
               }
             }
+            &.plyr_card_2card {
+              left: 48% !important;
+              card {
+                &:nth-child(1) {
+                  left: 10%;
+                  transition: transform 500ms;
+                  transition-delay: none;
+                }
+                &:nth-child(2) {
+                  left: -12%;
+                  transition: transform 1s;
+                  transition-delay: 500ms;
+                }
+              }
+            }
           }
         }
         .amt {
@@ -606,6 +621,21 @@
               left: 76%;
               transition: transform 1s;
               transition-delay: 1500ms;
+            }
+          }
+        }
+        &.card2 {
+          card {
+            &:nth-child(1) {
+              transform: rotate(-10deg) scale(1);
+              left: 25%;
+              transition: transform 1s; // transition-delay: 500ms;
+            }
+            &:nth-child(2) {
+              transform: rotate(10deg) scale(1);
+              left: 45%;
+              transition: transform 1s;
+              transition-delay: 500ms;
             }
           }
         }
@@ -1658,5 +1688,15 @@
     bottom: 70%;
     opacity: 0;
     transform: translateY(-400%);
+  }
+}
+
+.card-joker {
+  width: 3vw;
+  position: absolute;
+  top: 18%;
+  right: 34%;
+  .card {
+    width: 100%;
   }
 }
