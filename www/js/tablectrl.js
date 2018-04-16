@@ -598,6 +598,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $ionicPlatform.ready(function () {
       if (window.cordova) {
         window.plugins.NativeAudio.play('winner');
+        window.plugins.NativeAudio.stop('timer');
       }
     })
 
