@@ -6,7 +6,7 @@
     <img src="img/close.png">
   </div>
   <ion-content>
-    <div class="field" ng-if="!privateTableData">
+    <div class="field mt-25" ng-if="!privateTableData">
       <form name="createTable" ng-init="data ? data : {}">
         <div class="rel">
           <div class="login_button">
@@ -21,6 +21,7 @@
           </div>
           <span class="valid" ng-show="createTable.bootAmount.$touched && createTable.bootAmount.$invalid">* Boot Amount is required.</span>
         </div> -->
+
         <div class="rel">
           <div class="login_button">
             <select name="gameType" id="gameType" ng-model="data.gameType" required ng-disabled="gameTypeModal">

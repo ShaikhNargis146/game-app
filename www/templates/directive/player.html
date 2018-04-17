@@ -25,24 +25,28 @@
         <img src="img/table/glow.png" class="anime4">
       </div>
       <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
-        BLIND</div>
-      <div class="status" ng-if="player.isFold && player.isActive && remainingPlayerCount>1">
-        PACK</div>
+        BLIND
+      </div>
+      <div class="status" ng-if="player.isFold && player.isActive && remainingAllPlayerCount>1">
+        PACK
+      </div>
       <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
-        SEEN </div>
-      <div class="status" ng-if="!player.isActive || remainingPlayerCount==1">
-        Waiting...</div>
+        SEEN
+      </div>
+      <div class="status" ng-if="!player.isActive || remainingAllPlayerCount==1">
+        Waiting...
+      </div>
       <div class="plyr_pic">
         <div class="pic">
           <div class="profile_pic_overlay">
-            <img ng-src="{{player.image | serverimage}}"> </div>
+            <img ng-src="{{player.image | serverimage}}">
+          </div>
         </div>
         <!-- two card -->
         <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}" ng-if=" (player.cards.length > 0 || showWinnerPlayer.length == 1) && player.cards.length==2">
           <div class=" custom-row">
             <card card='DONE'></card>
             <card card='DONE'></card>
-
           </div>
         </div>
         <div class="plyr_card plyr_card_2card plyr_card2_winner " ng-if="!player.isFold && player.winRank && showWinnerPlayer.length>1 && player.cards.length==2">
@@ -87,7 +91,8 @@
         </div>
       </div>
       <div class="amt">
-        <img src="img/coin.png">{{player.balance | number:0 }}</div>
+        <img src="img/coin.png">{{player.balance | number:0 }}
+      </div>
       <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
         <span>{{player.name}}</span>
       </div>

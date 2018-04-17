@@ -32,11 +32,11 @@
     </div>
     <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
       BLIND </div>
-    <div class="status" ng-if="player.isFold && player.isActive  && remainingPlayerCount>1">
+    <div class="status" ng-if="player.isFold && !player.isActive  && remainingPlayerCount>1">
       PACK</div>
     <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive  && remainingPlayerCount>1">
       SEEN </div>
-    <div class="status" ng-if="!player.isActive || remainingPlayerCount==1">
+    <div class="status" ng-if="!player.isActive || remainingPlayerCount==1 && !player.isFold">
       Waiting... </div>
     <div class="plyr_pic">
       <div class="pic">

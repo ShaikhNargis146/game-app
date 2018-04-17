@@ -30,6 +30,7 @@ myApp.directive('card', function () {
       scope: {
         player: "=ngPlayer",
         remainingPlayerCount: "=ngRemainingPlayer",
+        remainingAllPlayerCount: "=ngRemainingAllPlayer",
         showWinnerPlayer: "=ngWinnerPlayer",
         gameType: "=ngGameType",
         pos: "=ngPos",
@@ -81,6 +82,7 @@ myApp.directive('card', function () {
         winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation",
         remainingPlayerCount: "=ngRemainingPlayer",
+        remainingAllPlayerCount: "=ngRemainingAllPlayer",
         showCard: "&"
       },
       templateUrl: 'templates/directive/mainplayercard.html',
