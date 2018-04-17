@@ -1,11 +1,11 @@
-<ion-modal-view class="custom-model statement-model change_password-model form-update private_table">
+<ion-modal-view class="custom-model statement-model price_range_modal change_password-model form-update private_table">
+  <ion-header class="custom-header">
+    <div class="heading">Create Private Table</div>
+  </ion-header>
+  <div class="close" ng-click="closePrivateTable()">
+    <img src="img/close.png">
+  </div>
   <ion-content>
-    <ion-header>
-      <div class="close" ng-click="closePrivateTable()">
-        <img src="img/close.png">
-      </div>
-      <div class="heading">Create Private Table</div>
-    </ion-header>
     <div class="field" ng-if="!privateTableData">
       <form name="createTable" ng-init="data ? data : {}">
         <div class="rel">

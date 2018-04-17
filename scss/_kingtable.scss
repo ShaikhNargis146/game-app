@@ -208,18 +208,23 @@
               }
             }
             &.plyr_card_2card {
-              left: 48% !important;
+              left: 10% !important;
+              width: 150% !important;
               card {
                 &:nth-child(1) {
-                  left: 10%;
+                  left: 0%;
                   transition: transform 500ms;
                   transition-delay: none;
                 }
                 &:nth-child(2) {
-                  left: -12%;
+                  left: -10%;
                   transition: transform 1s;
                   transition-delay: 500ms;
                 }
+              }
+              &.plyr_card2_winner {
+                left: -70% !important;
+                width: 300% !important;
               }
             }
           }
@@ -1711,8 +1716,7 @@
   height: 10vw;
   position: absolute;
   top: 18%;
-  right: 57%; // animation-name: joker-anime;
-  // animation-duration: 1s;
+  right: 57%;
 }
 
 .joker-card-animation {
@@ -1724,7 +1728,10 @@
 }
 
 .joker-card-animation .flipper {
-  animation: (joker-flipper 300ms ease 50ms forwards);
+  animation: (joker-flipper 300ms ease forwards);
+  animation-delay: 50ms;
+  -ms-animation-delay: 50ms;
+  -webkit-animation-delay: 50ms;
 }
 
 /* flip speed goes here */

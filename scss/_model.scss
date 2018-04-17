@@ -45,7 +45,7 @@
     border-image: $border-color;
     border-image-slice: 2;
     border-bottom: 1px solid;
-    padding: 2%;
+    padding: 15px 8px 0;
     select {
       font-family: 'Cinzel-Regular';
       font-size: 1em;
@@ -487,7 +487,7 @@
   .close {
     position: absolute;
     right: 3%;
-    top: 5%;
+    top: 10px;
     z-index: 5;
   }
   .btn_search {
@@ -662,18 +662,18 @@
 }
 
 .custom-table-top {
-  padding-top: 112px;
+  padding-top: 115px;
 }
 
 .platform-ios .custom-table-top {
-  padding-top: 118px;
+  padding-top: 115px;
   z-index: -1;
 }
 
 .custom-header {
   background: #2d353e;
   position: absolute;
-  padding-top: 12px;
+  padding: 8px 0;
   top: 0;
   left: 0;
   z-index: 2;

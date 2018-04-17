@@ -10170,7 +10170,7 @@ body {
   border: 0px;
   color: white;
   font-size: 1em;
-  padding: 5px 20%; }
+  padding: 5px 15%; }
 
 .login {
   background: url("../img/login/background.png");
@@ -10341,9 +10341,10 @@ body {
         justify-content: center;
         color: white;
         flex: .5;
-        margin: 2%; }
+        margin: 2%;
+        font-size: 1.2em; }
         .main_lobby .lobby_content .categorys .box-black span {
-          font-size: 1em;
+          font-size: 1.2em;
           line-height: 1.5; }
     .main_lobby .lobby_content .variation_subtype {
       transition: all 500ms;
@@ -10659,15 +10660,19 @@ ion-item.item {
                 transition: transform 1s;
                 transition-delay: 1500ms; }
             .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card {
-              left: 48% !important; }
+              left: 10% !important;
+              width: 150% !important; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(1) {
-                left: 10%;
+                left: 0%;
                 transition: transform 500ms;
                 transition-delay: none; }
               .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card card:nth-child(2) {
-                left: -12%;
+                left: -10%;
                 transition: transform 1s;
                 transition-delay: 500ms; }
+              .kingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_2card.plyr_card2_winner {
+                left: -70% !important;
+                width: 300% !important; }
         .kingtable .main-table .playing-table .plyr .amt {
           font-size: .5em;
           line-height: 2; }
@@ -11710,7 +11715,10 @@ ion-item.item {
     width: 5vw; }
 
 .joker-card-animation .flipper {
-  animation: joker-flipper 300ms ease 50ms forwards; }
+  animation: joker-flipper 300ms ease forwards;
+  animation-delay: 50ms;
+  -ms-animation-delay: 50ms;
+  -webkit-animation-delay: 50ms; }
 
 /* flip speed goes here */
 .flipper {
@@ -11844,7 +11852,7 @@ ion-item.item {
     border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
     border-image-slice: 2;
     border-bottom: 1px solid;
-    padding: 2%; }
+    padding: 15px 8px 0; }
     .statement-model .top_field select {
       font-family: 'Cinzel-Regular';
       font-size: 1em;
@@ -12190,7 +12198,7 @@ ion-item.item {
 .price_range_modal .close {
   position: absolute;
   right: 3%;
-  top: 5%;
+  top: 10px;
   z-index: 5; }
 
 .price_range_modal .btn_search {
@@ -12242,16 +12250,16 @@ ion-item.item {
   font-family: 'Cinzel-Bold'; }
 
 .custom-table-top {
-  padding-top: 112px; }
+  padding-top: 115px; }
 
 .platform-ios .custom-table-top {
-  padding-top: 118px;
+  padding-top: 115px;
   z-index: -1; }
 
 .custom-header {
   background: #2d353e;
   position: absolute;
-  padding-top: 12px;
+  padding: 8px 0;
   top: 0;
   left: 0;
   z-index: 2;
@@ -13031,7 +13039,7 @@ ion-item.item {
     transform: translate(-50%, 100%); } }
 
 .player-fold {
-  opacity: 0.4; }
+  opacity: 0.1; }
 
 .custom-filter {
   display: inline-block;

@@ -593,7 +593,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function showWinnerFunction(data) {
-    console.log("show winner", data);
+    // console.log("show winner", data);
     $scope.updateSocketVar = 1;
     $ionicPlatform.ready(function () {
       if (window.cordova) {
@@ -640,9 +640,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.winner = {};
       $scope.winnerMessageShow = false;
       $scope.tableMessageShow = false;
+    }, 50);
+    $timeout(function () {
       $scope.showNewGameTime = true;
     }, 5000);
-    console.log("show winner Data", $scope.winner);
+    // console.log("show winner Data", $scope.winner);
     // $scope.changeTableMessage($scope.showWinnerPlayer.name + " won the game");
   }
 
