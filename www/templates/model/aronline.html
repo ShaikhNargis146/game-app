@@ -10,8 +10,8 @@
 
       <div class="list aronline-list">
         <a class="item item-button-right" ng-repeat="item in items">
-          {{ item }}
-          <button class="button custom_button">
+          {{ item.title }}
+          <button class="button custom_button" ng-click="gotoOnlinegame(item.name);">
             Play Now
           </button>
         </a>

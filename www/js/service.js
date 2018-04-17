@@ -16,6 +16,11 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     });
   });
 
+io.socket.on('redirectPlayer'+ $.jStorage.get("accessToken"), function (data){
+  console.log(data);
+  $state.go("lobby");
+});
+
   var obj = {
     all: function () {
       return chats;
@@ -43,6 +48,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       });
     },
+
     playerLogout: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
@@ -75,6 +81,25 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       } else {
         $state.go("login");
       }
+    },
+    playerSession: function (data, callback) {
+      console.log("data----", data);
+      var sessionData = {};
+      sessionData.userId = data._id;
+      $http.post(adminARurl + 'Sessions/createLoginSid', sessionData).then(function (data) {
+        console.log("saved");
+        data = data.data;
+        callback(data);
+      });
+    },
+    getEntryUrl: function (data, callback) {
+      console.log("inside getEntryUrl data----", data);
+      data.accessToken= $.jStorage.get("accessToken");
+      $http.post(adminARurl + 'User/createEntry', data).then(function (data) {
+        console.log("saved");
+        data = data.data;
+        callback(data);
+      });
     },
     giveTip: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");

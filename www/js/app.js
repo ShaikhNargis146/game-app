@@ -71,7 +71,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         controller: 'RedirectingCtrl'
       })
       .state('onlinegame', {
-        url: '/onlinegame',
+        url: '/onlinegame/:gameId',
         cache: false,
         templateUrl: 'templates/onlinegame.html',
         controller: 'OnlinegameCtrl'

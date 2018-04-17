@@ -1,5 +1,5 @@
 myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http, $timeout) {
-
+  $("#iframe").remove();
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
     if (window.cordova) {
@@ -47,6 +47,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+      Service.playerSession($scope.singlePlayerData, function (data) {
+        if (data) {
+          console.log("login", data);
+          $.jStorage.set("sid", data.sid);
+        } else {}
+      });
     })
   };
 
@@ -579,18 +585,27 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.ARonlineModal.hide();
   }
   $scope.items = [
-    'Live ROULETTE',
-    'Live BLACKJACK',
-    'Live CASINO HOLD',
-    'Live BACCARAT',
-    'Live ULTIMATE TEXAS HOLDEM ',
-    'Live EXTREME TEXAS HOLDEM ',
-    'Live THREE CARD POKER ',
-    'Live TRIPLE CARD POKER',
-    'Live CARIBBEAN STUD',
-    'Live MONEY WHEEL',
-    'Live POKER'
+   {title: 'Live ROULETTE',name:'roulette'},
+   { title:'Live BLACKJACK',name:'blackjack'},
+   { title:'Live CASINO HOLD',name:'holdem'},
+    {title:'Live BACCARAT',name:'baccarat'},
+   { title:'Live ULTIMATE TEXAS HOLDEM ',name:'uth'},
+   {title: 'Live EXTREME TEXAS HOLDEM ',name:'eth'},
+   { title:'Live THREE CARD POKER ',name:'tcp'},
+   { title:'Live TRIPLE CARD POKER',name:'trp'},
+   {title: 'Live CARIBBEAN STUD',name:'csp'},
+   {title: 'Live MONEY WHEEL',name:'moneywheel'},
   ];
+  
 
+  //redirecting to online game from play now button 
+  $scope.gotoOnlinegame=function(data){
+    console.log('game',data);
+   
+    $scope.closeARonlineModal();
+    $state.go('onlinegame', {
+      'gameId': data
+    });
+    }
 
 });
