@@ -333,7 +333,9 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
 
-  $scope.Undo = function () {}
+  $scope.Undo = function () {
+    $scope.displayArray=$scope.place;
+  }
 
   $scope.removeAll = function () {
     $scope.displayArray = [];

@@ -110,11 +110,20 @@ tr {
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
-  font-size: 1.8vw;
+  font-size: 2vw;
   color: white;
   margin: 0 auto;
   white-space: nowrap;
 }
+td div img{
+    width: 4vw;
+}
+ul.coin li{
+  margin: 0.5vw auto;
+  img {
+    width: 5vw;
+  }
+} 
 
 .sector{
   font-size: 1.8vw;
@@ -129,7 +138,7 @@ background: rgba(255, 255, 255, 0.3);
   text-align: center;
   border-radius: 5px ;
   vertical-align: top;
-  height: 250px;
+  height: 30vw;  
 }
 
 .scroll {
@@ -157,7 +166,7 @@ background: rgba(255, 255, 255, 0.3);
 
 .roulette .num span {
   display: block;
-  padding: 30% 0.45vw;;
+  line-height: 2;
 }
 
 .roulette .zero {
@@ -997,3 +1006,5 @@ background: rgba(255, 255, 255, 0.3);
   background: none;
   border: 0;
 }
+
+
