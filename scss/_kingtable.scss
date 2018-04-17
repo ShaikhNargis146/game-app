@@ -1753,7 +1753,7 @@
 }
 
 .joker-card-animation {
-  animation: (joker-anime 50ms ease 0s forwards);
+  animation: (joker-anime 1s ease 0s forwards);
   .front,
   .back {
     width: 5vw;
@@ -1762,9 +1762,9 @@
 
 .joker-card-animation .flipper {
   animation: (joker-flipper 300ms ease forwards);
-  animation-delay: 50ms;
-  -ms-animation-delay: 50ms;
-  -webkit-animation-delay: 50ms;
+  animation-delay: 300ms;
+  -ms-animation-delay: 300ms;
+  -webkit-animation-delay: 300ms;
 }
 
 @keyframes joker-anime {
