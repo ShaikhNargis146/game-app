@@ -29,8 +29,8 @@
     <div class="table_message opt-tan" ng-if="tableMessageShow">
       <span>{{tableMessage}} </span>
     </div>
-    <div class="table_message opt-tan" ng-if="winner.length > 0">
-      <span ng-repeat="winners in winner" ng-if="winners.winRank==1">{{winners.name}} </span> won the game.
+    <div class="table_message opt-tan" ng-if="players.length > 0 && winnerMessageShow">
+      <span ng-repeat="winners in players track by $index" ng-if="winners.winRank==1">{{winners.name}} </span> won the game.
     </div>
     <div class="playing-table">
       <img src="img/doll.png" class="doll" ng-click="timerStart()">
@@ -61,7 +61,7 @@
         <div class="flipper">
           <div class="card-joker">
             <div class="cards">
-              <card card='NONE' class="front"></card>
+              <!-- <card card='NONE' class="front"></card> -->
               <card card='{{tableData.jokerCardValue}}' class="back"></card>
             </div>
           </div>
