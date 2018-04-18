@@ -114,18 +114,21 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.betUser = [];
   $scope.place = [];
   $scope.displayArray = [];
-
+  $scope.bettingPlace = [];
   $scope.amount = $scope.betAmount = 0;
   $scope.userBet = function (betName, bet) {
     var field = bet;
+    $scope.pointer= betName;
     $scope.bet[field] = betName;
     $scope.userBet1 = {
       user: $.jStorage.get("singlePlayerData")._id
     }
-
-
     $scope.createTemp = function (data) {
-      var temp = data;
+      console.log("data before modification",data);
+      var temp = data;      
+      // var temp = data);
+      console.log("data temp",temp);
+      console.log("data after modification",data);
       if (!_.isEmpty(temp)) {
         var coin1 = 0;
         var coin2 = 0;
@@ -146,15 +149,20 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
           coin1div = coin1 / 5;
           coin1mod = coin1 % 5;
           for (i = 0; i < coin1div; i++) {
+            console.log("inside5",temp);
             temp.img.push({
               img: "img/roulette/coin2.png",
               id: 2
             });
+            console.log("inside5afterpush",temp);
             coin2++;
+            console.log("coin2",coin2);
           }
+          console.log("before filter",temp.img);
           temp.img = temp.img.filter(function (a) {
             return a.id !== 1;
           });
+          console.log("after filter",temp.img);
           for (i = 0; i < coin1mod; i++) {
             temp.img.push({
               img: "img/roulette/coin1.png",
@@ -229,7 +237,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             id: 1
           });
         }
-        $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
+        $scope.tempArray = _.cloneDeep($scope.place[betName]);
+        console.log("@@@@@@@@@@@",$scope.tempArray);
+        console.log("%%%%%%%%%%%%%",$scope.place);
+        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
       }
       if ($scope.coinSelects == "coin2") {
         $scope.coin2[field] = true;
@@ -250,7 +261,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             id: 2
           });
         }
-        $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
+        $scope.tempArray = $scope.place[betName];
+        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
       }
       if ($scope.coinSelects == "coin3") {
         $scope.coin3[field] = true;
@@ -271,7 +283,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             id: 3
           });
         }
-        $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
+        $scope.tempArray = $scope.place[betName];
+        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
       }
       if ($scope.coinSelects == "coin4") {
         $scope.coin4[field] = true;
@@ -292,7 +305,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
             id: 4
           });
         }
-        $scope.displayArray[betName] = $scope.createTemp($scope.place[betName]);
+        $scope.tempArray = $scope.place[betName];
+        console.log("$scope.tempArray",$scope.tempArray);
+        console.log("$scope.place",$scope.place);
+        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
       }
 
 
@@ -334,7 +350,9 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   $scope.Undo = function () {
-    $scope.displayArray=$scope.place;
+    $scope.place[$scope.pointer].img.pop();
+    console.log("@@@@@@@undo place", $scope.place);
+    $scope.displayArray[$scope.pointer] = $scope.createTemp($scope.place[$scope.pointer]);
   }
 
   $scope.removeAll = function () {
