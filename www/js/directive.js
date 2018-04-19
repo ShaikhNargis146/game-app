@@ -63,7 +63,8 @@ myApp.directive('card', function () {
         sitHere: "=ngSitHere",
         winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation",
-        remainingPlayerCount: "=ngRemainingPlayer"
+        remainingPlayerCount: "=ngRemainingPlayer",
+        remainingAllPlayerCount: "=ngRemainingAllPlayer",
       },
       templateUrl: 'templates/directive/main-player.html',
       link: function (scope, element, attr) {}
@@ -83,7 +84,10 @@ myApp.directive('card', function () {
         startAnimation: "=ngAnimation",
         remainingPlayerCount: "=ngRemainingPlayer",
         remainingAllPlayerCount: "=ngRemainingAllPlayer",
-        showCard: "&"
+        cardOneJoker: "=ngCardOneJoker",
+        cardTwoJoker: "=ngCardTwoJoker",
+        cardThreeJoker: "=ngCardThreeJoker",
+        showCard: "&",
       },
       templateUrl: 'templates/directive/mainplayercard.html',
       link: function (scope, element, attr) {}

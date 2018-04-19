@@ -114,7 +114,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
   }
-
+  //Resume Audio
+  $scope.resumeAudio = function () {
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        // running on device/emulator
+        window.plugins.NativeAudio.play('timer');
+      }
+    });
+  }
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
     if (!_.isEmpty($scope.tableId)) {
@@ -150,6 +158,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
         $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
           if (player && player.isActive && !player.isFold) {
+            return true;
+          }
+        }).length;
+
+        $scope.remainingAllPlayerCount = _.filter($scope.players, function (player) {
+          if (player && player.isActive) {
             return true;
           }
         }).length;
@@ -474,7 +488,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
         })
 
-
+        $scope.startAnimation = false;
         $scope.updateSocketVar = 0;
         $scope.showNewGameTime = false;
         $scope.chaalAmt = data.table.blindAmt;
@@ -507,10 +521,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         // $scope.shuffleAudio.play();
         $scope.winnerPlayerNo = -1;
         $scope.startAnimation = true;
-
+        console.log("inside Serve", $scope.startAnimation);
         $timeout(function () {
           $scope.startAnimation = false;
-        }, 100);
+          console.log("inside Serve false", $scope.startAnimation);
+        }, 1000);
       }
     }
 
@@ -535,6 +550,11 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
+    $scope.remainingAllPlayerCount = _.filter($scope.players, function (player) {
+      if (player) {
+        return true;
+      }
+    }).length;
     $scope.blindPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold && player.isBlind) {
         return true;
@@ -549,11 +569,49 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.insufficientFunds = false;
     }
 
-
+    if ($scope.players && $scope.players[8]) {
+      console.log($scope.players[8].cards);
+      $scope.card1 = [];
+      $scope.card2 = [];
+      $scope.card3 = [];
+      $scope.cardOneJoker = false;
+      $scope.cardTwoJoker = false;
+      $scope.cardThreeJoker = false;
+      $scope.jokerCard = [];
+      _.each(data.table.jokerCardValue, function (n) {
+        $scope.jokerCard.push(n);
+      });
+      _.each($scope.players[8].cards[0], function (n) {
+        $scope.card1.push(n);
+      });
+      _.each($scope.players[8].cards[1], function (n) {
+        $scope.card2.push(n);
+      });
+      _.each($scope.players[8].cards[2], function (n) {
+        $scope.card3.push(n);
+      });
+      if (data.table.jokerCardValue) {
+        if ($scope.card1[0] == $scope.jokerCard[0]) {
+          $scope.cardOneJoker = true;
+          console.log("one");
+        }
+        if ($scope.card2[0] == $scope.jokerCard[0]) {
+          $scope.cardTwoJoker = true;
+          console.log("two");
+        }
+        if ($scope.card3[0] == $scope.jokerCard[0]) {
+          $scope.cardThreeJoker = true;
+          console.log("three");
+        }
+      }
+    };
     //for vibration on turn
-
     if ($scope.players[8] && $scope.players[8].isTurn) {
-
+      //Resume Audio
+      document.addEventListener("resume", function () {
+        // Handle event on pause
+        $scope.resumeAudio();
+      });
       // $scope.timerAudio.play();
       $ionicPlatform.ready(function () {
         if (window.cordova) {
@@ -594,6 +652,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function showWinnerFunction(data) {
     // console.log("show winner", data);
+    $scope.winnerMessageShow = true;
     $scope.updateSocketVar = 1;
     $ionicPlatform.ready(function () {
       if (window.cordova) {
@@ -614,7 +673,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     // $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
-    console.log(data.data.players);
     $scope.winner = _.filter($scope.showWinnerPlayer, {
       'winRank': 1,
       'winner': true
@@ -638,10 +696,10 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
     $timeout(function () {
       $scope.winner = {};
-      $scope.winnerMessageShow = false;
-      $scope.tableMessageShow = false;
     }, 50);
     $timeout(function () {
+      $scope.winnerMessageShow = false;
+      $scope.tableMessageShow = false;
       $scope.showNewGameTime = true;
     }, 5000);
     // console.log("show winner Data", $scope.winner);

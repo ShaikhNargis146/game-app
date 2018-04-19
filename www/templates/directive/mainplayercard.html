@@ -20,9 +20,9 @@
   </div>
   <div ng-if="( (!player.isBlind && !player.isFold) || (!player.isFold && player.winRank && remainingPlayerCount > 1) ) && player.cards.length==3">
     <div class=" custom-row custom-row-card">
-      <card card='{{player.cards[0]}}'> </card>
-      <card card='{{player.cards[1]}}'> </card>
-      <card card='{{player.cards[2]}}'> </card>
+      <card card='{{player.cards[0]}}' ng-class="{'card-joker-highlight':cardOneJoker}"> </card>
+      <card card='{{player.cards[1]}}' ng-class="{'card-joker-highlight':cardTwoJoker}"> </card>
+      <card card='{{player.cards[2]}}' ng-class="{'card-joker-highlight':cardThreeJoker}"> </card>
     </div>
   </div>
   <!-- end of three card -->

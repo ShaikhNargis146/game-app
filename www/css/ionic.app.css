@@ -11693,56 +11693,84 @@ ion-item.item {
     opacity: 0;
     transform: translateY(-400%); } }
 
-/* entire container, keeps perspective */
-.flip-container {
-  perspective: 1000px; }
-  .flip-container .card {
-    width: 100%; }
+.platform-ios .flip-container,
+.platform-browser .flip-container {
+  transition: 3s; }
+  .platform-ios .flip-container .card,
+  .platform-browser .flip-container .card {
+    width: 100%;
+    transition: 3s; }
 
-/* flip the pane when hovered */
-.flip-container,
-.front,
-.back {
-  height: 10vw;
+.platform-ios .front,
+.platform-browser .front {
+  display: none; }
+
+.platform-ios .back,
+.platform-browser .back {
+  width: 3vw;
+  height: 8vw;
   position: absolute;
   top: 18%;
-  right: 57%; }
+  right: 57%;
+  transition: 3s; }
 
-.joker-card-animation {
-  animation: joker-anime 50ms ease 0s forwards; }
-  .joker-card-animation .front,
-  .joker-card-animation .back {
-    width: 5vw; }
+.platform-ios .joker-card-animation .back,
+.platform-browser .joker-card-animation .back {
+  animation: joker-anime 1s ease 0s forwards; }
 
-.joker-card-animation .flipper {
-  animation: joker-flipper 300ms ease forwards;
-  animation-delay: 50ms;
-  -ms-animation-delay: 50ms;
-  -webkit-animation-delay: 50ms; }
+@keyframes joker-anime {
+  0% {
+    width: 3vw;
+    right: 57%; }
+  100% {
+    width: 10vw;
+    right: 28%; } }
 
-/* flip speed goes here */
-.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative; }
-
-/* hide back of pane during swap */
-.front,
-.back {
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0; }
-
-/* front pane, placed above back */
-.front {
-  z-index: 2;
-  /* for firefox 31 */
-  transform: rotateY(0deg); }
-
-/* back, initially hidden pane */
-.back {
-  transform: rotateY(180deg); }
+.platform-android {
+  /* entire container, keeps perspective */
+  /* flip the pane when hovered */
+  /* flip speed goes here */
+  /* hide back of pane during swap */
+  /* front pane, placed above back */
+  /* back, initially hidden pane */ }
+  .platform-android .flip-container {
+    perspective: 1000px; }
+    .platform-android .flip-container .card {
+      width: 100%; }
+  .platform-android .flip-container,
+  .platform-android .front,
+  .platform-android .back {
+    width: 3vw;
+    height: 10vw;
+    position: absolute;
+    top: 18%;
+    right: 57%; }
+  .platform-android .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative; }
+  .platform-android .front,
+  .platform-android .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .platform-android .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg); }
+  .platform-android .back {
+    transform: rotateY(180deg); }
+  .platform-android .joker-card-animation {
+    animation: joker-anime 1s ease 0s forwards; }
+    .platform-android .joker-card-animation .front,
+    .platform-android .joker-card-animation .back {
+      width: 5vw; }
+  .platform-android .joker-card-animation .flipper {
+    animation: joker-flipper 300ms ease forwards;
+    animation-delay: 300ms;
+    -ms-animation-delay: 300ms;
+    -webkit-animation-delay: 300ms; }
 
 @keyframes joker-anime {
   0% {
@@ -11763,6 +11791,11 @@ ion-item.item {
     transform: rotateY(0deg); }
   100% {
     transform: rotateY(180deg); } }
+
+.card-joker-highlight {
+  box-shadow: 0px -2px 7px #ffc107b0;
+  width: 110% !important;
+  margin-top: -15px; }
 
 .table6 .player2 {
   right: 5% !important;
@@ -11852,16 +11885,17 @@ ion-item.item {
     border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
     border-image-slice: 2;
     border-bottom: 1px solid;
-    padding: 15px 8px 0; }
+    padding: 10px 8px 0; }
     .statement-model .top_field select {
       font-family: 'Cinzel-Regular';
       font-size: 1em;
+      height: 2em;
       background: url("../img/model/input_bg.png");
       background-size: 100% 100%;
       border: 0px;
       color: white;
-      padding: 2px 0%;
-      padding-left: 2%; }
+      padding: 0 3%;
+      margin: 2px; }
       .statement-model .top_field select option {
         font-family: 'Cinzel-Regular';
         font-size: 1em;
@@ -11869,15 +11903,13 @@ ion-item.item {
         color: white;
         padding: 2px 3%; }
     .statement-model .top_field input {
-      display: inline-block;
-      padding: 2%;
+      padding: 0 3%;
+      margin: 2px;
       color: white;
       font-family: 'Cinzel-Regular';
       font-size: 1em;
       background: url("../img/model/input_bg.png");
       background-size: 100% 100%;
-      width: 20%;
-      height: 20%;
       height: 2em; }
   .statement-model .statement_content {
     overflow-y: scroll;
@@ -11929,7 +11961,7 @@ ion-item.item {
 .change_password-model .field {
   text-align: center;
   padding: 5%;
-  padding-top: 2%; }
+  padding-top: 0%; }
   .change_password-model .field form {
     width: 70%;
     margin: 0 auto; }
@@ -12198,7 +12230,7 @@ ion-item.item {
 .price_range_modal .close {
   position: absolute;
   right: 3%;
-  top: 10px;
+  top: 12px;
   z-index: 5; }
 
 .price_range_modal .btn_search {
@@ -13101,6 +13133,9 @@ ion-item.item {
   height: 1.5em;
   width: 1.5em;
   vertical-align: middle; }
+
+.mt-25 {
+  margin-top: 25px; }
 
 @media (min-aspect-ratio: 18 / 9) {
   .kingtable .main-table .playing-table {

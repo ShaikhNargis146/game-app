@@ -3,22 +3,31 @@
     <div class="close" ng-click="closePriceRangeModal()">
       <img src="img/close.png">
     </div>
-    <div class="heading">table</div>
+    <div class="heading">Public table</div>
     <form name="filterTable">
       <div class="top_field filter">
-        Filter with
-        <select ng-model="filterData.type" ng-options="x for x in filterType" placeholder="Blind Amt">
+        <!-- <select ng-model="filterData.type" ng-options="x for x in filterType" placeholder="Type">
           <option value="" disabled hidden selected>Type</option>
-        </select>
-        <input type="text" ng-model="filterData.blindAmt" placeholder="Blind Amt">
-        <input type="text" ng-model="filterData.chalAmt" placeholder="Chaal Amt">
-        <!-- <ui-select ng-model="tablesData.selected.name" theme="bootstrap" class="custom-filter">
-                  <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
-                  <ui-select-choices repeat="item in tablesData | filter: $select.search">
-                    <div ng-bind-html="item.name | highlight: $select.search"></div>
-                  </ui-select-choices>
-                </ui-select> -->
-        <input type="text" ng-model="filterData.name" placeholder="Table Name">
+        </select> -->
+        <!-- <select ng-model="filterData.gameType" ng-options="x for x in filterGameType" placeholder="Game Type">
+          <option value="" disabled hidden selected>Game Type</option>
+        </select> -->
+        <div class="row">
+          Filter with :
+          <select class="col" ng-if="!(gameType== 'Normal')" ng-model="filterData.gameType" ng-options="x for x in filterGameType"
+            placeholder="Game Type">
+            <option value=" " disabled hidden selected>Game Type</option>
+          </select>
+          <input type="text" ng-model="filterData.blindAmt" class="col" placeholder="Blind Amt">
+          <input type="text" ng-model="filterData.chalAmt" class="col" placeholder="Chaal Amt">
+          <!-- <ui-select ng-model="tablesData.selected.name" theme="bootstrap" class="custom-filter">
+                    <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in tablesData | filter: $select.search">
+                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select> -->
+          <input type="text" class="col" ng-model="filterData.name" placeholder="Table Name">
+        </div>
         <div class="row">
           <div class="col">
             <button class="custom_button bold btn_search" type='submit' ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
@@ -26,7 +35,12 @@
           </div>
           <div class="col">
             <button class="custom_button bold btn_search" type='submit' ng-click="resetFilter();resetpage();" promise-btn="filterTablePromise">
-              Reset </button>
+              Reset
+            </button>
+
+            <!-- <button class="custom_button bold btn_search" type='submit' ng-click="resetFilter(normalGameType);resetpage();" promise-btn="filterTablePromise">
+              Reset
+            </button> -->
           </div>
         </div>
       </div>
@@ -41,7 +55,7 @@
               <div class="bold">Name</div>
             </div>
             <div class="col-15">
-              <div class="bold text-center">type</div>
+              <div class="bold text-center">Game type</div>
             </div>
             <div class="col-20">
               <div class="bold text-center">Stakes</div>
@@ -60,7 +74,7 @@
               <div class="bold">{{dataFilter.name}}</div>
             </div>
             <div class="col-15">
-              <div class="text-center bold">{{dataFilter.type}}</div>
+              <div class="text-center bold">{{dataFilter.gameType}}</div>
             </div>
             <div class="col-20">
               <div class="text-center bold">{{dataFilter.blindAmt}} - {{dataFilter.chalAmt}}</div>

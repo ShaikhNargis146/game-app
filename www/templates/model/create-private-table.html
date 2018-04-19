@@ -24,13 +24,12 @@
 
         <div class="rel">
           <div class="login_button">
-            <select name="gameType" id="gameType" ng-model="data.gameType" required ng-disabled="gameTypeModal">
+            <select name="gameType" id="gameType" ng-if="(gameType== 'Normal')" ng-model="data.gameType" required ng-disabled="gameTypeModal">
               <option value="" disabled hidden selected>Game Type</option>
               <option value="Normal">Normal</option>
-              <option value="2 Cards">2 Cards</option>
-              <option value="4 Cards">4 Cards</option>
-              <option value="Joker">Joker</option>
-              <option value="Muflis">Muflis</option>
+            </select>
+            <select name="gameType" id="gameType" ng-if="!(gameType== 'Normal')" ng-model="data.gameType" required ng-options="x for x in gameType">
+              <option value="" disabled hidden selected>Game Type</option>
             </select>
             <span class="valid" ng-show="createTable.gameType.$touched && createTable.gameType.$invalid">* Game Type is required.</span>
           </div>
@@ -59,7 +58,9 @@
           </div>
           <span class="valid" ng-show="createTable.maxBlind.$touched && createTable.maxBlind.$invalid">*Max Blind is required.</span>
         </div> -->
-
+        <div>
+          <h4 class="color-white">{{sameNameError}}</h4>
+        </div>
         <button type="submit" ng-click="createPrivateTable(data)" promise-btn="createPrivateTablePromise" ng-disabled="createTable.$invalid">Create</button>
       </form>
     </div>

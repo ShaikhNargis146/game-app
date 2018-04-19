@@ -41,6 +41,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.resetpage();
   $scope.filterType = ['private', 'public'];
+  $scope.filterGameType = ['2 Cards', '4 Cards', 'Joker', 'Muflis'];
+  $scope.normalGameType = 'Normal';
 
   $scope.accessToken = $.jStorage.get("accessToken");
 
@@ -302,10 +304,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     // $scope.filterData = {};
     if ($scope.gameType != null) {
       $scope.filterData = {
+        type: "public",
         gameType: $scope.gameType
       };
-    } else {
-      $scope.filterData = {};
     }
 
     $scope.filterTables();
@@ -359,6 +360,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
 
   $scope.privateFilterTables = function () {
+    console.log($scope.privateFilterData);
     Service.getFilterTableData($scope.privateFilterData, $scope.pageNo, function (data) {
       if (data) {
         if (data.data.data.total === 0) {
@@ -380,11 +382,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //resetFilter
   $scope.privateResetFilter = function () {
-    $scope.privateFilterData = {
-      type: "private"
-    };
-    if ($scope.gameType) {
-      $scope.privateFilterData.gameType = $scope.gameType
+    console.log($scope.gameType);
+    if ($scope.gameType != null) {
+      $scope.privateFilterData = {
+        type: "private",
+        gameType: $scope.gameType
+      };
     }
     $scope.privateFilterTables();
   };
@@ -473,27 +476,20 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $event.stopPropagation();
     $scope.gameType = $scope.gameType ? null : tab;
     $scope.VariationActive = !$scope.VariationActive;
-
-    // if ($scope.VariationActive) {
-    //   $scope.VariationActive = false;
-    // } else {
-    //   $scope.VariationActive = true;
-    // }
   }
-  $scope.variationGame = function ($event) {
+  $scope.variationGame = function ($event, tab) {
     $event.stopPropagation();
+    $scope.gameType = $scope.gameType ? null : tab;
     $scope.VariationTab = !$scope.VariationTab;
   }
 
 
-  $scope.playJoker = function ($event) {
-
-    if (!$scope.VariationActive) {
-      $scope.openPriceRangeModal();
-      $event.stopPropagation();
-
-    }
-  }
+  // $scope.playJoker = function ($event) {
+  //   if (!$scope.VariationActive) {
+  //     $scope.openPriceRangeModal();
+  //     $event.stopPropagation();
+  //   }
+  // }
 
 
   $scope.goToTable = function (table) {
@@ -600,6 +596,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //privatetable call
   $scope.createPrivateTable = function (formData) {
+    $scope.formDataName = _.lowerCase(formData.name);
+    formData.name = $scope.formDataName;
     Service.createTable(formData, function (data) {
       if (data.value) {
         $scope.privateTableData = data.data;
@@ -607,9 +605,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           $scope.privateTableData = false;
         }, 10000);
       } else {}
-      // if (data.error.message == "Error, expected `name` to be unique. Value: `Demo Joker") {
-      //   console.log("same name");
-      // }
+      console.log(data.error.errors.name.name);
+      if (data.error.errors.name.name == "ValidatorError") {
+        $scope.sameNameError = "Table Already Exist";
+        $timeout(function () {
+          $scope.sameNameError = "";
+        }, 8000)
+      }
     });
   };
 

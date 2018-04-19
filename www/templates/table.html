@@ -57,7 +57,7 @@
           <card card='NONE'> </card>
         </div>
       </div>
-      <div class="flip-container" ng-if="tableData.jokerCardValue && !startAnimation" ng-class="{'joker-card-animation':!startAnimation} ">
+      <div class="flip-container" ng-if="tableData.jokerCardValue && !startAnimation && remainingAllPlayerCount>1" ng-class="{'joker-card-animation':!startAnimation} ">
         <div class="flipper">
           <div class="card-joker">
             <div class="cards">
@@ -148,9 +148,9 @@
       </div> -->
 
       <!--showCard-->
-      <mainPlayerCard ng-sit-here="sitHere" ng-player="players[8]" show-card="showCard()" ng-animation="startAnimation" ng-win="winnerPlayerNo"
-        ng-game-type="gameType" ng-remaining-player="remainingPlayerCount" ng-remaining-all-player="remainingAllPlayerCount"
-        ng>
+      <mainPlayerCard ng-sit-here="sitHere" ng-card-one-joker="cardOneJoker" ng-card-two-joker="cardTwoJoker" ng-card-three-joker="cardThreeJoker"
+        ng-player="players[8]" show-card="showCard()" ng-animation="startAnimation" ng-win="winnerPlayerNo" ng-game-type="gameType"
+        ng-remaining-player="remainingPlayerCount" ng-remaining-all-player="remainingAllPlayerCount" ng>
       </mainPlayerCard>
       <!-- <div ng-if="player.isBlind && !startAnimation && !player.isFold && (player.cards.length > 0) && (remainingPlayerCount > 1 && winnerPlayerNo == -1)"
         class="card_see" ng-click="showCard()">See</div> -->

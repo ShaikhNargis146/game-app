@@ -24,13 +24,13 @@
         <img src="img/table/glow.png" class="anime3">
         <img src="img/table/glow.png" class="anime4">
       </div>
-      <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
+      <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingAllPlayerCount>1">
         BLIND
       </div>
       <div class="status" ng-if="player.isFold && player.isActive && remainingAllPlayerCount>1">
         PACK
       </div>
-      <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive && remainingPlayerCount>1">
+      <div class="status" ng-if="!player.isBlind && !player.isFold && player.isActive && remainingAllPlayerCount>1">
         SEEN
       </div>
       <div class="status" ng-if="!player.isActive || remainingAllPlayerCount==1">

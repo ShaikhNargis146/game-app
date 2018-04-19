@@ -126,6 +126,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       var filter = data;
       var reqData = {
         filter: {
+          gameType: filter.gameType,
           blindAmt: filter.blindAmt,
           chalAmt: filter.chalAmt,
           name: filter.name,
@@ -133,12 +134,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         },
         page: pageNo
       };
-      if (filter.gameType) {
-        if (filter.gameType == 'Muflis') {
-          filter.gameType = ['Muflis', 'Lowest'];
-        }
-        reqData.filter.gameType = filter.gameType;
-      }
+      // if (filter.gameType) {
+      //   if (filter.gameType == 'Muflis') {
+      //     filter.gameType = ['Muflis', 'Lowest'];
+      //   }
+      //   reqData.filter.gameType = filter.gameType;
+      // }
       $http.post(url + 'Table/filterTables', reqData).then(function (data) {
         if (data.data) {
           var totalCount = data.data.data.total;
@@ -405,6 +406,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
 
     createTable: function (data, callback) {
+      console.log(data);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         data.accessToken = accessToken;
