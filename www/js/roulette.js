@@ -108,10 +108,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
-
-  $scope.totalMoney = 10000;
-  $scope.amount = 0;
-  $scope.masterArray = {};
   $scope.convertCoin = function (data) {
     var displayArray = [];
     var coin1 = _.filter(data, {
