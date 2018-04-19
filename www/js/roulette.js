@@ -3,6 +3,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.b = [1, 2, 3];
   $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   $scope.totalMoney = 10000;
+  $scope.maxBet = 100;
+  $scope.minBet = 1;
   $scope.amount = 0;
   $scope.masterArray = {};
   $scope.visitedArray = [];
@@ -149,18 +151,28 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.userBet = function (bet) {
     if ($scope.selectedCoin) {
       if ($scope.selectedCoin.amount <= $scope.totalMoney) {
-        $scope.visitedArray.push(bet);
-        console.log($scope.visitedArray);
-        if (!$scope.masterArray[bet]) {
-          $scope.masterArray[bet] = {
-            coinArray: [],
-            displayArray: []
-          };
-        }
         $scope.amount += $scope.selectedCoin.amount;
-        $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
-        $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
-        $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+        if ($scope.amount <= $scope.maxBet) {
+
+
+          $scope.visitedArray.push(bet);
+          if (!$scope.masterArray[bet]) {
+            $scope.masterArray[bet] = {
+              coinArray: [],
+              displayArray: []
+            };
+          }
+          $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
+          $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
+          $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+        } else {
+          $scope.amount -= $scope.selectedCoin.amount;
+          $scope.message = {
+            heading: "Maximum Limit",
+            content: "You have reached maximum limit."
+          };
+          $scope.showMessageModal();
+        }
       } else {
         $scope.message = {
           heading: "Not enough money",
@@ -185,7 +197,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       $scope.amount = $scope.amount - coinArray[coinArray.length - 1].amount;
       coinArray.pop();
       $scope.visitedArray.pop();
-      $scope.masterArray[$scope.lastBet].displayArray = $scope.convertCoin(coinArray);
+      $scope.masterArray[lastVisitedElement].displayArray = $scope.convertCoin(coinArray);
     }
   }
 
@@ -227,8 +239,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   });
 
 });
-
-
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
 
