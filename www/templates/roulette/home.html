@@ -9,9 +9,9 @@
       <p>{{amount}} &#8377;</p>
     </div>
     <div class="div-inline upper-button">
-      <div>Min Bet: 1 &#8377;</div>
+      <div>Min Bet: {{minBet}} &#8377;</div>
       <hr>
-      <div>Max Bet: 1000 &#8377;</div>
+      <div>Max Bet: {{maxBet}} &#8377;</div>
     </div>
     <div class="div-inline upper-button" ng-click="Undo()">
       Undo
@@ -23,11 +23,6 @@
     <div class="width100">
       <div class="div-inline width6 history">
         <ul class="coin">
-          <!-- <li ng-repeat="coin in coins">
-            <div>
-              <img src="img/roulette/{{coin}}.png" ng-class="{{coin}}.{{coin}}?'MyClass':''" ng-click="coinSelect(coin)">
-            </div>
-          </li> -->
           <li ng-repeat="coin in coinArray">
             <div>
               <img src="img/roulette/{{coin.name}}.png" ng-class="{'MyClass':coin.selected==true}" ng-click="selectCoin(coin)">
