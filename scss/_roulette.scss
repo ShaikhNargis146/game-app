@@ -34,7 +34,7 @@ tr {
   line-height: 1.5;
   vertical-align: middle;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
-  hr{
+  hr {
     margin: (5px 0);
   }
 }
@@ -47,8 +47,7 @@ tr {
   border-radius: 50%;
   border: solid 1px white;
   width: 1.8vw;
-  height: 1.8vw;
-  // font-size: 1vw;
+  height: 1.8vw; // font-size: 1vw;
 }
 
 .width100 {
@@ -84,7 +83,6 @@ tr {
   vertical-align: middle;
 }
 
-
 .roulette td {
   border: 2px solid rgba(255, 255, 0, 0.7);
   height: 5vw;
@@ -94,7 +92,7 @@ tr {
   color: white;
   position: relative;
   white-space: nowrap;
-  &:hover{
+  &:hover {
     background: rgba(255, 255, 255, 0.4);
   }
 }
@@ -115,20 +113,22 @@ tr {
   margin: 0 auto;
   white-space: nowrap;
 }
-td div img{
-    width: 4vw;
+
+td div img {
+  width: 4vw;
 }
-ul.coin li{
+
+ul.coin li {
   margin: 0.5vw auto;
   img {
     width: 5vw;
   }
-} 
+}
 
-.sector{
+.sector {
   font-size: 1.8vw;
-  &:hover{
-background: rgba(255, 255, 255, 0.3);
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -136,9 +136,9 @@ background: rgba(255, 255, 255, 0.3);
   background: black;
   color: white;
   text-align: center;
-  border-radius: 5px ;
+  border-radius: 5px;
   vertical-align: top;
-  height: 30vw;  
+  height: 30vw;
 }
 
 .scroll {
@@ -180,9 +180,11 @@ background: rgba(255, 255, 255, 0.3);
 .roulette .empty {
   border: none;
 }
-.main_abs_div{
+
+.main_abs_div {
   position: relative;
 }
+
 .absolute-button {
   position: absolute;
   width: 100%;
@@ -195,7 +197,6 @@ background: rgba(255, 255, 255, 0.3);
 // .roulette .green {
 //   background: #1C7022; //   color: #8EB891;
 // }
-
 .roulette .red {
   background: #A91607; //   color: #8EB891;
 }
@@ -553,8 +554,7 @@ background: rgba(255, 255, 255, 0.3);
     height: 20em;
     border-radius: 20em;
     z-index: 20;
-  }
-  // .num {
+  } // .num {
   //   position: absolute;
   //   top: 0.4em;
   //   color: rgba(255, 255, 255, 1);
@@ -982,14 +982,14 @@ background: rgba(255, 255, 255, 0.3);
   position: absolute;
   top: 55% !important;
   left: 60%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .absolute-coin-big {
   position: absolute;
   top: 50% !important;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .MyClass {
@@ -1007,4 +1007,30 @@ background: rgba(255, 255, 255, 0.3);
   border: 0;
 }
 
+.bottombet {
+  position: absolute;
+  bottom: -8px;
+  left: 35%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(270deg);
+  z-index: 3;
+}
 
+.rightbet {
+  position: absolute;
+  bottom: 0;
+  right: -0.5vw;
+  width: 1vw;
+  height: 100%;
+  z-index: 3;
+}
+
+.bottomrightbet {
+  position: absolute;
+  bottom: -1vw;
+  right: -1vw;
+  width: 2vw;
+  height: 2vw;
+  z-index: 3;
+}

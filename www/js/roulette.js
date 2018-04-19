@@ -1,17 +1,41 @@
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
-  //   $ionicModal.fromTemplateUrl('../modal/spinner.html', {
-  //     scope: $scope,
-  //     animation: 'slide-in-up'
-  //   }).then(function(modal) {
-  //     $scope.modal = modal;
-  //   });
-  // $scope.openModal = function () {
-  //   $scope.modal.show();
-  // };
-  //   $scope.closeModal = function() {
-  //     $scope.modal.hide();
-  //   };
+  $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  $scope.b = [1, 2, 3];
+  $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
+  $scope.totalMoney = 10000;
+  $scope.amount = 0;
+  $scope.masterArray = {};
+  $scope.visitedArray = [];
 
+  $scope.getBlack = function (number) {
+    var foundIndex = _.findIndex($scope.blackArray, function (n1) {
+      return n1 == number;
+    });
+    if (foundIndex == -1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  $scope.getIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    return index;
+  }
+  $scope.getQuadIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index - 1) + '' + (index + 2) + '' + (index + 3) + 'Q';
+    return index;
+  }
+  $scope.getRightPairIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index + 3) + 'P';
+    return index;
+  }
+  $scope.getBottomPairIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index - 1) + 'P';
+    return index;
+  }
   RouletteService.getLastResults(function (data) {
     $scope.lastResults = data;
   });
@@ -32,66 +56,41 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       $.jStorage.set("singlePlayerData", $scope.singlePlayerData);
     })
   };
-
   $scope.playerData();
 
-  $scope.coins = ["coin1", "coin2", "coin3", "coin4"];
+  $scope.coinArray = [{
+    name: "coin1",
+    amount: 1,
+    img: "img/roulette/coin1.png",
+    selected: false
+  }, {
+    name: "coin2",
+    amount: 5,
+    img: "img/roulette/coin2.png",
+    selected: false
+  }, {
+    name: "coin3",
+    amount: 10,
+    img: "img/roulette/coin3.png",
+    selected: false
+  }, {
+    name: "coin4",
+    amount: 100,
+    img: "img/roulette/coin4.png",
+    selected: false
+  }];
 
-  $scope.coinSelect = function (coin) {
-    switch (coin) {
-      case "coin1":
-        $scope.coinSelects = "coin1";
-        if ($scope.coin1) {
-
-        } else {
-          $scope.coin1 = {
-            coin1: true,
-            amount: 1,
-            count: 0
-          }
-        }
-        break;
-      case "coin2":
-        $scope.coinSelects = "coin2";
-        if ($scope.coin2) {
-
-        } else {
-          $scope.coin2 = {
-            coin2: true,
-            amount: 5,
-            count: 0
-          };
-        }
-        break;
-      case "coin3":
-        // $scope.coin3 = true;
-        $scope.coinSelects = "coin3";
-        if ($scope.coin3) {
-
-        } else {
-          $scope.coin3 = {
-            coin3: true,
-            amount: 10,
-            count: 0
-          }
-        }
-        break;
-      case "coin4":
-        $scope.coinSelects = "coin4";
-        if ($scope.coin4) {
-
-        } else {
-          $scope.coin4 = {
-            coin4: true,
-            amount: 100,
-            count: 0
-          }
-        }
-        break;
-      default:
-        break;
-    }
+  $scope.selectCoin = function (coin) {
+    $scope.selectedCoin = coin;
+    _.forEach($scope.coinArray, function (value) {
+      if (value.name == coin.name) {
+        value.selected = true;
+      } else {
+        value.selected = false;
+      }
+    })
   }
+
   $ionicModal.fromTemplateUrl('templates/model/message.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -108,235 +107,66 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     $scope.messageModal.hide();
   };
 
-  $scope.bet = [];
-  $scope.amountBet = [];
   $scope.totalMoney = 10000;
-  $scope.betUser = [];
-  $scope.place = [];
-  $scope.displayArray = [];
-  $scope.bettingPlace = [];
-  $scope.amount = $scope.betAmount = 0;
-  $scope.userBet = function (betName, bet) {
-    var field = bet;
-    $scope.pointer= betName;
-    $scope.bet[field] = betName;
-    $scope.userBet1 = {
-      user: $.jStorage.get("singlePlayerData")._id
+  $scope.amount = 0;
+  $scope.masterArray = {};
+  $scope.convertCoin = function (data) {
+    var displayArray = [];
+    var coin1 = _.filter(data, {
+      'amount': 1
+    }).length;
+    var coin2 = _.filter(data, {
+      'amount': 5
+    }).length;
+    var coin3 = _.filter(data, {
+      'amount': 10
+    }).length;
+    var coin4 = _.filter(data, {
+      'amount': 100
+    }).length;
+    coin2 += parseInt((coin1 / 5));
+    coin1 = (coin1 % 5);
+    coin3 += parseInt((coin2 / 2));
+    coin2 = (coin2 % 2);
+    coin4 += parseInt((coin3 / 10));
+    coin3 = (coin3 % 10);
+    var i = 0;
+    for (i = 0; i < coin1; i++) {
+      displayArray.push($scope.coinArray[0]);
     }
-    $scope.createTemp = function (data) {
-      console.log("data before modification",data);
-      var temp = data;      
-      // var temp = data);
-      console.log("data temp",temp);
-      console.log("data after modification",data);
-      if (!_.isEmpty(temp)) {
-        var coin1 = 0;
-        var coin2 = 0;
-        var coin3 = 0;
-        var coin4 = 0;
-        for (i = 0; i < temp.img.length; i++) {
-          if (temp.img[i].id == 1) {
-            coin1++;
-          }
-          if (temp.img[i].id == 2) {
-            coin2++;
-          }
-          if (temp.img[i].id == 3) {
-            coin3++;
-          }
-        }
-        if (coin1 >= 5) {
-          coin1div = coin1 / 5;
-          coin1mod = coin1 % 5;
-          for (i = 0; i < coin1div; i++) {
-            console.log("inside5",temp);
-            temp.img.push({
-              img: "img/roulette/coin2.png",
-              id: 2
-            });
-            console.log("inside5afterpush",temp);
-            coin2++;
-            console.log("coin2",coin2);
-          }
-          console.log("before filter",temp.img);
-          temp.img = temp.img.filter(function (a) {
-            return a.id !== 1;
-          });
-          console.log("after filter",temp.img);
-          for (i = 0; i < coin1mod; i++) {
-            temp.img.push({
-              img: "img/roulette/coin1.png",
-              id: 1
-            });
-          }
-          coin1 = coin1mod;
-        }
-        if (coin2 >= 2) {
-          coin2div = coin2 / 2;
-          coin2mod = coin2 % 2;
-          for (i = 0; i < coin2div; i++) {
-            temp.img.push({
-              img: "img/roulette/coin3.png",
-              id: 3
-            });
-            coin3++;
-          }
-          temp.img = temp.img.filter(function (a) {
-            return a.id !== 2;
-          });
-          for (i = 0; i < coin2mod; i++) {
-            temp.img.push({
-              img: "img/roulette/coin2.png",
-              id: 2
-            });
-          }
-          coin2 = coin2mod;
-        }
-        if (coin3 >= 10) {
-          coin3div = coin3 / 10;
-          coin3mod = coin3 % 10;
-          for (i = 0; i < coin3div; i++) {
-            temp.img.push({
-              img: "img/roulette/coin4.png",
-              id: 4
-            });
-            coin4++;
-          }
-          temp.img = temp.img.filter(function (a) {
-            return a.id !== 3;
-          });
-          for (i = 0; i < coin3mod; i++) {
-            temp.img.push({
-              img: "img/roulette/coin3.png",
-              id: 3
-            });
-          }
-          coin3 = coin3mod;
-        }
-      }
-      return temp;
-    };
+    for (i = 0; i < coin2; i++) {
+      displayArray.push($scope.coinArray[1]);
+    }
+    for (i = 0; i < coin3; i++) {
+      displayArray.push($scope.coinArray[2]);
+    }
+    for (i = 0; i < coin4; i++) {
+      displayArray.push($scope.coinArray[3]);
+    }
+    return displayArray;
+  };
 
-    if ($scope.coinSelects) {
-      if ($scope.coinSelects == "coin1") {
-        $scope.coin1[field] = true;
-        $scope.coin1.count++;
-        $scope.userBet1.amountplaces = $scope.betAmount = $scope.coin1.amount;
-        $scope.amount = _.round($scope.amount + $scope.coin1.amount, 2);
-        if (_.isEmpty($scope.place[betName])) {
-          $scope.place[betName] = {
-            img: []
+  $scope.userBet = function (bet) {
+    if ($scope.selectedCoin) {
+      if ($scope.selectedCoin.amount <= $scope.totalMoney) {
+        $scope.visitedArray.push(bet);
+        console.log($scope.visitedArray);
+        if (!$scope.masterArray[bet]) {
+          $scope.masterArray[bet] = {
+            coinArray: [],
+            displayArray: []
           };
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin1.png",
-            id: 1
-          });
-        } else {
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin1.png",
-            id: 1
-          });
         }
-        $scope.tempArray = _.cloneDeep($scope.place[betName]);
-        console.log("@@@@@@@@@@@",$scope.tempArray);
-        console.log("%%%%%%%%%%%%%",$scope.place);
-        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
-      }
-      if ($scope.coinSelects == "coin2") {
-        $scope.coin2[field] = true;
-        $scope.coin2.count++;
-        $scope.userBet1.amountplaces = $scope.betAmount = $scope.coin2.amount;
-        $scope.amount = $scope.amount + $scope.coin2.amount;
-        if (_.isEmpty($scope.place[betName])) {
-          $scope.place[betName] = {
-            img: []
-          };
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin2.png",
-            id: 2
-          });
-        } else {
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin2.png",
-            id: 2
-          });
-        }
-        $scope.tempArray = $scope.place[betName];
-        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
-      }
-      if ($scope.coinSelects == "coin3") {
-        $scope.coin3[field] = true;
-        $scope.coin3.count++;
-        $scope.userBet1.amountplaces = $scope.betAmount = $scope.coin3.amount;
-        $scope.amount = $scope.amount + $scope.coin3.amount;
-        if (_.isEmpty($scope.place[betName])) {
-          $scope.place[betName] = {
-            img: []
-          };
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin3.png",
-            id: 3
-          });
-        } else {
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin3.png",
-            id: 3
-          });
-        }
-        $scope.tempArray = $scope.place[betName];
-        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
-      }
-      if ($scope.coinSelects == "coin4") {
-        $scope.coin4[field] = true;
-        $scope.coin4.count++;
-        $scope.userBet1.amountplaces = $scope.betAmount = $scope.coin4.amount;
-        $scope.amount = $scope.amount + $scope.coin4.amount;
-        if (_.isEmpty($scope.place[betName])) {
-          $scope.place[betName] = {
-            img: []
-          };
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin4.png",
-            id: 4
-          });
-        } else {
-          $scope.place[betName].img.push({
-            img: "img/roulette/coin4.png",
-            id: 4
-          });
-        }
-        $scope.tempArray = $scope.place[betName];
-        console.log("$scope.tempArray",$scope.tempArray);
-        console.log("$scope.place",$scope.place);
-        $scope.displayArray[betName] = $scope.createTemp($scope.tempArray);
-      }
-
-
-      if ($scope.amountBet[field]) {
-        $scope.amountBet[field] = $scope.amountBet[field] + $scope.betAmount;
+        $scope.amount += $scope.selectedCoin.amount;
+        $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
+        $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
+        $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
       } else {
-        $scope.amountBet[field] = $scope.betAmount;
-      }
-      $scope.totalMoney = $scope.totalMoney - $scope.betAmount;
-      if ($scope.betUser.length !== 0) {
-        var index = _.find($scope.betUser,
-          function (o) {
-            return o.bet == betName;
-          });
-
-        if (!index) {
-          $scope.betUser.push({
-            bet: betName,
-            amountplaces: $scope.amountBet[bet]
-          });
-        } else {
-          index.amountplaces = $scope.amountBet[bet];
-        }
-      } else {
-        $scope.betUser.push({
-          bet: betName,
-          amountplaces: $scope.amountBet[bet]
-        });
+        $scope.message = {
+          heading: "Not enough money",
+          content: "Not enough money for this bet. Try Again!!!"
+        };
+        $scope.showMessageModal();
       }
     } else {
       $scope.message = {
@@ -345,21 +175,23 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       };
       $scope.showMessageModal();
     }
-
-  };
-
+  }
 
   $scope.Undo = function () {
-    $scope.place[$scope.pointer].img.pop();
-    console.log("@@@@@@@undo place", $scope.place);
-    $scope.displayArray[$scope.pointer] = $scope.createTemp($scope.place[$scope.pointer]);
+    if (!_.isEmpty($scope.masterArray)) {
+      var lastVisitedElement = $scope.visitedArray[$scope.visitedArray.length - 1];
+      var coinArray = $scope.masterArray[lastVisitedElement].coinArray;
+      $scope.totalMoney = $scope.totalMoney + coinArray[coinArray.length - 1].amount;
+      $scope.amount = $scope.amount - coinArray[coinArray.length - 1].amount;
+      coinArray.pop();
+      $scope.visitedArray.pop();
+      $scope.masterArray[$scope.lastBet].displayArray = $scope.convertCoin(coinArray);
+    }
   }
 
   $scope.removeAll = function () {
-    $scope.displayArray = [];
+    $scope.masterArray = {};
   }
-
-
 
   if ($scope.betUser) {
     // $timeout(function () {
@@ -388,8 +220,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       }
     });
   };
-
-
   io.socket.on("spinWheel", function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
@@ -397,6 +227,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   });
 
 });
+
 
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
