@@ -1031,10 +1031,28 @@ ul.coin li {
   z-index: 3;
 }
 
+.leftbet {
+  position: absolute;
+  bottom: 0;
+  left: -0.5vw;
+  width: 1vw;
+  height: 100%;
+  z-index: 3;
+}
+
 .bottomrightbet {
   position: absolute;
   bottom: -1vw;
   right: -1vw;
+  width: 2vw;
+  height: 2vw;
+  z-index: 3;
+}
+
+.bottomleftbet {
+  position: absolute;
+  bottom: -1vw;
+  left: -1vw;
   width: 2vw;
   height: 2vw;
   z-index: 3;

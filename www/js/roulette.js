@@ -28,19 +28,45 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     var index = ((innerIndex + 1) * 3) - outerIndex;
     return index;
   }
-  $scope.getQuadIndex = function (innerIndex, outerIndex) {
+
+  $scope.getCornerBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index - 1) + '' + (index + 2) + '' + (index + 3) + 'Q';
+    index = index + '' + (index - 1) + '' + (index + 2) + '' + (index + 3) + 'CR';
     return index;
   }
-  $scope.getRightPairIndex = function (innerIndex, outerIndex) {
+  $scope.getCornerBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index + 3) + 'P';
+    index = 0 + '' + index + '' + (index - 1) + '' + (index + 2) + 'CL';
     return index;
   }
-  $scope.getBottomPairIndex = function (innerIndex, outerIndex) {
+  $scope.getRightSplitBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index - 1) + 'P';
+    index = index + '' + (index + 3) + 'RS';
+    return index;
+  }
+  $scope.getLeftSplitBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = 0 + '' + index + 'ZS';
+    return index;
+  }
+  $scope.getBottomSplitBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index - 1) + 'BS';
+    return index;
+  }
+  $scope.getStreetBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index + 1) + '' + (index + 2) + 'ST';
+    return index;
+  }
+  $scope.getLineBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = index + '' + (index + 1) + '' + (index + 2) + '' + (index + 3) + '' + (index + 4) + '' + (index + 5) + 'LR';
+    return index;
+  }
+  $scope.getLineBetLeftIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    index = 0 + '' + index + '' + (index + 1) + '' + (index + 2) + 'LL';
     return index;
   }
   RouletteService.getLastResults(function (data) {
@@ -154,8 +180,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       if ($scope.selectedCoin.amount <= $scope.totalMoney) {
         $scope.amount += $scope.selectedCoin.amount;
         if ($scope.amount <= $scope.maxBet) {
-
-
           $scope.visitedArray.push(bet);
           if (!$scope.masterArray[bet]) {
             $scope.masterArray[bet] = {

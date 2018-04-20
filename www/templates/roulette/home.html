@@ -24,7 +24,7 @@
       <div class="div-inline width6 history">
         <ul class="coin">
           <li ng-repeat="coin in coinArray" ng-click="selectCoin(coin)">
-              <img src="img/roulette/{{coin.name}}.png" ng-class="{'MyClass':coin.selected==true}">
+            <img src="img/roulette/{{coin.name}}.png" ng-class="{'MyClass':coin.selected==true}">
           </li>
         </ul>
       </div>
@@ -50,18 +50,43 @@
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="bottombet" ng-if="outerIndex<=1" ng-click="userBet(getBottomPairIndex($index,outerIndex))">
-                  <div class="absolute-coin" ng-repeat="coin in masterArray[getBottomPairIndex($index,outerIndex)].displayArray track by $index">
+                <div class="bottombet" ng-if="outerIndex<=1" ng-click="userBet(getBottomSplitBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getBottomSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="rightbet" ng-if="$index<11" ng-click="userBet(getRightPairIndex($index,outerIndex))">
-                  <div class="absolute-coin" ng-repeat="coin in masterArray[getRightPairIndex($index,outerIndex)].displayArray track by $index">
+                <div class="leftbet" ng-if="$index==0" ng-click="userBet(getLeftSplitBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getLeftSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="bottomrightbet" ng-if="outerIndex<=1 && $index<11" ng-click="userBet(getQuadIndex($index,outerIndex))">
-                  <div class="absolute-coin" ng-repeat="coin in masterArray[getQuadIndex($index,outerIndex)].displayArray track by $index">
+                <div class="rightbet" ng-if="$index<11" ng-click="userBet(getRightSplitBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getRightSplitBetIndex($index,outerIndex)].displayArray track by $index">
+                    <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                  </div>
+                </div>
+                <div class="bottomrightbet" ng-if="outerIndex<=1 && $index<11" ng-click="userBet(getCornerBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getCornerBetIndex($index,outerIndex)].displayArray track by $index">
+                    <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                  </div>
+                </div>
+                <div class="bottomleftbet" ng-if="outerIndex<=1 && $index<11" ng-click="userBet(getCornerBetLeftIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getCornerBetLeftIndex($index,outerIndex)].displayArray track by $index">
+                    <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                  </div>
+                </div>
+                <div class="street-bet bottombet" ng-if="outerIndex==2" ng-click="userBet(getStreetBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getStreetBetIndex($index,outerIndex)].displayArray track by $index">
+                    <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                  </div>
+                </div>
+                <div class="line-bet bottomrightbet" ng-if="outerIndex==2 && 0 < $index <12" ng-click="userBet(getLineBetIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getLineBetIndex($index,outerIndex)].displayArray track by $index">
+                    <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                  </div>
+                </div>
+                <div class="line-bet bottomleftbet" ng-if="outerIndex==2 && $index == 0" ng-click="userBet(getLineBetLeftIndex($index,outerIndex))">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getLineBetLeftIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
@@ -161,7 +186,7 @@
         </ul>
       </div>
     </div>
-
+    <!-- 
     <div class="main_abs_div">
       <div class="absolute-button">
         <div class="div-inline upper-button">
@@ -180,8 +205,8 @@
         <div class="div-inline upper-button pdbutton">
           <span>Finals Bet</span>
         </div>
-        <!-- <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div> -->
+        <div ng-click="spinNow" class="div-inline upper-button pdbutton">Spin</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
