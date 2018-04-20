@@ -1,9 +1,10 @@
-<ion-modal-view class="custom-model statement-model price_range_modal">
-  <div class="close" ng-click="closeACStatement()">
-    <img src="img/close.png">
-  </div>
-  <div class="heading custom-header">Account Statement</div>
+<ion-modal-view class="custom-model statement-model">
+
   <ion-content>
+    <div class="close" ng-click="closeACStatement()">
+      <img src="img/close.png">
+    </div>
+    <div class="heading">Account Statement</div>
     <!-- <div class="top_field">
       Date within
       <select>
@@ -12,8 +13,41 @@
         <option>3 Day</option>
       </select>
       of
-      <input type="text" ng-model="month">
-    </div> -->
+      <input type="text" ng-model="month"> -->
+    <form name="statementFilter">
+      <div class="top_field filter">
+        Filter with
+        <select ng-model="accountStatmentFilter.type" ng-options="x.name for x in gameTypeForFilter" placeholder="Blind Amt">
+          <option value="" disabled hidden selected>Type</option>
+        </select>
+        <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x.name for x in gameTypeForFilter"
+          placeholder="Blind Amt">
+          <option value="" disabled hidden selected>Type</option>
+        </select>
+        <input type="date" ng-model="accountStatmentFilter.date">
+        <!-- <input type="text" ng-model="accountStatmentFilter.blindAmt" placeholder="Blind Amt">
+        <input type="text" ng-model="accountStatmentFilter.chalAmt" placeholder="Chaal Amt"> -->
+        <!-- <ui-select ng-model="tablesData.selected.name" theme="bootstrap" class="custom-filter">
+                      <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
+                      <ui-select-choices repeat="item in tablesData | filter: $select.search">
+                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                      </ui-select-choices>
+                    </ui-select> -->
+        <!-- <input type="text" ng-model="accountStatmentFilter.name" placeholder="Table Name"> -->
+        <div class="row">
+          <div class="col">
+            <button class="custom_button  btn_search" type='submit' ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+              Search </button>
+          </div>
+          <div class="col">
+            <button class="custom_button  btn_search" type='submit' ng-click="resetFilter();resetpage();" promise-btn="filterTablePromise">
+              Reset </button>
+          </div>
+        </div>
+        {{accountStatmentFilter}}
+      </div>
+    </form>
+    </div>
 
     <!-- <div class="statement_content ">
       <table>
@@ -34,7 +68,7 @@
     </div> -->
 
 
-    <div class="custom-table mt-25" ng-if="results">
+    <div class="custom-table" ng-if="results">
       <ion-list>
         <ion-item class="item">
           <div class="row">

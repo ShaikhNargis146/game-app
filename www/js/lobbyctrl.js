@@ -44,6 +44,22 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.filterGameType = ['2 Cards', '4 Cards', 'Joker', 'Muflis'];
   $scope.normalGameType = 'Normal';
 
+
+  $scope.gameTypeForFilter = [{
+      "name": "TeenPatti",
+    },
+    {
+      "name": "Poker"
+    },
+    {
+      "name": "Roulette"
+    },
+    {
+      "name": "AR",
+      "subtype": ['AR type 1', 'AR type 2']
+    }
+  ]
+
   $scope.accessToken = $.jStorage.get("accessToken");
 
   $scope.playerData = function () {
@@ -104,6 +120,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       maxPage: 1
     };
     $scope.ACStatementModal = modal;
+    $scope.openACStatement();
   });
 
   $scope.openACStatement = function () {
