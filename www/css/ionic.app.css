@@ -9683,9 +9683,7 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex,
-  a.item.item-complex,
-  button.item.item-complex {
+  .item-complex, a.item.item-complex, button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -12838,3 +12836,58 @@ ion-item.item {
   font-family: 'Cinzel-Regular';
   padding: 0 3%;
   font-size: 0.9em; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+iframe {
+  padding: 0;
+  margin: 0;
+  border: none; }
+
+.top {
+  height: 50px;
+  background: #467674;
+  padding: 10px 0 0 0;
+  font: 30px Arial, sans-serif;
+  text-align: center;
+  color: #214a49;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8), 0 1px 0 rgba(155, 155, 155, 0.7);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  position: relative; }
+
+iframe#iframe {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  height: calc(100% - 3em) !important;
+  width: 100%;
+  z-index: 9999; }
+
+.online_game {
+  background-color: #1e1c1b;
+  color: white; }
+  .online_game .coin {
+    width: 1em;
+    vertical-align: middle; }
+  .online_game .back_lobby {
+    padding: 0% 2%;
+    height: 2em;
+    margin: 0% 2%;
+    margin-top: .3em;
+    float: left; }
+  .online_game .float-right {
+    float: right;
+    margin: 0% 2%;
+    padding: 0% 2%;
+    font-size: .8em;
+    height: 2em;
+    margin-top: .7em; }
+    .online_game .float-right span {
+      margin-left: 2em; }

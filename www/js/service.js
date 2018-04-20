@@ -16,10 +16,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     });
   });
 
-io.socket.on('redirectPlayer'+ $.jStorage.get("accessToken"), function (data){
-  console.log(data);
-  $state.go("lobby");
-});
+  io.socket.on('redirectPlayer' + $.jStorage.get("accessToken"), function (data) {
+    console.log(data);
+    $state.go("lobby");
+  });
 
   var obj = {
     all: function () {
@@ -48,7 +48,12 @@ io.socket.on('redirectPlayer'+ $.jStorage.get("accessToken"), function (data){
         callback(data);
       });
     },
-
+    getARCurrentBalance: function (data, callback) {
+      return $http.post(adminurl + 'AR/getCurrentBalance', data).then(function (data) {
+        data = data.data;
+        callback(data);
+      })
+    },
     playerLogout: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
@@ -94,7 +99,7 @@ io.socket.on('redirectPlayer'+ $.jStorage.get("accessToken"), function (data){
     },
     getEntryUrl: function (data, callback) {
       console.log("inside getEntryUrl data----", data);
-      data.accessToken= $.jStorage.get("accessToken");
+      data.accessToken = $.jStorage.get("accessToken");
       $http.post(adminARurl + 'User/createEntry', data).then(function (data) {
         console.log("saved");
         data = data.data;
