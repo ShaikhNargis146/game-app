@@ -23,10 +23,8 @@
     <div class="width100">
       <div class="div-inline width6 history">
         <ul class="coin">
-          <li ng-repeat="coin in coinArray">
-            <div>
-              <img src="img/roulette/{{coin.name}}.png" ng-class="{'MyClass':coin.selected==true}" ng-click="selectCoin(coin)">
-            </div>
+          <li ng-repeat="coin in coinArray" ng-click="selectCoin(coin)">
+              <img src="img/roulette/{{coin.name}}.png" ng-class="{'MyClass':coin.selected==true}">
           </li>
         </ul>
       </div>
@@ -125,7 +123,7 @@
                   </div>
                 </div>
               </td>
-              <td colspan="2" class="sector black" data-sector="10" ng-click="userBet('black')">BLACK
+              <td colspan="2" id="sectorBlack" class="sector black" data-sector="10" ng-click="userBet('black')">BLACK
                 <div class="absolute-coin-big">
                   <div class="absolute-coin" ng-repeat="coin in masterArray['black'].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">

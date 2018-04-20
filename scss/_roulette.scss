@@ -1,6 +1,10 @@
 .roulette {
+  background: url(../img/roulette/bg_game2.jpg) left top no-repeat;
+  width: 100%;
+  background-size: 100% 100%;
+  opacity: 1;
+  transform: translate3d(0%, 0px, 0px);
   padding: 20px;
-  background: #1C7022;
   display: table;
   position: relative;
   cursor: move;
@@ -9,6 +13,7 @@
 }
 
 .roulette-cell {
+  padding: 0% 5% 5% 3%;
   display: table-cell;
   vertical-align: middle;
 }
@@ -157,7 +162,7 @@ ul.coin li {
 /* elements */
 
 .roulette .sector {
-  background: #1C7022; //   color: #8EB891;
+  // background: #1C7022; //   color: #8EB891;
 }
 
 .roulette .sector .vt {
@@ -1034,3 +1039,14 @@ ul.coin li {
   height: 2vw;
   z-index: 3;
 }
+
+// .black{
+//   &:hover{
+//     background: rgba(255,255,255,0.7);
+//   }
+// }
+// #sectorBlack {
+//   &:hover .black {
+//     background: rgba(255, 255, 255, 0.3);
+//   }
+// }

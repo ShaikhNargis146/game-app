@@ -3,7 +3,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.b = [1, 2, 3];
   $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   $scope.totalMoney = 10000;
-  $scope.maxBet = 100;
+  $scope.maxBet = 1000;
   $scope.minBet = 1;
   $scope.amount = 0;
   $scope.masterArray = {};
@@ -19,6 +19,11 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       return true;
     }
   }
+
+  $("#sectorBlack").hover(function () {
+    $(".black").css("background", "rgba(255,255,255,0.3)");
+  });
+
   $scope.getIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     return index;
