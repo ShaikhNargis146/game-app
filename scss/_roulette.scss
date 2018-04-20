@@ -203,10 +203,22 @@ ul.coin li {
 //   background: #1C7022; //   color: #8EB891;
 // }
 .roulette .red {
-  background: #A91607; //   color: #8EB891;
+  .circle {
+    background: #A91607; //   color: #8EB891;
+  }
 }
 
 .roulette .black {
+  .circle {
+    background: #100f0d; //   color: #8EB891;
+  }
+}
+
+.roulette .red-color {
+  background: #A91607; //   color: #8EB891;
+}
+
+.roulette .black-color {
   background: #100f0d; //   color: #8EB891;
 }
 

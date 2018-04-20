@@ -42,9 +42,8 @@
               </td>
             </tr>
             <tr class="nums" ng-repeat="b1 in b track by $index" ng-init="outerIndex= $index">
-              <td ng-repeat="a1 in a track by $index">
-                <div class="num " ng-class="{'red':getBlack(getIndex($index,outerIndex))==false,'black' :getBlack(getIndex($index,outerIndex))==true}"
-                  ng-click="userBet(getIndex($index,outerIndex))">
+              <td ng-repeat="a1 in a track by $index" ng-class="{'red':getBlack(getIndex($index,outerIndex))==false,'black' :getBlack(getIndex($index,outerIndex))==true}">
+                <div class="num circle" ng-click="userBet(getIndex($index,outerIndex))">
                   <span>{{getIndex($index,outerIndex)}}</span>
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
@@ -141,14 +140,14 @@
                   </div>
                 </div>
               </td>
-              <td colspan="2" class="sector red" data-sector="9" ng-click="userBet('red')">RED
+              <td colspan="2" class="sector red-color" data-sector="9" ng-click="userBet('red')">RED
                 <div class="absolute-coin-big">
                   <div class="absolute-coin" ng-repeat="coin in masterArray['red'].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
               </td>
-              <td colspan="2" id="sectorBlack" class="sector black" data-sector="10" ng-click="userBet('black')">BLACK
+              <td colspan="2" id="sectorBlack" class="sector black-color" data-sector="10" ng-click="userBet('black')">BLACK
                 <div class="absolute-coin-big">
                   <div class="absolute-coin" ng-repeat="coin in masterArray['black'].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
