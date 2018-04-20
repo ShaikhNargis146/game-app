@@ -608,10 +608,13 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     //for vibration on turn
     if ($scope.players[8] && $scope.players[8].isTurn) {
       //Resume Audio
-      document.addEventListener("resume", function () {
-        // Handle event on pause
-        $scope.resumeAudio();
-      });
+      if (ionic.Platform.isIOS()) {
+        document.addEventListener("resume", function () {
+          // Handle event on pause
+          $scope.resumeAudio();
+        });
+      }
+     
       // $scope.timerAudio.play();
       $ionicPlatform.ready(function () {
         if (window.cordova) {
