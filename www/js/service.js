@@ -365,6 +365,27 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
     },
 
+
+    getARTransaction: function (memberid, pageNo, data, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(adminurl + 'AR/getAccountStatement', {
+          "memberId": memberid,
+          "date": data.date,
+          "subGame": data.subtype
+        }).then(function (data) {
+          if (data.data) {
+            // var totalCount = data.data.data.total;
+            // data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            callback(data);
+          } else {}
+        });
+      }
+    },
+
     getByPlrId: function (data, callback) {
       $http.post(url + 'Player/getByPlrId', {
         data: data

@@ -61,10 +61,10 @@
         </div>
       </ion-scroll>
     </div>
-    <div class="categorys variation_subtype">
+    <div class="categorys variation_subtype" ng-click="$event.stopPropagation()">
       <ion-scroll direction="x">
-        <div class="row" ng-if='VariationActive' ng-click="$event.stopPropagation">
-          <div class=" box-black col" ng-click="playNow($event);resetFilter();">
+        <div class="row" ng-if='VariationActive'>
+          <!-- <div class=" box-black col" ng-click="playNow($event);resetFilter();">
             <span class="text-grad">Public Table</span>
           </div>
           <div class="box-black col" ng-click=" privateTableFilterModal($event);privateResetFilter();">
@@ -75,12 +75,40 @@
           </div>
           <div class="box-black col" ng-click="createPrivateModal($event,gameType);">
             <span class="text-grad"> Create Private Table </span>
-          </div>
+          </div> -->
           <!-- <div class="box-black col" ng-click="createPrivateModal($event);">
             <span class="text-grad"> Create Private Table </span>
           </div> -->
+
+          <div class="box-black col">
+            <span class="text-grad" ng-click="playNow($event,'Normal');resetFilter();">Normal</span>
+          </div>
+          <div class="box-black col">
+            <span class="text-grad" ng-click="playNow($event,'4 Cards');resetFilter();">4 card</span>
+          </div>
+          <div class="box-black col">
+            <span class="text-grad" ng-click="playNow($event,'2 Cards');resetFilter();">2 card</span>
+          </div>
+          <div class="box-black col" ng-click="playNow($event,'Joker');resetFilter();">
+            <span class="text-grad">joker</span>
+          </div>
+          <div class="box-black col" ng-click="playNow($event,'Muflis');resetFilter();">
+            <span class="text-grad">Muflis</span>
+          </div>
         </div>
       </ion-scroll>
+      <div class="row">
+        <div class="col">
+          <div class="box-black width_50_center" ng-click="privateTableFilterModal($event);privateResetFilter();">
+            <span class="text-grad">Private Table</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="box-black width_50_center" ng-click="myPrivateTable();openMyPrivateTable($event);">
+            <span class="text-grad">My Private Table</span>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -155,7 +183,7 @@
       <!-- <ion-item ng-click="openPLModal()">
           profit and loss
         </ion-item> -->
-      <ion-item ng-click="openACStatement();accountStatement();">
+      <ion-item ng-click="openACStatement();">
         account statement
       </ion-item>
       <ion-item ng-click="openTransferStatement();transferStatement();">

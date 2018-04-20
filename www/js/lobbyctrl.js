@@ -43,7 +43,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.filterType = ['private', 'public'];
   $scope.filterGameType = ['2 Cards', '4 Cards', 'Joker', 'Muflis'];
   $scope.normalGameType = 'Normal';
-
+  $scope.accountStatmentFilter = [];
 
   $scope.gameTypeForFilter = [{
       "name": "TeenPatti",
@@ -55,8 +55,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       "name": "Roulette"
     },
     {
-      "name": "AR",
-      "subtype": ['AR type 1', 'AR type 2']
+      "name": "Live Casino",
+      "subtype": ['roulette', 'AR type 2']
     }
   ]
 
@@ -76,7 +76,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.playerData();
   //to close all tab and side menu
   $scope.closeAllTab = function () {
-    // $scope.VariationActive = false;
+    $scope.VariationActive = false;
+    $scope.VariationTab = false;
     $scope.sideMenu = false;
     $scope.showType = false;
   }
@@ -124,6 +125,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.openACStatement = function () {
+    $scope.accountStatmentFilter.date = new Date();
     $scope.results = [];
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
@@ -147,24 +149,52 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
   };
 
-  $scope.accountStatement = function () {
-    Service.getTransaction($scope.pageNo, function (data) {
-      if (data) {
-        if (data.data.data.total === 0) {
-          $scope.noDataFound = true;
-          // Error Message or no data found 
-          // $scope.displayMessage = {
-          //   main: "<p>No Data Found.</p>",
-          // };
-        }
-        $scope.paging = data.data.data.options;
-        _.each(data.data.data.results, function (n) {
-          $scope.results.push(n);
-        });
-        $scope.loadingDisable = false;
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
-    });
+  $scope.accountStatement = function (accountStatmentFilter) {
+    console.log("account filter", accountStatmentFilter);
+    if (accountStatmentFilter.type.name == "TeenPatti") {
+      Service.getTransaction($scope.pageNo, function (data) {
+        if (data) {
+          if (data.data.data.total === 0) {
+            $scope.noDataFound = true;
+            // Error Message or no data found 
+            // $scope.displayMessage = {
+            //   main: "<p>No Data Found.</p>",
+            // };
+          }
+          $scope.paging = data.data.data.options;
+          _.each(data.data.data.results, function (n) {
+            $scope.results.push(n);
+          });
+          $scope.loadingDisable = false;
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+        } else {}
+      });
+    }
+    if (accountStatmentFilter.type.name == "Live Casino") {
+      Service.getARTransaction($scope.memberId, $scope.pageNo, accountStatmentFilter, function (data) {
+        if (data) {
+
+          // $scope.result = data.
+          console.log(data);
+
+          $scope.results = data.data.data.accounts;
+          // if (data.data.data.total === 0) {
+          //   $scope.noDataFound = true;
+          //   // Error Message or no data found 
+          //   // $scope.displayMessage = {
+          //   //   main: "<p>No Data Found.</p>",
+          //   // };
+          // // }
+          // $scope.paging = data.data.data.options;
+          // _.each(data.data.data.results, function (n) {
+          //   $scope.results.push(n);
+          // });
+          // $scope.loadingDisable = false;
+          // $scope.$broadcast('scroll.infiniteScrollComplete');
+        } else {}
+      });
+    }
+
   };
 
 
@@ -275,8 +305,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
 
   //for table selection//
-  $scope.playNow = function ($event) {
+  $scope.playNow = function ($event, tab) {
+    console.log(tab);
     $scope.openPriceRangeModal();
+    $scope.gameType = $scope.gameType ? null : tab;
     $event.stopPropagation();
     // if (!$scope.VariationActive) {
 
@@ -489,14 +521,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   }
 
   //onclick for each play type
-  $scope.variationToggle = function ($event, tab) {
+  $scope.variationToggle = function ($event) {
     $event.stopPropagation();
-    $scope.gameType = $scope.gameType ? null : tab;
     $scope.VariationActive = !$scope.VariationActive;
   }
-  $scope.variationGame = function ($event, tab) {
+  $scope.variationGame = function ($event) {
     $event.stopPropagation();
-    $scope.gameType = $scope.gameType ? null : tab;
     $scope.VariationTab = !$scope.VariationTab;
   }
 

@@ -162,6 +162,10 @@ body {
   float: right;
 }
 
+.center {
+  text-align: center;
+}
+
 .bg-style {
   // background: rgba(48, 48, 48, 1);
   // background: -moz-linear-gradient(45deg, rgba(48, 48, 48, 1) 0%, rgba(33, 32, 33, 1) 28%, rgba(64, 64, 64, 1) 49%, rgba(31, 31, 31, 1) 72%, rgba(41, 41, 41, 1) 100%);
@@ -539,4 +543,11 @@ body {
     width: 100%;
     transform: scale(3);
   }
+}
+
+.width_50_center {
+  width: 60%;
+  margin: 0 auto !important;
+  white-space: nowrap;
+  padding: 6% !important;
 }

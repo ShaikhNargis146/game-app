@@ -9983,6 +9983,9 @@ body {
 .right {
   float: right; }
 
+.center {
+  text-align: center; }
+
 .bg-style {
   background: url("../img/bg.svg");
   background-size: 100% 100%;
@@ -10350,7 +10353,7 @@ body {
       transition: all 500ms;
       visibility: none;
       opacity: 0;
-      width: 60%; }
+      width: 85%; }
       .main_lobby .lobby_content .variation_subtype .box-black {
         padding: 3%;
         margin: 2%; }
@@ -13166,3 +13169,9 @@ ion-item.item {
     height: 100%;
     width: 100%;
     transform: scale(3); }
+
+.width_50_center {
+  width: 60%;
+  margin: 0 auto !important;
+  white-space: nowrap;
+  padding: 6% !important; }

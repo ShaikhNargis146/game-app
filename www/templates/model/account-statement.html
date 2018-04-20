@@ -16,15 +16,15 @@
       <input type="text" ng-model="month"> -->
     <form name="statementFilter">
       <div class="top_field filter">
-        Filter with
+        Filter
         <select ng-model="accountStatmentFilter.type" ng-options="x.name for x in gameTypeForFilter" placeholder="Blind Amt">
           <option value="" disabled hidden selected>Type</option>
         </select>
-        <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x.name for x in gameTypeForFilter"
+        <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x for x in accountStatmentFilter.type.subtype"
           placeholder="Blind Amt">
-          <option value="" disabled hidden selected>Type</option>
+          <option value="" disabled hidden selected>SubType</option>
         </select>
-        <input type="date" ng-model="accountStatmentFilter.date">
+        <input type="date" ng-model="accountStatmentFilter.date" class="right">
         <!-- <input type="text" ng-model="accountStatmentFilter.blindAmt" placeholder="Blind Amt">
         <input type="text" ng-model="accountStatmentFilter.chalAmt" placeholder="Chaal Amt"> -->
         <!-- <ui-select ng-model="tablesData.selected.name" theme="bootstrap" class="custom-filter">
@@ -35,12 +35,12 @@
                     </ui-select> -->
         <!-- <input type="text" ng-model="accountStatmentFilter.name" placeholder="Table Name"> -->
         <div class="row">
-          <div class="col">
-            <button class="custom_button  btn_search" type='submit' ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+          <div class="col center">
+            <button class="custom_button  btn_search" type='submit' ng-click="accountStatement(accountStatmentFilter);">
               Search </button>
           </div>
-          <div class="col">
-            <button class="custom_button  btn_search" type='submit' ng-click="resetFilter();resetpage();" promise-btn="filterTablePromise">
+          <div class="col center">
+            <button class="custom_button  btn_search" type='reset'>
               Reset </button>
           </div>
         </div>
