@@ -12891,3 +12891,6 @@ iframe#iframe {
     margin-top: .7em; }
     .online_game .float-right span {
       margin-left: 2em; }
+
+.flex_center {
+  justify-content: center; }
