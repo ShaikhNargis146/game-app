@@ -13727,6 +13727,9 @@ ul.coin li {
 .active-blocks {
   background: rgba(255, 255, 255, 0.3) !important; }
 
+.odd-even {
+  background: rgba(255, 255, 255, 0.3) !important; }
+
 .player-fold {
   opacity: 0.4; }
 
