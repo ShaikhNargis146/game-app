@@ -410,6 +410,20 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }).then(function (data) {
         callback(data);
       });
+    },
+    getBetId: function (bet, callback) {
+      $http.get('js/rouletteBets.json').then(function (data) {
+        if (typeof bet == 'string') {
+          foundData = _.filter(data.data, {
+            'name': bet
+          });
+        } else {
+          foundData = _.filter(data.data, function (betData) {
+            return _.isEqual(betData.numbers, bet);
+          });
+        }
+        callback(foundData);
+      });
     }
   };
   return obj;
