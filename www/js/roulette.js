@@ -1,4 +1,6 @@
+var socketFunction = {};
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
+
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
   $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
@@ -251,12 +253,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     // }, 30000);
   }
 
-  io.socket.on("endPlacingBets", function (data) {
-    RouletteService.saveUserBets($scope.masterArray, function (data) {
-      $rootScope.result = data.data.results;
-    });
-  });
-
   $scope.logout = function () {
     Service.playerLogout(function (data) {
       if (data.data.value) {
@@ -265,21 +261,39 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       }
     });
   };
-  io.socket.on("spinWheel", function (data) {
+
+
+
+
+
+
+  io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
+  socketFunction.endPlacingBets = function (data) {
+    RouletteService.saveUserBets($scope.masterArray, function (data) {
+      $rootScope.result = data.data.results;
+    });
+  };
+  io.socket.on("endPlacingBets", socketFunction.endPlacingBets);
+
+
+  io.socket.off("spinWheel", socketFunction.spinWheel);
+  socketFunction.spinWheel = function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
     });
-  });
+  };
+  io.socket.on("spinWheel", socketFunction.spinWheel);
+
 
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
 
-
-
-  io.socket.on("startBetting", function (data) {
+  io.socket.off("startBetting", socketFunction.startBetting);
+  socketFunction.startBetting = function (data) {
     $state.go("roulette");
-  });
+  };
+  io.socket.on("startBetting", socketFunction.startBetting);
 
 
   var rotationsTime = 8;
@@ -550,6 +564,7 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
           bet: n._id
         };
       });
+      // console.log(data.bets);
       $http.post(url + 'UserBets/saveUserBets', data).then(function (data) {
         callback(data);
       });
