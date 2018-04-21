@@ -350,6 +350,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!pageNo) {
         pageNo = 1;
       }
+
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
@@ -358,9 +359,11 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           "date": $filter('date')(data.date, 'MM-dd-yyyy', '+0530'),
           // "date": data.date,
         }).then(function (data) {
+          data = data.data;
           if (data.data) {
-            var totalCount = data.data.data.total;
-            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            console.log(data);
+            var totalCount = data.data.PagData.total;
+            data.data.PagData.options.maxPage = _.ceil(data.data.PagData.total / data.data.PagData.options.count);
             callback(data);
           } else {}
         });

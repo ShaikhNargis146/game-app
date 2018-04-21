@@ -154,7 +154,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     if (accountStatmentFilter.type.name == "TeenPatti") {
       Service.getTransaction($scope.pageNo, accountStatmentFilter, function (data) {
         if (data) {
-          if (data.data.data.total === 0) {
+          if (data.data.PagData.total === 0) {
             $scope.noDataFound = true;
             $scope.results = [];
             // Error Message or no data found 
@@ -162,10 +162,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
             //   main: "<p>No Data Found.</p>",
             // };
           }
-          $scope.paging = data.data.data.options;
-          _.each(data.data.data.results, function (n) {
+          $scope.paging = data.data.PagData.options;
+          _.each(data.data.PagData.results, function (n) {
             $scope.results.push(n);
           });
+
+          $scope.statementNetProfit = data.data.netProfit;
           $scope.loadingDisable = false;
           $scope.$broadcast('scroll.infiniteScrollComplete');
         } else {}

@@ -14,8 +14,7 @@
         </select> -->
         <div class="row">
           Filter with :
-          <select class="col" ng-if="!(gameType== 'Normal')" ng-model="privateFilterData.gameType" ng-options="x for x in filterGameType"
-            placeholder="Game Type">
+          <select class="col" ng-model="privateFilterData.gameType" ng-options="x for x in filterGameType" placeholder="Game Type">
             <option value="" disabled hidden selected>Game Type</option>
           </select>
           <input type="text" ng-model="privateFilterData.blindAmt" class="col" placeholder="Blind Amt">
