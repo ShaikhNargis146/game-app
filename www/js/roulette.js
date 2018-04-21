@@ -9,6 +9,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.minBet = 1;
   $scope.amount = 0;
   $scope.masterArray = {};
+  $scope.canBet = true;
   $scope.visitedArray = [];
 
   $scope.getBlack = function (number) {
@@ -187,49 +188,54 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
-    Service.getBetId(bet, function (data) {
-      $scope.betData = data[0];
-      if ($scope.selectedCoin) {
-        if ($scope.selectedCoin.amount <= $scope.totalMoney) {
-          $scope.amount += $scope.selectedCoin.amount;
-          if ($scope.amount <= $scope.maxBet) {
-            $scope.visitedArray.push(bet);
-            if (!$scope.masterArray[bet]) {
-              $scope.masterArray[bet] = {
-                _id: $scope.betData ? $scope.betData._id : '',
-                totalbet: 0,
-                coinArray: [],
-                displayArray: []
+    if ($scope.canBet) {
+      Service.getBetId(bet, function (data) {
+        $scope.betData = data[0];
+        if ($scope.selectedCoin) {
+          if ($scope.selectedCoin.amount <= $scope.totalMoney) {
+            $scope.amount += $scope.selectedCoin.amount;
+            if ($scope.amount <= $scope.maxBet) {
+              $scope.visitedArray.push(bet);
+              if (!$scope.masterArray[bet]) {
+                $scope.masterArray[bet] = {
+                  _id: $scope.betData ? $scope.betData._id : '',
+                  totalbet: 0,
+                  coinArray: [],
+                  displayArray: []
+                };
+              }
+              $scope.masterArray[bet].totalbet += $scope.selectedCoin.amount;
+              $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
+              $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
+              $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+            } else {
+              $scope.amount -= $scope.selectedCoin.amount;
+              $scope.message = {
+                heading: "Maximum Limit",
+                content: "You have reached maximum limit."
               };
+              $scope.showMessageModal();
             }
-            $scope.masterArray[bet].totalbet += $scope.selectedCoin.amount;
-            $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
-            $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
-            $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
           } else {
-            $scope.amount -= $scope.selectedCoin.amount;
             $scope.message = {
-              heading: "Maximum Limit",
-              content: "You have reached maximum limit."
+              heading: "Not enough money",
+              content: "Not enough money for this bet. Try Again!!!"
             };
             $scope.showMessageModal();
           }
         } else {
           $scope.message = {
-            heading: "Not enough money",
-            content: "Not enough money for this bet. Try Again!!!"
+            heading: "Please Select coin",
+            content: "Please Select the coin Before Bet. Try Again!!!"
           };
           $scope.showMessageModal();
         }
-      } else {
-        $scope.message = {
-          heading: "Please Select coin",
-          content: "Please Select the coin Before Bet. Try Again!!!"
-        };
-        $scope.showMessageModal();
-      }
-    })
-  }
+      });
+    } else {
+      // Modal for no more bets
+    }
+
+  };
 
   $scope.Undo = function () {
     if (!_.isEmpty($scope.masterArray)) {
@@ -274,6 +280,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     RouletteService.saveUserBets($scope.masterArray, function (data) {
       $rootScope.result = data.data.results;
     });
+    // Toaster for No More Bets
 
   };
 
@@ -304,6 +311,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
+    // Show popup for win or lose using the data object
   };
   io.socket.on("resultsSaved", socketFunction.resultsSaved);
 
