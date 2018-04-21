@@ -1,4 +1,6 @@
+var socketFunction = {};
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
+
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
   $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
@@ -7,6 +9,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.minBet = 1;
   $scope.amount = 0;
   $scope.masterArray = {};
+  $scope.canBet = true;
   $scope.visitedArray = [];
 
   $scope.getBlack = function (number) {
@@ -235,51 +238,54 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
-
-    Service.getBetId(bet, function (data) {
-      $scope.betData = data[0];
-      console.log($scope.betData)
-      if ($scope.selectedCoin) {
-        if ($scope.selectedCoin.amount <= $scope.totalMoney) {
-          $scope.amount += $scope.selectedCoin.amount;
-          if ($scope.amount <= $scope.maxBet) {
-            $scope.visitedArray.push(bet);
-            if (!$scope.masterArray[bet]) {
-              $scope.masterArray[bet] = {
-                _id: $scope.betData ? $scope.betData._id : '',
-                totalbet: 0,
-                coinArray: [],
-                displayArray: []
+    if ($scope.canBet) {
+      Service.getBetId(bet, function (data) {
+        $scope.betData = data[0];
+        if ($scope.selectedCoin) {
+          if ($scope.selectedCoin.amount <= $scope.totalMoney) {
+            $scope.amount += $scope.selectedCoin.amount;
+            if ($scope.amount <= $scope.maxBet) {
+              $scope.visitedArray.push(bet);
+              if (!$scope.masterArray[bet]) {
+                $scope.masterArray[bet] = {
+                  _id: $scope.betData ? $scope.betData._id : '',
+                  totalbet: 0,
+                  coinArray: [],
+                  displayArray: []
+                };
+              }
+              $scope.masterArray[bet].totalbet += $scope.selectedCoin.amount;
+              $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
+              $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
+              $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+            } else {
+              $scope.amount -= $scope.selectedCoin.amount;
+              $scope.message = {
+                heading: "Maximum Limit",
+                content: "You have reached maximum limit."
               };
+              $scope.showMessageModal();
             }
-            $scope.masterArray[bet].totalbet += $scope.selectedCoin.amount;
-            $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
-            $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
-            $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
           } else {
-            $scope.amount -= $scope.selectedCoin.amount;
             $scope.message = {
-              heading: "Maximum Limit",
-              content: "You have reached maximum limit."
+              heading: "Not enough money",
+              content: "Not enough money for this bet. Try Again!!!"
             };
             $scope.showMessageModal();
           }
         } else {
           $scope.message = {
-            heading: "Not enough money",
-            content: "Not enough money for this bet. Try Again!!!"
+            heading: "Please Select coin",
+            content: "Please Select the coin Before Bet. Try Again!!!"
           };
           $scope.showMessageModal();
         }
-      } else {
-        $scope.message = {
-          heading: "Please Select coin",
-          content: "Please Select the coin Before Bet. Try Again!!!"
-        };
-        $scope.showMessageModal();
-      }
-    })
-  }
+      });
+    } else {
+      // Modal for no more bets
+    }
+
+  };
 
   $scope.Undo = function () {
     if (!_.isEmpty($scope.masterArray)) {
@@ -303,19 +309,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     // }, 30000);
   }
 
-  io.socket.on("betsNotAllowed", function (data) {
-    if (data.data == "Bets are Not Allowed") {
-      if ($scope.betUser) {
-        _.each($scope.betUser, function (user) {
-          RouletteService.saveUserBets(user, function (data) {
-            $rootScope.result = data.data.results;
-          });
-        });
-      }
-      $state.go("spinner");
-    }
-  });
-
   $scope.logout = function () {
     Service.playerLogout(function (data) {
       if (data.data.value) {
@@ -324,22 +317,53 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       }
     });
   };
-  io.socket.on("spinWheel", function (data) {
+
+
+
+
+
+
+  io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
+
+  socketFunction.endPlacingBets = function (data) {
+    $scope.canBet = false;
+    RouletteService.saveUserBets($scope.masterArray, function (data) {
+      $rootScope.result = data.data.results;
+    });
+    // Toaster for No More Bets
+
+  };
+
+  io.socket.on("endPlacingBets", socketFunction.endPlacingBets);
+
+
+  io.socket.off("spinWheel", socketFunction.spinWheel);
+  socketFunction.spinWheel = function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
     });
-  });
+  };
+  io.socket.on("spinWheel", socketFunction.spinWheel);
+
 
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
 
-
-
-  io.socket.on("startBetting", function (data) {
+  io.socket.off("startBetting", socketFunction.startBetting);
+  socketFunction.startBetting = function (data) {
     $state.go("roulette");
-  });
+  };
+  io.socket.on("startBetting", socketFunction.startBetting);
 
+
+  io.socket.off("resultsSaved", socketFunction.resultsSaved);
+  socketFunction.resultsSaved = function (data) {
+    console.log("resultsSaved");
+    console.log(data);
+    // Show popup for win or lose using the data object
+  };
+  io.socket.on("resultsSaved", socketFunction.resultsSaved);
 
   var rotationsTime = 8;
   var wheelSpinTime = 6;
@@ -597,8 +621,24 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
         callback(data.data.data);
       });
     },
-    saveUserBets: function (data, callback) {
-
+    saveUserBets: function (masterArray, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      var userId = $.jStorage.get("singlePlayerData")._id;
+      data = {};
+      if (!_.isEmpty(accessToken)) {
+        data.accessToken = accessToken;
+        data.userId = userId;
+      }
+      data.bets = _.map(masterArray, function (n) {
+        return {
+          betAmount: n.totalbet,
+          bet: n._id
+        };
+      });
+      // console.log(data.bets);
+      $http.post(url + 'UserBets/saveUserBets', data).then(function (data) {
+        callback(data);
+      });
     }
   };
 });
