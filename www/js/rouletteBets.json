@@ -1,0 +1,1475 @@
+[{
+    "_id": "5ab9f45c39cadb0a824b592b",
+    "name": "Even",
+    "numbers": [
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36
+    ]
+  },
+  {
+    "_id": "5ab9f46c39cadb0a824b592d",
+    "name": "Odd",
+    "numbers": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35
+    ]
+  },
+  {
+    "_id": "5ab9f47839cadb0a824b592f",
+    "name": "Red",
+    "numbers": [
+      3,
+      5,
+      7,
+      9,
+      12,
+      14,
+      18,
+      16,
+      19,
+      21,
+      23,
+      25,
+      27,
+      30,
+      32,
+      34,
+      36
+    ]
+  },
+  {
+    "_id": "5ab9fe4c5b38ab1382f90aee",
+    "name": "Black",
+    "numbers": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      11,
+      17,
+      20,
+      22,
+      24,
+      26,
+      28,
+      29,
+      31,
+      33,
+      35,
+      13,
+      15
+    ]
+  },
+  {
+    "_id": "5ab9fecd5b38ab1382f90af0",
+    "name": "First Dozen",
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "_id": "5ab9ff395b38ab1382f90af3",
+    "name": "Middle Dozen",
+    "numbers": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  {
+    "_id": "5aba02fb5b38ab1382f90af5",
+    "name": "Last Dozen",
+    "numbers": [
+      25,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      26
+    ]
+  },
+  {
+    "_id": "5aba04115b38ab1382f90afb",
+    "name": "Low Bet",
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "_id": "5aba047a5b38ab1382f90afd",
+    "name": "High Bet",
+    "numbers": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  },
+  {
+    "_id": "5aba04f55b38ab1382f90aff",
+    "name": "1 st column",
+    "numbers": [
+      1,
+      4,
+      7,
+      10,
+      13,
+      16,
+      19,
+      22,
+      25,
+      28,
+      31,
+      34
+    ]
+  },
+  {
+    "_id": "5aba058c5b38ab1382f90b01",
+    "name": "2nd column",
+    "numbers": [
+      5,
+      8,
+      11,
+      14,
+      17,
+      20,
+      23,
+      26,
+      29,
+      32,
+      35
+    ]
+  },
+  {
+    "_id": "5aba06185b38ab1382f90b07",
+    "name": "3rd column",
+    "numbers": [
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30,
+      33,
+      36
+    ]
+  },
+  {
+    "_id": "5abb617193f0684512f591e1",
+    "name": "0",
+    "numbers": [
+      0
+    ]
+  },
+  {
+    "_id": "5abb627593f0684512f591e7",
+    "name": "1",
+    "numbers": [
+      1
+    ]
+  },
+  {
+    "_id": "5abb628093f0684512f591e9",
+    "name": "2",
+    "numbers": [
+      2
+    ]
+  },
+  {
+    "_id": "5abb628993f0684512f591eb",
+    "name": "3",
+    "numbers": [
+      3
+    ]
+  },
+  {
+    "_id": "5abb629593f0684512f591ed",
+    "name": "4",
+    "numbers": [
+      4
+    ]
+  },
+  {
+    "_id": "5abb62e293f0684512f591f1",
+    "name": "5",
+    "numbers": [
+      5
+    ]
+  },
+  {
+    "_id": "5abb62ef93f0684512f591f4",
+    "name": "6",
+    "numbers": [
+      6
+    ]
+  },
+  {
+    "_id": "5abb62f793f0684512f591f6",
+    "name": "7",
+    "numbers": [
+      7
+    ]
+  },
+  {
+    "_id": "5abb630393f0684512f591f8",
+    "name": "8",
+    "numbers": [
+      8
+    ]
+  },
+  {
+    "_id": "5abb631a93f0684512f591fa",
+    "name": "9",
+    "numbers": [
+      9
+    ]
+  },
+  {
+    "_id": "5abb632493f0684512f591fc",
+    "name": "10",
+    "numbers": [
+      10
+    ]
+  },
+  {
+    "_id": "5abb632b93f0684512f591fe",
+    "name": "11",
+    "numbers": [
+      11
+    ]
+  },
+  {
+    "_id": "5abb633293f0684512f59200",
+    "name": "12",
+    "numbers": [
+      12
+    ]
+  },
+  {
+    "_id": "5abb633c93f0684512f59202",
+    "name": "13",
+    "numbers": [
+      13
+    ]
+  },
+  {
+    "_id": "5abb634993f0684512f59204",
+    "name": "14",
+    "numbers": [
+      14
+    ]
+  },
+  {
+    "_id": "5abb635293f0684512f59206",
+    "name": "15",
+    "numbers": [
+      15
+    ]
+  },
+  {
+    "_id": "5abb635b93f0684512f59208",
+    "name": "16",
+    "numbers": [
+      16
+    ]
+  },
+  {
+    "_id": "5abb636493f0684512f5920a",
+    "name": "17",
+    "numbers": [
+      17
+    ]
+  },
+  {
+    "_id": "5abb636d93f0684512f5920c",
+    "name": "18",
+    "numbers": [
+      18
+    ]
+  },
+  {
+    "_id": "5abb637793f0684512f5920e",
+    "name": "19",
+    "numbers": [
+      19
+    ]
+  },
+  {
+    "_id": "5abb638393f0684512f59210",
+    "name": "20",
+    "numbers": [
+      20
+    ]
+  },
+  {
+    "_id": "5abb638c93f0684512f59212",
+    "name": "21",
+    "numbers": [
+      21
+    ]
+  },
+  {
+    "_id": "5abb639393f0684512f59214",
+    "name": "22",
+    "numbers": [
+      22
+    ]
+  },
+  {
+    "_id": "5abb639a93f0684512f59216",
+    "name": "23",
+    "numbers": [
+      23
+    ]
+  },
+  {
+    "_id": "5abb63a493f0684512f59218",
+    "name": "24",
+    "numbers": [
+      24
+    ]
+  },
+  {
+    "_id": "5abb63af93f0684512f5921a",
+    "name": "25",
+    "numbers": [
+      25
+    ]
+  },
+  {
+    "_id": "5abb63b993f0684512f5921c",
+    "name": "26",
+    "numbers": [
+      26
+    ]
+  },
+  {
+    "_id": "5abb63c593f0684512f5921e",
+    "name": "27",
+    "numbers": [
+      27
+    ]
+  },
+  {
+    "_id": "5abb63d093f0684512f59220",
+    "name": "28",
+    "numbers": [
+      28
+    ]
+  },
+  {
+    "_id": "5abb63da93f0684512f59222",
+    "name": "29",
+    "numbers": [
+      29
+    ]
+  },
+  {
+    "_id": "5abb63e393f0684512f59224",
+    "name": "30",
+    "numbers": [
+      30
+    ]
+  },
+  {
+    "_id": "5abb63f493f0684512f59226",
+    "name": "31",
+    "numbers": [
+      31
+    ]
+  },
+  {
+    "_id": "5abb63fc93f0684512f59228",
+    "name": "32",
+    "numbers": [
+      32
+    ]
+  },
+  {
+    "_id": "5abb640393f0684512f5922a",
+    "name": "33",
+    "numbers": [
+      33
+    ]
+  },
+  {
+    "_id": "5abb640c93f0684512f5922c",
+    "name": "34",
+    "numbers": [
+      34
+    ]
+  },
+  {
+    "_id": "5abb641593f0684512f5922e",
+    "name": "35",
+    "numbers": [
+      35
+    ]
+  },
+  {
+    "_id": "5abb641d93f0684512f59230",
+    "name": "36",
+    "numbers": [
+      36
+    ]
+  },
+  {
+    "_id": "5ac31fc32aae671b0548c095",
+    "name": "Line bet1",
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "_id": "5ac3202b2aae671b0548c09a",
+    "name": "Line Bet2",
+    "numbers": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "_id": "5ac320462aae671b0548c09c",
+    "name": "Line Bet3",
+    "numbers": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "_id": "5ac320612aae671b0548c09e",
+    "name": "Line Bet4",
+    "numbers": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "_id": "5ac3207a2aae671b0548c0a0",
+    "name": "Line Bet5",
+    "numbers": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "_id": "5ac3208e2aae671b0548c0a2",
+    "name": "Line Bet6",
+    "numbers": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "_id": "5ac320fd2aae671b0548c0ad",
+    "name": "Line Bet7",
+    "numbers": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  {
+    "_id": "5ac321de2aae671b0548c0c3",
+    "name": "Line Bet8",
+    "numbers": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "_id": "5ac321fc2aae671b0548c0c6",
+    "name": "Line Bet9",
+    "numbers": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  {
+    "_id": "5ac322502aae671b0548c0cc",
+    "name": "Line Bet10",
+    "numbers": [
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ]
+  },
+  {
+    "_id": "5ac3226b2aae671b0548c0ce",
+    "name": "Line Bet11",
+    "numbers": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  },
+  {
+    "_id": "5ac322f72aae671b0548c0d2",
+    "name": "Corner Bet1",
+    "numbers": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": "5ac323062aae671b0548c0d4",
+    "name": "Corner Bet2",
+    "numbers": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "_id": "5ac323112aae671b0548c0d6",
+    "name": "Corner Bet3",
+    "numbers": [
+      2,
+      3,
+      5,
+      6
+    ]
+  },
+  {
+    "_id": "5ac323212aae671b0548c0d8",
+    "name": "Corner Bet4",
+    "numbers": [
+      4,
+      5,
+      7,
+      8
+    ]
+  },
+  {
+    "_id": "5ac3232f2aae671b0548c0da",
+    "name": "Corner Bet5",
+    "numbers": [
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "_id": "5ac323422aae671b0548c0de",
+    "name": "Corner Bet6",
+    "numbers": [
+      7,
+      8,
+      10,
+      11
+    ]
+  },
+  {
+    "_id": "5ac3235f2aae671b0548c0e2",
+    "name": "Corner Bet7",
+    "numbers": [
+      8,
+      9,
+      11,
+      12
+    ]
+  },
+  {
+    "_id": "5ac323712aae671b0548c0e4",
+    "name": "Corner Bet8",
+    "numbers": [
+      10,
+      11,
+      13,
+      14
+    ]
+  },
+  {
+    "_id": "5ac3237e2aae671b0548c0e6",
+    "name": "Corner Bet9",
+    "numbers": [
+      11,
+      12,
+      14,
+      15
+    ]
+  },
+  {
+    "_id": "5ac3238c2aae671b0548c0e8",
+    "name": "Corner Bet10",
+    "numbers": [
+      13,
+      14,
+      15,
+      17
+    ]
+  },
+  {
+    "_id": "5ac323972aae671b0548c0ea",
+    "name": "Corner Bet11",
+    "numbers": [
+      14,
+      15,
+      17,
+      18
+    ]
+  },
+  {
+    "_id": "5ac323a02aae671b0548c0ec",
+    "name": "Corner Bet12",
+    "numbers": [
+      16,
+      17,
+      19,
+      20
+    ]
+  },
+  {
+    "_id": "5ac323ad2aae671b0548c0ee",
+    "name": "Corner Bet13",
+    "numbers": [
+      17,
+      18,
+      20,
+      21
+    ]
+  },
+  {
+    "_id": "5ac323b52aae671b0548c0f0",
+    "name": "Corner Bet14",
+    "numbers": [
+      19,
+      20,
+      22,
+      23
+    ]
+  },
+  {
+    "_id": "5ac323c52aae671b0548c0f2",
+    "name": "Corner Bet15",
+    "numbers": [
+      20,
+      21,
+      23,
+      24
+    ]
+  },
+  {
+    "_id": "5ac323d52aae671b0548c0f5",
+    "name": "Corner Bet16",
+    "numbers": [
+      22,
+      23,
+      25,
+      26
+    ]
+  },
+  {
+    "_id": "5ac323df2aae671b0548c0f8",
+    "name": "Corner Bet17",
+    "numbers": [
+      23,
+      24,
+      26,
+      27
+    ]
+  },
+  {
+    "_id": "5ac323ea2aae671b0548c0fa",
+    "name": "Corner Bet18",
+    "numbers": [
+      25,
+      26,
+      28,
+      29
+    ]
+  },
+  {
+    "_id": "5ac323fb2aae671b0548c0fc",
+    "name": "Corner Bet19",
+    "numbers": [
+      26,
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "_id": "5ac324062aae671b0548c0fe",
+    "name": "Corner Bet20",
+    "numbers": [
+      28,
+      29,
+      31,
+      32
+    ]
+  },
+  {
+    "_id": "5ac324152aae671b0548c100",
+    "name": "Corner Bet21",
+    "numbers": [
+      29,
+      30,
+      32,
+      33
+    ]
+  },
+  {
+    "_id": "5ac324272aae671b0548c105",
+    "name": "Corner Bet22",
+    "numbers": [
+      31,
+      32,
+      34,
+      35
+    ]
+  },
+  {
+    "_id": "5ac324312aae671b0548c107",
+    "name": "Corner Bet23",
+    "numbers": [
+      32,
+      33,
+      35,
+      36
+    ]
+  },
+  {
+    "_id": "5ac3278b2aae671b0548c151",
+    "name": "Street Bet1",
+    "numbers": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": "5ac327a42aae671b0548c154",
+    "name": "Street Bet2",
+    "numbers": [
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "_id": "5ac327b02aae671b0548c156",
+    "name": "Street Bet3",
+    "numbers": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "_id": "5ac327c02aae671b0548c158",
+    "name": "Street Bet4",
+    "numbers": [
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "_id": "5ac327cf2aae671b0548c15a",
+    "name": "Street Bet5",
+    "numbers": [
+      13,
+      14,
+      15
+    ]
+  },
+  {
+    "_id": "5ac327d92aae671b0548c15c",
+    "name": "Street Bet6",
+    "numbers": [
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "_id": "5ac327ef2aae671b0548c15e",
+    "name": "Street Bet7",
+    "numbers": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "_id": "5ac327fa2aae671b0548c160",
+    "name": "Street Bet8",
+    "numbers": [
+      22,
+      23,
+      24
+    ]
+  },
+  {
+    "_id": "5ac328142aae671b0548c162",
+    "name": "Street Bet9",
+    "numbers": [
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "_id": "5ac328202aae671b0548c164",
+    "name": "Street Bet10",
+    "numbers": [
+      28,
+      29,
+      30
+    ]
+  },
+  {
+    "_id": "5ac3282a2aae671b0548c167",
+    "name": "Street Bet11",
+    "numbers": [
+      31,
+      32,
+      33
+    ]
+  },
+  {
+    "_id": "5ac3283a2aae671b0548c169",
+    "name": "Street Bet12",
+    "numbers": [
+      34,
+      35,
+      36
+    ]
+  },
+  {
+    "_id": "5ac329722aae671b0548c16d",
+    "name": "Split Bet1",
+    "numbers": [
+      1,
+      2
+    ]
+  },
+  {
+    "_id": "5ac329842aae671b0548c16f",
+    "name": "Split Bet2",
+    "numbers": [
+      2,
+      3
+    ]
+  },
+  {
+    "_id": "5ac3299b2aae671b0548c171",
+    "name": "Split Bet3",
+    "numbers": [
+      1,
+      4
+    ]
+  },
+  {
+    "_id": "5ac329a52aae671b0548c173",
+    "name": "Split Bet4",
+    "numbers": [
+      2,
+      5
+    ]
+  },
+  {
+    "_id": "5ac329b12aae671b0548c175",
+    "name": "Split Bet5",
+    "numbers": [
+      3,
+      6
+    ]
+  },
+  {
+    "_id": "5ac329dc2aae671b0548c178",
+    "name": "Split Bet6",
+    "numbers": [
+      4,
+      5
+    ]
+  },
+  {
+    "_id": "5ac329ed2aae671b0548c17a",
+    "name": "Split Bet7",
+    "numbers": [
+      5,
+      6
+    ]
+  },
+  {
+    "_id": "5ac32a062aae671b0548c17c",
+    "name": "Split Bet8",
+    "numbers": [
+      4,
+      7
+    ]
+  },
+  {
+    "_id": "5ac32a142aae671b0548c17e",
+    "name": "Split Bet8",
+    "numbers": [
+      5,
+      8
+    ]
+  },
+  {
+    "_id": "5ac32a212aae671b0548c180",
+    "name": "Split Bet9",
+    "numbers": [
+      6,
+      9
+    ]
+  },
+  {
+    "_id": "5ac32a392aae671b0548c182",
+    "name": "Split Bet10",
+    "numbers": [
+      7,
+      8
+    ]
+  },
+  {
+    "_id": "5ac32a5f2aae671b0548c188",
+    "name": "Split Bet11",
+    "numbers": [
+      8,
+      9
+    ]
+  },
+  {
+    "_id": "5ac32a702aae671b0548c18a",
+    "name": "Split Bet12",
+    "numbers": [
+      7,
+      10
+    ]
+  },
+  {
+    "_id": "5ac32a822aae671b0548c18c",
+    "name": "Split Bet13",
+    "numbers": [
+      8,
+      11
+    ]
+  },
+  {
+    "_id": "5ac32a8e2aae671b0548c18e",
+    "name": "Split Bet14",
+    "numbers": [
+      9,
+      12
+    ]
+  },
+  {
+    "_id": "5ac32af52aae671b0548c199",
+    "name": "Split Bet15",
+    "numbers": [
+      10,
+      11
+    ]
+  },
+  {
+    "_id": "5ac32b032aae671b0548c19b",
+    "name": "Split Bet16",
+    "numbers": [
+      11,
+      12
+    ]
+  },
+  {
+    "_id": "5ac32b2e2aae671b0548c19d",
+    "name": "Split Bet17",
+    "numbers": [
+      10,
+      13
+    ]
+  },
+  {
+    "_id": "5ac32b3b2aae671b0548c19f",
+    "name": "Split Bet18",
+    "numbers": [
+      11,
+      14
+    ]
+  },
+  {
+    "_id": "5ac32b492aae671b0548c1a1",
+    "name": "Split Bet19",
+    "numbers": [
+      12,
+      15
+    ]
+  },
+  {
+    "_id": "5ac32b5b2aae671b0548c1a3",
+    "name": "Split Bet20",
+    "numbers": [
+      13,
+      14
+    ]
+  },
+  {
+    "_id": "5ac32b6b2aae671b0548c1a6",
+    "name": "Split Bet21",
+    "numbers": [
+      14,
+      15
+    ]
+  },
+  {
+    "_id": "5ac32c1c2aae671b0548c1ab",
+    "name": "Split Bet22",
+    "numbers": [
+      13,
+      16
+    ]
+  },
+  {
+    "_id": "5ac32c272aae671b0548c1ad",
+    "name": "Split Bet23",
+    "numbers": [
+      14,
+      17
+    ]
+  },
+  {
+    "_id": "5ac32c362aae671b0548c1af",
+    "name": "Split Bet24",
+    "numbers": [
+      15,
+      18
+    ]
+  },
+  {
+    "_id": "5ac32c712aae671b0548c1b3",
+    "name": "Split Bet25",
+    "numbers": [
+      16,
+      17
+    ]
+  },
+  {
+    "_id": "5ac32c7d2aae671b0548c1b6",
+    "name": "Split Bet26",
+    "numbers": [
+      17,
+      18
+    ]
+  },
+  {
+    "_id": "5ac32c972aae671b0548c1b8",
+    "name": "Split Bet27",
+    "numbers": [
+      16,
+      19
+    ]
+  },
+  {
+    "_id": "5ac32cae2aae671b0548c1ba",
+    "name": "Split Bet28",
+    "numbers": [
+      17,
+      20
+    ]
+  },
+  {
+    "_id": "5ac32cbd2aae671b0548c1bc",
+    "name": "Split Bet29",
+    "numbers": [
+      18,
+      21
+    ]
+  },
+  {
+    "_id": "5ac32cd02aae671b0548c1be",
+    "name": "Split Bet30",
+    "numbers": [
+      19,
+      20
+    ]
+  },
+  {
+    "_id": "5ac32cdb2aae671b0548c1c0",
+    "name": "Split Bet31",
+    "numbers": [
+      20,
+      21
+    ]
+  },
+  {
+    "_id": "5ac32e8f2aae671b0548c1c7",
+    "name": "Split Bet32",
+    "numbers": [
+      19,
+      22
+    ]
+  },
+  {
+    "_id": "5ac32eb62aae671b0548c1ca",
+    "name": "Split Bet33",
+    "numbers": [
+      20,
+      23
+    ]
+  },
+  {
+    "_id": "5ac32ec12aae671b0548c1cc",
+    "name": "Split Bet34",
+    "numbers": [
+      21,
+      24
+    ]
+  },
+  {
+    "_id": "5ac32ed32aae671b0548c1ce",
+    "name": "Split Bet35",
+    "numbers": [
+      22,
+      23
+    ]
+  },
+  {
+    "_id": "5ac32ee02aae671b0548c1d0",
+    "name": "Split Bet36",
+    "numbers": [
+      23,
+      24
+    ]
+  },
+  {
+    "_id": "5ac32ef82aae671b0548c1d2",
+    "name": "Split Bet37",
+    "numbers": [
+      22,
+      25
+    ]
+  },
+  {
+    "_id": "5ac32f082aae671b0548c1d4",
+    "name": "Split Bet38",
+    "numbers": [
+      23,
+      26
+    ]
+  },
+  {
+    "_id": "5ac32f1a2aae671b0548c1d6",
+    "name": "Split Bet39",
+    "numbers": [
+      24,
+      27
+    ]
+  },
+  {
+    "_id": "5ac32f372aae671b0548c1dc",
+    "name": "Split Bet40",
+    "numbers": [
+      25,
+      26
+    ]
+  },
+  {
+    "_id": "5ac32f442aae671b0548c1de",
+    "name": "Split Bet41",
+    "numbers": [
+      26,
+      27
+    ]
+  },
+  {
+    "_id": "5ac32f5c2aae671b0548c1e0",
+    "name": "Split Bet42",
+    "numbers": [
+      25,
+      28
+    ]
+  },
+  {
+    "_id": "5ac32f692aae671b0548c1e2",
+    "name": "Split Bet43",
+    "numbers": [
+      26,
+      29
+    ]
+  },
+  {
+    "_id": "5ac32f762aae671b0548c1e4",
+    "name": "Split Bet44",
+    "numbers": [
+      27,
+      30
+    ]
+  },
+  {
+    "_id": "5ac32f8a2aae671b0548c1e6",
+    "name": "Split Bet45",
+    "numbers": [
+      28,
+      29
+    ]
+  },
+  {
+    "_id": "5ac32f942aae671b0548c1e8",
+    "name": "Split Bet46",
+    "numbers": [
+      29,
+      30
+    ]
+  },
+  {
+    "_id": "5ac32fa92aae671b0548c1ea",
+    "name": "Split Bet47",
+    "numbers": [
+      28,
+      31
+    ]
+  },
+  {
+    "_id": "5ac32fb52aae671b0548c1ec",
+    "name": "Split Bet48",
+    "numbers": [
+      29,
+      32
+    ]
+  },
+  {
+    "_id": "5ac32fc22aae671b0548c1ef",
+    "name": "Split Bet49",
+    "numbers": [
+      30,
+      33
+    ]
+  },
+  {
+    "_id": "5ac32fcf2aae671b0548c1f1",
+    "name": "Split Bet50",
+    "numbers": [
+      31,
+      32
+    ]
+  },
+  {
+    "_id": "5ac32fd82aae671b0548c1f3",
+    "name": "Split Bet51",
+    "numbers": [
+      32,
+      33
+    ]
+  },
+  {
+    "_id": "5ac32fff2aae671b0548c1f8",
+    "name": "Split Bet52",
+    "numbers": [
+      31,
+      34
+    ]
+  },
+  {
+    "_id": "5ac3300d2aae671b0548c1fa",
+    "name": "Split Bet53",
+    "numbers": [
+      32,
+      35
+    ]
+  },
+  {
+    "_id": "5ac330222aae671b0548c1fc",
+    "name": "Split Bet54",
+    "numbers": [
+      33,
+      36
+    ]
+  },
+  {
+    "_id": "5ac330692aae671b0548c209",
+    "name": "Split Bet55",
+    "numbers": [
+      34,
+      35
+    ]
+  },
+  {
+    "_id": "5ac330752aae671b0548c20b",
+    "name": "Split Bet56",
+    "numbers": [
+      35,
+      36
+    ]
+  },
+  {
+    "_id": "5ad9db4b8ef39172e714620e",
+    "name": "Split Bet57",
+    "numbers": [
+      0,
+      1
+    ]
+  },
+  {
+    "_id": "5ad9db578ef39172e7146210",
+    "name": "Split Bet58",
+    "numbers": [
+      0,
+      2
+    ]
+  },
+  {
+    "_id": "5ad9db628ef39172e7146213",
+    "name": "Split Bet59",
+    "numbers": [
+      0,
+      3
+    ]
+  },
+  {
+    "_id": "5ad9dbd88ef39172e7146225",
+    "name": "Street Bet13",
+    "numbers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": "5ad9dbe58ef39172e7146227",
+    "name": "Street Bet14",
+    "numbers": [
+      0,
+      2,
+      3
+    ]
+  }
+]

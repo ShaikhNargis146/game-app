@@ -26,22 +26,57 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
   $scope.getIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    return index;
+    var indexArray = [index];
+    return indexArray;
   }
-  $scope.getQuadIndex = function (innerIndex, outerIndex) {
+
+  $scope.getCornerBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index - 1) + '' + (index + 2) + '' + (index + 3) + 'Q';
-    return index;
+    // index = 'CornerBet' + index + '' + (index - 1) + '' + (index + 2) + '' + (index + 3);
+    var indexArray = [index - 1, index, index + 2, index + 3];
+    return indexArray;
   }
-  $scope.getRightPairIndex = function (innerIndex, outerIndex) {
+  $scope.getCornerBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index + 3) + 'P';
-    return index;
+    // index = 'CornerBet' + 0 + '' + index + '' + (index - 1) + '' + (index + 2);
+    var indexArray = [0, index - 1, index];
+    return indexArray;
   }
-  $scope.getBottomPairIndex = function (innerIndex, outerIndex) {
+  $scope.getRightSplitBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
-    index = index + '' + (index - 1) + 'P';
-    return index;
+    // index = 'SplitBet' + index + '' + (index + 3);
+    var indexArray = [index, index + 3];
+    return indexArray;
+  }
+  $scope.getLeftSplitBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    // index = 'SplitBet' + 0 + '' + index;
+    var indexArray = [0, index];
+    return indexArray;
+  }
+  $scope.getBottomSplitBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    // index = 'SplitBet' + index + '' + (index - 1);
+    var indexArray = [index - 1, index];
+    return indexArray;
+  }
+  $scope.getStreetBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    // index = 'StreetBet' + index + '' + (index + 1) + '' + (index + 2);
+    var indexArray = [index, index + 1, index + 2];
+    return indexArray;
+  }
+  $scope.getLineBetIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    // index = 'LineBet' + index + '' + (index + 1) + '' + (index + 2) + '' + (index + 3) + '' + (index + 4) + '' + (index + 5);
+    var indexArray = [index, index + 1, index + 2, index + 3, index + 4, index + 5];
+    return indexArray;
+  }
+  $scope.getLineBetLeftIndex = function (innerIndex, outerIndex) {
+    var index = ((innerIndex + 1) * 3) - outerIndex;
+    // index = 'LineBet' + 0 + '' + index + '' + (index + 1) + '' + (index + 2);
+    var indexArray = [0, index, index + 1, index + 2];
+    return indexArray;
   }
   RouletteService.getLastResults(function (data) {
     $scope.lastResults = data;
@@ -150,44 +185,48 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
-    if ($scope.selectedCoin) {
-      if ($scope.selectedCoin.amount <= $scope.totalMoney) {
-        $scope.amount += $scope.selectedCoin.amount;
-        if ($scope.amount <= $scope.maxBet) {
-
-
-          $scope.visitedArray.push(bet);
-          if (!$scope.masterArray[bet]) {
-            $scope.masterArray[bet] = {
-              coinArray: [],
-              displayArray: []
+    Service.getBetId(bet, function (data) {
+      $scope.betData = data[0];
+      if ($scope.selectedCoin) {
+        if ($scope.selectedCoin.amount <= $scope.totalMoney) {
+          $scope.amount += $scope.selectedCoin.amount;
+          if ($scope.amount <= $scope.maxBet) {
+            $scope.visitedArray.push(bet);
+            if (!$scope.masterArray[bet]) {
+              $scope.masterArray[bet] = {
+                _id: $scope.betData ? $scope.betData._id : '',
+                totalbet: 0,
+                coinArray: [],
+                displayArray: []
+              };
+            }
+            $scope.masterArray[bet].totalbet += $scope.selectedCoin.amount;
+            $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
+            $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
+            $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+          } else {
+            $scope.amount -= $scope.selectedCoin.amount;
+            $scope.message = {
+              heading: "Maximum Limit",
+              content: "You have reached maximum limit."
             };
+            $scope.showMessageModal();
           }
-          $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
-          $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
-          $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
         } else {
-          $scope.amount -= $scope.selectedCoin.amount;
           $scope.message = {
-            heading: "Maximum Limit",
-            content: "You have reached maximum limit."
+            heading: "Not enough money",
+            content: "Not enough money for this bet. Try Again!!!"
           };
           $scope.showMessageModal();
         }
       } else {
         $scope.message = {
-          heading: "Not enough money",
-          content: "Not enough money for this bet. Try Again!!!"
+          heading: "Please Select coin",
+          content: "Please Select the coin Before Bet. Try Again!!!"
         };
         $scope.showMessageModal();
       }
-    } else {
-      $scope.message = {
-        heading: "Please Select coin",
-        content: "Please Select the coin Before Bet. Try Again!!!"
-      };
-      $scope.showMessageModal();
-    }
+    })
   }
 
   $scope.Undo = function () {

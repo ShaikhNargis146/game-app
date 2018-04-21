@@ -203,10 +203,22 @@ ul.coin li {
 //   background: #1C7022; //   color: #8EB891;
 // }
 .roulette .red {
-  background: #A91607; //   color: #8EB891;
+  .circle {
+    background: #A91607; //   color: #8EB891;
+  }
 }
 
 .roulette .black {
+  .circle {
+    background: #100f0d; //   color: #8EB891;
+  }
+}
+
+.roulette .red-color {
+  background: #A91607; //   color: #8EB891;
+}
+
+.roulette .black-color {
   background: #100f0d; //   color: #8EB891;
 }
 
@@ -1031,6 +1043,15 @@ ul.coin li {
   z-index: 3;
 }
 
+.leftbet {
+  position: absolute;
+  bottom: 0;
+  left: -0.5vw;
+  width: 1vw;
+  height: 100%;
+  z-index: 3;
+}
+
 .bottomrightbet {
   position: absolute;
   bottom: -1vw;
@@ -1038,6 +1059,19 @@ ul.coin li {
   width: 2vw;
   height: 2vw;
   z-index: 3;
+}
+
+.bottomleftbet {
+  position: absolute;
+  bottom: -1vw;
+  left: -1vw;
+  width: 2vw;
+  height: 2vw;
+  z-index: 3;
+}
+
+.active-blocks {
+    background: rgba(255,255,255,0.3)!important;
 }
 
 // .black{
