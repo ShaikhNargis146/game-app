@@ -12270,7 +12270,11 @@ ion-item.item {
 .custom-table .item {
   background: transparent;
   color: #fff;
-  font-size: 1em; }
+  font-size: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px; }
 
 .col-15 {
   -webkit-box-flex: 0;
@@ -12304,6 +12308,22 @@ ion-item.item {
   border-left: 3px solid #a9731f;
   border-top: 3px solid #a9721f;
   border-right: 3px solid #fdf5c0; }
+
+.net_profit_show {
+  border: 1px solid gold;
+  border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
+  border-image-slice: 2;
+  padding: 1%;
+  border-top: 0px;
+  float: right;
+  margin-right: 0px;
+  font-size: 1.2em; }
+  .net_profit_show .green {
+    color: green;
+    font-weight: bold; }
+  .net_profit_show .red {
+    color: red;
+    font-weight: bold; }
 
 .pokar {
   background-color: #000; }

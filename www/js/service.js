@@ -3,7 +3,7 @@ var url = adminUUU + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var maxRow = 10;
-myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
+myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state, $filter) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -374,7 +374,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!_.isEmpty(accessToken)) {
         return $http.post(adminurl + 'AR/getAccountStatement', {
           "memberId": memberid,
+          // "date": $filter('date')(data.date, '', '+0530'),
           "date": data.date,
+
           "subGame": data.subtype
         }).then(function (data) {
           if (data.data) {

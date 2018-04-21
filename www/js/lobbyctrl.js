@@ -49,14 +49,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       "name": "TeenPatti",
     },
     {
-      "name": "Poker"
-    },
-    {
-      "name": "Roulette"
-    },
-    {
       "name": "Live Casino",
-      "subtype": ['roulette', 'AR type 2']
     }
   ]
 
@@ -127,6 +120,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.openACStatement = function () {
     $scope.accountStatmentFilter.date = new Date();
     $scope.results = [];
+    $scope.statementNetProfit = false;
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
     $scope.paging = {
@@ -156,6 +150,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         if (data) {
           if (data.data.data.total === 0) {
             $scope.noDataFound = true;
+            $scope.results = [];
             // Error Message or no data found 
             // $scope.displayMessage = {
             //   main: "<p>No Data Found.</p>",
@@ -178,6 +173,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
           console.log(data);
 
           $scope.results = data.data.data.accounts;
+          $scope.statementNetProfit = data.data.data.netProfit;
           // if (data.data.data.total === 0) {
           //   $scope.noDataFound = true;
           //   // Error Message or no data found 

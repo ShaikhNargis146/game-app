@@ -15,15 +15,17 @@
       of
       <input type="text" ng-model="month"> -->
     <form name="statementFilter">
+
+
       <div class="top_field filter">
         Filter
         <select ng-model="accountStatmentFilter.type" ng-options="x.name for x in gameTypeForFilter" placeholder="Blind Amt">
           <option value="" disabled hidden selected>Type</option>
         </select>
-        <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x for x in accountStatmentFilter.type.subtype"
+        <!-- <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x for x in accountStatmentFilter.type.subtype"
           placeholder="Blind Amt">
           <option value="" disabled hidden selected>SubType</option>
-        </select>
+        </select> -->
         <input type="date" ng-model="accountStatmentFilter.date" class="right">
         <!-- <input type="text" ng-model="accountStatmentFilter.blindAmt" placeholder="Blind Amt">
         <input type="text" ng-model="accountStatmentFilter.chalAmt" placeholder="Chaal Amt"> -->
@@ -44,7 +46,6 @@
               Reset </button>
           </div>
         </div>
-        {{accountStatmentFilter}}
       </div>
     </form>
     </div>
@@ -72,8 +73,11 @@
       <ion-list>
         <ion-item class="item">
           <div class="row">
-            <div class="col-60">
+            <div class="col-40">
               <div class="bold">Date</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">SubGame</div>
             </div>
             <div class="col-20">
               <div class="bold text-center">W &amp; L</div>
@@ -83,11 +87,16 @@
             </div>
           </div>
         </ion-item>
+        <div ng-if="results.length==0 " class="center">no data</div>
         <ion-item collection-repeat="result in results" class="item">
+
           <div class="row">
-            <div class="col-60">
+            <div class="col-40">
               <div class="bold">{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
-                <br/> teenpatti</div>
+                <br/> {{result.game.name}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center bold">{{result.subGame}}</div>
             </div>
             <div class="col-20">
               <div class="text-center bold">{{result.type}}</div>
@@ -97,7 +106,19 @@
             </div>
           </div>
         </ion-item>
+
       </ion-list>
+    </div>
+
+    <div class="net_profit_show" ng-if="statementNetProfit && !(results.length==0)">
+
+      <span ng-if="statementNetProfit>=0">Net Profit :
+        <span class="green"> {{statementNetProfit}} </span>
+      </span>
+
+      <span ng-if="statementNetProfit<0">Net Lose :
+        <span class="red"> {{statementNetProfit}} </span>
+      </span>
     </div>
     <!-- no Data found -->
     <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">

@@ -645,6 +645,10 @@
   background: transparent;
   color: #fff;
   font-size: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .col-15 {
@@ -688,3 +692,21 @@
 // .platform-ios .custom-header {
 //   z-index: 100;
 // }
+.net_profit_show {
+  border: 1px solid gold;
+  border-image: $border-color;
+  border-image-slice: 2;
+  padding: 1%;
+  border-top: 0px;
+  float: right;
+  margin-right: 0px;
+  font-size: 1.2em;
+  .green {
+    color: green;
+    font-weight: bold;
+  }
+  .red {
+    color: red;
+    font-weight: bold;
+  }
+}
