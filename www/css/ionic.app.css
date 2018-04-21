@@ -12314,7 +12314,7 @@ ion-item.item {
   border-image: linear-gradient(to right, #feb645 0%, #ffffff 25%, #ffb33a 50%, #ffffff 75%, #fe9b00 100%);
   border-image-slice: 2;
   padding: 1%;
-  border-top: 0px;
+  border-bottom: 0px;
   float: right;
   margin-right: 0px;
   font-size: 1.2em; }
@@ -12324,6 +12324,23 @@ ion-item.item {
   .net_profit_show .red {
     color: red;
     font-weight: bold; }
+
+.account-statement .close {
+  padding: 8px; }
+
+.account-statement .custom-table-top {
+  padding-top: 95px; }
+
+.custom-table-top2 {
+  padding-top: 135px !important; }
+
+.add_private_table {
+  position: absolute;
+  right: 10%;
+  top: 12px;
+  z-index: 5;
+  font-size: 3em;
+  font-weight: bold; }
 
 .pokar {
   background-color: #000; }

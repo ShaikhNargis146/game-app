@@ -24,11 +24,11 @@
 
         <div class="rel">
           <div class="login_button">
-            <select name="gameType" id="gameType" ng-if="(gameType== 'Normal')" ng-model="data.gameType" required ng-disabled="gameTypeModal">
+            <!-- <select name="gameType" id="gameType" ng-if="(gameType== 'Normal')" ng-model="data.gameType" required ng-disabled="gameTypeModal">
               <option value="" disabled hidden selected>Game Type</option>
               <option value="Normal">Normal</option>
-            </select>
-            <select name="gameType" id="gameType" ng-if="!(gameType== 'Normal')" ng-model="data.gameType" required ng-options="x for x in gameType">
+            </select> -->
+            <select name="gameType" id="gameType" ng-model="data.gameType" required ng-options="x for x in filterGameType">
               <option value="" disabled hidden selected>Game Type</option>
             </select>
             <span class="valid" ng-show="createTable.gameType.$touched && createTable.gameType.$invalid">* Game Type is required.</span>

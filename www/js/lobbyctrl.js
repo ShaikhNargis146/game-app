@@ -41,7 +41,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   $scope.resetpage();
   $scope.filterType = ['private', 'public'];
-  $scope.filterGameType = ['2 Cards', '4 Cards', 'Joker', 'Muflis'];
+  $scope.filterGameType = ['Normal', '2 Cards', '4 Cards', 'Joker', 'Muflis'];
   $scope.normalGameType = 'Normal';
   $scope.accountStatmentFilter = [];
 
@@ -134,19 +134,25 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
 
   //Account Statement
   $scope.loadMore = function () {
+    console.log("load more", $scope.paging, $scope.pageNo)
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
-      $scope.accountStatement();
+      $scope.accountStatement($scope.accountStatmentFilter);
     } else {
 
     }
   };
 
+  $scope.resetStatementFilter = function () {
+    $scope.pageNo = 1;
+    $scope.results = [];
+  }
+
   $scope.accountStatement = function (accountStatmentFilter) {
     console.log("account filter", accountStatmentFilter);
     if (accountStatmentFilter.type.name == "TeenPatti") {
-      Service.getTransaction($scope.pageNo, function (data) {
+      Service.getTransaction($scope.pageNo, accountStatmentFilter, function (data) {
         if (data) {
           if (data.data.data.total === 0) {
             $scope.noDataFound = true;
@@ -167,26 +173,45 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     }
     if (accountStatmentFilter.type.name == "Live Casino") {
       Service.getARTransaction($scope.memberId, $scope.pageNo, accountStatmentFilter, function (data) {
-        if (data) {
+        // if (data) {
 
-          // $scope.result = data.
-          console.log(data);
+        //   // $scope.result = data.
+        //   console.log(data);
 
-          $scope.results = data.data.data.accounts;
-          $scope.statementNetProfit = data.data.data.netProfit;
-          // if (data.data.data.total === 0) {
-          //   $scope.noDataFound = true;
-          //   // Error Message or no data found 
-          //   // $scope.displayMessage = {
-          //   //   main: "<p>No Data Found.</p>",
-          //   // };
-          // // }
-          // $scope.paging = data.data.data.options;
-          // _.each(data.data.data.results, function (n) {
-          //   $scope.results.push(n);
-          // });
-          // $scope.loadingDisable = false;
-          // $scope.$broadcast('scroll.infiniteScrollComplete');
+        //   $scope.results = data.data.data.accounts;
+        //   $scope.statementNetProfit = data.data.data.netProfit;
+        //   // if (data.data.data.total === 0) {
+        //   //   $scope.noDataFound = true;
+        //   //   // Error Message or no data found 
+        //   //   // $scope.displayMessage = {
+        //   //   //   main: "<p>No Data Found.</p>",
+        //   //   // };
+        //   // // }
+        //   // $scope.paging = data.data.data.options;
+        //   // _.each(data.data.data.results, function (n) {
+        //   //   $scope.results.push(n);
+        //   // });
+        //   // $scope.loadingDisable = false;
+        //   // $scope.$broadcast('scroll.infiniteScrollComplete');
+        // } else {}
+        console.log(data);
+        if (data.value) {
+          if (data.data.accounts.total === 0) {
+            $scope.noDataFound = true;
+            $scope.results = [];
+            $scope.statementNetProfit = false;
+            // Error Message or no data found 
+            // $scope.displayMessage = {
+            //   main: "<p>No Data Found.</p>",
+            // };
+          }
+          $scope.statementNetProfit = data.data.netProfit;
+          $scope.paging = data.data.accounts.options;
+          _.each(data.data.accounts.results, function (n) {
+            $scope.results.push(n);
+          });
+          $scope.loadingDisable = false;
+          $scope.$broadcast('scroll.infiniteScrollComplete');
         } else {}
       });
     }
@@ -428,12 +453,12 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //resetFilter
   $scope.privateResetFilter = function () {
     console.log($scope.gameType);
-    if ($scope.gameType != null) {
-      $scope.privateFilterData = {
-        type: "private",
-        gameType: $scope.gameType
-      };
-    }
+    // if ($scope.gameType != null) {
+    $scope.privateFilterData = {
+      type: "private",
+      // gameType: $scope.gameType
+    };
+    // }
     $scope.privateFilterTables();
   };
 

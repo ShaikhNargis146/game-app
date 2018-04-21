@@ -346,7 +346,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       };
     },
 
-    getTransaction: function (pageNo, callback) {
+    getTransaction: function (pageNo, data, callback) {
       if (!pageNo) {
         pageNo = 1;
       }
@@ -354,7 +354,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/getPlayerTransaction', {
           "page": pageNo,
-          "accessToken": accessToken
+          "accessToken": accessToken,
+          "date": $filter('date')(data.date, 'MM-dd-yyyy', '+0530'),
+          // "date": data.date,
         }).then(function (data) {
           if (data.data) {
             var totalCount = data.data.data.total;
@@ -374,14 +376,18 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!_.isEmpty(accessToken)) {
         return $http.post(adminurl + 'AR/getAccountStatement', {
           "memberId": memberid,
-          // "date": $filter('date')(data.date, '', '+0530'),
-          "date": data.date,
+          "page": pageNo,
+          "date": $filter('date')(data.date, 'MM-dd-yyyy', '+0530'),
+          // "date": data.date,
 
-          "subGame": data.subtype
+          // "subGame": data.subtype
         }).then(function (data) {
+          data = data.data;
           if (data.data) {
-            // var totalCount = data.data.data.total;
-            // data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            // console.log(data);
+            var totalCount = data.data.accounts.options.count;
+            // console.log(totalCount);
+            data.data.accounts.options.maxPage = _.ceil(data.data.accounts.total / data.data.accounts.options.count);
             callback(data);
           } else {}
         });

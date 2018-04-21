@@ -1,44 +1,43 @@
-<ion-modal-view class="custom-model statement-model">
-
-  <ion-content>
+<ion-modal-view class="custom-model statement-model account-statement">
+  <div class="custom-header top_field">
     <div class="close" ng-click="closeACStatement()">
       <img src="img/close.png">
     </div>
     <div class="heading">Account Statement</div>
     <!-- <div class="top_field">
-      Date within
-      <select>
-        <option selected>1 Day</option>
-        <option>2 Day</option>
-        <option>3 Day</option>
-      </select>
-      of
-      <input type="text" ng-model="month"> -->
+    Date within
+    <select>
+      <option selected>1 Day</option>
+      <option>2 Day</option>
+      <option>3 Day</option>
+    </select>
+    of
+    <input type="text" ng-model="month"> -->
     <form name="statementFilter">
 
 
-      <div class="top_field filter">
+      <div class=" filter">
         Filter
         <select ng-model="accountStatmentFilter.type" ng-options="x.name for x in gameTypeForFilter" placeholder="Blind Amt">
           <option value="" disabled hidden selected>Type</option>
         </select>
         <!-- <select ng-model="accountStatmentFilter.subtype" ng-if="accountStatmentFilter.type.subtype" ng-options="x for x in accountStatmentFilter.type.subtype"
-          placeholder="Blind Amt">
-          <option value="" disabled hidden selected>SubType</option>
-        </select> -->
+        placeholder="Blind Amt">
+        <option value="" disabled hidden selected>SubType</option>
+      </select> -->
         <input type="date" ng-model="accountStatmentFilter.date" class="right">
         <!-- <input type="text" ng-model="accountStatmentFilter.blindAmt" placeholder="Blind Amt">
-        <input type="text" ng-model="accountStatmentFilter.chalAmt" placeholder="Chaal Amt"> -->
+      <input type="text" ng-model="accountStatmentFilter.chalAmt" placeholder="Chaal Amt"> -->
         <!-- <ui-select ng-model="tablesData.selected.name" theme="bootstrap" class="custom-filter">
-                      <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
-                      <ui-select-choices repeat="item in tablesData | filter: $select.search">
-                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                      </ui-select-choices>
-                    </ui-select> -->
+                    <ui-select-match placeholder="Enter Table Name">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in tablesData | filter: $select.search">
+                      <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select> -->
         <!-- <input type="text" ng-model="accountStatmentFilter.name" placeholder="Table Name"> -->
         <div class="row">
           <div class="col center">
-            <button class="custom_button  btn_search" type='submit' ng-click="accountStatement(accountStatmentFilter);">
+            <button class="custom_button  btn_search" type='submit' ng-click="resetStatementFilter();accountStatement(accountStatmentFilter);">
               Search </button>
           </div>
           <div class="col center">
@@ -48,28 +47,21 @@
         </div>
       </div>
     </form>
+
+
+    <div class="net_profit_show" ng-if="statementNetProfit && !(results.length==0)">
+
+      <span ng-if="statementNetProfit>=0">Net Profit :
+        <span class="green"> {{statementNetProfit}} </span>
+      </span>
+
+      <span ng-if="statementNetProfit<0">Net Lose :
+        <span class="red"> {{statementNetProfit}} </span>
+      </span>
     </div>
-
-    <!-- <div class="statement_content ">
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>W &amp; L</th>
-          <th>amount</th>
-        </tr>
-        <tr ng-repeat="result in results" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="loadingDisable">
-          <td>
-            {{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
-            <br/> teenpatti
-          </td>
-          <td>{{result.type}}</td>
-          <td>{{result.amount}}</td>
-        </tr>
-      </table>
-    </div> -->
-
-
-    <div class="custom-table" ng-if="results">
+  </div>
+  <ion-content>
+    <div class="custom-table custom-table-top" ng-class="{'custom-table-top2':statementNetProfit && !(results.length==0)}" ng-if="results">
       <ion-list>
         <ion-item class="item">
           <div class="row">
@@ -88,6 +80,8 @@
           </div>
         </ion-item>
         <div ng-if="results.length==0 " class="center">no data</div>
+
+
         <ion-item collection-repeat="result in results" class="item">
 
           <div class="row">
@@ -110,23 +104,13 @@
       </ion-list>
     </div>
 
-    <div class="net_profit_show" ng-if="statementNetProfit && !(results.length==0)">
-
-      <span ng-if="statementNetProfit>=0">Net Profit :
-        <span class="green"> {{statementNetProfit}} </span>
-      </span>
-
-      <span ng-if="statementNetProfit<0">Net Lose :
-        <span class="red"> {{statementNetProfit}} </span>
-      </span>
-    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
     <!-- no Data found -->
     <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
     </div>
     <div class="loader" ng-if="!results">
       Loading ..
     </div>
-    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
   </ion-content>
   </ion-content>
 </ion-modal-view>
