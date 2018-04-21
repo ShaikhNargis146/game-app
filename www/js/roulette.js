@@ -506,8 +506,21 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
         callback(data.data.data);
       });
     },
-    saveUserBets: function (data, callback) {
-
+    saveUserBets: function (masterArray, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      data = {};
+      if (!_.isEmpty(accessToken)) {
+        data.accessToken = accessToken;
+      }
+      data.bets = _.map(masterArray, function (n) {
+        return {
+          betAmount: n.totalBet,
+          bet: n._id
+        };
+      });
+      $http.post(url + 'UserBets/saveUserBets', data).then(function (data) {
+        callback(data);
+      });
     }
   };
 });
