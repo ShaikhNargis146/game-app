@@ -195,7 +195,7 @@
   },
   {
     "_id": "5aba04f55b38ab1382f90aff",
-    "name": "1 st column",
+    "name": "1 column",
     "numbers": [
       1,
       4,
@@ -213,7 +213,7 @@
   },
   {
     "_id": "5aba058c5b38ab1382f90b01",
-    "name": "2nd column",
+    "name": "2 column",
     "numbers": [
       5,
       8,
@@ -230,7 +230,7 @@
   },
   {
     "_id": "5aba06185b38ab1382f90b07",
-    "name": "3rd column",
+    "name": "3 column",
     "numbers": [
       6,
       9,
