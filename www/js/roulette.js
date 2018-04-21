@@ -268,11 +268,15 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
+
   socketFunction.endPlacingBets = function (data) {
+    $scope.canBet = false;
     RouletteService.saveUserBets($scope.masterArray, function (data) {
       $rootScope.result = data.data.results;
     });
+
   };
+
   io.socket.on("endPlacingBets", socketFunction.endPlacingBets);
 
 
@@ -295,6 +299,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
   };
   io.socket.on("startBetting", socketFunction.startBetting);
 
+
+  io.socket.off("resultsSaved", socketFunction.resultsSaved);
+  socketFunction.resultsSaved = function (data) {
+    console.log("resultsSaved");
+    console.log(data);
+  };
+  io.socket.on("resultsSaved", socketFunction.resultsSaved);
 
   var rotationsTime = 8;
   var wheelSpinTime = 6;
@@ -554,9 +565,11 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
     },
     saveUserBets: function (masterArray, callback) {
       var accessToken = $.jStorage.get("accessToken");
+      var userId = $.jStorage.get("singlePlayerData")._id;
       data = {};
       if (!_.isEmpty(accessToken)) {
         data.accessToken = accessToken;
+        data.userId = userId;
       }
       data.bets = _.map(masterArray, function (n) {
         return {
