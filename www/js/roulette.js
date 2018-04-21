@@ -251,17 +251,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     // }, 30000);
   }
 
-  io.socket.on("betsNotAllowed", function (data) {
-    if (data.data == "Bets are Not Allowed") {
-      if ($scope.betUser) {
-        _.each($scope.betUser, function (user) {
-          RouletteService.saveUserBets(user, function (data) {
-            $rootScope.result = data.data.results;
-          });
-        });
-      }
-      $state.go("spinner");
-    }
+  io.socket.on("endPlacingBets", function (data) {
+    RouletteService.saveUserBets($scope.masterArray, function (data) {
+      $rootScope.result = data.data.results;
+    });
   });
 
   $scope.logout = function () {
@@ -553,7 +546,7 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
       }
       data.bets = _.map(masterArray, function (n) {
         return {
-          betAmount: n.totalBet,
+          betAmount: n.totalbet,
           bet: n._id
         };
       });
