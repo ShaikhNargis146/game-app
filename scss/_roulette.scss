@@ -1070,6 +1070,10 @@ ul.coin li {
   z-index: 3;
 }
 
+.active-blocks {
+    background: rgba(255,255,255,0.3)!important;
+}
+
 // .black{
 //   &:hover{
 //     background: rgba(255,255,255,0.7);

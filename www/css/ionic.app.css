@@ -12836,8 +12836,12 @@ ion-item.item {
     transform: rotate(360deg); } }
 
 .roulette {
+  background: url(../img/roulette/bg_game2.jpg) left top no-repeat;
+  width: 100%;
+  background-size: 100% 100%;
+  opacity: 1;
+  transform: translate3d(0%, 0px, 0px);
   padding: 20px;
-  background: #1C7022;
   display: table;
   position: relative;
   cursor: move;
@@ -12845,6 +12849,7 @@ ion-item.item {
   font-size: 1vw; }
 
 .roulette-cell {
+  padding: 0% 5% 5% 3%;
   display: table-cell;
   vertical-align: middle; }
 
@@ -12964,9 +12969,6 @@ ul.coin li {
     background: transparent; }
 
 /* elements */
-.roulette .sector {
-  background: #1C7022; }
-
 .roulette .num span {
   display: block;
   line-height: 2; }
@@ -12991,10 +12993,16 @@ ul.coin li {
   left: 13%; }
 
 /* colors */
-.roulette .red {
+.roulette .red .circle {
   background: #A91607; }
 
-.roulette .black {
+.roulette .black .circle {
+  background: #100f0d; }
+
+.roulette .red-color {
+  background: #A91607; }
+
+.roulette .black-color {
   background: #100f0d; }
 
 /* cells hovers */
@@ -13674,6 +13682,50 @@ ul.coin li {
   border-radius: 0;
   background: none;
   border: 0; }
+
+.bottombet {
+  position: absolute;
+  bottom: -8px;
+  left: 35%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(270deg);
+  z-index: 3; }
+
+.rightbet {
+  position: absolute;
+  bottom: 0;
+  right: -0.5vw;
+  width: 1vw;
+  height: 100%;
+  z-index: 3; }
+
+.leftbet {
+  position: absolute;
+  bottom: 0;
+  left: -0.5vw;
+  width: 1vw;
+  height: 100%;
+  z-index: 3; }
+
+.bottomrightbet {
+  position: absolute;
+  bottom: -1vw;
+  right: -1vw;
+  width: 2vw;
+  height: 2vw;
+  z-index: 3; }
+
+.bottomleftbet {
+  position: absolute;
+  bottom: -1vw;
+  left: -1vw;
+  width: 2vw;
+  height: 2vw;
+  z-index: 3; }
+
+.active-blocks {
+  background: rgba(255, 255, 255, 0.3) !important; }
 
 .player-fold {
   opacity: 0.4; }
