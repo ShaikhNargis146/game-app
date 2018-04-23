@@ -25,52 +25,52 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   $scope.getNgClass = function (index) {
-    $scope.checkForEvenOdd = index % 2;
-    $scope.checkForLowHighBet = index<=18;
-    if($scope.betPlaceFor=='firstDozen'){
-      $scope.dozen = index<=12 && index>0;
-    }else if($scope.betPlaceFor=='secondDozen'){
-      $scope.dozen = index>12 && index<=24;
-    }else if($scope.betPlaceFor=='lastDozen'){
-      $scope.dozen = index>24 && index<=36;
-    }else if($scope.betPlaceFor=='otherBet'){
-      $scope.otherIndex = _.find($scope.betIndexArray,function(i){
-        return i==index;
-      }) 
+    $scope.checkForEvenOdd = index > 0 ? index % 2 : null;
+    $scope.checkForLowHighBet = index>0 ? index <= 18 : null;
+    if ($scope.betPlaceFor == 'firstDozen') {
+      $scope.dozen = index <= 12 && index > 0;
+    } else if ($scope.betPlaceFor == 'secondDozen') {
+      $scope.dozen = index > 12 && index <= 24;
+    } else if ($scope.betPlaceFor == 'lastDozen') {
+      $scope.dozen = index > 24 && index <= 36;
+    } else if ($scope.betPlaceFor == 'otherBet') {
+      $scope.otherIndex = _.find($scope.betIndexArray, function (i) {
+        return i == index;
+      })
     }
 
-    $scope.columnBet = index%3;
+    $scope.columnBet = index > 0 ? index % 3 : null;
     var classStr = "'red':getBlack(getIndex($index,outerIndex)[0])==false,'black' :getBlack(getIndex($index,outerIndex)[0])==true ";
     //for red
     classStr += ",'active-blocks': betPlaceFor== 'red'&& getBlack(getIndex($index,outerIndex)[0])==false ";
     //for black
     classStr += "|| betPlaceFor== 'black'&& getBlack(getIndex($index,outerIndex)[0])==true";
     //for even 
-    classStr+="|| betPlaceFor== 'even' && checkForEvenOdd==0";
+    classStr += "|| betPlaceFor== 'even' && checkForEvenOdd==0";
     //for odd
-    classStr+="|| betPlaceFor== 'odd' && checkForEvenOdd==1";
+    classStr += "|| betPlaceFor== 'odd' && checkForEvenOdd==1";
     //for even 
-    classStr+="|| betPlaceFor== 'low' && checkForLowHighBet==true";
+    classStr += "|| betPlaceFor== 'low' && checkForLowHighBet==true";
     //for odd
-    classStr+="|| betPlaceFor== 'high' && checkForLowHighBet==false";
+    classStr += "|| betPlaceFor== 'high' && checkForLowHighBet==false";
     //for firstdozen
-    classStr+="|| betPlaceFor== 'firstDozen' && dozen==true";
+    classStr += "|| betPlaceFor== 'firstDozen' && dozen==true";
     //for secondDozen
-    classStr+="|| betPlaceFor== 'secondDozen' && dozen==true";
+    classStr += "|| betPlaceFor== 'secondDozen' && dozen==true";
     //for lastDozen
-    classStr+="|| betPlaceFor== 'lastDozen' && dozen==true";
+    classStr += "|| betPlaceFor== 'lastDozen' && dozen==true";
     //for firstColumn
-    classStr+="|| betPlaceFor== '1 column' && columnBet==0";
+    classStr += "|| betPlaceFor== '1 column' && columnBet==0";
     //for secondColumn
-    classStr+="|| betPlaceFor== '2 column' && columnBet==2";
+    classStr += "|| betPlaceFor== '2 column' && columnBet==2";
     //for thirdColumn
-    classStr+="|| betPlaceFor== '3 column' && columnBet==1";
+    classStr += "|| betPlaceFor== '3 column' && columnBet==1";
     //otherBet
-    classStr+= "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)"
+    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)"
     return "{" + classStr + "}";
   }
 
-  $scope.betPlacing = function (betName,indexArray) {
+  $scope.betPlacing = function (betName, indexArray) {
     $scope.betPlaceFor = betName;
     $scope.betIndexArray = indexArray;
   }
@@ -236,7 +236,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
-    console.log(bet)
     if ($scope.canBet) {
       Service.getBetId(bet, function (data) {
         $scope.betData = data[0];
