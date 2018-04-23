@@ -20,13 +20,13 @@
     </div>
     <div class="categorys">
       <ion-scroll direction="x">
-        <div class="row">
+        <div class="row flex_center">
           <div class="variation box-black" ng-click="variationToggle($event,normalGameType)" ng-hide="VariationTab">
             TeenPatti
           </div>
-          <div class="variation box-black" ng-click="variationGame($event,filterGameType)" ng-hide="VariationActive">
+          <!-- <div class="variation box-black" ng-click="variationGame($event,filterGameType)" ng-hide="VariationActive">
             TeenPatti Variation
-          </div>
+          </div> -->
         </div>
       </ion-scroll>
     </div>
@@ -81,18 +81,18 @@
           </div> -->
 
           <div class="box-black col">
-            <span class="text-grad" ng-click="playNow($event,'Normal');resetFilter();">Normal</span>
+            <span class="text-grad" ng-click="playNow($event,'Normal');">Normal</span>
           </div>
           <div class="box-black col">
-            <span class="text-grad" ng-click="playNow($event,'4 Cards');resetFilter();">4 card</span>
+            <span class="text-grad" ng-click="playNow($event,'4 Cards');">4 card</span>
           </div>
           <div class="box-black col">
-            <span class="text-grad" ng-click="playNow($event,'2 Cards');resetFilter();">2 card</span>
+            <span class="text-grad" ng-click="playNow($event,'2 Cards');">2 card</span>
           </div>
-          <div class="box-black col" ng-click="playNow($event,'Joker');resetFilter();">
+          <div class="box-black col" ng-click="playNow($event,'Joker');">
             <span class="text-grad">joker</span>
           </div>
-          <div class="box-black col" ng-click="playNow($event,'Muflis');resetFilter();">
+          <div class="box-black col" ng-click="playNow($event,'Muflis');">
             <span class="text-grad">Muflis</span>
           </div>
         </div>

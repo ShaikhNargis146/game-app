@@ -87,7 +87,7 @@
     }
     .variation_subtype {
       transition: all 500ms;
-      visibility: none;
+      visibility: hidden;
       opacity: 0;
       width: 85%;
       .box-black {
@@ -104,7 +104,7 @@
     margin-top: - 12%;
     .logo {
       opacity: 0;
-      visibility: none;
+      visibility: hidden;
       transition: none;
     }
     .categorys {

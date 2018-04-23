@@ -9986,6 +9986,9 @@ body {
 .center {
   text-align: center; }
 
+.flex_center {
+  justify-content: center; }
+
 .bg-style {
   background: url("../img/bg.svg");
   background-size: 100% 100%;
@@ -10351,7 +10354,7 @@ body {
           line-height: 1.5; }
     .main_lobby .lobby_content .variation_subtype {
       transition: all 500ms;
-      visibility: none;
+      visibility: hidden;
       opacity: 0;
       width: 85%; }
       .main_lobby .lobby_content .variation_subtype .box-black {
@@ -10364,7 +10367,7 @@ body {
     margin-top: -12%; }
     .main_lobby .variation_active .logo {
       opacity: 0;
-      visibility: none;
+      visibility: hidden;
       transition: none; }
     .main_lobby .variation_active .categorys > div,
     .main_lobby .variation_active .categorys .play_now {

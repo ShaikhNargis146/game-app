@@ -330,8 +330,11 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //for table selection//
   $scope.playNow = function ($event, tab) {
     console.log(tab);
+    $scope.tablesDataFilter = [];
+    $scope.gameType = tab;
+    console.log($scope.gameType, "gametype");
+    $scope.resetFilter();
     $scope.openPriceRangeModal();
-    $scope.gameType = $scope.gameType ? null : tab;
     $event.stopPropagation();
     // if (!$scope.VariationActive) {
 
@@ -380,7 +383,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
         gameType: $scope.gameType
       };
     }
-
     $scope.filterTables();
   };
 
