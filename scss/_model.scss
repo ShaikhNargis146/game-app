@@ -2,8 +2,8 @@
   top: 5%;
   right: 10%;
   bottom: 5%;
-  left: 10%;
-  min-height: 5vh;
+  left: 10%; // min-height: 5vh;
+  min-height: 200px;
   height: 90vh;
   width: 80%;
   background: url('../img/model_bg.png');
@@ -726,9 +726,12 @@
 
 .add_private_table {
   position: absolute;
-  right: 10%;
-  top: 12px;
+  /* right: 10%; */
+  top: 8px;
   z-index: 5;
-  font-size: 3em;
+  font-size: 1em;
   font-weight: bold;
+  right: 8%;
+  /* border-radius: 0px; */
+  padding: 5px 10px;
 }

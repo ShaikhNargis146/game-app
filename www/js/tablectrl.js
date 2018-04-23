@@ -34,7 +34,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.updateSocketVar = 0;
   $scope.sideShowDataFrom = 0;
   $scope.tableId = $stateParams.id;
-
+  $scope.gameType = null;
   if (_.isEmpty($scope.tableId)) {
     $state.go("lobby");
   }
@@ -49,6 +49,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.maxBlind = $scope.tableData.maxBlind;
     $scope.tableShow = $scope.tableData.tableShow;
     $scope.coin = $scope.blindAmt;
+    $scope.gameType = $scope.tableData.gameType;
+    console.log($scope.gameType);
   });
 
 
@@ -614,7 +616,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
           $scope.resumeAudio();
         });
       }
-     
+
       // $scope.timerAudio.play();
       $ionicPlatform.ready(function () {
         if (window.cordova) {

@@ -1,4 +1,4 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatform, Service, $http, $timeout) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup, $ionicPlatform, Service, $http, $timeout) {
 
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
@@ -479,6 +479,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     };
     $scope.pageNo = 1;
     $scope.loadingDisable = false;
+
+    // $scope.myPrivateTable();
+    // $scope.openMyPrivateTable();
   });
   $scope.openMyPrivateTable = function () {
     $scope.privateTableDatas = [];
@@ -688,6 +691,42 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     });
   };
 
+  $scope.deletePrivateTable = function (data) {
+    console.log(data);
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Delete Private Table',
+      template: 'Are you sure you want to delete private table <b>"' + data.name + '"</b> ?',
+      // buttons: [{
+      //     text: 'Cancel'
+      //   },
+      //   {
+      //     text: 'Yes',
+      //     // type: ""
+      //   }
+      // ]
+
+
+    });
+
+    confirmPopup.then(function (res) {
+      if (res) {
+        console.log('You are sure');
+        Service.deletePrivateTable(data._id, function (data) {
+          console.log(data)
+          if (data.value) {
+            $scope.myPrivateTable();
+            $scope.openMyPrivateTable();
+          }
+        })
+
+      } else {
+        console.log('You are not sure');
+      }
+    });
+
+  }
+
+
   //private table  login in 
   $ionicModal.fromTemplateUrl('templates/model/private-table-login.html', {
     scope: $scope,
@@ -704,6 +743,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   };
 
   $scope.goToPrivateTableLogIn = function (data) {
+    console.log("private table", data)
     $scope.privateDataForModal = data;
     $scope.showPrivateLogInModal();
     //
@@ -742,6 +782,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
     $scope.priceRangeModal.remove();
     $scope.privateLogInModal.remove();
     $scope.rulesModal.remove();
+    $scope.myPrivateModal.remove();
     $scope.closeAllTab();
   });
 });

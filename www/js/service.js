@@ -148,7 +148,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         } else {}
       });
     },
-
+    deletePrivateTable: function (data, callback) {
+      $http.post(url + "Table/delete", {
+        '_id': data
+      }).then(function (data) {
+        callback(data.data);
+      });
+    },
     getPrivateTables: function (pageNo, data, callback) {
       if (!pageNo) {
         pageNo = 1;

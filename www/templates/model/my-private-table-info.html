@@ -2,7 +2,10 @@
   <div class="custom-header">
     <div class="heading">my private table</div>
   </div>
-  <div class="add_private_table" ng-click="createPrivateModal()">+</div>
+  <!-- <div class="add_private_table" ng-click="createPrivateModal()"> -->
+
+  <button class="custom_button add_private_table" ng-click="createPrivateModal()">Create Private Table</button>
+
   <div class="close" ng-click="closeMyPrivateModal();ModalInfo.hide()">
     <img src="img/close.png">
   </div>
@@ -30,33 +33,44 @@
       <ion-list>
         <ion-item class="item">
           <div class="row">
-            <div class="col-33">
+            <div class="col-30">
               <span class="bold">Name</span>
             </div>
-            <div class="col-20">
+            <div class="col-15">
               <div class="bold text-center">Game type</div>
             </div>
-            <div class="col-20">
+            <div class="col-15">
               <div class="bold text-center">Stakes</div>
             </div>
             <div class="col-20">
               <span class="bold">Password</span>
             </div>
+            <div class="col-20">
+            </div>
           </div>
         </ion-item>
         <ion-item collection-repeat="data in privateTableDatas" class="item">
           <div class="row">
-            <div class="col-33">
+            <!-- <div class="col-33"> -->
+            <div class="col-30 text_overflow">
               <span>{{data.name}}</span>
             </div>
-            <div class="col-20">
+            <div class="col-15 text_overflow">
               <div class="text-center">{{data.gameType}}</div>
             </div>
-            <div class="col-20">
+            <div class="col-15 text_overflow">
               <div class="text-center">{{data.blindAmt}} - {{data.chalAmt}}</div>
             </div>
-            <div class="col-20">
+            <div class="col-20 ">
               <div class="text-center">{{data.password}}</div>
+            </div>
+            <div class="col-20">
+              <div class="">
+                <button class="custom_button" ng-click="goToPrivateTableLogIn({_id:data._id,name:data.name})">Log In</button>
+                <span class="delete_icon" ng-click="deletePrivateTable(data)">
+                  <i class="ion-icon ion-trash-a"></i>
+                </span>
+              </div>
             </div>
           </div>
         </ion-item>

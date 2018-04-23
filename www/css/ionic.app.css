@@ -11855,7 +11855,7 @@ ion-item.item {
   right: 10%;
   bottom: 5%;
   left: 10%;
-  min-height: 5vh;
+  min-height: 200px;
   height: 90vh;
   width: 80%;
   background: url("../img/model_bg.png");
@@ -12338,11 +12338,14 @@ ion-item.item {
 
 .add_private_table {
   position: absolute;
-  right: 10%;
-  top: 12px;
+  /* right: 10%; */
+  top: 8px;
   z-index: 5;
-  font-size: 3em;
-  font-weight: bold; }
+  font-size: 1em;
+  font-weight: bold;
+  right: 8%;
+  /* border-radius: 0px; */
+  padding: 5px 10px; }
 
 .pokar {
   background-color: #000; }
@@ -13214,3 +13217,37 @@ ion-item.item {
   margin: 0 auto !important;
   white-space: nowrap;
   padding: 6% !important; }
+
+.text_overflow {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.delete_icon {
+  font-size: 1.5em;
+  float: right;
+  margin-right: 8%; }
+
+.popup {
+  background: url("../img/model_bg.png");
+  background-size: 100% 100%;
+  color: white; }
+  .popup .popup-head h3 {
+    color: white; }
+  .popup .popup-body {
+    font-family: 'Cinzel-Regular'; }
+  .popup button {
+    background: url("../img/text_bg.png");
+    background-size: 100% 100%;
+    border: 0px;
+    color: white;
+    font-size: 1em;
+    padding: 5px 15%;
+    min-height: 35px; }
+    .popup button.button-positive {
+      background-color: transparent; }
+  .popup .popup-buttons {
+    min-height: 50px; }
+
+button[disabled],
+html input[disabled] {
+  opacity: .5; }
