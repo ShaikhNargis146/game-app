@@ -114,7 +114,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       maxPage: 1
     };
     $scope.ACStatementModal = modal;
-    $scope.openACStatement();
+    // $scope.openACStatement();
   });
 
   $scope.openACStatement = function () {
@@ -615,6 +615,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   });
 
   $scope.createPrivateModal = function ($event, gameTypeModal) {
+    $scope.closeMyPrivateModal();
     $scope.gameTypeModal = gameTypeModal;
     $scope.data = {};
     gameTypeModal ? $scope.data.gameType = gameTypeModal : '';
