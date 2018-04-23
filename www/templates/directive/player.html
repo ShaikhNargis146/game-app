@@ -1,4 +1,4 @@
-<div class="plyr p{{pos}} card_shuffle_animation" ng-class="{'no_playe':!player && !sitHere,'sit_her':sitHere && !player,'card_shuffle_animation': player && player.cards.length>0 && startAnimation}">
+<div class="plyr p{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere && !player,'card_shuffle_animation': player && player.cards.length>0 && startAnimation}">
   <div ng-class="{'opacity-05':!player.isActive || player.isFold }">
     <div class="winner-display">
       <div class="winner-player" ng-class="{'winner':player.winRank== 1}"></div>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <!-- two card -->
-        <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}">
+        <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}" ng-if=" (player.cards.length > 0 || showWinnerPlayer.length == 1) && player.cards.length==2">
           <div class=" custom-row">
             <card card='DONE'></card>
             <card card='DONE'></card>
@@ -86,7 +86,7 @@
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
             <card card='{{player.cards[2]}}'> </card>
-            <card card='{{player.cards[3]}}'> </card>
+            <card card='{{player.cards[2]}}'> </card>
           </div>
         </div>
       </div>
