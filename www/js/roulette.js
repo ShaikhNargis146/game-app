@@ -8,8 +8,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.maxBet = 1000;
   $scope.minBet = 1;
   $scope.amount = 0;
-  $scope.masterArray = {};
-  $scope.canBet = true;
+  // $scope.masterArray = {};
+  $rootScope.canBet = true;
   $scope.visitedArray = [];
 
   $scope.getBlack = function (number) {
@@ -26,7 +26,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
   $scope.getNgClass = function (index) {
     $scope.checkForEvenOdd = index > 0 ? index % 2 : null;
-    $scope.checkForLowHighBet = index>0 ? index <= 18 : null;
+    $scope.checkForLowHighBet = index > 0 ? index <= 18 : null;
     if ($scope.betPlaceFor == 'firstDozen') {
       $scope.dozen = index <= 12 && index > 0;
     } else if ($scope.betPlaceFor == 'secondDozen') {
@@ -66,7 +66,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     //for thirdColumn
     classStr += "|| betPlaceFor== '3 column' && columnBet==1";
     //otherBet
-    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)"
+    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)";
     return "{" + classStr + "}";
   }
 
@@ -236,7 +236,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
-    if ($scope.canBet) {
+    $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : {};
+    if ($rootScope.canBet) {
       Service.getBetId(bet, function (data) {
         $scope.betData = data[0];
         if ($scope.selectedCoin) {
@@ -256,6 +257,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
               $scope.masterArray[bet].coinArray.push($scope.selectedCoin);
               $scope.masterArray[bet].displayArray = $scope.convertCoin($scope.masterArray[bet].coinArray);
               $scope.totalMoney = $scope.totalMoney - $scope.selectedCoin.amount;
+              $.jStorage.set('masterArray', $scope.masterArray);
             } else {
               $scope.amount -= $scope.selectedCoin.amount;
               $scope.message = {
@@ -281,11 +283,17 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       });
     } else {
       // Modal for no more bets
+      $scope.message = {
+        heading: "No more bets",
+        content: "No more bets"
+      };
+      $scope.showMessageModal();
     }
 
   };
 
   $scope.Undo = function () {
+    $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
     if (!_.isEmpty($scope.masterArray)) {
       var lastVisitedElement = $scope.visitedArray[$scope.visitedArray.length - 1];
       var coinArray = $scope.masterArray[lastVisitedElement].coinArray;
@@ -294,11 +302,13 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       coinArray.pop();
       $scope.visitedArray.pop();
       $scope.masterArray[lastVisitedElement].displayArray = $scope.convertCoin(coinArray);
+      $.jStorage.set('masterArray', $scope.masterArray);
     }
   }
 
   $scope.removeAll = function () {
     $scope.masterArray = {};
+    $.jStorage.set('masterArray', $scope.masterArray);
   }
 
   if ($scope.betUser) {
@@ -324,12 +334,16 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
-    $scope.canBet = false;
+    $rootScope.canBet = false;
     RouletteService.saveUserBets($scope.masterArray, function (data) {
       $rootScope.result = data.data.results;
     });
     // Toaster for No More Bets
-
+    $scope.message = {
+      heading: "No more bets",
+      content: "No more bets"
+    };
+    $scope.showMessageModal();
   };
 
   io.socket.on("endPlacingBets", socketFunction.endPlacingBets);
@@ -348,8 +362,25 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
 
+  $ionicModal.fromTemplateUrl('templates/model/message.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.messageModal = modal;
+  });
+  $scope.showMessageModal = function () {
+    $scope.messageModal.show();
+    $timeout(function () {
+      $scope.closeMessageModal();
+    }, 2000);
+  };
+  $scope.closeMessageModal = function () {
+    $scope.messageModal.hide();
+  };
+
   io.socket.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
+    $rootScope.canBet = true;
     $state.go("roulette");
   };
   io.socket.on("startBetting", socketFunction.startBetting);
@@ -359,6 +390,27 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
+    $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
+    var foundNum = false;
+    _.forEach($scope.masterArray, function (n) {
+      _.forEach(data, function (m) {
+        if (n._id == m._id) {
+          foundNum = true;
+        }
+      })
+    });
+    if (foundNum) {
+      $scope.message = {
+        heading: "You win",
+      };
+    } else {
+      $scope.message = {
+        heading: "You loose",
+      };
+    }
+    $scope.showMessageModal();
+    $.jStorage.set('masterArray', null);
+
     // Show popup for win or lose using the data object
   };
   io.socket.on("resultsSaved", socketFunction.resultsSaved);
