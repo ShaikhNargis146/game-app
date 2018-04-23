@@ -207,26 +207,6 @@
                 }
               }
             }
-            &.plyr_card_2card {
-              left: 10% !important;
-              width: 150% !important;
-              card {
-                &:nth-child(1) {
-                  left: 0%;
-                  transition: transform 500ms;
-                  transition-delay: none;
-                }
-                &:nth-child(2) {
-                  left: -10%;
-                  transition: transform 1s;
-                  transition-delay: 500ms;
-                }
-              }
-              &.plyr_card2_winner {
-                left: -70% !important;
-                width: 300% !important;
-              }
-            }
           }
         }
         .amt {
@@ -456,6 +436,29 @@
         position: relative;
         width: 100%;
         height: 100%;
+      }
+    }
+    .plyr_card_2card {
+      // left: 10% !important;
+      // width: 150% !important;
+      // transition: all 1s;
+      card {
+        &:nth-child(1) {
+          left: 0% !important;
+          transition: transform 500ms;
+          transition-delay: none;
+          transform: scale(1.6);
+        }
+        &:nth-child(2) {
+          left: -10% !important;
+          transition: transform 1s;
+          transition-delay: 500ms;
+          transform: scale(1.6);
+        }
+      }
+      &.plyr_card2_winner {
+        left: -70% !important;
+        width: 300% !important;
       }
     }
     .p4 {
@@ -1227,19 +1230,19 @@
   &.p1 {
     card {
       &:nth-child(1) {
-        transform: scale(1.6) translate(280%, -222%) !important;
+        transform: scale(1.6) translate(280%, -300%) !important;
         transition: none !important;
       }
       &:nth-child(2) {
-        transform: scale(1.6) translate(232%, -224%) !important;
+        transform: scale(1.6) translate(232%, -300%) !important;
         transition: none !important;
       }
       &:nth-child(3) {
-        transform: scale(1.6) translate(190%, -222%) !important;
+        transform: scale(1.6) translate(190%, -300%) !important;
         transition: none !important;
       }
       &:nth-child(4) {
-        transform: scale(1.6) translate(190%, -222%) !important;
+        transform: scale(1.6) translate(190%, -300%) !important;
         transition: none !important;
       }
     }
@@ -1367,19 +1370,19 @@
   &.p8 {
     card {
       &:nth-child(1) {
-        transform: scale(1.5) translate(-1260%, -235%) !important;
+        transform: scale(1.5) translate(-1260%, -355%) !important;
         transition: none !important;
       }
       &:nth-child(2) {
-        transform: scale(1.5) translate(-1295%, -235%) !important;
+        transform: scale(1.5) translate(-1295%, -355%) !important;
         transition: none !important;
       }
       &:nth-child(3) {
-        transform: scale(1.5) translate(-1340%, -235%) !important;
+        transform: scale(1.5) translate(-1340%, -355%) !important;
         transition: none !important;
       }
       &:nth-child(4) {
-        transform: scale(1.5) translate(-1340%, -235%) !important;
+        transform: scale(1.5) translate(-1340%, -355%) !important;
         transition: none !important;
       }
     }
