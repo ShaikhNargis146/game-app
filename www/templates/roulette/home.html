@@ -133,7 +133,7 @@
                   </div>
                 </div>
               </td>
-              <td colspan="2" class="sector" data-sector="8" my-touchstart="betPlacing('even')" my-touchend="betPlacing()" ng-mouseenter="betPlacing('even')" ng-mouseleave="betPlacing()" ng-click="userBet('Even')">EVEN
+              <td colspan="2" class="sector" data-sector="8"  ng-mouseenter="betPlacing('even')" ng-mouseleave="betPlacing()" ng-click="userBet('Even')">EVEN
                 <div class="absolute-coin-big">
                   <div class="absolute-coin" ng-repeat="coin in masterArray['Even'].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">

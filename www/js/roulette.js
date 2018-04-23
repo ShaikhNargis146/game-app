@@ -13,14 +13,19 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.visitedArray = [];
 
   $scope.getBlack = function (number) {
-    var foundIndex = _.findIndex($scope.blackArray, function (n1) {
-      return n1 == number;
-    });
-    if (foundIndex == -1) {
-      return false;
-    } else {
-      return true;
+    if(number>0){
+      var foundIndex = _.findIndex($scope.blackArray, function (n1) {
+        return n1 == number;
+      });
+      if (foundIndex == -1) {
+        return false;
+      } else {
+        return true;
+      }
+    }else{
+      return null;
     }
+    
   }
 
 
