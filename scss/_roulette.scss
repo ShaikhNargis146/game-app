@@ -184,6 +184,7 @@ ul.coin li {
 
 .roulette .empty {
   border: none;
+  visibility: hidden;
 }
 
 .main_abs_div {
@@ -1073,9 +1074,7 @@ ul.coin li {
 .active-blocks {
     background: rgba(255,255,255,0.3)!important;
 }
-.odd-even {
-  background: rgba(255,255,255,0.3)!important;
-}
+
 // .black{
 //   &:hover{
 //     background: rgba(255,255,255,0.7);

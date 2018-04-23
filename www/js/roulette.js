@@ -23,25 +23,20 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     }
   }
 
-  $scope.redColor = function (color) {
-    $scope.hovering = color
-    console.log(color)
-  }
-
-  // $("#sectorBlack").hover(function () {
-  //   $(".black").css("background", "rgba(255,255,255,0.3)");
-  // });
 
   $scope.getNgClass = function (index) {
-    console.log($scope.betPlaceFor)
     $scope.checkForEvenOdd = index % 2;
     $scope.checkForLowHighBet = index<=18;
     if($scope.betPlaceFor=='firstDozen'){
-      $scope.dozen = index<=12;
+      $scope.dozen = index<=12 && index>0;
     }else if($scope.betPlaceFor=='secondDozen'){
       $scope.dozen = index>12 && index<=24;
-    }else{
+    }else if($scope.betPlaceFor=='lastDozen'){
       $scope.dozen = index>24 && index<=36;
+    }else if($scope.betPlaceFor=='otherBet'){
+      $scope.otherIndex = _.find($scope.betIndexArray,function(i){
+        return i==index;
+      }) 
     }
 
     $scope.columnBet = index%3;
@@ -70,11 +65,14 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     classStr+="|| betPlaceFor== '2 column' && columnBet==2";
     //for thirdColumn
     classStr+="|| betPlaceFor== '3 column' && columnBet==1";
+    //otherBet
+    classStr+= "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)"
     return "{" + classStr + "}";
   }
 
-  $scope.betPlacing = function (betName) {
-    $scope.betPlaceFor = betName
+  $scope.betPlacing = function (betName,indexArray) {
+    $scope.betPlaceFor = betName;
+    $scope.betIndexArray = indexArray;
   }
 
   $scope.getIndex = function (innerIndex, outerIndex) {
@@ -238,6 +236,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
+    console.log(bet)
     if ($scope.canBet) {
       Service.getBetId(bet, function (data) {
         $scope.betData = data[0];

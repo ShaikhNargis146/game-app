@@ -32,7 +32,7 @@
         <table>
           <tbody>
             <tr class="num">
-              <td rowspan="4" ng-click="userBet('0')">
+              <td rowspan="4" ng-click="userBet(0)" ng-class="{{getNgClass(0)}}">
                 <div class="zero">
                   <span>0</span>
                   <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
@@ -49,42 +49,42 @@
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="bottombet" ng-if="outerIndex<=1" ng-click="userBet(getBottomSplitBetIndex($index,outerIndex))">
+                <div class="bottombet" ng-if="outerIndex<=1" ng-mouseenter="betPlacing('otherBet',getBottomSplitBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getBottomSplitBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getBottomSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="leftbet" ng-if="$index==0" ng-click="userBet(getLeftSplitBetIndex($index,outerIndex))">
+                <div class="leftbet" ng-if="$index==0" ng-mouseenter="betPlacing('otherBet',getLeftSplitBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getLeftSplitBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getLeftSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="rightbet" ng-if="$index<11" ng-click="userBet(getRightSplitBetIndex($index,outerIndex))">
+                <div class="rightbet" ng-if="$index<11" ng-mouseenter="betPlacing('otherBet',getRightSplitBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getRightSplitBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getRightSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="bottomrightbet" ng-if="outerIndex<=1 && $index<11" ng-click="userBet(getCornerBetIndex($index,outerIndex))">
+                <div class="bottomrightbet" ng-if="outerIndex<=1 && $index<11" ng-mouseenter="betPlacing('otherBet',getCornerBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getCornerBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getCornerBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="bottomleftbet" ng-if="outerIndex<=1 && $index==0" ng-click="userBet(getCornerBetLeftIndex($index,outerIndex))">
+                <div class="bottomleftbet" ng-mouseenter="betPlacing('otherBet',getCornerBetLeftIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-if="outerIndex<=1 && $index==0"  ng-click="userBet(getCornerBetLeftIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getCornerBetLeftIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="street-bet bottombet" ng-if="outerIndex==2" ng-click="userBet(getStreetBetIndex($index,outerIndex))">
+                <div class="street-bet bottombet" ng-if="outerIndex==2" ng-mouseenter="betPlacing('otherBet',getStreetBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getStreetBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getStreetBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="line-bet bottomrightbet" ng-if="outerIndex==2 && 0 < $index <12" ng-click="userBet(getLineBetIndex($index,outerIndex))">
+                <div class="line-bet bottomrightbet" ng-if="outerIndex==2 && 0 < $index <12" ng-mouseenter="betPlacing('otherBet',getLineBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getLineBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getLineBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="line-bet bottomleftbet" ng-if="outerIndex==2 && $index == 0" ng-click="userBet(getLineBetLeftIndex($index,outerIndex))">
+                <div class="line-bet bottomleftbet" ng-if="outerIndex==2 && $index == 0" ng-mouseenter="betPlacing('otherBet',getLineBetLeftIndex($index,outerIndex))" ng-mouseleave="betPlacing()" ng-click="userBet(getLineBetLeftIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getLineBetLeftIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>

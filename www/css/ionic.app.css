@@ -12981,7 +12981,8 @@ ul.coin li {
   line-height: 1.5; }
 
 .roulette .empty {
-  border: none; }
+  border: none;
+  visibility: hidden; }
 
 .main_abs_div {
   position: relative; }
@@ -13725,9 +13726,6 @@ ul.coin li {
   z-index: 3; }
 
 .active-blocks {
-  background: rgba(255, 255, 255, 0.3) !important; }
-
-.odd-even {
   background: rgba(255, 255, 255, 0.3) !important; }
 
 .player-fold {
