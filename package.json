@@ -33,7 +33,6 @@
   },
   "cordova": {
     "plugins": {
-      "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
@@ -44,7 +43,8 @@
       "cordova-plugin-vibration": {},
       "cordova-plugin-insomnia": {},
       "cordova-plugin-nativeaudio": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "ionic-plugin-keyboard": {}
     },
     "platforms": [
       "android",

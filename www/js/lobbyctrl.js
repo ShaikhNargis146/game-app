@@ -20,7 +20,10 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
 
 
   $ionicPlatform.registerBackButtonAction(function (event) {
+    $scope.closeAllTab();
+    $scope.$apply();
     event.preventDefault();
+
   }, 100);
   //reset Page
   $scope.resetpage = function () {
