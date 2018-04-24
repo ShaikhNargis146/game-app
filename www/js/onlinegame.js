@@ -22,7 +22,14 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
       }
     })
 
-
+  
+    io.socket.on('balanceSocket' + $.jStorage.get("userId"), function (data) {
+      console.log(data);
+      $scope.ARBalance = Number(data.balance);
+      $scope.balance=Number(data.balance)*$scope.ARRate;      
+      $scope.$apply();
+    });
+    
     Service.playerSession($scope.singlePlayerData, function (data) {
       console.log("online game", data);
       if (data) {

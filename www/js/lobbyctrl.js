@@ -47,6 +47,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+      $.jStorage.set("userId", $scope.singlePlayerData._id);
       Service.playerSession($scope.singlePlayerData, function (data) {
         if (data) {
           console.log("login", data);
@@ -601,7 +602,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   //redirecting to online game from play now button 
   $scope.gotoOnlinegame=function(data){
     console.log('game',data);
-   
     $scope.closeARonlineModal();
     $state.go('onlinegame', {
       'gameId': data
