@@ -411,12 +411,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
       });
       if (foundNum) {
         $scope.message = {
-          heading: "You win",
+          heading: "You won",
           content: $scope.lastNumber.results
         };
       } else {
         $scope.message = {
-          heading: "You loose",
+          heading: "You lost",
+          content: $scope.lastNumber.results
         };
       }
       $scope.showMessageModal();
