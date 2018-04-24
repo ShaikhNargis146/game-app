@@ -49,7 +49,7 @@
     </form>
 
 
-    <div class="net_profit_show" ng-if="statementNetProfit && !(results.length==0)">
+    <div class="net_profit_show" ng-if="(statementNetProfit || statementNetProfit==0 ) && !(results.length==0)">
 
       <span ng-if="statementNetProfit>=0">Net Profit :
         <span class="green"> {{statementNetProfit}} </span>
@@ -61,7 +61,8 @@
     </div>
   </div>
   <ion-content>
-    <div class="custom-table custom-table-top" ng-class="{'custom-table-top2':statementNetProfit && !(results.length==0)}" ng-if="results">
+    <div class="custom-table custom-table-top" ng-class="{'custom-table-top2':(statementNetProfit || statementNetProfit==0 ) && !(results.length==0)}"
+      ng-if="results">
       <ion-list>
         <ion-item class="item">
           <div class="row">
