@@ -10829,7 +10829,7 @@ ion-item.item {
       transition-delay: 500ms;
       transform: scale(1.6); }
     .kingtable .main-table .plyr_card_2card.plyr_card2_winner {
-      left: -40% !important;
+      left: -30% !important;
       width: 200% !important; }
     .kingtable .main-table .p4 {
       left: 28%;
@@ -11915,7 +11915,9 @@ ion-item.item {
       font-size: 1em;
       background: url("../img/model/input_bg.png");
       background-size: 100% 100%;
-      height: 2em; }
+      height: 2em;
+      display: flex;
+      align-items: center; }
   .statement-model .statement_content {
     overflow-y: scroll;
     height: 60%; }
@@ -13251,3 +13253,6 @@ ion-item.item {
 button[disabled],
 html input[disabled] {
   opacity: .5; }
+
+.modal-open {
+  pointer-events: unset; }

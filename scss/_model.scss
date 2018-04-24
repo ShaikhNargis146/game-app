@@ -77,6 +77,8 @@
       background: url('../img/model/input_bg.png');
       background-size: 100% 100%; // width: 15%;
       height: 2em;
+      display: flex;
+      align-items: center; // width: auto;
     }
   }
   .statement_content {

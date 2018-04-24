@@ -681,8 +681,8 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
           $scope.privateTableData = false;
         }, 10000);
       } else {}
-      console.log(data.error.errors.name.name);
-      if (data.error.errors.name.name == "ValidatorError") {
+      // console.log(data.error.errors.name.name);
+      if (data.error && data.error.errors && data.error.errors.name && data.error.errors.name.name == "ValidatorError") {
         $scope.sameNameError = "Table Already Exist";
         $timeout(function () {
           $scope.sameNameError = "";
@@ -719,8 +719,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
           }
         })
 
-      } else {
-        console.log('You are not sure');
       }
     });
 
