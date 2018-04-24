@@ -81,6 +81,7 @@ tr {
 
 .spinner-table {
   display: table;
+  background-image: url("../img/roulette/green_bg.jpg")
 }
 
 .spinner-cell {
@@ -572,16 +573,17 @@ ul.coin li {
     height: 20em;
     border-radius: 20em;
     z-index: 20;
-  } // .num {
-  //   position: absolute;
-  //   top: 0.4em;
-  //   color: rgba(255, 255, 255, 1);
-  //   z-index: 40;
-  //   left: 10.28em;
-  //   text-align: center;
-  //   font-family: "Times New Roman", Times, serif;
-  //   font-weight: 700;
-  // }
+  }
+   .num {
+    position: absolute;
+    top: 0.4em;
+    color: rgba(255, 255, 255, 1);
+    z-index: 40;
+    left: 10.28em;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+  }
   .redbg {
     background: #a90329;
     /* Old browsers */
@@ -715,6 +717,7 @@ ul.coin li {
     img {
       height: auto;
       max-width: 100%;
+      border-radius: 50%;
     }
   }
   .spinner {
