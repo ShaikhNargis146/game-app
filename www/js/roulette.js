@@ -13,7 +13,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.visitedArray = [];
 
   $scope.getBlack = function (number) {
-    if(number>0){
+    if (number > 0) {
       var foundIndex = _.findIndex($scope.blackArray, function (n1) {
         return n1 == number;
       });
@@ -22,10 +22,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       } else {
         return true;
       }
-    }else{
+    } else {
       return null;
     }
-    
+
   }
 
 
@@ -406,7 +406,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
     });
     if (foundNum) {
       $scope.message = {
-        heading: "You win",
+        heading: "You win"
       };
     } else {
       $scope.message = {

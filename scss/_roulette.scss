@@ -148,7 +148,7 @@ ul.coin li {
 }
 
 .scroll {
-  height: 230px;
+  // height: 230px;
   overflow: hidden;
   overflow-y: auto;
   &::-webkit-scrollbar {
@@ -574,7 +574,7 @@ ul.coin li {
     border-radius: 20em;
     z-index: 20;
   }
-   .num {
+  .num {
     position: absolute;
     top: 0.4em;
     color: rgba(255, 255, 255, 1);
@@ -1075,7 +1075,53 @@ ul.coin li {
 }
 
 .active-blocks {
-    background: rgba(255,255,255,0.3)!important;
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.black-history {
+  text-align: right;
+  label {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: black;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0px 10px 10px 0px;
+    border: 1px solid white;
+  }
+}
+
+.red-history {
+  text-align: left;
+  label {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0px 0px 10px 10px;
+    border: 1px solid white;
+  }
+}
+
+.zero-bet-history {
+  text-align: center;
+  label {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background: green;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid white;
+  }
 }
 
 // .black{
