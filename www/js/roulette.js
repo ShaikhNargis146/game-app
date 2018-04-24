@@ -367,7 +367,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
 
-  $ionicModal.fromTemplateUrl('templates/model/message.html', {
+  $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
