@@ -4,7 +4,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
   $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
-  $scope.totalMoney = 10000;
+  // $scope.totalMoney = 10000;
   $scope.maxBet = 1000;
   $scope.minBet = 1;
   $scope.amount = 0;
@@ -134,6 +134,9 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     var indexArray = [0, index, index + 1, index + 2];
     return indexArray;
   }
+  RouletteService.getCurrentBalance(function (data) {
+    $scope.totalMoney = data.balance;
+  });
   RouletteService.getLastResults(function (data) {
     $scope.lastResults = data;
   });
@@ -365,9 +368,9 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 });
 
-myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout, $rootScope, $stateParams) {
+myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicModal, $timeout, $rootScope, $stateParams) {
 
-  $ionicModal.fromTemplateUrl('templates/model/message.html', {
+  $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
@@ -395,26 +398,33 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, $ionicModal, $timeout,
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
-    $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
-    var foundNum = false;
-    _.forEach($scope.masterArray, function (n) {
-      _.forEach(data, function (m) {
-        if (n._id == m._id) {
-          foundNum = true;
-        }
-      })
+    RouletteService.getLastResults(function (lastNumberData) {
+      $scope.lastNumber = lastNumberData[0];
+      $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
+      var foundNum = false;
+      _.forEach($scope.masterArray, function (n) {
+        _.forEach(data, function (m) {
+          if (n._id == m._id) {
+            foundNum = true;
+          }
+        })
+      });
+      if (foundNum) {
+        $scope.message = {
+          heading: "You won",
+          content: $scope.lastNumber.results
+        };
+      } else {
+        $scope.message = {
+          heading: "You lost",
+          content: $scope.lastNumber.results
+        };
+      }
+      $scope.showMessageModal();
+      $.jStorage.set('masterArray', null);
     });
-    if (foundNum) {
-      $scope.message = {
-        heading: "You win"
-      };
-    } else {
-      $scope.message = {
-        heading: "You loose",
-      };
-    }
-    $scope.showMessageModal();
-    $.jStorage.set('masterArray', null);
+
+
 
     // Show popup for win or lose using the data object
   };
@@ -673,6 +683,14 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
   return {
     getLastResults: function (callback) {
       $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
+        callback(data.data.data);
+      });
+    },
+    getCurrentBalance: function (callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      $http.post(adminurl + 'roulette/getCurrentBalance', {
+        accessToken: accessToken
+      }).then(function (data) {
         callback(data.data.data);
       });
     },

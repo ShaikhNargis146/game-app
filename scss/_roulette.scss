@@ -1076,7 +1076,7 @@ ul.coin li {
 }
 
 .active-blocks {
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
 }
 
 .width100 {
@@ -1122,6 +1122,46 @@ ul.coin li {
     text-align: center;
     margin-bottom: 10px;
     border: 1px solid white;
+  }
+}
+
+.win-lose-modal {
+  width: 80%;
+  top: 25%;
+  left: 10%;
+  bottom: 40%;
+  height: auto;
+  min-height: 240px;
+  font-size: 1em;
+  background-size: 100% 100%;
+  color: white;
+  font-family: 'Cinzel-Regular';
+  padding: 2%;
+  background: transparent;
+  .number {
+    font-family: 'Cinzel-Bold';
+    text-align: center;
+    font-size: 1.2em;
+    margin: 15px;
+    label {
+      font-size: 40px;
+      background: black;
+      padding: 10px;
+      border-radius: 7px;
+      border: 1px solid gold;
+      line-height: 78px;
+    }
+  }
+  .status {
+    font-family: 'Cinzel-Bold';
+    text-align: center;
+    label {
+      font-size: 25px;
+      background: black;
+      border: 1px solid gold;
+      border-radius: 10px;
+      padding: 10px;
+    }
   }
 }
 
