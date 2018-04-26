@@ -32,13 +32,44 @@
         <table>
           <tbody>
             <tr class="num">
-              <td rowspan="4" ng-click="userBet('0')" ng-class="{{getNgClass(0)}}">
+              <td rowspan="4">
+                <table border="0" class="nested-table">
+                  <tr ng-click="userBet('0')" ng-class="{{getNgClass(0)}}">
+                    <td class="table-style border-bot">
+                      <div class="nested_table_tr">0</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-style">
+                      <div class="nested_table_tr">00</div>
+                    </td>
+                  </tr>
+                </table>
+                <!-- <div class="row">
+                  <div class="col-50">
+                    <div class="zero">
+                      <span>00</span>
+                      <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
+                        <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-50">
+                    <div class="zero">
+                      <span>00</span>
+                      <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
+                        <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- 
                 <div class="zero">
                   <span>0</span>
                   <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
-                </div>
+                </div> -->
               </td>
             </tr>
             <tr class="nums" ng-repeat="b1 in b track by $index" ng-init="outerIndex= $index">

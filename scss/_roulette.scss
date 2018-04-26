@@ -1145,7 +1145,7 @@ ul.coin li {
     label {
       font-size: 40px;
       background: black;
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 7px;
       border: 1px solid gold;
       line-height: 78px;
@@ -1162,6 +1162,26 @@ ul.coin li {
       padding: 10px;
     }
   }
+}
+
+.nested-table {
+  height: 100% !important;
+}
+
+.nested_table_tr {
+  transform: rotate(90deg);
+}
+
+.table-style {
+  height: 0 !important;
+  font-size: 4vw;
+  border: 0 !important;
+  vertical-align: middle;
+  line-height: 4vw;
+}
+
+.border-bot {
+  border-bottom: 2px solid rgba(255, 255, 0, 0.7) !important;
 }
 
 // .black{
