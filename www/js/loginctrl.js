@@ -5,10 +5,15 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
     })
     screen.orientation.lock('portrait');
   } else {
-   
+
     console.log("nothing for ios")
   }
   var accessToken = $.jStorage.get("accessToken");
+
+  if (_.isEqual(accessToken, {})) {
+    $.jStorage.flush();
+  }
+
   if (accessToken) {
     $state.go("lobby");
   } else {
@@ -17,12 +22,12 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
 });
 
 myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
- 
+
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
-    screen.orientation.lock('portrait')
-    }else{
-     
+      screen.orientation.lock('portrait')
+    } else {
+
     }
   })
 

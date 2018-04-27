@@ -42,12 +42,12 @@ myApp.directive('card', function () {
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {
 
-        $('.pietimer1').pietimer({
-          seconds: 20,
-          color: 'rgb(219, 22, 22,0.5)',
-          height: 100,
-          width: 100
-        });
+        // $('.pietimer1').pietimer({
+        //   seconds: 20,
+        //   color: 'rgb(219, 22, 22,0.5)',
+        //   height: 100,
+        //   width: 100
+        // });
       }
     };
   })

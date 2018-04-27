@@ -666,15 +666,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     })
 
-    $('perimeter1').pietimer({
-        seconds: 5,
-        color: 'rgba(255, 255, 255, 0.8)',
-        height: 40,
-        width: 40
-      },
-      function () {
-        alert('boom');
-      });
+    // $('perimeter1').pietimer({
+    //     seconds: 5,
+    //     color: 'rgba(255, 255, 255, 0.8)',
+    //     height: 40,
+    //     width: 40
+    //   },
+    //   function () {
+    //     alert('boom');
+    //   });
 
     // $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
@@ -1005,15 +1005,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.closeAllModal();
   });
 
-  $('.pietimer1').pietimer({
-      seconds: 20,
-      color: 'rgba(0, 0, 0, 0.8)',
-      height: "100%",
-      width: "100%"
-    },
-    function () {
-      //Do something
-    });
+  // $('.pietimer1').pietimer({
+  //     seconds: 20,
+  //     color: 'rgba(0, 0, 0, 0.8)',
+  //     height: "100%",
+  //     width: "100%"
+  //   },
+  //   function () {
+  //     //Do something
+  //   });
   // $scope.timerOut = function () {
   //   console.log("inside timerout");
   //   // $('.pietimer1').pietimer('stop');
@@ -1021,14 +1021,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   // }
 
-  $scope.timerStart = function () {
-    console.log("inside timerStart");
-    $('.pietimer1').pietimer('start');
-  }
-  $scope.timerStop = function () {
-    console.log("inside timerStop");
-    $('.pietimer1').pietimer('stop');
-  }
+  // $scope.timerStart = function () {
+  //   console.log("inside timerStart");
+  //   $('.pietimer1').pietimer('start');
+  // }
+  // $scope.timerStop = function () {
+  //   console.log("inside timerStop");
+  //   $('.pietimer1').pietimer('stop');
+  // }
 
   // }, 500);
   // $timeout(function () {
