@@ -31,45 +31,55 @@
       <div class="div-inline width80">
         <table>
           <tbody>
-            <tr class="num">
-              <td rowspan="4">
+            <tr class="">
+              <td rowspan="4" class="zero-hover">
                 <table border="0" class="nested-table">
-                  <tr ng-click="userBet('0')" ng-class="{{getNgClass(0)}}">
-                    <td class="table-style border-bot">
-                      <div class="nested_table_tr">0</div>
+                  <tr>
+                    <td class="table-style border-bot" ng-class="{{getNgClass('00')}}">
+                      <div ng-click="userBet('00')">
+                        <div class="nested_table_tr">00</div>
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['00'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
+                      <div class="bottombet" ng-click="userBet('splitbet000')" ng-mouseenter="betPlacing('otherBet',['0','00'])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['splitbet000'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
+                      <div class="zeroRightBet" ng-click="userBet(['0','00','2'])" ng-mouseenter="betPlacing('otherBet',['0','00','2'])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[['0','00',2]].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
+                      <div class="double-zero-bet" ng-click="userBet(['00','2'])" ng-mouseenter="betPlacing('otherBet',['00','2'])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[['00',2]].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
-                    <td class="table-style">
-                      <div class="nested_table_tr">00</div>
+                    <td class="table-style" ng-class="{{getNgClass('0')}}">
+                      <div ng-click="userBet('0')">
+                        <div class="nested_table_tr">0</div>
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
+                      <div class="zero-bet" ng-click="userBet(['0','2'])" ng-mouseenter="betPlacing('otherBet',['0','2'])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[['0',2]].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
+                      <div class="street-bet bottombet" ng-click="userBet('streetBet000')" ng-mouseenter="betPlacing('otherBet',['0','00'])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['streetBet000'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 </table>
-                <!-- <div class="row">
-                  <div class="col-50">
-                    <div class="zero">
-                      <span>00</span>
-                      <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
-                        <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-50">
-                    <div class="zero">
-                      <span>00</span>
-                      <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
-                        <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- 
-                <div class="zero">
-                  <span>0</span>
-                  <div class="absolute-coin" ng-repeat="coin in masterArray['0'].displayArray track by $index">
-                    <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
-                  </div>
-                </div> -->
               </td>
             </tr>
             <tr class="nums" ng-repeat="b1 in b track by $index" ng-init="outerIndex= $index">
@@ -86,8 +96,8 @@
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>
-                <div class="leftbet" ng-if="$index==0" ng-mouseenter="betPlacing('otherBet',getLeftSplitBetIndex($index,outerIndex))" ng-mouseleave="betPlacing()"
-                  ng-click="userBet(getLeftSplitBetIndex($index,outerIndex))">
+                <div class="leftbet" ng-if="$index==0 && outerIndex!=1" ng-mouseenter="betPlacing('otherBet',getLeftSplitBetIndex($index,outerIndex))"
+                  ng-mouseleave="betPlacing()" ng-click="userBet(getLeftSplitBetIndex($index,outerIndex))">
                   <div class="absolute-coin" ng-repeat="coin in masterArray[getLeftSplitBetIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                   </div>

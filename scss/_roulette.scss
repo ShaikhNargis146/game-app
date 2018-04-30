@@ -122,7 +122,7 @@ tr {
 }
 
 td div img {
-  width: 4vw;
+  width: 3vw;
 }
 
 ul.coin li {
@@ -1185,13 +1185,35 @@ ul.coin li {
   border-bottom: 2px solid rgba(255, 255, 0, 0.7) !important;
 }
 
-// .black{
-//   &:hover{
-//     background: rgba(255,255,255,0.7);
-//   }
-// }
-// #sectorBlack {
-//   &:hover .black {
-//     background: rgba(255, 255, 255, 0.3);
-//   }
-// }
+.zero-hover {
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.double-zero-bet {
+  position: absolute;
+  bottom: 7px;
+  right: -0.7vw;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.zero-bet {
+  position: absolute;
+  top: 7px;
+  right: -0.7vw;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.zeroRightBet {
+  position: absolute;
+  bottom: -10px;
+  right: -0.8vw;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+}

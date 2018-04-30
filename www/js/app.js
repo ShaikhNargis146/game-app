@@ -41,6 +41,10 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       window.plugins.NativeAudio.preloadComplex('button', 'audio/button.mp3', 1, 1, 0, function (msg) {}, function (msg) {
         console.log('error: ' + msg);
       });
+      //spin wheel
+      window.plugins.NativeAudio.preloadComplex('spinwheel', 'audio/spinWheel.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
     });
   })
 

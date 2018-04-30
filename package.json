@@ -9,7 +9,7 @@
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
-    "cordova-android": "^7.1.0",
+    "cordova-android": "^6.3.0",
     "cordova-ios": "^4.5.4",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
@@ -45,8 +45,10 @@
       "cordova-plugin-nativeaudio": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
-  }
+  },
+  "cordovaPlugins": [],
+  "cordovaPlatforms": []
 }

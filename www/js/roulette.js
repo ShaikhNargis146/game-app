@@ -71,7 +71,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     //for thirdColumn
     classStr += "|| betPlaceFor== '3 column' && columnBet==1";
     //otherBet
-    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0)";
+    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex=='0' || otherIndex=='00')";
     return "{" + classStr + "}";
   }
 
@@ -95,7 +95,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getCornerBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'CornerBet' + 0 + '' + index + '' + (index - 1) + '' + (index + 2);
-    var indexArray = [0, index - 1, index];
+    var indexArray = index == 3 ? ['00', index - 1, index] : ['0', index - 1, index];
     return indexArray;
   }
   $scope.getRightSplitBetIndex = function (innerIndex, outerIndex) {
@@ -107,7 +107,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLeftSplitBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'SplitBet' + 0 + '' + index;
-    var indexArray = [0, index];
+    var indexArray = index == 3 ? ['00', index] : ['0', index];
     return indexArray;
   }
   $scope.getBottomSplitBetIndex = function (innerIndex, outerIndex) {
@@ -131,7 +131,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLineBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'LineBet' + 0 + '' + index + '' + (index + 1) + '' + (index + 2);
-    var indexArray = [0, index, index + 1, index + 2];
+    var indexArray = [0, '00', index, index + 1, index + 2];
     return indexArray;
   }
   RouletteService.getCurrentBalance(function (data) {
@@ -317,6 +317,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.removeAll = function () {
     $scope.masterArray = {};
     $.jStorage.set('masterArray', $scope.masterArray);
+    $scope.totalMoney += $scope.amount;
+    $scope.amount = 0;
   }
 
   if ($scope.betUser) {
@@ -370,6 +372,12 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicModal, $timeout, $rootScope, $stateParams) {
 
+
+  // $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+  //   if (toState.name == 'spinnerNo') {
+  window.plugins.NativeAudio.play('spinwheel');
+  //   }
+  // });
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -398,6 +406,8 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
+    window.plugins.NativeAudio.stop('spinwheel');
+
     RouletteService.getLastResults(function (lastNumberData) {
       $scope.lastNumber = lastNumberData[0];
       $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
@@ -453,6 +463,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     8,
     23,
     10,
+    '00',
     5,
     24,
     16,
@@ -512,7 +523,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     35,
     26
   ];
-  var numgreen = [0];
+  var numgreen = [0, '00'];
   var numbg = $(".pieContainer");
   var ballbg = $(".ball");
   var btnSpin = $("#btnSpin");
