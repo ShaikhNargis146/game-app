@@ -59,15 +59,40 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     io.socket.on("Update", updateSocketFunction);
   }
 
+  function sideShowSocket(data) {
+    {
+      console.log("side show", data);
+      $scope.sideShowDataFrom = 0;
+      // console.log("side show", data.data.fromPlayer.name + " requested a side show with " + data.data.toPlayer.name);
+      $scope.slideShowData = data.data;
+      console.log("side show", $scope.slideShowData)
+      var mess = $scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name;
+      // $scope.changeTableMessage($scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name);
+      $scope.changeTableMessage(mess);
+      // $scope.changeTableMessage("to check");
+      if (data.data.toPlayer.memberId == $scope.memberId) {
+        $scope.showSideShowModal();
+      }
+      // if (data.data.fromPlayer.memberId == $scope.memberId) {
+      //   $scope.message = {
+      //     heading: "Side Show",
+      //     content: "Your request for the Side show has been sent!"
+      //   };
+      //   $scope.showMessageModal();
+      // }
 
-  io.socket.off("Update", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+    }
+  }
+  io.socket.on("sideShow", sideShowSocket);
+
+  // io.socket.off("Update", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
 
 
 
@@ -461,14 +486,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }, 100);
   //for table data//
 
-  io.socket.off("seatSelection", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+  // io.socket.off("seatSelection", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
   //seat selection Player
   io.socket.on("seatSelection", function (data) {});
   // Update Socket Player
@@ -719,14 +744,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   io.socket.on("showWinner", showWinnerFunction);
-  io.socket.off("showWinner", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+  // io.socket.off("showWinner", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
 
   //to add and remove coin
   $scope.addCoin = function () {
@@ -806,14 +831,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   });
 
-  io.socket.off("tip", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+  // io.socket.off("tip", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
   //pack 
   $scope.pack = function () {
     // $scope.buttonAudio.play();
@@ -840,6 +865,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     if (!_.isEmpty($scope.tableId)) {
       $scope.sideShowPromise = Service.sideShow($scope.tableId, function (data) {
+        console.log("do side show", data);
         $timeout(function () {
           $scope.sideShowDataFrom = 1;
         }, 50);
@@ -864,47 +890,26 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // }
   });
 
-  io.socket.on("sideShow", sideShowSocket);
 
-  io.socket.off("sideShow", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
 
-  function sideShowSocket(data) {
-    {
-      $scope.sideShowDataFrom = 0;
-      // console.log("side show", data.data.fromPlayer.name + " requested a side show with " + data.data.toPlayer.name);
-      $scope.slideShowData = data.data;
-      console.log("side show", $scope.slideShowData)
-      var mess = $scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name;
-      // $scope.changeTableMessage($scope.slideShowData.fromPlayer.name + " requested a side show with " + $scope.slideShowData.toPlayer.name);
-      $scope.changeTableMessage(mess);
-      // $scope.changeTableMessage("to check");
-      if (data.data.toPlayer.memberId == $scope.memberId) {
-        $scope.showSideShowModal();
-      }
-      // if (data.data.fromPlayer.memberId == $scope.memberId) {
-      //   $scope.message = {
-      //     heading: "Side Show",
-      //     content: "Your request for the Side show has been sent!"
-      //   };
-      //   $scope.showMessageModal();
-      // }
+  // io.socket.off("sideShow", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
 
-    }
-  }
+
 
   //sideShow Maker
   $scope.doSideShow = function () {
+    console.log("do side show");
     $scope.sideShowDataFrom = 0;
     if (!_.isEmpty($scope.tableId)) {
       Service.doSideShow($scope.tableId, function (data) {
-
+        console.log("do side show", data);
       });
     }
   };
@@ -960,14 +965,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       $state.reload();
     }
   });
-  io.socket.off("removePlayer", function (data) {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+  // io.socket.off("removePlayer", function (data) {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
 
   $scope.getRemaining = function () {
     if ($scope.players[8]) {
@@ -977,14 +982,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   }
 
-  io.socket.off('connect', function () {
-    $scope.message = {
-      heading: "Internet Connection",
-      content: "Check Your Internet Connection",
-      error: true
-    };
-    $scope.showMessageModal();
-  });
+  // io.socket.off('connect', function () {
+  //   $scope.message = {
+  //     heading: "Internet Connection",
+  //     content: "Check Your Internet Connection",
+  //     error: true
+  //   };
+  //   $scope.showMessageModal();
+  // });
 
   // $scope.changeTimer = function (duration) {
   //   $(".animation_wrapper .spinner").css("animation-duration", duration + "s");
