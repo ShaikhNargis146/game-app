@@ -1,7 +1,7 @@
-<ion-modal-view class="custom-model statement-model room_summary room_summary-potrate small-model side-show win-lose-modal">
+<ion-modal-view class=" win-lose-modal">
 
   <div class="number">
-    <label for="">{{message.content}}</label>
+    <label ng-class="{'circle-color-red':circleColor==false, 'circle-color-green':circleColor==null }" for="">{{message.content}}</label>
   </div>
   <div class="status">
     <label for="">{{message.heading}}</label>

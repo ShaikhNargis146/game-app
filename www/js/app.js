@@ -42,7 +42,19 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         console.log('error: ' + msg);
       });
       //spin wheel
-      window.plugins.NativeAudio.preloadComplex('spinwheel', 'audio/spinWheel.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+      window.plugins.NativeAudio.preloadComplex('spinwheel', 'audio/wheel_sound.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('lose', 'audio/lose.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('win', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('click', 'audio/click.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('chip', 'audio/chip.mp3', 1, 1, 0, function (msg) {}, function (msg) {
         console.log("error", msg);
       })
     });

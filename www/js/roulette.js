@@ -3,7 +3,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
-  $scope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
+  $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   // $scope.totalMoney = 10000;
   $scope.maxBet = 1000;
   $scope.minBet = 1;
@@ -12,9 +12,9 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $rootScope.canBet = true;
   $scope.visitedArray = [];
 
-  $scope.getBlack = function (number) {
+  $rootScope.getBlack = function (number) {
     if (number > 0) {
-      var foundIndex = _.findIndex($scope.blackArray, function (n1) {
+      var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
         return n1 == number;
       });
       if (foundIndex == -1) {
@@ -182,6 +182,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   }];
 
   $scope.selectCoin = function (coin) {
+    RouletteService.playSound('click', 'play');
     $scope.selectedCoin = coin;
     _.forEach($scope.coinArray, function (value) {
       if (value.name == coin.name) {
@@ -244,6 +245,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
   $scope.userBet = function (bet) {
+    RouletteService.playSound('chip', 'play');
     $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : {};
     if ($rootScope.canBet) {
       Service.getBetId(bet, function (data) {
@@ -337,10 +339,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
 
-
-
-
-
   io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
@@ -371,13 +369,6 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicModal, $timeout, $rootScope, $stateParams) {
-
-
-  // $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-  //   if (toState.name == 'spinnerNo') {
-  window.plugins.NativeAudio.play('spinwheel');
-  //   }
-  // });
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -406,10 +397,12 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
-    window.plugins.NativeAudio.stop('spinwheel');
+    RouletteService.playSound('spinwheel', 'stop');
 
     RouletteService.getLastResults(function (lastNumberData) {
       $scope.lastNumber = lastNumberData[0];
+      $scope.circleColor = $rootScope.getBlack($scope.lastNumber.results);
+      console.log("circleColor", $scope.circleColor)
       $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
       var foundNum = false;
       _.forEach($scope.masterArray, function (n) {
@@ -420,11 +413,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
         })
       });
       if (foundNum) {
+        RouletteService.playSound('win', 'play');
         $scope.message = {
           heading: "You won",
           content: $scope.lastNumber.results
         };
       } else {
+        RouletteService.playSound('lose', 'play');
         $scope.message = {
           heading: "You lost",
           content: $scope.lastNumber.results
@@ -440,7 +435,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   };
   io.socket.on("resultsSaved", socketFunction.resultsSaved);
 
-  var rotationsTime = 8;
+  var rotationsTime = 7;
   var wheelSpinTime = 6;
   var ballSpinTime = 5;
   var numorder = [
@@ -634,6 +629,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     setTimeout(function () {
       bgrotateTo(rndSpace);
       ballrotateTo(rndSpace + temp);
+      RouletteService.playSound('spinwheel', 'play');
     }, 500);
   }
 
@@ -690,7 +686,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   }
 });
 
-myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
+myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state, $ionicPlatform) {
   return {
     getLastResults: function (callback) {
       $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
@@ -723,6 +719,19 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
       $http.post(url + 'UserBets/saveUserBets', data).then(function (data) {
         callback(data);
       });
+    },
+    playSound: function (soundName, action) {
+      if (action == 'play') {
+        document.addEventListener("deviceready", function () {
+          window.plugins.NativeAudio.play(soundName);
+        })
+      } else {
+        document.addEventListener("deviceready", function () {
+          window.plugins.NativeAudio.stop(soundName);
+        })
+      }
+
     }
+
   };
 });
