@@ -368,7 +368,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 });
 
-myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicModal, $timeout, $rootScope, $stateParams) {
+myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -388,18 +388,18 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     $ionicPlatform.ready(function () {
       if (window.cordova) {
         // running on device/emulator
-        window.plugins.NativeAudio.stop('timer');
-        window.plugins.NativeAudio.stop('coin');
-        window.plugins.NativeAudio.stop('winner');
-        window.plugins.NativeAudio.stop('shuffle');
-        window.plugins.NativeAudio.stop('button');
+        // window.plugins.NativeAudio.stop('timer');
+        // window.plugins.NativeAudio.stop('coin');
+        // window.plugins.NativeAudio.stop('winner');
+        // window.plugins.NativeAudio.stop('shuffle');
+        // window.plugins.NativeAudio.stop('button');
       }
     });
   }
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
     if (ionic.Platform.isAndroid()) {
-      $scope.destroyAudio();
+      // $scope.destroyAudio();
     } else {}
   });
   io.socket.off("startBetting", socketFunction.startBetting);
@@ -419,7 +419,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     RouletteService.getLastResults(function (lastNumberData) {
       $scope.lastNumber = lastNumberData[0];
       $scope.circleColor = $rootScope.getBlack($scope.lastNumber.results);
-      console.log("circleColor", $scope.circleColor)
+      console.log("circleColor", $.jStorage.get('masterArray'));
       $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
       var foundNum = false;
       _.forEach($scope.masterArray, function (n) {
@@ -430,13 +430,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
         })
       });
       if (foundNum) {
-        RouletteService.playSound('win', 'play');
+        // RouletteService.playSound('win', 'play');
         $scope.message = {
           heading: "You won",
           content: $scope.lastNumber.results
         };
       } else {
-        RouletteService.playSound('lose', 'play');
+        // RouletteService.playSound('lose', 'play');
         $scope.message = {
           heading: "You lost",
           content: $scope.lastNumber.results
