@@ -24,6 +24,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.userType = $scope.singlePlayerData.userType;
         $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
         $scope.memberId = data.data.data._id;
+        $.jStorage.set("memberId", $scope.memberId);
+        console.log("member id", $.jStorage.get('memberId'));
       } else {
         $state.go("login");
       }
@@ -208,9 +210,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.updatePlayers();
 
   $scope.iAmThere = function (data) {
+    if (!$scope.memberId) {
+      $scope.memberId = $.jStorage.get('memberId');
+    }
     $scope.isThere = false;
     _.forEach(data, function (value) {
+      console.log("compare player there", $scope.memberId, value);
       if (value && value.memberId == $scope.memberId) {
+
         $scope.isThere = true;
         myTableNo = value.playerNo;
         startSocketUpdate();
@@ -218,6 +225,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
     $scope.sitHere = !$scope.isThere;
+
+    console.log("you are there", $scope.isThere);
     // In Case he is already Sitting Please Enable the Game
   };
 

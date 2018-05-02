@@ -13117,6 +13117,22 @@ ion-item.item {
     -o-transform: translate(-50%, 100%);
     transform: translate(-50%, 100%); } }
 
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  .platform-browser .login .login_block {
+    width: 35%;
+    top: 0;
+    transform: translate(-50%, 20px); }
+  .platform-browser .main_lobby .scroll-view .scroll-x {
+    overflow-x: hidden; }
+  .platform-browser .main_lobby .scroll-view.scroll-x {
+    overflow-x: hidden; }
+  .platform-browser .main_lobby .lobby_menu .menu_cont .item {
+    padding: 5% 0px; }
+  .platform-browser .kingtable .main-player .plyr_pic .pic {
+    height: 120px; }
+  .platform-browser .kingtable .pic {
+    height: 30px; } }
+
 .player-fold {
   opacity: 0.1; }
 

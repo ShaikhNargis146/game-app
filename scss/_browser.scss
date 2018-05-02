@@ -1,0 +1,32 @@
+.platform-browser {
+  @media screen and (min-width: 800px) and (orientation:landscape) {
+    .login {
+      .login_block {
+        width:35%;
+        top: 0;
+        transform: translate(-50%, 20px);
+      }
+    }
+    .main_lobby {
+      .scroll-view {
+        .scroll-x {
+          overflow-x: hidden;
+        }
+      }
+      .scroll-view.scroll-x {
+        overflow-x: hidden;
+      }
+      .lobby_menu .menu_cont .item {
+        padding: 5% 0px;
+      }
+    }
+    .kingtable {
+      .main-player .plyr_pic .pic {
+        height: 120px;
+      }
+      .pic {
+        height: 30px;
+      }
+    }
+  }
+}
