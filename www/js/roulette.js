@@ -384,7 +384,24 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
-
+  $scope.destroyAudio = function () {
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        // running on device/emulator
+        window.plugins.NativeAudio.stop('timer');
+        window.plugins.NativeAudio.stop('coin');
+        window.plugins.NativeAudio.stop('winner');
+        window.plugins.NativeAudio.stop('shuffle');
+        window.plugins.NativeAudio.stop('button');
+      }
+    });
+  }
+  $ionicPlatform.on('pause', function () {
+    // Handle event on pause
+    if (ionic.Platform.isAndroid()) {
+      $scope.destroyAudio();
+    } else {}
+  });
   io.socket.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
     $rootScope.canBet = true;
