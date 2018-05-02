@@ -8,6 +8,9 @@
       }
     }
     .main_lobby {
+      .user_profile .profile_pic {
+        padding-top: 8px;
+      }
       .scroll-view {
         .scroll-x {
           overflow-x: hidden;
@@ -19,10 +22,40 @@
       .lobby_menu .menu_cont .item {
         padding: 5% 0px;
       }
+      .box-black {
+        min-height: 15vh !important;
+      }
+    }
+    .lobby_menu {
+      .menu_cont .user_profile .profile_info {
+        padding-top: 10px;
+      }
+      .menu_cont .user_profile .profile_pic {
+        padding-top: 5px;
+        padding-left: 15px;
+      }
+      .menu_cont .item {
+        padding: 15px 0px;
+      }
+    }
+    .rules_modal {
+      ion-content {
+        height: 100%;
+        .scroll {
+          height: 100%;
+        }
+        .statement_content {
+          height: 80%;
+        }
+      }
+      .overflow-scroll {
+        overflow: unset;
+      }
     }
     .kingtable {
       .main-player .plyr_pic .pic {
         height: 120px;
+        min-height: 30vh;
       }
       .pic {
         height: 30px;

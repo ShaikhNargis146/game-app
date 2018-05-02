@@ -3,6 +3,7 @@
   //   background: black;
   background: url('../img/table-background.jpg');
   background-size: cover;
+  font-size: 1.2em;
   .top_field {
     position: relative;
     z-index: 4;
@@ -129,7 +130,7 @@
         .status {
           padding: 2px;
           font-family: 'Cinzel-Bold';
-          font-size: .6em;
+          font-size: .7em;
           line-height: 2;
         }
         .plyr_pic {
@@ -210,8 +211,8 @@
           }
         }
         .amt {
-          font-size: .5em;
-          line-height: 2; // font-size: calc( 100% + 4vw);
+          font-size: .7em;
+          line-height: 1.5;
           img {
             width: 1em;
             vertical-align: middle;
@@ -220,7 +221,7 @@
         .plyr_name {
           background: url('../img/profile_name_bg.png');
           background-size: 100% 100%;
-          font-size: .5em;
+          font-size: .7em;
           padding: 0;
           padding-bottom: 5%;
           span {
@@ -265,6 +266,7 @@
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5;
+          font-weight: bold;
         }
         &.p8,
         &.p1 {
@@ -294,6 +296,7 @@
           font-family: 'Cinzel-Regular';
           word-spacing: 10em;
           line-height: 1.5;
+          font-weight: bold;
         }
         &.p8,
         &.p1 {
@@ -409,6 +412,7 @@
           font-size: 0.8em;
           top: 40%;
           left: 55%;
+          padding: 5px 10px;
         }
       }
       .doll {
@@ -431,6 +435,7 @@
         transform: translateX(-50%);
         color: white;
         z-index: 3;
+        padding: 3px 20px 0px;
       }
       .bg-table {
         position: relative;
@@ -488,7 +493,7 @@
     .p1,
     .p8,
       {
-      transform: translateY(-100%);
+      transform: translateY(-80%);
     }
     .p1 {
       bottom: 4%;
@@ -674,6 +679,7 @@
         left: 50%;
         color: white;
         margin-top: 20%;
+        padding: 5px 10px;
       }
     }
     .playing-player-info {
@@ -730,6 +736,11 @@
         background: url('../img/text_bg3.png');
         background-size: 100% 100%;
         min-width: 25%;
+        height: 3em;
+        margin: 0px 5px;
+        font-size: 1em;
+        vertical-align: bottom;
+        padding-top: 2%;
       }
       .minus {
         font-size: 1em; // margin: 0px 5px;

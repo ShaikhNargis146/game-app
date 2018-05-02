@@ -215,7 +215,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
     $scope.isThere = false;
     _.forEach(data, function (value) {
-      console.log("compare player there", $scope.memberId, value);
       if (value && value.memberId == $scope.memberId) {
 
         $scope.isThere = true;
@@ -691,6 +690,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   function showWinnerFunction(data) {
     // console.log("show winner", data);
+    console.log("show winner", data);
     $scope.winnerMessageShow = true;
     $scope.updateSocketVar = 1;
     $ionicPlatform.ready(function () {

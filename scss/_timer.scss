@@ -6,7 +6,7 @@
     .animation_wrapper {
       position: relative; // margin: 40px auto;
       // background: white;
-      background: rgba(219, 22, 22, 0.501);
+      background: rgb(219, 22, 22);
       left: 50%;
       top: 50%;
       -webkit-transform: translate(-50%, -50%);
@@ -199,7 +199,7 @@
   }
 }
 
-@include timer('.platform-android', '.animation_wrapper', 20, 300px, #040404, '5px solid rgba(0,0,0,0.5)');
+@include timer('.platform-android,.platform-browser', '.animation_wrapper', 20, 300px, #040404, '5px solid rgba(0,0,0,0.5)');
 .platform-ios .pie_loader {
   overflow: hidden;
   opacity: .8;
@@ -300,4 +300,4 @@
   }
 }
 
-@include ios-timer('.platform-ios,.platform-browser', '.animation_wrapper', 20, 100%, #040404, 'rgba(219, 22, 22, 0.80)');
+@include ios-timer('.platform-ios', '.animation_wrapper', 20, 100%, #040404, 'rgba(219, 22, 22, 0.80)');
