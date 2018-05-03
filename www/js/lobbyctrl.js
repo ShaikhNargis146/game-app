@@ -603,6 +603,17 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPlatf
   $scope.gotoOnlinegame=function(data){
     console.log('game',data);
     $scope.closeARonlineModal();
+    // io.socket.disconnect();
+    io.sails.url='http://ar.wohlig.co.in';
+    
+    // var mySocket = io.sails.connect();
+    // io.socket.on('connect', function (socket) {
+    //   console.log("Socket connected!");
+    // });
+
+    // var socket = io('ws://ar.wohlig.co.in', {transports: ['websocket']});
+
+
     $state.go('onlinegame', {
       'gameId': data
     });

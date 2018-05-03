@@ -21,15 +21,24 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
         $scope.ARRate = data.data.rate;
       }
     })
-
+    // io.sails.url='http://ar.wohlig.co.in';
+    
+    var mySocket = io.sails.connect('http://ar.wohlig.co.in');
+    mySocket.on('connect', function onConnect () {
+      console.log("Socket connected!");
+    });
+    mySocket.on('redirectPlayer', function (data) {
+      console.log("redirectPlayer",data);
+     
+    });
   
-    io.socket.on('balanceSocket' + $.jStorage.get("userId"), function (data) {
+    mySocket.on('balanceSocket' + $.jStorage.get("userId"), function (data) {
       console.log(data);
       $scope.ARBalance = Number(data.balance);
       $scope.balance=Number(data.balance)*$scope.ARRate;      
       $scope.$apply();
     });
-    
+ 
     Service.playerSession($scope.singlePlayerData, function (data) {
       console.log("online game", data);
       if (data) {

@@ -15,9 +15,10 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
 
     });
   });
-  // io.socket.on('balanceSocket' + $.jStorage.get("userId"), function (data) {
-  //   console.log(data);
-  // });
+  io.socket.on('redirectPlayer', function (data) {
+    console.log("----------->>>>>>>>>>>>>",data);
+    
+  });
 
   var obj = {
     all: function () {
