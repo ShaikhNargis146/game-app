@@ -60,6 +60,17 @@
       .pic {
         height: 30px;
       }
+    } //login modal
+    .side-show .cont {
+      padding: 30px 5%;
+    }
+    .room_summary {
+      .heading {
+        padding: 10px;
+      }
+      ion-content {
+        margin: 35px;
+      }
     }
   }
 }

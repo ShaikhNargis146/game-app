@@ -11013,7 +11013,7 @@ ion-item.item {
 
 .kingtable .plyr_card {
   left: 35% !important;
-  width: 95% !important; }
+  width: 100% !important; }
 
 .kingtable .main-player .plyr_pic {
   display: block !important; }
@@ -13166,7 +13166,13 @@ ion-item.item {
     height: 120px;
     min-height: 30vh; }
   .platform-browser .kingtable .pic {
-    height: 30px; } }
+    height: 30px; }
+  .platform-browser .side-show .cont {
+    padding: 30px 5%; }
+  .platform-browser .room_summary .heading {
+    padding: 10px; }
+  .platform-browser .room_summary ion-content {
+    margin: 35px; } }
 
 .player-fold {
   opacity: 0.1; }
