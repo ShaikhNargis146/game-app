@@ -384,22 +384,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
-  $scope.destroyAudio = function () {
-    $ionicPlatform.ready(function () {
-      if (window.cordova) {
-        // running on device/emulator
-        // window.plugins.NativeAudio.stop('timer');
-        // window.plugins.NativeAudio.stop('coin');
-        // window.plugins.NativeAudio.stop('winner');
-        // window.plugins.NativeAudio.stop('shuffle');
-        // window.plugins.NativeAudio.stop('button');
-      }
-    });
-  }
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
     if (ionic.Platform.isAndroid()) {
       // $scope.destroyAudio();
+      window.plugins.NativeAudio.stop('spinwheel');
+      window.plugins.NativeAudio.stop('win');
+      window.plugins.NativeAudio.stop('lose');
     } else {}
   });
   io.socket.off("startBetting", socketFunction.startBetting);
@@ -430,13 +421,13 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
         })
       });
       if (foundNum) {
-        // RouletteService.playSound('win', 'play');
+        RouletteService.playSound('win', 'play');
         $scope.message = {
           heading: "You won",
           content: $scope.lastNumber.results
         };
       } else {
-        // RouletteService.playSound('lose', 'play');
+        RouletteService.playSound('lose', 'play');
         $scope.message = {
           heading: "You lost",
           content: $scope.lastNumber.results
