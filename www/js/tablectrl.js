@@ -9,6 +9,19 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
   });
+  $scope.destroyAudio = function () {
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        // running on device/emulator
+        window.plugins.NativeAudio.stop('timer');
+        window.plugins.NativeAudio.stop('coin');
+        window.plugins.NativeAudio.stop('winner');
+        window.plugins.NativeAudio.stop('shuffle');
+        window.plugins.NativeAudio.stop('button');
+      }
+    });
+  }
+  $scope.destroyAudio();
 
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
@@ -130,19 +143,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   }
 
-  //sound initialize
-  $scope.destroyAudio = function () {
-    $ionicPlatform.ready(function () {
-      if (window.cordova) {
-        // running on device/emulator
-        window.plugins.NativeAudio.stop('timer');
-        window.plugins.NativeAudio.stop('coin');
-        window.plugins.NativeAudio.stop('winner');
-        window.plugins.NativeAudio.stop('shuffle');
-        window.plugins.NativeAudio.stop('button');
-      }
-    });
-  }
+
   //Resume Audio
   $scope.resumeAudio = function () {
     $ionicPlatform.ready(function () {
