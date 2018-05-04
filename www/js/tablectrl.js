@@ -14,6 +14,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     // Handle event on pause
     $scope.destroyAudio();
   });
+  var mySocket1 = io.sails.connect(adminUUU);
+  mySocket1.on('connect', function onConnect() {
+    socketId = mySocket1._raw.id;
+    $.jStorage.set("socketId", mySocket1._raw.id);
+    console.log("teenpatti socket connected", mySocket1._raw.id);
+    Service.connectSocket(function () {
+
+    });
+  });
 
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
@@ -57,8 +66,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function startSocketUpdate() {
-    io.socket.off("Update", updateSocketFunction);
-    io.socket.on("Update", updateSocketFunction);
+    mySocket1.off("Update", updateSocketFunction);
+    mySocket1.on("Update", updateSocketFunction);
   }
 
   function sideShowSocket(data) {
@@ -85,9 +94,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     }
   }
-  io.socket.on("sideShow", sideShowSocket);
+  mySocket1.on("sideShow", sideShowSocket);
 
-  // io.socket.off("Update", function (data) {
+  // mySocket1.off("Update", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -494,7 +503,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }, 100);
   //for table data//
 
-  // io.socket.off("seatSelection", function (data) {
+  // mySocket1.off("seatSelection", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -503,7 +512,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   $scope.showMessageModal();
   // });
   //seat selection Player
-  io.socket.on("seatSelection", function (data) {});
+  mySocket1.on("seatSelection", function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data.data);
@@ -752,8 +761,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   };
 
-  io.socket.on("showWinner", showWinnerFunction);
-  // io.socket.off("showWinner", function (data) {
+  mySocket1.on("showWinner", showWinnerFunction);
+  // mySocket1.off("showWinner", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -828,7 +837,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //tip socket
-  io.socket.on("tip", function (data) {
+  mySocket1.on("tip", function (data) {
     $scope.tipAmount = data.data.amount;
     $scope.TipPlayerNo = data.data.playerNo;
 
@@ -840,7 +849,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
   });
 
-  // io.socket.off("tip", function (data) {
+  // mySocket1.off("tip", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -883,7 +892,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
-  io.socket.on("sideShowCancel", function (data) {
+  mySocket1.on("sideShowCancel", function (data) {
     $scope.sideShowDataFrom = 0;
     $scope.$apply();
     console.log("side show cancel", data);
@@ -901,7 +910,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
 
-  // io.socket.off("sideShow", function (data) {
+  // mySocket1.off("sideShow", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -969,12 +978,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //seat selection Player
-  io.socket.on("removePlayer", function (data) {
+  mySocket1.on("removePlayer", function (data) {
     if (data) {
       $state.reload();
     }
   });
-  // io.socket.off("removePlayer", function (data) {
+  // mySocket1.off("removePlayer", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",
@@ -991,7 +1000,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   }
 
-  // io.socket.off('connect', function () {
+  // mySocket1.off('connect', function () {
   //   $scope.message = {
   //     heading: "Internet Connection",
   //     content: "Check Your Internet Connection",

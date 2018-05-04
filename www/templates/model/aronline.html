@@ -1,0 +1,21 @@
+<ion-modal-view class="custom-model statement-model">
+    <ion-content>
+      <div class="outer ">
+        <div class="close" ng-click="closeARonlineModal()">
+          <img src="img/close.png">
+        </div>
+      </div>
+      <div class="heading">AR Online Games</div>
+      <div class="custom-table aronline-main top_field">
+  
+        <div class="list aronline-list">
+          <a class="item item-button-right" ng-repeat="item in items">
+            {{ item.title }}
+            <button class="button custom_button" ng-click="gotoOnlinegame(item.name);">
+              Play Now
+            </button>
+          </a>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>

@@ -1,4 +1,5 @@
 myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup, $ionicPlatform, Service, $http, $timeout) {
+  $("#iframe").remove();
 
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
@@ -66,6 +67,13 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+      $.jStorage.set("userId", $scope.singlePlayerData._id);
+      Service.playerSession($scope.singlePlayerData, function (data) {
+        if (data) {
+          console.log("login", data);
+          $.jStorage.set("sid", data.sid);
+        } else {}
+      });
     })
   };
 
@@ -554,6 +562,15 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
   //onclick for each play type
   $scope.variationToggle = function ($event) {
     $event.stopPropagation();
+    var mySocket1 = io.sails.connect(adminUUU);
+    mySocket1.on('connect', function onConnect() {
+      socketId = mySocket1._raw.id;
+      $.jStorage.set("socketId", mySocket1._raw.id);
+      console.log("teenpatti socket connected", mySocket1._raw.id);
+      Service.connectSocket(function () {
+
+      });
+    });
     $scope.VariationActive = !$scope.VariationActive;
   }
   $scope.variationGame = function ($event) {
@@ -786,4 +803,70 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
     $scope.myPrivateModal.remove();
     $scope.closeAllTab();
   });
+
+
+  //AROnline modal
+  $ionicModal.fromTemplateUrl('templates/model/aronline.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ARonlineModal = modal;
+  });
+  $scope.openARonlineModal = function () {
+    $scope.ARonlineModal.show();
+  }
+  $scope.closeARonlineModal = function () {
+    $scope.ARonlineModal.hide();
+  }
+  $scope.items = [{
+      title: 'Live ROULETTE',
+      name: 'roulette'
+    },
+    {
+      title: 'Live BLACKJACK',
+      name: 'blackjack'
+    },
+    {
+      title: 'Live CASINO HOLD',
+      name: 'holdem'
+    },
+    {
+      title: 'Live BACCARAT',
+      name: 'baccarat'
+    },
+    {
+      title: 'Live ULTIMATE TEXAS HOLDEM ',
+      name: 'uth'
+    },
+    {
+      title: 'Live EXTREME TEXAS HOLDEM ',
+      name: 'eth'
+    },
+    {
+      title: 'Live THREE CARD POKER ',
+      name: 'tcp'
+    },
+    {
+      title: 'Live TRIPLE CARD POKER',
+      name: 'trp'
+    },
+    {
+      title: 'Live CARIBBEAN STUD',
+      name: 'csp'
+    },
+    {
+      title: 'Live MONEY WHEEL',
+      name: 'moneywheel'
+    },
+  ];
+
+
+  //redirecting to online game from play now button 
+  $scope.gotoOnlinegame = function (data) {
+    console.log('game', data);
+    $scope.closeARonlineModal();
+    $state.go('onlinegame', {
+      'gameId': data
+    });
+  }
 });

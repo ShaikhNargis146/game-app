@@ -74,6 +74,12 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/redirecting.html',
         controller: 'RedirectingCtrl'
       })
+      .state('onlinegame', {
+        url: '/onlinegame/:gameId',
+        cache: false,
+        templateUrl: 'templates/onlinegame.html',
+        controller: 'OnlinegameCtrl'
+      })
       .state('login', {
         url: '/login',
         cache: false,

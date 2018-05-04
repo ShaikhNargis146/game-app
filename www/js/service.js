@@ -7,14 +7,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  io.socket.on('connect', function (socket) {
-    socketId = io.socket._raw.id;
-    $.jStorage.set("socketId", io.socket._raw.id);
-    console.log("Log connectSocket");
-    obj.connectSocket(function () {
+  // io.socket.on('connect', function (socket) {
+  //   socketId = io.socket._raw.id;
+  //   $.jStorage.set("socketId", io.socket._raw.id);
+  //   console.log("Log connectSocket",io.socket._raw.id);
+  //   obj.connectSocket(function () {
 
-    });
-  });
+  //   });
+  // });
 
   var obj = {
     all: function () {
@@ -53,6 +53,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+    getARCurrentBalance: function (data, callback) {
+      return $http.post(adminurl + 'AR/getCurrentBalance', data).then(function (data) {
+        data = data.data;
+        callback(data);
+      })
+    },
     passwordchange: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       data.accessToken = accessToken;
@@ -75,6 +81,25 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       } else {
         $state.go("login");
       }
+    },
+    playerSession: function (data, callback) {
+      console.log("data----", data);
+      var sessionData = {};
+      sessionData.userId = data._id;
+      $http.post(adminARurl + 'Sessions/createLoginSid', sessionData).then(function (data) {
+        console.log("saved");
+        data = data.data;
+        callback(data);
+      });
+    },
+    getEntryUrl: function (data, callback) {
+      console.log("inside getEntryUrl data----", data);
+      data.accessToken = $.jStorage.get("accessToken");
+      $http.post(adminARurl + 'User/createEntry', data).then(function (data) {
+        console.log("saved");
+        data = data.data;
+        callback(data);
+      });
     },
     giveTip: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
