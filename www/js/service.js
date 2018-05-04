@@ -1,6 +1,6 @@
 myApp = angular.module('starter.service', []);
 var url = adminUUU + '/api/';
-var rouletteUrl = adminRoulette + '/api';
+var rouletteUrl = adminRoulette + '/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var maxRow = 10;
