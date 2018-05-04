@@ -43,7 +43,7 @@ gulp.task('watch', ['sass'], function () {
   gulp.watch(paths.sass, ['sass']);
 });
 
-gulp.watch('www/css/ionic.app.css', ['autoprefixer'])
+// gulp.watch('www/css/ionic.app.css', ['autoprefixer'])
 
 gulp.task('autoprefixer', function () {
   var postcss = require('gulp-postcss');
