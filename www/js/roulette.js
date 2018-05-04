@@ -388,9 +388,17 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
     // Handle event on pause
     if (ionic.Platform.isAndroid()) {
       // $scope.destroyAudio();
+      $rootScope.soundOff = true;
       window.plugins.NativeAudio.stop('spinwheel');
       window.plugins.NativeAudio.stop('win');
       window.plugins.NativeAudio.stop('lose');
+    } else {}
+  });
+  $ionicPlatform.on('resume', function () {
+    // Handle event on pause
+    if (ionic.Platform.isAndroid()) {
+      // $scope.destroyAudio();
+      $rootScope.soundOff = false;
     } else {}
   });
   io.socket.off("startBetting", socketFunction.startBetting);
@@ -694,7 +702,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   }
 });
 
-myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state, $ionicPlatform) {
+myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $ionicActionSheet, $timeout, $state, $ionicPlatform) {
   return {
     getLastResults: function (callback) {
       $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
@@ -729,17 +737,17 @@ myApp.factory('RouletteService', function ($http, $ionicLoading, $ionicActionShe
       });
     },
     playSound: function (soundName, action) {
-      if (action == 'play') {
-        document.addEventListener("deviceready", function () {
-          window.plugins.NativeAudio.play(soundName);
-        })
-      } else {
-        document.addEventListener("deviceready", function () {
-          window.plugins.NativeAudio.stop(soundName);
-        })
+      if (!$rootScope.soundOff) {
+        if (action == 'play') {
+          document.addEventListener("deviceready", function () {
+            window.plugins.NativeAudio.play(soundName);
+          })
+        } else {
+          document.addEventListener("deviceready", function () {
+            window.plugins.NativeAudio.stop(soundName);
+          })
+        }
       }
-
     }
-
   };
 });
