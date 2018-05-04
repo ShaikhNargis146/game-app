@@ -60,6 +60,31 @@
       .pic {
         height: 30px;
       }
+    } //login modal
+    .side-show .cont {
+      padding: 30px 5%;
     }
+    .room_summary {
+      .heading {
+        padding: 10px;
+      }
+      ion-content {
+        margin: 35px;
+      }
+    } //modal fix 
+    .statement-model .top_field input {
+      max-width: 15vw;
+    }
+    .add_private_table {
+      top: 4px;
+    }
+    .delete_icon {
+      padding-left: 10px;
+      float: unset;
+    } //table info
+    .table-info {
+      font-size: 2em;
+      padding: 10px;
+    } //end of media query
   }
 }

@@ -51,8 +51,8 @@
         vertical-align: middle;
         color: white;
         width: 100%;
-        background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-        background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+        background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+        background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: white;
@@ -77,30 +77,30 @@
         width: 25px;
       }
       input {
-        color: white!important;
+        color: white !important;
         height: 28px;
         &::-webkit-input-placeholder {
-          color: white!important;
+          color: white !important;
           border: none;
         }
         &:-moz-placeholder {
-          color: white!important;
+          color: white !important;
         }
         &::-moz-placeholder {
-          color: white!important;
+          color: white !important;
         }
         &:-ms-input-placeholder {
-          color: white!important;
+          color: white !important;
         }
         &::-ms-input-placeholder {
-          color: white!important;
+          color: white !important;
         }
         &::placeholder {
-          border: 0!important;
-          color: white!important;
+          border: 0 !important;
+          color: white !important;
           font-weight: bold;
-          border: none!important;
-          border: 0!important;
+          border: none !important;
+          border: 0 !important;
         }
       }
     }
@@ -120,6 +120,6 @@
   }
 }
 
-.platform-ios .login .login_block{
+.platform-ios .login .login_block {
   width: 50%;
 }

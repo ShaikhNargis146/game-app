@@ -465,48 +465,6 @@
         left: -30% !important;
         width: 200% !important;
       }
-    }
-    .p4 {
-      left: 28%;
-      top: -18%;
-    }
-    .p5 {
-      right: 28%;
-      top: -18%;
-    }
-    .p3 {
-      left: 8%;
-      top: -10%;
-    }
-    .p6 {
-      right: 8%;
-      top: -10%;
-    }
-    .p2 {
-      top: 28%;
-      left: 3%;
-    }
-    .p7 {
-      top: 28%;
-      right: 3%;
-    } // .p4,
-    .p1,
-    .p8,
-      {
-      transform: translateY(-80%);
-    }
-    .p1 {
-      bottom: 4%;
-      left: 23%;
-    }
-    .p8 {
-      bottom: 1%;
-      right: 23%;
-    }
-    .p9 {
-      left: 50%;
-      bottom: 45%;
-      transform: translate(-50%, 50%) !important;
     } // .other_player {
     //   flex-direction: row;
     //   display: flex;
@@ -757,6 +715,58 @@
   }
 }
 
+//player position
+.p4 {
+  left: 28%;
+  top: -18%;
+}
+
+.p5 {
+  right: 28%;
+  top: -18%;
+}
+
+.p3 {
+  left: 8%;
+  top: -10%;
+}
+
+.p6 {
+  right: 8%;
+  top: -10%;
+}
+
+.p2 {
+  top: 28%;
+  left: 3%;
+}
+
+.p7 {
+  top: 28%;
+  right: 3%;
+} // .p4,
+.p1,
+.p8,
+  {
+  transform: translateY(-80%);
+}
+
+.p1 {
+  bottom: 4%;
+  left: 23%;
+}
+
+.p8 {
+  bottom: 1%;
+  right: 23%;
+}
+
+.p9 {
+  left: 50%;
+  bottom: 45%;
+  transform: translate(-50%, 50%) !important;
+}
+
 //some temp design
 .kingtable {
   .plyr {
@@ -777,7 +787,7 @@
   }
   .plyr_card {
     left: 35% !important;
-    width: 95% !important;
+    width: 100% !important;
   }
   .main-player {
     .plyr_pic {
@@ -1059,55 +1069,55 @@
     margin-right: 10%;
   }
   &.p5 {
-    top: 0% !important;
-    right: 30% !important;
+    top: 0%;
+    right: 30%;
     animation-name: movefromright;
   }
   &.p6 {
-    top: 10% !important;
-    right: 10% !important;
+    top: 10%;
+    right: 10%;
     animation-name: movefromright;
   }
   &.p7 {
-    top: 50% !important;
-    right: 6% !important;
+    top: 50%;
+    right: 6%;
     animation-name: movefromright;
   }
   &.p8 {
-    bottom: 20% !important;
-    right: 25% !important;
+    bottom: 20%;
+    right: 25%;
     animation-name: movefrombottom;
   }
   &.p9 {
-    bottom: 20% !important;
-    left: unset !important;
-    right: 50% !important;
+    bottom: 20%;
+    left: unset;
+    right: 50%;
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
   &.p1 {
-    bottom: 20% !important;
-    left: unset !important;
-    right: 70% !important;
+    bottom: 20%;
+    left: unset;
+    right: 70%;
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
   &.p2 {
-    bottom: 40% !important;
-    top: unset !important;
-    left: unset !important;
-    right: 90% !important;
+    bottom: 40%;
+    top: unset;
+    left: unset;
+    right: 90%;
     animation-name: movefrombottom;
     transform: translateY(-100%);
   }
   &.p3 {
-    top: 10% !important;
-    left: 10% !important;
+    top: 10%;
+    left: 10%;
     animation-name: movefromleft;
   }
   &.p4 {
-    top: 5% !important;
-    left: 30% !important;
+    top: 5%;
+    left: 30%;
     animation-name: movefromleft;
   }
 }
@@ -1603,55 +1613,55 @@
     margin-right: 10%;
   }
   &.p5 {
-    top: 0% !important;
-    right: 30% !important;
+    top: 0%;
+    right: 30%;
     animation-name: tipmovefromright;
   }
   &.p6 {
-    top: 10% !important;
-    right: 10% !important;
+    top: 10%;
+    right: 10%;
     animation-name: tipmovefromright;
   }
   &.p7 {
-    top: 50% !important;
-    right: 6% !important;
+    top: 50%;
+    right: 6%;
     animation-name: tipmovefromright;
   }
   &.p8 {
-    bottom: 20% !important;
-    right: 25% !important;
+    bottom: 20%;
+    right: 25%;
     animation-name: tipmovefrombottom;
   }
   &.p9 {
-    bottom: 20% !important;
-    left: unset !important;
-    right: 50% !important;
+    bottom: 20%;
+    left: unset;
+    right: 50%;
     animation-name: tipmovefrombottom;
     transform: translateY(-100%);
   }
   &.p1 {
-    bottom: 20% !important;
-    left: unset !important;
-    right: 70% !important;
+    bottom: 20%;
+    left: unset;
+    right: 70%;
     animation-name: tipmovefrombottom;
     transform: translateY(-100%);
   }
   &.p2 {
-    bottom: 40% !important;
-    top: unset !important;
-    left: unset !important;
-    right: 90% !important;
+    bottom: 40%;
+    top: unset;
+    left: unset;
+    right: 90%;
     animation-name: tipmovefrombottom;
     transform: translateY(-100%);
   }
   &.p3 {
-    top: 10% !important;
-    left: 10% !important;
+    top: 10%;
+    left: 10%;
     animation-name: tipmovefromleft;
   }
   &.p4 {
-    top: 5% !important;
-    left: 30% !important;
+    top: 5%;
+    left: 30%;
     animation-name: tipmovefromleft;
   }
 }

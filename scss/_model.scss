@@ -182,47 +182,47 @@
           background: transparent;
           &::-webkit-input-placeholder {
             /* WebKit, Blink, Edge */
-            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           &:-moz-placeholder {
             /* Mozilla Firefox 4 to 18 */
-            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           &::-moz-placeholder {
             /* Mozilla Firefox 19+ */
-            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           &:-ms-input-placeholder {
-            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           &::-ms-input-placeholder {
             /* Microsoft Edge */
-            background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-            background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+            background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           &::placeholder {
             /* Most modern browsers support this now. */
-            background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
-            background: linear-gradient(right, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
+            background: -webkit-linear-gradient(to left, #fffbfb 40%, #ffffff 40%, #989696 100%);
+            background: linear-gradient(to left, #fff4f4 40%, #ffffff 40%, #dfdcdc 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;

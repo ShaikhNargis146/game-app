@@ -80,6 +80,12 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
   //js Storage 
   $scope.accessToken = $.jStorage.get("accessToken");
+
+  if (_.isEqual($scope.accessToken, {})) {
+    $.jStorage.flush();
+  }
+  $scope.accessToken = $.jStorage.get("accessToken");
+
   if ($scope.accessToken) {
     $state.go("lobby");
   }
