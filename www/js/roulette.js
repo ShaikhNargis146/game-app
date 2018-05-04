@@ -1,9 +1,6 @@
 var socketFunction = {};
 var mySocket;
-mySocket = io.sails.connect(adminRoulette);
-mySocket.on('connect', function onConnect() {
-  console.log("roullete socket connected", mySocket._raw.id);
-});
+
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -16,7 +13,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   // $scope.masterArray = {};
   $rootScope.canBet = true;
   $scope.visitedArray = [];
- 
+  mySocket = io.sails.connect(adminRoulette);
+  mySocket.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocket._raw.id);
+  });
   $rootScope.getBlack = function (number) {
     if (number > 0) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
@@ -374,6 +374,10 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
+  mySocket = io.sails.connect(adminRoulette);
+  mySocket.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocket._raw.id);
+  });
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
