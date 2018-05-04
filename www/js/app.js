@@ -41,6 +41,22 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       window.plugins.NativeAudio.preloadSimple('button', 'audio/button.mp3', 1, 1, 0, function (msg) {}, function (msg) {
         console.log('error: ' + msg);
       });
+      //spin wheel
+      window.plugins.NativeAudio.preloadComplex('spinwheel', 'audio/wheel_sound.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('lose', 'audio/lose.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('win', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('click', 'audio/click.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
+      window.plugins.NativeAudio.preloadComplex('chip', 'audio/chip.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log("error", msg);
+      })
     });
   })
 
@@ -98,6 +114,24 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'
       })
+      .state('roulette', {
+        url: '/roulette',
+        cache: false,
+        templateUrl: 'templates/roulette/home.html',
+        controller: 'HomeCtrl'
+      })
+      .state('spinner', {
+        url: '/spinner',
+        cache: false,
+        templateUrl: 'templates/roulette/spinner.html',
+        controller: 'SpinnerCtrl'
+      })
+      .state('spinnerNo', {
+        url: '/spinner/:number',
+        cache: false,
+        templateUrl: 'templates/roulette/spinner.html',
+        controller: 'SpinnerCtrl'
+      });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('redirecting');
   });

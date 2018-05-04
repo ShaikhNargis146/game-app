@@ -422,6 +422,8 @@ body {
 @import "timer";
 @import "_media";
 @import "_browser";
+//roulette scss
+@import "roulette";
 .player-fold {
   opacity: 0.1;
 }
@@ -606,6 +608,7 @@ html input[disabled] {
 .modal-open {
   pointer-events: unset;
 }
+
 html,
 body {
   margin: 0;

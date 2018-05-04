@@ -50,8 +50,10 @@
       "ionic-plugin-keyboard": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
-  }
+  },
+  "cordovaPlugins": [],
+  "cordovaPlatforms": []
 }
