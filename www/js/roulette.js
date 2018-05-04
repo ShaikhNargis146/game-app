@@ -732,7 +732,7 @@ myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $io
         };
       });
       // console.log(data.bets);
-      $http.post(url + 'UserBets/saveUserBets', data).then(function (data) {
+      $http.post(rouletteUrl + 'UserBets/saveUserBets', data).then(function (data) {
         callback(data);
       });
     },
