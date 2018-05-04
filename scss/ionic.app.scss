@@ -231,8 +231,8 @@ body {
 }
 
 .text-grad {
-  background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
-  background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
+  background: -webkit-linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
+  background: linear-gradient(to left, #bababa 40%, #ffffff 40%, #565151 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
