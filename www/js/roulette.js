@@ -1,4 +1,9 @@
 var socketFunction = {};
+var mySocket;
+mySocket = io.sails.connect(adminRoulette);
+mySocket.on('connect', function onConnect() {
+  console.log("roullete socket connected", mySocket._raw.id);
+});
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -11,7 +16,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   // $scope.masterArray = {};
   $rootScope.canBet = true;
   $scope.visitedArray = [];
-
+ 
   $rootScope.getBlack = function (number) {
     if (number > 0) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
@@ -339,7 +344,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
 
-  io.socket.off("endPlacingBets", socketFunction.endPlacingBets);
+  mySocket.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
     $rootScope.canBet = false;
@@ -354,16 +359,16 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     $scope.showMessageModal();
   };
 
-  io.socket.on("endPlacingBets", socketFunction.endPlacingBets);
+  mySocket.on("endPlacingBets", socketFunction.endPlacingBets);
 
 
-  io.socket.off("spinWheel", socketFunction.spinWheel);
+  mySocket.off("spinWheel", socketFunction.spinWheel);
   socketFunction.spinWheel = function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
     });
   };
-  io.socket.on("spinWheel", socketFunction.spinWheel);
+  mySocket.on("spinWheel", socketFunction.spinWheel);
 
 
 });
@@ -401,15 +406,15 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
       $rootScope.soundOff = false;
     } else {}
   });
-  io.socket.off("startBetting", socketFunction.startBetting);
+  mySocket.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
     $rootScope.canBet = true;
     $state.go("roulette");
   };
-  io.socket.on("startBetting", socketFunction.startBetting);
+  mySocket.on("startBetting", socketFunction.startBetting);
 
 
-  io.socket.off("resultsSaved", socketFunction.resultsSaved);
+  mySocket.off("resultsSaved", socketFunction.resultsSaved);
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
@@ -449,7 +454,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
     // Show popup for win or lose using the data object
   };
-  io.socket.on("resultsSaved", socketFunction.resultsSaved);
+  mySocket.on("resultsSaved", socketFunction.resultsSaved);
 
   var rotationsTime = 7;
   var wheelSpinTime = 6;
