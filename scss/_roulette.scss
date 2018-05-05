@@ -148,19 +148,18 @@ ul.coin li {
   height: 30vw;
 }
 
-.scroll {
-  // height: 230px;
-  overflow: hidden;
-  overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-}
-
+// .scroll {
+//   // height: 230px;
+//   // overflow: hidden;
+//   // overflow-y: auto;
+//   &::-webkit-scrollbar {
+//     width: 0px;
+//     background: transparent;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background: transparent;
+//   }
+// }
 /* elements */
 
 .roulette .sector {
