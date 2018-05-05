@@ -1442,7 +1442,7 @@
     "_id": "5ad9db578ef39172e7146210",
     "name": "Split Bet58",
     "numbers": [
-      0,
+      38,
       2
     ]
   },
@@ -1450,13 +1450,31 @@
     "_id": "5ad9db628ef39172e7146213",
     "name": "Split Bet59",
     "numbers": [
-      0,
+      38,
       3
     ]
   },
+
   {
-    "_id": "5ad9dbd88ef39172e7146225",
-    "name": "Street Bet13",
+    "_id": "5ae7101bfba81e109d3acdae",
+    "name": "Split Bet60",
+    "numbers": [
+      0,
+      2
+    ]
+  },
+  {
+    "_id": "5ae71e7632c8f3183189e823",
+    "name": "Trio1",
+    "numbers": [
+      0,
+      38,
+      2
+    ]
+  },
+  {
+    "_id": "5ae71e9232c8f3183189e825",
+    "name": "Trio2",
     "numbers": [
       0,
       1,
@@ -1464,12 +1482,39 @@
     ]
   },
   {
-    "_id": "5ad9dbe58ef39172e7146227",
-    "name": "Street Bet14",
+    "_id": "5ae71eb432c8f3183189e828",
+    "name": "Trio3",
     "numbers": [
-      0,
+      38,
       2,
       3
+    ]
+  },
+  {
+    "_id": "5ae71ed832c8f3183189e82b",
+    "name": "First Five",
+    "numbers": [
+      0,
+      38,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": "5ae71f5032c8f3183189e848",
+    "name": "Spilt Bet61",
+    "numbers": [
+      0,
+      38
+    ]
+  },
+  {
+    "_id": "5ae71f8132c8f3183189e856",
+    "name": "Line Bet12",
+    "numbers": [
+      0,
+      38
     ]
   }
 ]
