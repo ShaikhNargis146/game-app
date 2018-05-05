@@ -403,6 +403,21 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
+  $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
+  $rootScope.getBlack = function (number) {
+    if (number > 0 && number != 38) {
+      var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
+        return n1 == number;
+      });
+      if (foundIndex == -1) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return null;
+    }
+  }
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
     if (ionic.Platform.isAndroid()) {
