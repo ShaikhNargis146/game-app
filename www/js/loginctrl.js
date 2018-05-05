@@ -13,7 +13,7 @@ myApp.controller("RedirectingCtrl", function ($scope, Service, $state, $ionicPla
   if (_.isEqual(accessToken, {})) {
     $.jStorage.flush();
   }
-
+  var accessToken = $.jStorage.get("accessToken");
   if (accessToken) {
     $state.go("lobby");
   } else {

@@ -9683,9 +9683,7 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex,
-  a.item.item-complex,
-  button.item.item-complex {
+  .item-complex, a.item.item-complex, button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -13906,131 +13904,6 @@ ul.coin li {
 .spinner_main .button:active {
   box-shadow: inset 0 0 .5em #333;
   border-bottom: none; }
-
-.login {
-  background: url("../img/green_bg.jpg");
-  background-size: cover;
-  background-position: 50%; }
-  .login .login_block {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 70%; }
-    .login .login_block .login_logo {
-      width: 40%;
-      margin-bottom: 10px; }
-    .login .login_block input {
-      border-radius: 6px;
-      background: transparent; }
-    .login .login_block .blc {
-      margin: 10px;
-      border: 1px solid;
-      border-image: red;
-      border-image-slice: 2;
-      border-right: 0px;
-      border-left: 0px; }
-    .login .login_block .border-style {
-      padding: 1px 0px; }
-    .login .login_block .slide_background {
-      padding: 5px 8px; }
-    .login .login_block .login_button_submit {
-      background: url("../img/login/submit_background.png");
-      background-size: 100% 100%;
-      width: 60%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      align-items: center;
-      justify-content: center; }
-      .login .login_block .login_button_submit button {
-        line-height: 0.5;
-        min-height: 30px;
-        background: none;
-        text-align: center;
-        vertical-align: middle;
-        color: black;
-        width: 100%;
-        background: black;
-        background: black;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: black;
-        font-weight: bold;
-        font-family: 'Cinzel-Bold';
-        font-weight: bold;
-        font-size: 1em;
-        border: 0px; }
-    .login .login_block .input-login {
-      margin: 20px; }
-    .login .login_block .login_button {
-      background: url("../img/login_button_background1.png");
-      background-size: 100% 100%;
-      color: black;
-      margin: 0;
-      border-image: none;
-      border: none;
-      padding: 10px 5%;
-      border: 1px solid black; }
-      .login .login_block .login_button img {
-        width: 25px; }
-      .login .login_block .login_button input {
-        color: black;
-        height: 28px; }
-        .login .login_block .login_button input::-webkit-input-placeholder {
-          /* WebKit, Blink, Edge */
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          color: black; }
-        .login .login_block .login_button input:-moz-placeholder {
-          /* Mozilla Firefox 4 to 18 */
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: black;
-          -webkit-text-fill-color: transparent; }
-        .login .login_block .login_button input::-moz-placeholder {
-          /* Mozilla Firefox 19+ */
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: black;
-          -webkit-text-fill-color: transparent; }
-        .login .login_block .login_button input:-ms-input-placeholder {
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: black;
-          -webkit-text-fill-color: transparent; }
-        .login .login_block .login_button input::-ms-input-placeholder {
-          /* Microsoft Edge */
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: black;
-          -webkit-text-fill-color: transparent; }
-        .login .login_block .login_button input::placeholder {
-          /* Most modern browsers support this now. */
-          background: black;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: black;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold; }
-    .login .login_block .bg-style {
-      background: url("../img/login_button_backgroun2.png"); }
-    .login .login_block .valid {
-      color: red;
-      float: left;
-      padding-left: 5%;
-      margin-bottom: 2px;
-      line-height: 120%; }
-    .login .login_block .invailduser {
-      width: 100%; }
 
 .absolute-coin {
   position: absolute;
