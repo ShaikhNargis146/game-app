@@ -23,14 +23,14 @@
         <div class="row flex_center">
           <div class="variation box-black" ng-click="variationToggle($event,normalGameType)" ng-hide="VariationTab">
             TeenPatti
-          </div> 
-          <div class="variation box-black" ui-sref="roulette" >
+          </div>
+          <div class="variation box-black" ng-hide="VariationActive" ui-sref="roulette">
             Roulette
           </div>
-          <div class="variation box-black"  ng-hide="VariationActive" ng-click="openARonlineModal();">
+          <div class="variation box-black" ng-hide="VariationActive" ng-click="openARonlineModal();">
             Live Casino
           </div>
-          
+
           <!-- <div class="variation box-black" ng-click="variationGame($event,filterGameType)" ng-hide="VariationActive">
             TeenPatti Variation
           </div> -->
