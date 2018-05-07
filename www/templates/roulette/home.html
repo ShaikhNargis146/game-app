@@ -38,25 +38,25 @@
               <td rowspan="4" class="zero-hover">
                 <table border="0" class="nested-table">
                   <tr>
-                    <td class="table-style border-bot" ng-class="{{getNgClass(38)}}">
-                      <div ng-click="userBet(38)">
+                    <td class="table-style border-bot" ng-class="{{getNgClass(37)}}">
+                      <div ng-click="userBet(37)">
                         <div class="nested_table_tr">00</div>
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[38].displayArray track by $index">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[37].displayArray track by $index">
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="bottombet" ng-click="userBet([0,38])" ng-mouseenter="betPlacing('otherBet',[0,38])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,38]].displayArray track by $index">
+                      <div class="bottombet" ng-click="userBet([0,37])" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,37]].displayArray track by $index">
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="zeroRightBet" ng-click="userBet([0,38,2])" ng-mouseenter="betPlacing('otherBet',[0,38,2])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,38,2]].displayArray track by $index">
+                      <div class="zeroRightBet" ng-click="userBet([0,37,2])" ng-mouseenter="betPlacing('otherBet',[0,37,2])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,37,2]].displayArray track by $index">
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="double-zero-bet" ng-click="userBet([38,2])" ng-mouseenter="betPlacing('otherBet',[38,2])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[38,2]].displayArray track by $index">
+                      <div class="double-zero-bet" ng-click="userBet([37,2])" ng-mouseenter="betPlacing('otherBet',[37,2])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[[37,2]].displayArray track by $index">
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
@@ -75,8 +75,8 @@
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="street-bet bottombet" ng-click="userBet([0,38])" ng-mouseenter="betPlacing('otherBet',[0,38])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,38]].displayArray track by $index">
+                      <div class="street-bet bottombet" ng-click="userBet([0,37])" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,37]].displayArray track by $index">
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
@@ -227,7 +227,7 @@
           </tbody>
         </table>
       </div>
-      <div class="div-inline width12 history scroll">
+      <div class="div-inline width12 history bet-scroll">
         History
         <div ng-repeat="result in lastResults">
           <div class="num red" ng-class="{'zero-bet-history':getBlack(result.results)==null, 'red-history':getBlack(result.results)==false, 'black-history':getBlack(result.results)==true}">

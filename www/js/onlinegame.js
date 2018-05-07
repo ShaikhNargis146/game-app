@@ -1,3 +1,4 @@
+var mySocket;
 myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $stateParams, $ionicPlatform, Service, $http, $timeout) {
 
 
@@ -23,14 +24,14 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
       })
       // io.sails.url='http://ar.wohlig.co.in';
       
-      var mySocket = io.sails.connect(adminARUUU);
+      mySocket = io.sails.connect(adminARUUU);
       mySocket.on('connect', function onConnect () {
         console.log("Socket connected!",mySocket._raw.id);
       });
-      mySocket.on('redirectPlayer', function (data) {
-        console.log("redirectPlayer",data);
+      // mySocket.on('redirectPlayer', function (data) {
+      //   console.log("redirectPlayer",data);
        
-      });
+      // });
     
       mySocket.on('balanceSocket' + $.jStorage.get("userId"), function (data) {
         console.log(data);
@@ -56,7 +57,14 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
   
   
     })
-  
+    $scope.backToLobby=function(){
+      mySocket.disconnect();
+      $state.go('lobby');
+
+      mySocket.on('disconnect', function onConnect () {
+        console.log("Socket disconnected!");
+      });
+    }
   
   
   });

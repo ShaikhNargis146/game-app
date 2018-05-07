@@ -1,13 +1,12 @@
 var socketFunction = {};
-var mySocket;
+var mySocketRoullete;
 
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
   $scope.$on('$ionicView.loaded', function (event) {
     $.jStorage.set('masterArray', null);
   });
-  $scope.backToLobby = function () {
-    $state.go("lobby");
-  };
+
+
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
@@ -19,12 +18,20 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   // $scope.masterArray = {};
   $rootScope.canBet = true;
   $scope.visitedArray = [];
-  mySocket = io.sails.connect(adminRoulette);
-  mySocket.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocket._raw.id);
+  mySocketRoullete = io.sails.connect(adminRoulette);
+  mySocketRoullete.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocketRoullete._raw.id);
   });
+  $scope.backToLobby = function () {
+    mySocketRoullete.disconnect();
+    $state.go('lobby');
+
+    mySocketRoullete.on('disconnect', function onConnect() {
+      console.log("Socket disconnected!");
+    });
+  }
   $rootScope.getBlack = function (number) {
-    if (number > 0 && number != 38) {
+    if (number > 0 && number != 37) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
         return n1 == number;
       });
@@ -41,8 +48,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   $scope.getNgClass = function (index) {
-    $scope.checkForEvenOdd = index > 0 ? index % 2 : null;
-    $scope.checkForLowHighBet = index > 0 ? index <= 18 : null;
+    $scope.checkForEvenOdd = index != 37 && index > 0 ? index % 2 : null;
+    $scope.checkForLowHighBet = 37 > index && index > 0 ? index <= 18 : null;
     if ($scope.betPlaceFor == 'firstDozen') {
       $scope.dozen = index <= 12 && index > 0;
     } else if ($scope.betPlaceFor == 'secondDozen') {
@@ -55,7 +62,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       })
     }
 
-    $scope.columnBet = index > 0 ? index % 3 : null;
+    $scope.columnBet = 37 > index && index > 0 ? index % 3 : null;
     var classStr = "'red':getBlack(getIndex($index,outerIndex)[0])==false,'black' :getBlack(getIndex($index,outerIndex)[0])==true ";
     //for red
     classStr += ",'active-blocks': betPlaceFor== 'red'&& getBlack(getIndex($index,outerIndex)[0])==false ";
@@ -82,7 +89,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     //for thirdColumn
     classStr += "|| betPlaceFor== '3 column' && columnBet==1";
     //otherBet
-    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0 || otherIndex==38)";
+    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0 || otherIndex==37)";
     return "{" + classStr + "}";
   }
 
@@ -106,7 +113,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getCornerBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'CornerBet' + 0 + '' + index + '' + (index - 1) + '' + (index + 2);
-    var indexArray = index == 3 ? [38, index - 1, index] : [0, index - 1, index];
+    var indexArray = index == 3 ? [37, index - 1, index] : [0, index - 1, index];
     return indexArray;
   }
   $scope.getRightSplitBetIndex = function (innerIndex, outerIndex) {
@@ -118,7 +125,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLeftSplitBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'SplitBet' + 0 + '' + index;
-    var indexArray = index == 3 ? [38, index] : [0, index];
+    var indexArray = index == 3 ? [37, index] : [0, index];
     return indexArray;
   }
   $scope.getBottomSplitBetIndex = function (innerIndex, outerIndex) {
@@ -142,7 +149,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLineBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'LineBet' + 0 + '' + index + '' + (index + 1) + '' + (index + 2);
-    var indexArray = [0, 38, index, index + 1, index + 2];
+    var indexArray = [0, 37, index, index + 1, index + 2];
     return indexArray;
   }
   RouletteService.getCurrentBalance(function (data) {
@@ -354,7 +361,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
 
-  mySocket.off("endPlacingBets", socketFunction.endPlacingBets);
+  mySocketRoullete.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
     $rootScope.canBet = false;
@@ -369,24 +376,24 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     $scope.showMessageModal();
   };
 
-  mySocket.on("endPlacingBets", socketFunction.endPlacingBets);
+  mySocketRoullete.on("endPlacingBets", socketFunction.endPlacingBets);
 
 
-  mySocket.off("spinWheel", socketFunction.spinWheel);
+  mySocketRoullete.off("spinWheel", socketFunction.spinWheel);
   socketFunction.spinWheel = function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
     });
   };
-  mySocket.on("spinWheel", socketFunction.spinWheel);
+  mySocketRoullete.on("spinWheel", socketFunction.spinWheel);
 
 
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
-  mySocket = io.sails.connect(adminRoulette);
-  mySocket.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocket._raw.id);
+  mySocketRoullete = io.sails.connect(adminRoulette);
+  mySocketRoullete.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocketRoullete._raw.id);
   });
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
@@ -405,7 +412,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   };
   $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   $rootScope.getBlack = function (number) {
-    if (number > 0 && number != 38) {
+    if (number > 0 && number != 37) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
         return n1 == number;
       });
@@ -435,15 +442,15 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
       $rootScope.soundOff = false;
     } else {}
   });
-  mySocket.off("startBetting", socketFunction.startBetting);
+  mySocketRoullete.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
     $rootScope.canBet = true;
     $state.go("roulette");
   };
-  mySocket.on("startBetting", socketFunction.startBetting);
+  mySocketRoullete.on("startBetting", socketFunction.startBetting);
 
 
-  mySocket.off("resultsSaved", socketFunction.resultsSaved);
+  mySocketRoullete.off("resultsSaved", socketFunction.resultsSaved);
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
@@ -483,7 +490,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
     // Show popup for win or lose using the data object
   };
-  mySocket.on("resultsSaved", socketFunction.resultsSaved);
+  mySocketRoullete.on("resultsSaved", socketFunction.resultsSaved);
 
   var rotationsTime = 7;
   var wheelSpinTime = 6;
@@ -670,7 +677,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
   function spinTo(num) {
     //get location
-    num == 38 ? num = '00' : "";
+    num == 37 ? num = '00' : "";
     var temp = numberLoc[num][0] + 4;
 
     //randomize

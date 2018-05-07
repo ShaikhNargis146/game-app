@@ -69,7 +69,7 @@
             <div class="col-40">
               <div class="bold">Date</div>
             </div>
-            <div class="col-20">
+            <div class="col-20" ng-if="accountStatmentFilter.type.name != 'Roulette'">
               <div class="bold text-center">SubGame</div>
             </div>
             <div class="col-20">
@@ -90,14 +90,16 @@
               <div class="bold">{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
                 <br/> {{result.game.name}}</div>
             </div>
-            <div class="col-20">
+            <div class="col-20" ng-if="accountStatmentFilter.type.name != 'Roulette'">
               <div class="text-center bold">{{result.subGame}}</div>
             </div>
             <div class="col-20">
               <div class="text-center bold">{{result.type}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center bold">{{result.amount | positive}}</div>
+              <div class="text-center bold" ng-if="accountStatmentFilter.type.name != 'Roulette'">{{result.amount | positive}}</div>
+              <div class="text-center bold" ng-if="accountStatmentFilter.type.name == 'Roulette' && result.type=='Lose'">{{result.playerLoseAmount | positive}}</div>
+              <div class="text-center bold" ng-if="accountStatmentFilter.type.name == 'Roulette' && result.type=='Win'">{{result.amount | positive}}</div>
             </div>
           </div>
         </ion-item>
