@@ -1,11 +1,11 @@
 var socketFunction = {};
-var mySocketRoulleteRoullete;
+var mySocketRoullete;
 
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
   $scope.$on('$ionicView.loaded', function (event) {
     $.jStorage.set('masterArray', null);
   });
- 
+
 
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -22,11 +22,11 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   mySocketRoullete.on('connect', function onConnect() {
     console.log("roullete socket connected", mySocketRoullete._raw.id);
   });
-  $scope.backToLobby=function(){
+  $scope.backToLobby = function () {
     mySocketRoullete.disconnect();
     $state.go('lobby');
 
-    mySocketRoullete.on('disconnect', function onConnect () {
+    mySocketRoullete.on('disconnect', function onConnect() {
       console.log("Socket disconnected!");
     });
   }
