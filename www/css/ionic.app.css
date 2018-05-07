@@ -13848,6 +13848,16 @@ ul.coin li {
   vertical-align: top;
   height: 30vw; }
 
+.bet-scroll {
+  height: 230px;
+  overflow: hidden;
+  overflow-y: auto; }
+  .bet-scroll::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; }
+  .bet-scroll::-webkit-scrollbar-thumb {
+    background: transparent; }
+
 /* elements */
 .roulette .num span {
   display: block;
