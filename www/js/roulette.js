@@ -41,8 +41,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   $scope.getNgClass = function (index) {
-    $scope.checkForEvenOdd = index > 0 ? index % 2 : null;
-    $scope.checkForLowHighBet = index > 0 ? index <= 18 : null;
+    $scope.checkForEvenOdd = index != 38 && index > 0 ? index % 2 : null;
+    $scope.checkForLowHighBet = 38 > index && index > 0 ? index <= 18 : null;
     if ($scope.betPlaceFor == 'firstDozen') {
       $scope.dozen = index <= 12 && index > 0;
     } else if ($scope.betPlaceFor == 'secondDozen') {
@@ -55,7 +55,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       })
     }
 
-    $scope.columnBet = index > 0 ? index % 3 : null;
+    $scope.columnBet = 38 > index && index > 0 ? index % 3 : null;
     var classStr = "'red':getBlack(getIndex($index,outerIndex)[0])==false,'black' :getBlack(getIndex($index,outerIndex)[0])==true ";
     //for red
     classStr += ",'active-blocks': betPlaceFor== 'red'&& getBlack(getIndex($index,outerIndex)[0])==false ";
