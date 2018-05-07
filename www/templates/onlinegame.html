@@ -1,6 +1,6 @@
 <div class="online_game">
 
-    <button class="back_lobby custom_button" ui-sref="lobby">Back to Lobby</button>
+    <button class="back_lobby custom_button" ng-click="backToLobby()">Back to Lobby</button>
     <div class="float-right">Chips Balance :
       <img class="coin" src="img/lobby/yellow_coin.png"> {{balance |number:2}}
       <span> conversion rate: {{ARRate}}

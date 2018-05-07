@@ -1,13 +1,12 @@
 var socketFunction = {};
-var mySocket;
+var mySocketRoulleteRoullete;
 
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
   $scope.$on('$ionicView.loaded', function (event) {
     $.jStorage.set('masterArray', null);
   });
-  $scope.backToLobby = function () {
-    $state.go("lobby");
-  };
+ 
+
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
@@ -19,10 +18,18 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   // $scope.masterArray = {};
   $rootScope.canBet = true;
   $scope.visitedArray = [];
-  mySocket = io.sails.connect(adminRoulette);
-  mySocket.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocket._raw.id);
+  mySocketRoullete = io.sails.connect(adminRoulette);
+  mySocketRoullete.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocketRoullete._raw.id);
   });
+  $scope.backToLobby=function(){
+    mySocketRoullete.disconnect();
+    $state.go('lobby');
+
+    mySocketRoullete.on('disconnect', function onConnect () {
+      console.log("Socket disconnected!");
+    });
+  }
   $rootScope.getBlack = function (number) {
     if (number > 0 && number != 38) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
@@ -354,7 +361,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   };
 
 
-  mySocket.off("endPlacingBets", socketFunction.endPlacingBets);
+  mySocketRoullete.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
     $rootScope.canBet = false;
@@ -369,24 +376,24 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     $scope.showMessageModal();
   };
 
-  mySocket.on("endPlacingBets", socketFunction.endPlacingBets);
+  mySocketRoullete.on("endPlacingBets", socketFunction.endPlacingBets);
 
 
-  mySocket.off("spinWheel", socketFunction.spinWheel);
+  mySocketRoullete.off("spinWheel", socketFunction.spinWheel);
   socketFunction.spinWheel = function (data) {
     $state.go("spinnerNo", {
       number: btoa(data.result + "roulette" + _.random(0, 9999999))
     });
   };
-  mySocket.on("spinWheel", socketFunction.spinWheel);
+  mySocketRoullete.on("spinWheel", socketFunction.spinWheel);
 
 
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
-  mySocket = io.sails.connect(adminRoulette);
-  mySocket.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocket._raw.id);
+  mySocketRoullete = io.sails.connect(adminRoulette);
+  mySocketRoullete.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocketRoullete._raw.id);
   });
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
@@ -435,15 +442,15 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
       $rootScope.soundOff = false;
     } else {}
   });
-  mySocket.off("startBetting", socketFunction.startBetting);
+  mySocketRoullete.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
     $rootScope.canBet = true;
     $state.go("roulette");
   };
-  mySocket.on("startBetting", socketFunction.startBetting);
+  mySocketRoullete.on("startBetting", socketFunction.startBetting);
 
 
-  mySocket.off("resultsSaved", socketFunction.resultsSaved);
+  mySocketRoullete.off("resultsSaved", socketFunction.resultsSaved);
   socketFunction.resultsSaved = function (data) {
     console.log("resultsSaved");
     console.log(data);
@@ -483,7 +490,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
     // Show popup for win or lose using the data object
   };
-  mySocket.on("resultsSaved", socketFunction.resultsSaved);
+  mySocketRoullete.on("resultsSaved", socketFunction.resultsSaved);
 
   var rotationsTime = 7;
   var wheelSpinTime = 6;
