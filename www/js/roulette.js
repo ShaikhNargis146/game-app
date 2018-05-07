@@ -24,7 +24,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     console.log("roullete socket connected", mySocket._raw.id);
   });
   $rootScope.getBlack = function (number) {
-    if (number > 0 && number != 38) {
+    if (number > 0 && number != 37) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
         return n1 == number;
       });
@@ -41,8 +41,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
 
   $scope.getNgClass = function (index) {
-    $scope.checkForEvenOdd = index != 38 && index > 0 ? index % 2 : null;
-    $scope.checkForLowHighBet = 38 > index && index > 0 ? index <= 18 : null;
+    $scope.checkForEvenOdd = index != 37 && index > 0 ? index % 2 : null;
+    $scope.checkForLowHighBet = 37 > index && index > 0 ? index <= 18 : null;
     if ($scope.betPlaceFor == 'firstDozen') {
       $scope.dozen = index <= 12 && index > 0;
     } else if ($scope.betPlaceFor == 'secondDozen') {
@@ -55,7 +55,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
       })
     }
 
-    $scope.columnBet = 38 > index && index > 0 ? index % 3 : null;
+    $scope.columnBet = 37 > index && index > 0 ? index % 3 : null;
     var classStr = "'red':getBlack(getIndex($index,outerIndex)[0])==false,'black' :getBlack(getIndex($index,outerIndex)[0])==true ";
     //for red
     classStr += ",'active-blocks': betPlaceFor== 'red'&& getBlack(getIndex($index,outerIndex)[0])==false ";
@@ -82,7 +82,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     //for thirdColumn
     classStr += "|| betPlaceFor== '3 column' && columnBet==1";
     //otherBet
-    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0 || otherIndex==38)";
+    classStr += "|| betPlaceFor== 'otherBet' && (otherIndex==getIndex($index,outerIndex)[0] || otherIndex==0 || otherIndex==37)";
     return "{" + classStr + "}";
   }
 
@@ -106,7 +106,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getCornerBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'CornerBet' + 0 + '' + index + '' + (index - 1) + '' + (index + 2);
-    var indexArray = index == 3 ? [38, index - 1, index] : [0, index - 1, index];
+    var indexArray = index == 3 ? [37, index - 1, index] : [0, index - 1, index];
     return indexArray;
   }
   $scope.getRightSplitBetIndex = function (innerIndex, outerIndex) {
@@ -118,7 +118,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLeftSplitBetIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'SplitBet' + 0 + '' + index;
-    var indexArray = index == 3 ? [38, index] : [0, index];
+    var indexArray = index == 3 ? [37, index] : [0, index];
     return indexArray;
   }
   $scope.getBottomSplitBetIndex = function (innerIndex, outerIndex) {
@@ -142,7 +142,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.getLineBetLeftIndex = function (innerIndex, outerIndex) {
     var index = ((innerIndex + 1) * 3) - outerIndex;
     // index = 'LineBet' + 0 + '' + index + '' + (index + 1) + '' + (index + 2);
-    var indexArray = [0, 38, index, index + 1, index + 2];
+    var indexArray = [0, 37, index, index + 1, index + 2];
     return indexArray;
   }
   RouletteService.getCurrentBalance(function (data) {
@@ -405,7 +405,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   };
   $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   $rootScope.getBlack = function (number) {
-    if (number > 0 && number != 38) {
+    if (number > 0 && number != 37) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
         return n1 == number;
       });
@@ -670,7 +670,7 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
   function spinTo(num) {
     //get location
-    num == 38 ? num = '00' : "";
+    num == 37 ? num = '00' : "";
     var temp = numberLoc[num][0] + 4;
 
     //randomize
