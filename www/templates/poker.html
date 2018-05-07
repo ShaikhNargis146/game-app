@@ -1,7 +1,6 @@
-<div class="pokar">
+<!-- <div class="pokar">
   <div class="top_field">
     <div class="option_menu_icon left" ng-click="openLeftMenu()">
-      <!-- <img src="img/option.png" class=""> -->
       <i class="icon ion-navicon-round"></i>
     </div>
     <div class="play_history  left" ng-class="{'open_play_history':viewHistory}">
@@ -14,7 +13,6 @@
         </div>
       </div>
       <div class="down-arrow" ng-click="toggleHistory()">
-        <!-- <i class="icon ion-arrow-down-a"></i> -->
         <i class="icon ion-chevron-down"></i>
       </div>
     </div>
@@ -68,38 +66,18 @@
         <span class="all-amount-bg">
           <img src="img/coin.png">64.0000</span>
       </div>
-      <!-- cards -->
-      <!-- <div class="playing-cards-table">
-        <div class="playing-cards">
-          <div>
-            <img src="img/poker/card1.png">
-          </div>
-          <div>
-            <img src="img/poker/card1.png">
-          </div>
-          <div>
-            <img src="img/poker/card1.png">
-          </div>
-          <div>
-            <img src="img/poker/card1.png">
-          </div>
-          <div>
-            <img src="img/poker/card1.png">
-          </div>
-        </div>
-      </div> -->
-      <!--player1-->
+
       <div id="plr1" ng-click="sitHere(1)" class="plyr player2">
-        <!-- <div class="status">BLIND</div> -->
+
         <div class="plyr_pic">
           <img class="pic" src="img/poker/user.png">
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
+
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
+
         <div class="amt">
           <img src="img/coin.png">0000000{{credit1}}</div>
         <div class="plyr_name" ng-click="openPlayerDetails(1)">
@@ -107,7 +85,6 @@
         </div>
       </div>
 
-      <!--player2-->
       <div id="plr2" ng-click="sitHere(2)" class="plyr player4 sit_here">
         <div class="status">BLIND</div>
         <div class="plyr_pic">
@@ -126,7 +103,6 @@
       </div>
 
 
-      <!--player3-->
       <div id="plr3" ng-click="sitHere(3)" class="plyr player6">
 
         <div class="status">FOLD</div>
@@ -136,10 +112,8 @@
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="amt">
 
           <div> Charles Pull... </div>
@@ -150,19 +124,15 @@
       </div>
 
 
-      <!--player4-->
       <div id="plr4" ng-click="sitHere(4)" class="plyr player8">
         <div class="status">RAISE</div>
         <div class="plyr_pic">
-
           <img class="pic" src="img/poker/user.png">
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="amt">
 
           <div> Charles Pull... </div>
@@ -171,9 +141,6 @@
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-      <!--player5-->
       <div id="plr5" class="plyr  main-player " ng-click="mainPlayerClicked();sitHere(5)">
         <div class="plyr_pic">
           <div class="pic">
@@ -182,16 +149,11 @@
             </div>
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="plyr_name" ng-click="openPlayerDetails(1)">
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-      <!--player6-->
       <div id="plr6" ng-click="sitHere(6)" class="plyr player7">
-
         <div class="plyr_pic">
           <div class="crown">
             <img src="img/poker/crown.png">
@@ -200,13 +162,11 @@
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
           </div>
           <div class="bb">
             <img src="img/poker/D.png">
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="amt">
           <div> Charles Pull... </div>
           <img src="img/coin.png">0000000{{credit1}}</div>
@@ -214,9 +174,6 @@
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-      <!--player7-->
       <div id="plr7" ng-click="sitHere(7)" class="plyr player5">
         <div class="status">ALL-IN</div>
         <div class="plyr_pic">
@@ -224,13 +181,11 @@
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
           </div>
           <div class="bb">
             <img src="img/poker/SB.png">
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="amt">
           <div> Charles Pull... </div>
           <img src="img/coin.png">0000000{{credit1}}</div>
@@ -238,233 +193,168 @@
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-      <!--player8-->
       <div id="plr8" ng-click="sitHere(8)" class="plyr player3">
         <div class="plyr_pic">
           <img class="pic" src="img/poker/user.png">
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-            <!-- <img src="img/card-back.png"> -->
           </div>
           <div class="bb">
             <img src="img/poker/BB.png">
           </div>
         </div>
-        <!-- <div class="status">BLIND</div> -->
         <div class="amt">
-
           <div> Charles Pull... </div>
           <img src="img/coin.png">0000000{{credit1}}</div>
         <div class="plyr_name" ng-click="openPlayerDetails(1)">
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-      <!--player9-->
       <div id="plr9" ng-click="sitHere(9)" class="plyr player1 ">
         <div class="plyr_pic">
-
           <img class="pic" src="img/poker/user.png">
           <div class="plyr_card">
             <img src="img/poker/card.png">
             <img src="img/poker/card.png">
-
           </div>
         </div>
-
         <div class="amt">
-
           <div> Charles Pull... </div>
           <img src="img/coin.png">0000000{{credit1}}</div>
         <div class="plyr_name" ng-click="openPlayerDetails(1)">
           <span>{{name1}}</span>
         </div>
       </div>
-
-
-
-      <!--player9-->
-      <!--<div class="plyr  main-player " ng-click="mainPlayerClicked()">
-            <div class="status">BLIND</div>
-            <div class="plyr_pic">
-              <img class="pic" src="img/playing_profile.png">
-              <div class="plyr_card">
-    
-                <img src="img/card-back.png">
-                <img src="img/card-back.png">
-                <img src="img/card-back.png">
-              </div>
-              <div class="card_see">See</div>
-            </div>
-            <div class="amt">
-              <img src="img/coin.png">64,000</div>
-    
-          </div>-->
-
-
-
-
-
-      <!-- <div class="other_player player1">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span>Some Randodsadsadsadsadsadsdm NAme</span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player2">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player3">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player4">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player5">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player6">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player7">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div>
-          <div class="other_player player8">
-            <div class="col profile_pic">
-              <img src="img/default_profile.png">
-              <div class="player_info">
-                <span> Some Random NAme </span>
-              </div>
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">Seen</div>
-            </div>
-          </div> -->
-      <!-- <div class="other_player player9 playing-player">
-            <div class="col profile_pic">
-              <img src="img/playing_profile.png">
-            </div>
-            <div class="col profile_card">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <img src="img/card-back.png">
-              <div class="card_status">
-                <span>See</span>
-              </div>
-            </div>
-          </div> -->
-
-
-
-
-
-      <!--showCard-->
-      <!-- <div class="showing_cards">
-            <img src="img/table/card-back.png">
-            <img src="img/table/card-back.png">
-            <img src="img/table/card-back.png">
-            <div class="card_see" ng-click="showCard()">See</div>
-          </div> -->
-
-
       <div class="playing-player-info">
         <span class="pack" ng-click="openModal()"> FOLD </span>
         <span class="slide_show" ng-click="openInfoModal()"> ALL-IN </span>
-        <!--<span class="info"> christie kallies
-              <img src="img/coin.png">120000 </span>-->
-        <!-- <span class="info"> {{username}}
-          <img src="img/coin.png">{{credit}}</span>
-        <span class="minus no-click-effect" ng-click="removeCoin()">
-          <i class="icon ion-minus-round"></i>
-        </span> -->
         <span class="coin" ng-click="opensearchModal()">
           CALL</span>
         <span class="plus no-click-effect" ng-click="addCoin()">RAISE</span>
-
       </div>
-
-
     </div>
   </div>
+</div> -->
+
+
+
+
+<!-- poker design -->
+
+<div class="pokerkingtable">
+  <div class="top_field">
+    <div class="option_menu_icon left" ng-click="openLeftMenu()">
+
+      <i class="icon ion-navicon-round"></i>
+    </div>
+
+    <div class="right_side_icon right">
+      <div class="setting_menu_icon">
+        <span class="icon ion-information" ng-click="toggleTableInfo()"></span>
+
+      </div>
+      <poker-table-info></poker-table-info>
+    </div>
+
+  </div>
+
+  <div class="main-table" ng-click="closeAllModal()">
+
+    <div class="playing-table">
+      <img src="img/doll.png" class="doll">
+      <img src="img/poker/table.png" class="bg-table">
+      <div class="tip" ng-if="!sitHere">
+        TIP
+      </div>
+
+      <poker-pot-amount ng-amount="potAmount" ng-player="players">
+      </poker-pot-amount>
+      <poker-tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </poker-tip-amount>
+
+      <div class="card_shuffle">
+        <div class="cards">
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+        </div>
+        <div class="cards toplyr1">
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+          <card card='NONE'> </card>
+        </div>
+      </div>
+
+      <div class="players">
+        <poker-boot-animation> </poker-boot-animation>
+
+        <poker-players id="plr1" ng-pos="1" ng-click="sitHerefn(1)" ng-player="players[0]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr2" ng-pos="2" ng-click="sitHerefn(2)" ng-player="players[1]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr3" ng-pos="3" ng-click="sitHerefn(3)" ng-player="players[2]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr4" ng-pos="4" ng-click="sitHerefn(4)" ng-player="players[3]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr5" ng-pos="5" ng-click="sitHerefn(5)" ng-player="players[4]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr6" ng-pos="6" ng-click="sitHerefn(6)" ng-player="players[5]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr7" ng-pos="7" ng-click="sitHerefn(7)" ng-player="players[6]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr8" ng-pos="8" ng-click="sitHerefn(8)" ng-player="players[7]" ng-animation="startAnimation" ng-sit-here="sitHere">
+        </poker-players>
+        <poker-players id="plr9" ng-pos="9" ng-click="sitHerefn(9)" ng-player="players[8]" ng-animation="startAnimation" ng-sit-here="sitHere"
+          ng-if="sitHere">
+        </poker-players>
+
+        <poker-main-player ng-pos="0" ng-click="sitHerefn(9)" ng-if="!sitHere" ng-main="main-player" ng-player="players[8]" ng-sit-here="sitHere">
+        </poker-main-player>
+
+      </div>
+    </div>
+    <div class="playing-player-info" ng-if="!sitHere">
+      <button class="">
+        FOLD
+      </button>
+      <button class="">
+        call 5000
+      </button>
+      <div class="mainplayer_block">
+        <div class="info"> player name
+          <img src="img/coin.png"> 5000
+        </div>
+
+        <div class="showing_cards " ng-class="{'main_card_anime':player.cards.length>0 && startAnimation}">
+          <div class="custom-row card2 custom-row-card">
+            <card card='NONE'></card>
+            <card card='NONE'></card>
+          </div>
+          <!-- <div>
+            <div class=" custom-row custom-row-card card2">
+              <card card='{{player.cards[0]}}'> </card>
+              <card card='{{player.cards[1]}}'> </card>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <button class="">
+        Raise
+      </button>
+      <button class="">
+        All IN
+      </button>
+    </div>
+  </div>
+</div>
+<poker-left-menu></poker-left-menu>
+
+<div class="loader table_loader" ng-if="ShowLoader">
+  <div class="center">
+    <img src="img/logo.png" class="loader-logo">
+    <div>Loading... </div>
+    <img src="img/spinner.gif">
+  </div>
+
+
 </div>

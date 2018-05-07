@@ -1,0 +1,40 @@
+<div class="plyr main-player p{{pos}} {{mainplayer}}" ng-class="{
+    'sit_here':sitHere && !player,
+    'no_player':!sitHere && player==0
+}">
+
+  <div class="winner-display">
+    <div class="winner-player " ng-class="{'winner_main':player.winRank==1}">
+
+    </div>
+  </div>
+
+  <div class="pie_loader" ng-if="player.isTurn && !player.winRank">
+    <div class="animation_wrapper">
+      <div class="pie spinner"></div>
+      <div class="pie filler"></div>
+      <div class="mask"></div>
+    </div>
+  </div>
+
+  <div class="wnr" ng-class="{'winner_anime':player.winRank==1}">
+
+    <img src="img/table/glow.png" class="anime1">
+    <img src="img/table/glow.png" class="anime2">
+    <img src="img/table/glow.png" class="anime3">
+    <img src="img/table/glow.png" class="anime4">
+  </div>
+  <div class="status">
+    FOLD
+  </div>
+
+  <div class="plyr_pic">
+    <div class="pic">
+      <div class="profile_pic_overlay">
+        <img ng-src="{{player.image | serverimage}}"> </div>
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,67 @@
+<div class="plyr p{{pos}}" ng-class="{
+    'no_playe':!player && !sitHere,
+    'sit_her':sitHere && !player,
+    'card_shuffle_animation': player && player.cards.length>0 && startAnimation
+}">
+  <div class="winner-display">
+    <div class="winner-player " ng-class="{'winner':player.winRank== 1}"></div>
+  </div>
+
+  <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winRank">
+    <div class="animation_wrapper">
+      <div class="pie spinner"></div>
+      <div class="pie filler"></div>
+      <div class="mask"></div>
+    </div>
+  </div>
+
+  <div class="blind-status">
+    B
+  </div>
+
+  <div class="wnr" ng-class="{'winner_anime':player.winRank== 1}">
+    <img src="img/table/glow.png" class="anime1">
+    <img src="img/table/glow.png" class="anime2">
+    <img src="img/table/glow.png" class="anime3">
+    <img src="img/table/glow.png" class="anime4">
+  </div>
+  <!-- <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingAllPlayerCount>1">
+        BLIND
+      </div>
+      <div class="status" ng-if="player.isFold && player.isActive && remainingAllPlayerCount>1">
+        PACK
+      </div> -->
+  <div class="status">
+    ALL IN
+  </div>
+  <!-- <div class="status" ng-if="!player.isActive || remainingAllPlayerCount==1">
+        Waiting...
+      </div> -->
+  <div class="plyr_pic">
+    <div class="pic">
+      <div class="profile_pic_overlay">
+        <img ng-src="{{player.image | serverimage}}">
+      </div>
+    </div>
+    <!-- two card -->
+    <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}">
+      <div class=" custom-row">
+        <card card='DONE'></card>
+        <card card='DONE'></card>
+      </div>
+    </div>
+    <!-- <div class="plyr_card plyr_card_2card plyr_card2_winner ">
+          <div class=" custom-row">
+            <card card='{{player.cards[0]}}'> </card>
+            <card card='{{player.cards[1]}}'> </card>
+          </div>
+        </div> -->
+    <!-- two card end -->
+  </div>
+  <div class="amt">
+    <img src="img/coin.png">5000
+  </div>
+  <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
+    <span>player{{pos}}</span>
+  </div>
+</div>
