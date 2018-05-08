@@ -1,6 +1,12 @@
 myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup, $ionicPlatform, Service, $http, $timeout) {
-  $("#iframe").remove();
 
+  $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+    if (fromState.name == 'onlinegame' ) {
+      $("#iframe").remove();
+      $state.reload();
+     delete EvolutionGaming;
+    }
+  });
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock('landscape');
@@ -54,8 +60,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
     },
     {
       "name": "Live Casino",
-    }, {
-      "name": "Roulette"
     }
   ]
 
@@ -229,26 +233,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
           $scope.$broadcast('scroll.infiniteScrollComplete');
         } else {}
       });
-    }
-    if (accountStatmentFilter.type.name == "Roulette") {
-      Service.getAccountStatement($scope.pageNo, accountStatmentFilter, function (data) {
-        console.log(data);
-        if (data.value) {
-          if (data.data.accounts.total === 0) {
-            $scope.noDataFound = true;
-            $scope.results = [];
-            $scope.statementNetProfit = false;
-          }
-          $scope.statementNetProfit = data.data.netProfit;
-          $scope.paging = data.data.accounts.options;
-          console.log(data.data);
-          _.each(data.data.accounts.results, function (n) {
-            $scope.results.push(n);
-          });
-          $scope.loadingDisable = false;
-          $scope.$broadcast('scroll.infiniteScrollComplete');
-        } else {}
-      })
     }
 
   };

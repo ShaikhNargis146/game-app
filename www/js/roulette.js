@@ -1,11 +1,10 @@
 var socketFunction = {};
-var mySocketRoullete;
 
 myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $timeout, $rootScope, RouletteService) {
   $scope.$on('$ionicView.loaded', function (event) {
     $.jStorage.set('masterArray', null);
   });
-
+  var mySocketRoullete = RouletteService.getSocket();
 
 
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -18,14 +17,11 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   // $scope.masterArray = {};
   $rootScope.canBet = true;
   $scope.visitedArray = [];
-  mySocketRoullete = io.sails.connect(adminRoulette);
-  mySocketRoullete.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocketRoullete._raw.id);
-  });
+
   $scope.backToLobby = function () {
     mySocketRoullete.disconnect();
     $state.go('lobby');
-
+    mySocketRoullete.removeAllListeners('spinWheel');
     mySocketRoullete.on('disconnect', function onConnect() {
       console.log("Socket disconnected!");
     });
@@ -391,10 +387,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
-  mySocketRoullete = io.sails.connect(adminRoulette);
-  mySocketRoullete.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocketRoullete._raw.id);
-  });
+  var mySocketRoullete=RouletteService.getSocket();
+
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -745,7 +739,15 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 });
 
 myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $ionicActionSheet, $timeout, $state, $ionicPlatform) {
+  var mySocketRoullete;
+  mySocketRoullete = io.sails.connect(adminRoulette);
+  mySocketRoullete.on('connect', function onConnect() {
+    console.log("roullete socket connected", mySocketRoullete._raw.id);
+  });
   return {
+    getSocket: function () {
+      return mySocketRoullete;
+    },
     getLastResults: function (callback) {
       $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
         callback(data.data.data);
