@@ -1,0 +1,2166 @@
+{ 
+    "_id" : ObjectId("5ab9f45c39cadb0a824b592b"), 
+    "createdAt" : ISODate("2018-03-27T07:35:56.376+0000"), 
+    "updatedAt" : ISODate("2018-03-27T07:35:56.376+0000"), 
+    "name" : "Even", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(6), 
+        NumberInt(8), 
+        NumberInt(10), 
+        NumberInt(12), 
+        NumberInt(14), 
+        NumberInt(16), 
+        NumberInt(18), 
+        NumberInt(20), 
+        NumberInt(22), 
+        NumberInt(24), 
+        NumberInt(26), 
+        NumberInt(28), 
+        NumberInt(30), 
+        NumberInt(32), 
+        NumberInt(34), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab9f46c39cadb0a824b592d"), 
+    "createdAt" : ISODate("2018-03-27T07:36:12.583+0000"), 
+    "updatedAt" : ISODate("2018-03-27T07:36:12.583+0000"), 
+    "name" : "Odd", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(3), 
+        NumberInt(5), 
+        NumberInt(7), 
+        NumberInt(9), 
+        NumberInt(11), 
+        NumberInt(13), 
+        NumberInt(15), 
+        NumberInt(17), 
+        NumberInt(19), 
+        NumberInt(21), 
+        NumberInt(23), 
+        NumberInt(25), 
+        NumberInt(27), 
+        NumberInt(29), 
+        NumberInt(31), 
+        NumberInt(33), 
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab9f47839cadb0a824b592f"), 
+    "createdAt" : ISODate("2018-03-27T07:36:24.697+0000"), 
+    "updatedAt" : ISODate("2018-03-27T07:36:24.697+0000"), 
+    "name" : "Red", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(3), 
+        NumberInt(5), 
+        NumberInt(7), 
+        NumberInt(9), 
+        NumberInt(12), 
+        NumberInt(14), 
+        NumberInt(18), 
+        NumberInt(16), 
+        NumberInt(19), 
+        NumberInt(21), 
+        NumberInt(23), 
+        NumberInt(25), 
+        NumberInt(27), 
+        NumberInt(30), 
+        NumberInt(32), 
+        NumberInt(34), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab9fe4c5b38ab1382f90aee"), 
+    "createdAt" : ISODate("2018-03-27T08:18:20.193+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:18:20.193+0000"), 
+    "name" : "Black", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(2), 
+        NumberInt(4), 
+        NumberInt(6), 
+        NumberInt(8), 
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(17), 
+        NumberInt(20), 
+        NumberInt(22), 
+        NumberInt(24), 
+        NumberInt(26), 
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(31), 
+        NumberInt(33), 
+        NumberInt(35), 
+        NumberInt(13), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab9fecd5b38ab1382f90af0"), 
+    "createdAt" : ISODate("2018-03-27T08:20:29.732+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:20:29.732+0000"), 
+    "name" : "First Dozen", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3), 
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(6), 
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(9), 
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ab9ff395b38ab1382f90af3"), 
+    "createdAt" : ISODate("2018-03-27T08:22:17.298+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:22:17.298+0000"), 
+    "name" : "Middle Dozen", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15), 
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(18), 
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(21), 
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba02fb5b38ab1382f90af5"), 
+    "createdAt" : ISODate("2018-03-27T08:38:19.098+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:38:19.098+0000"), 
+    "name" : "Last Dozen", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(27), 
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(30), 
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(33), 
+        NumberInt(34), 
+        NumberInt(35), 
+        NumberInt(36), 
+        NumberInt(26)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba04115b38ab1382f90afb"), 
+    "createdAt" : ISODate("2018-03-27T08:42:57.395+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:42:57.395+0000"), 
+    "name" : "Low Bet", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3), 
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(6), 
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(9), 
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(12), 
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15), 
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba047a5b38ab1382f90afd"), 
+    "createdAt" : ISODate("2018-03-27T08:44:42.064+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:44:42.064+0000"), 
+    "name" : "High Bet", 
+    "multiplier" : NumberInt(2), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(21), 
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(24), 
+        NumberInt(25), 
+        NumberInt(26), 
+        NumberInt(27), 
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(30), 
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(33), 
+        NumberInt(34), 
+        NumberInt(35), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba04f55b38ab1382f90aff"), 
+    "createdAt" : ISODate("2018-03-27T08:46:45.397+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:46:45.397+0000"), 
+    "name" : "1 column", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(4), 
+        NumberInt(7), 
+        NumberInt(10), 
+        NumberInt(13), 
+        NumberInt(16), 
+        NumberInt(19), 
+        NumberInt(22), 
+        NumberInt(25), 
+        NumberInt(28), 
+        NumberInt(31), 
+        NumberInt(34)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba058c5b38ab1382f90b01"), 
+    "createdAt" : ISODate("2018-03-27T08:49:16.562+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:49:16.562+0000"), 
+    "name" : "2 column", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(5), 
+        NumberInt(8), 
+        NumberInt(11), 
+        NumberInt(14), 
+        NumberInt(17), 
+        NumberInt(20), 
+        NumberInt(23), 
+        NumberInt(26), 
+        NumberInt(29), 
+        NumberInt(32), 
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5aba06185b38ab1382f90b07"), 
+    "createdAt" : ISODate("2018-03-27T08:51:36.363+0000"), 
+    "updatedAt" : ISODate("2018-03-27T08:51:36.363+0000"), 
+    "name" : "3 column", 
+    "multiplier" : NumberInt(3), 
+    "numbers" : [
+        NumberInt(6), 
+        NumberInt(9), 
+        NumberInt(12), 
+        NumberInt(15), 
+        NumberInt(18), 
+        NumberInt(21), 
+        NumberInt(24), 
+        NumberInt(27), 
+        NumberInt(30), 
+        NumberInt(33), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb617193f0684512f591e1"), 
+    "createdAt" : ISODate("2018-03-28T09:33:37.558+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:33:37.558+0000"), 
+    "name" : "0", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(0)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb627593f0684512f591e7"), 
+    "createdAt" : ISODate("2018-03-28T09:37:57.147+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:37:57.147+0000"), 
+    "name" : "1", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(1)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb628093f0684512f591e9"), 
+    "createdAt" : ISODate("2018-03-28T09:38:08.240+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:38:08.240+0000"), 
+    "name" : "2", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb628993f0684512f591eb"), 
+    "createdAt" : ISODate("2018-03-28T09:38:17.524+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:38:17.524+0000"), 
+    "name" : "3", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb629593f0684512f591ed"), 
+    "createdAt" : ISODate("2018-03-28T09:38:29.701+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:38:29.701+0000"), 
+    "name" : "4", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(4)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb62e293f0684512f591f1"), 
+    "createdAt" : ISODate("2018-03-28T09:39:46.735+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:39:46.735+0000"), 
+    "name" : "5", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(5)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb62ef93f0684512f591f4"), 
+    "createdAt" : ISODate("2018-03-28T09:39:59.183+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:39:59.183+0000"), 
+    "name" : "6", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb62f793f0684512f591f6"), 
+    "createdAt" : ISODate("2018-03-28T09:40:07.380+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:40:07.380+0000"), 
+    "name" : "7", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(7)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb630393f0684512f591f8"), 
+    "createdAt" : ISODate("2018-03-28T09:40:19.047+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:40:19.047+0000"), 
+    "name" : "8", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(8)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb631a93f0684512f591fa"), 
+    "createdAt" : ISODate("2018-03-28T09:40:42.652+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:40:42.652+0000"), 
+    "name" : "9", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb632493f0684512f591fc"), 
+    "createdAt" : ISODate("2018-03-28T09:40:52.467+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:40:52.467+0000"), 
+    "name" : "10", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(10)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb632b93f0684512f591fe"), 
+    "createdAt" : ISODate("2018-03-28T09:40:59.846+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:40:59.846+0000"), 
+    "name" : "11", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(11)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb633293f0684512f59200"), 
+    "createdAt" : ISODate("2018-03-28T09:41:06.737+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:06.737+0000"), 
+    "name" : "12", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb633c93f0684512f59202"), 
+    "createdAt" : ISODate("2018-03-28T09:41:16.110+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:16.110+0000"), 
+    "name" : "13", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(13)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb634993f0684512f59204"), 
+    "createdAt" : ISODate("2018-03-28T09:41:29.088+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:29.088+0000"), 
+    "name" : "14", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(14)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb635293f0684512f59206"), 
+    "createdAt" : ISODate("2018-03-28T09:41:38.912+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:38.912+0000"), 
+    "name" : "15", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb635b93f0684512f59208"), 
+    "createdAt" : ISODate("2018-03-28T09:41:47.644+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:47.644+0000"), 
+    "name" : "16", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(16)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb636493f0684512f5920a"), 
+    "createdAt" : ISODate("2018-03-28T09:41:56.949+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:41:56.949+0000"), 
+    "name" : "17", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(17)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb636d93f0684512f5920c"), 
+    "createdAt" : ISODate("2018-03-28T09:42:05.927+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:05.927+0000"), 
+    "name" : "18", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb637793f0684512f5920e"), 
+    "createdAt" : ISODate("2018-03-28T09:42:15.925+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:15.925+0000"), 
+    "name" : "19", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(19)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb638393f0684512f59210"), 
+    "createdAt" : ISODate("2018-03-28T09:42:27.255+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:27.255+0000"), 
+    "name" : "20", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(20)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb638c93f0684512f59212"), 
+    "createdAt" : ISODate("2018-03-28T09:42:36.071+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:36.071+0000"), 
+    "name" : "21", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb639393f0684512f59214"), 
+    "createdAt" : ISODate("2018-03-28T09:42:43.049+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:43.049+0000"), 
+    "name" : "22", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(22)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb639a93f0684512f59216"), 
+    "createdAt" : ISODate("2018-03-28T09:42:50.420+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:42:50.420+0000"), 
+    "name" : "23", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(23)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63a493f0684512f59218"), 
+    "createdAt" : ISODate("2018-03-28T09:43:00.302+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:00.302+0000"), 
+    "name" : "24", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63af93f0684512f5921a"), 
+    "createdAt" : ISODate("2018-03-28T09:43:11.271+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:11.271+0000"), 
+    "name" : "25", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(25)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63b993f0684512f5921c"), 
+    "createdAt" : ISODate("2018-03-28T09:43:21.311+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:21.311+0000"), 
+    "name" : "26", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(26)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63c593f0684512f5921e"), 
+    "createdAt" : ISODate("2018-03-28T09:43:33.424+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:33.424+0000"), 
+    "name" : "27", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63d093f0684512f59220"), 
+    "createdAt" : ISODate("2018-03-28T09:43:44.097+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:44.097+0000"), 
+    "name" : "28", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(28)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63da93f0684512f59222"), 
+    "createdAt" : ISODate("2018-03-28T09:43:54.526+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:43:54.526+0000"), 
+    "name" : "29", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(29)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63e393f0684512f59224"), 
+    "createdAt" : ISODate("2018-03-28T09:44:03.230+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:03.230+0000"), 
+    "name" : "30", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63f493f0684512f59226"), 
+    "createdAt" : ISODate("2018-03-28T09:44:20.965+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:20.965+0000"), 
+    "name" : "31", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(31)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb63fc93f0684512f59228"), 
+    "createdAt" : ISODate("2018-03-28T09:44:28.320+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:28.320+0000"), 
+    "name" : "32", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(32)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb640393f0684512f5922a"), 
+    "createdAt" : ISODate("2018-03-28T09:44:35.547+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:35.547+0000"), 
+    "name" : "33", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb640c93f0684512f5922c"), 
+    "createdAt" : ISODate("2018-03-28T09:44:44.621+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:44.621+0000"), 
+    "name" : "34", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(34)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb641593f0684512f5922e"), 
+    "createdAt" : ISODate("2018-03-28T09:44:53.163+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:44:53.163+0000"), 
+    "name" : "35", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5abb641d93f0684512f59230"), 
+    "createdAt" : ISODate("2018-03-28T09:45:01.363+0000"), 
+    "updatedAt" : ISODate("2018-03-28T09:45:01.363+0000"), 
+    "name" : "36", 
+    "multiplier" : NumberInt(35), 
+    "numbers" : [
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac31fc32aae671b0548c095"), 
+    "createdAt" : ISODate("2018-04-03T06:31:31.839+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:31:31.839+0000"), 
+    "name" : "Line bet1", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3), 
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3202b2aae671b0548c09a"), 
+    "createdAt" : ISODate("2018-04-03T06:33:15.766+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:33:15.766+0000"), 
+    "name" : "Line Bet2", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(6), 
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac320462aae671b0548c09c"), 
+    "createdAt" : ISODate("2018-04-03T06:33:42.744+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:33:42.744+0000"), 
+    "name" : "Line Bet3", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(9), 
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac320612aae671b0548c09e"), 
+    "createdAt" : ISODate("2018-04-03T06:34:09.387+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:34:09.387+0000"), 
+    "name" : "Line Bet4", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(12), 
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3207a2aae671b0548c0a0"), 
+    "createdAt" : ISODate("2018-04-03T06:34:34.804+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:34:34.804+0000"), 
+    "name" : "Line Bet5", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15), 
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3208e2aae671b0548c0a2"), 
+    "createdAt" : ISODate("2018-04-03T06:34:54.885+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:34:54.885+0000"), 
+    "name" : "Line Bet6", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(18), 
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac320fd2aae671b0548c0ad"), 
+    "createdAt" : ISODate("2018-04-03T06:36:45.446+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:36:45.446+0000"), 
+    "name" : "Line Bet7", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(21), 
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac321de2aae671b0548c0c3"), 
+    "createdAt" : ISODate("2018-04-03T06:40:30.434+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:40:30.434+0000"), 
+    "name" : "Line Bet8", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(24), 
+        NumberInt(25), 
+        NumberInt(26), 
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac321fc2aae671b0548c0c6"), 
+    "createdAt" : ISODate("2018-04-03T06:41:00.036+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:41:00.036+0000"), 
+    "name" : "Line Bet9", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(26), 
+        NumberInt(27), 
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac322502aae671b0548c0cc"), 
+    "createdAt" : ISODate("2018-04-03T06:42:24.533+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:42:24.533+0000"), 
+    "name" : "Line Bet10", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(30), 
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3226b2aae671b0548c0ce"), 
+    "createdAt" : ISODate("2018-04-03T06:42:51.388+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:42:51.387+0000"), 
+    "name" : "Line Bet11", 
+    "multiplier" : NumberInt(5), 
+    "numbers" : [
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(33), 
+        NumberInt(34), 
+        NumberInt(35), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac322f72aae671b0548c0d2"), 
+    "createdAt" : ISODate("2018-04-03T06:45:11.842+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:45:11.842+0000"), 
+    "name" : "Corner Bet1", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323062aae671b0548c0d4"), 
+    "createdAt" : ISODate("2018-04-03T06:45:26.155+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:45:26.155+0000"), 
+    "name" : "Corner Bet2", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(4), 
+        NumberInt(5)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323112aae671b0548c0d6"), 
+    "createdAt" : ISODate("2018-04-03T06:45:37.990+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:45:37.990+0000"), 
+    "name" : "Corner Bet3", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(2), 
+        NumberInt(3), 
+        NumberInt(5), 
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323212aae671b0548c0d8"), 
+    "createdAt" : ISODate("2018-04-03T06:45:53.290+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:45:53.290+0000"), 
+    "name" : "Corner Bet4", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(7), 
+        NumberInt(8)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3232f2aae671b0548c0da"), 
+    "createdAt" : ISODate("2018-04-03T06:46:07.131+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:46:07.131+0000"), 
+    "name" : "Corner Bet5", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(5), 
+        NumberInt(6), 
+        NumberInt(8), 
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323422aae671b0548c0de"), 
+    "createdAt" : ISODate("2018-04-03T06:46:26.276+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:46:26.276+0000"), 
+    "name" : "Corner Bet6", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(10), 
+        NumberInt(11)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3235f2aae671b0548c0e2"), 
+    "createdAt" : ISODate("2018-04-03T06:46:55.967+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:46:55.967+0000"), 
+    "name" : "Corner Bet7", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(8), 
+        NumberInt(9), 
+        NumberInt(11), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323712aae671b0548c0e4"), 
+    "createdAt" : ISODate("2018-04-03T06:47:13.720+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:47:13.720+0000"), 
+    "name" : "Corner Bet8", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(13), 
+        NumberInt(14)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3237e2aae671b0548c0e6"), 
+    "createdAt" : ISODate("2018-04-03T06:47:26.136+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:47:26.136+0000"), 
+    "name" : "Corner Bet9", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(11), 
+        NumberInt(12), 
+        NumberInt(14), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3238c2aae671b0548c0e8"), 
+    "createdAt" : ISODate("2018-04-03T06:47:40.679+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:47:40.679+0000"), 
+    "name" : "Corner Bet10", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15), 
+        NumberInt(17)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323972aae671b0548c0ea"), 
+    "createdAt" : ISODate("2018-04-03T06:47:51.312+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:47:51.312+0000"), 
+    "name" : "Corner Bet11", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(14), 
+        NumberInt(15), 
+        NumberInt(17), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323a02aae671b0548c0ec"), 
+    "createdAt" : ISODate("2018-04-03T06:48:00.378+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:48:00.378+0000"), 
+    "name" : "Corner Bet12", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(19), 
+        NumberInt(20)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323ad2aae671b0548c0ee"), 
+    "createdAt" : ISODate("2018-04-03T06:48:13.220+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:48:13.220+0000"), 
+    "name" : "Corner Bet13", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(17), 
+        NumberInt(18), 
+        NumberInt(20), 
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323b52aae671b0548c0f0"), 
+    "createdAt" : ISODate("2018-04-03T06:48:21.366+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:48:21.366+0000"), 
+    "name" : "Corner Bet14", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(22), 
+        NumberInt(23)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323c52aae671b0548c0f2"), 
+    "createdAt" : ISODate("2018-04-03T06:48:37.147+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:48:37.147+0000"), 
+    "name" : "Corner Bet15", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(20), 
+        NumberInt(21), 
+        NumberInt(23), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323d52aae671b0548c0f5"), 
+    "createdAt" : ISODate("2018-04-03T06:48:53.747+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:48:53.747+0000"), 
+    "name" : "Corner Bet16", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(25), 
+        NumberInt(26)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323df2aae671b0548c0f8"), 
+    "createdAt" : ISODate("2018-04-03T06:49:03.031+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:49:03.031+0000"), 
+    "name" : "Corner Bet17", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(23), 
+        NumberInt(24), 
+        NumberInt(26), 
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323ea2aae671b0548c0fa"), 
+    "createdAt" : ISODate("2018-04-03T06:49:14.249+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:49:14.249+0000"), 
+    "name" : "Corner Bet18", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(26), 
+        NumberInt(28), 
+        NumberInt(29)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac323fb2aae671b0548c0fc"), 
+    "createdAt" : ISODate("2018-04-03T06:49:31.188+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:49:31.188+0000"), 
+    "name" : "Corner Bet19", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(26), 
+        NumberInt(27), 
+        NumberInt(29), 
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac324062aae671b0548c0fe"), 
+    "createdAt" : ISODate("2018-04-03T06:49:42.281+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:49:42.281+0000"), 
+    "name" : "Corner Bet20", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(31), 
+        NumberInt(32)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac324152aae671b0548c100"), 
+    "createdAt" : ISODate("2018-04-03T06:49:57.028+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:49:57.028+0000"), 
+    "name" : "Corner Bet21", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(29), 
+        NumberInt(30), 
+        NumberInt(32), 
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac324272aae671b0548c105"), 
+    "createdAt" : ISODate("2018-04-03T06:50:15.021+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:50:15.021+0000"), 
+    "name" : "Corner Bet22", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(34), 
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac324312aae671b0548c107"), 
+    "createdAt" : ISODate("2018-04-03T06:50:25.734+0000"), 
+    "updatedAt" : ISODate("2018-04-03T06:50:25.734+0000"), 
+    "name" : "Corner Bet23", 
+    "multiplier" : NumberInt(8), 
+    "numbers" : [
+        NumberInt(32), 
+        NumberInt(33), 
+        NumberInt(35), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3278b2aae671b0548c151"), 
+    "createdAt" : ISODate("2018-04-03T07:04:43.947+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:04:43.947+0000"), 
+    "name" : "Street Bet1", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327a42aae671b0548c154"), 
+    "createdAt" : ISODate("2018-04-03T07:05:08.520+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:05:08.520+0000"), 
+    "name" : "Street Bet2", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(5), 
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327b02aae671b0548c156"), 
+    "createdAt" : ISODate("2018-04-03T07:05:20.973+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:05:20.973+0000"), 
+    "name" : "Street Bet3", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(7), 
+        NumberInt(8), 
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327c02aae671b0548c158"), 
+    "createdAt" : ISODate("2018-04-03T07:05:36.705+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:05:36.705+0000"), 
+    "name" : "Street Bet4", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(10), 
+        NumberInt(11), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327cf2aae671b0548c15a"), 
+    "createdAt" : ISODate("2018-04-03T07:05:51.210+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:05:51.210+0000"), 
+    "name" : "Street Bet5", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(14), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327d92aae671b0548c15c"), 
+    "createdAt" : ISODate("2018-04-03T07:06:01.781+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:06:01.781+0000"), 
+    "name" : "Street Bet6", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(16), 
+        NumberInt(17), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327ef2aae671b0548c15e"), 
+    "createdAt" : ISODate("2018-04-03T07:06:23.626+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:06:23.625+0000"), 
+    "name" : "Street Bet7", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(20), 
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac327fa2aae671b0548c160"), 
+    "createdAt" : ISODate("2018-04-03T07:06:34.864+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:06:34.864+0000"), 
+    "name" : "Street Bet8", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(22), 
+        NumberInt(23), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac328142aae671b0548c162"), 
+    "createdAt" : ISODate("2018-04-03T07:07:00.597+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:07:00.597+0000"), 
+    "name" : "Street Bet9", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(26), 
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac328202aae671b0548c164"), 
+    "createdAt" : ISODate("2018-04-03T07:07:12.200+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:07:12.200+0000"), 
+    "name" : "Street Bet10", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(28), 
+        NumberInt(29), 
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3282a2aae671b0548c167"), 
+    "createdAt" : ISODate("2018-04-03T07:07:22.874+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:07:22.874+0000"), 
+    "name" : "Street Bet11", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(31), 
+        NumberInt(32), 
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3283a2aae671b0548c169"), 
+    "createdAt" : ISODate("2018-04-03T07:07:38.351+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:07:38.351+0000"), 
+    "name" : "Street Bet12", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(34), 
+        NumberInt(35), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329722aae671b0548c16d"), 
+    "createdAt" : ISODate("2018-04-03T07:12:50.669+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:12:50.669+0000"), 
+    "name" : "Split Bet1", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329842aae671b0548c16f"), 
+    "createdAt" : ISODate("2018-04-03T07:13:08.242+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:13:08.242+0000"), 
+    "name" : "Split Bet2", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(2), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3299b2aae671b0548c171"), 
+    "createdAt" : ISODate("2018-04-03T07:13:31.332+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:13:31.332+0000"), 
+    "name" : "Split Bet3", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(1), 
+        NumberInt(4)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329a52aae671b0548c173"), 
+    "createdAt" : ISODate("2018-04-03T07:13:41.756+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:13:41.756+0000"), 
+    "name" : "Split Bet4", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(2), 
+        NumberInt(5)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329b12aae671b0548c175"), 
+    "createdAt" : ISODate("2018-04-03T07:13:53.860+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:13:53.860+0000"), 
+    "name" : "Split Bet5", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(3), 
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329dc2aae671b0548c178"), 
+    "createdAt" : ISODate("2018-04-03T07:14:36.120+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:14:36.120+0000"), 
+    "name" : "Split Bet6", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(5)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac329ed2aae671b0548c17a"), 
+    "createdAt" : ISODate("2018-04-03T07:14:53.032+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:14:53.032+0000"), 
+    "name" : "Split Bet7", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(5), 
+        NumberInt(6)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a062aae671b0548c17c"), 
+    "createdAt" : ISODate("2018-04-03T07:15:18.498+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:15:18.498+0000"), 
+    "name" : "Split Bet8", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(4), 
+        NumberInt(7)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a142aae671b0548c17e"), 
+    "createdAt" : ISODate("2018-04-03T07:15:32.367+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:15:32.367+0000"), 
+    "name" : "Split Bet8", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(5), 
+        NumberInt(8)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a212aae671b0548c180"), 
+    "createdAt" : ISODate("2018-04-03T07:15:45.223+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:15:45.223+0000"), 
+    "name" : "Split Bet9", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(6), 
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a392aae671b0548c182"), 
+    "createdAt" : ISODate("2018-04-03T07:16:09.556+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:16:09.556+0000"), 
+    "name" : "Split Bet10", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(7), 
+        NumberInt(8)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a5f2aae671b0548c188"), 
+    "createdAt" : ISODate("2018-04-03T07:16:47.007+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:16:47.007+0000"), 
+    "name" : "Split Bet11", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(8), 
+        NumberInt(9)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a702aae671b0548c18a"), 
+    "createdAt" : ISODate("2018-04-03T07:17:04.708+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:17:04.708+0000"), 
+    "name" : "Split Bet12", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(7), 
+        NumberInt(10)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a822aae671b0548c18c"), 
+    "createdAt" : ISODate("2018-04-03T07:17:22.205+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:17:22.205+0000"), 
+    "name" : "Split Bet13", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(8), 
+        NumberInt(11)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32a8e2aae671b0548c18e"), 
+    "createdAt" : ISODate("2018-04-03T07:17:34.937+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:17:34.937+0000"), 
+    "name" : "Split Bet14", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(9), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32af52aae671b0548c199"), 
+    "createdAt" : ISODate("2018-04-03T07:19:17.037+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:19:17.037+0000"), 
+    "name" : "Split Bet15", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(10), 
+        NumberInt(11)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b032aae671b0548c19b"), 
+    "createdAt" : ISODate("2018-04-03T07:19:31.961+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:19:31.960+0000"), 
+    "name" : "Split Bet16", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(11), 
+        NumberInt(12)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b2e2aae671b0548c19d"), 
+    "createdAt" : ISODate("2018-04-03T07:20:14.425+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:20:14.425+0000"), 
+    "name" : "Split Bet17", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(10), 
+        NumberInt(13)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b3b2aae671b0548c19f"), 
+    "createdAt" : ISODate("2018-04-03T07:20:27.029+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:20:27.029+0000"), 
+    "name" : "Split Bet18", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(11), 
+        NumberInt(14)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b492aae671b0548c1a1"), 
+    "createdAt" : ISODate("2018-04-03T07:20:41.739+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:20:41.739+0000"), 
+    "name" : "Split Bet19", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(12), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b5b2aae671b0548c1a3"), 
+    "createdAt" : ISODate("2018-04-03T07:20:59.657+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:20:59.657+0000"), 
+    "name" : "Split Bet20", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(14)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32b6b2aae671b0548c1a6"), 
+    "createdAt" : ISODate("2018-04-03T07:21:15.525+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:21:15.525+0000"), 
+    "name" : "Split Bet21", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(14), 
+        NumberInt(15)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c1c2aae671b0548c1ab"), 
+    "createdAt" : ISODate("2018-04-03T07:24:12.208+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:24:12.208+0000"), 
+    "name" : "Split Bet22", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(13), 
+        NumberInt(16)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c272aae671b0548c1ad"), 
+    "createdAt" : ISODate("2018-04-03T07:24:23.533+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:24:23.533+0000"), 
+    "name" : "Split Bet23", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(14), 
+        NumberInt(17)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c362aae671b0548c1af"), 
+    "createdAt" : ISODate("2018-04-03T07:24:38.388+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:24:38.388+0000"), 
+    "name" : "Split Bet24", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(15), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c712aae671b0548c1b3"), 
+    "createdAt" : ISODate("2018-04-03T07:25:37.322+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:25:37.322+0000"), 
+    "name" : "Split Bet25", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(16), 
+        NumberInt(17)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c7d2aae671b0548c1b6"), 
+    "createdAt" : ISODate("2018-04-03T07:25:49.344+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:25:49.344+0000"), 
+    "name" : "Split Bet26", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(17), 
+        NumberInt(18)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32c972aae671b0548c1b8"), 
+    "createdAt" : ISODate("2018-04-03T07:26:15.560+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:26:15.560+0000"), 
+    "name" : "Split Bet27", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(16), 
+        NumberInt(19)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32cae2aae671b0548c1ba"), 
+    "createdAt" : ISODate("2018-04-03T07:26:38.558+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:26:38.558+0000"), 
+    "name" : "Split Bet28", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(17), 
+        NumberInt(20)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32cbd2aae671b0548c1bc"), 
+    "createdAt" : ISODate("2018-04-03T07:26:53.800+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:26:53.800+0000"), 
+    "name" : "Split Bet29", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(18), 
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32cd02aae671b0548c1be"), 
+    "createdAt" : ISODate("2018-04-03T07:27:12.366+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:27:12.366+0000"), 
+    "name" : "Split Bet30", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(20)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32cdb2aae671b0548c1c0"), 
+    "createdAt" : ISODate("2018-04-03T07:27:23.919+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:27:23.919+0000"), 
+    "name" : "Split Bet31", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(20), 
+        NumberInt(21)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32e8f2aae671b0548c1c7"), 
+    "createdAt" : ISODate("2018-04-03T07:34:39.345+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:34:39.345+0000"), 
+    "name" : "Split Bet32", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(19), 
+        NumberInt(22)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32eb62aae671b0548c1ca"), 
+    "createdAt" : ISODate("2018-04-03T07:35:18.560+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:35:18.560+0000"), 
+    "name" : "Split Bet33", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(20), 
+        NumberInt(23)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32ec12aae671b0548c1cc"), 
+    "createdAt" : ISODate("2018-04-03T07:35:29.364+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:35:29.363+0000"), 
+    "name" : "Split Bet34", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(21), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32ed32aae671b0548c1ce"), 
+    "createdAt" : ISODate("2018-04-03T07:35:47.796+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:35:47.796+0000"), 
+    "name" : "Split Bet35", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(22), 
+        NumberInt(23)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32ee02aae671b0548c1d0"), 
+    "createdAt" : ISODate("2018-04-03T07:36:00.361+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:36:00.361+0000"), 
+    "name" : "Split Bet36", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(23), 
+        NumberInt(24)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32ef82aae671b0548c1d2"), 
+    "createdAt" : ISODate("2018-04-03T07:36:24.939+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:36:24.939+0000"), 
+    "name" : "Split Bet37", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(22), 
+        NumberInt(25)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f082aae671b0548c1d4"), 
+    "createdAt" : ISODate("2018-04-03T07:36:40.055+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:36:40.055+0000"), 
+    "name" : "Split Bet38", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(23), 
+        NumberInt(26)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f1a2aae671b0548c1d6"), 
+    "createdAt" : ISODate("2018-04-03T07:36:58.135+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:36:58.135+0000"), 
+    "name" : "Split Bet39", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(24), 
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f372aae671b0548c1dc"), 
+    "createdAt" : ISODate("2018-04-03T07:37:27.653+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:37:27.653+0000"), 
+    "name" : "Split Bet40", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(26)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f442aae671b0548c1de"), 
+    "createdAt" : ISODate("2018-04-03T07:37:40.664+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:37:40.663+0000"), 
+    "name" : "Split Bet41", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(26), 
+        NumberInt(27)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f5c2aae671b0548c1e0"), 
+    "createdAt" : ISODate("2018-04-03T07:38:04.761+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:38:04.761+0000"), 
+    "name" : "Split Bet42", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(25), 
+        NumberInt(28)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f692aae671b0548c1e2"), 
+    "createdAt" : ISODate("2018-04-03T07:38:17.706+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:38:17.706+0000"), 
+    "name" : "Split Bet43", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(26), 
+        NumberInt(29)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f762aae671b0548c1e4"), 
+    "createdAt" : ISODate("2018-04-03T07:38:30.415+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:38:30.415+0000"), 
+    "name" : "Split Bet44", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(27), 
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f8a2aae671b0548c1e6"), 
+    "createdAt" : ISODate("2018-04-03T07:38:50.679+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:38:50.679+0000"), 
+    "name" : "Split Bet45", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(28), 
+        NumberInt(29)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32f942aae671b0548c1e8"), 
+    "createdAt" : ISODate("2018-04-03T07:39:00.619+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:39:00.619+0000"), 
+    "name" : "Split Bet46", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(29), 
+        NumberInt(30)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fa92aae671b0548c1ea"), 
+    "createdAt" : ISODate("2018-04-03T07:39:21.072+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:39:21.072+0000"), 
+    "name" : "Split Bet47", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(28), 
+        NumberInt(31)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fb52aae671b0548c1ec"), 
+    "createdAt" : ISODate("2018-04-03T07:39:33.823+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:39:33.823+0000"), 
+    "name" : "Split Bet48", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(29), 
+        NumberInt(32)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fc22aae671b0548c1ef"), 
+    "createdAt" : ISODate("2018-04-03T07:39:46.692+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:39:46.692+0000"), 
+    "name" : "Split Bet49", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(30), 
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fcf2aae671b0548c1f1"), 
+    "createdAt" : ISODate("2018-04-03T07:39:59.431+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:39:59.431+0000"), 
+    "name" : "Split Bet50", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(31), 
+        NumberInt(32)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fd82aae671b0548c1f3"), 
+    "createdAt" : ISODate("2018-04-03T07:40:08.716+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:40:08.716+0000"), 
+    "name" : "Split Bet51", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(32), 
+        NumberInt(33)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac32fff2aae671b0548c1f8"), 
+    "createdAt" : ISODate("2018-04-03T07:40:47.356+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:40:47.356+0000"), 
+    "name" : "Split Bet52", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(31), 
+        NumberInt(34)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac3300d2aae671b0548c1fa"), 
+    "createdAt" : ISODate("2018-04-03T07:41:01.479+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:41:01.479+0000"), 
+    "name" : "Split Bet53", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(32), 
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac330222aae671b0548c1fc"), 
+    "createdAt" : ISODate("2018-04-03T07:41:22.756+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:41:22.756+0000"), 
+    "name" : "Split Bet54", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(33), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac330692aae671b0548c209"), 
+    "createdAt" : ISODate("2018-04-03T07:42:33.699+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:42:33.699+0000"), 
+    "name" : "Split Bet55", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(34), 
+        NumberInt(35)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5ac330752aae671b0548c20b"), 
+    "createdAt" : ISODate("2018-04-03T07:42:45.757+0000"), 
+    "updatedAt" : ISODate("2018-04-03T07:42:45.757+0000"), 
+    "name" : "Split Bet56", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(35), 
+        NumberInt(36)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af179a52230bf188dd9a71b"), 
+    "createdAt" : ISODate("2018-05-08T10:19:17.505+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:19:17.505+0000"), 
+    "name" : "Split Bet57", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(1)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af179bd2230bf188dd9a71e"), 
+    "createdAt" : ISODate("2018-05-08T10:19:41.912+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:19:41.912+0000"), 
+    "name" : "Split Bet58", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(37), 
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af179d32230bf188dd9a721"), 
+    "createdAt" : ISODate("2018-05-08T10:20:03.118+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:20:03.118+0000"), 
+    "name" : "Split Bet59", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(37), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17b692230bf188dd9a730"), 
+    "createdAt" : ISODate("2018-05-08T10:26:49.208+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:26:49.208+0000"), 
+    "name" : "Split Bet60", 
+    "multiplier" : NumberInt(17), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17c352230bf188dd9a740"), 
+    "createdAt" : ISODate("2018-05-08T10:30:13.044+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:30:13.044+0000"), 
+    "name" : "Trio1", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(37), 
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17c502230bf188dd9a745"), 
+    "createdAt" : ISODate("2018-05-08T10:30:40.849+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:30:40.849+0000"), 
+    "name" : "Trio2", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(1), 
+        NumberInt(2)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17c702230bf188dd9a748"), 
+    "createdAt" : ISODate("2018-05-08T10:31:12.273+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:31:12.273+0000"), 
+    "name" : "Trio3", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(37), 
+        NumberInt(2), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17e7e2230bf188dd9a759"), 
+    "createdAt" : ISODate("2018-05-08T10:39:58.223+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:39:58.223+0000"), 
+    "name" : "First Five", 
+    "multiplier" : NumberInt(6), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(37), 
+        NumberInt(1), 
+        NumberInt(2), 
+        NumberInt(3)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17ef52230bf188dd9a75f"), 
+    "createdAt" : ISODate("2018-05-08T10:41:57.032+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:41:57.032+0000"), 
+    "name" : "Spilt Bet61", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(37)
+    ], 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5af17fb02230bf188dd9a770"), 
+    "createdAt" : ISODate("2018-05-08T10:45:04.079+0000"), 
+    "updatedAt" : ISODate("2018-05-08T10:45:04.078+0000"), 
+    "name" : "Line Bet12", 
+    "multiplier" : NumberInt(11), 
+    "numbers" : [
+        NumberInt(0), 
+        NumberInt(37)
+    ], 
+    "__v" : NumberInt(0)
+}
