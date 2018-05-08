@@ -12890,6 +12890,594 @@ ion-item.item {
     margin-left: 27%;
     height: 16px; }
 
+.pokerkingtable {
+  background: url("../img/table-background.jpg");
+  background-size: cover;
+  font-size: 1.2em; }
+  .pokerkingtable .top_field {
+    position: relative;
+    z-index: 4; }
+    .pokerkingtable .top_field .option_menu_icon {
+      padding: 15px;
+      padding-top: 1%; }
+      .pokerkingtable .top_field .option_menu_icon .icon {
+        color: gold;
+        font-size: 2em; }
+    .pokerkingtable .top_field .right_side_icon {
+      padding-right: 12px;
+      padding-top: 1%;
+      color: white; }
+      .pokerkingtable .top_field .right_side_icon .setting_menu_icon {
+        text-align: right;
+        padding-bottom: 5%; }
+        .pokerkingtable .top_field .right_side_icon .setting_menu_icon .icon {
+          font-size: 2em;
+          margin-right: 15px;
+          display: block;
+          padding: 0px 5px; }
+        .pokerkingtable .top_field .right_side_icon .setting_menu_icon img {
+          width: 2em; }
+      .pokerkingtable .top_field .right_side_icon .table-info th {
+        font-size: .5em;
+        text-transform: uppercase;
+        font-family: 'CinzelDecorative-Black'; }
+      .pokerkingtable .top_field .right_side_icon .table-info td {
+        text-transform: uppercase;
+        font-size: .4em;
+        padding: 0px 10px 0px 10px;
+        line-height: 2; }
+    .pokerkingtable .top_field .play_history {
+      position: absolute;
+      left: 15%;
+      top: -2px;
+      font-size: 0.5em;
+      color: white;
+      width: 30%;
+      text-align: center; }
+      .pokerkingtable .top_field .play_history .down-arrow {
+        font-size: 3em;
+        color: #fde4bc; }
+      .pokerkingtable .top_field .play_history .cont {
+        height: 1.2rem;
+        overflow: hidden;
+        transition: all 500ms; }
+      .pokerkingtable .top_field .play_history.open_play_history .cont {
+        height: 80vh;
+        overflow-y: scroll;
+        transition: all 500ms; }
+      .pokerkingtable .top_field .play_history.open_play_history .down-arrow {
+        transform: rotate(180deg); }
+  .pokerkingtable .main-table {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    bottom: 0;
+    left: 0; }
+    .pokerkingtable .main-table.activated {
+      transform: none; }
+    .pokerkingtable .main-table .total_played_coin {
+      background: url("../img/text_bg.png");
+      background-size: 100% 100%;
+      position: absolute;
+      width: 22%;
+      left: 50%;
+      top: 15%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: white;
+      text-align: left;
+      padding: 2px;
+      top: 5%;
+      width: 15%;
+      padding-left: 10px; }
+      .pokerkingtable .main-table .total_played_coin .coin {
+        width: 1em;
+        vertical-align: middle;
+        margin-right: 5px; }
+    .pokerkingtable .main-table .playing-table {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      left: 0; }
+      .pokerkingtable .main-table .playing-table .plyr {
+        width: 8%;
+        position: absolute;
+        z-index: 3;
+        background: url("../img/plyr_bg.png");
+        background-size: 100% 100%;
+        color: white;
+        text-align: center; }
+        .pokerkingtable .main-table .playing-table .plyr .blind-status {
+          position: absolute;
+          right: -30%;
+          z-index: 1;
+          background: url("../img/text_bg.png");
+          background-size: 100% 150%;
+          background-position-y: center;
+          /* background-size: cover; */
+          padding: 3px;
+          line-height: 1;
+          font-size: 1em; }
+        .pokerkingtable .main-table .playing-table .plyr .nopalyer_status {
+          display: none; }
+        .pokerkingtable .main-table .playing-table .plyr img {
+          max-width: 100%;
+          max-height: 100%; }
+        .pokerkingtable .main-table .playing-table .plyr .status {
+          padding: 2px;
+          font-family: 'Cinzel-Bold';
+          font-size: .7em;
+          line-height: 2; }
+        .pokerkingtable .main-table .playing-table .plyr .plyr_pic {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden; }
+          .pokerkingtable .main-table .playing-table .plyr .plyr_pic .pic {
+            width: 60%;
+            margin-right: 40%;
+            padding: 0 5%; }
+          .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card {
+            position: absolute;
+            left: 40%;
+            width: 150%; }
+            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card .custom-row {
+              transition: transform 500ms; }
+            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 {
+              width: 105% !important; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card1 .custom-row {
+                transition: transform 500ms;
+                transform: scale(2.5); }
+            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card {
+              position: relative;
+              width: 20%;
+              vertical-align: middle;
+              display: inline-block; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card img {
+                width: 100%;
+                vertical-align: middle; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
+                left: 0;
+                transition: transform 500ms;
+                transition-delay: none; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
+                left: -10%;
+                transition: transform 1s;
+                transition-delay: 500ms; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
+                left: -20%;
+                transition: transform 1s;
+                transition-delay: 1000ms; }
+            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card {
+              left: 48% !important; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(1) {
+                left: 0;
+                transition: transform 500ms;
+                transition-delay: none; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(2) {
+                left: -17%;
+                transition: transform 1s;
+                transition-delay: 500ms; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(3) {
+                left: -33%;
+                transition: transform 1s;
+                transition-delay: 1000ms; }
+              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(4) {
+                left: -47%;
+                transition: transform 1s;
+                transition-delay: 1500ms; }
+        .pokerkingtable .main-table .playing-table .plyr .amt {
+          font-size: .7em;
+          line-height: 1.5; }
+          .pokerkingtable .main-table .playing-table .plyr .amt img {
+            width: 1em;
+            vertical-align: middle; }
+        .pokerkingtable .main-table .playing-table .plyr .plyr_name {
+          background: url("../img/profile_name_bg.png");
+          background-size: 100% 100%;
+          font-size: .7em;
+          padding: 0;
+          padding-bottom: 5%; }
+          .pokerkingtable .main-table .playing-table .plyr .plyr_name span {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 2.5;
+            text-align: center;
+            padding-top: 10%;
+            padding-left: 15%; }
+      .pokerkingtable .main-table .playing-table .sit_here {
+        background: url("../img/sit_here.png");
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%;
+        transform: translateY(50%); }
+        .pokerkingtable .main-table .playing-table .sit_here > * {
+          display: none !important; }
+        .pokerkingtable .main-table .playing-table .sit_here:after {
+          content: "Sit Here";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5;
+          font-weight: bold; }
+        .pokerkingtable .main-table .playing-table .sit_here.p8, .pokerkingtable .main-table .playing-table .sit_here.p1 {
+          bottom: 45%; }
+        .pokerkingtable .main-table .playing-table .sit_here.main-player {
+          width: 10% !important;
+          bottom: 20%; }
+      .pokerkingtable .main-table .playing-table .no_player {
+        background: url("../img/sit_here.png");
+        background-size: 100% 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 8%;
+        transform: translateY(50%);
+        opacity: 0.85; }
+        .pokerkingtable .main-table .playing-table .no_player > * {
+          display: none !important; }
+        .pokerkingtable .main-table .playing-table .no_player:after {
+          content: "No Player";
+          height: 100%;
+          width: 100%;
+          font-size: 1em;
+          font-family: 'Cinzel-Regular';
+          word-spacing: 10em;
+          line-height: 1.5;
+          font-weight: bold; }
+        .pokerkingtable .main-table .playing-table .no_player.p8, .pokerkingtable .main-table .playing-table .no_player.p1 {
+          bottom: 45%; }
+        .pokerkingtable .main-table .playing-table .no_player.main-player {
+          width: 10% !important;
+          bottom: 20%; }
+      .pokerkingtable .main-table .playing-table .card_fold .plyr_card {
+        display: none; }
+      .pokerkingtable .main-table .playing-table .card_fold .pic {
+        margin: 0 auto !important; }
+      .pokerkingtable .main-table .playing-table .card_fold .amt {
+        opacity: 0;
+        visibility: hidden; }
+      .pokerkingtable .main-table .playing-table .winner::before {
+        display: block;
+        content: '';
+        background: url("../img/winner.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 22px;
+        width: 50px;
+        position: absolute;
+        position: absolute;
+        top: 0;
+        transform: translateY(-108%); }
+      .pokerkingtable .main-table .playing-table .winner_main::before {
+        display: block;
+        content: '';
+        background: url("../img/winner.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        transform: translateY(-108%);
+        height: 40px;
+        width: 70px; }
+      .pokerkingtable .main-table .playing-table .dealer::after {
+        display: block;
+        content: '';
+        height: 4vh;
+        width: 30%;
+        position: absolute;
+        right: -30%;
+        top: 0;
+        background: url(../img/dealer.png);
+        background-size: 100% 100%; }
+      .pokerkingtable .main-table .playing-table .main-player {
+        width: 18% !important;
+        left: 50%;
+        bottom: 45px;
+        transform: translate(-50%, 0%); }
+        .pokerkingtable .main-table .playing-table .main-player .dealer::after {
+          height: 6vh;
+          width: 22%;
+          right: -21%; }
+        .pokerkingtable .main-table .playing-table .main-player .plyr_name {
+          display: none; }
+        .pokerkingtable .main-table .playing-table .main-player .status {
+          font-size: 1em; }
+        .pokerkingtable .main-table .playing-table .main-player .amt {
+          font-size: 1.2em; }
+        .pokerkingtable .main-table .playing-table .main-player .card_see {
+          position: absolute;
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          padding: 2% 8%;
+          font-size: 0.8em;
+          top: 40%;
+          left: 55%;
+          padding: 5px 10px; }
+      .pokerkingtable .main-table .playing-table .doll {
+        position: absolute;
+        width: 12%;
+        left: 50%;
+        top: -32%;
+        transform: translateX(-50%);
+        z-index: 2; }
+      .pokerkingtable .main-table .playing-table .tip {
+        position: absolute;
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        padding: 3px 2% 0px;
+        letter-spacing: 1px;
+        font-size: 0.8em;
+        left: 50%;
+        top: -10%;
+        transform: translateX(-50%);
+        color: white;
+        z-index: 3;
+        padding: 3px 20px 0px; }
+      .pokerkingtable .main-table .playing-table .bg-table {
+        position: relative;
+        width: 100%;
+        height: 100%; }
+    .pokerkingtable .main-table .plyr_card_2card card:nth-child(1) {
+      left: 0% !important;
+      transition: transform 500ms;
+      transition-delay: none;
+      transform: scale(1.6); }
+    .pokerkingtable .main-table .plyr_card_2card card:nth-child(2) {
+      left: -10% !important;
+      transition: transform 1s;
+      transition-delay: 500ms;
+      transform: scale(1.6); }
+    .pokerkingtable .main-table .plyr_card_2card.plyr_card2_winner {
+      left: -30% !important;
+      width: 200% !important; }
+    .pokerkingtable .main-table .showing_cards {
+      width: 10%;
+      position: absolute;
+      left: 50%;
+      bottom: 40%;
+      display: flex;
+      flex-direction: row;
+      transform: translate(-80%, 0%);
+      z-index: 3; }
+      .pokerkingtable .main-table .showing_cards .custom-row card {
+        padding: 2%;
+        width: 100%;
+        position: absolute; }
+        .pokerkingtable .main-table .showing_cards .custom-row card img {
+          width: 100%; }
+        .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(1) {
+          transform: rotate(-10deg);
+          left: -10%;
+          transition: transform 1s; }
+        .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(2) {
+          transform: rotate(0deg) scale(1.1);
+          left: 35%;
+          transition: transform 1s;
+          transition-delay: 500ms; }
+        .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(3) {
+          transform: rotate(10deg);
+          left: 65%;
+          transition: transform 1s;
+          transition-delay: 1000ms; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(1) {
+        transform: rotate(-11deg);
+        left: -20%;
+        transition: transform 1s; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(2) {
+        transform: rotate(-6deg) scale(1.1);
+        left: 16%;
+        transition: transform 1s;
+        transition-delay: 500ms; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(3) {
+        transform: rotate(5deg) scale(1.1);
+        left: 46%;
+        transition: transform 1s;
+        transition-delay: 1000ms; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(4) {
+        transform: rotate(15deg);
+        left: 76%;
+        transition: transform 1s;
+        transition-delay: 1500ms; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(1) {
+        transform: rotate(-10deg) scale(1);
+        left: 25%;
+        transition: transform 1s; }
+      .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(2) {
+        transform: rotate(10deg) scale(1);
+        left: 45%;
+        transition: transform 1s;
+        transition-delay: 500ms; }
+      .pokerkingtable .main-table .showing_cards .card_see {
+        position: absolute;
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        padding: 2% 18%;
+        font-size: 0.8em;
+        top: 20%;
+        left: 50%;
+        color: white;
+        margin-top: 20%;
+        padding: 5px 10px; }
+    .pokerkingtable .main-table .playing-player-info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      /* top: 0; */
+      color: white;
+      text-align: center;
+      font-size: 1em;
+      /* margin: 0 auto; */
+      width: 100%;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .pokerkingtable .main-table .playing-player-info .pos_range {
+        position: absolute;
+        top: -150%;
+        right: 12%;
+        width: 30%; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-floor,
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-ceil,
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-model-value {
+          color: white; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-bar {
+          background: #2d7875; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer {
+          background: url("../img/coin.png");
+          background-size: 100% 100%; }
+          .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer::after {
+            background: transparent; }
+      .pokerkingtable .main-table .playing-player-info img {
+        width: 1em;
+        vertical-align: middle; }
+      .pokerkingtable .main-table .playing-player-info > button {
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        font-size: 1em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block;
+        color: white;
+        font-family: 'Cinzel-Black'; }
+      .pokerkingtable .main-table .playing-player-info > button[disabled] {
+        opacity: 0.5; }
+      .pokerkingtable .main-table .playing-player-info > span {
+        background: url("../img/text_bg.png");
+        background-size: 100% 100%;
+        font-size: 1.2em;
+        padding: 1.5% 2.5%;
+        padding-bottom: 1%;
+        display: inline-block; }
+      .pokerkingtable .main-table .playing-player-info .pack {
+        margin: 0px 10px; }
+      .pokerkingtable .main-table .playing-player-info .slide_show {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%;
+        margin: 0px 5px;
+        min-width: 16%;
+        border: 0px;
+        height: 3em;
+        color: white;
+        font-size: 1em; }
+      .pokerkingtable .main-table .playing-player-info .info {
+        background: url("../img/text_bg3.png");
+        background-size: 100% 100%;
+        min-width: 25%;
+        height: 3em;
+        margin: 0px 5px;
+        font-size: 1em;
+        vertical-align: bottom;
+        padding-top: 2%; }
+      .pokerkingtable .main-table .playing-player-info .minus {
+        font-size: 1em; }
+      .pokerkingtable .main-table .playing-player-info .coin {
+        background: url("../img/text_bg2.png");
+        background-size: 100% 100%; }
+      .pokerkingtable .main-table .playing-player-info button {
+        border: 0px;
+        min-width: 16%;
+        margin: 0 3px;
+        height: 3em; }
+      .pokerkingtable .main-table .playing-player-info .mainplayer_block .info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 10px; }
+      .pokerkingtable .main-table .playing-player-info .mainplayer_block .showing_cards {
+        z-index: -1;
+        transform: translate(-85%, 0%);
+        top: -100%; }
+
+.pokerkingtable .plyr {
+  width: 10% !important;
+  font-size: .8em; }
+  .pokerkingtable .plyr .no_player {
+    width: 100% !important;
+    transform: translateY(0%) !important; }
+  .pokerkingtable .plyr .sit_here {
+    width: 100% !important; }
+
+.pokerkingtable .pic {
+  width: 50% !important;
+  margin-right: 45% !important;
+  padding: 1% 5% !important;
+  height: 7vh; }
+
+.pokerkingtable .plyr_card {
+  left: 35% !important;
+  width: 100% !important; }
+
+.pokerkingtable .main-player .plyr_pic {
+  display: block !important; }
+  .pokerkingtable .main-player .plyr_pic .pic {
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 25vh;
+    object-fit: cover;
+    object-position: top; }
+  .pokerkingtable .main-player .plyr_pic .plyr_card {
+    display: none; }
+  .pokerkingtable .main-player .plyr_pic .card_see {
+    display: none; }
+
+.pokerkingtable .main-player .amt {
+  display: none; }
+
+.pokerkingtable .card_shuffle {
+  left: 30%; }
+
+.pokerkingtable .p8 {
+  bottom: 5%; }
+
+.pokerkingtable .p1 {
+  bottom: 5%; }
+
+.pokerkingtable .communitycard {
+  position: absolute;
+  left: 55%;
+  top: 15%;
+  width: 35%;
+  transform: translateX(-50%); }
+  .pokerkingtable .communitycard .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: left; }
+    .pokerkingtable .communitycard .cards card {
+      padding: 1px;
+      width: 5vw;
+      animation: cardflip 2s; }
+
+@keyframes cardflip {
+  0% {
+    transform: scale(0.7) translateY(-10px);
+    opacity: 0; }
+  40% {
+    transform: scale(0.8);
+    opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@media (min-aspect-ratio: 18 / 9) {
+  .pokerkingtable .main-table .playing-table {
+    width: 85%;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -40px; }
+  .custom-row-card {
+    margin-top: -15px; }
+  .pokerkingtable .main-table .showing_cards .card_see {
+    margin-top: 5%; } }
+
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
   overflow: hidden;
@@ -13318,6 +13906,16 @@ ul.coin li {
   border-radius: 5px;
   vertical-align: top;
   height: 30vw; }
+
+.bet-scroll {
+  height: 230px;
+  overflow: hidden;
+  overflow-y: auto; }
+  .bet-scroll::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; }
+  .bet-scroll::-webkit-scrollbar-thumb {
+    background: transparent; }
 
 /* elements */
 .roulette .num span {

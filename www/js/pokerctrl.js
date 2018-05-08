@@ -2,75 +2,53 @@ myApp.controller("PokerCtrl", function ($scope, Service, $state, $ionicModal, $i
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape')
   })
-  // $scope.openModal = function() {
-  //   $scope.modal.show();
-  // };
-  //create table modal
 
-
-  $ionicModal.fromTemplateUrl('templates/model/create-private-table.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.ModalCreate = modal;
-  });
-
-  $scope.openModal = function () {
-    $scope.ModalCreate.show();
+  $scope.closeAllModal = function () {
+    $scope.leftMenu = false;
+    $scope.showTableinfo = false;
+    $scope.openSlider = false;
+    console.log('cole');
   }
-  $scope.closeModal = function () {
-    $scope.ModalCreate.hide();
+  $scope.closeLeftMenu = function () {
+    $scope.closeAllModal();
+    $scope.leftMenu = false;
   };
-
-  //private table info modal
-
-  $ionicModal.fromTemplateUrl('templates/model/private-table-info.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.ModalInfo = modal;
-  });
-
-  $scope.openInfoModal = function () {
-    $scope.ModalInfo.show();
-  }
-  //search table
-  $ionicModal.fromTemplateUrl('templates/model/search-table.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.ModalSearch = modal;
-  });
-
-  $scope.opensearchModal = function () {
-    $scope.ModalSearch.show();
-  }
-
-  $scope.itemArray = [{
-      id: 1,
-      name: 'private'
-    },
-    {
-      id: 2,
-      name: 'second'
-    },
-    {
-      id: 3,
-      name: 'third'
-    },
-    {
-      id: 4,
-      name: 'fourth'
-    },
-    {
-      id: 5,
-      name: 'fifth'
-    },
-  ];
-
-  $scope.selected = {
-    value: $scope.itemArray[0]
+  $scope.openLeftMenu = function () {
+    $scope.closeAllModal();
+    $scope.leftMenu = true;
+  };
+  //toggle for table-info
+  $scope.toggleTableInfo = function () {
+    if ($scope.showTableinfo) {
+      $scope.showTableinfo = false;
+      $scope.closeAllModal();
+    } else {
+      $scope.closeAllModal();
+      $scope.showTableinfo = true;
+    }
+  };
+  $scope.stopProgation = function ($event) {
+    $event.stopPropagation(); //wont call parent onclick function
   };
 
 
+
+  $scope.sitHere = false;
+
+  $scope.slider = {
+    value: 50,
+    options: {
+      floor: 0,
+      ceil: 100,
+      step: 10,
+      minLimit: 0,
+      maxLimit: 100
+    }
+  };
+
+
+  $scope.toggleSlider = function () {
+    $scope.openSlider = !$scope.openSlider;
+    console.log('s', $scope.openSlider);
+  }
 });
