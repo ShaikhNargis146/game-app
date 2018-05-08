@@ -6,6 +6,8 @@ myApp.controller("PokerCtrl", function ($scope, Service, $state, $ionicModal, $i
   $scope.closeAllModal = function () {
     $scope.leftMenu = false;
     $scope.showTableinfo = false;
+    $scope.openSlider = false;
+    console.log('cole');
   }
   $scope.closeLeftMenu = function () {
     $scope.closeAllModal();
@@ -33,4 +35,20 @@ myApp.controller("PokerCtrl", function ($scope, Service, $state, $ionicModal, $i
 
   $scope.sitHere = false;
 
+  $scope.slider = {
+    value: 50,
+    options: {
+      floor: 0,
+      ceil: 100,
+      step: 10,
+      minLimit: 0,
+      maxLimit: 100
+    }
+  };
+
+
+  $scope.toggleSlider = function () {
+    $scope.openSlider = !$scope.openSlider;
+    console.log('s', $scope.openSlider);
+  }
 });

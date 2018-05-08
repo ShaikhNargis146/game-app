@@ -91,6 +91,8 @@
       transform: none;
     }
     .total_played_coin {
+      background: url("../img/text_bg.png");
+      background-size: 100% 100%;
       position: absolute;
       width: 22%;
       left: 50%;
@@ -98,7 +100,12 @@
       transform: translateX(-50%);
       z-index: 2;
       text-align: center; // word-spacing: 5px;
-      color: white;
+      color: white; //
+      text-align: left;
+      padding: 2px;
+      top: 5%;
+      width: 15%;
+      padding-left: 10px;
       .coin {
         width: 1em;
         vertical-align: middle;
@@ -442,7 +449,7 @@
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: 5%;
+        top: -10%;
         transform: translateX(-50%);
         color: white;
         z-index: 3;
@@ -666,6 +673,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      .pos_range {
+        position: absolute;
+        top: -150%;
+        right: 12%;
+        width: 30%;
+        .rz-floor,
+        .rz-ceil,
+        .rz-model-value {
+          color: white;
+        }
+        .rz-bar {
+          background: #2d7875;
+        }
+        .rz-pointer {
+          background: url('../img/coin.png');
+          background-size: 100% 100%;
+          &::after {
+            background: transparent;
+          }
+        }
+      }
       img {
         width: 1em;
         vertical-align: middle;
@@ -748,6 +776,7 @@
 .pokerkingtable {
   .plyr {
     width: 10% !important;
+    font-size: .8em;
     .no_player {
       width: 100% !important;
       transform: translateY(0%) !important;
@@ -786,6 +815,47 @@
     .amt {
       display: none;
     }
+  }
+  .card_shuffle {
+    left: 30%;
+  }
+  .p8 {
+    bottom: 5%;
+  }
+  .p1 {
+    bottom: 5%;
+  }
+  .communitycard {
+    position: absolute;
+    left: 55%;
+    top: 15%;
+    width: 35%;
+    transform: translateX(-50%);
+    .cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      card {
+        padding: 1px;
+        width: 5vw;
+        animation: cardflip 2s;
+      }
+    }
+  }
+}
+
+@keyframes cardflip {
+  0% {
+    transform: scale(.7) translateY(-10px);
+    opacity: 0
+  }
+  40% {
+    transform: scale(.8);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

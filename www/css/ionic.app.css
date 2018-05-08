@@ -12956,6 +12956,8 @@ ion-item.item {
     .pokerkingtable .main-table.activated {
       transform: none; }
     .pokerkingtable .main-table .total_played_coin {
+      background: url("../img/text_bg.png");
+      background-size: 100% 100%;
       position: absolute;
       width: 22%;
       left: 50%;
@@ -12963,7 +12965,12 @@ ion-item.item {
       transform: translateX(-50%);
       z-index: 2;
       text-align: center;
-      color: white; }
+      color: white;
+      text-align: left;
+      padding: 2px;
+      top: 5%;
+      width: 15%;
+      padding-left: 10px; }
       .pokerkingtable .main-table .total_played_coin .coin {
         width: 1em;
         vertical-align: middle;
@@ -13209,7 +13216,7 @@ ion-item.item {
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: 5%;
+        top: -10%;
         transform: translateX(-50%);
         color: white;
         z-index: 3;
@@ -13313,6 +13320,22 @@ ion-item.item {
       display: flex;
       align-items: center;
       justify-content: center; }
+      .pokerkingtable .main-table .playing-player-info .pos_range {
+        position: absolute;
+        top: -150%;
+        right: 12%;
+        width: 30%; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-floor,
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-ceil,
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-model-value {
+          color: white; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-bar {
+          background: #2d7875; }
+        .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer {
+          background: url("../img/coin.png");
+          background-size: 100% 100%; }
+          .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer::after {
+            background: transparent; }
       .pokerkingtable .main-table .playing-player-info img {
         width: 1em;
         vertical-align: middle; }
@@ -13375,7 +13398,8 @@ ion-item.item {
         top: -100%; }
 
 .pokerkingtable .plyr {
-  width: 10% !important; }
+  width: 10% !important;
+  font-size: .8em; }
   .pokerkingtable .plyr .no_player {
     width: 100% !important;
     transform: translateY(0%) !important; }
@@ -13407,6 +13431,41 @@ ion-item.item {
 
 .pokerkingtable .main-player .amt {
   display: none; }
+
+.pokerkingtable .card_shuffle {
+  left: 30%; }
+
+.pokerkingtable .p8 {
+  bottom: 5%; }
+
+.pokerkingtable .p1 {
+  bottom: 5%; }
+
+.pokerkingtable .communitycard {
+  position: absolute;
+  left: 55%;
+  top: 15%;
+  width: 35%;
+  transform: translateX(-50%); }
+  .pokerkingtable .communitycard .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: left; }
+    .pokerkingtable .communitycard .cards card {
+      padding: 1px;
+      width: 5vw;
+      animation: cardflip 2s; }
+
+@keyframes cardflip {
+  0% {
+    transform: scale(0.7) translateY(-10px);
+    opacity: 0; }
+  40% {
+    transform: scale(0.8);
+    opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
 
 @media (min-aspect-ratio: 18 / 9) {
   .pokerkingtable .main-table .playing-table {

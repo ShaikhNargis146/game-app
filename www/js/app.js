@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
+var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
 
   .run(function ($ionicPlatform) {
 
@@ -137,8 +137,6 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
   });
 
 myApp.controller("AppCtrl", function ($scope) {});
-
-
 
 myApp.filter('uploadpath', function () {
   return function (input, width, height, style) {

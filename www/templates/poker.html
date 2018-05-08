@@ -284,7 +284,15 @@
           <card card='NONE'> </card>
         </div>
       </div>
-
+      <div class="communitycard">
+        <div class="cards">
+          <card card='3d'> </card>
+          <card card='ad'> </card>
+          <card card='qc'> </card>
+          <card card='th'> </card>
+          <card card='2s'> </card>
+        </div>
+      </div>
       <div class="players">
         <poker-boot-animation> </poker-boot-animation>
 
@@ -307,13 +315,12 @@
         <poker-players id="plr9" ng-pos="9" ng-click="sitHerefn(9)" ng-player="players[8]" ng-animation="startAnimation" ng-sit-here="sitHere"
           ng-if="sitHere">
         </poker-players>
-
         <poker-main-player ng-pos="0" ng-click="sitHerefn(9)" ng-if="!sitHere" ng-main="main-player" ng-player="players[8]" ng-sit-here="sitHere">
         </poker-main-player>
 
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere">
+    <div class="playing-player-info" ng-if="!sitHere" ng-click="stopProgation($event)">
       <button class="">
         FOLD
       </button>
@@ -338,8 +345,14 @@
           </div> -->
         </div>
       </div>
-      <button class="">
-        Raise
+
+
+      <div class="pos_range" ng-if="openSlider">
+        <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+      </div>
+
+      <button class="" ng-click="toggleSlider()">
+        Raise {{slider.value}}
       </button>
       <button class="">
         All IN
@@ -347,6 +360,7 @@
     </div>
   </div>
 </div>
+
 <poker-left-menu></poker-left-menu>
 
 <div class="loader table_loader" ng-if="ShowLoader">
