@@ -2164,3 +2164,14 @@
     ], 
     "__v" : NumberInt(0)
 }
+{ 
+    "_id" : ObjectId("5af29ea6cb151553993761ad"), 
+    "createdAt" : ISODate("2018-05-09T07:09:26.311+0000"), 
+    "updatedAt" : ISODate("2018-05-09T07:09:26.311+0000"), 
+    "name" : "37", 
+    "multiplier" : NumberInt(36), 
+    "numbers" : [
+        NumberInt(37)
+    ], 
+    "__v" : NumberInt(0)
+}
