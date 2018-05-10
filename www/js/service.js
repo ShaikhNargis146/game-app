@@ -516,3 +516,29 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
   };
   return obj;
 });
+
+
+myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state, $filter) {
+
+
+  var obj1 = {
+    getAllTable: function (callback) {
+      return $http.get(adminPoker + 'Table/getAllTable').then(function (data) {
+        data = data.data;
+        callback(data);
+      });
+    },
+
+    getOneTableDetails: function (data, callback) {
+      return $http.post(adminPoker + "Player/getAllDetails", {
+        tableId: data
+      }).then(function (data) {
+        data = data.data;
+        callback(data);
+      })
+    }
+
+  };
+
+  return obj1;
+});

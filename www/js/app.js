@@ -109,7 +109,7 @@ var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', '
         controller: 'LobbyCtrl'
       })
       .state('poker', {
-        url: '/poker',
+        url: '/poker/:id',
         cache: false,
         templateUrl: 'templates/poker.html',
         controller: 'PokerCtrl'

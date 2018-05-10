@@ -91,19 +91,18 @@
       transform: none;
     }
     .total_played_coin {
-      background: url("../img/text_bg.png");
+      background: url("../img/poker/amt_bg.png");
       background-size: 100% 100%;
       position: absolute;
       width: 22%;
-      left: 50%;
-      top: 15%;
+      left: 50%; // top: 22%;
       transform: translateX(-50%);
       z-index: 2;
       text-align: center; // word-spacing: 5px;
       color: white; //
       text-align: left;
       padding: 2px;
-      top: 5%;
+      top: 25%;
       width: 15%;
       padding-left: 10px;
       .coin {
@@ -114,9 +113,10 @@
     }
     .playing-table {
       position: absolute;
-      bottom: -30px;
-      width: 100%; // height: 80%;
-      left: 0;
+      bottom: 30px;
+      width: 85%;
+      left: 50%;
+      transform: translate(-50%);
       .plyr {
         width: 8%;
         position: absolute; // top: 0;
@@ -263,7 +263,7 @@
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%; // height:10vh;
-        transform: translateY(50%);
+        transform: translateY(20%);
         &>* {
           display: none !important;
         }
@@ -288,7 +288,7 @@
         }
         &.p8,
         &.p1 {
-          bottom: 45%;
+          bottom: 5%;
         }
         &.main-player {
           width: 10% !important;
@@ -301,7 +301,7 @@
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%; // height:10vh;
-        transform: translateY(50%);
+        transform: translateY(20%);
         opacity: 0.85;
         &>* {
           display: none !important;
@@ -318,7 +318,7 @@
         }
         &.p8,
         &.p1 {
-          bottom: 45%;
+          bottom: 12%;
         }
         &.main-player {
           width: 10% !important;
@@ -403,7 +403,7 @@
       .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 45px; // transform: translateX(-50%);
+        bottom: -5%; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
         transform: translate(-50%, 0%);
         .dealer {
@@ -435,9 +435,9 @@
       }
       .doll {
         position: absolute;
-        width: 12%;
+        width: 10%;
         left: 50%;
-        top: -32%;
+        top: -8%;
         transform: translateX(-50%);
         z-index: 2;
       } //bg table css
@@ -449,7 +449,7 @@
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: -10%;
+        top: 10%;
         transform: translateX(-50%);
         color: white;
         z-index: 3;
@@ -818,17 +818,53 @@
   }
   .card_shuffle {
     left: 30%;
-  }
-  .p8 {
-    bottom: 5%;
+    top: 40%;
   }
   .p1 {
-    bottom: 5%;
+    bottom: 10%;
+    left: 20%;
+  }
+  .p2 {
+    top: 50%;
+    left: 0%;
+  }
+  .p3 {
+    left: 4%;
+    top: 8%;
+  }
+  .p4 {
+    left: 25%;
+    top: -5%;
+  }
+  .p5 {
+    right: 25%;
+    top: -5%;
+  }
+  .p6 {
+    right: 4%;
+    top: 8%;
+  }
+  .p7 {
+    top: 50%;
+    right: 0%;
+  }
+  .p8 {
+    bottom: 10%;
+    right: 20%
+  }
+  .p9 {
+    bottom: 10%;
+    /* transform: translate(-50%, 50%) !important; */
+  }
+  .p1,
+  .p8 {
+    /* transform: translateY(-80%); */
+    transform: none;
   }
   .communitycard {
     position: absolute;
     left: 55%;
-    top: 15%;
+    top: 37%;
     width: 35%;
     transform: translateX(-50%);
     .cards {
@@ -862,10 +898,10 @@
 // }
 @media (min-aspect-ratio: 18/9) {
   .pokerkingtable .main-table .playing-table {
-    width: 85%;
+    width: 70%;
     transform: translateX(-50%);
     left: 50%;
-    bottom: -40px;
+    bottom: 35px;
   }
   .custom-row-card {
     margin-top: -15px;

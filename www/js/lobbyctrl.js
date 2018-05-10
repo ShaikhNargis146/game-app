@@ -1,10 +1,10 @@
-myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup, $ionicPlatform, Service, $http, $timeout) {
+myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup, $ionicPlatform, Service, pokerService, $http, $timeout) {
 
   $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-    if (fromState.name == 'onlinegame' ) {
+    if (fromState.name == 'onlinegame') {
       $("#iframe").remove();
       $state.reload();
-     delete EvolutionGaming;
+      delete EvolutionGaming;
     }
   });
   $ionicPlatform.ready(function () {
@@ -70,6 +70,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
       $scope.singlePlayerData = data.data.data;
       $scope.image = $scope.singlePlayerData.image;
       $scope.memberId = $scope.singlePlayerData._id;
+      $.jStorage.set('memberId', $scope.memberId);
       $scope.username = $scope.singlePlayerData.username;
       $scope.userType = $scope.singlePlayerData.userType;
       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
@@ -797,18 +798,6 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
   };
 
 
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function () {
-    $scope.PLModal.remove();
-    $scope.ACStatementModal.remove();
-    $scope.transferStatementModal.remove();
-    $scope.changePasswordModel.remove();
-    $scope.priceRangeModal.remove();
-    $scope.privateLogInModal.remove();
-    $scope.rulesModal.remove();
-    $scope.myPrivateModal.remove();
-    $scope.closeAllTab();
-  });
 
 
   //AROnline modal
@@ -875,4 +864,61 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
       'gameId': data
     });
   }
+
+
+
+
+  //poker code
+  $ionicModal.fromTemplateUrl('templates/model/poker/poker_all_table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.pokerAllTable = modal;
+  });
+  $scope.openPokerAllTableModal = function () {
+
+
+    pokerService.getAllTable(function (data) {
+      if (data.data) {
+        $scope.PokerTableData = data.data;
+        // console.log($scope.PokerTableData);
+      } else {
+        console.log('error in poker getAllTable', data);
+      }
+    });
+
+
+    $scope.pokerAllTable.show();
+  }
+  $scope.closePokerAllTableModal = function () {
+    $scope.pokerAllTable.hide();
+  }
+
+
+  $scope.goToPokerTable = function (data) {
+    $state.go('poker', {
+      id: data._id
+    })
+  }
+
+
+
+  //end of poker
+
+
+
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.PLModal.remove();
+    $scope.ACStatementModal.remove();
+    $scope.transferStatementModal.remove();
+    $scope.changePasswordModel.remove();
+    $scope.priceRangeModal.remove();
+    $scope.privateLogInModal.remove();
+    $scope.rulesModal.remove();
+    $scope.myPrivateModal.remove();
+    $scope.pokerAllTable.remove();
+    $scope.closeAllTab();
+  });
+
 });

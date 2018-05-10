@@ -1,0 +1,85 @@
+<ion-modal-view class="custom-model statement-model price_range_modal poker_all_table_modal">
+  <div class="custom-header">
+    <div class="close" ng-click="closePokerAllTableModal()">
+      <img src="img/close.png">
+    </div>
+    <div class="heading">Poker Public table</div>
+    <!-- <form name="filterTable">
+      <div class="top_field filter">
+      
+        <div class="row">
+          Filter with :
+          
+          <input type="text" ng-model="filterData.blindAmt" class="col" placeholder="Blind Amt">
+          <input type="text" ng-model="filterData.chalAmt" class="col" placeholder="Chaal Amt">
+          
+          <input type="text" class="col" ng-model="filterData.name" placeholder="Table Name">
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="custom_button bold btn_search" type='submit' ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+              Search </button>
+          </div>
+          <div class="col">
+            <button class="custom_button bold btn_search" type='submit' ng-click="resetFilter();resetpage();" promise-btn="filterTablePromise">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </form> -->
+  </div>
+  <ion-content>
+    <div class="custom-table custom-table-top" ng-if="PokerTableData">
+      <ion-list>
+        <ion-item class="item">
+          <div class="row">
+            <div class="col-30">
+              <div class="bold">Name</div>
+            </div>
+            <div class="col-15">
+              <div class="bold text-center">SB / BB</div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">Min Buy in </div>
+            </div>
+            <div class="col-20">
+              <div class="bold text-center">Max Players</div>
+            </div>
+            <div class="col-20">
+              <div class="bold">Action</div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item collection-repeat="dataFilter in PokerTableData" class="item">
+          <div class="row">
+            <div class="col-30">
+              <div class="bold">{{dataFilter.name}}</div>
+            </div>
+            <div class="col-15">
+              <div class="text-center bold">{{dataFilter.smallBlind}} / {{dataFilter.bigBlind}}</div>
+            </div>
+            <div class="col-20">
+              <div class="text-center bold"> {{dataFilter.minimumBuyin}} </div>
+            </div>
+            <div class="col-20">
+              <div class="text-center bold">{{dataFilter.maximumNoOfPlayers}} </div>
+            </div>
+            <div class="col-20">
+              <button class="custom_button bold" ng-click="goToPokerTable(dataFilter)">PLAY</button>
+
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- no Data found -->
+    <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
+    </div>
+    <!-- //loader -->
+    <div class="loader" ng-if="!tablesDataFilter">
+      Loading ..
+    </div>
+    <ion-infinite-scroll on-infinite="loadMoreFilterTable()" icon="ion-loading-c"></ion-infinite-scroll>
+  </ion-content>
+</ion-modal-view>

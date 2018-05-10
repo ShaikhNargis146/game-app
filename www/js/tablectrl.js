@@ -32,8 +32,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     socketId = mySocket1._raw.id;
     $.jStorage.set("socketId", mySocket1._raw.id);
     console.log("teenpatti socket connected", mySocket1._raw.id);
-    Service.connectSocket(function () {
-
+    Service.connectSocket(function (data) {
+      console.log(data);
     });
   });
 
@@ -548,8 +548,6 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
         if (window.cordova) {
           window.plugins.NativeAudio.play('coin');
         }
-
-
 
       }
       //if card stucks up bychance and then make it false
