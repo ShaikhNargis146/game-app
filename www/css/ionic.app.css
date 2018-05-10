@@ -13043,34 +13043,12 @@ ion-item.item {
                 vertical-align: middle; }
               .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0;
-                transition: transform 500ms;
+                transition: transform 1000ms;
                 transition-delay: none; }
               .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
-                transition: transform 1s;
-                transition-delay: 500ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
-                left: -20%;
-                transition: transform 1s;
+                transition: transform 1.5s;
                 transition-delay: 1000ms; }
-            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card {
-              left: 48% !important; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(1) {
-                left: 0;
-                transition: transform 500ms;
-                transition-delay: none; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(2) {
-                left: -17%;
-                transition: transform 1s;
-                transition-delay: 500ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(3) {
-                left: -33%;
-                transition: transform 1s;
-                transition-delay: 1000ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(4) {
-                left: -47%;
-                transition: transform 1s;
-                transition-delay: 1500ms; }
         .pokerkingtable .main-table .playing-table .plyr .amt {
           font-size: .7em;
           line-height: 1.5; }
@@ -13230,13 +13208,13 @@ ion-item.item {
         height: 100%; }
     .pokerkingtable .main-table .plyr_card_2card card:nth-child(1) {
       left: 0% !important;
-      transition: transform 500ms;
+      transition: transform 1000ms;
       transition-delay: none;
       transform: scale(1.6); }
     .pokerkingtable .main-table .plyr_card_2card card:nth-child(2) {
       left: -10% !important;
-      transition: transform 1s;
-      transition-delay: 500ms;
+      transition: transform 1.5s;
+      transition-delay: 1000ms;
       transform: scale(1.6); }
     .pokerkingtable .main-table .plyr_card_2card.plyr_card2_winner {
       left: -30% !important;
@@ -13259,45 +13237,26 @@ ion-item.item {
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(1) {
           transform: rotate(-10deg);
           left: -10%;
-          transition: transform 1s; }
+          transition: transform 15s; }
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
-          transition: transform 1s;
-          transition-delay: 500ms; }
+          transition: transform 1.5s;
+          transition-delay: 1s; }
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
           transition: transform 1s;
           transition-delay: 1000ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(1) {
-        transform: rotate(-11deg);
-        left: -20%;
-        transition: transform 1s; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(2) {
-        transform: rotate(-6deg) scale(1.1);
-        left: 16%;
-        transition: transform 1s;
-        transition-delay: 500ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(3) {
-        transform: rotate(5deg) scale(1.1);
-        left: 46%;
-        transition: transform 1s;
-        transition-delay: 1000ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(4) {
-        transform: rotate(15deg);
-        left: 76%;
-        transition: transform 1s;
-        transition-delay: 1500ms; }
       .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(1) {
-        transform: rotate(-10deg) scale(1);
+        transform: rotate(-10deg) scale(1) translateX(-10%);
         left: 25%;
         transition: transform 1s; }
       .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(2) {
         transform: rotate(10deg) scale(1);
         left: 45%;
-        transition: transform 1s;
-        transition-delay: 500ms; }
+        transition: transform 1.5s;
+        transition-delay: 1000ms; }
       .pokerkingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -13516,6 +13475,87 @@ ion-item.item {
     margin-top: -15px; }
   .pokerkingtable .main-table .showing_cards .card_see {
     margin-top: 5%; } }
+
+.poker_card_shuffle_animation.p1 card:nth-child(1) {
+  transform: scale(1.6) translate(200%, -260%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p1 card:nth-child(2) {
+  transform: scale(1.6) translate(160%, -260%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p2 card:nth-child(1) {
+  transform: scale(1.6) translate(825%, -145%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p2 card:nth-child(2) {
+  transform: scale(1.6) translate(780%, -145%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p3 card:nth-child(1) {
+  transform: scale(1.6) translate(690%, 248%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p3 card:nth-child(2) {
+  transform: scale(1.6) translate(660%, 248%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p4 card:nth-child(1) {
+  transform: scale(1.5) translate(60%, 395%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p4 card:nth-child(2) {
+  transform: scale(1.5) translate(15%, 395%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p5 card:nth-child(1) {
+  transform: scale(1.5) translate(-1274%, 394%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p5 card:nth-child(2) {
+  transform: scale(1.5) translate(-1330%, 394%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p6 card:nth-child(1) {
+  transform: scale(1.5) translate(-1975%, 262%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p6 card:nth-child(2) {
+  transform: scale(1.5) translate(-2020%, 264%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p7 card:nth-child(1) {
+  transform: scale(1.5) translate(-2115%, -150%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p7 card:nth-child(2) {
+  transform: scale(1.5) translate(-2162%, -155%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p8 card:nth-child(1) {
+  transform: scale(1.5) translate(-1444%, -280%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p8 card:nth-child(2) {
+  transform: scale(1.5) translate(-1490%, -280%) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(1) {
+  transform: translate(-130%, -175%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(2) {
+  transform: translate(-148%, -175%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(3) {
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(4) {
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  left: 50% !important;
+  transition: none !important; }
 
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
