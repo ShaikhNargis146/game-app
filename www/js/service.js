@@ -528,7 +528,23 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         callback(data);
       });
     },
-
+    savePlayerToTable: function (dataPlayer, callback) {
+      console.log("dataPlayer", dataPlayer);
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        $http.post(adminPoker + 'Table/addUserToTable', {
+          playerNo: dataPlayer.playerNo,
+          tableId: dataPlayer.tableId,
+          amount: dataPlayer.amount,
+          autoRebuy: dataPlayer.autoRebuy,
+          payBigBlind: dataPlayer.payBigBlind,
+          socketId: socketId,
+          accessToken: accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     getOneTableDetails: function (data, callback) {
       return $http.post(adminPoker + "Player/getAllDetails", {
         tableId: data
@@ -537,7 +553,6 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         callback(data);
       })
     }
-
   };
 
   return obj1;
