@@ -7,7 +7,7 @@
 
 var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons'])
 
-  .run(function ($ionicPlatform) {
+  .run(function ($ionicPlatform, $rootScope) {
 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -23,6 +23,24 @@ var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', '
         StatusBar.styleDefault();
       }
 
+
+
+      if (window.plugins) {
+        if (window.plugins.OneSignal) {
+          var notificationOpenedCallback = function (jsonData) {
+            alert("Notification opened:\n" + JSON.stringify(jsonData));
+          };
+          window.plugins.OneSignal
+            .startInit("aab70e9b-5571-4b68-872c-f11e0ae77672")
+            .handleNotificationOpened(notificationOpenedCallback)
+            .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+            .endInit();
+          window.plugins.OneSignal.getIds(function (ids) {
+            console.log('getIds: ' + JSON.stringify(ids));
+            $rootScope.deviceId = ids.userId;
+          });
+        }
+      }
 
       window.plugins.insomnia.keepAwake();
       // Preload audio resources

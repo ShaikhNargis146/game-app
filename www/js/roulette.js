@@ -22,8 +22,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     mySocketRoullete.disconnect();
     $state.go('lobby');
     mySocketRoullete.removeAllListeners('spinWheel');
-    mySocketRoullete.on('disconnect', function onConnect() {
-      console.log("Socket disconnected!");
+    mySocketRoullete.on("disconnect", function () {
+      console.log("client disconnected from server");
     });
   }
   $rootScope.getBlack = function (number) {
@@ -149,7 +149,17 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     return indexArray;
   }
   RouletteService.getCurrentBalance(function (data) {
-    $scope.totalMoney = data.balance;
+    if (data.value) {
+      $scope.totalMoney = data.data.balance;
+    } else if (data.error == 'No Member Found') {
+      $.jStorage.flush();
+      mySocketRoullete.disconnect();
+      mySocketRoullete.removeAllListeners('spinWheel');
+      mySocketRoullete.on("disconnect", function () {
+        console.log("client disconnected from server");
+      });
+      $state.go('login');
+    }
   });
   RouletteService.getLastResults(function (data) {
     $scope.lastResults = data;
@@ -387,7 +397,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
-  var mySocketRoullete=RouletteService.getSocket();
+  var mySocketRoullete = RouletteService.getSocket();
 
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
@@ -758,7 +768,7 @@ myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $io
       $http.post(adminurl + 'roulette/getCurrentBalance', {
         accessToken: accessToken
       }).then(function (data) {
-        callback(data.data.data);
+        callback(data.data);
       });
     },
     saveUserBets: function (masterArray, callback) {
