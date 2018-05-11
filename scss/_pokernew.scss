@@ -91,19 +91,18 @@
       transform: none;
     }
     .total_played_coin {
-      background: url("../img/text_bg.png");
+      background: url("../img/poker/amt_bg.png");
       background-size: 100% 100%;
       position: absolute;
       width: 22%;
-      left: 50%;
-      top: 15%;
+      left: 50%; // top: 22%;
       transform: translateX(-50%);
       z-index: 2;
       text-align: center; // word-spacing: 5px;
       color: white; //
       text-align: left;
       padding: 2px;
-      top: 5%;
+      top: 25%;
       width: 15%;
       padding-left: 10px;
       .coin {
@@ -114,9 +113,10 @@
     }
     .playing-table {
       position: absolute;
-      bottom: -30px;
-      width: 100%; // height: 80%;
-      left: 0;
+      bottom: 30px;
+      width: 85%;
+      left: 50%;
+      transform: translate(-50%);
       .plyr {
         width: 8%;
         position: absolute; // top: 0;
@@ -187,44 +187,18 @@
               }
               &:nth-child(1) {
                 left: 0;
-                transition: transform 500ms;
+                transition: transform 1000ms;
                 transition-delay: none;
               }
               &:nth-child(2) {
                 left: -10%;
-                transition: transform 1s;
-                transition-delay: 500ms;
-              }
-              &:nth-child(3) {
-                left: -20%;
-                transition: transform 1s;
+                transition: transform 1.5s;
                 transition-delay: 1000ms;
-              }
-            }
-            &.plyr_card_4card {
-              left: 48% !important;
-              card {
-                &:nth-child(1) {
-                  left: 0;
-                  transition: transform 500ms;
-                  transition-delay: none;
-                }
-                &:nth-child(2) {
-                  left: -17%;
-                  transition: transform 1s;
-                  transition-delay: 500ms;
-                }
-                &:nth-child(3) {
-                  left: -33%;
-                  transition: transform 1s;
-                  transition-delay: 1000ms;
-                }
-                &:nth-child(4) {
-                  left: -47%;
-                  transition: transform 1s;
-                  transition-delay: 1500ms;
-                }
-              }
+              } // &:nth-child(3) {
+              //   left: -20%;
+              //   transition: transform 1s;
+              //   transition-delay: 1000ms;
+              // }
             }
           }
         }
@@ -263,7 +237,7 @@
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%; // height:10vh;
-        transform: translateY(50%);
+        transform: translateY(20%);
         &>* {
           display: none !important;
         }
@@ -288,7 +262,7 @@
         }
         &.p8,
         &.p1 {
-          bottom: 45%;
+          bottom: 5%;
         }
         &.main-player {
           width: 10% !important;
@@ -301,7 +275,7 @@
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%; // height:10vh;
-        transform: translateY(50%);
+        transform: translateY(20%);
         opacity: 0.85;
         &>* {
           display: none !important;
@@ -318,7 +292,7 @@
         }
         &.p8,
         &.p1 {
-          bottom: 45%;
+          bottom: 12%;
         }
         &.main-player {
           width: 10% !important;
@@ -403,7 +377,7 @@
       .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 45px; // transform: translateX(-50%);
+        bottom: -5%; // transform: translateX(-50%);
         // transform: translate(-50%, -70%);
         transform: translate(-50%, 0%);
         .dealer {
@@ -435,9 +409,9 @@
       }
       .doll {
         position: absolute;
-        width: 12%;
+        width: 10%;
         left: 50%;
-        top: -32%;
+        top: -8%;
         transform: translateX(-50%);
         z-index: 2;
       } //bg table css
@@ -449,7 +423,7 @@
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: -10%;
+        top: 10%;
         transform: translateX(-50%);
         color: white;
         z-index: 3;
@@ -468,14 +442,14 @@
       card {
         &:nth-child(1) {
           left: 0% !important;
-          transition: transform 500ms;
+          transition: transform 1000ms;
           transition-delay: none;
           transform: scale(1.6);
         }
         &:nth-child(2) {
           left: -10% !important;
-          transition: transform 1s;
-          transition-delay: 500ms;
+          transition: transform 1.5s;
+          transition-delay: 1000ms;
           transform: scale(1.6);
         }
       }
@@ -571,13 +545,13 @@
           &:nth-child(1) {
             transform: rotate(-10deg);
             left: -10%;
-            transition: transform 1s; // transition-delay: 500ms;
+            transition: transform 15s; // transition-delay: 500ms;
           }
           &:nth-child(2) {
             transform: rotate(0deg) scale(1.1);
             left: 35%;
-            transition: transform 1s;
-            transition-delay: 500ms;
+            transition: transform 1.5s;
+            transition-delay: 1s;
           }
           &:nth-child(3) {
             transform: rotate(10deg);
@@ -586,45 +560,18 @@
             transition-delay: 1000ms;
           }
         }
-        &.card4 {
-          card {
-            &:nth-child(1) {
-              transform: rotate(-11deg);
-              left: -20%;
-              transition: transform 1s; // transition-delay: 500ms;
-            }
-            &:nth-child(2) {
-              transform: rotate(-6deg) scale(1.1);
-              left: 16%;
-              transition: transform 1s;
-              transition-delay: 500ms;
-            }
-            &:nth-child(3) {
-              transform: rotate(5deg) scale(1.1);
-              left: 46%;
-              transition: transform 1s;
-              transition-delay: 1000ms;
-            }
-            &:nth-child(4) {
-              transform: rotate(15deg);
-              left: 76%;
-              transition: transform 1s;
-              transition-delay: 1500ms;
-            }
-          }
-        }
         &.card2 {
           card {
             &:nth-child(1) {
-              transform: rotate(-10deg) scale(1);
+              transform: rotate(-10deg) scale(1) translateX(-10%);
               left: 25%;
               transition: transform 1s; // transition-delay: 500ms;
             }
             &:nth-child(2) {
               transform: rotate(10deg) scale(1);
               left: 45%;
-              transition: transform 1s;
-              transition-delay: 500ms;
+              transition: transform 1.5s;
+              transition-delay: 1000ms;
             }
           }
         }
@@ -818,17 +765,53 @@
   }
   .card_shuffle {
     left: 30%;
-  }
-  .p8 {
-    bottom: 5%;
+    top: 40%;
   }
   .p1 {
-    bottom: 5%;
+    bottom: 10%;
+    left: 20%;
+  }
+  .p2 {
+    top: 50%;
+    left: 0%;
+  }
+  .p3 {
+    left: 4%;
+    top: 8%;
+  }
+  .p4 {
+    left: 25%;
+    top: -5%;
+  }
+  .p5 {
+    right: 25%;
+    top: -5%;
+  }
+  .p6 {
+    right: 4%;
+    top: 8%;
+  }
+  .p7 {
+    top: 50%;
+    right: 0%;
+  }
+  .p8 {
+    bottom: 10%;
+    right: 20%
+  }
+  .p9 {
+    bottom: 10%;
+    /* transform: translate(-50%, 50%) !important; */
+  }
+  .p1,
+  .p8 {
+    /* transform: translateY(-80%); */
+    transform: none;
   }
   .communitycard {
     position: absolute;
     left: 55%;
-    top: 15%;
+    top: 37%;
     width: 35%;
     transform: translateX(-50%);
     .cards {
@@ -862,15 +845,192 @@
 // }
 @media (min-aspect-ratio: 18/9) {
   .pokerkingtable .main-table .playing-table {
-    width: 85%;
+    width: 70%;
     transform: translateX(-50%);
     left: 50%;
-    bottom: -40px;
+    bottom: 35px;
   }
   .custom-row-card {
     margin-top: -15px;
   }
   .pokerkingtable .main-table .showing_cards .card_see {
     margin-top: 5%;
+  }
+}
+
+.poker_card_shuffle_animation {
+  &.p1 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.6) translate(200%, -260%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.6) translate(160%, -260%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.6) translate(190%, -300%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.6) translate(190%, -300%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p2 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.6) translate(825%, -145%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.6) translate(780%, -145%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.6) translate(834%, -130%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.6) translate(834%, -130%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p3 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.6) translate(690%, 248%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.6) translate(660%, 248%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.6) translate(672%, 188%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.6) translate(672%, 188%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p4 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(60%, 395%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(15%, 395%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.5) translate(20%, 273%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.5) translate(20%, 273%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p5 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1274%, 394%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-1330%, 394%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.5) translate(-1174%, 272%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.5) translate(-1174%, 272%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p6 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1975%, 262%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-2020%, 264%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.5) translate(-1870%, 200%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.5) translate(-1870%, 200%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p7 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-2115%, -150%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-2162%, -155%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.5) translate(-2045%, -138%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.5) translate(-2045%, -138%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+  &.p8 {
+    card {
+      &:nth-child(1) {
+        transform: scale(1.5) translate(-1444%, -280%) !important;
+        transition: none !important;
+      }
+      &:nth-child(2) {
+        transform: scale(1.5) translate(-1490%, -280%) !important;
+        transition: none !important;
+      } // &:nth-child(3) {
+      //   transform: scale(1.5) translate(-1340%, -355%) !important;
+      //   transition: none !important;
+      // }
+      // &:nth-child(4) {
+      //   transform: scale(1.5) translate(-1340%, -355%) !important;
+      //   transition: none !important;
+      // }
+    }
+  }
+}
+
+.poker_main_card_anime {
+  card {
+    &:nth-child(1) {
+      transform: translate(-130%, -175%) scale(0.3) !important;
+      transition: none !important;
+    }
+    &:nth-child(2) {
+      transform: translate(-148%, -175%) scale(0.3) !important;
+      transition: none !important; // transition: transform 2s;
+    }
+    &:nth-child(3) {
+      transform: translate(-150%, -153%) scale(.3) !important;
+      transition: none !important; // transition: transform 3s;
+    }
+    &:nth-child(4) {
+      transform: translate(-150%, -153%) scale(.3) !important;
+      left: 50% !important;
+      transition: none !important; // transition: transform 3s;
+    }
   }
 }

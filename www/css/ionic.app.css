@@ -12372,6 +12372,9 @@ ion-item.item {
   /* border-radius: 0px; */
   padding: 5px 10px; }
 
+.poker_all_table_modal .custom-table-top {
+  padding-top: 30px; }
+
 .pokar {
   background-color: #000; }
   .pokar .top_field {
@@ -12956,19 +12959,18 @@ ion-item.item {
     .pokerkingtable .main-table.activated {
       transform: none; }
     .pokerkingtable .main-table .total_played_coin {
-      background: url("../img/text_bg.png");
+      background: url("../img/poker/amt_bg.png");
       background-size: 100% 100%;
       position: absolute;
       width: 22%;
       left: 50%;
-      top: 15%;
       transform: translateX(-50%);
       z-index: 2;
       text-align: center;
       color: white;
       text-align: left;
       padding: 2px;
-      top: 5%;
+      top: 25%;
       width: 15%;
       padding-left: 10px; }
       .pokerkingtable .main-table .total_played_coin .coin {
@@ -12977,9 +12979,10 @@ ion-item.item {
         margin-right: 5px; }
     .pokerkingtable .main-table .playing-table {
       position: absolute;
-      bottom: -30px;
-      width: 100%;
-      left: 0; }
+      bottom: 30px;
+      width: 85%;
+      left: 50%;
+      transform: translate(-50%); }
       .pokerkingtable .main-table .playing-table .plyr {
         width: 8%;
         position: absolute;
@@ -13040,34 +13043,12 @@ ion-item.item {
                 vertical-align: middle; }
               .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(1) {
                 left: 0;
-                transition: transform 500ms;
+                transition: transform 1000ms;
                 transition-delay: none; }
               .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(2) {
                 left: -10%;
-                transition: transform 1s;
-                transition-delay: 500ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card card:nth-child(3) {
-                left: -20%;
-                transition: transform 1s;
+                transition: transform 1.5s;
                 transition-delay: 1000ms; }
-            .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card {
-              left: 48% !important; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(1) {
-                left: 0;
-                transition: transform 500ms;
-                transition-delay: none; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(2) {
-                left: -17%;
-                transition: transform 1s;
-                transition-delay: 500ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(3) {
-                left: -33%;
-                transition: transform 1s;
-                transition-delay: 1000ms; }
-              .pokerkingtable .main-table .playing-table .plyr .plyr_pic .plyr_card.plyr_card_4card card:nth-child(4) {
-                left: -47%;
-                transition: transform 1s;
-                transition-delay: 1500ms; }
         .pokerkingtable .main-table .playing-table .plyr .amt {
           font-size: .7em;
           line-height: 1.5; }
@@ -13096,7 +13077,7 @@ ion-item.item {
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%;
-        transform: translateY(50%); }
+        transform: translateY(20%); }
         .pokerkingtable .main-table .playing-table .sit_here > * {
           display: none !important; }
         .pokerkingtable .main-table .playing-table .sit_here:after {
@@ -13109,7 +13090,7 @@ ion-item.item {
           line-height: 1.5;
           font-weight: bold; }
         .pokerkingtable .main-table .playing-table .sit_here.p8, .pokerkingtable .main-table .playing-table .sit_here.p1 {
-          bottom: 45%; }
+          bottom: 5%; }
         .pokerkingtable .main-table .playing-table .sit_here.main-player {
           width: 10% !important;
           bottom: 20%; }
@@ -13119,7 +13100,7 @@ ion-item.item {
         padding-top: 1%;
         padding-bottom: 1%;
         width: 8%;
-        transform: translateY(50%);
+        transform: translateY(20%);
         opacity: 0.85; }
         .pokerkingtable .main-table .playing-table .no_player > * {
           display: none !important; }
@@ -13133,7 +13114,7 @@ ion-item.item {
           line-height: 1.5;
           font-weight: bold; }
         .pokerkingtable .main-table .playing-table .no_player.p8, .pokerkingtable .main-table .playing-table .no_player.p1 {
-          bottom: 45%; }
+          bottom: 12%; }
         .pokerkingtable .main-table .playing-table .no_player.main-player {
           width: 10% !important;
           bottom: 20%; }
@@ -13180,7 +13161,7 @@ ion-item.item {
       .pokerkingtable .main-table .playing-table .main-player {
         width: 18% !important;
         left: 50%;
-        bottom: 45px;
+        bottom: -5%;
         transform: translate(-50%, 0%); }
         .pokerkingtable .main-table .playing-table .main-player .dealer::after {
           height: 6vh;
@@ -13203,9 +13184,9 @@ ion-item.item {
           padding: 5px 10px; }
       .pokerkingtable .main-table .playing-table .doll {
         position: absolute;
-        width: 12%;
+        width: 10%;
         left: 50%;
-        top: -32%;
+        top: -8%;
         transform: translateX(-50%);
         z-index: 2; }
       .pokerkingtable .main-table .playing-table .tip {
@@ -13216,7 +13197,7 @@ ion-item.item {
         letter-spacing: 1px;
         font-size: 0.8em;
         left: 50%;
-        top: -10%;
+        top: 10%;
         transform: translateX(-50%);
         color: white;
         z-index: 3;
@@ -13227,13 +13208,13 @@ ion-item.item {
         height: 100%; }
     .pokerkingtable .main-table .plyr_card_2card card:nth-child(1) {
       left: 0% !important;
-      transition: transform 500ms;
+      transition: transform 1000ms;
       transition-delay: none;
       transform: scale(1.6); }
     .pokerkingtable .main-table .plyr_card_2card card:nth-child(2) {
       left: -10% !important;
-      transition: transform 1s;
-      transition-delay: 500ms;
+      transition: transform 1.5s;
+      transition-delay: 1000ms;
       transform: scale(1.6); }
     .pokerkingtable .main-table .plyr_card_2card.plyr_card2_winner {
       left: -30% !important;
@@ -13256,45 +13237,26 @@ ion-item.item {
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(1) {
           transform: rotate(-10deg);
           left: -10%;
-          transition: transform 1s; }
+          transition: transform 15s; }
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(2) {
           transform: rotate(0deg) scale(1.1);
           left: 35%;
-          transition: transform 1s;
-          transition-delay: 500ms; }
+          transition: transform 1.5s;
+          transition-delay: 1s; }
         .pokerkingtable .main-table .showing_cards .custom-row card:nth-child(3) {
           transform: rotate(10deg);
           left: 65%;
           transition: transform 1s;
           transition-delay: 1000ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(1) {
-        transform: rotate(-11deg);
-        left: -20%;
-        transition: transform 1s; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(2) {
-        transform: rotate(-6deg) scale(1.1);
-        left: 16%;
-        transition: transform 1s;
-        transition-delay: 500ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(3) {
-        transform: rotate(5deg) scale(1.1);
-        left: 46%;
-        transition: transform 1s;
-        transition-delay: 1000ms; }
-      .pokerkingtable .main-table .showing_cards .custom-row.card4 card:nth-child(4) {
-        transform: rotate(15deg);
-        left: 76%;
-        transition: transform 1s;
-        transition-delay: 1500ms; }
       .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(1) {
-        transform: rotate(-10deg) scale(1);
+        transform: rotate(-10deg) scale(1) translateX(-10%);
         left: 25%;
         transition: transform 1s; }
       .pokerkingtable .main-table .showing_cards .custom-row.card2 card:nth-child(2) {
         transform: rotate(10deg) scale(1);
         left: 45%;
-        transition: transform 1s;
-        transition-delay: 500ms; }
+        transition: transform 1.5s;
+        transition-delay: 1000ms; }
       .pokerkingtable .main-table .showing_cards .card_see {
         position: absolute;
         background: url("../img/text_bg.png");
@@ -13433,18 +13395,54 @@ ion-item.item {
   display: none; }
 
 .pokerkingtable .card_shuffle {
-  left: 30%; }
-
-.pokerkingtable .p8 {
-  bottom: 5%; }
+  left: 30%;
+  top: 40%; }
 
 .pokerkingtable .p1 {
-  bottom: 5%; }
+  bottom: 10%;
+  left: 20%; }
+
+.pokerkingtable .p2 {
+  top: 50%;
+  left: 0%; }
+
+.pokerkingtable .p3 {
+  left: 4%;
+  top: 8%; }
+
+.pokerkingtable .p4 {
+  left: 25%;
+  top: -5%; }
+
+.pokerkingtable .p5 {
+  right: 25%;
+  top: -5%; }
+
+.pokerkingtable .p6 {
+  right: 4%;
+  top: 8%; }
+
+.pokerkingtable .p7 {
+  top: 50%;
+  right: 0%; }
+
+.pokerkingtable .p8 {
+  bottom: 10%;
+  right: 20%; }
+
+.pokerkingtable .p9 {
+  bottom: 10%;
+  /* transform: translate(-50%, 50%) !important; */ }
+
+.pokerkingtable .p1,
+.pokerkingtable .p8 {
+  /* transform: translateY(-80%); */
+  transform: none; }
 
 .pokerkingtable .communitycard {
   position: absolute;
   left: 55%;
-  top: 15%;
+  top: 37%;
   width: 35%;
   transform: translateX(-50%); }
   .pokerkingtable .communitycard .cards {
@@ -13469,14 +13467,95 @@ ion-item.item {
 
 @media (min-aspect-ratio: 18 / 9) {
   .pokerkingtable .main-table .playing-table {
-    width: 85%;
+    width: 70%;
     transform: translateX(-50%);
     left: 50%;
-    bottom: -40px; }
+    bottom: 35px; }
   .custom-row-card {
     margin-top: -15px; }
   .pokerkingtable .main-table .showing_cards .card_see {
     margin-top: 5%; } }
+
+.poker_card_shuffle_animation.p1 card:nth-child(1) {
+  transform: scale(1.6) translate(200%, -260%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p1 card:nth-child(2) {
+  transform: scale(1.6) translate(160%, -260%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p2 card:nth-child(1) {
+  transform: scale(1.6) translate(825%, -145%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p2 card:nth-child(2) {
+  transform: scale(1.6) translate(780%, -145%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p3 card:nth-child(1) {
+  transform: scale(1.6) translate(690%, 248%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p3 card:nth-child(2) {
+  transform: scale(1.6) translate(660%, 248%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p4 card:nth-child(1) {
+  transform: scale(1.5) translate(60%, 395%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p4 card:nth-child(2) {
+  transform: scale(1.5) translate(15%, 395%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p5 card:nth-child(1) {
+  transform: scale(1.5) translate(-1274%, 394%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p5 card:nth-child(2) {
+  transform: scale(1.5) translate(-1330%, 394%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p6 card:nth-child(1) {
+  transform: scale(1.5) translate(-1975%, 262%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p6 card:nth-child(2) {
+  transform: scale(1.5) translate(-2020%, 264%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p7 card:nth-child(1) {
+  transform: scale(1.5) translate(-2115%, -150%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p7 card:nth-child(2) {
+  transform: scale(1.5) translate(-2162%, -155%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p8 card:nth-child(1) {
+  transform: scale(1.5) translate(-1444%, -280%) !important;
+  transition: none !important; }
+
+.poker_card_shuffle_animation.p8 card:nth-child(2) {
+  transform: scale(1.5) translate(-1490%, -280%) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(1) {
+  transform: translate(-130%, -175%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(2) {
+  transform: translate(-148%, -175%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(3) {
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  transition: none !important; }
+
+.poker_main_card_anime card:nth-child(4) {
+  transform: translate(-150%, -153%) scale(0.3) !important;
+  left: 50% !important;
+  transition: none !important; }
 
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
