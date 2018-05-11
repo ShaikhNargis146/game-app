@@ -22,6 +22,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     mySocketRoullete.disconnect();
     $state.go('lobby');
     mySocketRoullete.removeAllListeners('spinWheel');
+    mySocketRoullete.close();
     mySocketRoullete.on("disconnect", function () {
       console.log("client disconnected from server");
     });
