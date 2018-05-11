@@ -565,6 +565,17 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         data = data.data;
         callback(data);
       })
+    },
+    getAccountStatement: function (pageNo, data, callback) {
+      if ($.jStorage.get("accessToken")) {
+        $http.post(adminurl + 'Roulette/getAccountStatement', {
+          accessToken: $.jStorage.get("accessToken"),
+          date: $filter('date')(data.date, 'MM-dd-yyyy', '+0530'),
+          page: pageNo ? pageNo : 1
+        }).then(function (data) {
+          callback(data.data);
+        });
+      }
     }
   };
 
