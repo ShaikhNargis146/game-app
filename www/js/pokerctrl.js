@@ -92,7 +92,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     $scope.messageModal.hide();
   };
 
-  $ionicModal.fromTemplateUrl('templates/model/poker/game-price-range.html', {
+  $ionicModal.fromTemplateUrl('templates/model/poker/poker_game_price_range.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
@@ -113,7 +113,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //   }
     // }
     // }
-
+    console.log('inside price range modal');
     if (!$scope.sitHere) {
       console.log("return because sithere", $scope.sitHere);
       return
@@ -672,7 +672,9 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
 
   //sit Here Function
   //player sitting
-  $scope.sitHerefn = function (sliderData, data) {
+
+
+  $scope.sitHereFunction = function (sliderData, data) {
     // if (!(_.isEmpty($scope.activePlayer[0]))) {
     //   if (!$scope.activePlayer[0].tableLeft) {
     //     if (!$scope.sitHere) {
@@ -680,7 +682,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //     }
     //   }
     // }
-    console.log("sliderData", sliderData);
+    console.log("sit here function", sliderData, data);
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = $scope.sitNo;
@@ -695,14 +697,19 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         $scope.updatePlayers();
       }
     }, 5000);
-    if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
+    if ($scope.dataPlayer.amount >= $scope.balance) {
       $scope.message = {
         heading: "Insufficent Balance",
-        content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+        content: "Min Buy In for this table is " + $scope.minimumBuyin + " <br/> Try Again!",
+        error: true
       };
+
       $scope.showMessageModal();
-      $state.go('lobby');
-      console.log("one");
+      $timeout(function () {
+        $state.go('lobby');
+        console.log("one");
+      }, 5000)
+
     };
     if ($scope.dataPlayer.amount <= $scope.balance) {
       console.log("savePlayerToTable inside");
@@ -721,7 +728,8 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
               if (data.data.error == "Player Already Added") {
                 $scope.message = {
                   heading: "Player Already Added",
-                  content: "Player Already Added"
+                  content: "Player Already Added",
+                  error: true
                 };
                 $scope.showMessageModal();
 
@@ -739,22 +747,23 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
           // console.log("inside not save Player");
           $scope.message = {
             heading: "Insufficent Balance",
-            content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+            content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!",
+            error: true
           };
           $scope.showMessageModal();
         } else if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
           // console.log("inside not save Player");
           $scope.message = {
             heading: "You are exceded max balance",
-            content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
+            content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!",
+            error: true
           };
           $scope.showMessageModal();
         }
       }
     }
+
   };
-
-
 
   // all fn
 

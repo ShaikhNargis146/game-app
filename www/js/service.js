@@ -559,7 +559,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     savePlayerToTable: function (dataPlayer, callback) {
       console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accSSSSessToken)) {
+      if (!_.isEmpty(accessToken)) {
         $http.post(adminPoker + '/api/Table/addUserToTable', {
           playerNo: dataPlayer.playerNo,
           tableId: dataPlayer.tableId,
