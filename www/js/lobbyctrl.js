@@ -60,6 +60,9 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
     },
     {
       "name": "Live Casino",
+    },
+    {
+      "name": "Roulette",
     }
   ]
 
@@ -67,20 +70,25 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
 
   $scope.playerData = function () {
     Service.sendAccessToken(function (data) {
-      $scope.singlePlayerData = data.data.data;
-      $scope.image = $scope.singlePlayerData.image;
-      $scope.memberId = $scope.singlePlayerData._id;
-      $.jStorage.set('memberId', $scope.memberId);
-      $scope.username = $scope.singlePlayerData.username;
-      $scope.userType = $scope.singlePlayerData.userType;
-      $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-      $.jStorage.set("userId", $scope.singlePlayerData._id);
-      Service.playerSession($scope.singlePlayerData, function (data) {
-        if (data) {
-          console.log("login", data);
-          $.jStorage.set("sid", data.sid);
-        } else {}
-      });
+      if (data.data.value) {
+        $scope.singlePlayerData = data.data.data;
+        $scope.image = $scope.singlePlayerData.image;
+        $scope.memberId = $scope.singlePlayerData._id;
+        $.jStorage.set('memberId', $scope.memberId);
+        $scope.username = $scope.singlePlayerData.username;
+        $scope.userType = $scope.singlePlayerData.userType;
+        $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+        $.jStorage.set("userId", $scope.singlePlayerData._id);
+        Service.playerSession($scope.singlePlayerData, function (data) {
+          if (data) {
+            console.log("login", data);
+            $.jStorage.set("sid", data.sid);
+          } else {}
+        });
+      } else if ("No Member Found") {
+        $.jStorage.flush();
+        $state.go('login');
+      }
     })
   };
 
@@ -234,6 +242,26 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
           $scope.$broadcast('scroll.infiniteScrollComplete');
         } else {}
       });
+    }
+    if (accountStatmentFilter.type.name == "Roulette") {
+      Service.getAccountStatement($scope.pageNo, accountStatmentFilter, function (data) {
+        console.log(data);
+        if (data.value) {
+          if (data.data.accounts.total === 0) {
+            $scope.noDataFound = true;
+            $scope.results = [];
+            $scope.statementNetProfit = false;
+          }
+          $scope.statementNetProfit = data.data.netProfit;
+          $scope.paging = data.data.accounts.options;
+          console.log(data.data);
+          _.each(data.data.accounts.results, function (n) {
+            $scope.results.push(n);
+          });
+          $scope.loadingDisable = false;
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+        } else {}
+      })
     }
 
   };

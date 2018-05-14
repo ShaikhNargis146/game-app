@@ -4,17 +4,17 @@
       Back To Lobby
     </div>
     <div class="div-inline upper-button">
-      <span>Money</span>
-      <p>{{totalMoney}} &#8377;</p>
+      <span>Balance</span>
+      <p>{{totalMoney | number:2}}</p>
     </div>
     <div class="div-inline upper-button">
       <span>Current Bet</span>
-      <p>{{amount}} &#8377;</p>
+      <p>{{amount}}</p>
     </div>
     <div class="div-inline upper-button">
-      <div>Min Bet: {{minBet}} &#8377;</div>
+      <div>Min Bet: {{minBet}}</div>
       <hr>
-      <div>Max Bet: {{maxBet}} &#8377;</div>
+      <div>Max Bet: {{maxBet}}</div>
     </div>
     <div class="div-inline upper-button" ng-click="Undo()">
       Undo
@@ -45,9 +45,9 @@
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="bottombet" ng-click="userBet([0,37])" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,37]].displayArray track by $index">
-                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                      <div class="bottombet" ng-click="userBet('Spilt Bet61')" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['Spilt Bet61'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                         </div>
                       </div>
                       <div class="zeroRightBet" ng-click="userBet([0,37,2])" ng-mouseenter="betPlacing('otherBet',[0,37,2])" ng-mouseleave="betPlacing()">
@@ -75,9 +75,9 @@
                           <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
                         </div>
                       </div>
-                      <div class="street-bet bottombet" ng-click="userBet([0,37])" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
-                        <div class="absolute-coin" ng-repeat="coin in masterArray[[0,37]].displayArray track by $index">
-                          <img src="{{coin.img}}" ng-style="{'margin-top':'{{10-8*$index}}px'}">
+                      <div class="street-bet bottombet" ng-click="userBet('Line Bet12')" ng-mouseenter="betPlacing('otherBet',[0,37])" ng-mouseleave="betPlacing()">
+                        <div class="absolute-coin" ng-repeat="coin in masterArray['Line Bet12'].displayArray track by $index">
+                          <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                         </div>
                       </div>
                     </td>
@@ -87,9 +87,9 @@
             </tr>
             <tr class="nums" ng-repeat="b1 in b track by $index" ng-init="outerIndex= $index">
               <td ng-repeat="a1 in a track by $index" ng-class="{{getNgClass(getIndex($index,outerIndex)[0])}}">
-                <div class="num circle" ng-click="userBet(getIndex($index,outerIndex)[0])">
+                <div class="num circle" ng-click="userBet(getIndex($index,outerIndex))">
                   <span>{{getIndex($index,outerIndex)[0]}}</span>
-                  <div class="absolute-coin" ng-repeat="coin in masterArray[getIndex($index,outerIndex)[0]].displayArray track by $index">
+                  <div class="absolute-coin" ng-repeat="coin in masterArray[getIndex($index,outerIndex)].displayArray track by $index">
                     <img src="{{coin.img}}" ng-style="{'margin-right':'{{10-8*$index}}px'}">
                   </div>
                 </div>

@@ -54,10 +54,23 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       return null;
     },
     playerLogin: function (data, callback) {
-      return $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
-        data = data.data;
-        callback(data);
-      });
+      if (window.plugins) {
+        if (window.plugins.OneSignal) {
+          window.plugins.OneSignal.getIds(function (ids) {
+            data.deviceId = ids.userId;
+            return $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
+              data = data.data;
+              callback(data);
+            });
+          });
+        }
+      } else {
+        //to run on browser
+        return $http.post(adminurl + 'member/playerLogin', data).then(function (data) {
+          data = data.data;
+          callback(data);
+        });
+      }
     },
     playerLogout: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
@@ -546,7 +559,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     savePlayerToTable: function (dataPlayer, callback) {
       console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
+      if (!_.isEmpty(accSSSSessToken)) {
         $http.post(adminPoker + '/api/Table/addUserToTable', {
           playerNo: dataPlayer.playerNo,
           tableId: dataPlayer.tableId,

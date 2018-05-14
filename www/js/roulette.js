@@ -11,7 +11,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   $scope.b = [1, 2, 3];
   $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
-  // $scope.totalMoney = 10000;
+  $scope.totalMoney = 0;
   $scope.maxBet = 1000;
   $scope.minBet = 1;
   $scope.amount = 0;
@@ -23,10 +23,11 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     mySocketRoullete.disconnect();
     $state.go('lobby');
     mySocketRoullete.removeAllListeners('spinWheel');
-    mySocketRoullete.on('disconnect', function onConnect() {
-      console.log("Socket disconnected!");
+    mySocketRoullete.close();
+    mySocketRoullete.on("disconnect", function () {
+      console.log("client disconnected from server");
     });
-  }
+  };
   $rootScope.getBlack = function (number) {
     if (number > 0 && number != 37) {
       var foundIndex = _.findIndex($rootScope.blackArray, function (n1) {
@@ -150,7 +151,17 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     return indexArray;
   }
   RouletteService.getCurrentBalance(function (data) {
-    $scope.totalMoney = data.balance;
+    if (data.value) {
+      $scope.totalMoney = data.data.balance;
+    } else if (data.error == 'No Member Found') {
+      $.jStorage.flush();
+      mySocketRoullete.disconnect();
+      mySocketRoullete.removeAllListeners('spinWheel');
+      mySocketRoullete.on("disconnect", function () {
+        console.log("client disconnected from server");
+      });
+      $state.go('login');
+    }
   });
   RouletteService.getLastResults(function (data) {
     $scope.lastResults = data;
@@ -759,7 +770,7 @@ myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $io
       $http.post(adminurl + 'roulette/getCurrentBalance', {
         accessToken: accessToken
       }).then(function (data) {
-        callback(data.data.data);
+        callback(data.data);
       });
     },
     saveUserBets: function (masterArray, callback) {

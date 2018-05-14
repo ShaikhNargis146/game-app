@@ -15,14 +15,21 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
 
 
     Service.getARCurrentBalance({
-      'id': $scope.singlePlayerData._id
+      'accessToken': $.jStorage.get("accessToken")
     }, function (data) {
       if (data.value) {
-
         console.log("get currecnt balc", data);
         $scope.ARBalance = data.data.balance;
         $scope.ARRate = data.data.rate;
-      }
+      }else if (data.error == 'No Member Found') {
+        $.jStorage.flush();
+        mySocket.disconnect();
+        mySocket.close()
+        mySocket.on("disconnect", function () {
+        console.log("client disconnected from server");
+        });
+        $state.go('login');
+        }
     })
     // io.sails.url='http://ar.wohlig.co.in';
 
