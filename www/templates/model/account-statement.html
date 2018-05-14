@@ -52,11 +52,11 @@
     <div class="net_profit_show" ng-if="(statementNetProfit || statementNetProfit==0 ) && !(results.length==0)">
 
       <span ng-if="statementNetProfit>=0">Net Profit :
-        <span class="green"> {{statementNetProfit}} </span>
+        <span class="green"> {{statementNetProfit |number:2}} </span>
       </span>
 
       <span ng-if="statementNetProfit<0">Net Loss :
-        <span class="red"> {{statementNetProfit}} </span>
+        <span class="red"> {{statementNetProfit |number:2}} </span>
       </span>
     </div>
   </div>
