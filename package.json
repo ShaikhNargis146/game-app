@@ -55,6 +55,20 @@
       "android"
     ]
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-ionic-webview",
+    "phonegap-plugin-mobile-accessibility",
+    "cordova-plugin-screen-orientation",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-vibration",
+    "cordova-plugin-insomnia",
+    "cordova-plugin-nativeaudio",
+    "cordova-plugin-ionic-keyboard",
+    "ionic-plugin-keyboard",
+    "onesignal-cordova-plugin"
+  ],
   "cordovaPlatforms": []
 }
