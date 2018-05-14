@@ -5,10 +5,12 @@ var myTableNo = 0;
 var canvasPieTimer;
 
 myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
+
   myTableNo = 0;
   $ionicPlatform.ready(function () {
     screen.orientation.lock('landscape');
   });
+  Service.checkAccessLevel();
   $scope.destroyAudio = function () {
     $ionicPlatform.ready(function () {
       if (window.cordova) {
@@ -32,9 +34,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     socketId = mySocket1._raw.id;
     $.jStorage.set("socketId", mySocket1._raw.id);
     console.log("teenpatti socket connected", mySocket1._raw.id);
-    Service.connectSocket(function (data) {
-      console.log(data);
-    });
+    // Service.connectSocket(function (data) {
+    //   console.log(data);
+    // });
   });
 
   $scope.playerData = function () {

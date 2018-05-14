@@ -1,6 +1,6 @@
 <div class="plyr p{{pos}} " ng-class="{
-    'no_player':!player && !sitHere,
     'sit_here':sitHere && !player,
+    'no_player':!player && !sitHere,
     'poker_card_shuffle_animation': player && player.cards.length>0 && startAnimation
 }">
   <div class="winner-display">
@@ -14,7 +14,6 @@
       <div class="mask"></div>
     </div>
   </div>
-
   <div class="blind-status">
     B
   </div>
@@ -59,9 +58,9 @@
     <!-- two card end -->
   </div>
   <div class="amt">
-    <img src="img/coin.png">5000
+    <img src="img/coin.png">{{player.totalAmount}}
   </div>
   <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
-    <span>player{{pos}}</span>
+    <span>{{player.name}}</span>
   </div>
 </div>

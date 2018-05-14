@@ -199,7 +199,7 @@
   }
 }
 
-@include timer('.platform-android,.platform-browser', '.animation_wrapper', 20, 300px, #040404, '5px solid rgba(0,0,0,0.5)');
+@include timer('.platform-android,.platform-browser', '.animation_wrapper', 20, 160%, #040404, '5px solid rgba(0,0,0,0.5)');
 .platform-ios .pie_loader {
   overflow: hidden;
   opacity: .8;

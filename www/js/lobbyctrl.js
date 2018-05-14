@@ -24,7 +24,7 @@ myApp.controller("LobbyCtrl", function ($scope, $state, $ionicModal, $ionicPopup
 
   })
   // screen.orientation.lock('landscape');
-
+  Service.checkAccessLevel();
 
   $ionicPlatform.registerBackButtonAction(function (event) {
     $scope.closeAllTab();

@@ -3,7 +3,7 @@ myApp.controller("OnlinegameCtrl", function ($scope, $state, $ionicModal, $state
   var s = document.createElement('script'); // use global document since Angular's $document is weak 
   s.src = 'https://kingscasino.uat1.evo-test.com/mobile/js/iframe.js';
   document.body.appendChild(s);
-
+  Service.checkAccessLevel();
   Service.sendAccessToken(function (data) {
     $scope.singlePlayerData = data.data.data;
     var evoUser = {};

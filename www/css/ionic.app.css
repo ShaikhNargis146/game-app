@@ -13346,9 +13346,10 @@ ion-item.item {
         background-size: 100% 100%; }
       .pokerkingtable .main-table .playing-player-info button {
         border: 0px;
-        min-width: 16%;
+        width: 18%;
         margin: 0 3px;
-        height: 3em; }
+        height: 4em;
+        font-size: .8em; }
       .pokerkingtable .main-table .playing-player-info .mainplayer_block .info {
         display: flex;
         flex-direction: row;
@@ -13581,8 +13582,8 @@ ion-item.item {
   box-sizing: border-box; }
 
 .platform-android .animation_wrapper, .platform-browser .animation_wrapper {
-  width: 300px;
-  height: 300px; }
+  width: 160%;
+  height: 160%; }
 
 .platform-android .animation_wrapper .pie, .platform-browser .animation_wrapper .pie {
   width: 50%;

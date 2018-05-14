@@ -1,6 +1,6 @@
 <ion-modal-view class="custom-model statement-model game_summary  small-model shadow-yellow ">
   <ion-content>
-    <!-- <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeGameModal();"> -->
+    <!-- <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closePriceRangeModal();"> -->
     <div class="heading">
       Take into Game
 
@@ -29,15 +29,15 @@
           </ion-checkbox>
         </div>
         <span class="balance padding-vertical">Your balance:
-          <span>{{balance | number}}</span>
+          <span>{{balance | number:0}}</span>
         </span>
       </div>
       </div>
       <div class="side_show_btn text-center" ng-if="!autoBuy">
-        <button class="custom_button" type='submit' ng-disabled="!sliderForm.$error" ng-click=sitHerefn(slider,auto);closeGameModal();>Play</button>
+        <button class="custom_button" type='submit' ng-disabled="!sliderForm.$error" ng-click=sitHerefn(slider,auto);closePriceRangeModal();>Play</button>
       </div>
       <div class="side_show_btn text-center" ng-if="autoBuy">
-        <button class="custom_button" type='submit' ng-disabled="!sliderForm.$error" ng-click=reBuyFunction(slider);closeGameModal();>Play</button>
+        <button class="custom_button" type='submit' ng-disabled="!sliderForm.$error" ng-click=reBuyFunction(slider);closePriceRangeModal();>Play</button>
       </div>
     </form>
   </ion-content>

@@ -4,6 +4,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.$on('$ionicView.loaded', function (event) {
     $.jStorage.set('masterArray', null);
   });
+  Service.checkAccessLevel();
   var mySocketRoullete = RouletteService.getSocket();
 
 
@@ -387,7 +388,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 });
 
 myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ionicPlatform, $ionicModal, $timeout, $rootScope, $stateParams) {
-  var mySocketRoullete=RouletteService.getSocket();
+  var mySocketRoullete = RouletteService.getSocket();
 
   $ionicModal.fromTemplateUrl('templates/model/win-lose.html', {
     scope: $scope,
