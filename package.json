@@ -47,7 +47,8 @@
       "cordova-plugin-insomnia": {},
       "cordova-plugin-nativeaudio": {},
       "cordova-plugin-ionic-keyboard": {},
-      "ionic-plugin-keyboard": {}
+      "ionic-plugin-keyboard": {},
+      "onesignal-cordova-plugin": {}
     },
     "platforms": [
       "ios",
