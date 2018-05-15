@@ -105,7 +105,6 @@
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
     <plugin name="cordova-plugin-insomnia" spec="git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git" />
     <plugin name="cordova-plugin-nativeaudio" spec="^3.0.9" />
-    <plugin name="cordova-plugin-insomnia" spec="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git" />
     <plugin name="phonegap-plugin-mobile-accessibility" spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" />
     <engine name="ios" spec="^4.5.4" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />

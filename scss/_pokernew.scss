@@ -138,6 +138,35 @@
           line-height: 1;
           font-size: 1em;
         }
+        .player_badge {
+          position: absolute;
+          top: 0;
+          right: -30%;
+          width: 65%;
+          text-align: right;
+          background: red;
+          border-radius: 15px;
+          top: 20%;
+          z-index: -1;
+          &.left-dealer {
+            right: -45%;
+          }
+          div {
+            padding-right: 10%;
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 1.7em;
+          }
+          &.dealer {
+            background: #56c2fd;
+          }
+          &.smallblind {
+            background: #6ed34e;
+          }
+          &.bigblind {
+            background: #ef1f2b;
+          }
+        }
         .nopalyer_status {
           display: none;
         }
@@ -344,6 +373,29 @@
           top: 0;
           transform: translateY(-108%); // height: 40px;
           // width: 70px;
+        }
+      }
+      .winner-pot-name {
+        position: absolute;
+        top: -40%;
+        left: 50%;
+        width: 130px;
+        font-weight: bold;
+        line-height: 1;
+        transform: translateX(-50%);
+        color: #f8bd0b;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        &.raised-amount {
+          top: -30%;
+          font-size: 1.4em;
+          color: #fff;
+        }
+      }
+      .player1 {
+        .winner-pot-name {
+          top: -10%;
+          left: 170%;
         }
       }
       .winner_main {

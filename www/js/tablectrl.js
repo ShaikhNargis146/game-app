@@ -30,7 +30,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.destroyAudio();
   });
   var mySocket1 = io.sails.connect(adminUUU);
-  mySocket1.on('connect', function onConnect() {
+  mySocket1.on('connect-' + $scope.tableId, function onConnect() {
     socketId = mySocket1._raw.id;
     $.jStorage.set("socketId", mySocket1._raw.id);
     console.log("teenpatti socket connected", mySocket1._raw.id);
@@ -81,8 +81,8 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   function startSocketUpdate() {
-    mySocket1.off("Update", updateSocketFunction);
-    mySocket1.on("Update", updateSocketFunction);
+    mySocket1.off("Update-" + $scope.tableId, updateSocketFunction);
+    mySocket1.on("Update-" + $scope.tableId, updateSocketFunction);
   }
 
   function sideShowSocket(data) {
@@ -109,7 +109,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     }
   }
-  mySocket1.on("sideShow", sideShowSocket);
+  mySocket1.on("sideShow-" + $scope.tableId, sideShowSocket);
 
   // mySocket1.off("Update", function (data) {
   //   $scope.message = {
@@ -515,7 +515,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   $scope.showMessageModal();
   // });
   //seat selection Player
-  mySocket1.on("seatSelection", function (data) {});
+  mySocket1.on("seatSelection-" + $scope.tableId, function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data.data);
@@ -762,7 +762,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   };
 
-  mySocket1.on("showWinner", showWinnerFunction);
+  mySocket1.on("showWinner-" + $scope.tableId, showWinnerFunction);
   // mySocket1.off("showWinner", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
@@ -838,7 +838,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //tip socket
-  mySocket1.on("tip", function (data) {
+  mySocket1.on("tip-" + $scope.tableId, function (data) {
     $scope.tipAmount = data.data.amount;
     $scope.TipPlayerNo = data.data.playerNo;
 
@@ -893,7 +893,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
-  mySocket1.on("sideShowCancel", function (data) {
+  mySocket1.on("sideShowCancel-" + $scope.tableId, function (data) {
     $scope.sideShowDataFrom = 0;
     $scope.$apply();
     console.log("side show cancel", data);
@@ -979,7 +979,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //seat selection Player
-  mySocket1.on("removePlayer", function (data) {
+  mySocket1.on("removePlayer-" + $scope.tableId, function (data) {
     if (data) {
       $state.reload();
     }

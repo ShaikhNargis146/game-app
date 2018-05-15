@@ -12515,6 +12515,18 @@ ion-item.item {
         top: -51%;
         font-size: 0.8em;
         width: 85%; }
+        .pokar .main-table .playing-table .status.call {
+          background: #2e4fb4; }
+        .pokar .main-table .playing-table .status.checked {
+          background: #5c00ff; }
+        .pokar .main-table .playing-table .status.all_in {
+          background: #4ccd9d; }
+        .pokar .main-table .playing-table .status.fold {
+          background: #ff1402; }
+        .pokar .main-table .playing-table .status.raise {
+          background: #ff1402; }
+        .pokar .main-table .playing-table .status.waiting {
+          background: #2196F3; }
       .pokar .main-table .playing-table .sit_here {
         background: url("../img/poker/sit-here.png");
         background-size: 100% 100%;
@@ -13002,6 +13014,29 @@ ion-item.item {
           padding: 3px;
           line-height: 1;
           font-size: 1em; }
+        .pokerkingtable .main-table .playing-table .plyr .player_badge {
+          position: absolute;
+          top: 0;
+          right: -30%;
+          width: 65%;
+          text-align: right;
+          background: red;
+          border-radius: 15px;
+          top: 20%;
+          z-index: -1; }
+          .pokerkingtable .main-table .playing-table .plyr .player_badge.left-dealer {
+            right: -45%; }
+          .pokerkingtable .main-table .playing-table .plyr .player_badge div {
+            padding-right: 10%;
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 1.7em; }
+          .pokerkingtable .main-table .playing-table .plyr .player_badge.dealer {
+            background: #56c2fd; }
+          .pokerkingtable .main-table .playing-table .plyr .player_badge.smallblind {
+            background: #6ed34e; }
+          .pokerkingtable .main-table .playing-table .plyr .player_badge.bigblind {
+            background: #ef1f2b; }
         .pokerkingtable .main-table .playing-table .plyr .nopalyer_status {
           display: none; }
         .pokerkingtable .main-table .playing-table .plyr img {
@@ -13137,6 +13172,24 @@ ion-item.item {
         position: absolute;
         top: 0;
         transform: translateY(-108%); }
+      .pokerkingtable .main-table .playing-table .winner-pot-name {
+        position: absolute;
+        top: -40%;
+        left: 50%;
+        width: 130px;
+        font-weight: bold;
+        line-height: 1;
+        transform: translateX(-50%);
+        color: #f8bd0b;
+        font-size: 1.1em;
+        text-transform: uppercase; }
+        .pokerkingtable .main-table .playing-table .winner-pot-name.raised-amount {
+          top: -30%;
+          font-size: 1.4em;
+          color: #fff; }
+      .pokerkingtable .main-table .playing-table .player1 .winner-pot-name {
+        top: -10%;
+        left: 170%; }
       .pokerkingtable .main-table .playing-table .winner_main::before {
         display: block;
         content: '';
