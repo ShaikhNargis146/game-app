@@ -30,7 +30,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.destroyAudio();
   });
   var mySocket1 = io.sails.connect(adminUUU);
-  mySocket1.on('connect_' + $scope.tableId, function onConnect() {
+  mySocket1.on('connect', function onConnect() {
     socketId = mySocket1._raw.id;
     $.jStorage.set("socketId", mySocket1._raw.id);
     console.log("teenpatti socket connected", mySocket1._raw.id);

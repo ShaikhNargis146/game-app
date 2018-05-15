@@ -536,42 +536,45 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
 
 
   //winner
+  //winner
   function showWinnerFunction(data) {
-    // $scope.chaalAmt = {};
+    $scope.chaalAmt = {};
     console.log("show winner", data);
-    // $scope.winnerData = data.data.pots;
-    // _.each($scope.players, function (player) {
-    //   if (player) {
-    //     player.isTurn = false;
-    //     player.isWinner = true;
-    //     _.each(data.data.pots, function (pot, number) {
-    //       var winners = _.filter(pot.winner, function (potPlayer) {
-    //         return potPlayer.winner;
-    //       });
-    //       var isThisPlayerWinner = _.findIndex(winners, function (winner) {
-    //         // console.log(player);
-    //         return winner.playerId == player._id;
-    //       });
-    //       if (isThisPlayerWinner >= 0) {
-    //         // console.log("isThisPlayerWinner", isThisPlayerWinner);
-    //         player.winnerDetails = {
-    //           potMainName: pot.name,
-    //           potName: winners[isThisPlayerWinner].winName,
-    //           amount: pot.totalAmount,
-    //           winnercard: winners[isThisPlayerWinner].winnigCards
-    //         };
-    //       }
-    //     });
-    //   }
-    //   $scope.$apply();
-    // });
-    // console.log("inside Winner", $scope.players);
-    // $scope.activePlayer = _.filter($scope.players, function (player) {
-    //   if (player && (player.user._id == $scope._id)) {
-    //     return true;
-    //   }
-    // });
-  }
+    $scope.winnerData = data.data.pots;
+    _.each($scope.players, function (player) {
+      if (player) {
+        player.isTurn = false;
+        player.isWinner = true;
+        player.winnerDetails = [];
+        _.each(data.data.pots, function (pot, number) {
+          var winners = _.filter(pot.winner, function (potPlayer) {
+            return potPlayer.winner;
+          });
+          console.log("winner inside", winners);
+          var isThisPlayerWinner = _.findIndex(winners, function (winner) {
+            // console.log(player);
+            return winner.playerId == player._id;
+          });
+          if (isThisPlayerWinner >= 0) {
+            console.log("isThisPlayerWinner", isThisPlayerWinner);
+            player.winnerDetails.push({
+              potMainName: pot.name,
+              potName: winners[isThisPlayerWinner].winName,
+              amount: pot.totalAmount,
+              winnercard: winners[isThisPlayerWinner].winnigCards
+            });
+          };
+        });
+      }
+      $scope.$apply();
+    });
+    console.log("inside Winner", $scope.players);
+    $scope.activePlayer = _.filter($scope.players, function (player) {
+      if (player && (player.user._id == $scope._id)) {
+        return true;
+      }
+    });
+  };
   mySocket1.on("showWinner", showWinnerFunction);
 
   //seat selection
