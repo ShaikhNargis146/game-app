@@ -103,7 +103,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     },
     newGame: function (tableId, callback) {
       var isDealer = "true"
-      $http.post(adminPoker + 'Player/newGame', {
+      $http.post(adminPoker + '/api/Player/newGame', {
         tableId: tableId,
         isDealer: isDealer
       }).then(function (data) {
