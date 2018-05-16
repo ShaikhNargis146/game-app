@@ -524,7 +524,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
 
   function startSocketUpdate() {
     // io.socket.off("Update", updateSocketFunction);
-    mySocket1.on("Update_" + $scope.tableId, updateSocketFunction);
+    mySocket2.on("Update_" + $scope.tableId, updateSocketFunction);
   }
   startSocketUpdate();
   // Socket Update function with REST API
@@ -603,7 +603,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   };
 
 
-  mySocket1.on("removePlayer_" + $scope.tableId, removePlayerFunction);
+  mySocket2.on("removePlayer_" + $scope.tableId, removePlayerFunction);
   //winner
   //winner
   function showWinnerFunction(data) {
@@ -644,7 +644,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       }
     });
   };
-  mySocket1.on("showWinner_" + $scope.tableId, showWinnerFunction);
+  mySocket2.on("showWinner_" + $scope.tableId, showWinnerFunction);
 
   //seat selection
   seatSelectionFunction = function (data) {
@@ -673,7 +673,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // };
     $scope.$apply();
   };
-  mySocket1.on("seatSelection_" + $scope.tableId, seatSelectionFunction);
+  mySocket2.on("seatSelection_" + $scope.tableId, seatSelectionFunction);
 
   newGameSocketFunction = function (data) {
     console.log("NewGame", data);
@@ -700,10 +700,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // $scope.$apply();
   };
 
-  mySocket1.on("newGame_" + $scope.tableId, newGameSocketFunction);
-
-
-
+  mySocket2.on("newGame_" + $scope.tableId, newGameSocketFunction);
   $scope.autoBuygame = function (autoBuy) {
     $scope.autoBuy = autoBuy;
     // console.log($scope.autoBuy);
