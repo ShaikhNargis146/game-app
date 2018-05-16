@@ -296,7 +296,6 @@
       </div>
       <div class="players">
         <poker-boot-animation> </poker-boot-animation>
-
         <poker-players id="plr1" ng-pos="1" ng-click="openPriceRangeModal(1)" ng-player="players[0]" ng-animation="startAnimation"
           ng-sit-here="sitHere">
         </poker-players>
@@ -331,13 +330,16 @@
       </div>
     </div>
     <div class="playing-player-info" ng-if="!sitHere" ng-click="stopProgation($event)">
-      <button class="" ng-click="fold()" promise-btn="foldPromise">
+      <button class="" ng-click="fold()" promise-btn="foldPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft">
         FOLD
       </button>
-      <button class="call" ng-click="call()" promise-btn="callPromise">
-        call 5000
+      <button class="call" ng-click="call();" promise-btn="callPromise" ng-if="!isCalled && !isChecked" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
+        call
       </button>
-      <button class="check" ng-click="check();" ng-if="isChecked" promise-btn="checkPromise">
+      <button class="call" ng-click="call()" ng-if="isCalled" promise-btn="callPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
+        call
+      </button>
+      <button class="check" ng-click="check();" ng-if="isChecked" promise-btn="checkPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
@@ -365,10 +367,10 @@
         <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
       </div>
 
-      <button class="" ng-click="toggleSlider()">
+      <button class="" ng-click="toggleSlider()" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised) && !isRaised">
         Raise {{slider.value}}
       </button>
-      <button class="" ng-click="allIn()" promise-btn="allInPromise">
+      <button class="" ng-click="allIn()" promise-btn="allInPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft ||(players[8].buyInAmt-players[8].totalAmount < 0)">
         All IN
       </button>
     </div>

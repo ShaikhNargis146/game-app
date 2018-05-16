@@ -3,64 +3,128 @@
     'no_player':!player && !sitHere,
     'poker_card_shuffle_animation': player && player.cards.length>0 && startAnimation
 }">
-  <div class="winner-display">
-    <div class="winner-player " ng-class="{'winner':player.winRank== 1}"></div>
+
+  <!-- before Player Sitting -->
+  <div class="rel width-6vw" ng-if="sitHere && !player">
+    <div class="player_pic">
+      <img src="img/sithere.png" class="pic">
+    </div>
   </div>
 
-  <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winRank">
-    <div class="animation_wrapper">
-      <div class="pie spinner"></div>
-      <div class="pie filler"></div>
-      <div class="mask"></div>
+  <div class="rel" ng-if="player.tableLeft && !sitHere">
+    <div class="player_pic">
+      <img src="img/sithere.png" class="pic">
     </div>
-  </div>
-  <div class="blind-status">
-    B
+    <div class="player_badge left-dealer " ng-if="player.isDealer">
+      <div> D </div>
+    </div>
   </div>
 
-  <div class="wnr" ng-class="{'winner_anime':player.winRank== 1}">
-    <img src="img/table/glow.png" class="anime1">
-    <img src="img/table/glow.png" class="anime2">
-    <img src="img/table/glow.png" class="anime3">
-    <img src="img/table/glow.png" class="anime4">
+  <div class="rel" ng-if="!player && !sitHere">
+    <div class="player_pic">
+      <img src="img/sithere.png" class="pic">
+    </div>
   </div>
-  <!-- <div class="status" ng-if="player.isBlind && !player.isFold && player.isActive && remainingAllPlayerCount>1">
-        BLIND
-      </div>
-      <div class="status" ng-if="player.isFold && player.isActive && remainingAllPlayerCount>1">
-        PACK
-      </div> -->
-  <div class="status">
-    ALL IN
-  </div>
-  <!-- <div class="status" ng-if="!player.isActive || remainingAllPlayerCount==1">
-        Waiting...
-      </div> -->
-  <div class="plyr_pic">
-    <div class="pic">
-      <div class="profile_pic_overlay">
-        <img ng-src="{{player.image | serverimage}}">
+
+
+
+  <!-- after Player Sitting -->
+  <div class="rel width-14vh" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
+    <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (!chalAmt.action === 'allIn')">
+      {{chalAmt.action}}: {{chalAmt.amount | number}}
+    </div>
+    <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (chalAmt.action === 'allIn') && (player.buyInAmt-player.totalAmount > 0)">
+      Raised: {{chalAmt.amount | number}}
+    </div>
+    <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (chalAmt.action === 'allIn') && (player.buyInAmt-player.totalAmount == 0)">
+      {{chalAmt.action}}: {{chalAmt.amount | number}}
+    </div>
+
+    <div class="winner-pot-name raised-amount" ng-if="bigBlindAmt && player.isBigBlind && !player.winner">
+      Big Blind: {{bigBlindAmt | number}}
+    </div>
+
+    <div class="winner-pot-name raised-amount" ng-if="smallBlindAmt && player.isSmallBlind && !player.winner">
+      Small Blind: {{smallBlindAmt | number}}
+    </div>
+    <div ng-if="player.winnerDetails.length == 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
+      <div>
+        {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
     </div>
-    <!-- two card -->
-    <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}">
-      <div class=" custom-row">
-        <card card='DONE'></card>
-        <card card='DONE'></card>
+    <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac{{$index+1}}">
+      <div>
+        {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
     </div>
-    <!-- <div class="plyr_card plyr_card_2card plyr_card2_winner ">
+
+    <div class="player_badge dealer" ng-if="player.isDealer">
+      <div> D </div>
+    </div>
+    <div class="player_badge smallblind" ng-if="player.isSmallBlind">
+      <div> SB</div>
+    </div>
+    <div class="player_badge bigblind" ng-if="player.isBigBlind">
+      <div>BB</div>
+    </div>
+
+    <div class="winner-display">
+      <div class="winner-player " ng-class="{'winner':player.winnerDetails.length>0}"></div>
+    </div>
+
+    <div class="pie_loader" ng-if="player.isTurn && !player.isFold">
+      <div class="animation_wrapper ">
+        <div class="pie spinner "></div>
+        <div class="pie filler "></div>
+        <div class="mask "></div>
+      </div>
+    </div>
+
+    <div class="wnr " ng-class="{'winner_anime':player.winnerDetails.length>0}">
+      <img src="img/table/glow.png" class="anime1">
+      <img src="img/table/glow.png" class="anime2">
+      <img src="img/table/glow.png" class="anime3">
+      <img src="img/table/glow.png" class="anime4">
+    </div>
+
+
+    <div class="details">
+      <div class="status fold" ng-if="player.isFold && !player.winnerDetails">Fold</div>
+      <div class="status checked" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
+      <div class="status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
+      <div class="status raise" ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails">Raised</div>
+      <div class="status raise" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)">Raised</div>
+      <div class="status all_in" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)">All In</div>
+      <div class="status waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
+      <div class="name">{{player.user.name}}</div>
+      <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
+    </div>
+    <div class="plyr_pic">
+      <div class="pic">
+        <div class="profile_pic_overlay">
+          <img ng-src="{{player.image | serverimage}}" ng-class="{'disable':!player.isActive}">
+        </div>
+      </div>
+      <!-- two card -->
+      <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}">
+        <div class=" custom-row">
+          <card card='DONE'></card>
+          <card card='DONE'></card>
+        </div>
+      </div>
+      <!-- <div class="plyr_card plyr_card_2card plyr_card2_winner ">
           <div class=" custom-row">
             <card card='{{player.cards[0]}}'> </card>
             <card card='{{player.cards[1]}}'> </card>
           </div>
         </div> -->
-    <!-- two card end -->
-  </div>
-  <div class="amt">
-    <img src="img/coin.png">{{player.totalAmount}}
-  </div>
-  <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
-    <span>{{player.name}}</span>
+      <!-- two card end -->
+    </div>
+    <div class="amt">
+      <img src="img/coin.png">{{player.totalAmount}}
+    </div>
+    <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
+      <span>{{player.name}}</span>
+    </div>
   </div>
 </div>
