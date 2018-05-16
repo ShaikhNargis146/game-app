@@ -23,11 +23,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
   }
-  $scope.destroyAudio();
+  // $scope.destroyAudio();
 
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
-    $scope.destroyAudio();
+    if (ionic.Platform.isAndroid()) {
+      $scope.destroyAudio();
+    }
+
   });
   var mySocket1 = io.sails.connect(adminUUU);
   mySocket1.on('connect', function onConnect() {
@@ -154,15 +157,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  //Resume Audio
-  $scope.resumeAudio = function () {
-    $ionicPlatform.ready(function () {
-      if (window.cordova) {
-        // running on device/emulator
-        window.plugins.NativeAudio.play('timer');
-      }
-    });
-  }
+  // //Resume Audio
+  // $scope.resumeAudio = function () {
+  //   $ionicPlatform.ready(function () {
+  //     if (window.cordova) {
+  //       // running on device/emulator
+  //       window.plugins.NativeAudio.play('timer');
+  //     }
+  //   });
+  // }
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
     if (!_.isEmpty($scope.tableId)) {
@@ -652,12 +655,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     //for vibration on turn
     if ($scope.players[8] && $scope.players[8].isTurn) {
       //Resume Audio
-      if (ionic.Platform.isIOS()) {
-        document.addEventListener("resume", function () {
-          // Handle event on pause
-          $scope.resumeAudio();
-        });
-      }
+      // if (ionic.Platform.isIOS()) {
+      //   document.addEventListener("resume", function () {
+      //     // Handle event on pause
+      //     $scope.resumeAudio();
+      //   });
+      // }
 
       // $scope.timerAudio.play();
       $ionicPlatform.ready(function () {
