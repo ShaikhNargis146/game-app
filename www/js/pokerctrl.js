@@ -118,16 +118,16 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
 
   $scope.openPriceRangeModal = function (sitNum) {
     // if (!(_.isEmpty($scope.activePlayer))) {
-    // if (!$scope.activePlayer[0].tableLeft) {
-    //   if (!$scope.sitHere) {
-    //     $scope.message = {
-    //       heading: "You are already been seated",
-    //       content: "No need to sit again !!!"
-    //     };
-    //     $scope.showMessageModal();
-    //     return;
+    //   if (!$scope.activePlayer[0].tableLeft) {
+    //     if (!$scope.sitHere) {
+    //       $scope.message = {
+    //         heading: "You are already been seated",
+    //         content: "No need to sit again !!!"
+    //       };
+    //       $scope.showMessageModal();
+    //       return;
+    //     }
     //   }
-    // }
     // }
     console.log('inside price range modal');
     if (!$scope.sitHere) {
@@ -272,24 +272,24 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         //     $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
         //   };
         // };
-        // if (!$scope.sitHere) {
-        //   if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
-        //     var autoBuy
-        //     autoBuy = true;
-        //     $scope.autoBuygame(autoBuy);
-        //     if ($scope.activePlayer[0].buyInAmt < 0) {
-        //       $scope.closePriceRangeModal();
-        //       $state.go("lobby");
-        //       console.log("one");
-        //     }
-        //   }
-        // }
+        if (!$scope.sitHere) {
+          if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
+            var autoBuy
+            autoBuy = true;
+            $scope.autoBuygame(autoBuy);
+            if ($scope.players[8].buyInAmt < 0) {
+              $scope.closePriceRangeModal();
+              $state.go("lobby");
+              console.log("one");
+            }
+          }
+        }
         if (!(_.isEmpty($scope.extra))) {
           if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
             $scope.chaalAmt = $scope.extra;
           };
         }
-        console.log("$scope.activePlayerNo", $scope.activePlayerNo);
+        // console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -384,46 +384,34 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if (data.data.pots[0]) {
       $scope.potAmount = data.data.pots[0].totalAmount;
     }
+    $scope.iAmThere(data.data.players);
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
 
+    if (players[8] && players[8].isTurn) {
+      $ionicPlatform.ready(function () {
+        if (window.cordova) {
+          window.plugins.NativeAudio.play('turn');
+          navigator.vibrate(500);
+        }
+      })
+    }
 
-    // $scope.activePlayer = _.filter($scope.players, function (player) {
-    //   // console.log("activeplayer257", player);
-    //   if (_.isEmpty(player)) {} else {
-    //     if (player.isTurn && $.jStorage.get("socketId") == player.socketId) {
-    //       $ionicPlatform.ready(function () {
-    //         if (window.cordova) {
-    //           window.plugins.NativeAudio.play('turn');
-    //           navigator.vibrate(500);
-    //         }
-    //       })
-    //     } else {
 
-    //     }
-    //   }
-    //   if (player && (player.user._id == $scope._id)) {
-    //     return true;
-    //   }
-    // });
 
-    // if ($scope.activePlayer[0].playerNo) {
-    //   $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-    // };
-
-    // if (!$scope.sitHere) {
-    //   if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
-    //     var autoBuy
-    //     autoBuy = true;
-    //     $scope.autoBuygame(autoBuy);
-    //     if ($scope.activePlayer[0].buyInAmt < 0) {
-    //       $scope.closePriceRangeModal();
-    //       $state.go("lobby");
-    //       console.log("one");
-    //     }
-    //   }
-    // }
+    if (!$scope.sitHere) {
+      if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
+        var autoBuy
+        autoBuy = true;
+        $scope.autoBuygame(autoBuy);
+        if ($scope.players[8].buyInAmt < 0) {
+          $scope.closePriceRangeModal();
+          $state.go("lobby");
+          console.log("one");
+        }
+      }
+    }
 
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -638,11 +626,11 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       $scope.$apply();
     });
     console.log("inside Winner", $scope.players);
-    $scope.activePlayer = _.filter($scope.players, function (player) {
-      if (player && (player.user._id == $scope._id)) {
-        return true;
-      }
-    });
+    // $scope.activePlayer = _.filter($scope.players, function (player) {
+    //   if (player && (player.user._id == $scope._id)) {
+    //     return true;
+    //   }
+    // });
   };
   mySocket2.on("showWinner_" + $scope.tableId, showWinnerFunction);
 
@@ -751,6 +739,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //     }
     //   }
     // }
+    if (!$scope.sitHere) {
+      return;
+    }
+
     console.log("sit here function", sliderData, data);
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
@@ -790,7 +782,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
             if (data.data.value) {
               $scope.sitHere = false;
               myTableNo = data.data.data.playerNo;
-              $scope.activePlayerNo = data.data.data.playerNo;
+              // $scope.activePlayerNo = data.data.data.playerNo;
               $scope.updatePlayers();
               startSocketUpdate();
             } else {
