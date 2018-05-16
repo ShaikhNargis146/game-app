@@ -101,6 +101,15 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         });
       }
     },
+    newGame: function (tableId, callback) {
+      var isDealer = "true"
+      $http.post(adminPoker + 'Player/newGame', {
+        tableId: tableId,
+        isDealer: isDealer
+      }).then(function (data) {
+        callback(data);
+      });
+    },
   };
 
   return obj1;

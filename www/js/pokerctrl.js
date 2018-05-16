@@ -883,7 +883,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.call = function () {
     $scope.callPromise = pokerService.call($scope.tableId, function (data) {});
   };
-
+  // New Game
+  $scope.newGame = function () {
+    pokerService.newGame($scope.tableId, function (data) {});
+  };
 
   $scope.$on("$destroy", function () {
     $scope.priceRangeModal.remove();
