@@ -674,11 +674,14 @@
       justify-content: center;
       .pos_range {
         position: absolute;
-        top: -160%;
+        top: -355%;
         right: 12%;
-        width: 32%;
+        width: 39%;
         padding: 2%;
-        background: #000000a6;
+        background: rgba(0, 0, 0, 0.651);
+        button {
+          width: auto;
+        }
         .rz-floor,
         .rz-ceil,
         .rz-model-value {
@@ -1087,5 +1090,321 @@
       left: 50% !important;
       transition: none !important; // transition: transform 3s;
     }
+  }
+}
+
+//pot animation
+.player-coin1 {
+  .coin1 {
+    animation: animecoin1 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin1 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin1 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin1 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin1 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin1 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin1 3s ease 12s forwards;
+  }
+}
+
+.player-coin2 {
+  .coin1 {
+    animation: animecoin2 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin2 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin2 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin2 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin2 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin2 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin2 3s ease 12s forwards;
+  }
+}
+
+.player-coin3 {
+  .coin1 {
+    animation: animecoin3 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin3 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin3 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin3 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin3 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin3 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin3 3s ease 12s forwards;
+  }
+}
+
+.player-coin4 {
+  .coin1 {
+    animation: animecoin4 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin4 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin4 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin4 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin4 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin4 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin4 3s ease 12s forwards;
+  }
+}
+
+.player-coin5 {
+  .coin1 {
+    animation: animecoin5 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin5 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin5 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin5 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin5 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin5 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin5 3s ease 12s forwards;
+  }
+}
+
+.player-coin6 {
+  .coin1 {
+    animation: animecoin6 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin6 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin6 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin6 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin6 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin6 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin6 3s ease 12s forwards;
+  }
+}
+
+.player-coin7 {
+  .coin1 {
+    animation: animecoin7 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin7 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin7 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin7 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin7 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin7 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin7 3s ease 12s forwards;
+  }
+}
+
+.player-coin8 {
+  .coin1 {
+    animation: animecoin8 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin8 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin8 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin8 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin8 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin8 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin8 3s ease 12s forwards;
+  }
+}
+
+.player-coin9 {
+  .coin1 {
+    animation: animecoin9 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin9 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin9 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin9 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin9 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin9 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin9 3s ease 12s forwards;
+  }
+}
+
+@keyframes animecoin1 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 82%;
+    top: 5%;
+  }
+}
+
+@keyframes animecoin2 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 89%;
+    top: 30%;
+  }
+}
+
+@keyframes animecoin3 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 89%;
+    top: 66%;
+  }
+}
+
+@keyframes animecoin4 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 72%;
+    top: 90%;
+  }
+}
+
+@keyframes animecoin5 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 50%;
+    top: 90%;
+  }
+}
+
+@keyframes animecoin6 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 30%;
+    top: 90%;
+  }
+}
+
+@keyframes animecoin7 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 77%;
+    left: 9%;
+  }
+}
+
+@keyframes animecoin8 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 7%;
+    top: 26%;
+  }
+}
+
+@keyframes animecoin9 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 19%;
+    top: -1%;
   }
 }

@@ -15,7 +15,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   mySocket2.on('connect', function onConnect() {
     socketId = mySocket2._raw.id;
     $.jStorage.set("socketId", mySocket2._raw.id);
-    console.log("teenpatti socket connected", mySocket2._raw.id);
+    // console.log("teenpatti socket connected", mySocket2._raw.id);
     // Service.connectSocket(function (data) {
     //   console.log(data);
     // });
@@ -185,7 +185,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   };
   // All game login starts here
   function reArragePlayers(playersData) {
-    console.log(myTableNo);
+    // console.log(myTableNo);
     var diff = 9 - myTableNo;
     var players = _.times(9, function (n) {
       var playerReturn = _.find(playersData, function (singlePlayer) {
@@ -212,20 +212,20 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if (!$scope.memberId) {
       $scope.memberId = $.jStorage.get('memberId');
     }
-    console.log($scope.memberId, "member id", data);
+    // console.log($scope.memberId, "member id", data);
     $scope.isThere = false;
     _.forEach(data, function (value) {
       if (value && value.memberId == $scope.memberId) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
-        console.log(myTableNo);
+        // console.log(myTableNo);
         startSocketUpdate();
         return false;
       }
     });
     $scope.sitHere = !$scope.isThere;
 
-    console.log("you are there", $scope.isThere, "at ", myTableNo);
+    // console.log("you are there", $scope.isThere, "at ", myTableNo);
     // In Case he is already Sitting Please Enable the Game
   };
 
@@ -239,13 +239,13 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       pokerService.getOneTableDetails($scope.tableId, function (data) {
         // console.log("getOneTableDetails", data.data.data);
         // check whether dealer is selected or not
-        console.log("get one table data", data);
+        // console.log("get one table data", data);
         console.log(data.data.communityCards);
         $scope.communityCards = data.data.communityCards;
         console.log($scope.communityCards);
 
         $scope.table = data.data.table;
-        console.log($scope.table);
+        // console.log($scope.table);
         $scope.currentRoundAmt = $scope.table.currentRoundAmt;
         // $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
         $scope.pots = data.data.pots;
@@ -257,7 +257,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         $scope.isRaised = data.data.isRaised;
 
         $scope.fromRaised = data.data.fromRaised;
-        $scope.fromRaised = data.data.toRaised;
+        $scope.toRaised = data.data.toRaised;
 
         $scope.slider.value = $scope.minimumBuyin;
         $scope.slider.options.floor = $scope.minimumBuyin;
@@ -377,6 +377,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if (data.data.extra) {
       console.log("socket extra", $scope.extra);
       if ($scope.extra.serve) {
+        console.log("starting serve");
         $scope.startAnimation = true;
 
         $timeout(function () {
@@ -529,10 +530,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // console.log("$scope.currentRoundAmount", $scope.players);
 
   };
-  mySocket2.on("Update", updateSocketFunction);
+  mySocket2.on("Update_" + $scope.tableId, updateSocketFunction);
 
   function startSocketUpdate() {
-    // io.socket.off("Update", updateSocketFunction);
+    mySocket2.off("Update_" + $scope.tableId, updateSocketFunction);
     mySocket2.on("Update_" + $scope.tableId, updateSocketFunction);
   }
   startSocketUpdate();
@@ -752,13 +753,13 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       };
       $scope.showMessageModal();
     };
-    // if ($scope.dataPlayer.amount <= $scope.balance) {
-    //   if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
-    //     Service.getReFillBuyIn($scope.dataPlayer, function (data) {
-    //       // console.log(data);
-    //     });
-    //   };
-    // };
+    if ($scope.dataPlayer.amount <= $scope.balance) {
+      if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
+        Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+          // console.log(data);
+        });
+      };
+    };
   };
 
 
@@ -882,7 +883,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.call = function () {
     $scope.callPromise = pokerService.call($scope.tableId, function (data) {});
   };
-
+  // New Game
+  $scope.newGame = function () {
+    pokerService.newGame($scope.tableId, function (data) {});
+  };
 
   $scope.$on("$destroy", function () {
     $scope.priceRangeModal.remove();

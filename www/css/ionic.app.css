@@ -13337,15 +13337,19 @@ ion-item.item {
       justify-content: center; }
       .pokerkingtable .main-table .playing-player-info .pos_range {
         position: absolute;
-        top: -150%;
+        top: -355%;
         right: 12%;
-        width: 30%; }
+        width: 39%;
+        padding: 2%;
+        background: rgba(0, 0, 0, 0.651); }
+        .pokerkingtable .main-table .playing-player-info .pos_range button {
+          width: auto; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-floor,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-ceil,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-model-value {
           color: white; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-bar {
-          background: #2d7875; }
+          background: #F44336; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer {
           background: url("../img/coin.png");
           background-size: 100% 100%; }
@@ -13610,6 +13614,267 @@ ion-item.item {
   transform: translate(-150%, -153%) scale(0.3) !important;
   left: 50% !important;
   transition: none !important; }
+
+.player-coin1 .coin1 {
+  animation: animecoin1 3s ease 0s forwards; }
+
+.player-coin1 .coin2 {
+  animation: animecoin1 3s ease 2s forwards; }
+
+.player-coin1 .coin3 {
+  animation: animecoin1 3s ease 4s forwards; }
+
+.player-coin1 .coin4 {
+  animation: animecoin1 3s ease 6s forwards; }
+
+.player-coin1 .coin5 {
+  animation: animecoin1 3s ease 8s forwards; }
+
+.player-coin1 .coin6 {
+  animation: animecoin1 3s ease 10s forwards; }
+
+.player-coin1 .coin7 {
+  animation: animecoin1 3s ease 12s forwards; }
+
+.player-coin2 .coin1 {
+  animation: animecoin2 3s ease 0s forwards; }
+
+.player-coin2 .coin2 {
+  animation: animecoin2 3s ease 2s forwards; }
+
+.player-coin2 .coin3 {
+  animation: animecoin2 3s ease 4s forwards; }
+
+.player-coin2 .coin4 {
+  animation: animecoin2 3s ease 6s forwards; }
+
+.player-coin2 .coin5 {
+  animation: animecoin2 3s ease 8s forwards; }
+
+.player-coin2 .coin6 {
+  animation: animecoin2 3s ease 10s forwards; }
+
+.player-coin2 .coin7 {
+  animation: animecoin2 3s ease 12s forwards; }
+
+.player-coin3 .coin1 {
+  animation: animecoin3 3s ease 0s forwards; }
+
+.player-coin3 .coin2 {
+  animation: animecoin3 3s ease 2s forwards; }
+
+.player-coin3 .coin3 {
+  animation: animecoin3 3s ease 4s forwards; }
+
+.player-coin3 .coin4 {
+  animation: animecoin3 3s ease 6s forwards; }
+
+.player-coin3 .coin5 {
+  animation: animecoin3 3s ease 8s forwards; }
+
+.player-coin3 .coin6 {
+  animation: animecoin3 3s ease 10s forwards; }
+
+.player-coin3 .coin7 {
+  animation: animecoin3 3s ease 12s forwards; }
+
+.player-coin4 .coin1 {
+  animation: animecoin4 3s ease 0s forwards; }
+
+.player-coin4 .coin2 {
+  animation: animecoin4 3s ease 2s forwards; }
+
+.player-coin4 .coin3 {
+  animation: animecoin4 3s ease 4s forwards; }
+
+.player-coin4 .coin4 {
+  animation: animecoin4 3s ease 6s forwards; }
+
+.player-coin4 .coin5 {
+  animation: animecoin4 3s ease 8s forwards; }
+
+.player-coin4 .coin6 {
+  animation: animecoin4 3s ease 10s forwards; }
+
+.player-coin4 .coin7 {
+  animation: animecoin4 3s ease 12s forwards; }
+
+.player-coin5 .coin1 {
+  animation: animecoin5 3s ease 0s forwards; }
+
+.player-coin5 .coin2 {
+  animation: animecoin5 3s ease 2s forwards; }
+
+.player-coin5 .coin3 {
+  animation: animecoin5 3s ease 4s forwards; }
+
+.player-coin5 .coin4 {
+  animation: animecoin5 3s ease 6s forwards; }
+
+.player-coin5 .coin5 {
+  animation: animecoin5 3s ease 8s forwards; }
+
+.player-coin5 .coin6 {
+  animation: animecoin5 3s ease 10s forwards; }
+
+.player-coin5 .coin7 {
+  animation: animecoin5 3s ease 12s forwards; }
+
+.player-coin6 .coin1 {
+  animation: animecoin6 3s ease 0s forwards; }
+
+.player-coin6 .coin2 {
+  animation: animecoin6 3s ease 2s forwards; }
+
+.player-coin6 .coin3 {
+  animation: animecoin6 3s ease 4s forwards; }
+
+.player-coin6 .coin4 {
+  animation: animecoin6 3s ease 6s forwards; }
+
+.player-coin6 .coin5 {
+  animation: animecoin6 3s ease 8s forwards; }
+
+.player-coin6 .coin6 {
+  animation: animecoin6 3s ease 10s forwards; }
+
+.player-coin6 .coin7 {
+  animation: animecoin6 3s ease 12s forwards; }
+
+.player-coin7 .coin1 {
+  animation: animecoin7 3s ease 0s forwards; }
+
+.player-coin7 .coin2 {
+  animation: animecoin7 3s ease 2s forwards; }
+
+.player-coin7 .coin3 {
+  animation: animecoin7 3s ease 4s forwards; }
+
+.player-coin7 .coin4 {
+  animation: animecoin7 3s ease 6s forwards; }
+
+.player-coin7 .coin5 {
+  animation: animecoin7 3s ease 8s forwards; }
+
+.player-coin7 .coin6 {
+  animation: animecoin7 3s ease 10s forwards; }
+
+.player-coin7 .coin7 {
+  animation: animecoin7 3s ease 12s forwards; }
+
+.player-coin8 .coin1 {
+  animation: animecoin8 3s ease 0s forwards; }
+
+.player-coin8 .coin2 {
+  animation: animecoin8 3s ease 2s forwards; }
+
+.player-coin8 .coin3 {
+  animation: animecoin8 3s ease 4s forwards; }
+
+.player-coin8 .coin4 {
+  animation: animecoin8 3s ease 6s forwards; }
+
+.player-coin8 .coin5 {
+  animation: animecoin8 3s ease 8s forwards; }
+
+.player-coin8 .coin6 {
+  animation: animecoin8 3s ease 10s forwards; }
+
+.player-coin8 .coin7 {
+  animation: animecoin8 3s ease 12s forwards; }
+
+.player-coin9 .coin1 {
+  animation: animecoin9 3s ease 0s forwards; }
+
+.player-coin9 .coin2 {
+  animation: animecoin9 3s ease 2s forwards; }
+
+.player-coin9 .coin3 {
+  animation: animecoin9 3s ease 4s forwards; }
+
+.player-coin9 .coin4 {
+  animation: animecoin9 3s ease 6s forwards; }
+
+.player-coin9 .coin5 {
+  animation: animecoin9 3s ease 8s forwards; }
+
+.player-coin9 .coin6 {
+  animation: animecoin9 3s ease 10s forwards; }
+
+.player-coin9 .coin7 {
+  animation: animecoin9 3s ease 12s forwards; }
+
+@keyframes animecoin1 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 82%;
+    top: 5%; } }
+
+@keyframes animecoin2 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 89%;
+    top: 30%; } }
+
+@keyframes animecoin3 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 89%;
+    top: 66%; } }
+
+@keyframes animecoin4 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 72%;
+    top: 90%; } }
+
+@keyframes animecoin5 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 50%;
+    top: 90%; } }
+
+@keyframes animecoin6 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 30%;
+    top: 90%; } }
+
+@keyframes animecoin7 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    top: 77%;
+    left: 9%; } }
+
+@keyframes animecoin8 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 7%;
+    top: 26%; } }
+
+@keyframes animecoin9 {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    left: 19%;
+    top: -1%; } }
 
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
@@ -13914,6 +14179,16 @@ ion-item.item {
   .platform-browser .table-info {
     font-size: 2em;
     padding: 10px; } }
+
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  .platform-browser .pokerkingtable .top_field .table-info {
+    padding: 0px; }
+  .platform-browser .pokerkingtable .top_field .right_side_icon .table-info th {
+    padding: 25px; }
+  .platform-browser .pokerkingtable .main-table .playing-table {
+    width: 75%; }
+  .platform-browser .pokerkingtable .plyr {
+    width: 12% !important; } }
 
 .roulette {
   background: url(../img/roulette/bg_game2.jpg) left top no-repeat;
