@@ -179,8 +179,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     options: {
       floor: 10,
       ceil: 150000,
-      step: 10,
-      vertical: true
+      step: 10
     },
   };
   // All game login starts here
