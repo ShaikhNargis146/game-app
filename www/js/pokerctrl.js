@@ -389,7 +389,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       reArragePlayers(data.data.players);
     }
 
-    if (players[8] && players[8].isTurn) {
+    if ($scope.players[8] && $scope.players[8].isTurn) {
       $ionicPlatform.ready(function () {
         if (window.cordova) {
           window.plugins.NativeAudio.play('turn');
@@ -560,7 +560,15 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     });
   }
 
-
+  $scope.standUp = function () {
+    $scope.ShowLoader = true;
+    pokerService.removePlayer($scope.tableId, $scope.players[8].playerNo, function (data) {
+      if (data) {
+        $scope.ShowLoader = false;
+        $state.reload();
+      }
+    });
+  }
   removePlayerFunction = function (data) {
     // console.log("removePlayerFunction", data);
     $scope.communityCards = data.data.communityCards;
