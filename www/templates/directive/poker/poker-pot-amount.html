@@ -1,50 +1,32 @@
-<div class="total_played_coin" ng-if="!players[8].winRank">
-  <img src="img/coin.png" class="coin">{{amount}}
+<div class="total_played_coin" ng-if="players">
+  <span ng-if="pots[0] && !pots[0].winner">
+    <img src="img/coin.svg" class="coin">{{pots[0].totalAmount | number}}
+  </span>
+  <span ng-if="pots[1] && !pots[1].winner">
+    <img src="img/coin.svg" class="coin">{{pots[1].totalAmount | number}}
+  </span>
+  <span ng-if="pots[2] && !pots[2].winner">
+    <img src="img/coin.svg" class="coin">{{pots[2].totalAmount | number}}
+  </span>
+  <span ng-if="pots[3] && !pots[3].winner">
+    <img src="img/coin.svg" class="coin">{{pots[3].totalAmount | number}}
+  </span>
+  <span ng-if="pots[4] && !pots[4].winner">
+    <img src="img/coin.svg" class="coin">{{pots[4].totalAmount | number}}
+  </span>
+  <span ng-if="pots[5] && !pots[5].winner">
+    <img src="img/coin.svg" class="coin">{{pots[5].totalAmount | number}}
+  </span>
+  <span ng-if="pots[6] && !pots[6].winner">
+    <img src="img/coin.svg" class="coin">{{pots[6].totalAmount | number}}
+  </span>
 </div>
 
-<div class="total_played_coin" ng-class=" {
-    'to_p1': players[0].winRank == 1 && players[0].winner == true
-  }" ng-if=" players[0].winRank == 1 && players[0].winner == true">
-  <img src="img/coin.png" class="coin">{{players[0].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p2': players[1].winRank == 1 && players[1].winner == true
-  }" ng-if=" players[1].winRank == 1 && players[1].winner == true">
-  <img src="img/coin.png" class="coin">{{players[1].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p3': players[2].winRank == 1 && players[2].winner == true
-  }" ng-if=" players[2].winRank == 1 && players[2].winner == true">
-  <img src="img/coin.png" class="coin">{{players[2].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p4': players[3].winRank == 1 && players[3].winner == true
-  }" ng-if=" players[3].winRank == 1 && players[3].winner == true">
-  <img src="img/coin.png" class="coin">{{players[3].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p5': players[4].winRank == 1 && players[4].winner == true
-  }" ng-if=" players[4].winRank == 1 && players[4].winner == true">
-  <img src="img/coin.png" class="coin">{{players[4].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p6': players[5].winRank == 1 && players[5].winner == true
-  }" ng-if="players[5].winRank == 1 && players[5].winner == true">
-  <img src="img/coin.png" class="coin">{{players[5].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p7': players[6].winRank == 1 && players[6].winner == true
-  }" ng-if="players[6].winRank == 1 && players[6].winner == true">
-  <img src="img/coin.png" class="coin">{{players[6].winningAmt}}
-</div>
-<div class="total_played_coin" ng-class=" {
-    'to_p8': players[7].winRank == 1 && players[7].winner == true,
-  }" ng-if="players[7].winRank == 1 && players[7].winner == true">
-  <img src="img/coin.png" class="coin">{{players[7].winningAmt}}
-</div>
-
-<div class="total_played_coin" ng-class=" {
-    'to_p9': players[8].winRank == 1 && players[8].winner == true,
-  }" ng-if="players[8].winRank == 1 && players[8].winner == true">
-  <img src="img/coin.png" class="coin">{{players[8].winningAmt}}
+<!-- //winner Players -->
+<div ng-repeat="player in players track by $index" class="player-coin{{$index+1}}">
+  <div ng-if="player.isWinner" ng-repeat="winnerDetail in player.winnerDetails" class="total_played_coin coin{{$index+1}}">
+    <span ng-show="winnerDetail">
+      <img src="img/coin.svg" class="coin">{{winnerDetail.amount | number}}
+    </span>
+  </div>
 </div>
