@@ -106,18 +106,18 @@
         </div>
       </div>
       <!-- two card -->
-      <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}">
+      <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}" ng-if="(!player.isFold && !player.isWinner && remainingPlayerCount> 1)">
         <div class=" custom-row">
           <card card='DONE'></card>
           <card card='DONE'></card>
         </div>
       </div>
-      <!-- <div class="plyr_card plyr_card_2card plyr_card2_winner ">
-          <div class=" custom-row">
-            <card card='{{player.cards[0]}}'> </card>
-            <card card='{{player.cards[1]}}'> </card>
-          </div>
-        </div> -->
+      <div class="plyr_card plyr_card_2card plyr_card2_winner" ng-if="(!player.isFold && player.isWinner && remainingPlayerCount> 1)">
+        <div class=" custom-row">
+          <card card='{{player.cards[0]}}'> </card>
+          <card card='{{player.cards[1]}}'> </card>
+        </div>
+      </div>
       <!-- two card end -->
     </div>
     <div class="amt">

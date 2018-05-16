@@ -52,6 +52,27 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.runVibratorFlag = true;
   $scope.updateSocketVar = 0;
 
+
+  $scope.playerData = function () {
+    Service.sendAccessToken(function (data) {
+      if (data && data.data && data.data.data) {
+        $scope.singlePlayerData = data.data.data;
+        $scope.image = $scope.singlePlayerData.image;
+        $scope.username = $scope.singlePlayerData.username;
+        $scope.userType = $scope.singlePlayerData.userType;
+        $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+        $scope.memberId = data.data.data._id;
+        $.jStorage.set("memberId", $scope.memberId);
+        console.log("member id", $.jStorage.get('memberId'));
+      } else {
+        $state.go("login");
+      }
+    });
+  };
+  $scope.playerData();
+
+
+
   // for normal modal and ui popover
   $scope.closeAllModal = function () {
     $scope.leftMenu = false;
@@ -552,23 +573,30 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
 
   $scope.backToLobby = function () {
     $scope.ShowLoader = true;
-    pokerService.removePlayer($scope.tableId, $scope.players[8].playerNo, function (data) {
-      if (data) {
-        $scope.ShowLoader = false;
-        $state.go('lobby');
-      }
-    });
-  }
+    if ($scope.players[8]) {
+      pokerService.removePlayer($scope.tableId, $scope.players[8].playerNo, function (data) {
+        if (data) {
+          $scope.ShowLoader = false;
+          $state.go('lobby');
+        }
+      });
+    } else {
+      $state.go('lobby');
+    };
+  };
 
   $scope.standUp = function () {
-    $scope.ShowLoader = true;
-    pokerService.removePlayer($scope.tableId, $scope.players[8].playerNo, function (data) {
-      if (data) {
-        $scope.ShowLoader = false;
-        $state.reload();
-      }
-    });
-  }
+    if ($scope.players[8]) {
+      $scope.ShowLoader = true;
+      pokerService.removePlayer($scope.tableId, $scope.players[8].playerNo, function (data) {
+        if (data) {
+          $scope.ShowLoader = false;
+          $state.reload();
+        }
+      });
+    };
+  };
+
   removePlayerFunction = function (data) {
     // console.log("removePlayerFunction", data);
     $scope.communityCards = data.data.communityCards;

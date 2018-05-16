@@ -43,11 +43,11 @@
       </div>
       <div class="communitycard">
         <div class="cards">
+          <card card='{{communityCards[0].cardValue}}'> </card>
           <card card='{{communityCards[1].cardValue}}'> </card>
           <card card='{{communityCards[2].cardValue}}'> </card>
-          <card card='{{communityCards[3].cardValue}}'> </card>
-          <card card='{{communityCards[5].cardValue}}'> </card>
-          <card card='{{communityCards[7].cardValue}}'> </card>
+          <card card='{{communityCards[4].cardValue}}'> </card>
+          <card card='{{communityCards[6].cardValue}}'> </card>
         </div>
       </div>
       <div class="players">
@@ -89,7 +89,7 @@
       <button class="" ng-click="fold()" promise-btn="foldPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft">
         FOLD
       </button>
-      <button class="call" ng-click="call();" promise-btn="callPromise" ng-if="!isCalled && !isChecked" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
+      <button class="call" ng-click="call();" promise-btn="callPromise">
         call
       </button>
       <button class="call" ng-click="call()" ng-if="isCalled" promise-btn="callPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
@@ -105,24 +105,26 @@
         </div>
 
         <div class="showing_cards " ng-class="{'poker_main_card_anime':players[8].cards.length>0 && startAnimation}">
-          <div class="custom-row card2 custom-row-card">
+          <!-- <div class="custom-row card2 custom-row-card" ng-if="players[8].winnerDetails">
+            <card card='NONE'>
+            </card>
             <card card='NONE'></card>
-            <card card='NONE'></card>
-          </div>
-          <!-- <div>
+          </div> -->
+          <div ng-if="!players[8].isFold">
             <div class=" custom-row custom-row-card card2">
               <card card='{{players[8].cards[0]}}'> </card>
               <card card='{{players[8].cards[1]}}'> </card>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
 
 
       <div class="pos_range" ng-if="openSlider">
-        <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+        <button class="custom_button mb0" type='submit' ng-click="raise(raiseSlider.value);closeRangeModal();">Ok</button>
+        <rzslider rz-slider-model="raiseSlider.value" rz-slider-options="raiseSlider.options"></rzslider>
+        <button class="custom_button mb0" type='submit' ng-click="closeRangeModal();" promise-btn="raisePromise">Cancel</button>
       </div>
-
       <button class="" ng-click="toggleSlider()" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised) && !isRaised">
         Raise {{slider.value}}
       </button>
@@ -132,9 +134,7 @@
     </div>
   </div>
 </div>
-
-<poker-left-menu></poker-left-menu>
-
+<left-menu></left-menu>
 <div class="loader table_loader" ng-if="ShowLoader">
   <div class="center">
     <img src="img/logo.png" class="loader-logo">
