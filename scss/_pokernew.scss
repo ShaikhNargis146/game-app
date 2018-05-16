@@ -674,16 +674,18 @@
       justify-content: center;
       .pos_range {
         position: absolute;
-        top: -150%;
+        top: -160%;
         right: 12%;
-        width: 30%;
+        width: 32%;
+        padding: 2%;
+        background: #000000a6;
         .rz-floor,
         .rz-ceil,
         .rz-model-value {
           color: white;
         }
         .rz-bar {
-          background: #2d7875;
+          background: #F44336;
         }
         .rz-pointer {
           background: url('../img/coin.png');

@@ -72,7 +72,7 @@
       <div class="winner-player " ng-class="{'winner':player.winnerDetails.length>0}"></div>
     </div>
 
-    <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winnerDetails && !player.tableLeft && !player.isFold">
+    <div class="pie_loader" ng-if="player.isTurn && !player.isFold">
       <div class="animation_wrapper ">
         <div class="pie spinner "></div>
         <div class="pie filler "></div>

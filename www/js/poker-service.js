@@ -19,7 +19,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
           payBigBlind: dataPlayer.payBigBlind,
           socketId: socketId,
           accessToken: accessToken
-        }).then(function (data) {
+        }, ).then(function (data) {
           callback(data);
         });
       }
