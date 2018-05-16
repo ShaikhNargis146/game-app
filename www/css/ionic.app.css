@@ -13337,15 +13337,17 @@ ion-item.item {
       justify-content: center; }
       .pokerkingtable .main-table .playing-player-info .pos_range {
         position: absolute;
-        top: -150%;
+        top: -160%;
         right: 12%;
-        width: 30%; }
+        width: 32%;
+        padding: 2%;
+        background: rgba(0, 0, 0, 0.651); }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-floor,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-ceil,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-model-value {
           color: white; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-bar {
-          background: #2d7875; }
+          background: #F44336; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-pointer {
           background: url("../img/coin.png");
           background-size: 100% 100%; }
@@ -13914,6 +13916,16 @@ ion-item.item {
   .platform-browser .table-info {
     font-size: 2em;
     padding: 10px; } }
+
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  .platform-browser .pokerkingtable .top_field .table-info {
+    padding: 0px; }
+  .platform-browser .pokerkingtable .top_field .right_side_icon .table-info th {
+    padding: 25px; }
+  .platform-browser .pokerkingtable .main-table .playing-table {
+    width: 75%; }
+  .platform-browser .pokerkingtable .plyr {
+    width: 12% !important; } }
 
 .roulette {
   background: url(../img/roulette/bg_game2.jpg) left top no-repeat;

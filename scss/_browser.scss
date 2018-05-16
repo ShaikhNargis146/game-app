@@ -88,3 +88,29 @@
     } //end of media query
   }
 }
+
+//for poker
+.platform-browser {
+  @media screen and (min-width: 800px) and (orientation:landscape) {
+    .pokerkingtable {
+      .top_field {
+        .table-info {
+          padding:0px;
+        }
+        .right_side_icon .table-info th {
+          padding: 25px;
+        }
+      }
+      .main-table {
+        .playing-table {
+          width: 75%;
+        }
+        .playing-player-info {}
+      }
+      .plyr {
+        width: 12% !important;
+      }
+      .no_player {}
+    }
+  }
+}

@@ -529,10 +529,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // console.log("$scope.currentRoundAmount", $scope.players);
 
   };
-  mySocket2.on("Update", updateSocketFunction);
+  mySocket2.on("Update_" + $scope.tableId, updateSocketFunction);
 
   function startSocketUpdate() {
-    // io.socket.off("Update", updateSocketFunction);
+    mySocket2.off("Update_" + $scope.tableId, updateSocketFunction);
     mySocket2.on("Update_" + $scope.tableId, updateSocketFunction);
   }
   startSocketUpdate();
