@@ -47,11 +47,13 @@
     <div class="winner-pot-name raised-amount" ng-if="smallBlindAmt && player.isSmallBlind && !player.winner">
       Small Blind: {{smallBlindAmt | number}}
     </div>
-    <div ng-if="player.winnerDetails.length == 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
+
+    <div ng-if="player.winnerDetails.length < 2" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
     </div>
+
     <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac{{$index+1}}">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
@@ -68,11 +70,11 @@
       <div>BB</div>
     </div>
 
-    <div class="winner-display">
-      <div class="winner-player " ng-class="{'winner':player.winnerDetails.length>0}"></div>
+    <div class="winner-display" ng-if="player.winnerDetails.length > 0">
+      <div class="winner-player " ng-class="{'winner':player.winnerDetails > 0}"></div>
     </div>
 
-    <div class="pie_loader" ng-if="player.isTurn && !player.isFold">
+    <div class="pie_loader" ng-if="player.isTurn && !player.isFold && player.winnerDetails">
       <div class="animation_wrapper ">
         <div class="pie spinner "></div>
         <div class="pie filler "></div>
@@ -80,12 +82,15 @@
       </div>
     </div>
 
-    <div class="wnr " ng-class="{'winner_anime':player.winnerDetails.length>0}">
-      <img src="img/table/glow.png" class="anime1">
-      <img src="img/table/glow.png" class="anime2">
-      <img src="img/table/glow.png" class="anime3">
-      <img src="img/table/glow.png" class="anime4">
+    <div ng-if="player.winnerDetails.length>0">
+      <div class="wnr" ng-class="{'winner_anime':player.winnerDetails}">
+        <img src="img/table/glow.png" class="anime1">
+        <img src="img/table/glow.png" class="anime2">
+        <img src="img/table/glow.png" class="anime3">
+        <img src="img/table/glow.png" class="anime4">
+      </div>
     </div>
+
 
 
     <div class="details">
@@ -99,6 +104,8 @@
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>
+
+
     <div class="plyr_pic">
       <div class="pic">
         <div class="profile_pic_overlay">
