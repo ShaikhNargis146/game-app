@@ -12375,6 +12375,30 @@ ion-item.item {
 .poker_all_table_modal .custom-table-top {
   padding-top: 30px; }
 
+.poker_price_range_modal {
+  height: auto;
+  color: white; }
+  .poker_price_range_modal .rzslider {
+    color: white; }
+    .poker_price_range_modal .rzslider .rz-pointer {
+      background: url("../img/coin.png");
+      background-image: 100% 100%; }
+      .poker_price_range_modal .rzslider .rz-pointer::after {
+        background-color: transparent !important; }
+    .poker_price_range_modal .rzslider .rz-bubble {
+      color: white; }
+  .poker_price_range_modal .item-checkbox {
+    background: transparent;
+    border-right: 0;
+    border-left: 0;
+    /* border-top: 0; */
+    /* border-bottom: 0; */
+    color: white; }
+    .poker_price_range_modal .item-checkbox .checkbox input:checked:before,
+    .poker_price_range_modal .item-checkbox .checkbox input:checked + .checkbox-icon:before {
+      background: #dda719;
+      border-color: #dda719; }
+
 .pokar {
   background-color: #000; }
   .pokar .top_field {

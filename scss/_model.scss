@@ -744,3 +744,34 @@
     padding-top: 30px;
   }
 }
+
+.poker_price_range_modal {
+  height: auto;
+  color: white;
+  .rzslider {
+    color: white;
+    .rz-pointer {
+      background: url('../img/coin.png');
+      background-image: 100% 100%;
+      &::after {
+        background-color: transparent !important;
+      }
+    }
+    .rz-bubble {
+      color: white;
+    }
+  }
+  .item-checkbox {
+    background: transparent;
+    border-right: 0;
+    border-left: 0;
+    /* border-top: 0; */
+    /* border-bottom: 0; */
+    color: white;
+    .checkbox input:checked:before,
+    .checkbox input:checked+.checkbox-icon:before {
+      background: #dda719;
+      border-color: #dda719;
+    }
+  }
+}
