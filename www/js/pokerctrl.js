@@ -257,7 +257,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         $scope.isRaised = data.data.isRaised;
 
         $scope.fromRaised = data.data.fromRaised;
-        $scope.fromRaised = data.data.toRaised;
+        $scope.toRaised = data.data.toRaised;
 
         $scope.slider.value = $scope.minimumBuyin;
         $scope.slider.options.floor = $scope.minimumBuyin;
