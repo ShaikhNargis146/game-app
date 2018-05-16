@@ -25,64 +25,25 @@ var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', '
         }
 
 
-<<<<<<< HEAD
-      if (ionic.Platform.isAndroid()) {
-=======
-
->>>>>>> f144c395f1a7c05bd45d99351518c32f97494448
-        if (window.plugins) {
-          if (window.plugins.OneSignal) {
-            var notificationOpenedCallback = function (jsonData) {
-              alert("Notification opened:\n" + JSON.stringify(jsonData));
-            };
-            window.plugins.OneSignal
-              .startInit("aab70e9b-5571-4b68-872c-f11e0ae77672")
-              .handleNotificationOpened(notificationOpenedCallback)
-              .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
-              .endInit();
-            window.plugins.OneSignal.getIds(function (ids) {
-              console.log('getIds: ' + JSON.stringify(ids));
-              $rootScope.deviceId = ids.userId;
-            });
+        if (ionic.Platform.isAndroid()) {
+          if (window.plugins) {
+            if (window.plugins.OneSignal) {
+              var notificationOpenedCallback = function (jsonData) {
+                alert("Notification opened:\n" + JSON.stringify(jsonData));
+              };
+              window.plugins.OneSignal
+                .startInit("aab70e9b-5571-4b68-872c-f11e0ae77672")
+                .handleNotificationOpened(notificationOpenedCallback)
+                .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+                .endInit();
+              window.plugins.OneSignal.getIds(function (ids) {
+                console.log('getIds: ' + JSON.stringify(ids));
+                $rootScope.deviceId = ids.userId;
+              });
+            }
           }
         }
 
-<<<<<<< HEAD
-
-      window.plugins.insomnia.keepAwake();
-      // Preload audio resources
-      window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadSimple('coin', 'audio/coin.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadComplex('winner', 'audio/winner.wav', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadComplex('shuffle', 'audio/shuffle.wav', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
-      window.plugins.NativeAudio.preloadSimple('button', 'audio/button.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
-      //spin wheel
-      window.plugins.NativeAudio.preloadComplex('spinwheel', 'audio/wheel_sound.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log("error", msg);
-      })
-      window.plugins.NativeAudio.preloadComplex('lose', 'audio/lose.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log("error", msg);
-      })
-      window.plugins.NativeAudio.preloadComplex('win', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log("error", msg);
-      })
-      window.plugins.NativeAudio.preloadComplex('click', 'audio/click.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log("error", msg);
-      })
-      window.plugins.NativeAudio.preloadComplex('chip', 'audio/chip.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log("error", msg);
-      })
-=======
         window.plugins.insomnia.keepAwake();
         // Preload audio resources
         window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
@@ -117,7 +78,6 @@ var myApp = angular.module('starter', ['ionic', 'rzModule', 'starter.service', '
           console.log("error", msg);
         })
       }
->>>>>>> f144c395f1a7c05bd45d99351518c32f97494448
     });
   })
 
