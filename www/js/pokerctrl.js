@@ -753,13 +753,13 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       };
       $scope.showMessageModal();
     };
-    // if ($scope.dataPlayer.amount <= $scope.balance) {
-    //   if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
-    //     Service.getReFillBuyIn($scope.dataPlayer, function (data) {
-    //       // console.log(data);
-    //     });
-    //   };
-    // };
+    if ($scope.dataPlayer.amount <= $scope.balance) {
+      if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
+        Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+          // console.log(data);
+        });
+      };
+    };
   };
 
 

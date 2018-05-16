@@ -101,6 +101,19 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         });
       }
     },
+    getReFillBuyIn: function (data, callback) {
+      console.log("autobuyin", data);
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(adminPoker + '/api/Player/reFillBuyIn', {
+          accessToken: accessToken,
+          tableId: data.tableId,
+          amount: data.amount
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     newGame: function (tableId, callback) {
       var isDealer = "true"
       $http.post(adminPoker + '/api/Player/newGame', {

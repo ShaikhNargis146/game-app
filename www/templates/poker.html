@@ -90,7 +90,7 @@
       <button class="" ng-click="fold()" promise-btn="foldPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft">
         FOLD
       </button>
-      <button class="call" ng-click="call();" promise-btn="callPromise">
+      <button class="call" ng-click="call();" promise-btn="callPromise" ng-if="!isCalled && !isChecked" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
         call
       </button>
       <button class="call" ng-click="call()" ng-if="isCalled" promise-btn="callPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised)">
@@ -122,9 +122,11 @@
 
 
       <div class="pos_range" ng-if="openSlider">
-        <button class="custom_button mb0" type='submit' ng-click="raise(raiseSlider.value);closeRangeModal();">Ok</button>
-        <rzslider rz-slider-model="raiseSlider.value" rz-slider-options="raiseSlider.options"></rzslider>
-        <button class="custom_button mb0" type='submit' ng-click="closeRangeModal();" promise-btn="raisePromise">Cancel</button>
+        <button class="custom_button mb0" type='submit' ng-click="raise(raiseSlider.value);toggleSlider();">Ok</button>
+        <div>
+          <rzslider rz-slider-model="raiseSlider.value" rz-slider-options="raiseSlider.options"></rzslider>
+        </div>
+        <button class="custom_button mb0" type='submit' ng-click="toggleSlider();" promise-btn="raisePromise">Cancel</button>
       </div>
       <button class="" ng-click="toggleSlider()" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised) && !isRaised">
         Raise {{slider.value}}

@@ -674,11 +674,14 @@
       justify-content: center;
       .pos_range {
         position: absolute;
-        top: -160%;
+        top: -355%;
         right: 12%;
-        width: 32%;
+        width: 39%;
         padding: 2%;
         background: rgba(0, 0, 0, 0.651);
+        button {
+          width: auto;
+        }
         .rz-floor,
         .rz-ceil,
         .rz-model-value {

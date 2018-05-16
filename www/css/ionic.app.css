@@ -13337,11 +13337,13 @@ ion-item.item {
       justify-content: center; }
       .pokerkingtable .main-table .playing-player-info .pos_range {
         position: absolute;
-        top: -160%;
+        top: -355%;
         right: 12%;
-        width: 32%;
+        width: 39%;
         padding: 2%;
         background: rgba(0, 0, 0, 0.651); }
+        .pokerkingtable .main-table .playing-player-info .pos_range button {
+          width: auto; }
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-floor,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-ceil,
         .pokerkingtable .main-table .playing-player-info .pos_range .rz-model-value {
