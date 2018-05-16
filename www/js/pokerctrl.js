@@ -11,14 +11,14 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   })
   Service.checkAccessLevel();
   //socket
-  var mySocket1 = io.sails.connect(adminPoker);
-  mySocket1.on('connect', function onConnect() {
-    socketId = mySocket1._raw.id;
-    $.jStorage.set("socketId", mySocket1._raw.id);
-    console.log("teenpatti socket connected", mySocket1._raw.id);
-    Service.connectSocket(function (data) {
-      console.log(data);
-    });
+  var mySocket2 = io.sails.connect(adminPoker);
+  mySocket2.on('connect', function onConnect() {
+    socketId = mySocket2._raw.id;
+    $.jStorage.set("socketId", mySocket2._raw.id);
+    console.log("teenpatti socket connected", mySocket2._raw.id);
+    // Service.connectSocket(function (data) {
+    //   console.log(data);
+    // });
   });
 
   // variables declaration
@@ -26,6 +26,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.memberId = $.jStorage.get('memberId');
   myTableNo = 0;
   $scope.sitHere = true;
+  $scope.communityCards = ['abc'];
 
 
   $scope.auto = {
@@ -209,7 +210,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         // console.log("getOneTableDetails", data.data.data);
         // check whether dealer is selected or not
         console.log("get one table data", data);
+        console.log(data.data.communityCards);
         $scope.communityCards = data.data.communityCards;
+        console.log($scope.communityCards);
+
         $scope.table = data.data.table;
         console.log($scope.table);
         // $scope.currentRoundAmt = $scope.table.currentRoundAmt;
@@ -240,7 +244,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         reArragePlayers(data.data.players);
         // console.log($scope.players);
 
-        console.log($scope.players);
+        // console.log($scope.players);
         // $scope.activePlayer = _.filter($scope.players, function (player) {
         //   // if (player && (player.user._id == $scope._id)) {
         //   //   return true;
@@ -325,6 +329,8 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       //     });
       //   }
       // });
+
+
     }
   };
   $scope.updatePlayers();
@@ -332,11 +338,22 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   // Update Socket Player
   updateSocketFunction = function (data, dontDigest) {
     console.log("updateSocketFunction", data);
+    reArragePlayers(data.data.players);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
     // $scope.currentRoundAmt = $scope.table.currentRoundAmt;
     // $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
-    // $scope.extra = data.data.extra;
+    $scope.extra = data.data.extra;
+    if (data.data.extra) {
+      console.log("socket extra", $scope.extra);
+      if ($scope.extra.serve) {
+        $scope.startAnimation = true;
+
+        $timeout(function () {
+          $scope.startAnimation = false;
+        }, 1000);
+      }
+    }
     // $scope.pots = data.data.pots;
     // $scope.hasTurn = data.data.hasTurn;
     // $scope.isCalled = data.data.isCalled;
@@ -470,9 +487,10 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //   };
     //   $scope.showMessageModal();
     // };
-    // if (!dontDigest) {
-    //   $scope.$apply();
-    // };
+    if (!dontDigest) {
+      $scope.$apply();
+    };
+
 
     // _.each($scope.players, function (player) {
     //   if (player) {
@@ -493,11 +511,11 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // console.log("$scope.currentRoundAmount", $scope.players);
 
   };
-
+  mySocket2.on("Update", updateSocketFunction);
 
   function startSocketUpdate() {
     // io.socket.off("Update", updateSocketFunction);
-    mySocket1.on("Update", updateSocketFunction);
+    mySocket2.on("Update", updateSocketFunction);
   }
   startSocketUpdate();
   // Socket Update function with REST API
@@ -572,20 +590,21 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //   }
     // });
   }
-  mySocket1.on("showWinner", showWinnerFunction);
+  mySocket2.on("showWinner", showWinnerFunction);
 
   //seat selection
   seatSelectionFunction = function (data) {
     console.log("seatSelectionFunction", data);
-    // $scope.communityCards = data.data.communityCards;
-    // $scope.table = data.data.table;
-    // $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-    // $scope.extra = data.data.extra;
-    // $scope.pots = data.data.pots;
-    // $scope.hasTurn = data.data.hasTurn;
-    // $scope.isCalled = data.data.isCalled;
-    // $scope.isChecked = data.data.isChecked;
-    // $scope.isRaised = data.data.isRaised;
+    $scope.communityCards = data.data.communityCards;
+    $scope.table = data.data.table;
+    $scope.currentRoundAmt = $scope.table.currentRoundAmt;
+    $scope.extra = data.data.extra;
+    $scope.pots = data.data.pots;
+    $scope.hasTurn = data.data.hasTurn;
+    $scope.isCalled = data.data.isCalled;
+    $scope.isChecked = data.data.isChecked;
+    $scope.isRaised = data.data.isRaised;
+    reArragePlayers(data.data.players);
     // if ($scope.updateSocketVar == 0) {
     //   reArragePlayers(data.data.players);
     // };
@@ -599,13 +618,15 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //     $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     //   };
     // };
-    // $scope.$apply();
+    $scope.$apply();
   };
-  mySocket1.on("seatSelection" + $scope.tableId, seatSelectionFunction);
+  mySocket2.on("seatSelection" + $scope.tableId, seatSelectionFunction);
 
   newGameSocketFunction = function (data) {
     console.log("NewGame", data);
-    // $scope.communityCards = data.data.communityCards;
+    $scope.communityCards = data.data.communityCards;
+    reArragePlayers(data.data.players);
+
     // $scope.playersChunk = data.data.players;
     // $scope.table = data.data.table;
     // $scope.extra = data.extra;
@@ -628,7 +649,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     // $scope.$apply();
   };
 
-  mySocket1.on("newGame", newGameSocketFunction);
+  mySocket2.on("newGame", newGameSocketFunction);
 
 
 

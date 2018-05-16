@@ -285,6 +285,7 @@
         </div>
       </div>
       <div class="communitycard">
+        {{ communityCards}}
         <div class="cards">
           <card card='3d'> </card>
           <card card='ad'> </card>
@@ -345,15 +346,15 @@
           <img src="img/coin.png"> {{players[8].totalAmount}}
         </div>
 
-        <div class="showing_cards " ng-class="{'poker_main_card_anime':player[8].cards.length>0 && startAnimation}">
+        <div class="showing_cards " ng-class="{'poker_main_card_anime':players[8].cards.length>0 && startAnimation}">
           <div class="custom-row card2 custom-row-card">
             <card card='NONE'></card>
             <card card='NONE'></card>
           </div>
           <!-- <div>
             <div class=" custom-row custom-row-card card2">
-              <card card='{{player.cards[0]}}'> </card>
-              <card card='{{player.cards[1]}}'> </card>
+              <card card='{{player[8].cards[0]}}'> </card>
+              <card card='{{player[8].cards[1]}}'> </card>
             </div>
           </div> -->
         </div>
