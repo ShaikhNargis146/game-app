@@ -1,10 +1,11 @@
 .roulette {
-  background: url(../img/roulette/bg_game2.jpg) left top no-repeat;
+  background: url(../img/roulette/backwood.png) left top no-repeat;
   width: 100%;
+  height: 100vh;
   background-size: 100% 100%;
   opacity: 1;
   transform: translate3d(0%, 0px, 0px);
-  padding: 20px;
+  padding: 8% 5% 10% 5%;
   display: table;
   position: relative;
   cursor: move;
@@ -20,6 +21,7 @@
 
 .roulette table {
   width: 100%;
+  padding: 3%;
 }
 
 .roulette table,
@@ -92,7 +94,7 @@ tr {
 
 .roulette td {
   border: 2px solid rgba(255, 255, 0, 0.7);
-  height: 5vw;
+  height: 3em;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
@@ -928,29 +930,31 @@ ul.coin li {
 }
 
 .black-history {
-  text-align: right;
+  text-align: center;
   label {
-    width: 20px;
-    height: 20px;
+    padding-top: 0.2em;
+    width: 2em;
+    height: 2em;
     display: inline-block;
     background: black;
     border-radius: 50%;
     text-align: center;
-    margin: 0px 10px 10px 0px;
+    margin-bottom: 10px;
     border: 1px solid white;
   }
 }
 
 .red-history {
-  text-align: left;
+  text-align: center;
   label {
-    width: 22px;
-    height: 22px;
+    padding-top: 0.2em;
+    width: 2em;
+    height: 2em;
     display: inline-block;
     background: red;
     border-radius: 50%;
     text-align: center;
-    margin: 0px 0px 10px 10px;
+    margin-bottom: 10px;
     border: 1px solid white;
   }
 }
@@ -958,8 +962,9 @@ ul.coin li {
 .zero-bet-history {
   text-align: center;
   label {
-    width: 22px;
-    height: 22px;
+    padding-top: 0.2em;
+    width: 2em;
+    height: 2em;
     display: inline-block;
     background: green;
     border-radius: 50%;
@@ -1070,7 +1075,104 @@ ul.coin li {
   background-color: #1C7022 !important;
 }
 
-.back-roulette {
-  background: #300603;
-  border: 1px solid white;
+.min-max-bet {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  top: 5%;
+  left: 28%;
+  line-height: 1;
+}
+
+.undo-roulette {
+  right: 25%;
+}
+
+.remove-roulette {
+  right: 5%;
+}
+
+.top-btn {
+  background: #3d7655;
+  color: white;
+  top: 3%;
+  position: absolute;
+  font-size: 3em;
+  padding: 1%;
+  line-height: 1;
+  border-radius: 7px;
+}
+
+//new roulette
+.table-pad {
+  background: #3d7655;
+  height: 100%;
+  padding: 3%;
+  border-radius: 10px 10px 10px 40px;
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0, 100% 1%, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 7% 100%, 7% 63%, 0 63%);
+  clip-path: polygon(0 0, 0 0, 0 0, 100% 1%, 100% 0, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 7% 100%, 7% 63%, 0 63%);
+}
+
+.bottom-balance {
+  position: absolute;
+  bottom: 3%;
+  background: black;
+  opacity: 0.6;
+  color: white;
+  line-height: 1.2;
+  font-size: 2em;
+  padding: 0.5em 1em;
+  width: 18%;
+  border: 1px solid #733d1b;
+  border-radius: 5px;
+}
+
+.coin-stack {
+  background: black;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  display: flex;
+  overflow-x: scroll;
+  width: 35%;
+  bottom: 3%;
+  padding: 0.5em;
+  opacity: 0.6;
+  left: 15%;
+  div {
+    display: inline-block;
+    margin: 0 1em;
+    vertical-align: middle;
+    img {
+      width: 5vw;
+    }
+  }
+}
+
+.btm-history {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 2em;
+  height: 40%;
+  width: 10%;
+  color: white;
+  text-align: center;
+  .history {
+    margin-top: 0.2em;
+    opacity: 0.6;
+    background: black;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-bottom: 5em;
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  }
 }

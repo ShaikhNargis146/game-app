@@ -12,7 +12,7 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.b = [1, 2, 3];
   $rootScope.blackArray = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
   $scope.totalMoney = 0;
-  $scope.maxBet = 1000;
+  $scope.maxBet = 200000;
   $scope.minBet = 1;
   $scope.amount = 0;
   // $scope.masterArray = {};
@@ -186,24 +186,44 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.playerData();
 
   $scope.coinArray = [{
-    name: "coin1",
+    name: "coinone",
     amount: 1,
-    img: "img/roulette/coin1.png",
+    img: "img/roulette/coinone.png",
     selected: false
   }, {
-    name: "coin2",
+    name: "coinfive",
     amount: 5,
-    img: "img/roulette/coin2.png",
+    img: "img/roulette/coinfive.png",
     selected: false
   }, {
-    name: "coin3",
+    name: "cointen",
     amount: 10,
-    img: "img/roulette/coin3.png",
+    img: "img/roulette/cointen.png",
     selected: false
   }, {
-    name: "coin4",
+    name: "coinhundred",
     amount: 100,
-    img: "img/roulette/coin4.png",
+    img: "img/roulette/coinhundred.png",
+    selected: false
+  }, {
+    name: "coin5hundred",
+    amount: 500,
+    img: "img/roulette/coin5hundred.png",
+    selected: false
+  }, {
+    name: "coin1k",
+    amount: 1000,
+    img: "img/roulette/coin1k.png",
+    selected: false
+  }, {
+    name: "coin5k",
+    amount: 5000,
+    img: "img/roulette/coin5k.png",
+    selected: false
+  }, {
+    name: "coin10k",
+    amount: 10000,
+    img: "img/roulette/coin10k.png",
     selected: false
   }];
 
@@ -248,12 +268,32 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     var coin4 = _.filter(data, {
       'amount': 100
     }).length;
+    var coin5 = _.filter(data, {
+      'amount': 500
+    }).length;
+    var coin6 = _.filter(data, {
+      'amount': 1000
+    }).length;
+    var coin7 = _.filter(data, {
+      'amount': 5000
+    }).length;
+    var coin8 = _.filter(data, {
+      'amount': 10000
+    }).length;
     coin2 += parseInt((coin1 / 5));
     coin1 = (coin1 % 5);
     coin3 += parseInt((coin2 / 2));
     coin2 = (coin2 % 2);
     coin4 += parseInt((coin3 / 10));
     coin3 = (coin3 % 10);
+    coin5 += parseInt((coin4 / 5));
+    coin4 = (coin4 % 5);
+    coin6 += parseInt((coin5 / 2));
+    coin5 = (coin5 % 2);
+    coin7 += parseInt((coin6 / 5));
+    coin6 = (coin6 % 5);
+    coin8 += parseInt((coin7 / 2));
+    coin7 = (coin7 % 2);
     var i = 0;
     for (i = 0; i < coin1; i++) {
       displayArray.push($scope.coinArray[0]);
@@ -266,6 +306,18 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
     }
     for (i = 0; i < coin4; i++) {
       displayArray.push($scope.coinArray[3]);
+    }
+    for (i = 0; i < coin5; i++) {
+      displayArray.push($scope.coinArray[4]);
+    }
+    for (i = 0; i < coin6; i++) {
+      displayArray.push($scope.coinArray[5]);
+    }
+    for (i = 0; i < coin7; i++) {
+      displayArray.push($scope.coinArray[6]);
+    }
+    for (i = 0; i < coin8; i++) {
+      displayArray.push($scope.coinArray[7]);
     }
     return displayArray;
   };
