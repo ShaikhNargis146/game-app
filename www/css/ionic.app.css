@@ -13900,6 +13900,78 @@ ion-item.item {
     left: 19%;
     top: -1%; } }
 
+.player1 .opac1,
+.player2 .opac1,
+.player3 .opac1,
+.player4 .opac1,
+.player5 .opac1,
+.player6 .opac1,
+.player7 .opac1,
+.player8 .opac1,
+.player9 .opac1 {
+  animation: opacitylow 3s ease 0s forwards; }
+
+.player1 .opac2,
+.player2 .opac2,
+.player3 .opac2,
+.player4 .opac2,
+.player5 .opac2,
+.player6 .opac2,
+.player7 .opac2,
+.player8 .opac2,
+.player9 .opac2 {
+  animation: opacitylow 3s ease 3s forwards; }
+
+.player1 .opac3,
+.player2 .opac3,
+.player3 .opac3,
+.player4 .opac3,
+.player5 .opac3,
+.player6 .opac3,
+.player7 .opac3,
+.player8 .opac3,
+.player9 .opac3 {
+  animation: opacitylow 3s ease 9s forwards; }
+
+.player1 .opac4,
+.player2 .opac4,
+.player3 .opac4,
+.player4 .opac4,
+.player5 .opac4,
+.player6 .opac4,
+.player7 .opac4,
+.player8 .opac4,
+.player9 .opac4 {
+  animation: opacitylow 3s ease 12s forwards; }
+
+.player1 .opac5,
+.player2 .opac5,
+.player3 .opac5,
+.player4 .opac5,
+.player5 .opac5,
+.player6 .opac5,
+.player7 .opac5,
+.player8 .opac5,
+.player9 .opac5 {
+  animation: opacitylow 3s ease 15s forwards; }
+
+.player1 .opac6,
+.player2 .opac6,
+.player3 .opac6,
+.player4 .opac6,
+.player5 .opac6,
+.player6 .opac6,
+.player7 .opac6,
+.player8 .opac6,
+.player9 .opac6 {
+  animation: opacitylow 3s ease 18s forwards; }
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
   overflow: hidden;
@@ -14221,7 +14293,7 @@ ion-item.item {
   background-size: 100% 100%;
   opacity: 1;
   transform: translate3d(0%, 0px, 0px);
-  padding: 8% 5% 10% 5%;
+  padding: 7% 5% 10% 5%;
   display: table;
   position: relative;
   cursor: move;
@@ -15126,7 +15198,7 @@ ul.coin li {
 .min-max-bet {
   position: absolute;
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   top: 5%;
   left: 28%;
   line-height: 1; }
@@ -15142,7 +15214,7 @@ ul.coin li {
   color: white;
   top: 3%;
   position: absolute;
-  font-size: 3em;
+  font-size: 2em;
   padding: 1%;
   line-height: 1;
   border-radius: 7px; }

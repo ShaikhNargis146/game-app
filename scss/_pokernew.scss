@@ -1408,3 +1408,41 @@
     top: -1%;
   }
 }
+
+.player1,
+.player2,
+.player3,
+.player4,
+.player5,
+.player6,
+.player7,
+.player8,
+.player9 {
+  .opac1 {
+    animation: opacitylow 3s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 3s ease 3s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 3s ease 9s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 3s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 3s ease 15s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 3s ease 18s forwards;
+  }
+}
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
