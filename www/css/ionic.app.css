@@ -13247,7 +13247,8 @@ ion-item.item {
         .pokerkingtable .main-table .playing-table .main-player .plyr_name {
           display: none; }
         .pokerkingtable .main-table .playing-table .main-player .status {
-          font-size: 1em; }
+          font-size: 1em;
+          min-height: 25px; }
         .pokerkingtable .main-table .playing-table .main-player .amt {
           font-size: 1.2em; }
         .pokerkingtable .main-table .playing-table .main-player .card_see {
