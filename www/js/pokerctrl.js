@@ -769,10 +769,11 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //     }
     //   }
     // }  
-
-    if (!$scope.players[8].tableLeft) {
-      if (!$scope.sitHere) {
-        return;
+    if (!(_.isEmpty($scope.players[8]))) {
+      if (!$scope.players[8].tableLeft) {
+        if (!$scope.sitHere) {
+          return;
+        }
       }
     }
 
