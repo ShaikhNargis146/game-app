@@ -711,17 +711,11 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    // $scope.activePlayer = _.filter($scope.players, function (player) {
-    //   if (player && (player.user._id == $scope._id)) {
-    //     return true;
-    //   }
-    // });
-    // if (!$scope.sitHere) {
-    //   if ($scope.activePlayer) {
-    //     $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-    //   };
-    // };
-    // $scope.$apply();
+    if (!$scope.sitHere) {
+      if (($scope.players[8].buyInAmt - $scope.players[8].totalAmount) < $scope.table.bigBlind) {
+        $scope.standUp();
+      }
+    };
   };
 
   mySocket2.on("newGame_" + $scope.tableId, newGameSocketFunction);
@@ -774,9 +768,13 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     //       return;
     //     }
     //   }
-    // }
-    if (!$scope.sitHere) {
-      return;
+    // }  
+    if (!(_.isEmpty($scope.players[8]))) {
+      if (!$scope.players[8].tableLeft) {
+        if (!$scope.sitHere) {
+          return;
+        }
+      }
     }
 
     console.log("sit here function", sliderData, data);
@@ -886,10 +884,38 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.newGame = function () {
     pokerService.newGame($scope.tableId, function (data) {});
   };
+  //tip
+  //Make Tip modal
+  $ionicModal.fromTemplateUrl('templates/model/make-tip.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.makeTipModal = modal;
+  });
+  $scope.openMakeTipModal = function () {
+    $scope.makeTipModal.show();
+  };
+  $scope.closeMakeTipModal = function () {
+    $scope.makeTipModal.hide();
+  };
+
+  //tip
+  $scope.makeTip = function (data) {
+    // $scope.coinAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('coin');
+      }
+    });
+
+    var playerdetails = {};
+    playerdetails.amount = data;
+    pokerService.giveTip(playerdetails, function (data) {});
+  };
 
   $scope.$on("$destroy", function () {
     $scope.priceRangeModal.remove();
     $scope.messageModal.remove();
-  })
+  });
 
 });

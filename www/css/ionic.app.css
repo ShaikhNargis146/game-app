@@ -13055,12 +13055,13 @@ ion-item.item {
             font-size: 1em;
             font-weight: bold;
             line-height: 1.7em; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.dealer {
-            background: #56c2fd; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.smallblind {
-            background: #6ed34e; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.bigblind {
-            background: #ef1f2b; }
+        .pokerkingtable .main-table .playing-table .plyr .player_badges {
+          position: absolute;
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          right: -50%;
+          top: 2%;
+          padding: 0px 4px; }
         .pokerkingtable .main-table .playing-table .plyr .nopalyer_status {
           display: none; }
         .pokerkingtable .main-table .playing-table .plyr img {
@@ -13225,29 +13226,19 @@ ion-item.item {
         transform: translateY(-108%);
         height: 40px;
         width: 70px; }
-      .pokerkingtable .main-table .playing-table .dealer::after {
-        display: block;
-        content: '';
-        height: 4vh;
-        width: 30%;
-        position: absolute;
-        right: -30%;
-        top: 0;
-        background: url(../img/dealer.png);
-        background-size: 100% 100%; }
       .pokerkingtable .main-table .playing-table .main-player {
         width: 18% !important;
         left: 50%;
         bottom: -5%;
         transform: translate(-50%, 0%); }
-        .pokerkingtable .main-table .playing-table .main-player .dealer::after {
-          height: 6vh;
-          width: 22%;
-          right: -21%; }
+        .pokerkingtable .main-table .playing-table .main-player .player_badges {
+          right: -20%;
+          top: 2%; }
         .pokerkingtable .main-table .playing-table .main-player .plyr_name {
           display: none; }
         .pokerkingtable .main-table .playing-table .main-player .status {
-          font-size: 1em; }
+          font-size: 1em;
+          min-height: 25px; }
         .pokerkingtable .main-table .playing-table .main-player .amt {
           font-size: 1.2em; }
         .pokerkingtable .main-table .playing-table .main-player .card_see {
@@ -13639,193 +13630,193 @@ ion-item.item {
   left: 50% !important;
   transition: none !important; }
 
-.player-coin1 .coin1 {
+.player-coin5 .coin1 {
   animation: animecoin1 3s ease 0s forwards; }
 
-.player-coin1 .coin2 {
+.player-coin5 .coin2 {
   animation: animecoin1 3s ease 2s forwards; }
 
-.player-coin1 .coin3 {
+.player-coin5 .coin3 {
   animation: animecoin1 3s ease 4s forwards; }
 
-.player-coin1 .coin4 {
+.player-coin5 .coin4 {
   animation: animecoin1 3s ease 6s forwards; }
 
-.player-coin1 .coin5 {
+.player-coin5 .coin5 {
   animation: animecoin1 3s ease 8s forwards; }
 
-.player-coin1 .coin6 {
+.player-coin5 .coin6 {
   animation: animecoin1 3s ease 10s forwards; }
 
-.player-coin1 .coin7 {
+.player-coin5 .coin7 {
   animation: animecoin1 3s ease 12s forwards; }
 
-.player-coin2 .coin1 {
+.player-coin6 .coin1 {
   animation: animecoin2 3s ease 0s forwards; }
 
-.player-coin2 .coin2 {
+.player-coin6 .coin2 {
   animation: animecoin2 3s ease 2s forwards; }
 
-.player-coin2 .coin3 {
+.player-coin6 .coin3 {
   animation: animecoin2 3s ease 4s forwards; }
 
-.player-coin2 .coin4 {
+.player-coin6 .coin4 {
   animation: animecoin2 3s ease 6s forwards; }
 
-.player-coin2 .coin5 {
+.player-coin6 .coin5 {
   animation: animecoin2 3s ease 8s forwards; }
 
-.player-coin2 .coin6 {
+.player-coin6 .coin6 {
   animation: animecoin2 3s ease 10s forwards; }
 
-.player-coin2 .coin7 {
+.player-coin6 .coin7 {
   animation: animecoin2 3s ease 12s forwards; }
 
-.player-coin3 .coin1 {
+.player-coin7 .coin1 {
   animation: animecoin3 3s ease 0s forwards; }
 
-.player-coin3 .coin2 {
+.player-coin7 .coin2 {
   animation: animecoin3 3s ease 2s forwards; }
 
-.player-coin3 .coin3 {
+.player-coin7 .coin3 {
   animation: animecoin3 3s ease 4s forwards; }
 
-.player-coin3 .coin4 {
+.player-coin7 .coin4 {
   animation: animecoin3 3s ease 6s forwards; }
 
-.player-coin3 .coin5 {
+.player-coin7 .coin5 {
   animation: animecoin3 3s ease 8s forwards; }
 
-.player-coin3 .coin6 {
+.player-coin7 .coin6 {
   animation: animecoin3 3s ease 10s forwards; }
 
-.player-coin3 .coin7 {
+.player-coin7 .coin7 {
   animation: animecoin3 3s ease 12s forwards; }
 
-.player-coin4 .coin1 {
+.player-coin8 .coin1 {
   animation: animecoin4 3s ease 0s forwards; }
 
-.player-coin4 .coin2 {
+.player-coin8 .coin2 {
   animation: animecoin4 3s ease 2s forwards; }
 
-.player-coin4 .coin3 {
+.player-coin8 .coin3 {
   animation: animecoin4 3s ease 4s forwards; }
 
-.player-coin4 .coin4 {
+.player-coin8 .coin4 {
   animation: animecoin4 3s ease 6s forwards; }
 
-.player-coin4 .coin5 {
+.player-coin8 .coin5 {
   animation: animecoin4 3s ease 8s forwards; }
 
-.player-coin4 .coin6 {
+.player-coin8 .coin6 {
   animation: animecoin4 3s ease 10s forwards; }
 
-.player-coin4 .coin7 {
+.player-coin8 .coin7 {
   animation: animecoin4 3s ease 12s forwards; }
 
-.player-coin5 .coin1 {
+.player-coin9 .coin1 {
   animation: animecoin5 3s ease 0s forwards; }
 
-.player-coin5 .coin2 {
+.player-coin9 .coin2 {
   animation: animecoin5 3s ease 2s forwards; }
 
-.player-coin5 .coin3 {
+.player-coin9 .coin3 {
   animation: animecoin5 3s ease 4s forwards; }
 
-.player-coin5 .coin4 {
+.player-coin9 .coin4 {
   animation: animecoin5 3s ease 6s forwards; }
 
-.player-coin5 .coin5 {
+.player-coin9 .coin5 {
   animation: animecoin5 3s ease 8s forwards; }
 
-.player-coin5 .coin6 {
+.player-coin9 .coin6 {
   animation: animecoin5 3s ease 10s forwards; }
 
-.player-coin5 .coin7 {
+.player-coin9 .coin7 {
   animation: animecoin5 3s ease 12s forwards; }
 
-.player-coin6 .coin1 {
+.player-coin1 .coin1 {
   animation: animecoin6 3s ease 0s forwards; }
 
-.player-coin6 .coin2 {
+.player-coin1 .coin2 {
   animation: animecoin6 3s ease 2s forwards; }
 
-.player-coin6 .coin3 {
+.player-coin1 .coin3 {
   animation: animecoin6 3s ease 4s forwards; }
 
-.player-coin6 .coin4 {
+.player-coin1 .coin4 {
   animation: animecoin6 3s ease 6s forwards; }
 
-.player-coin6 .coin5 {
+.player-coin1 .coin5 {
   animation: animecoin6 3s ease 8s forwards; }
 
-.player-coin6 .coin6 {
+.player-coin1 .coin6 {
   animation: animecoin6 3s ease 10s forwards; }
 
-.player-coin6 .coin7 {
+.player-coin1 .coin7 {
   animation: animecoin6 3s ease 12s forwards; }
 
-.player-coin7 .coin1 {
+.player-coin2 .coin1 {
   animation: animecoin7 3s ease 0s forwards; }
 
-.player-coin7 .coin2 {
+.player-coin2 .coin2 {
   animation: animecoin7 3s ease 2s forwards; }
 
-.player-coin7 .coin3 {
+.player-coin2 .coin3 {
   animation: animecoin7 3s ease 4s forwards; }
 
-.player-coin7 .coin4 {
+.player-coin2 .coin4 {
   animation: animecoin7 3s ease 6s forwards; }
 
-.player-coin7 .coin5 {
+.player-coin2 .coin5 {
   animation: animecoin7 3s ease 8s forwards; }
 
-.player-coin7 .coin6 {
+.player-coin2 .coin6 {
   animation: animecoin7 3s ease 10s forwards; }
 
-.player-coin7 .coin7 {
+.player-coin2 .coin7 {
   animation: animecoin7 3s ease 12s forwards; }
 
-.player-coin8 .coin1 {
+.player-coin3 .coin1 {
   animation: animecoin8 3s ease 0s forwards; }
 
-.player-coin8 .coin2 {
+.player-coin3 .coin2 {
   animation: animecoin8 3s ease 2s forwards; }
 
-.player-coin8 .coin3 {
+.player-coin3 .coin3 {
   animation: animecoin8 3s ease 4s forwards; }
 
-.player-coin8 .coin4 {
+.player-coin3 .coin4 {
   animation: animecoin8 3s ease 6s forwards; }
 
-.player-coin8 .coin5 {
+.player-coin3 .coin5 {
   animation: animecoin8 3s ease 8s forwards; }
 
-.player-coin8 .coin6 {
+.player-coin3 .coin6 {
   animation: animecoin8 3s ease 10s forwards; }
 
-.player-coin8 .coin7 {
+.player-coin3 .coin7 {
   animation: animecoin8 3s ease 12s forwards; }
 
-.player-coin9 .coin1 {
+.player-coin4 .coin1 {
   animation: animecoin9 3s ease 0s forwards; }
 
-.player-coin9 .coin2 {
+.player-coin4 .coin2 {
   animation: animecoin9 3s ease 2s forwards; }
 
-.player-coin9 .coin3 {
+.player-coin4 .coin3 {
   animation: animecoin9 3s ease 4s forwards; }
 
-.player-coin9 .coin4 {
+.player-coin4 .coin4 {
   animation: animecoin9 3s ease 6s forwards; }
 
-.player-coin9 .coin5 {
+.player-coin4 .coin5 {
   animation: animecoin9 3s ease 8s forwards; }
 
-.player-coin9 .coin6 {
+.player-coin4 .coin6 {
   animation: animecoin9 3s ease 10s forwards; }
 
-.player-coin9 .coin7 {
+.player-coin4 .coin7 {
   animation: animecoin9 3s ease 12s forwards; }
 
 @keyframes animecoin1 {
@@ -13899,6 +13890,78 @@ ion-item.item {
     opacity: 0;
     left: 19%;
     top: -1%; } }
+
+.player1 .opac1,
+.player2 .opac1,
+.player3 .opac1,
+.player4 .opac1,
+.player5 .opac1,
+.player6 .opac1,
+.player7 .opac1,
+.player8 .opac1,
+.player9 .opac1 {
+  animation: opacitylow 3s ease 0s forwards; }
+
+.player1 .opac2,
+.player2 .opac2,
+.player3 .opac2,
+.player4 .opac2,
+.player5 .opac2,
+.player6 .opac2,
+.player7 .opac2,
+.player8 .opac2,
+.player9 .opac2 {
+  animation: opacitylow 3s ease 3s forwards; }
+
+.player1 .opac3,
+.player2 .opac3,
+.player3 .opac3,
+.player4 .opac3,
+.player5 .opac3,
+.player6 .opac3,
+.player7 .opac3,
+.player8 .opac3,
+.player9 .opac3 {
+  animation: opacitylow 3s ease 9s forwards; }
+
+.player1 .opac4,
+.player2 .opac4,
+.player3 .opac4,
+.player4 .opac4,
+.player5 .opac4,
+.player6 .opac4,
+.player7 .opac4,
+.player8 .opac4,
+.player9 .opac4 {
+  animation: opacitylow 3s ease 12s forwards; }
+
+.player1 .opac5,
+.player2 .opac5,
+.player3 .opac5,
+.player4 .opac5,
+.player5 .opac5,
+.player6 .opac5,
+.player7 .opac5,
+.player8 .opac5,
+.player9 .opac5 {
+  animation: opacitylow 3s ease 15s forwards; }
+
+.player1 .opac6,
+.player2 .opac6,
+.player3 .opac6,
+.player4 .opac6,
+.player5 .opac6,
+.player6 .opac6,
+.player7 .opac6,
+.player8 .opac6,
+.player9 .opac6 {
+  animation: opacitylow 3s ease 18s forwards; }
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 .platform-android .pie_loader,
 .platform-browser .pie_loader {
@@ -14221,7 +14284,7 @@ ion-item.item {
   background-size: 100% 100%;
   opacity: 1;
   transform: translate3d(0%, 0px, 0px);
-  padding: 8% 5% 10% 5%;
+  padding: 7% 5% 10% 5%;
   display: table;
   position: relative;
   cursor: move;
@@ -15126,7 +15189,7 @@ ul.coin li {
 .min-max-bet {
   position: absolute;
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   top: 5%;
   left: 28%;
   line-height: 1; }
@@ -15142,7 +15205,7 @@ ul.coin li {
   color: white;
   top: 3%;
   position: absolute;
-  font-size: 3em;
+  font-size: 2em;
   padding: 1%;
   line-height: 1;
   border-radius: 7px; }
