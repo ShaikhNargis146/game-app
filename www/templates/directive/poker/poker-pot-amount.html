@@ -1,4 +1,4 @@
-<div class="total_played_coin" ng-if="players">
+<div class="total_played_coin" ng-if="players && pots.length>0">
   <!-- {{pots}} -->
   <span ng-if="pots[0] && !pots[0].winner">
     <img src="img/coin.png" class="coin">{{pots[0].totalAmount | number}}
