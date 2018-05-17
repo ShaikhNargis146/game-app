@@ -26,7 +26,7 @@
         TIP
       </div>
 
-      <poker-pot-amount ng-pots="pots" ng-player="players">
+      <poker-pot-amount ng-pots="pots" ng-player="players" ng-if="pots">
       </poker-pot-amount>
       <poker-tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </poker-tip-amount>
 
@@ -80,13 +80,13 @@
         <poker-players id="plr9" ng-pos="9" ng-click="openPriceRangeModal(9)" ng-player="players[8]" ng-animation="startAnimation"
           ng-sit-here="sitHere" ng-if="sitHere">
         </poker-players>
-        <poker-main-player ng-pos="0" ng-click="openPriceRangeModal(9)" ng-if="!sitHere" ng-main="main-player" ng-player="players[8]"
-          ng-sit-here="sitHere">
+        <poker-main-player ng-pos="0" ng-click="openPriceRangeModal(9)" ng-if="!sitHere && !player[8].tableLeft" ng-main="main-player"
+          ng-player="players[8]" ng-sit-here="sitHere">
         </poker-main-player>
 
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere" ng-click="stopProgation($event)">
+    <div class="playing-player-info" ng-if="!sitHere && !player[8].tableLeft" ng-click="stopProgation($event)">
       <button class="" ng-click="fold()" promise-btn="foldPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft">
         FOLD
       </button>

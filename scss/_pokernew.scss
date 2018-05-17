@@ -156,16 +156,23 @@
             font-size: 1em;
             font-weight: bold;
             line-height: 1.7em;
-          }
-          &.dealer {
-            background: #56c2fd;
-          }
-          &.smallblind {
-            background: #6ed34e;
-          }
-          &.bigblind {
-            background: #ef1f2b;
-          }
+          } // &.dealer {
+          //   background: #56c2fd;
+          // }
+          // &.smallblind {
+          //   background: #6ed34e;
+          // }
+          // &.bigblind {
+          //   background: #ef1f2b;
+          // }
+        }
+        .player_badges {
+          position: absolute;
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          right: -50%;
+          top: 2%;
+          padding: 0px 4px;
         }
         .nopalyer_status {
           display: none;
@@ -414,17 +421,17 @@
         }
       } // add this class to apply dealer css
       .dealer {
-        &::after {
-          display: block;
-          content: '';
-          height: 4vh;
-          width: 30%;
-          position: absolute;
-          right: -30%;
-          top: 0;
-          background: url(../img/dealer.png);
-          background-size: 100% 100%;
-        }
+        // &::after {
+        //   display: block;
+        //   content: '';
+        //   height: 4vh;
+        //   width: 30%;
+        //   position: absolute;
+        //   right: -30%;
+        //   top: 0;
+        //   background: url(../img/dealer.png);
+        //   background-size: 100% 100%;
+        // }
       } // add this class to current player 
       .main-player {
         width: 18% !important;
@@ -433,17 +440,22 @@
         // transform: translate(-50%, -70%);
         transform: translate(-50%, 0%);
         .dealer {
-          &::after {
-            height: 6vh;
-            width: 22%;
-            right: -21%;
-          }
+          // &::after {
+          //   height: 6vh;
+          //   width: 22%;
+          //   right: -21%;
+          // }
+        }
+        .player_badges {
+          right: -20%;
+          top: 2%;
         }
         .plyr_name {
           display: none;
         }
         .status {
           font-size: 1em;
+          min-height: 25px;
         }
         .amt {
           font-size: 1.2em;
@@ -1406,5 +1418,43 @@
     opacity: 0;
     left: 19%;
     top: -1%;
+  }
+}
+
+.player1,
+.player2,
+.player3,
+.player4,
+.player5,
+.player6,
+.player7,
+.player8,
+.player9 {
+  .opac1 {
+    animation: opacitylow 3s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 3s ease 3s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 3s ease 9s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 3s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 3s ease 15s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 3s ease 18s forwards;
+  }
+}
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

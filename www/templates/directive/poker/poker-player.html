@@ -1,28 +1,13 @@
 <div class="plyr p{{pos}} " ng-class="{
-    'sit_here':sitHere && !player,
-    'no_player':!player && !sitHere,
+    'sit_here':(sitHere && !player) || (!sitHere && player.tableLeft),
+    'no_player':!player && !sitHere && !player.tableLeft,
     'poker_card_shuffle_animation': player && player.cards.length>0 && startAnimation
 }">
 
   <!-- before Player Sitting -->
-  <div class="rel width-6vw" ng-if="sitHere && !player">
-    <div class="player_pic">
-      <img src="img/sithere.png" class="pic">
-    </div>
-  </div>
-
   <div class="rel" ng-if="player.tableLeft && !sitHere">
-    <div class="player_pic">
-      <img src="img/sithere.png" class="pic">
-    </div>
-    <div class="player_badge left-dealer " ng-if="player.isDealer">
+    <div class="player_badges left-dealer " ng-if="player.isDealer">
       <div> D </div>
-    </div>
-  </div>
-
-  <div class="rel" ng-if="!player && !sitHere">
-    <div class="player_pic">
-      <img src="img/sithere.png" class="pic">
     </div>
   </div>
 
@@ -60,13 +45,13 @@
       </div>
     </div>
 
-    <div class="player_badge dealer" ng-if="player.isDealer">
+    <div class="player_badges dealer" ng-if="player.isDealer">
       <div> D </div>
     </div>
-    <div class="player_badge smallblind" ng-if="player.isSmallBlind">
+    <div class="player_badges smallblind" ng-if="player.isSmallBlind">
       <div> SB</div>
     </div>
-    <div class="player_badge bigblind" ng-if="player.isBigBlind">
+    <div class="player_badges bigblind" ng-if="player.isBigBlind">
       <div>BB</div>
     </div>
 
