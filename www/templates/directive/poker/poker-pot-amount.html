@@ -1,25 +1,25 @@
 <div class="total_played_coin" ng-if="players">
   <!-- {{pots}} -->
   <span ng-if="pots[0] && !pots[0].winner">
-    <img src="img/coin.svg" class="coin">{{pots[0].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[0].totalAmount | number}}
   </span>
   <span ng-if="pots[1] && !pots[1].winner">
-    <img src="img/coin.svg" class="coin">{{pots[1].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[1].totalAmount | number}}
   </span>
   <span ng-if="pots[2] && !pots[2].winner">
-    <img src="img/coin.svg" class="coin">{{pots[2].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[2].totalAmount | number}}
   </span>
   <span ng-if="pots[3] && !pots[3].winner">
-    <img src="img/coin.svg" class="coin">{{pots[3].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[3].totalAmount | number}}
   </span>
   <span ng-if="pots[4] && !pots[4].winner">
-    <img src="img/coin.svg" class="coin">{{pots[4].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[4].totalAmount | number}}
   </span>
   <span ng-if="pots[5] && !pots[5].winner">
-    <img src="img/coin.svg" class="coin">{{pots[5].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[5].totalAmount | number}}
   </span>
   <span ng-if="pots[6] && !pots[6].winner">
-    <img src="img/coin.svg" class="coin">{{pots[6].totalAmount | number}}
+    <img src="img/coin.png" class="coin">{{pots[6].totalAmount | number}}
   </span>
 </div>
 
@@ -27,7 +27,7 @@
 <div ng-repeat="player in players track by $index" class="player-coin{{$index+1}}">
   <div ng-if="player.isWinner" ng-repeat="winnerDetail in player.winnerDetails" class="total_played_coin coin{{$index+1}}">
     <span ng-show="winnerDetail">
-      <img src="img/coin.svg" class="coin">{{winnerDetail.amount | number}}
+      <img src="img/coin.png" class="coin">{{winnerDetail.amount | number}}
     </span>
   </div>
 </div>

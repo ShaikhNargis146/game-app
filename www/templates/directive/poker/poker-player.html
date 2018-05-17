@@ -128,7 +128,7 @@
       <!-- two card end -->
     </div>
     <div class="amt">
-      <img src="img/coin.png">{{player.totalAmount}}
+      <img src="img/coin.png">{{player.totalAmount | number}}
     </div>
     <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
       <span>{{player.name}}</span>

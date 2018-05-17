@@ -102,7 +102,7 @@
       </button>
       <div class="mainplayer_block">
         <div class="info"> {{ players[8].name }}
-          <img src="img/coin.png">{{players[8].buyInAmt-players[8].totalAmount}}
+          <img src="img/coin.png">{{players[8].buyInAmt-players[8].totalAmount | number}}
         </div>
 
         <div class="showing_cards " ng-class="{'poker_main_card_anime':players[8].cards.length>0 && startAnimation}">

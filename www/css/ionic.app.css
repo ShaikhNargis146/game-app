@@ -13639,193 +13639,193 @@ ion-item.item {
   left: 50% !important;
   transition: none !important; }
 
-.player-coin1 .coin1 {
+.player-coin5 .coin1 {
   animation: animecoin1 3s ease 0s forwards; }
 
-.player-coin1 .coin2 {
+.player-coin5 .coin2 {
   animation: animecoin1 3s ease 2s forwards; }
 
-.player-coin1 .coin3 {
+.player-coin5 .coin3 {
   animation: animecoin1 3s ease 4s forwards; }
 
-.player-coin1 .coin4 {
+.player-coin5 .coin4 {
   animation: animecoin1 3s ease 6s forwards; }
 
-.player-coin1 .coin5 {
+.player-coin5 .coin5 {
   animation: animecoin1 3s ease 8s forwards; }
 
-.player-coin1 .coin6 {
+.player-coin5 .coin6 {
   animation: animecoin1 3s ease 10s forwards; }
 
-.player-coin1 .coin7 {
+.player-coin5 .coin7 {
   animation: animecoin1 3s ease 12s forwards; }
 
-.player-coin2 .coin1 {
+.player-coin6 .coin1 {
   animation: animecoin2 3s ease 0s forwards; }
 
-.player-coin2 .coin2 {
+.player-coin6 .coin2 {
   animation: animecoin2 3s ease 2s forwards; }
 
-.player-coin2 .coin3 {
+.player-coin6 .coin3 {
   animation: animecoin2 3s ease 4s forwards; }
 
-.player-coin2 .coin4 {
+.player-coin6 .coin4 {
   animation: animecoin2 3s ease 6s forwards; }
 
-.player-coin2 .coin5 {
+.player-coin6 .coin5 {
   animation: animecoin2 3s ease 8s forwards; }
 
-.player-coin2 .coin6 {
+.player-coin6 .coin6 {
   animation: animecoin2 3s ease 10s forwards; }
 
-.player-coin2 .coin7 {
+.player-coin6 .coin7 {
   animation: animecoin2 3s ease 12s forwards; }
 
-.player-coin3 .coin1 {
+.player-coin7 .coin1 {
   animation: animecoin3 3s ease 0s forwards; }
 
-.player-coin3 .coin2 {
+.player-coin7 .coin2 {
   animation: animecoin3 3s ease 2s forwards; }
 
-.player-coin3 .coin3 {
+.player-coin7 .coin3 {
   animation: animecoin3 3s ease 4s forwards; }
 
-.player-coin3 .coin4 {
+.player-coin7 .coin4 {
   animation: animecoin3 3s ease 6s forwards; }
 
-.player-coin3 .coin5 {
+.player-coin7 .coin5 {
   animation: animecoin3 3s ease 8s forwards; }
 
-.player-coin3 .coin6 {
+.player-coin7 .coin6 {
   animation: animecoin3 3s ease 10s forwards; }
 
-.player-coin3 .coin7 {
+.player-coin7 .coin7 {
   animation: animecoin3 3s ease 12s forwards; }
 
-.player-coin4 .coin1 {
+.player-coin8 .coin1 {
   animation: animecoin4 3s ease 0s forwards; }
 
-.player-coin4 .coin2 {
+.player-coin8 .coin2 {
   animation: animecoin4 3s ease 2s forwards; }
 
-.player-coin4 .coin3 {
+.player-coin8 .coin3 {
   animation: animecoin4 3s ease 4s forwards; }
 
-.player-coin4 .coin4 {
+.player-coin8 .coin4 {
   animation: animecoin4 3s ease 6s forwards; }
 
-.player-coin4 .coin5 {
+.player-coin8 .coin5 {
   animation: animecoin4 3s ease 8s forwards; }
 
-.player-coin4 .coin6 {
+.player-coin8 .coin6 {
   animation: animecoin4 3s ease 10s forwards; }
 
-.player-coin4 .coin7 {
+.player-coin8 .coin7 {
   animation: animecoin4 3s ease 12s forwards; }
 
-.player-coin5 .coin1 {
+.player-coin9 .coin1 {
   animation: animecoin5 3s ease 0s forwards; }
 
-.player-coin5 .coin2 {
+.player-coin9 .coin2 {
   animation: animecoin5 3s ease 2s forwards; }
 
-.player-coin5 .coin3 {
+.player-coin9 .coin3 {
   animation: animecoin5 3s ease 4s forwards; }
 
-.player-coin5 .coin4 {
+.player-coin9 .coin4 {
   animation: animecoin5 3s ease 6s forwards; }
 
-.player-coin5 .coin5 {
+.player-coin9 .coin5 {
   animation: animecoin5 3s ease 8s forwards; }
 
-.player-coin5 .coin6 {
+.player-coin9 .coin6 {
   animation: animecoin5 3s ease 10s forwards; }
 
-.player-coin5 .coin7 {
+.player-coin9 .coin7 {
   animation: animecoin5 3s ease 12s forwards; }
 
-.player-coin6 .coin1 {
+.player-coin1 .coin1 {
   animation: animecoin6 3s ease 0s forwards; }
 
-.player-coin6 .coin2 {
+.player-coin1 .coin2 {
   animation: animecoin6 3s ease 2s forwards; }
 
-.player-coin6 .coin3 {
+.player-coin1 .coin3 {
   animation: animecoin6 3s ease 4s forwards; }
 
-.player-coin6 .coin4 {
+.player-coin1 .coin4 {
   animation: animecoin6 3s ease 6s forwards; }
 
-.player-coin6 .coin5 {
+.player-coin1 .coin5 {
   animation: animecoin6 3s ease 8s forwards; }
 
-.player-coin6 .coin6 {
+.player-coin1 .coin6 {
   animation: animecoin6 3s ease 10s forwards; }
 
-.player-coin6 .coin7 {
+.player-coin1 .coin7 {
   animation: animecoin6 3s ease 12s forwards; }
 
-.player-coin7 .coin1 {
+.player-coin2 .coin1 {
   animation: animecoin7 3s ease 0s forwards; }
 
-.player-coin7 .coin2 {
+.player-coin2 .coin2 {
   animation: animecoin7 3s ease 2s forwards; }
 
-.player-coin7 .coin3 {
+.player-coin2 .coin3 {
   animation: animecoin7 3s ease 4s forwards; }
 
-.player-coin7 .coin4 {
+.player-coin2 .coin4 {
   animation: animecoin7 3s ease 6s forwards; }
 
-.player-coin7 .coin5 {
+.player-coin2 .coin5 {
   animation: animecoin7 3s ease 8s forwards; }
 
-.player-coin7 .coin6 {
+.player-coin2 .coin6 {
   animation: animecoin7 3s ease 10s forwards; }
 
-.player-coin7 .coin7 {
+.player-coin2 .coin7 {
   animation: animecoin7 3s ease 12s forwards; }
 
-.player-coin8 .coin1 {
+.player-coin3 .coin1 {
   animation: animecoin8 3s ease 0s forwards; }
 
-.player-coin8 .coin2 {
+.player-coin3 .coin2 {
   animation: animecoin8 3s ease 2s forwards; }
 
-.player-coin8 .coin3 {
+.player-coin3 .coin3 {
   animation: animecoin8 3s ease 4s forwards; }
 
-.player-coin8 .coin4 {
+.player-coin3 .coin4 {
   animation: animecoin8 3s ease 6s forwards; }
 
-.player-coin8 .coin5 {
+.player-coin3 .coin5 {
   animation: animecoin8 3s ease 8s forwards; }
 
-.player-coin8 .coin6 {
+.player-coin3 .coin6 {
   animation: animecoin8 3s ease 10s forwards; }
 
-.player-coin8 .coin7 {
+.player-coin3 .coin7 {
   animation: animecoin8 3s ease 12s forwards; }
 
-.player-coin9 .coin1 {
+.player-coin4 .coin1 {
   animation: animecoin9 3s ease 0s forwards; }
 
-.player-coin9 .coin2 {
+.player-coin4 .coin2 {
   animation: animecoin9 3s ease 2s forwards; }
 
-.player-coin9 .coin3 {
+.player-coin4 .coin3 {
   animation: animecoin9 3s ease 4s forwards; }
 
-.player-coin9 .coin4 {
+.player-coin4 .coin4 {
   animation: animecoin9 3s ease 6s forwards; }
 
-.player-coin9 .coin5 {
+.player-coin4 .coin5 {
   animation: animecoin9 3s ease 8s forwards; }
 
-.player-coin9 .coin6 {
+.player-coin4 .coin6 {
   animation: animecoin9 3s ease 10s forwards; }
 
-.player-coin9 .coin7 {
+.player-coin4 .coin7 {
   animation: animecoin9 3s ease 12s forwards; }
 
 @keyframes animecoin1 {
