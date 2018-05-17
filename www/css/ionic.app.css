@@ -13055,12 +13055,13 @@ ion-item.item {
             font-size: 1em;
             font-weight: bold;
             line-height: 1.7em; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.dealer {
-            background: #56c2fd; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.smallblind {
-            background: #6ed34e; }
-          .pokerkingtable .main-table .playing-table .plyr .player_badge.bigblind {
-            background: #ef1f2b; }
+        .pokerkingtable .main-table .playing-table .plyr .player_badges {
+          position: absolute;
+          background: url("../img/text_bg.png");
+          background-size: 100% 100%;
+          right: -50%;
+          top: 2%;
+          padding: 0px 4px; }
         .pokerkingtable .main-table .playing-table .plyr .nopalyer_status {
           display: none; }
         .pokerkingtable .main-table .playing-table .plyr img {
@@ -13225,25 +13226,14 @@ ion-item.item {
         transform: translateY(-108%);
         height: 40px;
         width: 70px; }
-      .pokerkingtable .main-table .playing-table .dealer::after {
-        display: block;
-        content: '';
-        height: 4vh;
-        width: 30%;
-        position: absolute;
-        right: -30%;
-        top: 0;
-        background: url(../img/dealer.png);
-        background-size: 100% 100%; }
       .pokerkingtable .main-table .playing-table .main-player {
         width: 18% !important;
         left: 50%;
         bottom: -5%;
         transform: translate(-50%, 0%); }
-        .pokerkingtable .main-table .playing-table .main-player .dealer::after {
-          height: 6vh;
-          width: 22%;
-          right: -21%; }
+        .pokerkingtable .main-table .playing-table .main-player .player_badges {
+          right: -20%;
+          top: 2%; }
         .pokerkingtable .main-table .playing-table .main-player .plyr_name {
           display: none; }
         .pokerkingtable .main-table .playing-table .main-player .status {
@@ -14221,7 +14211,7 @@ ion-item.item {
   background-size: 100% 100%;
   opacity: 1;
   transform: translate3d(0%, 0px, 0px);
-  padding: 8% 5% 10% 5%;
+  padding: 7% 5% 10% 5%;
   display: table;
   position: relative;
   cursor: move;
@@ -15126,7 +15116,7 @@ ul.coin li {
 .min-max-bet {
   position: absolute;
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   top: 5%;
   left: 28%;
   line-height: 1; }
@@ -15142,7 +15132,7 @@ ul.coin li {
   color: white;
   top: 3%;
   position: absolute;
-  font-size: 3em;
+  font-size: 2em;
   padding: 1%;
   line-height: 1;
   border-radius: 7px; }
