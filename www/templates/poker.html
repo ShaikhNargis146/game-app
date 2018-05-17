@@ -86,7 +86,7 @@
 
       </div>
     </div>
-    <div class="playing-player-info" ng-if="!sitHere || !player[8].tableLeft" ng-click="stopProgation($event)">
+    <div class="playing-player-info" ng-if="!sitHere && !player[8].tableLeft" ng-click="stopProgation($event)">
       <button class="" ng-click="fold()" promise-btn="foldPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft">
         FOLD
       </button>
