@@ -23,11 +23,14 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
   }
-  $scope.destroyAudio();
+  // $scope.destroyAudio();
 
   $ionicPlatform.on('pause', function () {
     // Handle event on pause
-    $scope.destroyAudio();
+    if (ionic.Platform.isAndroid()) {
+      $scope.destroyAudio();
+    }
+
   });
   var mySocket1 = io.sails.connect(adminUUU);
   mySocket1.on('connect', function onConnect() {
@@ -79,10 +82,9 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     console.log($scope.gameType);
   });
 
-
   function startSocketUpdate() {
-    mySocket1.off("Update", updateSocketFunction);
-    mySocket1.on("Update", updateSocketFunction);
+    mySocket1.off("Update_" + $scope.tableId, updateSocketFunction);
+    mySocket1.on("Update_" + $scope.tableId, updateSocketFunction);
   }
 
   function sideShowSocket(data) {
@@ -109,7 +111,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
     }
   }
-  mySocket1.on("sideShow", sideShowSocket);
+  mySocket1.on("sideShow_" + $scope.tableId, sideShowSocket);
 
   // mySocket1.off("Update", function (data) {
   //   $scope.message = {
@@ -155,15 +157,15 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
 
-  //Resume Audio
-  $scope.resumeAudio = function () {
-    $ionicPlatform.ready(function () {
-      if (window.cordova) {
-        // running on device/emulator
-        window.plugins.NativeAudio.play('timer');
-      }
-    });
-  }
+  // //Resume Audio
+  // $scope.resumeAudio = function () {
+  //   $ionicPlatform.ready(function () {
+  //     if (window.cordova) {
+  //       // running on device/emulator
+  //       window.plugins.NativeAudio.play('timer');
+  //     }
+  //   });
+  // }
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
     if (!_.isEmpty($scope.tableId)) {
@@ -515,7 +517,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   //   $scope.showMessageModal();
   // });
   //seat selection Player
-  mySocket1.on("seatSelection", function (data) {});
+  mySocket1.on("seatSelection_" + $scope.tableId, function (data) {});
   // Update Socket Player
   function updateSocketFunction(data, dontDigest) {
     console.log("socket", data.data);
@@ -653,12 +655,12 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     //for vibration on turn
     if ($scope.players[8] && $scope.players[8].isTurn) {
       //Resume Audio
-      if (ionic.Platform.isIOS()) {
-        document.addEventListener("resume", function () {
-          // Handle event on pause
-          $scope.resumeAudio();
-        });
-      }
+      // if (ionic.Platform.isIOS()) {
+      //   document.addEventListener("resume", function () {
+      //     // Handle event on pause
+      //     $scope.resumeAudio();
+      //   });
+      // }
 
       // $scope.timerAudio.play();
       $ionicPlatform.ready(function () {
@@ -762,7 +764,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
     }
   };
 
-  mySocket1.on("showWinner", showWinnerFunction);
+  mySocket1.on("showWinner_" + $scope.tableId, showWinnerFunction);
   // mySocket1.off("showWinner", function (data) {
   //   $scope.message = {
   //     heading: "Internet Connection",
@@ -838,7 +840,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //tip socket
-  mySocket1.on("tip", function (data) {
+  mySocket1.on("tip_" + $scope.tableId, function (data) {
     $scope.tipAmount = data.data.amount;
     $scope.TipPlayerNo = data.data.playerNo;
 
@@ -893,7 +895,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
-  mySocket1.on("sideShowCancel", function (data) {
+  mySocket1.on("sideShowCancel_" + $scope.tableId, function (data) {
     $scope.sideShowDataFrom = 0;
     $scope.$apply();
     console.log("side show cancel", data);
@@ -979,7 +981,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   //seat selection Player
-  mySocket1.on("removePlayer", function (data) {
+  mySocket1.on("removePlayer_" + $scope.tableId, function (data) {
     if (data) {
       $state.reload();
     }

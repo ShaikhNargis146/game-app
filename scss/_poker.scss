@@ -189,6 +189,24 @@
         top: -51%; // left: 9%;
         font-size: 0.8em;
         width: 85%;
+        &.call {
+          background: #2e4fb4;
+        }
+        &.checked {
+          background: #5c00ff;
+        }
+        &.all_in {
+          background: #4ccd9d
+        }
+        &.fold {
+          background: #ff1402
+        }
+        &.raise {
+          background: #ff1402
+        }
+        &.waiting {
+          background: #2196F3;
+        }
       } //add this class to apply sit_here css
       .sit_here {
         background: url('../img/poker/sit-here.png');
@@ -703,8 +721,7 @@
   height: 42% !important;
   width: 45%;
   top: 20%;
-  left: 23%;
-  //   .ok{
+  left: 23%; //   .ok{
   //     bottom: 13px;
   //   }
   //   select{

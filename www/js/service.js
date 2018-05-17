@@ -54,7 +54,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       return null;
     },
     playerLogin: function (data, callback) {
-      if (window.plugins) {
+      if (window.plugins && ionic.Platform.isAndroid()) {
         if (window.plugins.OneSignal) {
           window.plugins.OneSignal.getIds(function (ids) {
             data.deviceId = ids.userId;
@@ -551,7 +551,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
 
   var obj1 = {
     getAllTable: function (callback) {
-      return $http.get(adminPoker + '/api/Table/getAllTable').then(function (data) {
+      return $http.get(adminPoker + '/Table/getAllTable').then(function (data) {
         data = data.data;
         callback(data);
       });
@@ -560,7 +560,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
       console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(adminPoker + '/api/Table/addUserToTable', {
+        $http.post(adminPoker + '/Table/addUserToTable', {
           playerNo: dataPlayer.playerNo,
           tableId: dataPlayer.tableId,
           amount: dataPlayer.amount,
@@ -584,7 +584,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     removePlayer: function (tableId, playerNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(adminPoker + '/api/Table/removePlayer', {
+        $http.post(adminPoker + '/Table/removePlayer', {
           tableId: tableId,
           playerNo: playerNo,
           accessToken: accessToken
@@ -597,7 +597,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     fold: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(adminPoker + '/api/Player/fold', {
+        return $http.post(adminPoker + '/Player/fold', {
           tableId: tableId,
           accessToken: accessToken
         }).then(function (data) {
@@ -608,7 +608,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     allIn: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(adminPoker + '/api/Player/allIn', {
+        return $http.post(adminPoker + '/Player/allIn', {
           tableId: tableId,
           accessToken: accessToken
         }).then(function (data) {
@@ -619,7 +619,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     check: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(adminPoker + '/api/Player/check', {
+        return $http.post(adminPoker + '/Player/check', {
           tableId: tableId,
           accessToken: accessToken
         }).then(function (data) {
@@ -630,7 +630,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     call: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(adminPoker + '/api/Player/call', {
+        return $http.post(adminPoker + '/Player/call', {
           tableId: tableId,
           accessToken: accessToken
         }).then(function (data) {
@@ -641,7 +641,7 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
     raise: function (tableId, raiseAmount, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(adminPoker + '/api/Player/raise', {
+        return $http.post(adminPoker + '/Player/raise', {
           tableId: tableId,
           accessToken: accessToken,
           amount: raiseAmount
