@@ -817,7 +817,7 @@ myApp.controller("TableCtrl", function ($scope, $ionicModal, $ionicPlatform, $st
       if (window.cordova) {
         window.plugins.NativeAudio.play('coin');
       }
-    })
+    });
 
     var playerdetails = {};
     playerdetails.amount = data;
