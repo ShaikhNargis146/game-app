@@ -170,7 +170,7 @@
           position: absolute;
           background: url("../img/text_bg.png");
           background-size: 100% 100%;
-          right: -50%;
+          right: -42%;
           top: 2%;
           padding: 0px 4px;
         }
@@ -186,6 +186,7 @@
           font-family: 'Cinzel-Bold';
           font-size: .7em;
           line-height: 2;
+          min-height: 15px;
         }
         .plyr_pic {
           display: flex;
@@ -241,6 +242,7 @@
         .amt {
           font-size: .7em;
           line-height: 1.5;
+          padding: 3px;
           img {
             width: 1em;
             vertical-align: middle;

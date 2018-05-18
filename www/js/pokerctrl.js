@@ -911,10 +911,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         window.plugins.NativeAudio.play('coin');
       }
     });
-
-    var playerdetails = {};
-    playerdetails.amount = data;
-    pokerService.giveTip(playerdetails, function (data) {});
+    pokerService.makeTip(data, $scope.tableId, function (data) {});
   };
 
   $scope.$on("$destroy", function () {
