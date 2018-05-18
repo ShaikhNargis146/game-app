@@ -375,7 +375,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     $scope.extra = data.data.extra;
     if (data.data.extra) {
       console.log("socket extra", $scope.extra);
-      if ($scope.extra.serve) {
+      if ($scope.extra.serve && !$scope.extra.communityCards) {
         console.log("starting serve");
         $scope.startAnimation = true;
 
