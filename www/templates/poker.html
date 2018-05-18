@@ -106,12 +106,12 @@
         </div>
 
         <div class="showing_cards " ng-class="{'poker_main_card_anime':players[8].cards.length>0 && startAnimation}">
-          <!-- <div class="custom-row card2 custom-row-card" ng-if="players[8].winnerDetails">
+          <div class="custom-row card2 custom-row-card" ng-if="!players[8].isFold  && mainCardHide">
             <card card='NONE'>
             </card>
             <card card='NONE'></card>
-          </div> -->
-          <div ng-if="!players[8].isFold">
+          </div>
+          <div ng-if="!players[8].isFold && !mainCardHide">
             <div class=" custom-row custom-row-card card2">
               <card card='{{players[8].cards[0]}}'> </card>
               <card card='{{players[8].cards[1]}}'> </card>

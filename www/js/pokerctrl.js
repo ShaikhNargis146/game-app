@@ -376,12 +376,16 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if (data.data.extra) {
       console.log("socket extra", $scope.extra);
       if ($scope.extra.serve && !$scope.extra.communityCards) {
+        $scope.mainCardHide = true;
         console.log("starting serve");
         $scope.startAnimation = true;
 
         $timeout(function () {
           $scope.startAnimation = false;
         }, 1000);
+        $timeout(function () {
+          $scope.mainCardHide = false;
+        }, 5000)
       }
     }
     $scope.pots = data.data.pots;
