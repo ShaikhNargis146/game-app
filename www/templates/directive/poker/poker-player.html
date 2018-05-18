@@ -90,7 +90,6 @@
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>
 
-
     <div class="plyr_pic">
       <div class="pic">
         <div class="profile_pic_overlay">
@@ -98,13 +97,14 @@
         </div>
       </div>
       <!-- two card -->
-      <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}" ng-if="(!player.isFold && !player.isWinner && remainingPlayerCount> 1)">
+
+      <div class="plyr_card plyr_card_2card" ng-class="{'player-fold':player.isFold}" ng-if="(!player.isFold && !player.winnerDetails  && remainingPlayerCount> 1)">
         <div class=" custom-row">
           <card card='DONE'></card>
           <card card='DONE'></card>
         </div>
       </div>
-      <div class="plyr_card plyr_card_2card plyr_card2_winner" ng-if="(!player.isFold && player.isWinner && remainingPlayerCount> 1)">
+      <div class="plyr_card plyr_card_2card plyr_card2_winner" ng-if="(!player.isFold && player.winnerDetails && remainingPlayerCount> 1)">
         <div class=" custom-row">
           <card card='{{player.cards[0]}}'> </card>
           <card card='{{player.cards[1]}}'> </card>
@@ -116,7 +116,7 @@
       <img src="img/coin.png">{{player.totalAmount | number}}
     </div>
     <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
-      <span>{{player.name}}</span>
+      <span>{{player.name}} </span>
     </div>
   </div>
 </div>
