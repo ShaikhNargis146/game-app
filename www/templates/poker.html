@@ -54,34 +54,34 @@
       <div class="players">
         <poker-boot-animation> </poker-boot-animation>
         <poker-players id="plr1" ng-pos="1" ng-click="openPriceRangeModal(1)" ng-player="players[0]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr2" ng-pos="2" ng-click="openPriceRangeModal(2)" ng-player="players[1]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr3" ng-pos="3" ng-click="openPriceRangeModal(3)" ng-player="players[2]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr4" ng-pos="4" ng-click="openPriceRangeModal(4)" ng-player="players[3]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr5" ng-pos="5" ng-click="openPriceRangeModal(5)" ng-player="players[4]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr6" ng-pos="6" ng-click="openPriceRangeModal(6)" ng-player="players[5]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr7" ng-pos="7" ng-click="openPriceRangeModal(7)" ng-player="players[6]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr8" ng-pos="8" ng-click="openPriceRangeModal(8)" ng-player="players[7]" ng-animation="startAnimation"
-          ng-sit-here="sitHere">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-players id="plr9" ng-pos="9" ng-click="openPriceRangeModal(9)" ng-player="players[8]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-if="sitHere">
+          ng-sit-here="sitHere" ng-if="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-players>
         <poker-main-player ng-pos="0" ng-click="openPriceRangeModal(9)" ng-if="!sitHere && !player[8].tableLeft" ng-main="main-player"
-          ng-player="players[8]" ng-sit-here="sitHere">
+          ng-player="players[8]" ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
         </poker-main-player>
 
       </div>
@@ -106,12 +106,12 @@
         </div>
 
         <div class="showing_cards " ng-class="{'poker_main_card_anime':players[8].cards.length>0 && startAnimation}">
-          <!-- <div class="custom-row card2 custom-row-card" ng-if="players[8].winnerDetails">
+          <div class="custom-row card2 custom-row-card" ng-if="!players[8].isFold  && mainCardHide">
             <card card='NONE'>
             </card>
             <card card='NONE'></card>
-          </div> -->
-          <div ng-if="!players[8].isFold">
+          </div>
+          <div ng-if="!players[8].isFold && !mainCardHide">
             <div class=" custom-row custom-row-card card2">
               <card card='{{players[8].cards[0]}}'> </card>
               <card card='{{players[8].cards[1]}}'> </card>

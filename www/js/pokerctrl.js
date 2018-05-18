@@ -292,18 +292,18 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         //     $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
         //   };
         // };
-        if (!$scope.sitHere) {
-          if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
-            var autoBuy
-            autoBuy = true;
-            $scope.autoBuygame(autoBuy);
-            if ($scope.players[8].buyInAmt < 0) {
-              $scope.closePriceRangeModal();
-              $state.go("lobby");
-              console.log("one");
-            }
-          }
-        }
+        // if (!$scope.sitHere) {
+        //   if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
+        //     var autoBuy
+        //     autoBuy = true;
+        //     $scope.autoBuygame(autoBuy);
+        //     if ($scope.players[8].buyInAmt < 0) {
+        //       $scope.closePriceRangeModal();
+        //       $state.go("lobby");
+        //       console.log("one");
+        //     }
+        //   }
+        // };
         if (!(_.isEmpty($scope.extra))) {
           if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
             $scope.chaalAmt = $scope.extra;
@@ -375,15 +375,19 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     $scope.extra = data.data.extra;
     if (data.data.extra) {
       console.log("socket extra", $scope.extra);
-      if ($scope.extra.serve) {
+      if ($scope.extra.serve && !$scope.extra.communityCards) {
+        $scope.mainCardHide = true;
         console.log("starting serve");
         $scope.startAnimation = true;
 
         $timeout(function () {
           $scope.startAnimation = false;
         }, 1000);
+        $timeout(function () {
+          $scope.mainCardHide = false;
+        }, 5000)
       }
-    }
+    };
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
     $scope.isCalled = data.data.isCalled;
@@ -417,22 +421,22 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
           navigator.vibrate(500);
         }
       })
-    }
+    };
 
 
 
-    if (!$scope.sitHere) {
-      if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
-        var autoBuy
-        autoBuy = true;
-        $scope.autoBuygame(autoBuy);
-        if ($scope.players[8].buyInAmt < 0) {
-          $scope.closePriceRangeModal();
-          $state.go("lobby");
-          console.log("one");
-        }
-      }
-    }
+    // if (!$scope.sitHere) {
+    //   if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
+    //     var autoBuy
+    //     autoBuy = true;
+    //     $scope.autoBuygame(autoBuy);
+    //     if ($scope.players[8].buyInAmt < 0) {
+    //       $scope.closePriceRangeModal();
+    //       $state.go("lobby");
+    //       console.log("one");
+    //     }
+    //   }
+    // };
 
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -712,7 +716,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       reArragePlayers(data.data.players);
     }
     if (!$scope.sitHere) {
-      if (($scope.players[8].buyInAmt - $scope.players[8].totalAmount) < $scope.table.bigBlind) {
+      if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
         $scope.standUp();
       }
     };
@@ -748,7 +752,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     };
     if ($scope.dataPlayer.amount <= $scope.balance) {
       if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
-        Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+        pokerService.getReFillBuyIn($scope.dataPlayer, function (data) {
           // console.log(data);
         });
       };

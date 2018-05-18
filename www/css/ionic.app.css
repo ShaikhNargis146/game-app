@@ -14277,6 +14277,9 @@ ion-item.item {
   .platform-browser .pokerkingtable .plyr {
     width: 12% !important; } }
 
+.platform-ios .roulette {
+  padding: 7% 5% 8% 5%; }
+
 .roulette {
   background: url(../img/roulette/backwood.png) left top no-repeat;
   width: 100%;
@@ -14397,12 +14400,13 @@ ul.coin li {
     background: rgba(255, 255, 255, 0.3); }
 
 .history {
-  background: black;
+  background: #3d7655;
   color: white;
   text-align: center;
   border-radius: 5px;
   vertical-align: top;
-  height: 30vw; }
+  height: 20vw;
+  border: 2px solid #733d1b; }
 
 .bet-scroll {
   height: 230px;
@@ -14723,7 +14727,7 @@ ul.coin li {
 
 .spinner_main .hold {
   position: absolute;
-  clip: rect(0, 20em, 2.5em, 10em);
+  clip: rect(0, 20em, 4.5em, 10em);
   width: 20em;
   height: 20em;
   border-radius: 20em;
@@ -14872,12 +14876,12 @@ ul.coin li {
 
 .spinner_main .spinner {
   margin: 0 auto;
-  top: 6.8vw;
+  top: 6.5vw;
   position: absolute;
   height: 37vw;
   width: 37vw;
-  left: 6.8vw;
-  font-size: 1.465vw; }
+  left: 6.6vw;
+  font-size: 1.466vw; }
 
 .spinner_main .ball {
   position: absolute;
@@ -15191,7 +15195,7 @@ ul.coin li {
   color: white;
   font-size: 2em;
   top: 5%;
-  left: 28%;
+  left: 34%;
   line-height: 1; }
 
 .undo-roulette {
@@ -15206,7 +15210,7 @@ ul.coin li {
   top: 3%;
   position: absolute;
   font-size: 2em;
-  padding: 1%;
+  padding: 1% 3%;
   line-height: 1;
   border-radius: 7px; }
 
@@ -15220,19 +15224,21 @@ ul.coin li {
 
 .bottom-balance {
   position: absolute;
-  bottom: 3%;
-  background: black;
-  opacity: 0.6;
+  bottom: 2%;
+  background: rgba(0, 0, 0, 0.48);
   color: white;
   line-height: 1.2;
   font-size: 2em;
   padding: 0.5em 1em;
   width: 18%;
-  border: 1px solid #733d1b;
+  border: 2px solid #733d1b;
   border-radius: 5px; }
 
+.bottom-currentbal {
+  border-radius: 5px 5px 15px 5px; }
+
 .coin-stack {
-  background: black;
+  background: rgba(0, 0, 0, 0.48);
   color: white;
   text-align: center;
   border-radius: 5px;
@@ -15240,21 +15246,22 @@ ul.coin li {
   display: flex;
   overflow-x: scroll;
   width: 35%;
-  bottom: 3%;
+  bottom: 2%;
   padding: 0.5em;
-  opacity: 0.6;
-  left: 15%; }
+  left: 15%;
+  border: 2px solid #733d1b; }
   .coin-stack div {
     display: inline-block;
     margin: 0 1em;
-    vertical-align: middle; }
+    vertical-align: middle;
+    padding-right: 5px; }
     .coin-stack div img {
       width: 5vw; }
 
 .btm-history {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 3%;
+  left: 0.5%;
   font-size: 2em;
   height: 40%;
   width: 10%;
@@ -15262,12 +15269,11 @@ ul.coin li {
   text-align: center; }
   .btm-history .history {
     margin-top: 0.2em;
-    opacity: 0.6;
-    background: black;
+    background: #3d7655;
     padding: 10px;
     overflow: hidden;
     overflow-y: auto;
-    padding-bottom: 5em; }
+    height: 95%; }
     .btm-history .history::-webkit-scrollbar {
       width: 0px;
       background: transparent; }
