@@ -837,6 +837,20 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
                 };
                 $scope.showMessageModal();
 
+
+              } else
+              if (data.data.error == "position filled") {
+                $scope.message = {
+                  heading: "Position Filled",
+                  content: "Position Filled",
+                  error: true
+                };
+
+                $scope.showMessageModal();
+                $timeout(function () {
+                  $state.reload()
+                }, 2000);
+
               } else if (data.data.error == "Insufficient Balance") {
                 $scope.message = {
                   heading: "Insufficient Funds",

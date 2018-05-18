@@ -14733,7 +14733,8 @@ ul.coin li {
   width: 20em;
   height: 20em;
   border-radius: 20em;
-  z-index: 20; }
+  z-index: 20;
+  border: 1px solid #B77D5D; }
 
 .spinner_main .num {
   position: absolute;
@@ -14853,7 +14854,19 @@ ul.coin li {
   border-radius: 19em;
   left: 3em;
   top: 3em;
-  box-shadow: inset 0 0 4em black; }
+  box-shadow: inset 0 0 4em black;
+  border: 1px solid #B77D5D; }
+
+.spinner_main .plate-inner {
+  position: absolute;
+  z-index: 50;
+  width: 14em;
+  height: 14em;
+  border-radius: 19em;
+  left: 5.5em;
+  top: 5.5em;
+  box-shadow: inset 0 0 4em black;
+  border: 1px solid #B77D5D; }
 
 .spinner_main .platetop {
   position: absolute;
