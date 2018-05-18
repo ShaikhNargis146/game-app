@@ -714,6 +714,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     $scope.pots = data.data.pots;
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
+      $scope.iAmThere(data.data.players);
     }
     if (!$scope.sitHere) {
       if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
@@ -911,10 +912,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         window.plugins.NativeAudio.play('coin');
       }
     });
-
-    var playerdetails = {};
-    playerdetails.amount = data;
-    pokerService.giveTip(playerdetails, function (data) {});
+    pokerService.makeTip(data, $scope.tableId, function (data) {});
   };
 
   $scope.$on("$destroy", function () {

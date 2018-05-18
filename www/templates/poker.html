@@ -54,34 +54,44 @@
       <div class="players">
         <poker-boot-animation> </poker-boot-animation>
         <poker-players id="plr1" ng-pos="1" ng-click="openPriceRangeModal(1)" ng-player="players[0]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr2" ng-pos="2" ng-click="openPriceRangeModal(2)" ng-player="players[1]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr3" ng-pos="3" ng-click="openPriceRangeModal(3)" ng-player="players[2]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr4" ng-pos="4" ng-click="openPriceRangeModal(4)" ng-player="players[3]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr5" ng-pos="5" ng-click="openPriceRangeModal(5)" ng-player="players[4]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr6" ng-pos="6" ng-click="openPriceRangeModal(6)" ng-player="players[5]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr7" ng-pos="7" ng-click="openPriceRangeModal(7)" ng-player="players[6]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr8" ng-pos="8" ng-click="openPriceRangeModal(8)" ng-player="players[7]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-players id="plr9" ng-pos="9" ng-click="openPriceRangeModal(9)" ng-player="players[8]" ng-animation="startAnimation"
-          ng-sit-here="sitHere" ng-if="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-sit-here="sitHere" ng-if="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt"
+          ng-chal-amount="chaalAmt">
         </poker-players>
         <poker-main-player ng-pos="0" ng-click="openPriceRangeModal(9)" ng-if="!sitHere && !player[8].tableLeft" ng-main="main-player"
-          ng-player="players[8]" ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount">
+          ng-player="players[8]" ng-sit-here="sitHere" ng-remaining-player="remainingPlayerCount" ng-big-blind="bigBlindAmt"
+          ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
         </poker-main-player>
 
       </div>
@@ -127,7 +137,7 @@
         <button class="custom_button mb0" type='submit' ng-click="toggleSlider();" promise-btn="raisePromise">Cancel</button>
       </div>
       <button class="" ng-click="toggleSlider()" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft || (players[8].buyInAmt-players[8].totalAmount < fromRaised) && !isRaised">
-        Raise {{slider.value}}
+        Raise {{raiseSlider.value}}
       </button>
       <button class="" ng-click="allIn()" promise-btn="allInPromise" ng-disabled="!players[8].isTurn || players[8].isFold || players[8].tableLeft ||(players[8].buyInAmt-players[8].totalAmount < 0)">
         All IN

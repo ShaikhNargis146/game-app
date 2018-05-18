@@ -78,16 +78,15 @@
 
 
 
-    <div class="details">
-      <div class="status fold" ng-if="player.isFold && !player.winnerDetails">Fold</div>
-      <div class="status checked" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
-      <div class="status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
-      <div class="status raise" ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails">Raised</div>
-      <div class="status raise" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)">Raised</div>
-      <div class="status all_in" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)">All In</div>
-      <div class="status waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
+    <div class="details status">
+      <div class="fold" ng-if="player.isFold && !player.winnerDetails">Fold</div>
+      <div class="checked" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
+      <div class="call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
+      <div class="raise" ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails">Raised</div>
+      <div class="raise" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)">Raised</div>
+      <div class="all_in" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)">All In</div>
+      <div class="waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
-      <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>
 
     <div class="plyr_pic">
@@ -113,7 +112,7 @@
       <!-- two card end -->
     </div>
     <div class="amt">
-      <img src="img/coin.png">{{player.totalAmount | number}}
+      <img src="img/coin.png">{{player.buyInAmt-player.totalAmount | number}}
     </div>
     <div class="plyr_name" ng-click="openPlayerDetails($event,player._id)">
       <span>{{player.name}} </span>
