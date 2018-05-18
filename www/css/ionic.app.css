@@ -13059,7 +13059,7 @@ ion-item.item {
           position: absolute;
           background: url("../img/text_bg.png");
           background-size: 100% 100%;
-          right: -50%;
+          right: -42%;
           top: 2%;
           padding: 0px 4px; }
         .pokerkingtable .main-table .playing-table .plyr .nopalyer_status {
@@ -13071,7 +13071,8 @@ ion-item.item {
           padding: 2px;
           font-family: 'Cinzel-Bold';
           font-size: .7em;
-          line-height: 2; }
+          line-height: 2;
+          min-height: 15px; }
         .pokerkingtable .main-table .playing-table .plyr .plyr_pic {
           display: flex;
           flex-direction: row;
@@ -13112,7 +13113,7 @@ ion-item.item {
         .pokerkingtable .main-table .playing-table .plyr .amt {
           font-size: .7em;
           line-height: 1.5;
-          padding: 2px 0px; }
+          padding: 3px; }
           .pokerkingtable .main-table .playing-table .plyr .amt img {
             width: 1em;
             vertical-align: middle; }
@@ -15235,9 +15236,6 @@ ul.coin li {
   border: 2px solid #733d1b;
   border-radius: 5px; }
 
-.bottom-currentbal {
-  border-radius: 5px 5px 15px 5px; }
-
 .coin-stack {
   background: rgba(0, 0, 0, 0.48);
   color: white;
@@ -15261,7 +15259,7 @@ ul.coin li {
 
 .btm-history {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 0.5%;
   font-size: 2em;
   height: 40%;
@@ -15274,7 +15272,7 @@ ul.coin li {
     padding: 10px;
     overflow: hidden;
     overflow-y: auto;
-    height: 95%; }
+    height: 89%; }
     .btm-history .history::-webkit-scrollbar {
       width: 0px;
       background: transparent; }

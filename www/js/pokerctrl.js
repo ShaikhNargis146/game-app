@@ -689,6 +689,7 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     };
+    $scope.iAmThere(data.data.players);
     // $scope.activePlayer = _.filter($scope.players, function (player) {
     //   if (player && (player.user._id == $scope._id)) {
     //     return true;
@@ -716,11 +717,14 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       reArragePlayers(data.data.players);
       $scope.iAmThere(data.data.players);
     }
+
     if (!$scope.sitHere) {
       if ($scope.players[8].buyInAmt < $scope.table.bigBlind) {
         $scope.standUp();
       }
     };
+
+    $scope.$apply();
   };
 
   mySocket2.on("newGame_" + $scope.tableId, newGameSocketFunction);
