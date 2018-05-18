@@ -884,10 +884,38 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
   $scope.newGame = function () {
     pokerService.newGame($scope.tableId, function (data) {});
   };
+  //tip
+  //Make Tip modal
+  $ionicModal.fromTemplateUrl('templates/model/make-tip.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.makeTipModal = modal;
+  });
+  $scope.openMakeTipModal = function () {
+    $scope.makeTipModal.show();
+  };
+  $scope.closeMakeTipModal = function () {
+    $scope.makeTipModal.hide();
+  };
+
+  //tip
+  $scope.makeTip = function (data) {
+    // $scope.coinAudio.play();
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        window.plugins.NativeAudio.play('coin');
+      }
+    });
+
+    var playerdetails = {};
+    playerdetails.amount = data;
+    pokerService.giveTip(playerdetails, function (data) {});
+  };
 
   $scope.$on("$destroy", function () {
     $scope.priceRangeModal.remove();
     $scope.messageModal.remove();
-  })
+  });
 
 });

@@ -114,6 +114,18 @@ myApp.factory('pokerService', function ($http, $ionicLoading, $ionicActionSheet,
         });
       }
     },
+    makeTip: function (amount, tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(adminPoker + '/api/Transaction/makeTip', {
+          "tableId": tableId,
+          "amount": amount,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     newGame: function (tableId, callback) {
       var isDealer = "true"
       $http.post(adminPoker + '/api/Player/newGame', {
