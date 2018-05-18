@@ -22,8 +22,8 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   $scope.backToLobby = function () {
     mySocketRoullete.disconnect();
     $state.go('lobby');
-    mySocketRoullete.removeAllListeners('spinWheel');
-    mySocketRoullete.close();
+    // mySocketRoullete.removeAllListeners('spinWheel');
+    // mySocketRoullete.close();
     mySocketRoullete.on("disconnect", function () {
       console.log("client disconnected from server");
     });
@@ -424,16 +424,18 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
   mySocketRoullete.off("endPlacingBets", socketFunction.endPlacingBets);
 
   socketFunction.endPlacingBets = function (data) {
-    $rootScope.canBet = false;
-    RouletteService.saveUserBets($scope.masterArray, function (data) {
-      $rootScope.result = data.data.results;
-    });
-    // Toaster for No More Bets
-    $scope.message = {
-      heading: "No more bets",
-      content: "No more bets"
-    };
-    $scope.showMessageModal();
+    if ($state.current.name == "roulette") {
+      $rootScope.canBet = false;
+      RouletteService.saveUserBets($scope.masterArray, function (data) {
+        $rootScope.result = data.data.results;
+      });
+      // Toaster for No More Bets
+      $scope.message = {
+        heading: "No more bets",
+        content: "No more bets"
+      };
+      $scope.showMessageModal();
+    }
   };
 
   mySocketRoullete.on("endPlacingBets", socketFunction.endPlacingBets);
@@ -441,9 +443,11 @@ myApp.controller('HomeCtrl', function ($scope, $ionicModal, Service, $state, $ti
 
   mySocketRoullete.off("spinWheel", socketFunction.spinWheel);
   socketFunction.spinWheel = function (data) {
-    $state.go("spinnerNo", {
-      number: btoa(data.result + "roulette" + _.random(0, 9999999))
-    });
+    if ($state.current.name == "roulette") {
+      $state.go("spinnerNo", {
+        number: btoa(data.result + "roulette" + _.random(0, 9999999))
+      });
+    }
   };
   mySocketRoullete.on("spinWheel", socketFunction.spinWheel);
 
@@ -502,50 +506,52 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
   });
   mySocketRoullete.off("startBetting", socketFunction.startBetting);
   socketFunction.startBetting = function (data) {
-    $rootScope.canBet = true;
-    $state.go("roulette");
+    if ($state.current.name == "spinnerNo") {
+      $rootScope.canBet = true;
+      $state.go("roulette");
+    }
   };
   mySocketRoullete.on("startBetting", socketFunction.startBetting);
 
 
   mySocketRoullete.off("resultsSaved", socketFunction.resultsSaved);
   socketFunction.resultsSaved = function (data) {
-    console.log("resultsSaved");
-    console.log(data);
-    RouletteService.playSound('spinwheel', 'stop');
+    if ($state.current.name == "spinnerNo") {
+      console.log("resultsSaved");
+      console.log(data);
+      RouletteService.playSound('spinwheel', 'stop');
 
-    RouletteService.getLastResults(function (lastNumberData) {
-      $scope.lastNumber = lastNumberData[0];
-      $scope.circleColor = $rootScope.getBlack($scope.lastNumber.results);
-      console.log("circleColor", $.jStorage.get('masterArray'));
-      $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
-      var foundNum = false;
-      _.forEach($scope.masterArray, function (n) {
-        _.forEach(data, function (m) {
-          if (n._id == m._id) {
-            foundNum = true;
-          }
-        })
+      RouletteService.getLastResults(function (lastNumberData) {
+        $scope.lastNumber = lastNumberData[0];
+        $scope.circleColor = $rootScope.getBlack($scope.lastNumber.results);
+        console.log("circleColor", $.jStorage.get('masterArray'));
+        $scope.masterArray = $.jStorage.get('masterArray') ? $.jStorage.get('masterArray') : [];
+        var foundNum = false;
+        _.forEach($scope.masterArray, function (n) {
+          _.forEach(data, function (m) {
+            if (n._id == m._id) {
+              foundNum = true;
+            }
+          })
+        });
+        if (foundNum) {
+          RouletteService.playSound('win', 'play');
+          $scope.message = {
+            heading: "You won",
+            content: $scope.lastNumber.results
+          };
+        } else {
+          RouletteService.playSound('lose', 'play');
+          $scope.message = {
+            heading: "You lost",
+            content: $scope.lastNumber.results
+          };
+        }
+        $scope.showMessageModal();
+        $.jStorage.set('masterArray', null);
+
       });
-      if (foundNum) {
-        RouletteService.playSound('win', 'play');
-        $scope.message = {
-          heading: "You won",
-          content: $scope.lastNumber.results
-        };
-      } else {
-        RouletteService.playSound('lose', 'play');
-        $scope.message = {
-          heading: "You lost",
-          content: $scope.lastNumber.results
-        };
-      }
-      $scope.showMessageModal();
-      $.jStorage.set('masterArray', null);
-    });
-
-
-
+    }
     // Show popup for win or lose using the data object
   };
   mySocketRoullete.on("resultsSaved", socketFunction.resultsSaved);
@@ -804,13 +810,18 @@ myApp.controller('SpinnerCtrl', function ($scope, $state, RouletteService, $ioni
 
 myApp.factory('RouletteService', function ($http, $rootScope, $ionicLoading, $ionicActionSheet, $timeout, $state, $ionicPlatform) {
   var mySocketRoullete;
-  mySocketRoullete = io.sails.connect(adminRoulette);
-  mySocketRoullete.on('connect', function onConnect() {
-    console.log("roullete socket connected", mySocketRoullete._raw.id);
-  });
+
   return {
     getSocket: function () {
-      return mySocketRoullete;
+      if (!mySocketRoullete || (mySocketRoullete && mySocketRoullete._raw && !mySocketRoullete._raw.connected)) {
+        mySocketRoullete = io.sails.connect(adminRoulette);
+        mySocketRoullete.on('connect', function onConnect() {
+          console.log("roullete socket connected", mySocketRoullete._raw.id);
+        });
+        return mySocketRoullete;
+      } else if (mySocketRoullete && mySocketRoullete._raw && mySocketRoullete._raw.connected) {
+        return mySocketRoullete;
+      }
     },
     getLastResults: function (callback) {
       $http.get(adminRoulette + '/api/game/getLastResults').then(function (data) {
