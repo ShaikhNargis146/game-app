@@ -1131,10 +1131,6 @@ ul.coin li {
   border-radius: 5px;
 }
 
-.bottom-currentbal {
-  border-radius: 5px 5px 15px 5px;
-}
-
 .coin-stack {
   background: rgba(0, 0, 0, 0.48);
   color: white;
@@ -1161,7 +1157,7 @@ ul.coin li {
 
 .btm-history {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 0.5%;
   font-size: 2em;
   height: 40%;
@@ -1174,7 +1170,7 @@ ul.coin li {
     padding: 10px;
     overflow: hidden;
     overflow-y: auto;
-    height: 95%;
+    height: 89%;
     &::-webkit-scrollbar {
       width: 0px;
       background: transparent;
