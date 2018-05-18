@@ -2,13 +2,13 @@
     'sit_here':sitHere && !player,
     'no_player':!sitHere && player==0
 }">
-  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (!chalAmt.action === 'allIn')">
+  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner">
     {{chalAmt.action}}: {{chalAmt.amount | number}}
   </div>
-  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (chalAmt.action === 'allIn') && (player.buyInAmt-player.totalAmount > 0)">
+  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (player.buyInAmt-player.totalAmount > 0)">
     Raised: {{chalAmt.amount | number}}
   </div>
-  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (chalAmt.action === 'allIn') && (player.buyInAmt-player.totalAmount == 0)">
+  <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner && (player.buyInAmt-player.totalAmount == 0)">
     {{chalAmt.action}}: {{chalAmt.amount | number}}
   </div>
 

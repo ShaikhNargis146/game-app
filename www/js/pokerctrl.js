@@ -461,7 +461,8 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         return true;
       }
     }).length;
-    // tip socket
+
+    //tip socket
     if ($scope.extra.action == "tip") {
       $scope.tipAmount = $scope.extra.amount;
       $scope.TipPlayerNo = $scope.extra.playerNo;
@@ -484,8 +485,20 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
       }, 2000);
     };
 
+    //Raise socket
+    if ($scope.extra.action == "allIn") {
+      $scope.tipAmount = $scope.extra.amount;
+      $scope.TipPlayerNo = $scope.extra.playerNo;
+
+      //to reset raise and plyr no
+      $timeout(function () {
+        $scope.tipAmount = -1;
+        $scope.TipPlayerNo = -1;
+      }, 2000);
+    };
+
     if (!(_.isEmpty($scope.extra))) {
-      if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
+      if (($scope.extra.action == "raise") || ($scope.extra.action == "call") || ($scope.extra.action == "allIn")) {
         $scope.chaalAmt = $scope.extra;
       };
     }
@@ -500,7 +513,6 @@ myApp.controller("PokerCtrl", function ($scope, Service, pokerService, $state, $
         $scope.TipPlayerNo = -1;
       }, 2000);
     };
-
     // // remainingActivePlayers
     if ($scope.remainingActivePlayers == 9) {
       $scope.message = {
